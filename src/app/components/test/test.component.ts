@@ -3,11 +3,12 @@ import { ButtonType } from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 import { TempButtonComponent } from '../basic-components/temp-button/temp-button.component';
 import { ButtonComponent } from '../basic-components/button/button.component';
+import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
 
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [CommonModule,ButtonComponent],
+  imports: [CommonModule,IconButtonComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })
@@ -18,10 +19,10 @@ export class TestComponent {
 
 
 
-  onClick()
-  {
-    alert('test on click');
-    console.log('test on click');
-  }
+  // onClick()
+  // {
+  //   alert('test on click');
+  //   console.log('test on click');
+  // }
 
 }
