@@ -1,10 +1,12 @@
 
 <div class="card">
-    <header class="header">Enter Book ID</header>
+    <header class="header">{{header}}</header>
     <div class="radio-button">
-        <input  type="radio" name="selection" (change)="onOptionChange()"/> <label class="value" >Book ID</label>
-        <input  type="radio" name="selection" /> <label class="value">Cluster</label>
-        <select class="select"></select>
+        <input  type="radio" name="selection"  [placeholder]="selectedLabel" (change)="onRadioChange()" /> <label class="value" >Book ID</label>
+        <input  type="radio" name="selection" (change)="onRadioChange()"/> <label class="value">Cluster</label>
     </div>
+    <select class="select"><option class="select-label">{{selectedLabel}}</option>
+    <!-- <input class="input" type="text" [placeholder]="selectedLabel"  /> -->
+</select>
 </div>
 

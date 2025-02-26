@@ -51,13 +51,26 @@ box-shadow: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 
 }
 .select{
     display: flex;
-height: 2.0625rem;
-min-width: 9.6875rem;
-max-width: 28.125rem;
-padding: var(--Layout-medium, 0.5rem);
-align-items: center;
-gap: var(--Layout-medium, 0.5rem);
-align-self: stretch;
-border-radius: var(--Border-radius-small, 0.25rem);
-border: 0.5px solid #3F4B5A;
+    display: flex;
+    height: 2.0625rem;
+    min-width: 9.6875rem;
+    max-width: 28.125rem;
+    padding: var(--Layout-medium, 0.5rem);
+    align-items: center;
+    gap: var(--Layout-medium, 0.5rem);
+    align-self: stretch;
+    border-radius: var(--Border-radius-small, 0.25rem);
+    border: 0.5px solid #3F4B5A;
+}
+.select-label{
+    overflow: hidden;
+    color: var(--C4C7C5, #C4C7C5);
+    text-overflow: ellipsis;
+    
+    /* Body/medium */
+    font-family: Poppins;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem; /* 142.857% */
 }

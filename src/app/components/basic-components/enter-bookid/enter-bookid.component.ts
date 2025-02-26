@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
@@ -8,10 +8,17 @@ import { Component } from '@angular/core';
   styleUrl: './enter-bookid.component.scss'
 })
 export class EnterBookidComponent {
-  selectedOption: string = '';
+  @Input() header: string = '';
+  selectedOption: number = 1;
   selectedLabel: string = '';
   
-  onOptionChange() {
-  
+  onRadioChange() {
+  if(this.selectedOption === 1) {
+    this.selectedLabel = 'Cluster';
+    this.selectedOption = 2;
   }
-}
+  else {
+    this.selectedLabel = 'Book ID';
+    this.selectedOption = 1;
+  }
+}}

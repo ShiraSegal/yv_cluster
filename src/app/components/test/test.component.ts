@@ -16,7 +16,7 @@ import { EnterBookidComponent } from '../basic-components/enter-bookid/enter-boo
 export class TestComponent {
 
   icon = "fa-solid fa-plus"
-  // txt1 = "test btn1"
+   txt1 = "Enter Book ID"
 
 
 
