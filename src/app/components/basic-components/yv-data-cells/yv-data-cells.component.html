@@ -1,0 +1,17 @@
+
+ 
+
+<div [ngClass]= "[data,type]">{{data}} 
+    @if(type==='more'){
+        <i class="fas fa-ellipsis-v more-icon"></i>
+    }
+    @if(type==='icon'){
+        <i class="fas fa-clipboard-list clipboard-list-icon"></i>
+    }
+    @if(type==='assignee'){
+        <app-yv-assignee firstName="Ariela" lastName="Zoppelmann"></app-yv-assignee>
+    }
+    @if(type==='check'){
+        <app-yv-check type="unselected" state="enable"></app-yv-check>
+    }
+</div> 

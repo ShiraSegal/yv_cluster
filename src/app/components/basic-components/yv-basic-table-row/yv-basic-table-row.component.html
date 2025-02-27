@@ -1,0 +1,7 @@
+<div class="basic-table-row" [ngClass]="[property, showaction ? 'showaction' : '', type]">
+    <app-yv-data-cells type="text" [data]="nameList">{{nameList}}</app-yv-data-cells>
+    @if(type==='old'){
+        <app-yv-data-cells type="text" [data]="done">{{done}}</app-yv-data-cells>
+    }
+    <app-yv-data-cells type="text" [data]="toDo">{{toDo}}</app-yv-data-cells>
+</div>
