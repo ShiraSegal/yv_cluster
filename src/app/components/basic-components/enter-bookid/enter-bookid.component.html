@@ -2,11 +2,12 @@
 <div class="card">
     <header class="header">{{header}}</header>
     <div class="radio-button">
-        <input  type="radio" name="selection"  [placeholder]="selectedLabel" (change)="onRadioChange()" /> <label class="value" >Book ID</label>
-        <input  type="radio" name="selection" (change)="onRadioChange()"/> <label class="value">Cluster</label>
+        <input  type="radio" name="selection" value="bookid" [(ngModel)]="selectedRadio"  (change)="onRadioChange()" /> <label class="value" >Book ID</label>
+        <input  type="radio" name="selection" value="cluster" [(ngModel)]="selectedRadio" (change)="onRadioChange()"/> <label class="value">Cluster</label>
     </div>
-    <select class="select"><option class="select-label">{{selectedLabel}}</option>
-    <!-- <input class="input" type="text" [placeholder]="selectedLabel"  /> -->
-</select>
+    <!-- <select class="select"> -->
+        <!-- <option class="select-label">{{selectedLabel}}</option> -->
+     <input class="input" type="text" [placeholder]="selectedLabel"  /> 
+<!-- </select> -->
 </div>
 
