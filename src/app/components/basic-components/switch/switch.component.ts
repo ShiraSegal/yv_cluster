@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output,EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'yv-cluster-yv-switch',
+  selector: 'yv-cluster-switch',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './yv-switch.component.html',
-  styleUrl: './yv-switch.component.scss'
+  templateUrl: './switch.component.html',
+  styleUrl: './switch.component.scss'
 })
-export class YvSwitchComponent {
+export class SwitchComponent {
   @Input() show: boolean = false;
   @Input() text!: string;
   @Output() switchChange = new EventEmitter<boolean>();

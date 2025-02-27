@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { YvFilterSectionComponent } from './yv-filter-section.component';
+import { BasicToggleComponent } from './basic-toggle.component';
 
-describe('YvFilterSectionComponent', () => {
-  let component: YvFilterSectionComponent;
-  let fixture: ComponentFixture<YvFilterSectionComponent>;
+describe('BasicToggleComponent', () => {
+  let component: BasicToggleComponent;
+  let fixture: ComponentFixture<BasicToggleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [YvFilterSectionComponent]
+      imports: [BasicToggleComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(YvFilterSectionComponent);
+    fixture = TestBed.createComponent(BasicToggleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

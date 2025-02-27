@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { YvBasicCardComponent } from './yv-basic-card.component';
+import { FilterSectionComponent } from './filter-section.component';
 
-describe('YvBasicCardComponent', () => {
-  let component: YvBasicCardComponent;
-  let fixture: ComponentFixture<YvBasicCardComponent>;
+describe('FilterSectionComponent', () => {
+  let component: FilterSectionComponent;
+  let fixture: ComponentFixture<FilterSectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [YvBasicCardComponent]
+      imports: [FilterSectionComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(YvBasicCardComponent);
+    fixture = TestBed.createComponent(FilterSectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

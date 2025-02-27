@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { YvBasicToggleComponent } from './yv-basic-toggle.component';
+import { BasicTabComponent } from './basic-tab.component';
 
-describe('YvBasicToggleComponent', () => {
-  let component: YvBasicToggleComponent;
-  let fixture: ComponentFixture<YvBasicToggleComponent>;
+describe('BasicTabComponent', () => {
+  let component: BasicTabComponent;
+  let fixture: ComponentFixture<BasicTabComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [YvBasicToggleComponent]
+      imports: [BasicTabComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(YvBasicToggleComponent);
+    fixture = TestBed.createComponent(BasicTabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

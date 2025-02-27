@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'yv-cluster-yv-basic-card',
+  selector: 'yv-cluster-basic-card',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './yv-basic-card.component.html',
-  styleUrl: './yv-basic-card.component.scss'
+  templateUrl: './basic-card.component.html',
+  styleUrl: './basic-card.component.scss'
 })
-export class YvBasicCardComponent {
+export class BasicCardComponent {
   @Input() text!: string;
   // @Input() TheClassOfTheIcon!: string;
   // @Input() iconColor!: string;

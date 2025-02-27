@@ -3,13 +3,13 @@ import { Component, Input, Output,EventEmitter } from '@angular/core';
 
 
 @Component({
-  selector: 'yv-cluster-yv-basic-tab',
+  selector: 'yv-cluster-basic-tab',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './yv-basic-tab.component.html',
-  styleUrl: './yv-basic-tab.component.scss'
+  templateUrl: './basic-tab.component.html',
+  styleUrl: './basic-tab.component.scss'
 })
-export class YvBasicTabComponent {
+export class BasicTabComponent {
   @Input() active: boolean=false;
   @Input() text!: string;
   @Output() tabChange = new EventEmitter<boolean>();
