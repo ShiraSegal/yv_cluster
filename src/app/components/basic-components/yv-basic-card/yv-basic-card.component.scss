@@ -1,0 +1,74 @@
+.cardContainer {
+    display: flex;
+    width: 32.125rem;
+    height: 6.5625rem;
+    padding: 0.9375rem 1.875rem;
+    align-items: center;
+    gap: 1.5625rem;
+    border-radius: 0.625rem;
+    background: #FFF;
+
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.iconCircle {
+    display: flex;
+    width: 3.125rem;
+    height: 3.125rem;
+    padding: 0.625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+    border-radius: 6.25rem;
+    background: var(--B8C2EA, #B8C2EA);
+}
+.circleBackgroundHourglassClock{
+    background: rgba(19, 52, 185, 0.80);
+}
+.circleBackgroundClockFive{
+        background: rgba(165, 235, 221, 0.50);
+}
+.circleBackgroundCircleCheck{
+    background: rgba(184, 194, 234, 0.50);
+}
+.circleBackgroundEdit{
+        background: rgba(246, 205, 205, 0.50);
+}
+.circleBackgroundHome{
+    background: var(--B8C2EA, #B8C2EA);
+}
+.iconHourglassClock{
+    color: var(--D0D6F1, #D0D6F1);
+}
+.iconClockFive{
+    color: #1F8A74;
+}
+.iconCircleCheck{
+    color: var(--5A71CE, #5A71CE);
+}
+.iconEdit{
+    color: #E25F5F;
+}
+.iconHome{
+    color: #FFF;
+}
+i {
+    color: #FFF;
+    text-align: center;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 1.25rem;
+    font-style: normal;
+    /* font-weight: 300; */
+    line-height: normal;
+}
+
+.cardText {
+    flex: 1 0 0;
+    color: var(--Color-2, #262C34);
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

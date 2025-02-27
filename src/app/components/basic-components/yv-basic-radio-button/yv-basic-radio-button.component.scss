@@ -1,0 +1,59 @@
+
+.container {
+    width: 5vw;
+  }
+  .radioContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  .textRadioButton {
+    color: var(--main-on-neutral, #3F4B5A);
+    font-family: Poppins;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+  
+  }
+  .circle{
+    color: var(--Primery, #1334B9);
+    text-align: right;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 171.429% */
+    letter-spacing: -0.01313rem;
+  }
+  .circleDisable{
+    color: var(--main-on-desabled, #A5B1C0);
+    text-align: right;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 171.429% */
+    letter-spacing: -0.01313rem;
+  }
+  .circleNotChecked{
+    color: var(--main-on-neutral, #3F4B5A);
+  text-align: right;
+  font-family: "Font Awesome 6 Pro";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.5rem; /* 171.429% */
+  letter-spacing: -0.01313rem;
+  }
+  .circleNotChackedDisable{
+    color: var(--main-on-desabled, #A5B1C0);
+  text-align: right;
+  font-family: "Font Awesome 6 Pro";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.5rem; /* 171.429% */
+  letter-spacing: -0.01313rem;
+  }

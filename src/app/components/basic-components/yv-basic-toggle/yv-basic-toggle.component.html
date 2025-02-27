@@ -1,0 +1,11 @@
+<div class="basicToggle" (click)="changStatus()">
+
+    <div [ngClass]="{'circleStatusYes': status, 'circleStatusNo': !status}">
+
+        <div [ngClass]="{'textStatusYes': status, 'textStatusNo': !status}">{{leftText}}</div>
+    </div>
+    <div [ngClass]="{'circleStatusYes': !status, 'circleStatusNo': status}">
+        <div [ngClass]="{'textStatusYes': !status, 'textStatusNo': status}">{{rightText}}</div>
+    </div>
+</div>
+

@@ -1,0 +1,20 @@
+<div class="cardContainer">
+    <!-- <div class="iconCircle" [ngStyle]="{'backgroundColor': iconCircleBackgroundColor}"> <i [class]="TheClassOfTheIcon"  [ngStyle]="{'color': iconColor}"  ></i></div> -->
+    <div class="iconCircle" [ngClass]="{
+        'circleBackgroundHourglassClock': iconName==='hourglass-clock',
+        'circleBackgroundClockFive': iconName==='clock-five',
+        'circleBackgroundCircleCheck': iconName==='circle-check',
+        'circleBackgroundEdit': iconName==='edit',
+        'circleBackgroundHome': iconName==='home',}">
+        <!-- <i [class]="TheClassOfTheIcon"  [ngStyle]="{'color': iconColor}"  ></i> -->
+        <i [class]="iconClass" [ngClass]="{
+            'iconHourglassClock': iconName==='hourglass-clock',
+            'iconClockFive': iconName==='clock-five',
+            'iconCircleCheck': iconName==='circle-check',
+            'iconEdit': iconName==='edit',
+            'iconHome': iconName==='home',}">
+        </i>
+    </div>
+
+    <div class="cardText">{{text}}</div>
+</div>

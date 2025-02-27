@@ -1,0 +1,8 @@
+
+<div class="switchContainer">
+    <div [ngClass]="{'switchStatusYes': show, 'switchStatusNo': !show}" (click)="toggle()">
+
+        <div [ngClass]="{'circleStatusYes': show, 'circleStatusNo': !show}" ></div> 
+    </div>
+    <div class="switchText">{{text}}</div>
+</div>

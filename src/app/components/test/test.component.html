@@ -1,4 +1,36 @@
 <yv-cluster-temp-button [text]="txt1" (onClick)="onClick()" [disabled]=true [isBig]=true [buttonType]="btnType"></yv-cluster-temp-button>
 <br>
 <yv-cluster-temp-button [text]="'test btn2'" (onClick)="onClick()" [disabled]=false [isBig]=false [buttonType]="btnType2"></yv-cluster-temp-button>
+<br>
+<yv-cluster-yv-switch [text]="'switch'" [show]="true"   (switchChange)="handleSwitchChange($event)"></yv-cluster-yv-switch>
 
+<yv-cluster-yv-basic-tab  [text]="'tab'" [active]="true" (tabChange)="handleTabChange($event)"></yv-cluster-yv-basic-tab>
+
+<br>
+<yv-cluster-yv-basic-toggle [status]="true"  [rightText]="'English'" [leftText]="'עברית'" (toggleChange)="handleToggleChange($event)"></yv-cluster-yv-basic-toggle>
+
+
+<br>
+<yv-cluster-yv-basic-radio-button  [disable]="false"  [checked]="false" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)"></yv-cluster-yv-basic-radio-button>
+
+<yv-cluster-yv-basic-radio-button   [disable]="true"  [checked]="false" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-yv-basic-radio-button>
+
+<yv-cluster-yv-basic-radio-button   [disable]="false"  [checked]="true" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-yv-basic-radio-button>
+
+<yv-cluster-yv-basic-radio-button   [disable]="true"  [checked]="true" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-yv-basic-radio-button>
+
+<br>
+<yv-cluster-yv-filter-section></yv-cluster-yv-filter-section>
+<br>
+<!-- <app-card [TheClassOfTheIcon]="'fa-light fa-house'" [iconColor]="'#FFF'" [iconCircleBackgroundColor]="'#B8C2EA'" [text]="'30 New clusters pending'"></app-card> -->
+<yv-cluster-yv-basic-card [iconName]="'home'" [text]="'30 New clusters pending'"></yv-cluster-yv-basic-card>
+<br>
+<yv-cluster-yv-basic-card [iconName]="'hourglass-clock'" [text]="'30 New Suggestions pending'"></yv-cluster-yv-basic-card>
+<br>
+ <yv-cluster-yv-basic-card [iconName]="'edit'" [text]="'70 Clusters created manually this month'"></yv-cluster-yv-basic-card>
+ <br>
+ <yv-cluster-yv-basic-card [iconName]="'clock-five'" [text]="'560 Old Suggestions  pending'"></yv-cluster-yv-basic-card>
+ <br>
+ <yv-cluster-yv-basic-card [iconName]="'circle-check'" [text]="'120 Suggestions processed this month'"></yv-cluster-yv-basic-card>
+<br>
+<yv-cluster-yv-toast-notification></yv-cluster-yv-toast-notification>
