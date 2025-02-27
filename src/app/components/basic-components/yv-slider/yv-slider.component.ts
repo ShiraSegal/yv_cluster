@@ -1,6 +1,6 @@
 
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-yv-slider',
@@ -9,11 +9,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './yv-slider.component.html',
   styleUrl: './yv-slider.component.scss'
 })
-export class YvSliderComponent {
+export class YvSliderComponent implements OnInit{
+  colorWidth? : string ;
+  
+  ngOnInit(): void {
+ this.colorWidth =  `${(this.value / 100) * 8.5}rem`;
+    
+  }
   @Input() value: number = 50;
 
-  getColoredWidth(): string {
-    return `${(this.value / 100) * 8.5}rem`;
-  }
 
 }
