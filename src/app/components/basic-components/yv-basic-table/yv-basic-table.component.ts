@@ -21,8 +21,4 @@ handleTabChange(state: boolean) {
   this.tabState = state;
   console.log('מצב ה-Tab:', state ? 'דלוק' : 'מכובה');
 }
-handleSort(event: { column: string, direction: string }) {
-  // Implement your sorting logic here
-  console.log(`Sorting by ${event.column} in ${event.direction} order`);
-}
 }

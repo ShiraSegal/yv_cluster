@@ -20,8 +20,11 @@ import { YvTextareaComponent } from './components/basic-components/yv-textarea/y
 })
 export class AppComponent {
   title = 'yv-clusters';
-  constructor() {
-  }
 
+
+  handleSort(event: { column: string, direction: string }) {
+    // Implement your sorting logic here
+    console.log(`Sorting by ${event.column} in ${event.direction} order`);
+  }
 
 }
