@@ -1,5 +1,5 @@
-<div (mouseenter)="handleMouseEnter()" (mouseleave)="handleMouseLeave()">
-    <svg *ngIf="!showSVG" xmlns="http://www.w3.org/2000/svg" class="circle-btn" width="76" height="76" viewBox="0 0 116 136" fill="none">
+<div *ngIf="!showSVG" (mouseenter)="handleMouseEnter()" (mouseleave)="handleMouseLeave()">
+    <svg  xmlns="http://www.w3.org/2000/svg" class="circle-btn" width="76" height="76" viewBox="0 0 116 136" fill="none">
         <g filter="url(#filter0_d_365_6286)">
             <circle cx="58" cy="58" r="38" fill="var(--E7EBF8, #E7EBF8)"/>
         </g>
@@ -18,8 +18,11 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  class="icon" >
             <path  fill="#425DC7" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/>
         </svg>
+    
     </svg>
-    <svg  *ngIf="showSVG" xmlns="http://www.w3.org/2000/svg" class="circle-btn" width="116" height="116" viewBox="0 0 116 116" fill="none">
+</div>
+<div *ngIf="showSVG" (mouseenter)="handleMouseEnter()" (mouseleave)="handleMouseLeave()">
+    <svg   xmlns="http://www.w3.org/2000/svg" class="circle-btn" width="116" height="116" viewBox="0 0 116 116" fill="none">
         <g filter="url(#filter0_d_366_5444)">
           <circle cx="58" cy="58" r="38" fill="#D0D6F1"/>
         </g>
@@ -41,6 +44,6 @@
     
       </svg> 
 </div>
-<div class="icon" >
+<!-- <div class="icon" >
   <i class="fa-light fa-plus" ></i>
-  <i class="fa-regular fa-plus"></i></div>
+  <i class="fa-regular fa-plus"></i></div> -->

@@ -21,6 +21,8 @@ export class ColorsAccessibilityService {
 
         // dynamically create CSS var declaration like in css
         this.document.documentElement.style.setProperty("--primary_btn","#1334B9" );
+        this.document.documentElement.style.setProperty("--Neutral-Grey-800","#2A323C" );
+        this.document.documentElement.style.setProperty("--main-on-neutral","#3F4B5A" );
 
 
 

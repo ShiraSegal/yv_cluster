@@ -10,10 +10,10 @@ import { ButtonType, DisabledType } from 'src/app/enums/basic-enum';
   styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
-  @Input() icon:string="";
-  // @Input() buttonType : ButtonType = ButtonType.SECONDARY;
-  // @Input() disabled: boolean = false;
-  // @Input() isBig: boolean = false;
+   @Input() text:string="";
+  @Input() buttonType : ButtonType = ButtonType.SECONDARY;
+  @Input() disabled: boolean = false;
+  @Input() isBig: boolean = false;
   // disableType!:DisabledType;
 
   @Output() onClick = new EventEmitter();
