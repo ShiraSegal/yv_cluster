@@ -15,8 +15,10 @@ export class EnterBookidComponent {
   // selectedOption: number = 1;
   selectedLabel: string = 'Book ID';
   selectedRadio: string = 'bookid';
-  buttomType:ButtonType = ButtonType.PRIMARY;
-  text: string = 'Cancel';
+  buttomType1:ButtonType = ButtonType.SECONDARY;
+  buttomType2:ButtonType = ButtonType.PRIMARY;
+  text1: string = 'Cancel';
+  text2: string = 'Add';
   
   onRadioChange() {
   if(this.selectedRadio === 'bookid') {
