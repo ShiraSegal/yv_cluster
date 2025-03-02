@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { CardIcons } from 'src/app/enums/card-Icons-enum';
+import { CardIcons } from 'src/app/enums/card-icons-enum';
+
+
 
 @Component({
   selector: 'yv-cluster-basic-card',
