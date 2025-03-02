@@ -1,15 +1,15 @@
 
 <div class="card">
     <header class="header">{{header}}</header>
-    <div class="radio-button">
-        <input  type="radio" name="selection" value="bookid" [(ngModel)]="selectedRadio"  (change)="onRadioChange()" /> <label class="value" >Book ID</label>
-        <input  type="radio" name="selection" value="cluster" [(ngModel)]="selectedRadio" (change)="onRadioChange()"/> <label class="value">Cluster</label>
+    <div class="radio-buttons">
+        <input  type="radio" name="selection" value="bookid" [(ngModel)]="selectedRadio"  (change)="onRadioChange()" />
+        <label class="value" >Book ID</label>
+        <input  type="radio" name="selection" value="cluster" [(ngModel)]="selectedRadio" (change)="onRadioChange()"/> 
+        <label class="value">Cluster</label>
     </div>
-    <!-- <select class="select"> -->
-        <!-- <option class="select-label">{{selectedLabel}}</option> -->
-     <input class="input" type="text" [placeholder]="selectedLabel"  /> 
-<!-- </select> -->
- <div class="buttons-warp">
+    <input class="input" type="text" [placeholder]="selectedLabel"  />
+    <div class="divider"></div> 
+ <div class="buttons-warp"> 
  <div class="buttons">
 <yv-cluster-button class="button" [disabled]=false [isBig]=false [buttonType]="buttomType1" [text]="text1"></yv-cluster-button>
 <yv-cluster-button class="button" [disabled]=false [isBig]=false [buttonType]="buttomType2" [text]="text2"></yv-cluster-button>

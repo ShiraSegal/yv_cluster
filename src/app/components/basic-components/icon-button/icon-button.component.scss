@@ -1,18 +1,16 @@
-.circle-btn{
-    width: 4.75rem;
-    height: 4.75rem;
-    flex-shrink: 0;
-    fill: var(--E7EBF8, #E7EBF8);
+.circle-btn {
+  width: 4.75rem;
+  height: 4.75rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border:none;
+  background-color: var(--E7EBF8, #E7EBF8);
+  filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.25));
+  &:hover {
+    background-color: var(--D0D6F1, #D0D6F1);
     filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.25));
   }
-  .circle-btn:hover{
-    width: 4.75rem;
-    height: 4.75rem;
-    flex-shrink: 0;
-    fill: var(--D0D6F1, #D0D6F1);
-    filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.25));
-  }
-  .icon{
+  .icon {
     color: var(--Secondary, #425DC7);
     text-align: center;
     font-family: "Font Awesome 6 Pro";
@@ -20,4 +18,10 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-   }
+  }
+}
+
+
+
+
+
