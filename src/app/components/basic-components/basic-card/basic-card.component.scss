@@ -1,3 +1,4 @@
+@import "src/styles.scss";
 .card-container {
     display: flex;
     width: 32.125rem;
@@ -6,7 +7,7 @@
     align-items: center;
     gap: 1.5625rem;
     border-radius: 0.625rem;
-    background: #FFF;
+    background: $white;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
@@ -20,51 +21,51 @@
     gap: 0.625rem;
     flex-shrink: 0;
     border-radius: 6.25rem;
-    background: var(--B8C2EA, #B8C2EA);
+    background: $light_blue;
 }
 
 .circle-background-hourglass-clock {
-    background: rgba(19, 52, 185, 0.80);
+    background:$primary_btn;
 }
 
 .circle-background-clock-five {
-    background: rgba(165, 235, 221, 0.50);
+    background: $mint_green;
 }
 
 .circle-background-circle-check {
-    background: rgba(184, 194, 234, 0.50);
+    background:$light_blue;
 }
 
 .circle-background-edit {
-    background: rgba(246, 205, 205, 0.50);
+    background:$peach_pink;
 }
 
 .circle-background-home {
-    background: var(--B8C2EA, #B8C2EA);
+    background:$light_blue;
 }
 
 .icon-hourglass-clock {
-    color: var(--D0D6F1, #D0D6F1);
+    color: $lavender_blue;
 }
 
 .icon-clock-five {
-    color: #1F8A74;
+    color: $forest_green;
 }
 
 .icon-circle-check {
-    color: var(--5A71CE, #5A71CE);
+    color: $royal_blue;
 }
 
 .icon-edit {
-    color: #E25F5F;
+    color:$rose_red;
 }
 
 .icon-home {
-    color: #FFF;
+    color:$white;
 }
 
 i {
-    color: #FFF;
+    color: $white;
     text-align: center;
     font-family: "Font Awesome 6 Pro";
     font-size: 1.25rem;
@@ -74,7 +75,7 @@ i {
 
 .card-text {
     flex: 1 0 0;
-    color: var(--Color-2, #262C34);
+    color:$dark_gray;
     font-family: Poppins;
     font-size: 1.125rem;
     font-style: normal;

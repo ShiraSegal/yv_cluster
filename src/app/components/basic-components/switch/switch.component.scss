@@ -1,3 +1,4 @@
+@import "src/styles.scss";
 .switch-container {
     display: inline-flex;
     align-items: center;
@@ -10,7 +11,7 @@
     height: 0.875rem;
     flex-direction: column;
     justify-content: center;
-    color: #3F4B5A;
+    color: $slate_blue;
     text-align: center;
     font-family: Poppins;
     font-size: 0.875rem;
@@ -26,9 +27,10 @@
     height: 0.65625rem;
     align-items: center;
     border-radius: 82.5px;
-    border: 1.5px solid var(--B8C2EA, #B8C2EA);
-    background: var(--B8C2EA, #B8C2EA);
+    border: 1.5px solid $light_blue;
+    background:$light_blue;
     cursor: pointer;
+
 }
 
 .switch-status-no {
@@ -39,8 +41,8 @@
     justify-content: flex-end;
     align-items: center;
     border-radius: 82.5px;
-    border: 1.5px solid var(--C4C7C5, #C4C7C5);
-    background: var(--C4C7C5, #C4C7C5);
+    border: 1.5px solid $light_gray;
+    background: $light_gray;
     cursor: pointer;
 }
 
@@ -49,7 +51,7 @@
     height: 0.825rem;
     flex-shrink: 0;
     border-radius: 82.5px;
-    background: var(--5A71CE, #5a71ce);
+    background: $royal_blue;
     box-shadow: 0px 1.65px 3.3px 0px rgba(39, 39, 39, 0.10);
     transition: transform 0.3s;
 }
@@ -60,7 +62,7 @@
     height: 0.825rem;
     flex-shrink: 0;
     border-radius: 5.15625rem;
-    background: #ffffff;
+    background: $white;
     box-shadow: -1.5px 0px 3px 0px rgba(39, 39, 39, 0.20);
     transition: transform 0.3s;
 }

@@ -1,3 +1,4 @@
+@import "src/styles.scss";
 .container {
   width: 5vw;
 }
@@ -10,7 +11,7 @@
 }
 
 .text-radio-button {
-  color: var(--main-on-neutral, #3F4B5A);
+  color:$slate_blue;
   font-family: Poppins;
   font-size: 0.875rem;
   font-style: normal;
@@ -19,7 +20,7 @@
 }
 
 .circle {
-  color: var(--Primery, #1334B9);
+  color: $primary_btn;
   text-align: right;
   font-family: "Font Awesome 6 Pro";
   font-size: 0.875rem;
@@ -30,7 +31,7 @@
 }
 
 .circle-disable {
-  color: var(--main-on-desabled, #A5B1C0);
+  color:$silver_gray;
   text-align: right;
   font-family: "Font Awesome 6 Pro";
   font-size: 0.875rem;
@@ -41,7 +42,7 @@
 }
 
 .circle-not-checked {
-  color: var(--main-on-neutral, #3F4B5A);
+  color: $slate_blue;
   text-align: right;
   font-family: "Font Awesome 6 Pro";
   font-size: 0.875rem;
@@ -52,7 +53,7 @@
 }
 
 .circle-not-checked-disable {
-  color: var(--main-on-desabled, #A5B1C0);
+  color:$silver_gray;
   text-align: right;
   font-family: "Font Awesome 6 Pro";
   font-size: 0.875rem;
