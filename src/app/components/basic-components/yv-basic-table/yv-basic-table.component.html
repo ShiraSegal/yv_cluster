@@ -1,27 +1,66 @@
-<div class="table-container">
-  <div class="table-title">
-    Progress Review: Automated List Updates
+<div class="basic-table">
+  <div class="table-name-and-tabs">
+    <p>Progress Review: Automated List Updates</p>
+  
+    <div class="tabs">
+      <app-tab-element 
+      [active]="property === 'New Suggestions'" 
+      text="New Suggestions" 
+      (tabChange)="setTab('New Suggestions')">
+    </app-tab-element>
+  
+    <app-tab-element 
+      [active]="property === 'Old Suggestions'" 
+      text="Old Suggestions" 
+      (tabChange)="setTab('Old Suggestions')">
+    </app-tab-element>
   </div>
-  <!-- תפריט ניווט בין הכרטיסיות -->
-  <app-tab-element></app-tab-element>
+  
+  </div>
+  //מימוש של הselect
 
-  <!-- כותרות טבלה -->
   <div class="table-header">
-    <div class="header-cell" *ngFor="let header of getTableHeaders(); trackBy: trackByIndex">
-      {{ header }}
-    </div>
-    @if (showSelect) {
-      <div class="header-cell select-column">✔</div>
-    }
-  </div>
+   
 
-  <!-- שורות טבלה -->
-  <div class="table-body">
-    <app-yv-basic-table-row 
-      *ngFor="let row of rows; trackBy: trackByIndex"
-      [property]="row.name"
-      [cells]="row.cells"
-      [showAction]="showSelect">
-    </app-yv-basic-table-row>
-  </div>
+@if(property === 'New Suggestions')
+{
+  <app-yv-table-header [headers]=headers></app-yv-table-header>
+
+}
+  
+
+@if(property === 'Old Suggestions')
+{
+  <app-yv-table-header [headers]="["Name List", "Done" ,"To Do"]"></app-yv-table-header>
+}
 </div>
+<div class="table-data">
+  @if(property === 'New Suggestions')
+  {
+    @for{
+      let row of rows
+    }
+    {
+      <app-yv-basic-table-row 
+      property="Default" 
+      [showAction]="true" 
+      [cells]="row">
+    }
+  
+  }
+    
+  
+  @if(property === 'Old Suggestions')
+  {
+    @for{
+      let row of rows
+    }
+    {
+      <app-yv-basic-table-row 
+      property="Default" 
+      [showAction]="true" 
+      [cells]="row">
+    }
+  }
+</div>
+</table>

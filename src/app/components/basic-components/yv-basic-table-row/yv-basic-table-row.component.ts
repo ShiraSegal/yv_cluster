@@ -15,5 +15,5 @@ export class YvBasicTableRowComponent {
   @Input() showAction: boolean = false; 
   @Input() cells: { data: string; type: DataCellType }[] = []; 
   
-  protected readonly DataCellType = DataCellType;
+  
 }
