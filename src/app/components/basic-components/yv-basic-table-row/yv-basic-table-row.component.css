@@ -1,13 +1,37 @@
-.default {
-    display: flex;
-    height: 5.125rem;
-    padding: 0.25rem 0rem;
-    align-items: center;
-    gap: 0.0625rem;
-    align-self: stretch;
-    border-bottom: 1px solid #D0D6F1;
-  }
-  
-  .default > * {
-    flex: 1 1 auto; /* כל אובייקט יקבל חלק שווה מהשטח הזמין */
-  }
+.basic-table-row {
+  border-bottom: 1px solid #D0D6F1;
+  background: rgba(231, 235, 248, 0.20);
+  display: flex;
+  width: 60.9375rem;
+  height: 5.125rem;
+  padding: 0.25rem 0rem;
+  align-items: center;
+  gap: 0.0625rem;
+  flex-shrink: 0;
+
+}
+
+.Default {
+
+  border-bottom: 1px solid #D0D6F1;
+  display: flex;
+  width: 60.9375rem;
+  height: 5.125rem;
+  padding: 0.25rem 0rem;
+  align-items: center;
+  gap: 0.0625rem;
+  flex-shrink: 0;
+}
+
+.Variant2 {
+
+  border-bottom: 1px solid #D0D6F1;
+  background: rgba(231, 235, 248, 0.20);
+  display: flex;
+  width: 60.9375rem;
+  height: 5.125rem;
+  padding: 0.25rem 0rem;
+  align-items: center;
+  gap: 0.0625rem;
+  flex-shrink: 0;
+}

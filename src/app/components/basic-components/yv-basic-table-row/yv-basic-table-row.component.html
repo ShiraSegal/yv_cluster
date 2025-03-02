@@ -1,7 +1,13 @@
-<div class="basic-table-row" [ngClass]="[property, showaction ? 'showaction' : '', type]">
-    <app-yv-data-cells type="text" [data]="nameList">{{nameList}}</app-yv-data-cells>
-    @if(type==='old'){
-        <app-yv-data-cells type="text" [data]="done">{{done}}</app-yv-data-cells>
-    }
-    <app-yv-data-cells type="text" [data]="toDo">{{toDo}}</app-yv-data-cells>
-</div>
+<div class="table-row" [ngClass]="[property]">
+
+    <div class="cell" *ngFor="let cell of cells">
+      <app-yv-data-cells [data]="cell.data" [type]="cell.type"></app-yv-data-cells>
+    </div>
+  
+  
+    <div class="cell last-column" *ngIf="showAction">
+        <app-yv-data-cells [data]="''" [type]="DataCellType.CHECK"></app-yv-data-cells>
+      </div>
+  </div>
+  
+  

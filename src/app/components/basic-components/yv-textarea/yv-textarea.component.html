@@ -1,4 +1,4 @@
 <div class="input-container">
     <label for="textarea" class="floating-label" [ngClass]="{'active': isActive}">{{ label }}</label>
-    <textarea id="textarea" class="textarea" required (focus)="onFocus()" (blur)="onBlur()" (input)="onInput()"></textarea>
+    <textarea [formControl]="textControl" id="textarea" class="textarea" required (focus)="onFocus()" (blur)="onBlur()"></textarea>
   </div>

@@ -1,18 +1,19 @@
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { YvSelectComponent } from './yv-select.component';
+import { YvSliderComponent } from './yv-slider.component';
 
-describe('YvSelectComponent', () => {
-  let component: YvSelectComponent;
-  let fixture: ComponentFixture<YvSelectComponent>;
+describe('YvSliderComponent', () => {
+  let component: YvSliderComponent;
+  let fixture: ComponentFixture<YvSliderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [YvSelectComponent]
+      imports: [YvSliderComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(YvSelectComponent);
+    fixture = TestBed.createComponent(YvSliderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
