@@ -1,4 +1,4 @@
-.cardContainer {
+.card-container {
     display: flex;
     width: 32.125rem;
     height: 6.5625rem;
@@ -7,11 +7,10 @@
     gap: 1.5625rem;
     border-radius: 0.625rem;
     background: #FFF;
-
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-.iconCircle {
+.icon-circle {
     display: flex;
     width: 3.125rem;
     height: 3.125rem;
@@ -23,47 +22,57 @@
     border-radius: 6.25rem;
     background: var(--B8C2EA, #B8C2EA);
 }
-.circleBackgroundHourglassClock{
+
+.circle-background-hourglass-clock {
     background: rgba(19, 52, 185, 0.80);
 }
-.circleBackgroundClockFive{
-        background: rgba(165, 235, 221, 0.50);
+
+.circle-background-clock-five {
+    background: rgba(165, 235, 221, 0.50);
 }
-.circleBackgroundCircleCheck{
+
+.circle-background-circle-check {
     background: rgba(184, 194, 234, 0.50);
 }
-.circleBackgroundEdit{
-        background: rgba(246, 205, 205, 0.50);
+
+.circle-background-edit {
+    background: rgba(246, 205, 205, 0.50);
 }
-.circleBackgroundHome{
+
+.circle-background-home {
     background: var(--B8C2EA, #B8C2EA);
 }
-.iconHourglassClock{
+
+.icon-hourglass-clock {
     color: var(--D0D6F1, #D0D6F1);
 }
-.iconClockFive{
+
+.icon-clock-five {
     color: #1F8A74;
 }
-.iconCircleCheck{
+
+.icon-circle-check {
     color: var(--5A71CE, #5A71CE);
 }
-.iconEdit{
+
+.icon-edit {
     color: #E25F5F;
 }
-.iconHome{
+
+.icon-home {
     color: #FFF;
 }
+
 i {
     color: #FFF;
     text-align: center;
     font-family: "Font Awesome 6 Pro";
     font-size: 1.25rem;
     font-style: normal;
-    /* font-weight: 300; */
     line-height: normal;
 }
 
-.cardText {
+.card-text {
     flex: 1 0 0;
     color: var(--Color-2, #262C34);
     font-family: Poppins;

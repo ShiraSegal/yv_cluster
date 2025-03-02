@@ -1,7 +1,6 @@
-
-.basicToggle {
+.basic-toggle {
     width: 7rem;
-    height:  1.5300rem;
+    height: 1.5300rem;
     display: flex;
     padding: 0.0625rem;
     align-items: center;
@@ -12,7 +11,7 @@
     cursor: pointer;
 }
 
-.circleStatusYes {
+.circle-status-yes {
     display: flex;
     width: 3.4375rem;
     height: 0.3rem;
@@ -24,7 +23,7 @@
     background: var(--D0D6F1, #D0D6F1);
 }
 
-.circleStatusNo {
+.circle-status-no {
     display: flex;
     width: 2.75rem;
     height: 1.25rem;
@@ -33,11 +32,9 @@
     align-items: center;
     gap: 0.625rem;
     border-radius: 6.25rem;
-
 }
 
-  
-.textStatusYes {
+.text-status-yes {
     color: var(--5A71CE, #5A71CE);
     text-align: center;
     /* Body/small */
@@ -48,7 +45,7 @@
     line-height: normal;
 }
 
-.textStatusNo {
+.text-status-no {
     color: #3F4B5A;
     text-align: center;
     /* Body/small */

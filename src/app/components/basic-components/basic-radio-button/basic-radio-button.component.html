@@ -1,17 +1,21 @@
 <div class="container">
-    <div class="radioContainer">
-
+    <div class="radio-container">
         <div></div>
-        <div (click)="changStatus()" *ngIf="!disable && checked||disable && checked" [ngClass]="{'circle': !disable && checked,
-                   'circleDisable': disable && checked,}">
+        <div (click)="changStatus()" *ngIf="!disable && checked || disable && checked" [ngClass]="{
+            'circle': !disable && checked,
+            'circle-disable': disable && checked
+        }">
             <i class="fa-regular fa-circle-dot"></i>
         </div>
 
-        <div (click)="changStatus()" *ngIf="!disable && !checked" class="circleNotChecked"><i
-                class="fa-light fa-circle"></i></div>
+        <div (click)="changStatus()" *ngIf="!disable && !checked" class="circle-not-checked">
+            <i class="fa-light fa-circle"></i>
+        </div>
 
-        <div (click)="changStatus()" *ngIf="disable && !checked" class="circleNotChackedDisable"><i
-                class="fa-solid fa-circle"></i></div>
-        <div class="textRadioButton">{{text}}</div>
+        <div (click)="changStatus()" *ngIf="disable && !checked" class="circle-not-checked-disable">
+            <i class="fa-solid fa-circle"></i>
+        </div>
+
+        <div class="text-radio-button">{{ text }}</div>
     </div>
 </div>

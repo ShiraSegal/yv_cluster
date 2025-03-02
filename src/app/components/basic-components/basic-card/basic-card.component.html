@@ -1,20 +1,20 @@
-<div class="cardContainer">
-    <!-- <div class="iconCircle" [ngStyle]="{'backgroundColor': iconCircleBackgroundColor}"> <i [class]="TheClassOfTheIcon"  [ngStyle]="{'color': iconColor}"  ></i></div> -->
-    <div class="iconCircle" [ngClass]="{
-        'circleBackgroundHourglassClock': iconName==='hourglass-clock',
-        'circleBackgroundClockFive': iconName==='clock-five',
-        'circleBackgroundCircleCheck': iconName==='circle-check',
-        'circleBackgroundEdit': iconName==='edit',
-        'circleBackgroundHome': iconName==='home',}">
-        <!-- <i [class]="TheClassOfTheIcon"  [ngStyle]="{'color': iconColor}"  ></i> -->
-        <i [class]="iconClass" [ngClass]="{
-            'iconHourglassClock': iconName==='hourglass-clock',
-            'iconClockFive': iconName==='clock-five',
-            'iconCircleCheck': iconName==='circle-check',
-            'iconEdit': iconName==='edit',
-            'iconHome': iconName==='home',}">
+<div class="card-container">
+    <div class="icon-circle" [ngClass]="{
+        'circle-background-hourglass-clock': iconName === CardIcons.HOURGLASS_CLOCK,
+        'circle-background-clock-five': iconName === CardIcons.CLOCK_FIVE,
+        'circle-background-circle-check': iconName === CardIcons.CIRCLE_CHECK,
+        'circle-background-edit': iconName === CardIcons.EDIT,
+        'circle-background-home': iconName === CardIcons.HOME
+    }">
+        <i [class]="iconName" [ngClass]="{
+            'icon-hourglass-clock': iconName === CardIcons.HOURGLASS_CLOCK,
+            'icon-clock-five': iconName === CardIcons.CLOCK_FIVE,
+            'icon-circle-check': iconName === CardIcons.CIRCLE_CHECK,
+            'icon-edit': iconName === CardIcons.EDIT,
+            'icon-home': iconName === CardIcons.HOME
+        }">
         </i>
     </div>
 
-    <div class="cardText">{{text}}</div>
+    <div class="card-text">{{ text }}</div>
 </div>

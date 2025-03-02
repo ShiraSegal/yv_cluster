@@ -1,11 +1,10 @@
-
-.switchContainer {
+.switch-container {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
 }
 
-.switchText {
+.switch-text {
     display: flex;
     width: 1.8125rem;
     height: 0.875rem;
@@ -18,10 +17,9 @@
     font-style: normal;
     font-weight: 400;
     line-height: 1.25rem;
-
 }
 
-.switchStatusYes {
+.switch-status-yes {
     display: flex;
     flex-direction: row;
     width: 1.59375rem;
@@ -33,7 +31,7 @@
     cursor: pointer;
 }
 
-.switchStatusNo {
+.switch-status-no {
     display: flex;
     flex-direction: row;
     width: 1.59375rem;
@@ -46,19 +44,17 @@
     cursor: pointer;
 }
 
-.circleStatusYes {
+.circle-status-yes {
     width: 0.825rem;
     height: 0.825rem;
     flex-shrink: 0;
-    /* margin-left: 0.8100rem; */
     border-radius: 82.5px;
     background: var(--5A71CE, #5a71ce);
     box-shadow: 0px 1.65px 3.3px 0px rgba(39, 39, 39, 0.10);
     transition: transform 0.3s;
-
 }
 
-.circleStatusNo {
+.circle-status-no {
     margin-right: 0.8300rem;
     width: 0.825rem;
     height: 0.825rem;
@@ -67,13 +63,12 @@
     background: #ffffff;
     box-shadow: -1.5px 0px 3px 0px rgba(39, 39, 39, 0.20);
     transition: transform 0.3s;
-
 }
-.switchStatusYes .circleStatusYes {
+
+.switch-status-yes .circle-status-yes {
     transform: translateX(100%);
-  }
-  
-  .switchStatusNo .circleStatusNo {
+}
+
+.switch-status-no .circle-status-no {
     transform: translateX(0%);
-  }
-  
+}

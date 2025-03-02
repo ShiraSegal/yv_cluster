@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { CardIcons } from 'src/app/enums/card-Icons-enum';
 
 @Component({
   selector: 'yv-cluster-basic-card',
@@ -9,25 +10,9 @@ import { Component, Input } from '@angular/core';
   styleUrl: './basic-card.component.scss'
 })
 export class BasicCardComponent {
+  CardIcons = CardIcons;
   @Input() text!: string;
-  // @Input() TheClassOfTheIcon!: string;
-  // @Input() iconColor!: string;
-  // @Input() iconCircleBackgroundColor!: string;
-   @Input() iconName!: string;
-   iconClass!:string;
+   @Input() iconName!: CardIcons;
    ngOnInit(): void{
-    this.setIconClass()
-   }
-   setIconClass(){
-     if(this.iconName==='hourglass-clock')
-       this.iconClass='fa-solid fa-hourglass-clock';
-     else if(this.iconName==='clock-five')
-       this.iconClass='fa-solid fa-clock-five';
-     else if(this.iconName==='circle-check')
-       this.iconClass='fa-solid fa-circle-check';
-     else if(this.iconName==='edit')
-       this.iconClass='fa-solid fa-pen-to-square';
-     else if(this.iconName==='home')
-       this.iconClass='fa-light fa-house';
    }
 }

@@ -9,7 +9,7 @@ import { BasicToggleComponent } from '../basic-components/basic-toggle/basic-tog
 import { FilterSectionComponent } from '../basic-components/filter-section/filter-section.component';
 import { ToastNotificationComponent } from '../basic-components/toast-notification/toast-notification.component';
 import { SwitchComponent } from '../basic-components/switch/switch.component';
-
+import { CardIcons } from 'src/app/enums/card-Icons-enum';
 
 @Component({
   selector: 'yv-cluster-test',
@@ -28,7 +28,7 @@ export class TestComponent {
   tabState: boolean = false;
   toggleState: boolean = false;
   radioButtonState: boolean = false;
-
+  CardIcons = CardIcons;
   onClick()
   {
     alert('test on click');
