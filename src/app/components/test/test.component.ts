@@ -10,6 +10,7 @@ import { FilterSectionComponent } from '../basic-components/filter-section/filte
 import { ToastNotificationComponent } from '../basic-components/toast-notification/toast-notification.component';
 import { SwitchComponent } from '../basic-components/switch/switch.component';
 import { CardIcons } from 'src/app/enums/card-icons-enum';
+import { ToastNotificationIcons } from 'src/app/enums/toast-notification-icons-enum';
 
 @Component({
   selector: 'yv-cluster-test',
@@ -29,6 +30,7 @@ export class TestComponent {
   toggleState: boolean = false;
   radioButtonState: boolean = false;
   CardIcons = CardIcons;
+  ToastNotificationIcons = ToastNotificationIcons;
   onClick()
   {
     alert('test on click');

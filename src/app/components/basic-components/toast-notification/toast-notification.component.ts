@@ -1,12 +1,30 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input, input } from '@angular/core';
+import { ToastNotificationIcons } from 'src/app/enums/toast-notification-icons-enum';
 
 @Component({
   selector: 'yv-cluster-toast-notification',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './toast-notification.component.html',
   styleUrl: './toast-notification.component.scss'
 })
 export class ToastNotificationComponent {
+ToastNotificationIcons = ToastNotificationIcons;
+  @Input() iconName!:ToastNotificationIcons;
+  @Input() message!:string;
+  @Input() text!:string;
+  @Input() duration!: number;; 
 
+  isVisible: boolean = true;
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.isVisible = false;
+    }, this.duration);
+  }
+
+  closeToastNotification() {
+    this.isVisible = false;
+  }
 }

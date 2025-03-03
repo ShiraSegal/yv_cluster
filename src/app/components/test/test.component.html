@@ -1,3 +1,4 @@
+
 <yv-cluster-temp-button [text]="txt1" (onClick)="onClick()" [disabled]=true [isBig]=true [buttonType]="btnType"></yv-cluster-temp-button>
 <br>
 <yv-cluster-temp-button [text]="'test btn2'" (onClick)="onClick()" [disabled]=false [isBig]=false [buttonType]="btnType2"></yv-cluster-temp-button>
@@ -22,7 +23,6 @@
 <br>
 <yv-cluster-filter-section></yv-cluster-filter-section>
 <br>
-<!-- <app-card [TheClassOfTheIcon]="'fa-light fa-house'" [iconColor]="'#FFF'" [iconCircleBackgroundColor]="'#B8C2EA'" [text]="'30 New clusters pending'"></app-card> -->
 <yv-cluster-basic-card [iconName]="CardIcons.HOME" [text]="'30 New clusters pending'"></yv-cluster-basic-card>
 <br>
 <yv-cluster-basic-card [iconName]="CardIcons.HOURGLASS_CLOCK" [text]="'30 New Suggestions pending'"></yv-cluster-basic-card>
@@ -33,6 +33,10 @@
  <br>
  <yv-cluster-basic-card [iconName]="CardIcons.CIRCLE_CHECK" [text]="'120 Suggestions processed this month'"></yv-cluster-basic-card>
 <br>
-
-
-<yv-cluster-toast-notification></yv-cluster-toast-notification>
+<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.ERROR"[message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+<br>
+<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.SUCCESS"[message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="90000"></yv-cluster-toast-notification>
+<br>
+<br>
+<br>
+<br>
