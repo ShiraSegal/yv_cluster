@@ -20,6 +20,11 @@ export class EnterBookidComponent {
   text1: string = 'Cancel';
   text2: string = 'Add';
   
+  onClick()
+  {
+    alert('enter book id click');
+  } 
+
   onRadioChange() {
   if(this.selectedRadio === 'bookid') {
     this.selectedLabel = 'Book ID';
@@ -29,4 +34,5 @@ export class EnterBookidComponent {
     this.selectedLabel = 'Cluster';
     this.selectedRadio = 'cluster';
   }
-}}
+}
+}

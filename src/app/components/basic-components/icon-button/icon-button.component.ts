@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 
 @Component({
   selector: 'yv-cluster-icon-button',
@@ -10,13 +11,10 @@ import { Component, Input } from '@angular/core';
 })
 export class IconButtonComponent {
   @Input() icon:string="";
-  showSVG: boolean = false;
+  @Output() onClick = new EventEmitter();
 
-  handleMouseEnter() {
-      this.showSVG = true;
-  }
+  handleClick() {
+      this.onClick.emit();
+    }
 
-  handleMouseLeave() {
-      this.showSVG = false;
-  }
 }
