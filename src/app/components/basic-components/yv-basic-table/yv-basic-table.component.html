@@ -1,66 +1,42 @@
-<div class="basic-table">
+<!-- <div class="basic-table">
   <div class="table-name-and-tabs">
     <p>Progress Review: Automated List Updates</p>
-  
+
     <div class="tabs">
-      <app-tab-element 
-      [active]="property === 'New Suggestions'" 
-      text="New Suggestions" 
-      (tabChange)="setTab('New Suggestions')">
-    </app-tab-element>
-  
-    <app-tab-element 
-      [active]="property === 'Old Suggestions'" 
-      text="Old Suggestions" 
-      (tabChange)="setTab('Old Suggestions')">
-    </app-tab-element>
-  </div>
-  
+      <app-tab-element [active]="property === 'New Suggestions'" text="New Suggestions"
+        (tabChange)="setTab('New Suggestions')">
+      </app-tab-element>
+
+      <app-tab-element [active]="property === 'Old Suggestions'" text="Old Suggestions"
+        (tabChange)="setTab('Old Suggestions')">
+      </app-tab-element>
+    </div>
+
   </div>
   //מימוש של הselect
 
   <div class="table-header">
-   
-
-@if(property === 'New Suggestions')
-{
-  <app-yv-table-header [headers]=headers></app-yv-table-header>
-
-}
-  
-
-@if(property === 'Old Suggestions')
-{
-  <app-yv-table-header [headers]="["Name List", "Done" ,"To Do"]"></app-yv-table-header>
-}
-</div>
-<div class="table-data">
-  @if(property === 'New Suggestions')
-  {
-    @for{
-      let row of rows
-    }
+    @if(property === 'New Suggestions')
     {
-      <app-yv-basic-table-row 
-      property="Default" 
-      [showAction]="true" 
-      [cells]="row">
+    <app-yv-table-header [headers]=headers></app-yv-table-header>
     }
-  
-  }
-    
-  
-  @if(property === 'Old Suggestions')
-  {
-    @for{
-      let row of rows
-    }
+    @if(property === 'Old Suggestions')
     {
-      <app-yv-basic-table-row 
-      property="Default" 
-      [showAction]="true" 
-      [cells]="row">
+      <app-yv-table-header [headers]="['Name List', 'Done', 'To Do']"></app-yv-table-header>
     }
-  }
-</div>
-</table>
+  </div>
+  <div class="table-data">
+    @if(property === 'New Suggestions')
+    {
+    @for(row of rows;track row){
+    <app-yv-basic-table-row property="Default" [showAction]="true" [cells]="row"></app-yv-basic-table-row>
+    }
+    }
+    @if(property === 'Old Suggestions')
+    {
+    @for(row of rows;track row){
+    <app-yv-basic-table-row property="Default" [showAction]="true" [cells]="row"></app-yv-basic-table-row>
+    }
+    }
+  </div>
+</div> -->

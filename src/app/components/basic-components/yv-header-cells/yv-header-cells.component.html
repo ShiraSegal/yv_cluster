@@ -1,21 +1,21 @@
-<div title="Sort by symbol" [ngClass]=type>
+<div  [ngClass]=type>
     {{header}}
-    @if(type === 'order'){
+    @if(type === HeaderCellType.ORDER){
     <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>
     }
-    @if(type === 'order-down'){
+    @if(type === HeaderCellType.ORDERDOWN){
     <i class="fas fa-arrow-down sort-icon" (click)="sortBy('column')"></i>
     }
-    @if(type === 'header-search'){
+    @if(type === HeaderCellType.HEADERSEARCH){
     <div class="header-search-search">
         <div class="header-search-line"></div>
         <span class="header-search-cancle"><i class="fas fa-close"></i></span>
     </div>
     }
-    @if(type === 'check'){
+    @if(type === HeaderCellType.CHECK){
     <app-yv-check type="unselected" state="enabled"></app-yv-check>
     }
-    @if(type === 'more'){
+    @if(type === HeaderCellType.MORE){
         <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>
         }
 </div>

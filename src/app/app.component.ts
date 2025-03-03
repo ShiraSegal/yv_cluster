@@ -10,21 +10,16 @@ import { YvInputComponent } from './components/basic-components/yv-input/yv-inpu
 import { YvSelectComponent } from './components/basic-components/yv-select/yv-select.component';
 import { YvTableHeaderComponent } from './components/basic-components/yv-table-header/yv-table-header.component';
 import { YvTextareaComponent } from './components/basic-components/yv-textarea/yv-textarea.component';
+import { HeaderCellType } from './enums/header-cell-enum';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [RouterOutlet,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent],
+  imports: [RouterOutlet,],
 })
 export class AppComponent {
-  title = 'yv-clusters';
-
-
-  handleSort(event: { column: string, direction: string }) {
-    // Implement your sorting logic here
-    console.log(`Sorting by ${event.column} in ${event.direction} order`);
-  }
+ 
 
 }
