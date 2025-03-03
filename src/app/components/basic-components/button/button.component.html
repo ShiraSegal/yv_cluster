@@ -2,7 +2,9 @@
 'tertiary': buttonType === 'tertiary',
   'big-btn': isBig,
   'small-btn': !isBig,
-}" [disabled]="disabled">
+}" [disabled]="disabled"
+(click)="onClick.emit()"
+>
   <i *ngIf="buttonIcon"
     [ngClass]="{'icon':true,'variant1':iconProperty==='variant1','variant2':iconProperty==='variant2','variant3':iconProperty==='variant3'}"
     [class]="buttonIcon"></i>
