@@ -11,11 +11,12 @@ import { ToastNotificationComponent } from '../basic-components/toast-notificati
 import { SwitchComponent } from '../basic-components/switch/switch.component';
 import { CardIcons } from 'src/app/enums/card-icons-enum';
 import { ToastNotificationIcons } from 'src/app/enums/toast-notification-icons-enum';
+import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
 
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [CommonModule, TempButtonComponent,BasicTabComponent,BasicCardComponent,BasicRadioButtonComponent,BasicToggleComponent,FilterSectionComponent,ToastNotificationComponent,SwitchComponent],
+  imports: [CommonModule, TempButtonComponent,BasicTabComponent,BasicCardComponent,BasicRadioButtonComponent,BasicToggleComponent,FilterSectionComponent,ToastNotificationComponent,SwitchComponent,PieComponentDistributionModalComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })

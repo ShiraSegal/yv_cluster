@@ -1,0 +1,18 @@
+<svg class="pie-circle" viewBox="0 0 200 200">
+    <!-- עיגול רקע -->
+    <circle [ngClass]="{ 
+      'circle': percentage != 100,
+      'circle-100-percent': percentage === 100}"/> 
+  
+    <!-- פרוסה דינמית -->
+    <path [attr.d]="getPieSlice()" class="part-of-the-circle" />
+  
+    <!-- טקסט בתוך ה-SVG -->
+    <text [attr.transform]="getTextTransform()" class="part-of-the-circle-text">
+      {{ percentage }}%
+    </text>
+  </svg>
+  <br>
+  <!-- סרגל לבחירת אחוזים -->
+  <input type="range" min="0" max="100" [(ngModel)]="percentage">
+  
