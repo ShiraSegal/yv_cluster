@@ -1,12 +1,11 @@
 export enum DataCellType {
-    TEXT = 'Text',
-    MORE = 'More',
-    STATUS = 'Status',
-    PLACEHOLDER = 'Place Older',
+    TEXT = 'text',
+    MORE = 'more',
+    STATUS = 'status',
     CHECK = 'check',
-    LINK = 'Link',
+    LINK = 'link',
     ICON = 'icon',
-    ASSIGNEE = 'Assignee',
+    ASSIGNEE = 'assignee',
     BUTTON = 'button'
   }
   

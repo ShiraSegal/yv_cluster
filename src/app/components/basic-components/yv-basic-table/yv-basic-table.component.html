@@ -1,6 +1,6 @@
-<!-- <div class="basic-table">
+<div class="basic-table">
   <div class="table-name-and-tabs">
-    <p>Progress Review: Automated List Updates</p>
+    <div class="table-name">Progress Review: Automated List Updates</div>
 
     <div class="tabs">
       <app-tab-element [active]="property === 'New Suggestions'" text="New Suggestions"
@@ -13,30 +13,23 @@
     </div>
 
   </div>
-  //מימוש של הselect
-
-  <div class="table-header">
-    @if(property === 'New Suggestions')
-    {
-    <app-yv-table-header [headers]=headers></app-yv-table-header>
-    }
-    @if(property === 'Old Suggestions')
-    {
-      <app-yv-table-header [headers]="['Name List', 'Done', 'To Do']"></app-yv-table-header>
-    }
-  </div>
+  <!-- //מימוש של הselect -->
   <div class="table-data">
-    @if(property === 'New Suggestions')
-    {
+    <div class="table-header">
+      @if(property === 'New Suggestions')
+      {
+      <app-yv-table-header [headers]=headers></app-yv-table-header>
+      }
+      @if(property === 'Old Suggestions')
+      {
+      <app-yv-table-header [headers]=headers></app-yv-table-header>
+      }
+    </div>
+
     @for(row of rows;track row){
-    <app-yv-basic-table-row property="Default" [showAction]="true" [cells]="row"></app-yv-basic-table-row>
+    <app-yv-basic-table-row property="row.property" [showAction]="row.showAction"
+      [cells]="row.cells"></app-yv-basic-table-row>
     }
-    }
-    @if(property === 'Old Suggestions')
-    {
-    @for(row of rows;track row){
-    <app-yv-basic-table-row property="Default" [showAction]="true" [cells]="row"></app-yv-basic-table-row>
-    }
-    }
+
   </div>
-</div> -->
+</div>

@@ -14,11 +14,12 @@ import { YvSelectComponent } from '../basic-components/yv-select/yv-select.compo
 import { YvTableHeaderComponent } from '../basic-components/yv-table-header/yv-table-header.component';
 import { YvTextareaComponent } from '../basic-components/yv-textarea/yv-textarea.component';
 import { YvCheckComponent } from '../basic-components/yv-check/yv-check.component';
+import { DataCellType } from 'src/app/enums/data-cell-enum';
 
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [CommonModule, TempButtonComponent,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent],
+  imports: [YvBasicTableComponent,CommonModule, TempButtonComponent,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })
@@ -42,5 +43,84 @@ export class TestComponent {
     alert('test on click');
     console.log('test on click');
   }
+  headers: { data: string; type: HeaderCellType }[] = [
+    { data: 'name list', type: HeaderCellType.TEXT },
+    { data: 'to do', type: HeaderCellType.TEXT },
+  ];
 
+  rows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
+    {
+      property: 'Default',
+      showAction: false,
+      cells: [
+        { data: 'Data 1', type: DataCellType.TEXT },
+        { data: 'Link to something', type: DataCellType.LINK },
+      ]
+    },
+    {
+      property: 'Default',
+      showAction: false,
+      cells: [
+        { data: 'Data 2', type: DataCellType.TEXT },
+        { data: 'Link to something', type: DataCellType.LINK },
+       
+      ]
+    }
+  ];
+  headers2: { data: string; type: HeaderCellType }[] = [
+    { data: 'name list', type: HeaderCellType.TEXT },
+    { data: 'done', type: HeaderCellType.TEXT },
+    { data: 'to do', type: HeaderCellType.TEXT },
+  ];
+
+  rows2: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
+    {
+      property: 'Default',
+      showAction: false,
+      cells: [
+        { data: 'Data 1', type: DataCellType.TEXT },
+        { data: 'Data 1', type: DataCellType.TEXT },
+        { data: 'Link to something', type: DataCellType.LINK },
+      ]
+    },
+    {
+      property: 'Default',
+      showAction: false,
+      cells: [
+        { data: 'Data 1', type: DataCellType.TEXT },
+        { data: 'Data 1', type: DataCellType.TEXT },
+        { data: 'Link to something', type: DataCellType.LINK },
+      ]
+    }
+  ];
+  headers1: { data: string; type: HeaderCellType }[] = [
+    { data: 'name list', type: HeaderCellType.TEXT },
+    { data: 'to do', type: HeaderCellType.TEXT },
+    { data: 'name list', type: HeaderCellType.TEXT },
+    { data: 'to do', type: HeaderCellType.TEXT },
+  ];
+
+  rows1: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
+    {
+      property: 'Default',
+      showAction: false,
+      cells: [
+        { data: 'Data 1', type: DataCellType.TEXT },
+        { data: 'Link to something', type: DataCellType.LINK },
+        { data: 'Data 1', type: DataCellType.TEXT },
+        { data: 'Link to something', type: DataCellType.LINK },
+      ]
+    },
+    {
+      property: 'Default',
+      showAction: false,
+      cells: [
+        { data: 'Data 2', type: DataCellType.TEXT },
+        { data: 'Link to something', type: DataCellType.LINK },
+             { data: 'Data 1', type: DataCellType.TEXT },
+        { data: 'Link to something', type: DataCellType.LINK },
+       
+      ]
+    }
+  ];
 }

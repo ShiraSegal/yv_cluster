@@ -1,7 +1,14 @@
-.table-header{
+.table-header {
+    border-bottom: 1px solid #D0D6F1;
     display: flex;
-    width: 101.0625rem;
+    flex-direction: row;
+    width: 65.0625rem;
     padding: 0.25rem 0rem;
     align-items: center;
-    border-bottom: 1px solid #D0D6F1;
+}
+
+.table-header > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    text-align: center; /* אופציונלי, מרכז את התוכן */
 }

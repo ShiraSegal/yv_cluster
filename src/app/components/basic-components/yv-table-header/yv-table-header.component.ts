@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { YvHeaderCellsComponent } from '../yv-header-cells/yv-header-cells.component';
 import { CommonModule } from '@angular/common';
+import { HeaderCellType } from 'src/app/enums/header-cell-enum';
 
 @Component({
   selector: 'app-yv-table-header',
@@ -10,5 +11,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './yv-table-header.component.css'
 })
 export class YvTableHeaderComponent {
-  @Input() headers: string[] = []; 
+@Input() headers: { data: string; type: HeaderCellType }[] = [];
 }

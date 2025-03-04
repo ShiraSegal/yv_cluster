@@ -17,11 +17,10 @@ import { HeaderCellType } from 'src/app/enums/header-cell-enum';
   styleUrl: './yv-basic-table.component.css'
 })
 export class YvBasicTableComponent {
-  @Input() headers: { data : string ; type: HeaderCellType} [] = [];
-  @Input() rows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [];
   @Input() showSelect: boolean = false;
   @Input() property: 'New Suggestions' | 'Old Suggestions' = 'New Suggestions';
-
+  @Input() headers: { data: string; type: HeaderCellType }[] = [];
+  @Input() rows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [];
 
   setTab(tab: 'New Suggestions' | 'Old Suggestions') {
     this.property = tab;
