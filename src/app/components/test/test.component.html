@@ -1,9 +1,7 @@
 
-<app-yv-basic-table property="New Suggestions" [headers]="headers" [rows]="rows"></app-yv-basic-table>
+ <app-yv-basic-table property="New Suggestions" [headers]="headers" [rows]="rows"></app-yv-basic-table>
 <br>
-<app-yv-basic-table property="New Suggestions" [headers]="headers2" [rows]="rows2"></app-yv-basic-table>
-<br>
-<app-yv-basic-table property="New Suggestions" [headers]="headers1" [rows]="rows1"></app-yv-basic-table>
+<app-yv-basic-table property="Old Suggestions" [headers]="headers1" [rows]="rows1"></app-yv-basic-table>
 <br>
 <app-yv-slider [value]=80></app-yv-slider>
 
@@ -32,6 +30,7 @@ ta-cells>
 <app-yv-header-cells [type]=HeaderCellType.HEADERSEARCH header="header-search"></app-yv-header-cells>
 <app-yv-header-cells [type]=HeaderCellType.CHECK></app-yv-header-cells>
 <app-yv-header-cells [type]=HeaderCellType.MORE></app-yv-header-cells>
+<app-yv-header-cells [type]=HeaderCellType.PLACEOLDER></app-yv-header-cells>
 
 <!-- <h3>data cell</h3> 
 <app-yv-data-cells type="text" data="toDo"></app-yv-data-cells>

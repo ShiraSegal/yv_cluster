@@ -15,15 +15,8 @@
   </div>
   <!-- //מימוש של הselect -->
   <div class="table-data">
-    <div class="table-header">
-      @if(property === 'New Suggestions')
-      {
-      <app-yv-table-header [headers]=headers></app-yv-table-header>
-      }
-      @if(property === 'Old Suggestions')
-      {
-      <app-yv-table-header [headers]=headers></app-yv-table-header>
-      }
+    <div class="table-header">   
+      <app-yv-table-header [headers]=headers></app-yv-table-header> 
     </div>
 
     @for(row of rows;track row){

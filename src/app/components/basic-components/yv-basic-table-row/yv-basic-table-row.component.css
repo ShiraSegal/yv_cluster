@@ -1,19 +1,19 @@
 .basic-table-row {
   display: flex;
-  flex-direction: row;
-  width: 65.0625rem;
-  height: 5.125rem;
-  padding: 0.25rem 0rem;
   align-items: center;
   gap: 0.0625rem;
-  flex-shrink: 0;
   border-bottom: 1px solid #D0D6F1;
+  width: 65.0625rem;
+  justify-content: space-between;
 }
-
-.basic-table-row > * {
+.special-cell {
+  flex-grow: 0;
+  flex-basis: auto;
+  margin-left: auto; 
+}
+.regular-cell {
   flex-grow: 1;
   flex-basis: 0;
-  text-align: center; /* אופציונלי, מרכז את התוכן */
 }
 
 .Default {

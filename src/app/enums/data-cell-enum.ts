@@ -6,6 +6,7 @@ export enum DataCellType {
     LINK = 'link',
     ICON = 'icon',
     ASSIGNEE = 'assignee',
-    BUTTON = 'button'
+    BUTTON = 'button',
+    SLIDER='slider'
   }
   
