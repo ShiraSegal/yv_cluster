@@ -1,18 +1,62 @@
-<svg class="pie-circle" viewBox="0 0 200 200">
-    <!-- עיגול רקע -->
-    <circle [ngClass]="{ 
-      'circle': percentage != 100,
-      'circle-100-percent': percentage === 100}"/> 
-  
-    <!-- פרוסה דינמית -->
-    <path [attr.d]="getPieSlice()" class="part-of-the-circle" />
-  
-    <!-- טקסט בתוך ה-SVG -->
-    <text [attr.transform]="getTextTransform()" class="part-of-the-circle-text">
-      {{ percentage }}%
-    </text>
-  </svg>
-  <br>
-  <!-- סרגל לבחירת אחוזים -->
-  <input type="range" min="0" max="100" [(ngModel)]="percentage">
-  
+<div class="pie-component-distribution-modal-container">
+  <div class="component-tittle">
+    <div class="component-tittle-text">Data Distribution</div>
+  </div>
+  <div class="table-and-pie-container">
+    <div class="table-container">
+      <!-- //כותרת הטבלה -->
+      <div class="tabble-header">
+        <div class="table-header-left-side"></div>
+        <div class="table-header-right-side">
+          <div class="the-specific-area">Minsk</div>
+          <div class="all-database-areas">All Database</div>
+        </div>
+      </div>
+      @for (item of arr; track item) {
+      <!-- //שורה בטבלה -->
+      <div class="table-row">
+        <div class="table-row-left-side">
+          <div class="table-row-name">{{item}}</div>
+        </div>
+        <div class="table-row-right-side">
+          <div class="table-row-right-side-column">
+
+          </div>
+          <div class="table-row-right-side-all-column"></div>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="pie-circle-container">
+      <div class="pie-buttons-container">
+        <!-- <button class="pie-button-right"></button> -->
+
+        <div class="button-text">All Database</div>
+        <div class="button-text pie-button-right">Minsk</div>
+      </div>
+      <!-- ///עיגול -->
+      <svg class="pie-circle" viewBox="0 0 200 200">
+        <ng-container *ngFor="let item of date.LastName; let i = index">
+          <!-- שרטוט חתיכת עיגול לכל אחוז -->
+          <path [attr.d]="getPieSlice(getUpdatedBeginPlace()[i] - calculatePercentage(item.Count), getUpdatedBeginPlace()[i], colorsArray[i%4])"[attr.fill]="colorsArray[i%4]"/>
+
+        </ng-container>
+    
+      
+        <!-- חתיכה אחרונה בעיגול -->
+        <path [attr.d]="getPieSlice(getUpdatedBeginPlace()[date.LastName.length - 1] || 0, 100, '#A5B1C0')" fill="#1334B9" />
+      
+        <!-- טקסט על העיגול -->
+        <text [attr.transform]="getTextTransform()" class="part-of-the-circle-text">
+          {{ allDatabaseCount }}%
+        </text>
+      </svg>
+      
+      
+    
+
+      <!-- ///עיגול -->
+    </div>
+
+  </div>
+</div>
