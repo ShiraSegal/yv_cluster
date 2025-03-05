@@ -5,17 +5,33 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'yv-cluster-pie-component-distribution-modal',
   standalone: true,
-  imports: [CommonModule,FormsModule ],
+  imports: [CommonModule, FormsModule],
   templateUrl: './pie-component-distribution-modal.component.html',
   styleUrl: './pie-component-distribution-modal.component.scss'
 })
 export class PieComponentDistributionModalComponent {
-   @Input() text!: string;
-   @Input() percentage1: number = 10;
-   @Input() percentage2: number = 10;
-   @Input() percentage3: number = 10;
-   @Input() percentage4: number = 100-this.percentage1-this.percentage2-this.percentage3;
-arr:string[] = ['Last Name','Count','percent','Total name count'];
+  @Input() text!: string;
+  @Input() percentage1: number = 10;
+  @Input() percentage2: number = 10;
+  @Input() percentage3: number = 10;
+  @Input() percentage4: number = 100 - this.percentage1 - this.percentage2 - this.percentage3;
+  arr: string[] = ['Last Name', 'Count', 'percent', 'Total name count'];
+
+  obj: any = {
+    "LastName": {
+      "Count": 2500,
+      "Code": "T342541",
+      "Value": "Bilstein"
+    },
+    "LastNameInPlaces": [
+      {
+        "TotalCount": 11816,
+        "Count": 50,
+        "Code": "5430861",
+        "Value": "Koeln,Köln (Köln),Rhine Province,Germany"
+      }
+    ]
+  }
   // ngOnChanges(changes: SimpleChanges): void {
   //   if (changes['percentage1'] ) {
   //     console.log('percentage1:', this.percentage1);
@@ -28,7 +44,7 @@ arr:string[] = ['Last Name','Count','percent','Total name count'];
     const radius = 100;
     const startAngle = (startPercentage / 100) * 360;
     const endAngle = (endPercentage / 100) * 360;
-  
+
     const largeArc = (endAngle - startAngle) > 180 ? 1 : 0;
     const x1 = radius + radius * Math.cos(startAngle * (Math.PI / 180));
     const y1 = radius + radius * Math.sin(startAngle * (Math.PI / 180));
@@ -41,10 +57,10 @@ arr:string[] = ['Last Name','Count','percent','Total name count'];
     const radius = 70; // רדיוס העיגול
     const x = 95 + radius; // ממקם את הטקסט תמיד בצד ימין של העיגול
     const y = 90; // ממקם את הטקסט על הרדיוס המאוזן
-  
+
     // מחזירים את ה-transform בתור מיקום x ו-y
     return `translate(${x}, ${y})`;
   }
-  
-  
+
+
 }
