@@ -1,64 +1,62 @@
-// // @import "src/styles.scss";
+ @import "src/styles.scss";
 .btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   border-radius: var(--Border-radius-small, 0.25rem);
   gap: var(--Layout-medium, 0.5rem);
-  flex-shrink: 0;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem; /* 142.857% */
   cursor: pointer;
 }
 
 .primary {
-  border: 1px solid #1334B9;
-  background: #1334B9;
-  color: var(--main-on-primery, #FFF);
+  border: 1px solid $primary_btn;
+  background:$primary_btn;
+  color: $white;
 
   &:disabled {
-    color: var(--C4C7C5, #C4C7C5);
-    border: 1px solid var(--main-surf-desabled-container, #F0F2F4);
-    background: var(--main-surf-desabled-container, #F0F2F4);
+    color: $light_gray;
+    border: 1px solid  $grade_variant_2;
+    background:  $grade_variant_2;
   }
 }
 
 .secondary {
-  border: 1px solid #A1AEE3;
-  background-color:white;
-  color: var(--Primery, #1334B9);
+  border: 1px solid $light_blue;
+  background-color:$white;
+  color: $primary_btn;
   &:hover {
-    background: #E7EBF8;
+    background: $grade_variant_4;
   }
 
   &:disabled {
-    color: var(--C4C7C5, #C4C7C5);
-    border: 1px solid var(--main-on-desabled, #A5B1C0);
-    background: var(--main-surf-desabled-container, #ffffff);
+    color: $light_gray;
+    border: 1px solid  $silver_gray;
+    background: $white;
   }
 
 }
 
 .tertiary {
-  border: 0px solid #1334B9;
-  color: var(--Primery, #1334B9);
-  background-color:white;
+  border: 0px solid $primary_btn;
+  color: $primary_btn;
+  background-color:$white;
 
   &:hover {
-    background: #E7EBF8;
+    background: $grade_variant_4;
   }
 
   &:active {
-    background: #E7EBF8;
+    background: $grade_variant_4;
   }
   &:disabled {
-    color: var(--C4C7C5, #C4C7C5);
-    border: 1px solid var(--main-on-desabled, #ffffff);
-    background: var(--main-surf-desabled-container, #ffffff);
+    color:$light_gray;
+    border: 1px solid $white;
+    background: $white;
   }
 }
 
@@ -71,7 +69,7 @@
   padding: 0.375rem var(--Layout-x-large, 1rem);
 }
 .icon{
-  color: var(--main-neutral-main, #FFF);
+  color: $white;
 font-family: "Font Awesome 6 Pro";
 font-size: 0.875rem;
 font-style: normal;
@@ -79,11 +77,11 @@ font-weight: 300;
 line-height: normal;
 }
 .variant1{
-  color: var(--Primery, #1334B9);
+  color: $primary_btn;
 }
 .variant2{
-  color: var(--main-on-desabled, #A5B1C0);
+  color: $silver_gray;
 }
 .variant3{
-  color: var(--main-on-desabled, #ffffff);
+  color: $white;
 }
