@@ -11,7 +11,7 @@
     align-items: center;
     gap: var(--Layout-medium, 0.5rem);
     flex-shrink: 0;
-    border-bottom: 3px solid #2449D8;
+    border-bottom: 3px solid $cool_blue;
 }
 
 .tab-container-not-active {
@@ -29,7 +29,7 @@
 }
 
 .tab-text-active {
-    color: #2449D8;
+    color:$cool_blue;
     text-align: center;
     /* Heading/Small bold */
     font-family: Poppins;

@@ -1,0 +1,62 @@
+<div class="pie-component-distribution-modal-container">
+  <div class="component-tittle">
+    <div class="component-tittle-text">Data Distribution</div>
+  </div>
+  <div class="table-and-pie-container">
+    <div class="table-container">
+      <!-- //כותרת הטבלה -->
+      <div class="tabble-header">
+        <div class="table-header-left-side"></div>
+        <div class="table-header-right-side">
+          <div class="the-specific-area">Minsk</div>
+          <div class="all-database-areas">All Database</div>
+        </div>
+      </div>
+      @for (item of arr; track item) {
+      <!-- //שורה בטבלה -->
+      <div class="table-row">
+        <div class="table-row-left-side">
+          <div class="table-row-name">{{item}}</div>
+        </div>
+        <div class="table-row-right-side">
+          <div class="table-row-right-side-column">
+
+          </div>
+          <div class="table-row-right-side-all-column"></div>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="pie-circle-container">
+      <div class="pie-buttons-container">
+        <!-- <button class="pie-button-right"></button> -->
+
+        <div class="button-text">All Database</div>
+        <div class="button-text pie-button-right">Minsk</div>
+      </div>
+      <!-- ///עיגול -->
+      <svg class="pie-circle" viewBox="0 0 200 200">
+
+        <path [attr.d]="getPieSlice(0, percentage1, '#F6CDCD')" fill="#F6CDCD" />
+
+        <path [attr.d]="getPieSlice(percentage1, percentage1 + percentage2, '#7185D5')" fill="#7185D5" />
+
+        <path [attr.d]="getPieSlice(percentage1 + percentage2 , percentage1 + percentage2 + percentage3, '#A5EBDD')"
+          fill="#A5EBDD" />
+
+        <path [attr.d]="getPieSlice(percentage1 + percentage2 + percentage3, 100, '#A4D999')" fill="#D0D6F180" />
+
+        <text [attr.transform]="getTextTransform()" class="part-of-the-circle-text">
+          {{ percentage1 }}%
+        </text>
+      </svg>
+
+      <!-- סרגלי בחירת האחוזים -->
+      <input type="range" min="0" max="100" [(ngModel)]="percentage1">
+      <input type="range" min="0" max="100" [(ngModel)]="percentage2">
+      <input type="range" min="0" max="100" [(ngModel)]="percentage3">
+      <!-- ///עיגול -->
+    </div>
+
+  </div>
+</div>
