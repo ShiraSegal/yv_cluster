@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ButtonType, ButtonIconProperty } from '../../enums/basic-enum';
+import { ButtonType, ButtonIconProperty } from '../../../enums/basic-enum';
 
 @Component({
   selector: 'yv-cluster-button',
@@ -18,11 +18,11 @@ export class ButtonComponent {
   @Input() iconProperty: ButtonIconProperty = ButtonIconProperty.VARIANT1;
   @Input() icon!: string;
 
-  @Output() onClick = new EventEmitter<void>();
+  @Output() onClick = new EventEmitter();
 
   handleClick() {
     if (!this.disabled) {
-      this.onClick.emit();
+   this.onClick.emit();
     }
   }
 }

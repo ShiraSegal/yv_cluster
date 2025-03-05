@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonComponent } from '../button/button.component';
+import { ButtonComponent } from '../basic-components/button/button.component';
 import { ButtonIconProperty, ButtonType } from '../../enums/basic-enum';
 import { CommonModule } from '@angular/common';
 
