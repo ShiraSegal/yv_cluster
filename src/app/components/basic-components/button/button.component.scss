@@ -1,18 +1,23 @@
 @import "src/styles.scss";
+body {
+  margin: 0;
+  font-family: Assistant;
+}
+
 .btn {
-    text-align: center;
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
   cursor: pointer;
 }
 
 .primary {
   border-radius: var(--Border-radius-small, 0.25rem);
-  border: 1px solid #1334B9;
-  background: #1334B9;
+  border: 1px solid $primary_btn;
+  background: $primary_btn;
   color: var(--main-on-primery, #FFF);
   text-align: center;
   font-family: Poppins;
@@ -23,7 +28,7 @@
 
   &:hover {
     border-radius: var(--Border-radius-small, 4px);
-    border: 1px solid #1334B9;
+    border: 1px solid $primary_btn;
     background: #1334B9;
   }
   &:disabled {
@@ -45,7 +50,7 @@
   flex-shrink: 0;
   border-radius: var(--Border-radius-small, 4px);
   border: 1px solid #A1AEE3;
-  background-color:white;
+  background-color: white;
 
   &:hover {
     border-radius: var(--Border-radius-small, 4px);
@@ -58,13 +63,12 @@
     border: 1px solid var(--main-on-desabled, #A5B1C0);
     background: var(--main-surf-desabled-container, #ffffff);
   }
-
 }
 
 .tertiary {
   border: 0px solid #1334B9;
   color: var(--Primery, #1334B9);
-  background-color:white;
+  background-color: white;
 
   &:hover {
     border-radius: var(--Border-radius-small, 4px);
@@ -85,14 +89,15 @@
 }
 
 .big-btn {
-display: inline-flex;
-height: var(--Layout-10, 40px);
-padding: var(--Layout-x-large, 16px) var(--Layout-2x-large, 24px);
-justify-content: center;
-align-items: center;
-gap: var(--Layout-medium, 8px);
-flex-shrink: 0;
+  display: inline-flex;
+  height: var(--Layout-10, 40px);
+  padding: var(--Layout-x-large, 16px) var(--Layout-2x-large, 24px);
+  justify-content: center;
+  align-items: center;
+  gap: var(--Layout-medium, 8px);
+  flex-shrink: 0;
 }
+
 .small-btn {
   display: inline-flex;
   height: var(--Layout-09, 36px);
@@ -102,19 +107,23 @@ flex-shrink: 0;
   gap: var(--Layout-medium, 8px);
   flex-shrink: 0;
 }
-.icon{
-font-family: "Font Awesome 6 Pro";
-font-size: 14px;
-font-style: normal;
-font-weight: 300;
-line-height: normal;
+
+.icon {
+  font-family: "Font Awesome 6 Pro";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
 }
-.variant1{
+
+.variant1 {
   color: var(--Primery, #1334B9);
 }
-.variant2{
+
+.variant2 {
   color: var(--main-on-desabled, #A5B1C0);
 }
-.variant3{
+
+.variant3 {
   color: var(--main-on-desabled, #ffffff);
 }
