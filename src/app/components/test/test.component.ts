@@ -42,5 +42,5 @@ export class TestComponent {
     alert('test on click');
     console.log('test on click');
   }
-
+  
 }
