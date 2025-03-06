@@ -31,11 +31,11 @@
                 <div class="buttons">
                     <yv-cluster-button 
                         class="button" 
-                        [disabled]="formGroup.invalid" 
+                        [disabled]="false" 
                         [isBig]="false" 
                         [buttonType]="buttomType1" 
-                        [text]="text1" 
-                        (onClick)="onClick()">
+                        [text]="button1" 
+                        (onClick)="cancel()">
                     </yv-cluster-button>
 
                     <yv-cluster-button 
@@ -43,8 +43,8 @@
                         [disabled]="false" 
                         [isBig]="false" 
                         [buttonType]="buttomType2" 
-                        [text]="text2" 
-                        (onClick)="onClick()">
+                        [text]="button2" 
+                        (onClick)="add()">
                     </yv-cluster-button>
                 </div>
             </div>
