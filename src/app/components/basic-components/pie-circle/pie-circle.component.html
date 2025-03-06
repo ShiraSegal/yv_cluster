@@ -1,0 +1,21 @@
+
+<svg class="pie-circle" viewBox="0 0 200 200">
+    <ng-container *ngFor="let item of date.LastName; let i = index">
+      <!-- שרטוט חתיכת עיגול לכל אחוז -->
+      <path
+        [attr.d]="getPieSlice(getUpdatedBeginPlace()[i] - calculatePercentage(item.Count), getUpdatedBeginPlace()[i], colorsArray[i%4])"
+        [attr.fill]="colorsArray[i%4]" />
+
+    </ng-container>
+
+
+    <!-- חתיכה אחרונה בעיגול -->
+    <path [attr.d]="getPieSlice(getUpdatedBeginPlace()[date.LastName.length - 1] || 0, 100, '#A5B1C0')"
+      fill="#1334B9" />
+
+    <!-- טקסט על העיגול -->
+    <text [attr.transform]="getTextTransform()" class="part-of-the-circle-text">
+      {{ allDatabaseCount }}%
+    </text>
+  </svg>
+

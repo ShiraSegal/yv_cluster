@@ -11,15 +11,15 @@ import { YvSelectComponent } from './components/basic-components/yv-select/yv-se
 import { YvTableHeaderComponent } from './components/basic-components/yv-table-header/yv-table-header.component';
 import { YvTextareaComponent } from './components/basic-components/yv-textarea/yv-textarea.component';
 import { HeaderCellType } from './enums/header-cell-enum';
+import { TestComponent } from './components/test/test.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [RouterOutlet,],
+  imports: [RouterOutlet,TestComponent],
 })
 export class AppComponent {
- 
 
 }

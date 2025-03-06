@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonType } from 'src/app/enums/basic-enum';
+import { ButtonType, CardIcons, ToastNotificationIcons } from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 import { TempButtonComponent } from '../basic-components/temp-button/temp-button.component';
 import { YvSliderComponent } from '../basic-components/yv-slider/yv-slider.component';
@@ -14,11 +14,19 @@ import { YvSelectComponent } from '../basic-components/yv-select/yv-select.compo
 import { YvTableHeaderComponent } from '../basic-components/yv-table-header/yv-table-header.component';
 import { YvTextareaComponent } from '../basic-components/yv-textarea/yv-textarea.component';
 import { YvCheckComponent } from '../basic-components/yv-check/yv-check.component';
+import { SwitchComponent } from '../basic-components/switch/switch.component';
+import { BasicTabComponent } from '../basic-components/basic-tab/basic-tab.component';
+import { BasicCardComponent } from '../basic-components/basic-card/basic-card.component';
+import { BasicRadioButtonComponent } from '../basic-components/basic-radio-button/basic-radio-button.component';
+import { BasicToggleComponent } from '../basic-components/basic-toggle/basic-toggle.component';
+import { FilterSectionComponent } from '../basic-components/filter-section/filter-section.component';
+import { ToastNotificationComponent } from '../basic-components/toast-notification/toast-notification.component';
+import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
 
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [CommonModule, TempButtonComponent,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent],
+  imports: [CommonModule, TempButtonComponent,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent,TempButtonComponent,BasicTabComponent,BasicCardComponent,BasicRadioButtonComponent,BasicToggleComponent,FilterSectionComponent,ToastNotificationComponent,SwitchComponent,PieComponentDistributionModalComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })
@@ -31,7 +39,13 @@ export class TestComponent {
 
   title = 'yv-clusters';
   HeaderCellType = HeaderCellType;
-
+  // txt1 = "test btn1"
+  switchState: boolean = false;
+  tabState: boolean = false;
+  toggleState!: string;
+  radioButtonState: boolean = false;
+  CardIcons = CardIcons;
+  ToastNotificationIcons = ToastNotificationIcons;
   handleSort(event: { column: string, direction: string }) {
 
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
@@ -42,5 +56,22 @@ export class TestComponent {
     alert('test on click');
     console.log('test on click');
   }
-  
+
+  handleSwitchChange(state: boolean) {
+    this.switchState = state;
+    console.log('Switch:', state ? 'דלוק' : 'מכובה');
+  }
+
+  handleTabChange(state: boolean) {
+    this.tabState = state;
+    console.log('Tab:', state ? 'דלוק' : 'מכובה');
+  }
+  handleToggleChange(state: string) {
+    this.toggleState = state;
+    console.log('state:', state);
+  }
+  handleRadioButtonChange(state: boolean) {
+    this.radioButtonState = state;
+    console.log('radioButton:', state ? 'דלוק' : 'מכובה');
+  }
 }
