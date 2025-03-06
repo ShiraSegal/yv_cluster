@@ -18,11 +18,11 @@ export class PieComponentDistributionModalComponent {
 
   arrPrecent: number[] = [25, 20, 20, 20]
   arr: string[] = ['Last Name', 'Count', 'percent', 'Total name count'];
-  colorsArray: string[] = ['#A1AEE3', '#A5EBDD', '#F6CDCD', '#A5B1C0', '#A5EBDD', '#B8C2EA'];
+  colorsArray: string[] = ['#A1AEE3', '#A5EBDD', '#F6CDCD', '#A5B1C0'];
 
   date = {
     "LastName": [{
-      "Count": 20,
+      "Count": 50,
       "Code": "T342541",
       "Value": "Bilstein"
     },{

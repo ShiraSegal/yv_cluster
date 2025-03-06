@@ -11,10 +11,10 @@ import { ToastNotificationIcons } from 'src/app/enums/toast-notification-icons-e
 })
 export class ToastNotificationComponent {
 ToastNotificationIcons = ToastNotificationIcons;
-  @Input() iconName!:ToastNotificationIcons;
+  @Input() iconName:ToastNotificationIcons=ToastNotificationIcons.SUCCESS;
   @Input() message!:string;
   @Input() text!:string;
-  @Input() duration!: number;; 
+  @Input() duration!: number;
 
   isVisible: boolean = true;
 
