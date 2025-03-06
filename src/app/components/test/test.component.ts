@@ -19,9 +19,9 @@ export class TestComponent {
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
   tertiany = ButtonType.TERTIARY
-variant1 = ButtonIconProperty.VARIANT1
-variant2 = ButtonIconProperty.VARIANT2
-variant3 = ButtonIconProperty.VARIANT3
+  variant1 = ButtonIconProperty.VARIANT1
+  variant2 = ButtonIconProperty.VARIANT2
+  variant3 = ButtonIconProperty.VARIANT3
   icon=ButtonIcon.CHEVRON_LEFT
   onClick()
   {
