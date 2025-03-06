@@ -5,14 +5,14 @@
   padding: 0.25rem 0rem;
   align-items: center;
   align-self: stretch;
-  border-bottom: 1px solid #D0D6F1;
-  justify-content: space-between; /* Ensure space between elements */
+  border-bottom: 1px solid $lavender_blue;
+  justify-content: space-between; 
 }
 
 .special-cell {
   flex-grow: 0;
   flex-basis: auto;
-  margin-left: auto; /* Push special cells to the far right */
+  margin-left: auto;
 }
 
 .regular-cell {

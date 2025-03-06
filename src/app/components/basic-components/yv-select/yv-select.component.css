@@ -3,7 +3,7 @@
   }
   
   .select-fieldset {
-    border: 1px solid #ccc;
+    border: 1px solid $light_gray;
     padding: 0.5rem;
     position: relative;
   }

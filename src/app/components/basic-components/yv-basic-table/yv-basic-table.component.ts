@@ -17,19 +17,27 @@ import { HeaderCellType } from 'src/app/enums/header-cell-enum';
   styleUrl: './yv-basic-table.component.css'
 })
 export class YvBasicTableComponent {
-  @Input() showSelect: boolean = false;
-  @Input() property: 'New Suggestions' | 'Old Suggestions' = 'New Suggestions';
-  @Input() headers: { data: string; type: HeaderCellType }[] = [];
-  @Input() rows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [];
 
-  setTab(tab: 'New Suggestions' | 'Old Suggestions') {
-    this.property = tab;
-  }
-
+    @Input() showSelect: boolean = false;
+    @Input() property: 'New Suggestions' | 'Old Suggestions' = 'New Suggestions';
+    @Input() newHeaders: { data: string; type: HeaderCellType }[] = [];
+    @Input() oldHeaders: { data: string; type: HeaderCellType }[] = [];
+    @Input() newRows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [];
+    @Input() oldRows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [];
+    get headers() {
+      return this.property === 'New Suggestions' ? this.newHeaders : this.oldHeaders;
+    }
+    get rows() {
+      return this.property === 'New Suggestions' ? this.newRows : this.oldRows;
+    }
+    setTab(tab: 'New Suggestions' | 'Old Suggestions') {
+      this.property = tab;
+    }
   // מימוש בשביל הטאב
-  tabState: boolean = false;
-handleTabChange(state: boolean) {
-  this.tabState = state;
-}
+//   tabState: boolean = false;
+// handleTabChange(state: boolean) {
+//   this.tabState = state;
+// }
  
+// }
 }

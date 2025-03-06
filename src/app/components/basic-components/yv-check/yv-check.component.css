@@ -8,7 +8,7 @@
   }
 
   .check.enabled.selected {
-color: var(--Primery, #1334B9);
+color: $primary_btn;
 font-family: "Font Awesome 6 Pro";
 font-size: 14px;
 font-style: normal;
@@ -16,9 +16,9 @@ font-weight: 900;
 line-height: normal;
   }
   
-  /* סגנון נוסף עבור .check.enabled.unselected */
+
   .check.enabled.unselected {
-    color: var(--main-on-neutral, #3F4B5A);
+    color: $slate_blue;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
     font-style: normal;
@@ -26,9 +26,9 @@ line-height: normal;
     line-height: normal;
   }
   
-  /* סגנון נוסף עבור .check.disabled.selected */
+
   .check.desabled.selected {
-    color: var(--main-on-desabled, #A5B1C0);
+    color: $silver_gray;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
     font-style: normal;
@@ -36,9 +36,9 @@ line-height: normal;
     line-height: normal;
   }
   
-  /* סגנון נוסף עבור .check.disabled.unselected */
+  
   .check.desabled.unselected {
-    color: var(--main-on-desabled, #A5B1C0);
+    color: $silver_gray;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
     font-style: normal;
