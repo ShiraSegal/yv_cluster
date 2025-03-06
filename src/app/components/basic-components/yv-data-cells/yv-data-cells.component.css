@@ -6,7 +6,7 @@
     align-items: center;
     gap: 0.625rem;
     flex-shrink: 0;
-    color: var(--main-on-neutral, #3F4B5A);
+    color: $slate_blue;
     font-family: Poppins;
     font-size: 0.875rem;
     font-style: normal;
@@ -27,7 +27,7 @@
 }
 
 .more-icon {
-    color: var(--main-on-neutral, #3F4B5A);
+    color: $slate_blue;
     text-align: center;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
@@ -48,7 +48,7 @@
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
-    color: var(--main-primery-main, #006AE5);
+    color: $main_primery_main;
     font-family: Poppins;
     font-size: 14px;
     font-style: normal;
@@ -69,7 +69,7 @@
 }
 
 .clipboard-list-icon {
-    color: #1334B9;
+    color: $primary_btn;
     font-family: "Font Awesome 6 Pro";
     font-size: 18px;
     font-style: normal;
@@ -115,7 +115,7 @@
 }
 
 .fa-solid {
-    color: var(--main-on-neutral, #3F4B5A);
+    color:$slate_blue;
     font-family: "Font Awesome 6 Pro";
     font-size: 0.875rem;
     font-style: normal;

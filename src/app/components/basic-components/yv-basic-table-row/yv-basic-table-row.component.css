@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   gap: 0.0625rem;
-  border-bottom: 1px solid #D0D6F1;
+  border-bottom: 1px solid $lavender_blue;
   width: 65.0625rem;
   justify-content: space-between;
 }
@@ -25,7 +25,7 @@
   align-items: center;
   gap: 0.0625rem;
   flex-shrink: 0;
-  border-bottom: 1px solid #D0D6F1;
+  border-bottom: 1px solid $lavender_blue;
 }
 .Variant2 {
 
@@ -37,6 +37,6 @@ padding: 0.25rem 0rem;
 align-items: center;
 gap: 0.0625rem;
 flex-shrink: 0;
-border-bottom: 1px solid #D0D6F1;
+border-bottom: 1px solid #$lavender_blue;
 background: rgba(231, 235, 248, 0.20);
 }
