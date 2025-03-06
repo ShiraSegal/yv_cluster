@@ -3,3 +3,11 @@ export  enum ButtonType {
   SECONDARY = "secondary",
   TERTIARY = "tertiary"
 }
+
+export enum State {
+  DEFAULT = "default",
+  FOCUSED = "focused",
+  POPULATED = "populated",
+  DISABLED = "disabled",
+  ERROR = "error"
+}
