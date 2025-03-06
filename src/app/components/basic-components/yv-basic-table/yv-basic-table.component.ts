@@ -17,39 +17,19 @@ import { HeaderCellType } from 'src/app/enums/header-cell-enum';
   styleUrl: './yv-basic-table.component.css'
 })
 export class YvBasicTableComponent {
-  // @Input() showSelect: boolean = false;
-  // @Input() property: 'New Suggestions' | 'Old Suggestions' = 'New Suggestions';
-  // @Input() headers: { data: string; type: HeaderCellType }[] = [];
-  // @Input() rows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [];
-
-  // setTab(tab: 'New Suggestions' | 'Old Suggestions') {
-  //   this.property = tab;
-  // }
 
     @Input() showSelect: boolean = false;
-  
-    // ברירת מחדל - New Suggestions
     @Input() property: 'New Suggestions' | 'Old Suggestions' = 'New Suggestions';
-  
-    // כותרות לכל טאב בנפרד
     @Input() newHeaders: { data: string; type: HeaderCellType }[] = [];
     @Input() oldHeaders: { data: string; type: HeaderCellType }[] = [];
-  
-    // רשומות לכל טאב בנפרד
     @Input() newRows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [];
     @Input() oldRows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [];
-  
-    // החזרת הכותרות המתאימות
     get headers() {
       return this.property === 'New Suggestions' ? this.newHeaders : this.oldHeaders;
     }
-  
-    // החזרת הרשומות המתאימות
     get rows() {
       return this.property === 'New Suggestions' ? this.newRows : this.oldRows;
     }
-  
-    // פונקציה להחלפת טאב
     setTab(tab: 'New Suggestions' | 'Old Suggestions') {
       this.property = tab;
     }
