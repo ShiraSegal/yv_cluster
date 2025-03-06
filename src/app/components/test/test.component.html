@@ -1,4 +1,4 @@
-
+<!-- 
  <app-yv-basic-table property="New Suggestions" [newHeaders]="headers"  [oldHeaders]="headers1" [newRows]="rows"  [oldRows]="rows1"></app-yv-basic-table>
 <br>
 <br>
@@ -29,8 +29,17 @@ ta-cells>
 <app-yv-header-cells [type]=HeaderCellType.HEADERSEARCH header="header-search"></app-yv-header-cells>
 <app-yv-header-cells [type]=HeaderCellType.CHECK></app-yv-header-cells>
 <app-yv-header-cells [type]=HeaderCellType.MORE></app-yv-header-cells>
-<app-yv-header-cells [type]=HeaderCellType.PLACEOLDER></app-yv-header-cells>
+<app-yv-header-cells [type]=HeaderCellType.PLACEOLDER></app-yv-header-cells> -->
 
+<app-yv-data-cells [data]="'Ariela koppelmann'" [type]="DataCellType.ASSIGNEE"></app-yv-data-cells>
+<yv-cluster-narrow-basic-table-row
+  [property]= "property"
+  [cells]="cells">
+</yv-cluster-narrow-basic-table-row>
+<yv-cluster-narrow-basic-table-row
+  [property]= "property2"
+  [cells]="cells">
+</yv-cluster-narrow-basic-table-row>
 <!-- <h3>data cell</h3> 
 <app-yv-data-cells type="text" data="toDo"></app-yv-data-cells>
 <app-yv-data-cells type="more" data=""></app-yv-data-cells>

@@ -1,0 +1,35 @@
+.row-container {
+    background: var(--Palette-White-100, #FFF);
+    display: inline-flex;
+    padding: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.narrow-basic-table-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.narrow-basic-table-row.Default {
+
+}
+
+.narrow-basic-table-row.Hover {
+
+    background: rgba(231, 235, 248, 0.20);
+   
+}
+
+.narrow-basic-table-row {
+    border-bottom: 1px solid #D0D6F1;
+    display: inline-flex;
+    padding: 4px 0px;
+    align-items: center;
+    gap: 1px;
+}

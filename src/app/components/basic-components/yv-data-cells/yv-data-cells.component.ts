@@ -5,6 +5,7 @@ import { YvCheckComponent } from '../yv-check/yv-check.component';
 import { DataCellType } from '../../../enums/data-cell-enum';
 import { YvSliderComponent } from '../yv-slider/yv-slider.component';
 
+
 @Component({
   selector: 'app-yv-data-cells',
   standalone: true,
@@ -13,7 +14,7 @@ import { YvSliderComponent } from '../yv-slider/yv-slider.component';
   styleUrl: './yv-data-cells.component.css'
 })
 export class YvDataCellsComponent {
-  @Input() data: string | undefined;
+  @Input() data: string | undefined  ;
   @Input() type: DataCellType = DataCellType.TEXT; 
   @Input() lineDataCells: boolean = false ;
 

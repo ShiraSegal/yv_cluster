@@ -3,3 +3,7 @@ export  enum ButtonType {
   SECONDARY = "secondary",
   TERTIARY = "tertiary"
 }
+export enum NarrowBasicTableRowInputState {
+  DEFAULT = 'Default',
+  HOVER = 'Hover'
+}
