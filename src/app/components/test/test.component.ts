@@ -19,7 +19,7 @@ import { DataCellType } from 'src/app/enums/data-cell-enum';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [YvBasicTableComponent,CommonModule, TempButtonComponent,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent],
+  imports: [YvBasicTableComponent,CommonModule,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })
@@ -70,7 +70,7 @@ export class TestComponent {
   headers2: { data: string; type: HeaderCellType }[] = [
     { data: 'name list', type: HeaderCellType.TEXT },
     { data: 'done', type: HeaderCellType.TEXT },
-    { data: 'to do', type: HeaderCellType.TEXT },
+    { data: '', type: HeaderCellType.CHECK },
   ];
 
   rows2: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
