@@ -9,6 +9,11 @@
     border-radius: var(--Border-radius-x-large, 0.625rem);
     background: #FFF;
     box-shadow: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.30);
+    .header-warp{
+        display: flex;
+        width: 24.25rem;
+        align-items: center;
+        gap: var(--Layout-medium, 0.5rem);
     .header{
         color: var(--Neutral-Grey-800, #2A323C);
         font-family: Poppins;
@@ -16,7 +21,7 @@
         font-style: normal;
         font-weight: 500;
         line-height: normal;
-    }
+    }}
     .radio-buttons{
         display: flex;
         justify-content: flex-end;
@@ -43,7 +48,6 @@
     }
     .input{
         display: flex;
-        display: flex;
         height: 2.0625rem;
         min-width: 9.6875rem;
         max-width: 28.125rem;
@@ -56,8 +60,6 @@
         overflow: hidden;
     color: var(--C4C7C5, #C4C7C5);
     text-overflow: ellipsis;
-    
-    /* Body/medium */
     font-family: Poppins;
     font-size: 0.875rem;
     font-style: normal;
@@ -72,16 +74,12 @@
         height: 0.4375rem;
         align-self: stretch;
         border-top: 1px solid var(--main-outline-neutral, #E1E5EA);
-    }
     .buttons-warp{
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         gap: var(--Layout-medium, 0.5rem);
         align-self: stretch;
-      
-        
-        
         .buttons{
             display: flex;
             align-items: flex-start;
@@ -96,7 +94,7 @@
             }
         }
     
-    }
+    } }
 }
 
 

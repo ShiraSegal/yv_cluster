@@ -1,38 +1,41 @@
-import { Component, Input, input } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonType } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
   standalone: true,
-  imports: [FormsModule, ButtonComponent],
+  imports: [FormsModule, ReactiveFormsModule, ButtonComponent],
   templateUrl: './enter-bookid.component.html',
   styleUrl: './enter-bookid.component.scss'
 })
-export class EnterBookidComponent {
+export class EnterBookidComponent  {
   @Input() header: string = '';
-  // selectedOption: number = 1;
+  
   selectedLabel: string = 'Book ID';
-  selectedRadio: string = 'bookid';
-  buttomType1:ButtonType = ButtonType.TERTIARY;
-  buttomType2:ButtonType = ButtonType.PRIMARY;
+  buttomType1: ButtonType = ButtonType.TERTIARY;
+  buttomType2: ButtonType = ButtonType.PRIMARY;
   text1: string = 'Cancel';
   text2: string = 'Add';
-  
-  onClick()
-  {
-    alert('enter book id click');
-  } 
+
+  // יצירת טופס עם FormGroup ו-Control
+  formGroup: FormGroup = new FormGroup({
+    selection: new FormControl('bookid'), // ברירת מחדל
+    bookId: new FormControl('')
+  });
 
   onRadioChange() {
-  if(this.selectedRadio === 'bookid') {
-    this.selectedLabel = 'Book ID';
-    this.selectedRadio = 'bookid';
+    // מאזין לשינוי בערך הרדיו-באטן
+    this.formGroup.get('selection')?.valueChanges.subscribe(value => {
+      this.selectedLabel = value === 'bookid' ? 'Book ID' : 'Cluster';
+    });
   }
-  else {
-    this.selectedLabel = 'Cluster';
-    this.selectedRadio = 'cluster';
+
+  onClick() {
+    if (this.formGroup.valid) {
+      console.log(this.formGroup.value);
+      alert('Book ID Submitted!');
+    }
   }
-}
 }
