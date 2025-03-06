@@ -1,6 +1,6 @@
 
-<div [ngClass]= "[data,type]"> {{data}} 
-    <!-- @if(type===DataCellType.MORE'){
+<div [ngClass]="['cell', type]"> {{data}} 
+    @if(type===DataCellType.MORE){
         <i class="fas fa-ellipsis-v more-icon"></i>
     }
     @if(type===DataCellType.ICON){
@@ -10,6 +10,9 @@
         <app-yv-assignee firstName="Ariela" lastName="Zoppelmann"></app-yv-assignee>
     }
     @if(type===DataCellType.CHECK){
-        <app-yv-check type="unselected" state="enable"></app-yv-check>
-    } -->
+        <i class="fa-solid fa-chevron-right"></i>
+    }
+    @if(type===DataCellType.SLIDER){
+       <app-yv-slider [value]=50></app-yv-slider>
+    }
 </div> 

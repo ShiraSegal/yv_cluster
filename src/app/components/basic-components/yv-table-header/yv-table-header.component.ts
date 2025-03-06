@@ -12,4 +12,7 @@ import { HeaderCellType } from 'src/app/enums/header-cell-enum';
 })
 export class YvTableHeaderComponent {
 @Input() headers: { data: string; type: HeaderCellType }[] = [];
+HeaderCellType =   HeaderCellType
+
+
 }

@@ -38,14 +38,14 @@ export class TestComponent {
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
   }
 
-  onClick()
-  {
+  onClick() {
     alert('test on click');
     console.log('test on click');
   }
   headers: { data: string; type: HeaderCellType }[] = [
     { data: 'name list', type: HeaderCellType.TEXT },
     { data: 'to do', type: HeaderCellType.TEXT },
+    { data: '', type: HeaderCellType.PLACEOLDER },
   ];
 
   rows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
@@ -53,8 +53,9 @@ export class TestComponent {
       property: 'Default',
       showAction: false,
       cells: [
-        { data: 'Data 1', type: DataCellType.TEXT },
-        { data: 'Link to something', type: DataCellType.LINK },
+        { data: 'Data ', type: DataCellType.TEXT },
+        { data: 'Data ', type: DataCellType.TEXT },
+        { data: '', type: DataCellType.CHECK },
       ]
     },
     {
@@ -93,11 +94,12 @@ export class TestComponent {
       ]
     }
   ];
+
   headers1: { data: string; type: HeaderCellType }[] = [
     { data: 'name list', type: HeaderCellType.TEXT },
+    { data: 'done ', type: HeaderCellType.TEXT },
     { data: 'to do', type: HeaderCellType.TEXT },
-    { data: 'name list', type: HeaderCellType.TEXT },
-    { data: 'to do', type: HeaderCellType.TEXT },
+    { data: '', type: HeaderCellType.PLACEOLDER },
   ];
 
   rows1: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
@@ -105,21 +107,21 @@ export class TestComponent {
       property: 'Default',
       showAction: false,
       cells: [
-        { data: 'Data 1', type: DataCellType.TEXT },
-        { data: 'Link to something', type: DataCellType.LINK },
-        { data: 'Data 1', type: DataCellType.TEXT },
-        { data: 'Link to something', type: DataCellType.LINK },
+        { data: 'Data ', type: DataCellType.TEXT },
+        { data: ' ', type: DataCellType.SLIDER },
+        { data: 'Data ', type: DataCellType.TEXT },
+        { data: '', type: DataCellType.CHECK },
       ]
     },
     {
       property: 'Default',
       showAction: false,
       cells: [
-        { data: 'Data 2', type: DataCellType.TEXT },
-        { data: 'Link to something', type: DataCellType.LINK },
-             { data: 'Data 1', type: DataCellType.TEXT },
-        { data: 'Link to something', type: DataCellType.LINK },
-       
+        { data: 'Data ', type: DataCellType.TEXT },
+        { data: ' ', type: DataCellType.SLIDER },
+        { data: 'Data ', type: DataCellType.TEXT },
+        { data: '', type: DataCellType.CHECK },
+
       ]
     }
   ];
