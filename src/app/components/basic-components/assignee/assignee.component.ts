@@ -1,13 +1,14 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-yv-assignee',
+  selector: 'yv-cluster-assignee',
   standalone: true,
   imports: [],
-  templateUrl: './yv-assignee.component.html',
-  styleUrl: './yv-assignee.component.css'
+  templateUrl: './assignee.component.html',
+  styleUrl: './assignee.component.scss'
 })
-export class YvAssigneeComponent {
+export class AssigneeComponent {
+  
  @Input() firstName: string | undefined;
  @Input() lastName: string | undefined;
  assigneeSqureData: string | undefined;
@@ -17,4 +18,3 @@ export class YvAssigneeComponent {
     }
  }
 }
-

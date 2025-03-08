@@ -16,11 +16,12 @@ import { YvTextareaComponent } from '../basic-components/yv-textarea/yv-textarea
 import { YvCheckComponent } from '../basic-components/yv-check/yv-check.component';
 import { DataCellType } from 'src/app/enums/data-cell-enum';
 import { NarrowBasicTableRowComponent } from '../basic-components/narrow-basic-table-row/narrow-basic-table-row.component';
+import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
 
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [NarrowBasicTableRowComponent,YvBasicTableComponent, CommonModule, TempButtonComponent, YvSliderComponent, YvAssigneeComponent, YvBasicTableComponent, YvBasicTableRowComponent, YvCheckComponent, YvDataCellsComponent, YvHeaderCellsComponent, YvInputComponent, YvSelectComponent, YvTableHeaderComponent, YvTextareaComponent],
+  imports: [AssigneeComponent,NarrowBasicTableRowComponent,YvBasicTableComponent, CommonModule, TempButtonComponent, YvSliderComponent, YvAssigneeComponent, YvBasicTableComponent, YvBasicTableRowComponent, YvCheckComponent, YvDataCellsComponent, YvHeaderCellsComponent, YvInputComponent, YvSelectComponent, YvTableHeaderComponent, YvTextareaComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })

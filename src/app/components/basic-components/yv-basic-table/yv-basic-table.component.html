@@ -1,22 +1,6 @@
 
 <div class="basic-table">
-  <div class="table-name-and-tabs">
-    <div class="table-name">Progress Review: Automated List Updates</div>
 
-    <div class="tabs">
-      <app-tab-element 
-        [active]="property === 'New Suggestions'" 
-        text="New Suggestions" 
-        (click)="setTab('New Suggestions')">
-      </app-tab-element>
-
-      <app-tab-element 
-        [active]="property === 'Old Suggestions'" 
-        text="Old Suggestions" 
-        (click)="setTab('Old Suggestions')">
-      </app-tab-element>
-    </div>
-  </div>
 
   <div class="table-header">   
     <app-yv-table-header [headers]="headers"></app-yv-table-header> 
