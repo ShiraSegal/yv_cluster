@@ -1,32 +1,30 @@
 import { Component } from '@angular/core';
 import { ButtonType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
-import { CommonModule } from '@angular/common';
-import { TempButtonComponent } from '../basic-components/temp-button/temp-button.component';
-import { YvSliderComponent } from '../basic-components/yv-slider/yv-slider.component';
+
 import { HeaderCellType } from 'src/app/enums/header-cell-enum';
-import { YvAssigneeComponent } from '../basic-components/yv-assignee/yv-assignee.component';
-import { YvBasicTableComponent } from '../basic-components/yv-basic-table/yv-basic-table.component';
-import { YvBasicTableRowComponent } from '../basic-components/yv-basic-table-row/yv-basic-table-row.component';
-import { YvDataCellsComponent } from '../basic-components/yv-data-cells/yv-data-cells.component';
-import { YvHeaderCellsComponent } from '../basic-components/yv-header-cells/yv-header-cells.component';
-import { YvInputComponent } from '../basic-components/yv-input/yv-input.component';
-import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
-import { YvTableHeaderComponent } from '../basic-components/yv-table-header/yv-table-header.component';
-import { YvTextareaComponent } from '../basic-components/yv-textarea/yv-textarea.component';
-import { YvCheckComponent } from '../basic-components/yv-check/yv-check.component';
 import { DataCellType } from 'src/app/enums/data-cell-enum';
-import { NarrowBasicTableRowComponent } from '../basic-components/narrow-basic-table-row/narrow-basic-table-row.component';
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
+import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
+import { BasicTableRowComponent } from '../basic-components/basic-table-row/basic-table-row.component';
+import { BasicTableWarpComponent } from '../basic-components/basic-table-warp/basic-table-warp.component';
+import { CheckComponent } from '../basic-components/check/check.component';
+import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
+import { HeaderCellsComponent } from '../basic-components/header-cells/header-cells.component';
+import { NarrowBasicTableComponent } from '../basic-components/narrow-basic-table/narrow-basic-table.component';
+import { SliderComponent } from '../basic-components/slider/slider.component';
+import { TabElementComponent } from '../basic-components/tab-element/tab-element.component';
+import { TableHeaderComponent } from '../basic-components/table-header/table-header.component';
+import { TextareaComponent } from '../basic-components/textarea/textarea.component';
 
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [AssigneeComponent,NarrowBasicTableRowComponent,YvBasicTableComponent, CommonModule, TempButtonComponent, YvSliderComponent, YvAssigneeComponent, YvBasicTableComponent, YvBasicTableRowComponent, YvCheckComponent, YvDataCellsComponent, YvHeaderCellsComponent, YvInputComponent, YvSelectComponent, YvTableHeaderComponent, YvTextareaComponent],
+  imports: [AssigneeComponent,BasicTableComponent,BasicTableRowComponent,BasicTableWarpComponent,CheckComponent,DataCellsComponent,HeaderCellsComponent,NarrowBasicTableComponent,SliderComponent,TabElementComponent,TableHeaderComponent,TextareaComponent],
   templateUrl: './test.component.html',
-  styleUrl: './test.component.scss'
+  styleUrl: './test.component.scss',
 })
 export class TestComponent {
-  DataCellType = DataCellType;
+
   btnType = ButtonType.PRIMARY;
   btnType2 = ButtonType.SECONDARY;
   txt1 = "test btn1"
@@ -34,6 +32,7 @@ export class TestComponent {
 
   title = 'yv-clusters';
   HeaderCellType = HeaderCellType;
+  DataCellType = DataCellType;
 
   property: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
   property2: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.HOVER;
