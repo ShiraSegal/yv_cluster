@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonType } from 'src/app/enums/basic-enum';
+import { ButtonType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 import { TempButtonComponent } from '../basic-components/temp-button/temp-button.component';
 import { YvSliderComponent } from '../basic-components/yv-slider/yv-slider.component';
@@ -15,24 +15,43 @@ import { YvTableHeaderComponent } from '../basic-components/yv-table-header/yv-t
 import { YvTextareaComponent } from '../basic-components/yv-textarea/yv-textarea.component';
 import { YvCheckComponent } from '../basic-components/yv-check/yv-check.component';
 import { DataCellType } from 'src/app/enums/data-cell-enum';
+import { NarrowBasicTableRowComponent } from '../basic-components/narrow-basic-table-row/narrow-basic-table-row.component';
+import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
 
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [YvBasicTableComponent,CommonModule,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent],
+  imports: [AssigneeComponent,NarrowBasicTableRowComponent,YvBasicTableComponent, CommonModule, TempButtonComponent, YvSliderComponent, YvAssigneeComponent, YvBasicTableComponent, YvBasicTableRowComponent, YvCheckComponent, YvDataCellsComponent, YvHeaderCellsComponent, YvInputComponent, YvSelectComponent, YvTableHeaderComponent, YvTextareaComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })
 export class TestComponent {
-
+  DataCellType = DataCellType;
   btnType = ButtonType.PRIMARY;
   btnType2 = ButtonType.SECONDARY;
   txt1 = "test btn1"
-  // txt1 = "test btn1"
+ 
 
   title = 'yv-clusters';
   HeaderCellType = HeaderCellType;
 
+  property: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
+  property2: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.HOVER;
+  cells = [
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE }
+    // { data: 'Checked', type: DataCellType.CHECK },
+    // { data: 'www.example.com', type: DataCellType.LINK },
+    // { data: 'Icon Data', type: DataCellType.ICON },
+    // { data: 'Assignee Name', type: DataCellType.ASSIGNEE },
+    // { data: 'Button Text', type: DataCellType.BUTTON },
+    // { data: 'Slider Value', type: DataCellType.SLIDER }
+  ];
   handleSort(event: { column: string, direction: string }) {
 
     console.log(`Sorting by ${event.column} in ${event.direction} order`);

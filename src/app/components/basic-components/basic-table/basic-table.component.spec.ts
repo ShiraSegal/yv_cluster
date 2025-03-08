@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { YvAssigneeComponent } from './yv-assignee.component';
+import { BasicTableComponent } from './basic-table.component';
 
-describe('YvAssigneeComponent', () => {
-  let component: YvAssigneeComponent;
-  let fixture: ComponentFixture<YvAssigneeComponent>;
+describe('BasicTableComponent', () => {
+  let component: BasicTableComponent;
+  let fixture: ComponentFixture<BasicTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [YvAssigneeComponent]
+      imports: [BasicTableComponent]
     })
     .compileComponents();
-
-    fixture = TestBed.createComponent(YvAssigneeComponent);
+    
+    fixture = TestBed.createComponent(BasicTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
