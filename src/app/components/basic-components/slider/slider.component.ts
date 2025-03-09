@@ -15,7 +15,4 @@ export class SliderComponent {
     this.colorWidth = `${(this.value / 100) * 8.5}rem`;
 
   }
-
-
-
 }
