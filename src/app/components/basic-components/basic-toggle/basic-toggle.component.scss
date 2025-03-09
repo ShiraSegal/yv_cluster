@@ -1,0 +1,58 @@
+@import "src/styles.scss";
+.basic-toggle {
+    width: 7rem;
+    height: 1.5300rem;
+    display: flex;
+    padding: 0.0625rem;
+    align-items: center;
+    border-radius: 1.875rem;
+    border: 0.5px solid var(--8999DC, #8999DC);
+    background: $white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.circle-status-yes {
+    display: flex;
+    width: 3.4375rem;
+    height: 0.3rem;
+    padding: 0.625rem 0.3125rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 6.25rem;
+    background:$lavender_blue;
+}
+
+.circle-status-no {
+    display: flex;
+    width: 2.75rem;
+    height: 1.25rem;
+    padding: 0.625rem 0.3125rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 6.25rem;
+}
+
+.text-status-yes {
+    color: $royal_blue;
+    text-align: center;
+    /* Body/small */
+    font-family: Poppins;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text-status-no {
+    color:$slate_blue;
+    text-align: center;
+    /* Body/small */
+    font-family: Poppins;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

@@ -1,3 +1,39 @@
+
+<!-- 
+<app-yv-slider [value]=80></app-yv-slider>
+
+<hr>
+<h3>assignee</h3>
+<hr>
+<app-yv-assignee firstName="Ariela" lastName="Zoppelmann"></app-yv-assignee>
+<hr>
+<h3>check</h3>
+<app-yv-check type="selected" state="desabled"></app-yv-check>
+<app-yv-check type="unselected" state="enabled"></app-yv-check>
+<app-yv-check type="selected" state="enabled"></app-yv-check>
+<app-yv-check type="unselected" state="desabled"></app-yv-check> -->
+
+<!-- <hr>
+<h3>data cell</h3> -->
+<!-- <app-yv-data-cells type="text" data="toDo"></app-yv-data-cells>
+<app-yv-data-cells type="more" data=""></app-yv-data-cells>
+<app-yv-data-cells type="link" data="toDo"></app-yv-data-cells>
+<app-yv-data-cells type="icon" data=""></app-yv-data-cells>
+<app-yv-data-cells type="check" data=""></app-yv-data-cells>
+<app-yv-data-cells type=DataCellType.ASSIGNEE data=""></app-yv-data-cells> -->
+
+
+<!-- <h3>textarea</h3>
+<app-yv-textarea label="email"></app-yv-textarea>
+<app-yv-textarea label="last name"></app-yv-textarea> -->
+
+<app-yv-header-cells [type]=HeaderCellType.TEXT header="text"></app-yv-header-cells>
+<app-yv-header-cells [type]=HeaderCellType.ORDER header="order" (sortEvent)="handleSort($event)"></app-yv-header-cells>
+<app-yv-header-cells [type]=HeaderCellType.ORDERDOWN header="order-down" (sortEvent)="handleSort($event)"></app-yv-header-cells>
+<app-yv-header-cells [type]=HeaderCellType.HEADERSEARCH header="header-search"></app-yv-header-cells>
+<app-yv-header-cells [type]=HeaderCellType.CHECK></app-yv-header-cells>
+<app-yv-header-cells [type]=HeaderCellType.MORE></app-yv-header-cells>
+
 <yv-cluster-icon-button (onClick)="onClick()" [icon]="iconp"  ></yv-cluster-icon-button>
 <br>
 <br>
