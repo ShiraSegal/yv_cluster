@@ -1,18 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonType } from 'src/app/enums/basic-enum';
+import { ButtonType, TextSize } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../button/button.component';
+import { HeadingComponent } from '../heading/heading.component';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, ButtonComponent],
+  imports: [FormsModule, ReactiveFormsModule, ButtonComponent,HeadingComponent],
   templateUrl: './enter-bookid.component.html',
   styleUrl: './enter-bookid.component.scss'
 })
 export class EnterBookidComponent  {
-  @Input() header: string = '';
-  
+  header: string = 'Enter Book ID';
+  size:TextSize = TextSize.SMALL;
   selectedLabel: string = 'Book Id';
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
@@ -27,16 +28,16 @@ export class EnterBookidComponent  {
   });
 
   onRadioChange() {
-    // מאזין לשינוי בערך הרדיו-באטן
-    this.formGroup.get('selection')?.valueChanges.subscribe(value => {
-      this.selectedLabel = value === 'bookid' ? 'Book Id' : 'Cluster';
-    });
+    const value = this.formGroup.get('selection')?.value;
+    this.selectedLabel = value === 'bookid' ? 'Book Id' : 'Cluster';
   }
+  
 
   add() {
     if (this.formGroup.valid) {
       console.log(this.formGroup.value);
       alert(`${this.selectedLabel} Submitted!`);
+      this.close = true;
     }
    else {
     alert(`Please fill in the ${this.selectedLabel} before submitting.`);

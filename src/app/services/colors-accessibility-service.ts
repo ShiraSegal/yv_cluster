@@ -40,7 +40,7 @@ export class ColorsAccessibilityService {
         this.document.documentElement.style.setProperty("--white","#FFF" );
         this.document.documentElement.style.setProperty("--medium-blue","#425DC7");
         this.document.documentElement.style.setProperty("--grade_variant_2","#F0F2F4" );
-        // this.document.documentElement.style.setProperty("--grade_variant_3","#A5B1C0" );
+         this.document.documentElement.style.setProperty("--neutral_gray","#2A323C" );
         this.document.documentElement.style.setProperty("--grade_variant_4","#E7EBF8" );
         this.document.documentElement.style.setProperty("--light_blue","#A1AEE3" );
     }

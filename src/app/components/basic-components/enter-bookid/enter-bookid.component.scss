@@ -1,52 +1,55 @@
-.card{
+@import "src/styles.scss";
+.card {
     display: flex;
     min-width: 18.75rem;
-    max-width: 35rem;
+    max-width: 24.25rem;
     padding: var(--Layout-x-large, 1rem);
     flex-direction: column;
     align-items: flex-start;
     gap: var(--Layout-x-large, 1rem);
     border-radius: var(--Border-radius-x-large, 0.625rem);
-    background: #FFF;
+    background:$white;
     box-shadow: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.30);
-    .header-warp{
+
+    .header-warp {
         display: flex;
         width: 24.25rem;
         align-items: center;
         gap: var(--Layout-medium, 0.5rem);
-    .header{
-        color: var(--Neutral-Grey-800, #2A323C);
-        font-family: Poppins;
-        font-size: 1.125rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-    }}
-    .radio-buttons{
+
+        // .header {
+        //     color:$neutral_gray;
+        // }
+    }
+
+    .radio-buttons {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         gap: 1rem;
-        .radio{
-            color: var(--main-on-neutral, #3F4B5A);
+
+        .radio {
+            color:$slate_blue;
             text-align: right;
             font-family: "Font Awesome 6 Pro";
             font-size: 0.875rem;
             font-style: normal;
             font-weight: 300;
-            line-height: 1.5rem; /* 171.429% */
+            line-height: 1.5rem;
             letter-spacing: -0.01313rem;
         }
-        .value{
-            color: var(--main-on-neutral, #3F4B5A);
+
+        .value {
+            color:$slate_blue;
             font-family: Poppins;
             font-size: 0.875rem;
             font-style: normal;
             font-weight: 400;
-            line-height: 1.25rem; /* 142.857% */
+            line-height: 1.25rem;
         }
     }
-    .input{
+
+    .input {
         display: flex;
         height: 2.0625rem;
         min-width: 9.6875rem;
@@ -54,48 +57,67 @@
         padding: var(--Layout-medium, 0.5rem);
         align-items: center;
         gap: var(--Layout-medium, 0.5rem);
+        overflow: hidden;
+        color: $light_gray;
+        text-overflow: ellipsis;
+        font-family: Poppins;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.25rem;
         align-self: stretch;
         border-radius: var(--Border-radius-small, 0.25rem);
-        border: 0.5px solid #3F4B5A;
-        overflow: hidden;
-    color: var(--C4C7C5, #C4C7C5);
-    text-overflow: ellipsis;
-    font-family: Poppins;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.25rem; /* 142.857% */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    flex: 1 0 0;
+        border: 0.5px solid $slate_blue;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        flex: 1 0 0;
+
+        &::placeholder {
+            color:$light_gray;
+            text-overflow: ellipsis;
+            font-family: Poppins;
+            font-size: 0.875rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.25rem;
+        }
     }
-    .divider{
-        height: 0.4375rem;
-        align-self: stretch;
-        border-top: 1px solid var(--main-outline-neutral, #E1E5EA);
-    .buttons-warp{
+
+    .outer-button-warp {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         gap: var(--Layout-medium, 0.5rem);
         align-self: stretch;
-        .buttons{
+        .divider {
+            height: 0.4375rem;
+            align-self: stretch;
+            border-top: 1px solid var(--main-outline-neutral, #E1E5EA);
+        
+        }
+
+        .buttons-warp {
             display: flex;
-            align-items: flex-start;
-            gap: var(--Layout-medium, 0.5rem);
-            .button{
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            gap: 0.625rem;
+            align-self: stretch;
+
+            .buttons {
                 display: flex;
-                height: var(--Layout-09, 2.25rem);
-                padding: 0.375rem var(--Layout-x-large, 1rem);
-                justify-content: center;
-                align-items: center;
+                align-items: flex-start;
                 gap: var(--Layout-medium, 0.5rem);
+
+                .button {
+                    display: flex;
+                    height: var(--Layout-09, 2.25rem);
+                    justify-content: center;
+                    align-items: center;
+                    gap: var(--Layout-medium, 0.5rem);
+                }
             }
         }
-    
-    } }
+    }
 }
-
-
-
