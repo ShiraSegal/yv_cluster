@@ -36,15 +36,19 @@
       </div>
       <!-- ///עיגול -->
       <svg class="pie-circle" viewBox="0 0 200 200">
-
-        <path [attr.d]="getPieSlice(0, percentage1, '#F6CDCD')" fill="#F6CDCD" />
-
-        <path [attr.d]="getPieSlice(percentage1, percentage1 + percentage2, '#7185D5')" fill="#7185D5" />
+        @for (item of obj.lastName; track item) {
+          calculatePercentage(item.Count)
+        
+        <path [attr.d]="getPieSlice(0,6, '#3F4B5A')" fill="#3F4B5A" />
+        
+        <!-- <path [attr.d]="getPieSlice(percentage1, percentage1 + percentage2, '#7185D5')" fill="#7185D5" />
 
         <path [attr.d]="getPieSlice(percentage1 + percentage2 , percentage1 + percentage2 + percentage3, '#A5EBDD')"
           fill="#A5EBDD" />
 
-        <path [attr.d]="getPieSlice(percentage1 + percentage2 + percentage3, 100, '#A4D999')" fill="#D0D6F180" />
+        <path [attr.d]="getPieSlice(percentage1 + percentage2 + percentage3, 100, '#A4D999')" fill="#D0D6F180" /> -->
+        }
+        <path [attr.d]="getPieSlice(beginPlace+thisPercent, 100, '#A4D999')" fill="#A4D999" />
 
         <text [attr.transform]="getTextTransform()" class="part-of-the-circle-text">
           {{ percentage1 }}%

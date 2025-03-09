@@ -16,21 +16,48 @@ export class PieComponentDistributionModalComponent {
   @Input() percentage3: number = 10;
   @Input() percentage4: number = 100 - this.percentage1 - this.percentage2 - this.percentage3;
   arr: string[] = ['Last Name', 'Count', 'percent', 'Total name count'];
-
+beginPlace:number=0;
+thisPercent:number=50;
+allDatabaseCount:number=100000;
   obj: any = {
-    "LastName": {
-      "Count": 2500,
-      "Code": "T342541",
-      "Value": "Bilstein"
-    },
+    "LastName": [
+      {
+        "Count": 2500,
+        "Code": "T342541",
+        "Value": "Bilstein"
+      },
+      {
+        "Count": 5000,
+        "Code": "T342542",
+        "Value": "Bilstein"
+      },
+      {
+        "Count": 6200,
+        "Code": "T342543",
+        "Value": "Bilstein"
+      },
+    ],
     "LastNameInPlaces": [
       {
         "TotalCount": 11816,
         "Count": 50,
         "Code": "5430861",
         "Value": "Koeln,Köln (Köln),Rhine Province,Germany"
-      }
+      },
+      {
+        "TotalCount": 11816,
+        "Count": 900,
+        "Code": "5430862",
+        "Value": "Koeln,Köln (Köln),Rhine Province,Germany"
+      },
     ]
+  }
+  calculatePercentage(part: number){
+    this.thisPercent=(part / this.allDatabaseCount) * 100;
+    console.log("thisPercent: "+this.thisPercent);
+    console.log("beginPlace: "+this.beginPlace);
+    
+    
   }
   // ngOnChanges(changes: SimpleChanges): void {
   //   if (changes['percentage1'] ) {
