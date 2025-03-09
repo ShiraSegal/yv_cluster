@@ -11,10 +11,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class PieCircleComponent {
   beginPlace: number = 0;
-  pieColorsArray: string[] = ['#A1AEE3', '#A5EBDD', '#F6CDCD', '#A5B1C0'];
+  pieColorsArray: string[] = ['#F6CDCD','#A5B1C0',   '#A1AEE3','#A5EBDD',];
   allDatabaseCount: number = 10000;
   date = {
-    "LastName": [{
+    "LastName": [{   
       "Count": 1000,
       "Code": "T342541",
       "Value": "Bilstein"
@@ -23,11 +23,11 @@ export class PieCircleComponent {
       "Code": "T342541",
       "Value": "Goldstein"
     },{
-      "Count": 2600,
+      "Count": 2000,
       "Code": "T342541",
       "Value": "Frankenstein"
     },{
-      "Count": 3000,
+      "Count": 2000,
       "Code": "T342541",
       "Value": "Blumenstein"
     }
@@ -68,24 +68,37 @@ export class PieCircleComponent {
 
 
 
+  // getPieSlice(startPercentage: number, endPercentage: number): string {
+  //   const radius = 100;
+  //   const startAngle = (startPercentage / 100) * 360;
+  //   const endAngle = (endPercentage / 100) * 360;
+
+  //   const largeArc = (endAngle - startAngle) > 180 ? 1 : 0;
+  //   const x1 = radius + radius * Math.cos(startAngle * (Math.PI / 180));
+  //   const y1 = radius + radius * Math.sin(startAngle * (Math.PI / 180));
+  //   const x2 = radius + radius * Math.cos(endAngle * (Math.PI / 180));
+  //   const y2 = radius + radius * Math.sin(endAngle * (Math.PI / 180));
+
+  //   return `M ${radius},${radius} L ${x1},${y1} A ${radius},${radius} 0 ${largeArc} 1 ${x2},${y2} Z`;
+  // }
   getPieSlice(startPercentage: number, endPercentage: number): string {
     const radius = 100;
-    const startAngle = (startPercentage / 100) * 360;
-    const endAngle = (endPercentage / 100) * 360;
+    const startAngle = (360 - (startPercentage / 100) * 360);
+    const endAngle = (360 - (endPercentage / 100) * 360);
 
-    const largeArc = (endAngle - startAngle) > 180 ? 1 : 0;
+    const largeArc = (startAngle - endAngle) > 180 ? 1 : 0;
     const x1 = radius + radius * Math.cos(startAngle * (Math.PI / 180));
     const y1 = radius + radius * Math.sin(startAngle * (Math.PI / 180));
     const x2 = radius + radius * Math.cos(endAngle * (Math.PI / 180));
     const y2 = radius + radius * Math.sin(endAngle * (Math.PI / 180));
 
-    return `M ${radius},${radius} L ${x1},${y1} A ${radius},${radius} 0 ${largeArc} 1 ${x2},${y2} Z`;
+    return `M ${radius},${radius} L ${x1},${y1} A ${radius},${radius} 0 ${largeArc} 0 ${x2},${y2} Z`;
   }
 
   getTextTransform(): string {
     const radius = 70; // רדיוס העיגול
     const x = 60 + radius; // ממקם את הטקסט תמיד בצד ימין של העיגול
-    const y = 90; // ממקם את הטקסט על הרדיוס המאוזן
+    const y = 120; // ממקם את הטקסט על הרדיוס המאוזן
 
     return `translate(${x}, ${y})`;
   }
@@ -111,8 +124,8 @@ export class PieCircleComponent {
     const radius = 100;
 
     // נחשב את הזוויות של קודקודי החתיכה
-    const startAngle = (startPercentage / 100) * 360;
-    const endAngle = (endPercentage / 100) * 360;
+    const startAngle = (360 - (startPercentage / 100) * 360);
+    const endAngle = (360 - (endPercentage / 100) * 360);
 
     // נחשב את המיקום האמצעי בין הזוויות של החתיכה
     const midAngle = (startAngle + endAngle) / 2;
@@ -126,15 +139,14 @@ export class PieCircleComponent {
     const y = radius + offsetRadius * Math.sin(angleRad);
 
     // סיבוב הטקסט כדי שיהיה מקביל לאורח של החתיכה, הפניה למרכז העיגול
-    let rotation = midAngle + 90+90; // סיבוב ב-90 מעלות כך שהטקסט יתאים לכיוון החתיכה
-    if (midAngle < 90) {
+    let rotation = midAngle ; // סיבוב ב-90 מעלות כך שהטקסט יתאים לכיוון החתיכה
+    if (midAngle > 90 && midAngle < 270) {
         rotation += 180; // אם החתיכה בצד השני של המעגל, נשנה את כיוון הכתיבה
     }
 
     // החזרת המיקום החדש של הטקסט
     return { x, y, rotation };
 }
-
 
   
 }
