@@ -22,11 +22,12 @@ import { BasicToggleComponent } from '../basic-components/basic-toggle/basic-tog
 import { FilterSectionComponent } from '../basic-components/filter-section/filter-section.component';
 import { ToastNotificationComponent } from '../basic-components/toast-notification/toast-notification.component';
 import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
+import { RadioButtonListComponent } from '../basic-components/radio-button-list/radio-button-list.component';
 
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [CommonModule, TempButtonComponent,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent,TempButtonComponent,BasicTabComponent,BasicCardComponent,BasicRadioButtonComponent,BasicToggleComponent,FilterSectionComponent,ToastNotificationComponent,SwitchComponent,PieComponentDistributionModalComponent],
+  imports: [CommonModule, TempButtonComponent,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent,TempButtonComponent,BasicTabComponent,BasicCardComponent,BasicRadioButtonComponent,BasicToggleComponent,FilterSectionComponent,ToastNotificationComponent,SwitchComponent,PieComponentDistributionModalComponent,RadioButtonListComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })
@@ -46,6 +47,8 @@ export class TestComponent {
   radioButtonState: boolean = false;
   CardIcons = CardIcons;
   ToastNotificationIcons = ToastNotificationIcons;
+  selectedOption: string = '';
+radioButtonArray:string [] = ["a", "b", "c", "d","other"];
   handleSort(event: { column: string, direction: string }) {
 
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
@@ -73,5 +76,9 @@ export class TestComponent {
   handleRadioButtonChange(state: boolean) {
     this.radioButtonState = state;
     console.log('radioButton:', state ? 'דלוק' : 'מכובה');
+  }
+  onRadioSelectionChange(selectedValue: string) {
+    this.selectedOption = selectedValue;
+    console.log("האפשרות שנבחרה:", this.selectedOption);
   }
 }

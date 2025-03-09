@@ -55,7 +55,8 @@
 <yv-cluster-basic-radio-button   [disable]="false"  [checked]="true" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-basic-radio-button>
 
 <yv-cluster-basic-radio-button   [disable]="true"  [checked]="true" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-basic-radio-button>
-
+<br>
+<yv-cluster-radio-button-list  [radioButtonArray]="radioButtonArray" [disable]="false" (selectionChange)="onRadioSelectionChange($event)"></yv-cluster-radio-button-list>
 <br>
 <yv-cluster-filter-section></yv-cluster-filter-section>
 <br>

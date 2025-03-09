@@ -1,0 +1,11 @@
+<div [formGroup]="radioForm">
+    @for (value of radioButtonArray ; track value ){
+        <yv-cluster-basic-radio-button 
+          [disable]="disable" 
+          [checked]="radioControl.value === value" 
+          [text]="value" 
+          (checkedChange)="onRadioChange(value)">
+        </yv-cluster-basic-radio-button>
+    }
+  </div>
+  
