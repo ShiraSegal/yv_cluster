@@ -1,0 +1,20 @@
+<div class="card-container">
+    <div class="icon-circle" [ngClass]="{
+        'circle-background-hourglass-clock': iconName === CardIcons.HOURGLASS_CLOCK,
+        'circle-background-clock-five': iconName === CardIcons.CLOCK_FIVE,
+        'circle-background-circle-check': iconName === CardIcons.CIRCLE_CHECK,
+        'circle-background-edit': iconName === CardIcons.EDIT,
+        'circle-background-home': iconName === CardIcons.HOME
+    }">
+        <i [class]="iconName" [ngClass]="{
+            'icon-hourglass-clock': iconName === CardIcons.HOURGLASS_CLOCK,
+            'icon-clock-five': iconName === CardIcons.CLOCK_FIVE,
+            'icon-circle-check': iconName === CardIcons.CIRCLE_CHECK,
+            'icon-edit': iconName === CardIcons.EDIT,
+            'icon-home': iconName === CardIcons.HOME
+        }">
+        </i>
+    </div>
+
+    <div class="card-text">{{ text }}</div>
+</div>
