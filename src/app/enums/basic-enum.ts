@@ -58,3 +58,14 @@ export enum ButtonIcon{
     ORDERDOWN = "order down"
   }
 
+  export enum SliderNavigationTabType{
+    VARIANT3="variant3",
+    ACTIVE="active"
+  }
+  export enum SliderNavigationTabIconType{
+    HOME="house",
+    LOGOUT="left-from-bracket",
+    AUTOCLUSRET="list",
+    REPORT="chart-line-up",
+    NEWCLUSTER="plus",
+      }
