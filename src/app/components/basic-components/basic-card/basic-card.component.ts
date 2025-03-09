@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { CardIcons } from 'src/app/enums/card-icons-enum';
+import { CardIcons } from 'src/app/enums/basic-enum';
 
 
 
