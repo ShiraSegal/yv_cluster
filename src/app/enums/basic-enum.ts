@@ -1,3 +1,5 @@
+import * as e from "express";
+
 export  enum ButtonType {
   PRIMARY = "primary",
   SECONDARY = "secondary",
@@ -16,3 +18,10 @@ export enum ButtonIcon{
   FILE_ARROW_DOWN="fa-light fa-file-arrow-down",
   CHEVRON_LEFT="fa-light fa-chevron-left"
   }
+
+  export enum TextSize{
+    LARGE="large",
+    MEDIUM="medium",
+    SMALL="small"
+  }
+
