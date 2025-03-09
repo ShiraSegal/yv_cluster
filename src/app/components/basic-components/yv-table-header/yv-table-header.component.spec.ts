@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilterSectionComponent } from './filter-section.component';
+import { YvTableHeaderComponent } from './yv-table-header.component';
 
-describe('FilterSectionComponent', () => {
-  let component: FilterSectionComponent;
-  let fixture: ComponentFixture<FilterSectionComponent>;
+describe('YvTableHeaderComponent', () => {
+  let component: YvTableHeaderComponent;
+  let fixture: ComponentFixture<YvTableHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FilterSectionComponent]
+      imports: [YvTableHeaderComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(FilterSectionComponent);
+
+    fixture = TestBed.createComponent(YvTableHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

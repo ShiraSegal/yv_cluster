@@ -1,0 +1,7 @@
+.table-header{
+    display: flex;
+    width: 101.0625rem;
+    padding: 0.25rem 0rem;
+    align-items: center;
+    border-bottom: 1px solid #D0D6F1;
+}

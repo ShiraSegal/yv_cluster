@@ -1,18 +1,19 @@
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BasicCardComponent } from './basic-card.component';
+import { YvSliderComponent } from './yv-slider.component';
 
-describe('BasicCardComponent', () => {
-  let component: BasicCardComponent;
-  let fixture: ComponentFixture<BasicCardComponent>;
+describe('YvSliderComponent', () => {
+  let component: YvSliderComponent;
+  let fixture: ComponentFixture<YvSliderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BasicCardComponent]
+      imports: [YvSliderComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(BasicCardComponent);
+
+    fixture = TestBed.createComponent(YvSliderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

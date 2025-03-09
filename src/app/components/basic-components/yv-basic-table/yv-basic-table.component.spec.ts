@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SwitchComponent } from './switch.component';
+import { YvBasicTableComponent } from './yv-basic-table.component';
 
-describe('SwitchComponent', () => {
-  let component: SwitchComponent;
-  let fixture: ComponentFixture<SwitchComponent>;
+describe('YvBasicTableComponent', () => {
+  let component: YvBasicTableComponent;
+  let fixture: ComponentFixture<YvBasicTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SwitchComponent]
+      imports: [YvBasicTableComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(SwitchComponent);
+
+    fixture = TestBed.createComponent(YvBasicTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

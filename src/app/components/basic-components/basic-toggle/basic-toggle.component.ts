@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output,EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'yv-cluster-basic-toggle',
@@ -9,12 +9,15 @@ import { Component, Input, Output,EventEmitter } from '@angular/core';
   styleUrl: './basic-toggle.component.scss'
 })
 export class BasicToggleComponent {
-  @Input() status: boolean = false;
+  @Input() rightSelected: boolean = false;
   @Input() rightText!: string;
   @Input() leftText!: string;
-  @Output() toggleChange = new EventEmitter<boolean>();
-  changStatus(){
-    this.status=!this.status;
-    this.toggleChange.emit(this.status);
+  @Output() toggleChange = new EventEmitter<string>();
+  changStatus() {
+    this.rightSelected = !this.rightSelected;
+    if (this.rightSelected)
+      this.toggleChange.emit(this.rightText);
+    else
+      this.toggleChange.emit(this.leftText);
   }
 }

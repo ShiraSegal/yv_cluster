@@ -1,0 +1,24 @@
+.form-field {
+    display: flex;
+    height: 82px;
+    padding: 4px 0px;
+    align-items: center;
+    gap: 1px;
+    align-self: stretch;
+  }
+  .form-field label {
+    display: flex;
+    padding: var(--layout-02, 8px);
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+  }
+  .yv-input {
+    display: flex;
+    padding: var(--layout-02, 8px);
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+  }
