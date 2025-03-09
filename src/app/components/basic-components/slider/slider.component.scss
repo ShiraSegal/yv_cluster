@@ -1,0 +1,44 @@
+@import "../../../../styles.scss";
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 0.1875rem;
+    align-self: stretch;
+   
+  }
+  
+  .slider-wrapper {
+    border-radius: 2.63938rem;
+    background: $pastel_blue;
+    display: flex;
+    width: 8.5rem;
+    height: 0.625rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+  }
+  
+  .slider-colored {
+    width: 5.625rem;
+    height: 0.625rem;
+    flex-shrink: 0;
+    border-radius: 2.63938rem;
+    background-color: $secondary_blue;
+  
+  
+  }
+  
+  .slider-value {
+    color: $table_body_strong;
+    font-family: Poppins;
+    font-size: 0.5625rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    width: 0.75rem;
+    height: 0.625rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
