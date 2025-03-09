@@ -1,14 +1,10 @@
 <div class="table-name-and-tabs">
     <div class="table-name">{{title}}</div>
     <div class="tabs">
-        @for (item of data ; track item) {
 
-            <app-tab-element 
-                [active]="" 
-                text="item.property" 
-                (click)="setTab(item.property) ">
-            </app-tab-element>
-        
-      </div>
+        <app-tab-element @for(tab of data; track tab) { [active]="false" [text]="tab.property"
+            (click)="setTab(tab.property) " }>
+        </app-tab-element>
     </div>
+        <yv-cluster-basic-table [headers]="currentHeaders" [rows]="currentRows"></yv-cluster-basic-table>
 </div>

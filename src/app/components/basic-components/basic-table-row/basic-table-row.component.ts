@@ -3,11 +3,12 @@ import { Component, Input } from '@angular/core';
 import { DataCellType } from 'src/app/enums/data-cell-enum';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { BasicTableRowPropertyVariants } from 'src/app/enums/basic-enum';
+import { TabElementComponent } from '../tab-element/tab-element.component';
 
 @Component({
   selector: 'yv-cluster-basic-table-row',
   standalone: true,
-  imports: [CommonModule , DataCellsComponent],
+  imports: [CommonModule , DataCellsComponent  ,TabElementComponent],
   templateUrl: './basic-table-row.component.html',
   styleUrl: './basic-table-row.component.scss'
 })

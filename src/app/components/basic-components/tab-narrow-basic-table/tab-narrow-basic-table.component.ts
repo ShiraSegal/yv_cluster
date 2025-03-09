@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AutoClusterTabType } from 'src/app/enums/auto-cluster-tab-enum';
+import { AutoClusterTabType } from 'src/app/enums/narrow-basic-table-tab-enum';
 
 @Component({
   selector: 'yv-cluster-tab-narrow-basic-table',
