@@ -14,6 +14,6 @@ import { PieTableComponent } from '../pie-table/pie-table.component';
   styleUrls: ['./pie-component-distribution-modal.component.scss']
 })
 export class PieComponentDistributionModalComponent {
-  @Input() text!: string;
+  @Input() title!: string;
   
 }

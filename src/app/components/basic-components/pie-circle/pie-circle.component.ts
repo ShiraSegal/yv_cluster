@@ -11,31 +11,29 @@ import { FormsModule } from '@angular/forms';
 })
 export class PieCircleComponent {
   beginPlace: number = 0;
-  allDatabaseCount: number = 100;
-  
-  arrPrecent: number[] = [25, 20, 20, 20]
-  colorsArray: string[] = ['#A1AEE3', '#A5EBDD', '#F6CDCD', '#A5B1C0'];
-
+  pieColorsArray: string[] = ['#A1AEE3', '#A5EBDD', '#F6CDCD', '#A5B1C0'];
+  allDatabaseCount: number = 10000;
   date = {
     "LastName": [{
-      "Count": 50,
+      "Count": 1000,
       "Code": "T342541",
       "Value": "Bilstein"
     },{
-      "Count": 10,
+      "Count": 2000,
       "Code": "T342541",
-      "Value": "Bilstein"
+      "Value": "Goldstein"
     },{
-      "Count": 10,
+      "Count": 2600,
       "Code": "T342541",
-      "Value": "Bilstein"
+      "Value": "Frankenstein"
+    },{
+      "Count": 3000,
+      "Code": "T342541",
+      "Value": "Blumenstein"
     }
   ]
     
     
-  }
-  ngOnInit(): void {
-    this.beginPlace = 0; // ודא שה-`beginPlace` מתאפס עם תחילת החישוב
   }
 
   // פונקציה לחישוב אחוז מתוך סכום כללי
@@ -61,13 +59,16 @@ export class PieCircleComponent {
       const percentage = this.calculatePercentage(item.Count);
       const endPlace = currentBeginPlace + percentage;
       currentBeginPlace = endPlace;
-      return endPlace;
+      if(endPlace<100)
+        return endPlace;
+      else
+      return 100
     });
   }
 
 
 
-  getPieSlice(startPercentage: number, endPercentage: number, color: string): string {
+  getPieSlice(startPercentage: number, endPercentage: number): string {
     const radius = 100;
     const startAngle = (startPercentage / 100) * 360;
     const endAngle = (endPercentage / 100) * 360;
@@ -83,9 +84,57 @@ export class PieCircleComponent {
 
   getTextTransform(): string {
     const radius = 70; // רדיוס העיגול
-    const x = 95 + radius; // ממקם את הטקסט תמיד בצד ימין של העיגול
+    const x = 60 + radius; // ממקם את הטקסט תמיד בצד ימין של העיגול
     const y = 90; // ממקם את הטקסט על הרדיוס המאוזן
 
     return `translate(${x}, ${y})`;
   }
+  // getTextPosition(startPercentage: number, endPercentage: number): { x: number, y: number } {
+  //   const radius = 100;
+  //   const middleAngle = ((startPercentage + endPercentage) / 2) * 3.6;
+  //   const x = radius + (radius * 0.6) * Math.cos(middleAngle * (Math.PI / 180));
+  //   const y = radius + (radius * 0.6) * Math.sin(middleAngle * (Math.PI / 180));
+  //   return { x, y };
+  // }
+  // getTextPosition(startPercentage: number): { x: number, y: number, rotation: number } {
+  //   const radius = 100;
+  //   const startAngle = (startPercentage / 100) * 360;
+  //   const angleRad = startAngle * (Math.PI / 180);
+  //   const offsetRadius = radius * 0.85; // קרוב יותר לשפת הפאי
+  //   const x = radius + offsetRadius * Math.cos(angleRad);
+  //   const y = radius + offsetRadius * Math.sin(angleRad);
+  //   const rotation = startAngle + 90; // הופך את הזווית כך שתהיה מקבילה לקו התחתי של החתיכה
+  
+  //   return { x, y, rotation };
+  // }
+  getTextPosition(startPercentage: number, endPercentage: number): { x: number, y: number, rotation: number } {
+    const radius = 100;
+
+    // נחשב את הזוויות של קודקודי החתיכה
+    const startAngle = (startPercentage / 100) * 360;
+    const endAngle = (endPercentage / 100) * 360;
+
+    // נחשב את המיקום האמצעי בין הזוויות של החתיכה
+    const midAngle = (startAngle + endAngle) / 2;
+
+    // המרחק מהמרכז של העיגול (לא קרוב מדי כדי למנוע גלישה החוצה)
+    const offsetRadius = radius * 0.95; // ממקם את הטקסט במרכז החתיכה מבלי לגלוש החוצה
+
+    // חישוב המיקום של ה-X וה-Y של הטקסט
+    const angleRad = midAngle * (Math.PI / 180);
+    const x = radius + offsetRadius * Math.cos(angleRad);
+    const y = radius + offsetRadius * Math.sin(angleRad);
+
+    // סיבוב הטקסט כדי שיהיה מקביל לאורח של החתיכה, הפניה למרכז העיגול
+    let rotation = midAngle + 90+90; // סיבוב ב-90 מעלות כך שהטקסט יתאים לכיוון החתיכה
+    if (midAngle < 90) {
+        rotation += 180; // אם החתיכה בצד השני של המעגל, נשנה את כיוון הכתיבה
+    }
+
+    // החזרת המיקום החדש של הטקסט
+    return { x, y, rotation };
+}
+
+
+  
 }
