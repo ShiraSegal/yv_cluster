@@ -18,11 +18,11 @@ export enum BasicTablePropertyType{
   OLD_SUGGESTIONS= 'Old Suggestions',
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
-export enum ButtonIconProperty{
-VARIANT1="variant1",
-VARIANT2="variant2",
-VARIANT3="variant3"
-}
+// export enum ButtonIconProperty{
+// VARIANT1="variant1",
+// VARIANT2="variant2",
+// VARIANT3="variant3"
+// }
 
 export enum ButtonIcon{
   FOLDER_PLUS="fa-light fa-folder-plus",
@@ -37,6 +37,13 @@ export enum ButtonIcon{
     MEDIUM="medium",
     SMALL="small"
   }
+
+  export enum TextColor {
+    BLACK = "black",
+    SLATE_BLUE = "slate-blue",
+    NEUTRAL_GRAY = "neutral-gray",
+  }
+ 
   export enum DataCellType {
     TEXT = 'text',
     MORE = 'more',

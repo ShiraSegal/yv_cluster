@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ButtonType, ButtonIconProperty } from '../../../enums/basic-enum';
+import { ButtonType} from '../../../enums/basic-enum';
 import { ButtonIcon } from 'src/app/enums/basic-enum';
 
 @Component({
@@ -16,7 +16,7 @@ export class ButtonComponent {
   @Input() disabled: boolean = false;
   @Input() isBig: boolean = false;
   @Input() showIcon: boolean = true;
-  @Input() iconProperty: ButtonIconProperty = ButtonIconProperty.VARIANT1;
+  // @Input() iconProperty: ButtonIconProperty = ButtonIconProperty.VARIANT1;
   @Input() buttonIcon!: ButtonIcon;
 
   @Output() onClick = new EventEmitter<void>();

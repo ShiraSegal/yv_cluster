@@ -5,9 +5,9 @@ import { CommonModule } from '@angular/common';
 import { TempButtonComponent } from '../basic-components/temp-button/temp-button.component';
 import { ButtonComponent } from '../basic-components/button/button.component';
 import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
-import { EnterBookidComponent } from '../basic-components/enter-bookid/enter-bookid.component';
+import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
 import { ButtonIcon } from 'src/app/enums/basic-enum';
-import { ButtonIconProperty } from 'src/app/enums/basic-enum';
+// import { ButtonIconProperty } from 'src/app/enums/basic-enum';
 import { HeaderComponent } from '../core-components/yv-header/yv-header.component';
 import { HeadingComponent } from '../basic-components/heading/heading.component';
 import { BodyComponent } from '../basic-components/body/body.component';
@@ -36,9 +36,9 @@ export class TestComponent {
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
   tertiany = ButtonType.TERTIARY
-  variant1 = ButtonIconProperty.VARIANT1
-  variant2 = ButtonIconProperty.VARIANT2
-  variant3 = ButtonIconProperty.VARIANT3
+  // variant1 = ButtonIconProperty.VARIANT1
+  // variant2 = ButtonIconProperty.VARIANT2
+  // variant3 = ButtonIconProperty.VARIANT3
   icon=ButtonIcon.CHEVRON_LEFT
   title1 = "Heading Large"
   title2 = "Heading Medium-Bold"
@@ -170,7 +170,7 @@ export class TestComponent {
   ];
   
   iconp = "fa-solid fa-plus"
-  txt1 = "Enter Book ID"
+  txt2 = "Enter Book ID"
 
   // onClick()
   // {
