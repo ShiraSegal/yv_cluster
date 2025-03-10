@@ -5,14 +5,15 @@
         </div>
 
         <div class="radio-buttons">
-            <input type="radio" formControlName="selection" value="bookid" (change)="onRadioChange()" />
-            <label class="value">Book ID</label>
-
-            <input type="radio" formControlName="selection" value="cluster" (change)="onRadioChange()" />
-            <label class="value">Cluster</label>
+            <yv-cluster-basic-radio-button class="radio"  formControlName="selection" value="bookid" [disabled]=false [checked]=checked1 [text]="label1" (click)="checkedChange()"></yv-cluster-basic-radio-button>
+            <!-- <input type="radio" formControlName="selection" value="bookid" />
+            <label class="value">Book ID</label> -->
+            <yv-cluster-basic-radio-button class="radio"  formControlName="selection" value="cluster" [disabled]=false [checked]=checked2 [text]="label2" (click)="checkedChange()"></yv-cluster-basic-radio-button>
+            <!-- <input type="radio" formControlName="selection" value="cluster" />
+            <label class="value">Cluster</label> -->
         </div>
 
-        <input class="input" type="text" formControlName="bookId" [placeholder]="selectedLabel" />
+        <input class="input" type="text" formControlName="bookId"/>
         <div class="outer-button-warp">
             <div class="divider"></div>
                 <div class="buttons-warp">

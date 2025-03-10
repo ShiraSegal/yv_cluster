@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { HeaderCellsComponent } from "../header-cells/header-cells.component";
 import { HeaderCellType } from 'src/app/enums/basic-enum';
+import { HeaderCellsComponent } from "../header-cells/header-cells.component";
 
 @Component({
   selector: 'yv-cluster-table-header',

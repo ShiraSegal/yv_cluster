@@ -1,25 +1,21 @@
 import { Component } from '@angular/core';
 import { ButtonType, DataCellType, HeaderCellType, SliderNavigationTabIconType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
+import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 import { TempButtonComponent } from '../basic-components/temp-button/temp-button.component';
+import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
 import { ButtonComponent } from '../basic-components/button/button.component';
 import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
-import { EnterBookidComponent } from '../basic-components/enter-bookid/enter-bookid.component';
 import { ButtonIcon } from 'src/app/enums/basic-enum';
-import { ButtonIconProperty } from 'src/app/enums/basic-enum';
-//import { HeaderComponent } from '../core-components/yv-header/yv-header.component';
 import { HeadingComponent } from '../basic-components/heading/heading.component';
 import { BodyComponent } from '../basic-components/body/body.component';
- 
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
 import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
 import { BasicTableRowComponent } from '../basic-components/basic-table-row/basic-table-row.component';
-//import { BasicTableWarpComponent } from '../basic-components/basic-table-warp/basic-table-warp.component';
 import { CheckComponent } from '../basic-components/check/check.component';
 import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
 import { HeaderCellsComponent } from '../basic-components/header-cells/header-cells.component';
-//import { NarrowBasicTableComponent } from '../basic-components/narrow-basic-table/narrow-basic-table.component';
 import { SliderComponent } from '../basic-components/slider/slider.component';
 import { TabElementComponent } from '../basic-components/tab-element/tab-element.component';
 import { TableHeaderComponent } from '../basic-components/table-header/table-header.component';
@@ -27,11 +23,48 @@ import { TextareaComponent } from '../basic-components/textarea/textarea.compone
 import { FieldComponent } from '../basic-components/field/field.component';
 import { SliderNavigationTabComponent } from '../basic-components/slider-navigation-tab/slider-navigation-tab.component';
 import { SlidebarNavigationComponent } from '../basic-components/slidebar-navigation/slidebar-navigation.component';
+import { SwitchComponent } from '../basic-components/switch/switch.component';
+import { BasicTabComponent } from '../basic-components/basic-tab/basic-tab.component';
+import { BasicToggleComponent } from '../basic-components/basic-toggle/basic-toggle.component';
+import { BasicRadioButtonComponent } from '../basic-components/basic-radio-button/basic-radio-button.component';
+import { FilterSectionComponent } from '../basic-components/filter-section/filter-section.component';
+import { BasicCardComponent } from '../basic-components/basic-card/basic-card.component';
+import { ToastNotificationComponent } from '../basic-components/toast-notification/toast-notification.component';
+import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
  
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [SlidebarNavigationComponent, SliderNavigationTabComponent, CommonModule, TempButtonComponent,IconButtonComponent,EnterBookidComponent,ButtonComponent,HeadingComponent,BodyComponent,AssigneeComponent,BasicTableComponent,BasicTableRowComponent,CheckComponent,DataCellsComponent,HeaderCellsComponent,SliderComponent,TabElementComponent,TableHeaderComponent,TextareaComponent,FieldComponent],
+  // imports: [CommonModule, TempButtonComponent,YvSelectComponent],
+  imports: [
+      SlidebarNavigationComponent,
+      SliderNavigationTabComponent,
+      HeadingComponent,
+      BodyComponent,
+      AssigneeComponent,
+      BasicTableComponent,
+      DataCellsComponent,
+      HeaderCellsComponent,
+      TabElementComponent,
+      FieldComponent,
+      CommonModule, 
+      TempButtonComponent,
+      IconButtonComponent,
+      FilterSectionComponent,
+      PieComponentDistributionModalComponent,
+      ButtonComponent,
+      BasicCardComponent,
+      ToastNotificationComponent,
+      BodyComponent,
+      BasicToggleComponent,
+      BasicRadioButtonComponent,
+      CheckComponent,
+     YvSelectComponent,
+      BasicTabComponent,
+      SliderComponent,
+      SwitchComponent,
+      TextareaComponent],
+
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
@@ -39,9 +72,13 @@ export class TestComponent {
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
   tertiany = ButtonType.TERTIARY
-  variant1 = ButtonIconProperty.VARIANT1
-  variant2 = ButtonIconProperty.VARIANT2
-  variant3 = ButtonIconProperty.VARIANT3
+  // variant1 = ButtonIconProperty.VARIANT1
+  // variant2 = ButtonIconProperty.VARIANT2
+  // variant3 = ButtonIconProperty.VARIANT3
+  // icon=ButtonIcon.CHEVRON_LEFT
+  // variant1 = ButtonIconProperty.VARIANT1
+  // variant2 = ButtonIconProperty.VARIANT2
+  // variant3 = ButtonIconProperty.VARIANT3
   icon=ButtonIcon.CHEVRON_LEFT
   title1 = "Heading Large"
   title2 = "Heading Medium-Bold"
@@ -57,15 +94,22 @@ export class TestComponent {
   btnType = ButtonType.PRIMARY;
   btnType2 = ButtonType.SECONDARY;
   txt1 = "test btn1"
- 
- 
-  title = 'yv-clusters';
+  // txt1 = "test btn1"
+
+  title = 'test';
+  isError: boolean = false;
+  isDisabled: boolean = false;
+  isFocused: boolean = false;
+  isPopulated: boolean = true;
+  label: string = 'label';
+
+  // title = 'yv-clusters';
   HeaderCellType = HeaderCellType;
   DataCellType = DataCellType;
   SliderNavigationTabIconType = SliderNavigationTabIconType;
   SliderNavigationTabType = SliderNavigationTabType;
  
-  cells = [
+   cells = [
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
@@ -80,6 +124,28 @@ export class TestComponent {
     // { data: 'Button Text', type: DataCellType.BUTTON },
     // { data: 'Slider Value', type: DataCellType.SLIDER }
   ];
+  // txt1 = "test btn1"
+  switchState: boolean = false;
+  tabState: boolean = false;
+  toggleState!: string;
+  radioButtonState: boolean = false;
+  CardIcons = CardIcons;
+  ToastNotificationIcons = ToastNotificationIcons;
+  // handleSort(event: { column: string, direction: string }) {
+
+  //   console.log(`Sorting by ${event.column} in ${event.direction} order`);
+  // }
+
+  // onClick() {
+  //   alert('test on click');
+  //   console.log('test on click');
+  // }
+ 
+
+  // iconp = "fa-solid fa-plus"
+  // // txt1 = "Enter Book ID"
+  // txt2 = "Enter Book ID"
+
   handleSort(event: { column: string, direction: string }) {
  
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
@@ -180,5 +246,25 @@ export class TestComponent {
   //   alert('test on click');
   //   console.log('test on click');
   // }
- 
+
+
+  handleSwitchChange(state: boolean) {
+    this.switchState = state;
+    console.log('Switch:', state ? 'דלוק' : 'מכובה');
+  }
+
+  handleTabChange(state: boolean) {
+    this.tabState = state;
+    console.log('Tab:', state ? 'דלוק' : 'מכובה');
+  }
+  handleToggleChange(state: string) {
+    this.toggleState = state;
+    console.log('state:', state);
+  }
+  handleRadioButtonChange(state: boolean) {
+    this.radioButtonState = state;
+    console.log('radioButton:', state ? 'דלוק' : 'מכובה');
+  }
 }
+
+ 
