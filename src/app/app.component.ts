@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TestComponent } from './components/test/test.component';
 import { RouterOutlet } from '@angular/router';
 
 

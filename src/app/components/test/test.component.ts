@@ -170,7 +170,7 @@ export class TestComponent {
   ];
   
   iconp = "fa-solid fa-plus"
-  txt1 = "Enter Book ID"
+  // txt1 = "Enter Book ID"
 
   // onClick()
   // {
