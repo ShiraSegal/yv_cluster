@@ -3,18 +3,18 @@
     <div class="tabs-center">
         @for(tab of tabs;track tab){
             <yv-cluster-slider-navigation-tab
-            [property]="activeTab === tab.property ? SliderNavigationTabType.ACTIVE : tab.property"
+            [property]="tab.property.value!"
             [icon]="tab.icon"
             (click)="setActiveTab(tab.property)">
-            </yv-cluster-slider-navigation-tab>    
+            </yv-cluster-slider-navigation-tab>     
          }
          <div class="line"></div> 
     </div>
     <div class="tabs-bottom">
         <yv-cluster-slider-navigation-tab
-        [property]="activeTab === SliderNavigationTabType.ACTIVE ? SliderNavigationTabType.ACTIVE : SliderNavigationTabType.VARIANT3"
+        [property]="SliderNavigationTabType.VARIANT3"
         [icon]="SliderNavigationTabIconType.LOGOUT"
-        (click)="setActiveTab(SliderNavigationTabType.ACTIVE)">
-    </yv-cluster-slider-navigation-tab>
+        (click)="setActiveLogoutTab()">
+        </yv-cluster-slider-navigation-tab>
     </div>
 </div>

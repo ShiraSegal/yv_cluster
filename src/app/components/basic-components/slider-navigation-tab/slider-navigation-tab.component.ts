@@ -15,4 +15,21 @@ export class SliderNavigationTabComponent {
 
   SliderNavigationTabIconType = SliderNavigationTabIconType;
   SliderNavigationTabType = SliderNavigationTabType;
+
+  getIconLabel(icon: SliderNavigationTabIconType): string {
+    switch (icon) {
+      case SliderNavigationTabIconType.HOME:
+        return 'Home';
+      case SliderNavigationTabIconType.AUTOCLUSRET:
+        return 'Auto Cluster';
+      case SliderNavigationTabIconType.LOGOUT:
+        return 'Logout';
+      case SliderNavigationTabIconType.REPORT:
+        return 'Report';
+      case SliderNavigationTabIconType.NEWCLUSTER:
+        return 'New Cluster';
+      default:
+        return icon;
+    }
+  }
 }
