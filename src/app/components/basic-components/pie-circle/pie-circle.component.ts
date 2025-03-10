@@ -15,7 +15,7 @@ export class PieCircleComponent {
   allDatabaseCount: number = 10000;
   date = {
     "LastName": [{   
-      "Count": 1000,
+      "Count": 2000,
       "Code": "T342541",
       "Value": "Bilstein"
     },{
