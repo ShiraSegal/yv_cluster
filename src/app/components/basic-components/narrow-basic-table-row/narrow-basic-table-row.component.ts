@@ -18,9 +18,9 @@ export class NarrowBasicTableRowComponent {
   DataCellType = DataCellType;
 
   // האם צריך להוריד? ישמש רק במקרה שירצו לשנות את המצב אחרי הקריאה הראשונית האם יש מקרה כזה??
-  changeState(newState: NarrowBasicTableRowInputState) {
-    this.property = newState;
-  }
+  // changeState(newState: NarrowBasicTableRowInputState) {
+  //   this.property = newState;
+  // }
 
  
 }

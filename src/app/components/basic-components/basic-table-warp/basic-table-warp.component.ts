@@ -27,10 +27,9 @@ export class BasicTableWarpComponent {
       currentRows: { property: BasicTableRowPropertyVariants; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [];
 
     getDataForTab(tab: BasicTablePropertyType) {
-      const tabData = this.data.property[tab];
-      if (tabData) {
-        this.currentHeaders = tabData.Headers;
-        this.currentRows = tabData.Rows;
+      if (this.data.property === tab) {
+        this.currentHeaders = this.data.Headers;
+        this.currentRows = this.data.Rows;
       }
     }
 
