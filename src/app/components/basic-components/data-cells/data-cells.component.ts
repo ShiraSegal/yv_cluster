@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { DataCellType } from 'src/app/enums/data-cell-enum';
+import { DataCellType, DataCellValue } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { SliderComponent } from "../slider/slider.component";
 
@@ -12,15 +12,16 @@ import { SliderComponent } from "../slider/slider.component";
   styleUrl: './data-cells.component.scss'
 })
 export class DataCellsComponent {
-  @Input() data: string | number | null = null;
   @Input() type: DataCellType = DataCellType.TEXT;
+  @Input() data: DataCellValue = DataCellValue;
   @Input() lineDataCells: boolean = false;
 
   DataCellType = DataCellType;
-  isString(value: any): value is string {
+  DataCellValue=DataCellValue;
+  isString(value: any){
     return typeof value === 'string' && value.trim().length > 0;
   }
-  isNumber(value: any): value is number {
+  isNumber(value: any) {
     return typeof value === 'number';
   }
   getFirstName(fullName: string): string {

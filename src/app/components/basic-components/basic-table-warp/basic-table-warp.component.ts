@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BasicTablePropertyType, BasicTableRowPropertyVariants } from 'src/app/enums/basic-enum';
-import { DataCellType } from 'src/app/enums/data-cell-enum';
+import { DataCellType } from 'src/app/enums/basic-enum';
 import { HeaderCellType } from 'src/app/enums/header-cell-enum';
 import { BasicTableComponent } from '../basic-table/basic-table.component';
 import { CommonModule } from '@angular/common';
@@ -26,15 +26,16 @@ export class BasicTableWarpComponent {
       currentHeaders: { data: string; type: HeaderCellType }[] = [];
       currentRows: { property: BasicTableRowPropertyVariants; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [];
 
-    getDataForTab(tab: BasicTablePropertyType) {
-      if (this.data.property === tab) {
-        this.currentHeaders = this.data.Headers;
-        this.currentRows = this.data.Rows;
-      }
-    }
+    // getDataForTab(tab: BasicTablePropertyType) {
+    //   if (this.data[property === tab]) {
+    //     this.currentHeaders = this.data.Headers;
+    //     this.currentRows = this.data.Rows;
+    //   } 
+    // }
 
-      setTab(tab: BasicTablePropertyType) {
-        this.data.property = tab;
+
+    tabChange(tab: BasicTablePropertyType) {
+        this.data.property = tab;  
         this.getDataForTab(tab);
       }
     }

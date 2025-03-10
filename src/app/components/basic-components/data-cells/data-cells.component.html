@@ -1,3 +1,27 @@
+<!-- The good varient -->
+<!-- <div [ngClass]="['cell', type]"> 
+    <ng-container >
+    @if("type === DataCellType.MORE"){
+        <i class="fas fa-ellipsis-v more-icon"></i>
+    }
+   @else if ("type === DataCellType.ICON")  {
+    <i class="fas fa-clipboard-list clipboard-list-icon"></i>
+   }
+   @else if ("type === DataCellType.ASSIGNEE && isString(data)")  {
+    <yv-cluster-assignee 
+            [firstName]="getFirstName(data)"  
+            [lastName]="getLastName(data)">
+        </yv-cluster-assignee>
+   }
+   @else if ("type === DataCellType.CHECK")  {
+    <i class="fa-solid fa-chevron-right"></i>
+   }
+   @else if ("type === DataCellType.SLIDER && isNumber(data)")  {
+    <yv-cluster-slider [value]="data"></yv-cluster-slider>
+   }
+    </ng-container>
+</div> -->
+<!-- just for runing -->
 <div [ngClass]="['cell', type]"> 
     <ng-container *ngIf="type === DataCellType.MORE">
         <i class="fas fa-ellipsis-v more-icon"></i>
@@ -7,18 +31,18 @@
         <i class="fas fa-clipboard-list clipboard-list-icon"></i>
     </ng-container>
     
-    <ng-container *ngIf="type === DataCellType.ASSIGNEE && isString(data)">
+ <ng-container *ngIf="type === DataCellType.ASSIGNEE && isString(data)">
         <yv-cluster-assignee 
             [firstName]="getFirstName(data)"  
             [lastName]="getLastName(data)">
         </yv-cluster-assignee>
-    </ng-container>
+    </ng-container> 
     
     <ng-container *ngIf="type === DataCellType.CHECK">
         <i class="fa-solid fa-chevron-right"></i>
     </ng-container>
     
-    <ng-container *ngIf="type === DataCellType.SLIDER && isNumber(data)">
+  <ng-container *ngIf="type === DataCellType.SLIDER && isNumber(data)">
         <yv-cluster-slider [value]="data"></yv-cluster-slider>
     </ng-container>
 </div>
