@@ -6,7 +6,7 @@
 (click)="onClick.emit()"
 >
   <i *ngIf="buttonIcon"
-    [ngClass]="{'icon':true,'variant1':iconProperty==='variant1','variant2':iconProperty==='variant2','variant3':iconProperty==='variant3'}"
-    [class]="buttonIcon"></i>
+    [class]="buttonIcon">
+  </i>
   {{ text }}
 </button>

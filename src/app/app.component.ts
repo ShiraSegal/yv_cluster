@@ -16,6 +16,5 @@ import { TestComponent } from './components/test/test.component';
   imports: [RouterOutlet,TestComponent],
 })
 export class AppComponent {
- 
 
 }
