@@ -20,7 +20,7 @@
     line-height: 1.25rem;
 }
 
-.switch-active {
+.active {
     display: flex;
     flex-direction: row;
     width: 1.59375rem;
@@ -33,7 +33,7 @@
 
 }
 
-.switch-not-active {
+.not-active {
     display: flex;
     flex-direction: row;
     width: 1.59375rem;
@@ -45,7 +45,26 @@
     background: $light_gray;
     cursor: pointer;
 }
+// .active.circle {
+//     width: 0.825rem;
+//     height: 0.825rem;
+//     flex-shrink: 0;
+//     border-radius: 82.5px;
+//     background: $royal_blue;
+//     box-shadow: 0px 1.65px 3.3px 0px rgba(39, 39, 39, 0.10);
+//     transition: transform 0.3s;
+// }
 
+// .not-active.circle {
+//     margin-right: 0.8300rem;
+//     width: 0.825rem;
+//     height: 0.825rem;
+//     flex-shrink: 0;
+//     border-radius: 5.15625rem;
+//     background: $white;
+//     box-shadow: -1.5px 0px 3px 0px rgba(39, 39, 39, 0.20);
+//     transition: transform 0.3s;
+// }
 .circle-active {
     width: 0.825rem;
     height: 0.825rem;
@@ -67,10 +86,10 @@
     transition: transform 0.3s;
 }
 
-.switch-active .circle-active {
+.active .circle-active {
     transform: translateX(100%);
 }
 
-.switch-not-active .circle-not-active {
+.not-active .circle-not-active {
     transform: translateX(0%);
 }
