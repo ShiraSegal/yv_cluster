@@ -12,17 +12,17 @@ import { SliderNavigationTabIconType, SliderNavigationTabType } from 'src/app/en
   styleUrls: ['./slidebar-navigation.component.scss']
 })
 export class SlidebarNavigationComponent {
- 
+
   SliderNavigationTabIconType = SliderNavigationTabIconType;
   SliderNavigationTabType = SliderNavigationTabType;
- 
+
   tabs = [
     { property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.HOME },
     { property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.AUTOCLUSRET },
     { property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.REPORT },
     { property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.NEWCLUSTER },
   ];
- 
+
   logoutTab = new FormControl(SliderNavigationTabType.VARIANT3);
 
   setActiveTab(tabControl: FormControl) {
@@ -34,11 +34,13 @@ export class SlidebarNavigationComponent {
     this.logoutTab.setValue(SliderNavigationTabType.VARIANT3);
     tabControl.setValue(SliderNavigationTabType.ACTIVE);
   }
- 
+
   setActiveLogoutTab() {
     this.tabs.forEach(tab => tab.property.setValue(SliderNavigationTabType.VARIANT3));
     this.logoutTab.setValue(SliderNavigationTabType.ACTIVE);
   }
 
- 
+  trackByProperty(index: number, tab: any): string {
+    return tab.icon;
+  }
 }

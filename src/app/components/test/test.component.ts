@@ -20,7 +20,6 @@ import { SliderComponent } from '../basic-components/slider/slider.component';
 import { TabElementComponent } from '../basic-components/tab-element/tab-element.component';
 import { TableHeaderComponent } from '../basic-components/table-header/table-header.component';
 import { TextareaComponent } from '../basic-components/textarea/textarea.component';
-import { FieldComponent } from '../basic-components/field/field.component';
 import { SliderNavigationTabComponent } from '../basic-components/slider-navigation-tab/slider-navigation-tab.component';
 import { SlidebarNavigationComponent } from '../basic-components/slidebar-navigation/slidebar-navigation.component';
 import { SwitchComponent } from '../basic-components/switch/switch.component';
@@ -31,11 +30,10 @@ import { FilterSectionComponent } from '../basic-components/filter-section/filte
 import { BasicCardComponent } from '../basic-components/basic-card/basic-card.component';
 import { ToastNotificationComponent } from '../basic-components/toast-notification/toast-notification.component';
 import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
- 
+import { FieldComponent } from '../basic-components/field/field.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  // imports: [CommonModule, TempButtonComponent,YvSelectComponent],
   imports: [
       SlidebarNavigationComponent,
       SliderNavigationTabComponent,
@@ -64,11 +62,11 @@ import { PieComponentDistributionModalComponent } from '../basic-components/pie-
       SliderComponent,
       SwitchComponent,
       TextareaComponent],
-
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
+  label: string = 'Lable';
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
   tertiany = ButtonType.TERTIARY
@@ -101,7 +99,7 @@ export class TestComponent {
   isDisabled: boolean = false;
   isFocused: boolean = false;
   isPopulated: boolean = true;
-  label: string = 'label';
+  // label: string = 'label';
 
   // title = 'yv-clusters';
   HeaderCellType = HeaderCellType;

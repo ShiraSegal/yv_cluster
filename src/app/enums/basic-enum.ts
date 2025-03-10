@@ -96,3 +96,11 @@ export  enum ToastNotificationIcons {
     REPORT="chart-line-up",
     NEWCLUSTER="plus",
       }
+
+  export enum State {
+    DEFAULT = "default",
+    FOCUSED = "focused",
+    POPULATED = "populated",
+    DISABLED = "disabled",
+    ERROR = "error"
+  }
