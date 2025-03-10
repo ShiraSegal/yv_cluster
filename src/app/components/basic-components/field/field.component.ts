@@ -6,7 +6,7 @@ import { Component, Input, SimpleChanges } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './field.component.html',
-  styleUrl: './field.component.scss'
+  styleUrls: ['./field.component.scss']
 })
 export class FieldComponent {
   @Input() error: boolean = false;
@@ -19,25 +19,10 @@ export class FieldComponent {
 
   state: string = 'default';
   selectedOption: string | null = null;
-  dropdownOpen = false;  toggleDropdown() {
-    this.dropdownOpen = !this.dropdownOpen;
-  }
- 
-  selectOption(option: string) {
-    this.selectedOption = option;
-    this.dropdownOpen = false;
-  }
-  setFocused() {
-    this.state = 'focused';
-  }
-  
-  removeFocus() {
-    if (!this.selectedOption) {
-      this.state = 'default'; 
-    } else {
-      this.state = 'populated';
-    }
-  }
+
+
+
+
   ngOnChanges(changes: SimpleChanges) {
     if (this.error) {
       this.state = 'error';

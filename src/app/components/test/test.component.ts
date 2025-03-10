@@ -24,18 +24,20 @@ import { SliderComponent } from '../basic-components/slider/slider.component';
 import { TabElementComponent } from '../basic-components/tab-element/tab-element.component';
 import { TableHeaderComponent } from '../basic-components/table-header/table-header.component';
 import { TextareaComponent } from '../basic-components/textarea/textarea.component';
-import { FieldComponent } from '../basic-components/field/field.component';
+
 import { SliderNavigationTabComponent } from '../basic-components/slider-navigation-tab/slider-navigation-tab.component';
 import { SlidebarNavigationComponent } from '../basic-components/slidebar-navigation/slidebar-navigation.component';
+import { FieldComponent } from '../basic-components/field/field.component';
  
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [SlidebarNavigationComponent, SliderNavigationTabComponent, CommonModule, TempButtonComponent,IconButtonComponent,EnterBookidComponent,ButtonComponent,HeadingComponent,BodyComponent,AssigneeComponent,BasicTableComponent,BasicTableRowComponent,CheckComponent,DataCellsComponent,HeaderCellsComponent,SliderComponent,TabElementComponent,TableHeaderComponent,TextareaComponent,FieldComponent],
+  imports: [ SlidebarNavigationComponent, SliderNavigationTabComponent, CommonModule, TempButtonComponent,IconButtonComponent,EnterBookidComponent,ButtonComponent,HeadingComponent,BodyComponent,AssigneeComponent,BasicTableComponent,BasicTableRowComponent,CheckComponent,DataCellsComponent,HeaderCellsComponent,SliderComponent,TabElementComponent,TableHeaderComponent,TextareaComponent,FieldComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
+  label: string = 'Lable';
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
   tertiany = ButtonType.TERTIARY
