@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonType, TextSize } from 'src/app/enums/basic-enum';
-import { ButtonComponent } from '../button/button.component';
-import { HeadingComponent } from '../heading/heading.component';
+import { ButtonComponent } from '../../basic-components/button/button.component';
+import { HeadingComponent } from '../../basic-components/heading/heading.component';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',

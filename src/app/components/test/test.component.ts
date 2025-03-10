@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TempButtonComponent } from '../basic-components/temp-button/temp-button.component';
 import { ButtonComponent } from '../basic-components/button/button.component';
 import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
-import { EnterBookidComponent } from '../basic-components/enter-bookid/enter-bookid.component';
+import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
 import { ButtonIcon } from 'src/app/enums/basic-enum';
 import { ButtonIconProperty } from 'src/app/enums/basic-enum';
 import { HeaderComponent } from '../core-components/yv-header/yv-header.component';
@@ -26,8 +26,7 @@ import { YvCheckComponent } from '../basic-components/yv-check/yv-check.componen
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [CommonModule,IconButtonComponent,EnterBookidComponent,ButtonComponent,HeadingComponent,BodyComponent],
-  imports: [CommonModule, TempButtonComponent,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent],
+  imports: [CommonModule,IconButtonComponent,EnterBookidComponent,ButtonComponent,HeadingComponent,BodyComponent,TempButtonComponent,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })
@@ -69,9 +68,8 @@ export class TestComponent {
     console.log('test on click');
   }
   
-  }
   iconp = "fa-solid fa-plus"
-   txt1 = "Enter Book ID"
+  txt2= "Enter Book ID"
 
 
 

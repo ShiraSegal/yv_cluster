@@ -40,15 +40,8 @@ export class ColorsAccessibilityService {
         this.document.documentElement.style.setProperty("--mint_green","#A5EBDD" );
         this.document.documentElement.style.setProperty("--forest_green","#1F8A74" );
         this.document.documentElement.style.setProperty("--black","#000" );
-
-        
-
-    }
-
-
         this.document.documentElement.style.setProperty("--light_blue","#B8C2EA" );
         this.document.documentElement.style.setProperty("--royal_blue","#5A71CE" );
-        this.document.documentElement.style.setProperty("--slate_blue","#3F4B5A" );
         this.document.documentElement.style.setProperty("--lavender_blue","#D0D6F1" );
         this.document.documentElement.style.setProperty("--cool_blue","#2449D8" );
         this.document.documentElement.style.setProperty("--light_gray_blue","#E1E5EA" );
@@ -61,7 +54,6 @@ export class ColorsAccessibilityService {
         this.document.documentElement.style.setProperty("--light_red","#FFEDED" );
         this.document.documentElement.style.setProperty("--mint_green","#A5EBDD" );
         this.document.documentElement.style.setProperty("--forest_green","#1F8A74" );
-        this.document.documentElement.style.setProperty("--black","#000" );
         this.document.documentElement.style.setProperty("--white","#FFF" );
         this.document.documentElement.style.setProperty("--medium-blue","#425DC7");
         this.document.documentElement.style.setProperty("--grade_variant_2","#F0F2F4" );

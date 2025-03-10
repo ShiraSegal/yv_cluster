@@ -25,3 +25,9 @@ export enum ButtonIcon{
     SMALL="small"
   }
 
+  export enum TextColor {
+    BLACK = "black",
+    SLATE_BLUE = "slate_blue",
+    NEUTRAL_GRAY = "neutral_gray",
+  }
+
