@@ -1,7 +1,6 @@
 <div [ngClass]="['tab', property]" >
-    <i [ngClass]="[property === 'active' ? 'fa-regular' : 'fa-light', 'fa-' + icon]"></i>
-    <div [ngClass]="[property === 'active' ? 'text-icon-regular' : 'text-icon-light', 'text-icon']">
-      {{ icon === SliderNavigationTabIconType.HOME ? 'Home' : icon === SliderNavigationTabIconType.AUTOCLUSRET ? 'Auto Cluster' : icon === SliderNavigationTabIconType.LOGOUT ? 'Logout' : icon === SliderNavigationTabIconType.REPORT ? 'Report' : icon === SliderNavigationTabIconType.NEWCLUSTER ? 'New Cluster' : icon }}
-    </div>
+  <i [ngClass]="[property === SliderNavigationTabType.ACTIVE ? 'fa-solid' : 'fa-light' , 'fa-' + icon]"></i>
+  <div [ngClass]="[property === SliderNavigationTabType.ACTIVE ? 'text-icon-regular' : 'text-icon-light', 'text-icon']">
+    {{ icon === SliderNavigationTabIconType.HOME ? 'Home' : icon === SliderNavigationTabIconType.AUTOCLUSRET ? 'Auto Cluster' : icon === SliderNavigationTabIconType.LOGOUT ? 'Logout' : icon === SliderNavigationTabIconType.REPORT ? 'Report' : icon === SliderNavigationTabIconType.NEWCLUSTER ? 'New Cluster' : icon }}
   </div>
-
+</div>

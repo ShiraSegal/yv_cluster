@@ -7,7 +7,7 @@ import { SliderNavigationTabIconType, SliderNavigationTabType } from 'src/app/en
   standalone: true,
   imports: [CommonModule],
   templateUrl: './slider-navigation-tab.component.html',
-  styleUrl: './slider-navigation-tab.component.scss'
+  styleUrls: ['./slider-navigation-tab.component.scss']
 })
 export class SliderNavigationTabComponent {
   @Input() property: SliderNavigationTabType = SliderNavigationTabType.VARIANT3;
