@@ -44,7 +44,7 @@ export class TestComponent {
   switchState: boolean = false;
   tabState: boolean = false;
   toggleState!: string;
-  radioButtonState: boolean = false;
+  radioButtonState: string = "";
   CardIcons = CardIcons;
   ToastNotificationIcons = ToastNotificationIcons;
   selectedOption: string = '';
@@ -73,7 +73,7 @@ radioButtonArray:string [] = ["a", "b", "c", "d","other"];
     this.toggleState = state;
     console.log('state:', state);
   }
-  handleRadioButtonChange(state: boolean) {
+  handleRadioButtonChange(state: string) {
     this.radioButtonState = state;
     console.log('radioButton:', state ? 'דלוק' : 'מכובה');
   }

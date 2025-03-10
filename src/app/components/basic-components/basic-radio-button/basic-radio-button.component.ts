@@ -14,11 +14,11 @@ export class BasicRadioButtonComponent {
   @Input() disable?: boolean;
   @Input() checked?: boolean;
   @Input() text!: string;
-  @Output() checkedChange = new EventEmitter<boolean>();
+  @Output() checkedChange = new EventEmitter<string>();
   changStatus() {
     if (!this.disable) {
       this.checked = !this.checked;
-      this.checkedChange.emit(this.checked);
+      this.checkedChange.emit(this.text);
     }
   }
 }

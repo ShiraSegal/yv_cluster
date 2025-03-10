@@ -1,4 +1,4 @@
-<div class="container">
+
     <div class="radio-container">
         <div></div>
         <div (click)="changStatus()" *ngIf="!disable && checked || disable && checked" [ngClass]="{
@@ -18,8 +18,8 @@
         @if (text !== "other") {
             <div class="text-radio-button">{{ text }}</div>
           } @else {
-            <div class="text-radio-button">"other"</div>
+            <input type="text" class="text-radio-button" placeholder="other" />
           }
           
     </div>
-</div>
+
