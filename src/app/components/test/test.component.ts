@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
+import { ButtonIcon, ButtonIconProperty, ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 import { TempButtonComponent } from '../basic-components/temp-button/temp-button.component';
@@ -31,18 +31,19 @@ import { TextareaComponent } from '../basic-components/textarea/textarea.compone
   selector: 'yv-cluster-test',
   standalone: true,
   // imports: [CommonModule, TempButtonComponent,YvSelectComponent],
-  imports: [CommonModule, TempButtonComponent,IconButtonComponent,EnterBookidComponent,ButtonComponent,HeadingComponent,BodyComponent,AssigneeComponent,BasicTableComponent,BasicTableRowComponent,BasicTableWarpComponent,CheckComponent,DataCellsComponent,HeaderCellsComponent,NarrowBasicTableComponent,SliderComponent,TabElementComponent,TableHeaderComponent,TextareaComponent],
+  imports: [CommonModule,NarrowBasicTableComponent, TempButtonComponent,IconButtonComponent,EnterBookidComponent,ButtonComponent,HeadingComponent,BodyComponent,AssigneeComponent,BasicTableComponent,BasicTableRowComponent,BasicTableWarpComponent,CheckComponent,DataCellsComponent,HeaderCellsComponent,NarrowBasicTableComponent,SliderComponent,TabElementComponent,TableHeaderComponent,TextareaComponent,YvSelectComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
+  options :string [] = [];
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
   tertiany = ButtonType.TERTIARY
-  // variant1 = ButtonIconProperty.VARIANT1
-  // variant2 = ButtonIconProperty.VARIANT2
-  // variant3 = ButtonIconProperty.VARIANT3
-  // icon=ButtonIcon.CHEVRON_LEFT
+  variant1 = ButtonIconProperty.VARIANT1
+  variant2 = ButtonIconProperty.VARIANT2
+  variant3 = ButtonIconProperty.VARIANT3
+  icon=ButtonIcon.CHEVRON_LEFT
   title1 = "Heading Large"
   title2 = "Heading Medium-Bold"
   title3 = "Heading Small"
