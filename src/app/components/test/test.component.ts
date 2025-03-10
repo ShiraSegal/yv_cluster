@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
+import { ButtonType, DataCellType, HeaderCellType, SliderNavigationTabIconType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 import { TempButtonComponent } from '../basic-components/temp-button/temp-button.component';
@@ -8,27 +8,30 @@ import { IconButtonComponent } from '../basic-components/icon-button/icon-button
 import { EnterBookidComponent } from '../basic-components/enter-bookid/enter-bookid.component';
 import { ButtonIcon } from 'src/app/enums/basic-enum';
 import { ButtonIconProperty } from 'src/app/enums/basic-enum';
-import { HeaderComponent } from '../core-components/yv-header/yv-header.component';
+//import { HeaderComponent } from '../core-components/yv-header/yv-header.component';
 import { HeadingComponent } from '../basic-components/heading/heading.component';
 import { BodyComponent } from '../basic-components/body/body.component';
-
+ 
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
 import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
 import { BasicTableRowComponent } from '../basic-components/basic-table-row/basic-table-row.component';
-import { BasicTableWarpComponent } from '../basic-components/basic-table-warp/basic-table-warp.component';
+//import { BasicTableWarpComponent } from '../basic-components/basic-table-warp/basic-table-warp.component';
 import { CheckComponent } from '../basic-components/check/check.component';
 import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
 import { HeaderCellsComponent } from '../basic-components/header-cells/header-cells.component';
-import { NarrowBasicTableComponent } from '../basic-components/narrow-basic-table/narrow-basic-table.component';
+//import { NarrowBasicTableComponent } from '../basic-components/narrow-basic-table/narrow-basic-table.component';
 import { SliderComponent } from '../basic-components/slider/slider.component';
 import { TabElementComponent } from '../basic-components/tab-element/tab-element.component';
 import { TableHeaderComponent } from '../basic-components/table-header/table-header.component';
 import { TextareaComponent } from '../basic-components/textarea/textarea.component';
-
+import { FieldComponent } from '../basic-components/field/field.component';
+import { SliderNavigationTabComponent } from '../basic-components/slider-navigation-tab/slider-navigation-tab.component';
+import { SlidebarNavigationComponent } from '../basic-components/slidebar-navigation/slidebar-navigation.component';
+ 
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [CommonModule, TempButtonComponent,IconButtonComponent,EnterBookidComponent,ButtonComponent,HeadingComponent,BodyComponent,AssigneeComponent,BasicTableComponent,BasicTableRowComponent,BasicTableWarpComponent,CheckComponent,DataCellsComponent,HeaderCellsComponent,NarrowBasicTableComponent,SliderComponent,TabElementComponent,TableHeaderComponent,TextareaComponent],
+  imports: [SlidebarNavigationComponent, SliderNavigationTabComponent, CommonModule, TempButtonComponent,IconButtonComponent,EnterBookidComponent,ButtonComponent,HeadingComponent,BodyComponent,AssigneeComponent,BasicTableComponent,BasicTableRowComponent,CheckComponent,DataCellsComponent,HeaderCellsComponent,SliderComponent,TabElementComponent,TableHeaderComponent,TextareaComponent,FieldComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
@@ -50,16 +53,17 @@ export class TestComponent {
   bodyText1: string = 'Body Large Upon initial observation, it may appear that there are only two primary scenarios for ';
   bodyText2: string = 'Body Medium Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
   bodyText3: string = 'Body Small Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
-
+ 
   btnType = ButtonType.PRIMARY;
   btnType2 = ButtonType.SECONDARY;
   txt1 = "test btn1"
  
-
+ 
   title = 'yv-clusters';
   HeaderCellType = HeaderCellType;
   DataCellType = DataCellType;
-
+  SliderNavigationTabIconType = SliderNavigationTabIconType;
+  SliderNavigationTabType = SliderNavigationTabType;
  
   cells = [
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
@@ -77,10 +81,10 @@ export class TestComponent {
     // { data: 'Slider Value', type: DataCellType.SLIDER }
   ];
   handleSort(event: { column: string, direction: string }) {
-
+ 
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
   }
-
+ 
   onClick() {
     alert('test on click');
     console.log('test on click');
@@ -90,7 +94,7 @@ export class TestComponent {
     { data: 'to do', type: HeaderCellType.TEXT },
     { data: '', type: HeaderCellType.PLACEOLDER },
   ];
-
+ 
   rows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
     {
       property: 'Default',
@@ -116,7 +120,7 @@ export class TestComponent {
     { data: 'done', type: HeaderCellType.TEXT },
     { data: '', type: HeaderCellType.CHECK },
   ];
-
+ 
   rows2: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
     {
       property: 'Default',
@@ -137,14 +141,14 @@ export class TestComponent {
       ]
     }
   ];
-
+ 
   headers1: { data: string; type: HeaderCellType }[] = [
     { data: 'name list', type: HeaderCellType.TEXT },
     { data: 'done ', type: HeaderCellType.TEXT },
     { data: 'to do', type: HeaderCellType.TEXT },
     { data: '', type: HeaderCellType.PLACEOLDER },
   ];
-
+ 
   rows1: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
     {
       property: 'Default',
@@ -164,18 +168,17 @@ export class TestComponent {
         { data: ' ', type: DataCellType.SLIDER },
         { data: 'Data ', type: DataCellType.TEXT },
         { data: '', type: DataCellType.CHECK },
-
+ 
       ]
     }
   ];
-  
+ 
   iconp = "fa-solid fa-plus"
   // txt1 = "Enter Book ID"
-
   // onClick()
   // {
   //   alert('test on click');
   //   console.log('test on click');
   // }
-
+ 
 }
