@@ -3,7 +3,6 @@ import { ButtonType, DataCellType, HeaderCellType, SliderNavigationTabIconType, 
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
-import { TempButtonComponent } from '../basic-components/temp-button/temp-button.component';
 import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
 import { ButtonComponent } from '../basic-components/button/button.component';
 import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
@@ -46,7 +45,6 @@ import { FieldComponent } from '../basic-components/field/field.component';
       TabElementComponent,
       FieldComponent,
       CommonModule, 
-      TempButtonComponent,
       IconButtonComponent,
       FilterSectionComponent,
       PieComponentDistributionModalComponent,
