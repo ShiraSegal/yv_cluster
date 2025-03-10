@@ -5,10 +5,22 @@ export  enum ButtonType {
   SECONDARY = "secondary",
   TERTIARY = "tertiary"
 }
-export enum ButtonIconProperty{
-VARIANT1="variant1",
-VARIANT2="variant2",
-VARIANT3="variant3"
+export enum NarrowBasicTableRowInputState {
+  DEFAULT = 'Default',
+  HOVER = 'Hover'
+}
+export enum BasicTableRowPropertyVariants {
+  DEFAULT = 'Default',
+  VARIANT2 = 'Variant2',
+}
+
+export enum BasicTablePropertyType{
+  OLD_SUGGESTIONS= 'Old Suggestions',
+  NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
+}
+export enum ButtonSize{
+  BIG="big",
+  SMALL="small"
 }
 
 export enum ButtonIcon{
@@ -27,7 +39,39 @@ export enum ButtonIcon{
 
   export enum TextColor {
     BLACK = "black",
-    SLATE_BLUE = "slate_blue",
-    NEUTRAL_GRAY = "neutral_gray",
+    SLATE_BLUE = "slate-blue",
+    NEUTRAL_GRAY = "neutral-gray",
+  }
+ 
+  export enum DataCellType {
+    TEXT = 'text',
+    MORE = 'more',
+    STATUS = 'status',
+    CHECK = 'check',
+    LINK = 'link',
+    ICON = 'icon',
+    ASSIGNEE = 'assignee',
+    BUTTON = 'button',
+    SLIDER='slider'
+  }
+  export enum HeaderCellType {
+    TEXT = "text",
+    MORE = "more",
+    HEADERSEARCH = "header-search",
+    PLACEOLDER = "place-order",
+    ORDER = "order",
+    CHECK = "check",
+    ORDERDOWN = "order down"
   }
 
+export  enum CardIcons {
+  HOURGLASS_CLOCK="fa-solid fa-hourglass-clock",
+  CLOCK_FIVE="fa-solid fa-clock-five",
+  EDIT="fa-solid fa-pen-to-square",
+  CIRCLE_CHECK="fa-solid fa-circle-check",
+  HOME="fa-light fa-house"
+    }
+export  enum ToastNotificationIcons {
+  ERROR="fa-solid fa-circle-xmark",
+  SUCCESS="fa-solid fa-circle-check",
+    }    

@@ -1,8 +1,8 @@
 <div class="basic-toggle" (click)="changStatus()">
-    <div [ngClass]="{'circle-status-yes': status, 'circle-status-no': !status}">
-        <div [ngClass]="{'text-status-yes': status, 'text-status-no': !status}">{{ leftText }}</div>
+    <div [ngClass]="{'circle-selected': !rightSelected, 'circle-not-selected': rightSelected}">
+        <div [ngClass]="{'text-selected': !rightSelected, 'text-not-selected': rightSelected}">{{ leftText }}</div>
     </div>
-    <div [ngClass]="{'circle-status-yes': !status, 'circle-status-no': status}">
-        <div [ngClass]="{'text-status-yes': !status, 'text-status-no': status}">{{ rightText }}</div>
+    <div [ngClass]="{'circle-selected': rightSelected, 'circle-not-selected': !rightSelected}">
+        <div [ngClass]="{'text-selected': rightSelected, 'text-not-selected': !rightSelected}">{{ rightText }}</div>
     </div>
 </div>

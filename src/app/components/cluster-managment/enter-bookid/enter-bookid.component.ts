@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonType, TextSize } from 'src/app/enums/basic-enum';
+import { ButtonSize, ButtonType, TextSize } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 
@@ -17,6 +17,7 @@ export class EnterBookidComponent  {
   selectedLabel: string = 'Book Id';
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
+  btn_size:ButtonSize=ButtonSize.SMALL
   button1: string = 'Cancel';
   button2: string = 'Add';
   close:boolean = false;
@@ -27,7 +28,7 @@ export class EnterBookidComponent  {
     bookId: new FormControl('', Validators.required) 
   });
 
-  onRadioChange() {
+  checkChange() {
     const value = this.formGroup.get('selection')?.value;
     this.selectedLabel = value === 'bookid' ? 'Book Id' : 'Cluster';
   }

@@ -16,10 +16,6 @@
         width: 24.25rem;
         align-items: center;
         gap: var(--Layout-medium, 0.5rem);
-
-        // .header {
-        //     color:$neutral_gray;
-        // }
     }
 
     .radio-buttons {
@@ -72,16 +68,6 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
         flex: 1 0 0;
-
-        &::placeholder {
-            color:$light_gray;
-            text-overflow: ellipsis;
-            font-family: Poppins;
-            font-size: 0.875rem;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 1.25rem;
-        }
     }
 
     .outer-button-warp {
@@ -93,7 +79,7 @@
         .divider {
             height: 0.4375rem;
             align-self: stretch;
-            border-top: 1px solid var(--main-outline-neutral, #E1E5EA);
+            border-top: 1px solid $light_gray_blue;
         
         }
 
