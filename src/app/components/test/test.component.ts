@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
-import { ButtonType, CardIcons, ToastNotificationIcons } from 'src/app/enums/basic-enum';
+import { ButtonType, CardIcons, ToastNotificationIcons,DataCellType, HeaderCellType } from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 import { TempButtonComponent } from '../basic-components/temp-button/temp-button.component';
 import { ButtonComponent } from '../basic-components/button/button.component';
@@ -25,32 +24,11 @@ import { SliderComponent } from '../basic-components/slider/slider.component';
 import { TabElementComponent } from '../basic-components/tab-element/tab-element.component';
 import { TableHeaderComponent } from '../basic-components/table-header/table-header.component';
 import { TextareaComponent } from '../basic-components/textarea/textarea.component';
-import { YvSliderComponent } from '../basic-components/yv-slider/yv-slider.component';
-import { HeaderCellType } from 'src/app/enums/header-cell-enum';
-import { YvAssigneeComponent } from '../basic-components/yv-assignee/yv-assignee.component';
-import { YvBasicTableComponent } from '../basic-components/yv-basic-table/yv-basic-table.component';
-import { YvBasicTableRowComponent } from '../basic-components/yv-basic-table-row/yv-basic-table-row.component';
-import { YvDataCellsComponent } from '../basic-components/yv-data-cells/yv-data-cells.component';
-import { YvHeaderCellsComponent } from '../basic-components/yv-header-cells/yv-header-cells.component';
-import { YvInputComponent } from '../basic-components/yv-input/yv-input.component';
-import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
-import { YvTableHeaderComponent } from '../basic-components/yv-table-header/yv-table-header.component';
-import { YvTextareaComponent } from '../basic-components/yv-textarea/yv-textarea.component';
-import { YvCheckComponent } from '../basic-components/yv-check/yv-check.component';
-import { SwitchComponent } from '../basic-components/switch/switch.component';
-import { BasicTabComponent } from '../basic-components/basic-tab/basic-tab.component';
-import { BasicCardComponent } from '../basic-components/basic-card/basic-card.component';
-import { BasicRadioButtonComponent } from '../basic-components/basic-radio-button/basic-radio-button.component';
-import { BasicToggleComponent } from '../basic-components/basic-toggle/basic-toggle.component';
-import { FilterSectionComponent } from '../basic-components/filter-section/filter-section.component';
-import { ToastNotificationComponent } from '../basic-components/toast-notification/toast-notification.component';
-import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
 
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
   imports: [CommonModule, TempButtonComponent,IconButtonComponent,EnterBookidComponent,ButtonComponent,HeadingComponent,BodyComponent,AssigneeComponent,BasicTableComponent,BasicTableRowComponent,BasicTableWarpComponent,CheckComponent,DataCellsComponent,HeaderCellsComponent,NarrowBasicTableComponent,SliderComponent,TabElementComponent,TableHeaderComponent,TextareaComponent],
-  imports: [CommonModule, TempButtonComponent,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent,TempButtonComponent,BasicTabComponent,BasicCardComponent,BasicRadioButtonComponent,BasicToggleComponent,FilterSectionComponent,ToastNotificationComponent,SwitchComponent,PieComponentDistributionModalComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
@@ -76,13 +54,13 @@ export class TestComponent {
   btnType = ButtonType.PRIMARY;
   btnType2 = ButtonType.SECONDARY;
   txt1 = "test btn1"
- 
+
 
   title = 'yv-clusters';
   HeaderCellType = HeaderCellType;
   DataCellType = DataCellType;
 
- 
+
   cells = [
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
@@ -136,7 +114,7 @@ export class TestComponent {
       cells: [
         { data: 'Data 2', type: DataCellType.TEXT },
         { data: 'Link to something', type: DataCellType.LINK },
-       
+
       ]
     }
   ];
@@ -197,7 +175,7 @@ export class TestComponent {
       ]
     }
   ];
-  
+
   iconp = "fa-solid fa-plus"
   txt2 = "Enter Book ID"
 
