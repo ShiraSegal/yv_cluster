@@ -26,11 +26,11 @@
 }
 
 .secondary {
-  border: 1px solid $light_blue;
+  border: 1px solid $light_royal_blue;
   background-color:$white;
   color: $primary_btn;
   &:hover {
-    background: $grade_variant_4;
+    background: $pastel-blue;
   }
 
   &:disabled {
@@ -47,11 +47,11 @@
   background-color:$white;
 
   &:hover {
-    background: $grade_variant_4;
+    background: $pastel-blue;
   }
 
   &:active {
-    background: $grade_variant_4;
+    background: $pastel-blue;
   }
   &:disabled {
     color:$sage_gray;
