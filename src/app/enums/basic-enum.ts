@@ -121,6 +121,7 @@ export  enum ToastNotificationIcons {
     AUTOCLUSRET="Auto Cluster",
     REPORT="Report",
     NEWCLUSTER="New Cluster",
+    
       }
 
   export enum State {

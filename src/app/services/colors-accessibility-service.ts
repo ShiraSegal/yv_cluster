@@ -32,7 +32,7 @@ export class ColorsAccessibilityService {
         this.document.documentElement.style.setProperty("--sage_gray","#C4C7C5" );;
         this.document.documentElement.style.setProperty("--silver_gray", "#A5B1C0");
         this.document.documentElement.style.setProperty("--dark_gray", "#262C34");
-        this.document.documentElement.style.setProperty("--white", "#FFFFFF");
+        this.document.documentElement.style.setProperty("--white", "#FFF");
         this.document.documentElement.style.setProperty("--peach_pink", "#F6CDCD");
         this.document.documentElement.style.setProperty("--red", "#C00");
         this.document.documentElement.style.setProperty("--rose_red", "#E25F5F");
