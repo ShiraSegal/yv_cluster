@@ -1,20 +1,12 @@
 
 import { Component } from '@angular/core';
-<<<<<<< HEAD
-import { ButtonSize, ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
-import {TextSize } from 'src/app/enums/basic-enum';
-import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
-import { CommonModule } from '@angular/common';
-// import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
-=======
 // import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabIconType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
-import { ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
+import { ButtonSize, ButtonType, DataCellType, HeaderCellType, TextWeight} from 'src/app/enums/basic-enum';
 
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
->>>>>>> 157001e7820887ab9639b8df50e8ace10b1fa75c
 import { ButtonComponent } from '../basic-components/button/button.component';
 import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
 import { ButtonIcon } from 'src/app/enums/basic-enum';
@@ -42,10 +34,9 @@ import { ToastNotificationComponent } from '../basic-components/toast-notificati
 import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
 // import { FieldComponent } from '../basic-components/field/field.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
-<<<<<<< HEAD
-=======
 import { RadioButtonListComponent } from '../basic-components/radio-button-list/radio-button-list.component';
->>>>>>> 157001e7820887ab9639b8df50e8ace10b1fa75c
+import { CreateClusterComponent } from '../cluster-managment/create-cluster/create-cluster.component';
+import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -72,21 +63,14 @@ import { RadioButtonListComponent } from '../basic-components/radio-button-list/
       BasicToggleComponent,
       BasicRadioButtonComponent,
       CheckComponent,
-<<<<<<< HEAD
-    //  YvSelectComponent,
-      BasicTabComponent,
-      SliderComponent,
-      SwitchComponent,
-      TextareaComponent],
-=======
      YvSelectComponent,
       BasicTabComponent,
       SliderComponent,
       SwitchComponent,
       TextareaComponent,
-      RadioButtonListComponent
+      RadioButtonListComponent,
+      CreateClusterComponent
     ],
->>>>>>> 157001e7820887ab9639b8df50e8ace10b1fa75c
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
@@ -95,32 +79,27 @@ export class TestComponent {
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
   tertiany = ButtonType.TERTIARY
-  // CheckStateType = CheckStateType;
-  // CheckType = CheckType;
-<<<<<<< HEAD
-=======
-  // variant1 = ButtonIconProperty.VARIANT1
-  // variant2 = ButtonIconProperty.VARIANT2
-  // variant3 = ButtonIconProperty.VARIANT3
-  // icon=ButtonIcon.CHEVRON_LEFT
->>>>>>> 157001e7820887ab9639b8df50e8ace10b1fa75c
-  // variant1 = ButtonIconProperty.VARIANT1
-  // variant2 = ButtonIconProperty.VARIANT2
-  // variant3 = ButtonIconProperty.VARIANT3
-  // icon=ButtonIcon.CHEVRON_LEFT
-  // variant1 = ButtonIconProperty.VARIANT1
-  // variant2 = ButtonIconProperty.VARIANT2
-  // variant3 = ButtonIconProperty.VARIANT3
   big=ButtonSize.BIG
   small=ButtonSize.SMALL
+  // CheckStateType = CheckStateType;
+  // CheckType = CheckType;
+  // variant1 = ButtonIconProperty.VARIANT1
+  // variant2 = ButtonIconProperty.VARIANT2
+  // variant3 = ButtonIconProperty.VARIANT3
+  // icon=ButtonIcon.CHEVRON_LEFT
+  // variant1 = ButtonIconProperty.VARIANT1
+  // variant2 = ButtonIconProperty.VARIANT2
+  // variant3 = ButtonIconProperty.VARIANT3
   icon=ButtonIcon.CHEVRON_LEFT
   title1 = "Heading Large"
   title2 = "Heading Medium-Bold"
   title3 = "Heading Small"
   title4 = "Heading Small-bold"
-  size1:TextSize = TextSize.LARGE
-  size2:TextSize = TextSize.MEDIUM
-  size3:TextSize = TextSize.SMALL
+  size1 = TextSize.LARGE
+  size2 = TextSize.MEDIUM
+  size3 = TextSize.SMALL
+  weight1=TextWeight.BOLD
+  weight2=TextWeight.NORMAL
   bodyText1: string = 'Body Large Upon initial observation, it may appear that there are only two primary scenarios for ';
   bodyText2: string = 'Body Medium Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
   bodyText3: string = 'Body Small Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
@@ -165,11 +144,8 @@ export class TestComponent {
   radioButtonState: boolean = false;
   CardIcons = CardIcons;
   ToastNotificationIcons = ToastNotificationIcons;
-<<<<<<< HEAD
-=======
     selectedOption: string = '';
 radioButtonArray:string [] = ["a", "b", "c", "d","other"];
->>>>>>> 157001e7820887ab9639b8df50e8ace10b1fa75c
   // handleSort(event: { column: string, direction: string }) {
  
   //   console.log(`Sorting by ${event.column} in ${event.direction} order`);
@@ -304,14 +280,9 @@ radioButtonArray:string [] = ["a", "b", "c", "d","other"];
     this.radioButtonState = state;
     console.log('radioButton:', state ? 'דלוק' : 'מכובה');
   }
-<<<<<<< HEAD
-}
- 
-=======
 
   onRadioSelectionChange(selectedValue: string) {
     this.selectedOption = selectedValue;
     console.log("האפשרות שנבחרה:", this.selectedOption);
   }
 }
->>>>>>> 157001e7820887ab9639b8df50e8ace10b1fa75c

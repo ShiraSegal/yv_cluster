@@ -51,6 +51,11 @@ export enum ButtonIcon{
     NEUTRAL_GRAY = "neutral-gray",
   }
  
+  export enum TextWeight {
+    BOLD = "bold",
+    NORMAL = "normal"
+    }
+
   export enum DataCellType {
     TEXT = 'text',
     MORE = 'more',

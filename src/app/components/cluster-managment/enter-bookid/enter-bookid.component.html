@@ -1,16 +1,16 @@
 <form [formGroup]="formGroup">
     <div class="card">
         <div class="header-warp">
-            <yv-cluster-heading [title]="header" [size]="size" [isBold]=true></yv-cluster-heading>
+            <yv-cluster-heading [title]="header" [size]="size" [weight]="weight" [color]="color"></yv-cluster-heading>
         </div>
 
         <div class="radio-buttons">
-            <!-- <yv-cluster-basic-radio-button class="radio"  formControlName="selection" value="bookid" [disabled]=false [checked]=checked1 [text]="label1" (click)="checkedChange()"></yv-cluster-basic-radio-button> -->
-            <input type="radio" formControlName="selection" value="bookid" />
-            <label class="value">Book ID</label>
-            <!-- <yv-cluster-basic-radio-button class="radio"  formControlName="selection" value="cluster" [disabled]=false [checked]=checked2 [text]="label2" (click)="checkedChange()"></yv-cluster-basic-radio-button> -->
-            <input type="radio" formControlName="selection" value="cluster" />
-            <label class="value">Cluster</label>
+            <yv-cluster-basic-radio-button class="radio"  formControlName="selection" value="bookid" [disabled]=false [checked]=checked1 [text]="label1" (click)="checkedChange()"></yv-cluster-basic-radio-button>
+            <!-- <input type="radio" formControlName="selection" value="bookid" />
+            <label class="value">Book ID</label> -->
+            <yv-cluster-basic-radio-button class="radio"  formControlName="selection" value="cluster" [disabled]=false [checked]=checked2 [text]="label2" (click)="checkedChange()"></yv-cluster-basic-radio-button>
+            <!-- <input type="radio" formControlName="selection" value="cluster" />
+            <label class="value">Cluster</label> -->
         </div>
 
         <input class="input" type="text" formControlName="bookId"/>
