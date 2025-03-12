@@ -30,7 +30,7 @@
   background-color:$white;
   color: $primary_btn;
   &:hover {
-    background: $grade_variant_4;
+    // background: $grade_variant_4;
   }
 
   &:disabled {
@@ -47,11 +47,11 @@
   background-color:$white;
 
   &:hover {
-    background: $grade_variant_4;
+    // background: $grade_variant_4;
   }
 
   &:active {
-    background: $grade_variant_4;
+    // background: $grade_variant_4;
   }
   &:disabled {
     color:$sage_gray;
