@@ -1,48 +1,38 @@
-<!-- The good varient -->
-<!-- <div [ngClass]="['cell', type]"> 
-    <ng-container >
-    @if("type === DataCellType.MORE"){
-        <i class="fas fa-ellipsis-v more-icon"></i>
+<div [ngClass]="['cell', type]">
+    @if(type === DataCellType.TEXT && isString(data)){
+    {{ data }}
     }
-   @else if ("type === DataCellType.ICON")  {
-    <i class="fas fa-clipboard-list clipboard-list-icon"></i>
-   }
-   @else if ("type === DataCellType.ASSIGNEE && isString(data)")  {
-    <yv-cluster-assignee 
-            [firstName]="getFirstName(data)"  
-            [lastName]="getLastName(data)">
-        </yv-cluster-assignee>
-   }
-   @else if ("type === DataCellType.CHECK")  {
-    <i class="fa-solid fa-chevron-right"></i>
-   }
-   @else if ("type === DataCellType.SLIDER && isNumber(data)")  {
-    <yv-cluster-slider [value]="data"></yv-cluster-slider>
-   }
-    </ng-container>
-</div> -->
-<!-- just for runing -->
-<div [ngClass]="['cell', type]"> 
-    <ng-container *ngIf="type === DataCellType.MORE">
-        <i class="fas fa-ellipsis-v more-icon"></i>
-    </ng-container>
+    @if(type === DataCellType.MORE ){
+    <i class="fas fa-ellipsis-v more-icon"></i>
+    }
+    @if(type === DataCellType.CHECK){
+        <yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
+    }
+
+    @if(type === DataCellType.STATUS){
+    <!-- <yv-cluster-badge [status]="data"></yv-cluster-badge> -->
+    }
+    <!-- <yv-cluster-badge [status]="data"></yv-cluster-badge> -->
+
     
-    <ng-container *ngIf="type === DataCellType.ICON">
-        <i class="fas fa-clipboard-list clipboard-list-icon"></i>
-    </ng-container>
+    @if(type === DataCellType.ASSIGNEE ){
+
+        <yv-cluster-assignee firstName="Ariela" lastName="Zoppelmann"></yv-cluster-assignee>
+    }
+   
+    @if(type === DataCellType.LINK && isString(data)){        
+        <a [href]="data">{{ data }}</a>
+        }
+      
+    @if(type === DataCellType.ICON){           
+        <i class="fas fa-user"></i>
+    }
+ 
+    @if(type === DataCellType.SLIDER  && isNumber(data) ){       
+        <yv-cluster-slider [value]=data></yv-cluster-slider>
+    }
     
- <ng-container *ngIf="type === DataCellType.ASSIGNEE && isString(data)">
-        <yv-cluster-assignee 
-            [firstName]="getFirstName(data)"  
-            [lastName]="getLastName(data)">
-        </yv-cluster-assignee>
-    </ng-container> 
-    
-    <ng-container *ngIf="type === DataCellType.CHECK">
-        <i class="fa-solid fa-chevron-right"></i>
-    </ng-container>
-    
-  <ng-container *ngIf="type === DataCellType.SLIDER && isNumber(data)">
-        <yv-cluster-slider [value]="data"></yv-cluster-slider>
-    </ng-container>
+    @if(type === DataCellType.BUTTON && isString(data)){       
+        <yv-cluster-button (onClick)="onClick()" text=data [buttonType]=ButtonType.SECONDARY [buttonIcon]=ButtonIcon.CHEVRON_LEFT></yv-cluster-button>
+    }
 </div>

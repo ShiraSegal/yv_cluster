@@ -1,9 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { DataCellType } from 'src/app/enums/data-cell-enum';
-import { HeaderCellType } from 'src/app/enums/header-cell-enum';
-
 import { BasicTableRowComponent } from "../basic-table-row/basic-table-row.component";
-import { BasicTableRowPropertyVariants } from 'src/app/enums/basic-enum';
+import { BasicTableRowPropertyVariants, DataCellType, HeaderCellType } from 'src/app/enums/basic-enum';
 import { TableHeaderComponent } from '../table-header/table-header.component';
 
 @Component({

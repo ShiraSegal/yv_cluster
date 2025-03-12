@@ -6,13 +6,6 @@ export  enum ButtonType {
   TERTIARY = "tertiary"
 }
 
-export enum State {
-  DEFAULT = "default",
-  FOCUSED = "focused",
-  POPULATED = "populated",
-  DISABLED = "disabled",
-  ERROR = "error"
-}
 export enum NarrowBasicTableRowInputState {
   DEFAULT = 'Default',
   HOVER = 'Hover'
@@ -27,10 +20,6 @@ export enum BasicTablePropertyType{
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
 
-// export enum CheckType{
-//     UNSELECTED ='unselected',
-//     SELECTED = 'checked'
-// }
 export enum CheckType{
   UNCHECKED ='unchecked',
   CHECKED = 'checked'
@@ -39,17 +28,7 @@ export enum CheckStateType{
   ENABLED ='enabled',
   DISABLED = 'disabled'
 }
-export enum DataCellType {
-  TEXT = 'text',
-  MORE = 'more',
-  STATUS = 'status',
-  CHECK = 'check',
-  LINK = 'link',
-  ICON = 'icon',
-  ASSIGNEE = 'assignee',
-  BUTTON = 'button',
-  SLIDER='slider'
-}
+
 export enum DataCellDataType {
   TEXT = 'string',
   MORE = 'more',
@@ -62,15 +41,6 @@ export enum DataCellDataType {
   SLIDER='slider'
 }
 
-export enum HeaderCellType {
-  TEXT = "text",
-  MORE = "more",
-  HEADERSEARCH = "header-search",
-  PLACEOLDER = "place-order",
-  ORDER = "order",
-  CHECK = "check",
-  ORDERDOWN = "order down"
-}
 export enum AutoClusterTabType {
   SAPIR_CLUSTERS = 'Sapir Clusters',
   MISSING_FIELD = 'Missing Field',
@@ -114,8 +84,10 @@ export enum ButtonIcon{
     ICON = 'icon',
     ASSIGNEE = 'assignee',
     BUTTON = 'button',
-    SLIDER='slider'
+    SLIDER='slider',
+    PLACEOLDER = 'place-order',
   }
+
   export enum HeaderCellType {
     TEXT = "text",
     MORE = "more",
@@ -125,6 +97,7 @@ export enum ButtonIcon{
     CHECK = "check",
     ORDERDOWN = "order down"
   }
+  export type DataCellValue = string | number;
 
 export  enum CardIcons {
   HOURGLASS_CLOCK="fa-solid fa-hourglass-clock",
@@ -142,12 +115,12 @@ export  enum ToastNotificationIcons {
     VARIANT3="variant3",
     ACTIVE="active"
   }
-  export enum SliderNavigationTabIconType{
-    HOME="house",
-    LOGOUT="left-from-bracket",
-    AUTOCLUSRET="list",
-    REPORT="chart-line-up",
-    NEWCLUSTER="plus",
+  export enum SliderNavigationTabTextType{
+    HOME="Home",
+    LOGOUT="Logout",
+    AUTOCLUSRET="Auto Cluster",
+    REPORT="Report",
+    NEWCLUSTER="New Cluster",
       }
 
   export enum State {

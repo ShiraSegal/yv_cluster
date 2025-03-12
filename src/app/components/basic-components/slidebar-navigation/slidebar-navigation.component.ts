@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { SliderNavigationTabComponent } from '../slider-navigation-tab/slider-navigation-tab.component';
-import { SliderNavigationTabIconType, SliderNavigationTabType } from 'src/app/enums/basic-enum';
+import { SliderNavigationTabTextType, SliderNavigationTabType } from 'src/app/enums/basic-enum';
+import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
  
 @Component({
   selector: 'yv-cluster-slidebar-navigation',
@@ -12,15 +13,15 @@ import { SliderNavigationTabIconType, SliderNavigationTabType } from 'src/app/en
   styleUrls: ['./slidebar-navigation.component.scss']
 })
 export class SlidebarNavigationComponent {
-
-  SliderNavigationTabIconType = SliderNavigationTabIconType;
-  SliderNavigationTabType = SliderNavigationTabType;
+  sliderNavigationTabTextType = SliderNavigationTabTextType;
+  sliderNavigationTabIconType = SliderNavigationTabIconType;
+  sliderNavigationTabType = SliderNavigationTabType;
 
   tabs = [
-    { property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.HOME },
-    { property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.AUTOCLUSRET },
-    { property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.REPORT },
-    { property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.NEWCLUSTER },
+    { property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.HOMELIGHT ,text:SliderNavigationTabTextType.HOME},
+    { property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.AUTOCLUSRETLIGHT,text:SliderNavigationTabTextType.AUTOCLUSRET },
+    { property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.REPORTLIGHT ,text:SliderNavigationTabTextType.REPORT},
+    { property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.NEWCLUSTERLIGHT ,text:SliderNavigationTabTextType.NEWCLUSTER},
   ];
 
   logoutTab = new FormControl(SliderNavigationTabType.VARIANT3);

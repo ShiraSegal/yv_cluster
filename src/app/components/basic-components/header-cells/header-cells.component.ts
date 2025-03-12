@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CheckComponent } from "../check/check.component";
 import { CommonModule } from '@angular/common';
-import { HeaderCellType } from 'src/app/enums/basic-enum';
+import { CheckStateType, CheckType, HeaderCellType } from 'src/app/enums/basic-enum';
 
 @Component({
   selector: 'yv-cluster-header-cells',
@@ -15,6 +15,8 @@ export class HeaderCellsComponent {
   @Input() type: HeaderCellType = HeaderCellType.TEXT;
   @Output() sortEvent = new EventEmitter<{ column: string, direction: string }>();
   HeaderCellType = HeaderCellType;
+  CheckType = CheckType
+  CheckStateType = CheckStateType
   sortBy(column: string) {
     if (this.type === 'order' || this.type === HeaderCellType.ORDERDOWN) {
       const direction = this.type === 'order' ? 'asc' : 'desc';

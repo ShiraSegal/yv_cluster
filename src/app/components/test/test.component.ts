@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonType, DataCellType, HeaderCellType, SliderNavigationTabIconType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
+import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
@@ -30,6 +30,8 @@ import { BasicCardComponent } from '../basic-components/basic-card/basic-card.co
 import { ToastNotificationComponent } from '../basic-components/toast-notification/toast-notification.component';
 import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
 import { FieldComponent } from '../basic-components/field/field.component';
+import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
+import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -43,6 +45,7 @@ import { FieldComponent } from '../basic-components/field/field.component';
       DataCellsComponent,
       HeaderCellsComponent,
       TabElementComponent,
+      EnterBookidComponent,
       FieldComponent,
       CommonModule, 
       IconButtonComponent,
@@ -68,6 +71,8 @@ export class TestComponent {
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
   tertiany = ButtonType.TERTIARY
+  CheckStateType = CheckStateType;
+  CheckType = CheckType;
   // variant1 = ButtonIconProperty.VARIANT1
   // variant2 = ButtonIconProperty.VARIANT2
   // variant3 = ButtonIconProperty.VARIANT3
@@ -102,8 +107,8 @@ export class TestComponent {
   // title = 'yv-clusters';
   HeaderCellType = HeaderCellType;
   DataCellType = DataCellType;
-  SliderNavigationTabIconType = SliderNavigationTabIconType;
-  SliderNavigationTabType = SliderNavigationTabType;
+  sliderNavigationTabIconType = SliderNavigationTabIconType;
+  sliderNavigationTabType = SliderNavigationTabType;
  
    cells = [
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
