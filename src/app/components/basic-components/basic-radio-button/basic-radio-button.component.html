@@ -1,4 +1,4 @@
-<div class="container">
+
     <div class="radio-container">
         <div></div>
         <div (click)="changStatus()" *ngIf="!disable && checked || disable && checked" [ngClass]="{
@@ -15,7 +15,11 @@
         <div (click)="changStatus()" *ngIf="disable && !checked" class="circle-not-checked-disable">
             <i class="fa-solid fa-circle"></i>
         </div>
-
-        <div class="text-radio-button">{{ text }}</div>
+        @if (text !== "other") {
+            <div class="text-radio-button">{{ text }}</div>
+          } @else {
+            <input type="text" class="text-radio-button" placeholder="other" />
+          }
+          
     </div>
-</div>
+

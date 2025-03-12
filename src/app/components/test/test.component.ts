@@ -1,9 +1,20 @@
+
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { ButtonSize, ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 // import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
+=======
+// import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabIconType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
+import { ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
+
+import {TextSize } from 'src/app/enums/basic-enum';
+import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
+import { CommonModule } from '@angular/common';
+import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
+>>>>>>> 157001e7820887ab9639b8df50e8ace10b1fa75c
 import { ButtonComponent } from '../basic-components/button/button.component';
 import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
 import { ButtonIcon } from 'src/app/enums/basic-enum';
@@ -31,6 +42,10 @@ import { ToastNotificationComponent } from '../basic-components/toast-notificati
 import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
 // import { FieldComponent } from '../basic-components/field/field.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
+<<<<<<< HEAD
+=======
+import { RadioButtonListComponent } from '../basic-components/radio-button-list/radio-button-list.component';
+>>>>>>> 157001e7820887ab9639b8df50e8ace10b1fa75c
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -57,11 +72,21 @@ import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bo
       BasicToggleComponent,
       BasicRadioButtonComponent,
       CheckComponent,
+<<<<<<< HEAD
     //  YvSelectComponent,
       BasicTabComponent,
       SliderComponent,
       SwitchComponent,
       TextareaComponent],
+=======
+     YvSelectComponent,
+      BasicTabComponent,
+      SliderComponent,
+      SwitchComponent,
+      TextareaComponent,
+      RadioButtonListComponent
+    ],
+>>>>>>> 157001e7820887ab9639b8df50e8ace10b1fa75c
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
@@ -72,6 +97,13 @@ export class TestComponent {
   tertiany = ButtonType.TERTIARY
   // CheckStateType = CheckStateType;
   // CheckType = CheckType;
+<<<<<<< HEAD
+=======
+  // variant1 = ButtonIconProperty.VARIANT1
+  // variant2 = ButtonIconProperty.VARIANT2
+  // variant3 = ButtonIconProperty.VARIANT3
+  // icon=ButtonIcon.CHEVRON_LEFT
+>>>>>>> 157001e7820887ab9639b8df50e8ace10b1fa75c
   // variant1 = ButtonIconProperty.VARIANT1
   // variant2 = ButtonIconProperty.VARIANT2
   // variant3 = ButtonIconProperty.VARIANT3
@@ -133,6 +165,11 @@ export class TestComponent {
   radioButtonState: boolean = false;
   CardIcons = CardIcons;
   ToastNotificationIcons = ToastNotificationIcons;
+<<<<<<< HEAD
+=======
+    selectedOption: string = '';
+radioButtonArray:string [] = ["a", "b", "c", "d","other"];
+>>>>>>> 157001e7820887ab9639b8df50e8ace10b1fa75c
   // handleSort(event: { column: string, direction: string }) {
  
   //   console.log(`Sorting by ${event.column} in ${event.direction} order`);
@@ -267,5 +304,14 @@ export class TestComponent {
     this.radioButtonState = state;
     console.log('radioButton:', state ? 'דלוק' : 'מכובה');
   }
+<<<<<<< HEAD
 }
  
+=======
+
+  onRadioSelectionChange(selectedValue: string) {
+    this.selectedOption = selectedValue;
+    console.log("האפשרות שנבחרה:", this.selectedOption);
+  }
+}
+>>>>>>> 157001e7820887ab9639b8df50e8ace10b1fa75c

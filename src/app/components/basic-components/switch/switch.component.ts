@@ -9,11 +9,11 @@ import { Component, Input, Output,EventEmitter } from '@angular/core';
   styleUrl: './switch.component.scss'
 })
 export class SwitchComponent {
-  @Input() active: boolean = false;
+  @Input() status: string = "active";
   @Input() text!: string;
   @Output() switchChange = new EventEmitter<boolean>();
   toggle(){
-    this.active=!this.active;
-    this.switchChange.emit(this.active);
+    this.status=="active"?this.status='not-active':this.status='active';
+    this.switchChange.emit(this.status=="active");
   }
 }

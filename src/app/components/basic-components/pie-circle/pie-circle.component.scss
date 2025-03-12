@@ -23,14 +23,24 @@
     fill: #F6CDCD;
 }
 
-.part-of-the-circle-text{
-    color: #000;
+// .part-of-the-circle-text{
+//     color: #000;
+//     font-family: Poppins;
+//     // font-size: 0.90956rem;
+//     font-size:x-small;
+//     font-style: normal;
+//     font-weight: 400;
+//     line-height: normal;
+
+// }
+.part-of-the-circle-text {
+    fill: #000; /* צבע הטקסט */
     font-family: Poppins;
-    // font-size: 0.90956rem;
-    font-size:x-small;
+    font-size: 0.4rem; /* גודל טקסט קטן יותר כדי להתאים לחלקים */
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-
+    text-anchor: middle; /* מיקום הטקסט במרכז */
+    dominant-baseline: middle; /* מיקום הטקסט במרכז אנכי */
 }
 //pie-circle
