@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 // import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabIconType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
-import { ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
+import { ButtonSize, ButtonType, DataCellType, HeaderCellType, TextWeight} from 'src/app/enums/basic-enum';
 
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
@@ -35,6 +35,8 @@ import { PieComponentDistributionModalComponent } from '../basic-components/pie-
 // import { FieldComponent } from '../basic-components/field/field.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
 import { RadioButtonListComponent } from '../basic-components/radio-button-list/radio-button-list.component';
+import { CreateClusterComponent } from '../cluster-managment/create-cluster/create-cluster.component';
+import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -66,7 +68,8 @@ import { RadioButtonListComponent } from '../basic-components/radio-button-list/
       SliderComponent,
       SwitchComponent,
       TextareaComponent,
-      RadioButtonListComponent
+      RadioButtonListComponent,
+      CreateClusterComponent
     ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
@@ -76,6 +79,8 @@ export class TestComponent {
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
   tertiany = ButtonType.TERTIARY
+  big=ButtonSize.BIG
+  small=ButtonSize.SMALL
   // CheckStateType = CheckStateType;
   // CheckType = CheckType;
   // variant1 = ButtonIconProperty.VARIANT1
@@ -90,9 +95,11 @@ export class TestComponent {
   title2 = "Heading Medium-Bold"
   title3 = "Heading Small"
   title4 = "Heading Small-bold"
-  size1:TextSize = TextSize.LARGE
-  size2:TextSize = TextSize.MEDIUM
-  size3:TextSize = TextSize.SMALL
+  size1 = TextSize.LARGE
+  size2 = TextSize.MEDIUM
+  size3 = TextSize.SMALL
+  weight1=TextWeight.BOLD
+  weight2=TextWeight.NORMAL
   bodyText1: string = 'Body Large Upon initial observation, it may appear that there are only two primary scenarios for ';
   bodyText2: string = 'Body Medium Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
   bodyText3: string = 'Body Small Upon initial observation, it may appear that there are only two primary scenarios for users:  ';

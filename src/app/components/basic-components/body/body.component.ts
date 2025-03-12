@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { TextSize } from 'src/app/enums/basic-enum';
+import { TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 
 @Component({
   selector: 'yv-cluster-body',
@@ -12,5 +12,6 @@ import { TextSize } from 'src/app/enums/basic-enum';
 export class BodyComponent {
 @Input() bodyText:string = '';
 @Input() size:TextSize = TextSize.LARGE;
-@Input() isBold:boolean = true;
+@Input() weight:TextWeight=TextWeight.NORMAL;
+@Input() color:TextColor=TextColor.SLATE_BLUE;
 }

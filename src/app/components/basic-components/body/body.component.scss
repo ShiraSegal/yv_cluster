@@ -2,7 +2,6 @@ p{
 color: var(--Palette-Black-88, rgba(0, 0, 0, 0.88));
 font-family: Poppins;
 font-style: normal;
-font-weight: 400;
 line-height: normal;
 }
 .large{
@@ -17,4 +16,7 @@ line-height: normal;
 }
 .bold{
     font-weight: 600;
+}
+.normal{
+    font-weight: 400;
 }
