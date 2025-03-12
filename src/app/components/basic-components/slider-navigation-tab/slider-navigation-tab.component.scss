@@ -1,0 +1,61 @@
+.tab {
+
+    display: flex;
+    width: 5.875rem;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    flex-direction: column;
+}
+.variant3 {
+    padding: 0.40625rem 0rem;
+}
+
+.active {
+    padding: 0.40625rem 0rem;
+    border-radius: 0.3125rem;
+    background: rgba(66, 93, 199, 0.60);
+}
+
+
+.fa-light {
+    color: #ffffff;
+    text-align: center;
+    font-family: "Font Awesome 6 Pro";
+    font-size:  1.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    
+}
+
+
+.fa-solid {
+    color: #D0D6F1;
+    text-align: center;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+
+}
+
+.text-icon {
+    text-align: center;
+    font-family: Poppins;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.text-icon-regular {
+    color: #D0D6F1;
+}
+
+.text-icon-light {
+    color: #ffffff;
+}

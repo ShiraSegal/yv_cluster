@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <fieldset class="common-select-wrapper" 
+    [ngClass]="{
+      'custom-select-wrapper': state === 'default',
+      'error-layout': state === 'error',
+      'disabled-layout': state === 'disabled',
+      'focused-layout': state === 'focused',
+      'populated-layout': state === 'populated'
+    }">
+    
+    <legend class="select-legend" *ngIf="state === 'populated' || state === 'focused'">{{ label }}</legend>
+
+    <div class="custom-select">
+      <input type="text" class="content" 
+        [value]="selectedOption || ''" 
+        
+       
+      
+        [disabled]="state === 'disabled'" 
+        placeholder="Lable">
+    </div>
+  </fieldset>
+
+  <div class="error-message" *ngIf="state === 'error'">
+    Error Message
+  </div>
+</div>

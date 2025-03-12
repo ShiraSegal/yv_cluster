@@ -1,0 +1,20 @@
+<div class="slider-navigation">
+    <div class="logo"></div>
+    <div class="tabs-center">
+        <ng-container *ngFor="let tab of tabs; trackBy: trackByProperty">
+            <yv-cluster-slider-navigation-tab
+            [property]="tab.property.value!"
+            [icon]="tab.icon"
+            (click)="setActiveTab(tab.property)">
+            </yv-cluster-slider-navigation-tab>    
+        </ng-container>
+        <div class="line"></div> 
+    </div>
+    <div class="tabs-bottom">
+        <yv-cluster-slider-navigation-tab
+        [property]="logoutTab.value!"
+        [icon]="SliderNavigationTabIconType.LOGOUT"
+        (click)="setActiveLogoutTab()">
+        </yv-cluster-slider-navigation-tab>
+    </div>
+</div>

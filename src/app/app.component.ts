@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, inject } from '@angular/core';
 import {  RouterOutlet } from '@angular/router';
 import { YvAssigneeComponent } from './components/basic-components/yv-assignee/yv-assignee.component';
@@ -13,6 +14,12 @@ import { YvTextareaComponent } from './components/basic-components/yv-textarea/y
 import { HeaderCellType } from './enums/header-cell-enum';
 import { BadgeComponent } from './components/badge/badge.component';
 import { BadgeType } from './enums/basic-enum';
+=======
+import { Component } from '@angular/core';
+import { TestComponent } from './components/test/test.component';
+import { RouterOutlet } from '@angular/router';
+
+>>>>>>> b53458fbb71a7a2c9c69057aa81b64cb5a62d693
 
 @Component({
  

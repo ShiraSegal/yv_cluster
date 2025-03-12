@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 
 <yv-cluster-badge [property]=BadgeType.TODO></yv-cluster-badge>
 <yv-cluster-badge [property]=BadgeType.DONE></yv-cluster-badge>
@@ -7,15 +8,48 @@
 <br>
 <app-yv-slider [value]=80></app-yv-slider>
  
+=======
+ <!-- <yv-cluster-basic-table property="New Suggestions" [newHeaders]="headers"  [oldHeaders]="headers1" [newRows]="rows"  [oldRows]="rows1"></yv-cluster-basic-table> -->
+<!-- 
+<yv-cluster-slider [value]=80></yv-cluster-slider>
+
+>>>>>>> b53458fbb71a7a2c9c69057aa81b64cb5a62d693
 <hr>
 <h3>assignee</h3>
 <hr>
-<app-yv-assignee firstName="Ariela" lastName="Zoppelmann"></app-yv-assignee>
+<yv-cluster-assignee firstName="Ariela" lastName="Zoppelmann"></yv-cluster-assignee>
 <hr>
 <h3>check</h3>
+<yv-cluster-check type="selected" state="desabled"></yv-cluster-check>
+<yv-cluster-check type="unselected" state="enabled"></yv-cluster-check>
+<yv-cluster-check type="selected" state="enabled"></yv-cluster-check>
+<yv-cluster-check type="unselected" state="desabled"></yv-cluster-check>
+
+ <h3>textarea</h3>
+<yv-cluster-textarea label="email"></yv-cluster-textarea>
+<yv-cluster-textarea label="last name"></yv-cluster-textarea>
+
+<yv-cluster-header-cells [type]=HeaderCellType.TEXT header="text"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=HeaderCellType.ORDER header="order" (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=HeaderCellType.ORDERDOWN header="order-down" (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=HeaderCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=HeaderCellType.CHECK></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=HeaderCellType.MORE></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=HeaderCellType.PLACEOLDER></yv-cluster-header-cells>
+
+<yv-cluster-assignee firstName="Ariela" lastName="Zoppelmann"></yv-cluster-assignee>
+<yv-cluster-data-cells [data]="'Ariela koppelmann'" [type]="DataCellType.ASSIGNEE"></yv-cluster-data-cells>
+<h3>data cell</h3> 
+<yv-cluster-data-cells [type]=DataCellType.TEXT data="toDo"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=DataCellType.MORE data=""></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=DataCellType.LINK data="toDo"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=DataCellType.ICON data=""></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=DataCellType.CHECK data=""></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=DataCellType.ASSIGNEE data=""></yv-cluster-data-cells>
 <app-yv-check type="selected" state="desabled"></app-yv-check>
 <app-yv-check type="unselected" state="enabled"></app-yv-check>
 <app-yv-check type="selected" state="enabled"></app-yv-check>
+<<<<<<< HEAD
 <app-yv-check type="unselected" state="desabled"></app-yv-check>
  
 <hr>
@@ -26,12 +60,31 @@ ta-cells>
 <app-yv-textarea label="email"></app-yv-textarea>
 <app-yv-textarea label="last name"></app-yv-textarea>
  
+=======
+<app-yv-check type="unselected" state="desabled"></app-yv-check>  -->
+
+<!-- <hr>
+<h3>data cell</h3> -->
+<!-- <app-yv-data-cells type="text" data="toDo"></app-yv-data-cells>
+<app-yv-data-cells type="more" data=""></app-yv-data-cells>
+<app-yv-data-cells type="link" data="toDo"></app-yv-data-cells>
+<app-yv-data-cells type="icon" data=""></app-yv-data-cells>
+<app-yv-data-cells type="check" data=""></app-yv-data-cells>
+<app-yv-data-cells type=DataCellType.ASSIGNEE data=""></app-yv-data-cells> -->
+
+
+<!-- <h3>textarea</h3>
+<app-yv-textarea label="email"></app-yv-textarea>
+<app-yv-textarea label="last name"></app-yv-textarea> -->
+<!-- 
+>>>>>>> b53458fbb71a7a2c9c69057aa81b64cb5a62d693
 <app-yv-header-cells [type]=HeaderCellType.TEXT header="text"></app-yv-header-cells>
 <app-yv-header-cells [type]=HeaderCellType.ORDER header="order" (sortEvent)="handleSort($event)"></app-yv-header-cells>
 <app-yv-header-cells [type]=HeaderCellType.ORDERDOWN header="order-down" (sortEvent)="handleSort($event)"></app-yv-header-cells>
 <app-yv-header-cells [type]=HeaderCellType.HEADERSEARCH header="header-search"></app-yv-header-cells>
 <app-yv-header-cells [type]=HeaderCellType.CHECK></app-yv-header-cells>
 <app-yv-header-cells [type]=HeaderCellType.MORE></app-yv-header-cells>
+<<<<<<< HEAD
 <app-yv-header-cells [type]=HeaderCellType.PLACEOLDER></app-yv-header-cells> -->
  
 <!-- <h3>data cell</h3>
@@ -42,3 +95,101 @@ ta-cells>
 <app-yv-data-cells type="check" data=""></app-yv-data-cells>
 <app-yv-data-cells type=DataCellType.ASSIGNEE data=""></app-yv-da -->
  
+=======
+
+<yv-cluster-icon-button (onClick)="onClick()" [icon]="iconp"  ></yv-cluster-icon-button>
+<br>
+<br>
+<yv-cluster-enter-bookid/>
+<br>
+<br>
+<br>
+
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [buttonIcon]="icon" [iconProperty]="variant3"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [buttonIcon]="icon" [iconProperty]="variant3"></yv-cluster-button>
+
+<yv-cluster-button  (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true [buttonIcon]="icon" [iconProperty]="variant1"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [buttonIcon]="icon" [iconProperty]="variant1"></yv-cluster-button>
+
+<yv-cluster-button (onClick)="onClick()"text="Text" [buttonType]="tertiany" [isBig]=true [buttonIcon]="icon" [iconProperty]="variant1"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [buttonIcon]="icon" [iconProperty]="variant1"></yv-cluster-button>
+
+<br>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [disabled]="true" [buttonIcon]="icon" [iconProperty]="variant2"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=false [disabled]="true" [buttonIcon]="icon"  [iconProperty]="variant2"></yv-cluster-button>
+
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true  [disabled]="true" [buttonIcon]="icon"  [iconProperty]="variant2"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()"  text="Text" [buttonType]="secondary" [isBig]=false  [disabled]="true" [buttonIcon]="icon"  [iconProperty]="variant2"></yv-cluster-button>
+
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true  [disabled]="true" [buttonIcon]="icon"  [iconProperty]="variant2"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false  [disabled]="true" [buttonIcon]="icon"  [iconProperty]="variant2"></yv-cluster-button>
+<br>
+<br>
+<yv-cluster-heading [title]="title1" [size]="size1" [isBold]=true></yv-cluster-heading>
+<yv-cluster-heading [title]="title2" [size]="size2" [isBold]=true></yv-cluster-heading>
+<yv-cluster-heading [title]="title3" [size]="size3" [isBold]=false></yv-cluster-heading>
+<yv-cluster-heading [title]="title4" [size]="size3" [isBold]=true></yv-cluster-heading>
+<br>
+<br>
+ -->
+<yv-cluster-body [bodyText]="bodyText1" [size]="size1" [isBold]=false></yv-cluster-body>
+<yv-cluster-body [bodyText]="bodyText1" [size]="size1" [isBold]=true></yv-cluster-body>
+<yv-cluster-body [bodyText]="bodyText2" [size]="size2" [isBold]=false></yv-cluster-body>
+<yv-cluster-body [bodyText]="bodyText2" [size]="size2" [isBold]=true></yv-cluster-body>
+<yv-cluster-body [bodyText]="bodyText3" [size]="size3" [isBold]=false></yv-cluster-body> 
+
+<!-- <br><yv-cluster-slider-navigation-tab [property]="SliderNavigationTabType.VARIANT3" [icon]="SliderNavigationTabIconType.HOME"></yv-cluster-slider-navigation-tab>
+<br><yv-cluster-slider-navigation-tab [property]="SliderNavigationTabType.VARIANT3" [icon]="SliderNavigationTabIconType.LOGOUT"></yv-cluster-slider-navigation-tab>
+<br><yv-cluster-slider-navigation-tab [property]="SliderNavigationTabType.VARIANT3" [icon]="SliderNavigationTabIconType.AUTOCLUSRET"></yv-cluster-slider-navigation-tab>
+<br><yv-cluster-slider-navigation-tab [property]="SliderNavigationTabType.VARIANT3" [icon]="SliderNavigationTabIconType.REPORT"></yv-cluster-slider-navigation-tab>
+<br><yv-cluster-slider-navigation-tab [property]="SliderNavigationTabType.VARIANT3" [icon]="SliderNavigationTabIconType.NEWCLUSTER"></yv-cluster-slider-navigation-tab>
+<br>
+<yv-cluster-slider-navigation-tab [property]="SliderNavigationTabType.ACTIVE" [icon]="SliderNavigationTabIconType.HOME"></yv-cluster-slider-navigation-tab>
+<br>
+<yv-cluster-slider-navigation-tab [property]="SliderNavigationTabType.ACTIVE" [icon]="SliderNavigationTabIconType.LOGOUT"></yv-cluster-slider-navigation-tab>
+<br>
+<yv-cluster-slider-navigation-tab [property]="SliderNavigationTabType.ACTIVE" [icon]="SliderNavigationTabIconType.AUTOCLUSRET"></yv-cluster-slider-navigation-tab>
+<br>
+<yv-cluster-slider-navigation-tab [property]="SliderNavigationTabType.ACTIVE" [icon]="SliderNavigationTabIconType.REPORT"></yv-cluster-slider-navigation-tab>
+<br>
+<yv-cluster-slider-navigation-tab [property]="SliderNavigationTabType.ACTIVE" [icon]="SliderNavigationTabIconType.NEWCLUSTER"></yv-cluster-slider-navigation-tab> -->
+
+<yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
+
+<!-- <yv-cluster-field ></yv-cluster-field> -->
+<yv-cluster-field 
+[error]="false"
+[disabled]="false"
+[label]="label"
+[focused]="true"
+[populated]="false"
+[default]="'Select'"
+></yv-cluster-field>
+
+<yv-cluster-field 
+[error]="true"
+[disabled]="false"
+[label]="label"
+[focused]="false"
+[populated]="false"
+[default]="'Select'"
+></yv-cluster-field>
+
+<yv-cluster-field 
+[error]="false"
+[disabled]="true"
+[label]="label"
+[focused]="false"
+[populated]="false"
+[default]="'Select'"
+></yv-cluster-field>
+
+<yv-cluster-field 
+[error]="false"
+[disabled]="false"
+[label]="label"
+[focused]="false"
+[populated]="true"
+[default]="'Select'"
+></yv-cluster-field>
+>>>>>>> b53458fbb71a7a2c9c69057aa81b64cb5a62d693
