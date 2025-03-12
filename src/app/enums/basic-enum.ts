@@ -109,7 +109,11 @@ export  enum CardIcons {
 export  enum ToastNotificationIcons {
   ERROR="fa-solid fa-circle-xmark",
   SUCCESS="fa-solid fa-circle-check",
-    }    
+    }   
+    export  enum BadgeType {
+      TODO = "To-do",
+      DONE = "Done"
+    } 
 
   export enum SliderNavigationTabType{
     VARIANT3="variant3",
