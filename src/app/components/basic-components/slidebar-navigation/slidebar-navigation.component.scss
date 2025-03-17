@@ -1,4 +1,5 @@
 @import "../../../../styles/colors.scss";
+
 .slider-navigation {
     display: flex;
     width: 7.125rem;
@@ -7,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     gap: 4.25rem;
-    background : $primary_btn;
+    background: var(--gradient-pr, linear-gradient(180deg, $primary_btn 0%, $secondary_blue 100%));
 }
 
 .logo {
@@ -18,7 +19,17 @@
     flex-shrink: 0;
 }
 
-.tabs-center {
+.tabs {
+    display: flex;
+    height: 57.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+.tabs-top {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,7 +45,7 @@
     flex-direction: column;
     align-items: center;
     gap: 0.1875rem;
-    margin-top: auto; /* This will push the element to the bottom */
+    margin-top: auto;
 }
 
 .line {
@@ -46,5 +57,5 @@
     align-items: center;
     gap: 0.1875rem;
     flex-shrink: 0;
-    border-bottom: 0.5px solid $light_royal_blue;
+    border-bottom: 0.5px solid #A1AEE3;
 }
