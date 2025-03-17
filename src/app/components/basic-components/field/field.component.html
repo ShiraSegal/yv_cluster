@@ -1,20 +1,21 @@
 <div class="wrapper">
-  <fieldset class="common-input-wrapper" [ngClass]="stateEnum">
-    <legend class="input-legend" [ngClass]="stateEnum">
-      {{ (stateEnum === stateEnumMain.POPULATED || stateEnum === stateEnumMain.FOCUSED) ? label : '' }}
+  <fieldset class="common-input-wrapper" [ngClass]="property">
+    <legend class="input-legend" [ngClass]="property">
+      {{ (property === stateEnum.POPULATED || property === stateEnum.FOCUSED) ? label : '' }}
     </legend>
-
+ 
     <input
       type="text"
       class="custom-input"
-      [(ngModel)]="selectedOption"
-      
-      [disabled]="stateEnum === stateEnumMain.DISABLED || disabled"
-      placeholder="input"
+      [formControl]="textControl" 
+      [ngClass]="property"
+      [disabled]="property === stateEnum.DISABLED "
+     
+      placeholder="input text"
     />
   </fieldset>
-
-  @if(stateEnum === stateEnumMain.ERROR){
+ 
+  @if(property === stateEnum.ERROR){
     <div class="error-message">
       Error Message
     </div>

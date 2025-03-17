@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
+import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
@@ -36,6 +36,7 @@ import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
   selector: 'yv-cluster-test',
   standalone: true,
   imports: [
+
       SlidebarNavigationComponent,
       SliderNavigationTabComponent,
       HeadingComponent,
@@ -47,7 +48,7 @@ import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
       TabElementComponent,
       EnterBookidComponent,
       FieldComponent,
-      CommonModule, 
+      CommonModule,
       IconButtonComponent,
       FilterSectionComponent,
       PieComponentDistributionModalComponent,
@@ -73,13 +74,7 @@ export class TestComponent {
   tertiany = ButtonType.TERTIARY
   CheckStateType = CheckStateType;
   CheckType = CheckType;
-  // variant1 = ButtonIconProperty.VARIANT1
-  // variant2 = ButtonIconProperty.VARIANT2
-  // variant3 = ButtonIconProperty.VARIANT3
-  // icon=ButtonIcon.CHEVRON_LEFT
-  // variant1 = ButtonIconProperty.VARIANT1
-  // variant2 = ButtonIconProperty.VARIANT2
-  // variant3 = ButtonIconProperty.VARIANT3
+
   icon=ButtonIcon.CHEVRON_LEFT
   title1 = "Heading Large"
   title2 = "Heading Medium-Bold"
@@ -95,21 +90,19 @@ export class TestComponent {
   btnType = ButtonType.PRIMARY;
   btnType2 = ButtonType.SECONDARY;
   txt1 = "test btn1"
-  // txt1 = "test btn1"
-
+ 
+ 
   title = 'test';
   isError: boolean = false;
   isDisabled: boolean = false;
   isFocused: boolean = false;
   isPopulated: boolean = true;
-  // label: string = 'label';
 
-  // title = 'yv-clusters';
   HeaderCellType = HeaderCellType;
   DataCellType = DataCellType;
   sliderNavigationTabIconType = SliderNavigationTabIconType;
   sliderNavigationTabType = SliderNavigationTabType;
- 
+stateEnum = State;
    cells = [
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
@@ -118,35 +111,17 @@ export class TestComponent {
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE }
-    // { data: 'Checked', type: DataCellType.CHECK },
-    // { data: 'www.example.com', type: DataCellType.LINK },
-    // { data: 'Icon Data', type: DataCellType.ICON },
-    // { data: 'Assignee Name', type: DataCellType.ASSIGNEE },
-    // { data: 'Button Text', type: DataCellType.BUTTON },
-    // { data: 'Slider Value', type: DataCellType.SLIDER }
+ 
   ];
-  // txt1 = "test btn1"
+
   switchState: boolean = false;
   tabState: boolean = false;
   toggleState!: string;
   radioButtonState: boolean = false;
   CardIcons = CardIcons;
   ToastNotificationIcons = ToastNotificationIcons;
-  // handleSort(event: { column: string, direction: string }) {
 
-  //   console.log(`Sorting by ${event.column} in ${event.direction} order`);
-  // }
-
-  // onClick() {
-  //   alert('test on click');
-  //   console.log('test on click');
-  // }
  
-
-  // iconp = "fa-solid fa-plus"
-  // // txt1 = "Enter Book ID"
-  // txt2 = "Enter Book ID"
-
   handleSort(event: { column: string, direction: string }) {
  
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
@@ -241,19 +216,13 @@ export class TestComponent {
   ];
  
   iconp = "fa-solid fa-plus"
-  // txt1 = "Enter Book ID"
-  // onClick()
-  // {
-  //   alert('test on click');
-  //   console.log('test on click');
-  // }
 
-
+ 
   handleSwitchChange(state: boolean) {
     this.switchState = state;
     console.log('Switch:', state ? 'דלוק' : 'מכובה');
   }
-
+ 
   handleTabChange(state: boolean) {
     this.tabState = state;
     console.log('Tab:', state ? 'דלוק' : 'מכובה');
@@ -267,5 +236,4 @@ export class TestComponent {
     console.log('radioButton:', state ? 'דלוק' : 'מכובה');
   }
 }
-
  
