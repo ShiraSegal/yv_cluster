@@ -96,13 +96,6 @@
                 align-items: flex-start;
                 gap: var(--Layout-medium, 0.5rem);
 
-                .button {
-                    display: flex;
-                    height: var(--Layout-09, 2.25rem);
-                    justify-content: center;
-                    align-items: center;
-                    gap: var(--Layout-medium, 0.5rem);
-                }
             }
         }
     }

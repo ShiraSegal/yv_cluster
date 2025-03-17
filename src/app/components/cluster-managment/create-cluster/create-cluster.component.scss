@@ -10,4 +10,112 @@ background: #FFF;
 
 /* 4 */
 box-shadow: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.30);
+.header-warp{
+    display: flex;
+    width: 24.25rem;
+    align-items: center;
+    gap: var(--Layout-medium, 0.5rem);
+}
+.form-warp{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    .form-header-warp{
+        display: flex;
+    padding: 0.25rem 0rem;
+    align-items: center;
+    align-self: stretch;
+    border-bottom: 1px solid #D0D6F1;
+    .header-cell{
+        display: flex;
+    width: 24.125rem;
+    height: 3.125rem;
+    padding: var(--layout-02, 0.5rem);
+    align-items: center;
+    gap: 0.625rem;
+    }
+    .table-header{
+        display: flex;
+    height: 3.125rem;
+    padding: var(--layout-02, 0.5rem);
+    align-items: center;
+    gap: 0.625rem;
+    flex: 1 0 0;
+    }
+    }
+    
+    .table{
+        display: flex;
+        padding: 0.25rem 0rem;
+        align-items: center;
+        gap: 0.0625rem;
+        align-self: stretch;
+        border-bottom: 1px solid #D0D6F1;
+        .data-cells{
+            display: flex;
+            padding: var(--layout-02, 0.5rem);
+            align-items: center;
+            gap: 0.625rem;
+            flex: 1 0 0;
+            align-self: stretch;
+            .lable{
+                flex: 1 0 0;
+                color: #3F4B5A;
+            font-family: Rubik;
+            font-size: 0.875rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            }
+        }
+        .options-cells{
+            display: flex;
+        width: 24.125rem;
+        padding: var(--layout-02, 0.5rem);
+        align-items: center;
+        gap: 0.625rem;
+        align-self: stretch;
+        
+    .radiobuttons{
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.625rem;
+    }
+        }
+    }
+
+    .select{
+        
+    }
+    .outer-button-warp{
+        display: flex;
+flex-direction: column;
+align-items: flex-end;
+gap: var(--Layout-medium, 0.5rem);
+align-self: stretch;
+.divider{
+    height: 0.4375rem;
+align-self: stretch;
+border-top: 1px solid var(--main-outline-neutral, #E1E5EA);
+}
+.buttons-warp{
+    display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-end;
+gap: 0.625rem;
+align-self: stretch;
+.buttons{
+    display: flex;
+align-items: flex-start;
+gap: var(--Layout-medium, 0.5rem);
+}
+}
+
+    }
+}
+
 }

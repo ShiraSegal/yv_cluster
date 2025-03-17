@@ -1,5 +1,194 @@
 <form [formGroup]="formGroup">
     <div class="card">
+        <div class="header-warp">
+            <yv-cluster-heading [title]="header" [size]="size" [weight]="weight" [color]="color"></yv-cluster-heading>
+        </div>
+        <div class="form-warp">
+            <div class="form-header-warp">
+                <div class="table-header">
+                    <yv-cluster-body [bodyText]="tableHeader1" [size]="size1" [weight]="weight1"
+                        [color]="color1"></yv-cluster-body>
+                </div>
+                <div class="header-cell">
+                    <yv-cluster-body [bodyText]="tableHeader2" [size]="size1" [weight]="weight1"
+                        [color]="color1"></yv-cluster-body>
+                </div>
+            </div>
+            @for(data of dataCells; track $index){
+            <div class="table">
+                <div class="data-cells">
+                        <label class="label">{{data}}</label>
+                </div>
+                <div class="options-cells">
+                    <div class="radiobuttons">
+                        <yv-cluster-radio-button-list [radioButtonArray]="options" (click)=selectionChange()></yv-cluster-radio-button-list>
+                     <!-- <yv-cluster-basic-radio-button [checked]=checked1
+                        [text]="label1"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button [checked]=checked2
+                        [text]="label2"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button
+                        [text]="label3"></yv-cluster-basic-radio-button> -->
+                    </div>
+                </div>
 
+            </div>
+            }
+            <!-- <div class="table">
+                <div class="data-cells">
+                        <label class="label">Last Name</label>
+                </div>
+                <div class="options-cells">
+                    <div class="radiobuttons">
+                    <yv-cluster-basic-radio-button [checked]=checked1
+                        [text]="label1"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button [checked]=checked2
+                        [text]="label2"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button
+                        [text]="label3"></yv-cluster-basic-radio-button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="table">
+                <div class="data-cells">
+                        <label class="label">Maiden Name</label>
+                </div>
+                <div class="options-cells">
+                    <div class="radiobuttons">
+                    <yv-cluster-basic-radio-button [checked]=checked1
+                        [text]="label1"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button [checked]=checked2
+                        [text]="label2"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button
+                        [text]="label3"></yv-cluster-basic-radio-button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="table">
+                <div class="data-cells">
+                        <label class="label">Place Of Birth</label>
+                </div>
+                <div class="options-cells">
+                    <div class="radiobuttons">
+                    <yv-cluster-basic-radio-button [checked]=checked1
+                        [text]="label1"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button [checked]=checked2
+                        [text]="label2"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button
+                        [text]="label3"></yv-cluster-basic-radio-button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="table">
+                <div class="data-cells">
+                        <label class="label">Authentic Date Of Birth</label>
+                </div>
+                <div class="options-cells">
+                    <div class="radiobuttons">
+                    <yv-cluster-basic-radio-button [checked]=checked1
+                        [text]="label1"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button [checked]=checked2
+                        [text]="label2"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button
+                        [text]="label3"></yv-cluster-basic-radio-button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="table">
+                <div class="data-cells">
+                        <label class="label">Restored Date Of Birth</label>
+                </div>
+                <div class="options-cells">
+                    <div class="radiobuttons">
+                    <yv-cluster-basic-radio-button [checked]=checked1
+                        [text]="label1"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button [checked]=checked2
+                        [text]="label2"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button
+                        [text]="label3"></yv-cluster-basic-radio-button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="table">
+                <div class="data-cells">
+                        <label class="label">Permanent Place</label>
+                </div>
+                <div class="options-cells">
+                    <div class="radiobuttons">
+                    <yv-cluster-basic-radio-button [checked]=checked1
+                        [text]="label1"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button [checked]=checked2
+                        [text]="label2"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button
+                        [text]="label3"></yv-cluster-basic-radio-button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="table">
+                <div class="data-cells">
+                        <label class="label">Place of Death</label>
+                </div>
+                <div class="options-cells">
+                    <div class="radiobuttons">
+                    <yv-cluster-basic-radio-button [checked]=checked1
+                        [text]="label1"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button [checked]=checked2
+                        [text]="label2"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button
+                        [text]="label3"></yv-cluster-basic-radio-button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="table">
+                <div class="data-cells">
+                        <label class="label">Gender</label>
+                </div>
+                <div class="options-cells">
+                    <div class="radiobuttons">
+                    <yv-cluster-basic-radio-button [checked]=checked1
+                        [text]="label1"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button [checked]=checked2
+                        [text]="label2"></yv-cluster-basic-radio-button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="table">
+                <div class="data-cells">
+                        <label class="label">Fate</label>
+                </div>
+                <div class="options-cells">
+                    <div class="radiobuttons">
+                    <yv-cluster-basic-radio-button [checked]=checked1
+                        [text]="label1"></yv-cluster-basic-radio-button>
+                        <yv-cluster-basic-radio-button  [checked]=checked2
+                        [text]="label2"></yv-cluster-basic-radio-button>
+                    </div>
+                </div>
+
+            </div> -->
+            <app-yv-select class="select" [label]="selectLabel"></app-yv-select>
+            <div class="outer-button-warp">
+                <div class="divider"></div>
+                    <div class="buttons-warp">
+                        <div class="buttons">
+                            <yv-cluster-button  [size]="btn_size1" [buttonType]="buttomType1"
+                                [text]="button1">
+                            </yv-cluster-button>
+    
+                            <yv-cluster-button  [size]="btn_size2" [buttonType]="buttomType2"
+                                [text]="button2">
+                            </yv-cluster-button>
+                        </div>
+                    </div>
+              
+            </div>
+        </div>
     </div>
 </form>

@@ -16,21 +16,21 @@
 <br>
 <br>
 
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [buttonIcon]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="small" [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [buttonIcon]="icon"></yv-cluster-button>
 
-<yv-cluster-button  (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true [buttonIcon]="icon"></yv-cluster-button>
+<yv-cluster-button  (onClick)="onClick()" text="Text" [buttonType]="secondary" [size]="small" [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [buttonIcon]="icon"></yv-cluster-button>
 
-<yv-cluster-button (onClick)="onClick()"text="Text" [buttonType]="tertiany" [isBig]=true [buttonIcon]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()"text="Text" [buttonType]="tertiany" [size]="small" [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [buttonIcon]="icon"></yv-cluster-button>
 
 <br>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=false [disabled]="true" [buttonIcon]="icon" ></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="small" [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="big" [disabled]="true" [buttonIcon]="icon" ></yv-cluster-button>
 
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()"  text="Text" [buttonType]="secondary" [isBig]=false  [disabled]="true" [buttonIcon]="icon"  ></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [size]="small"  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()"  text="Text" [buttonType]="secondary" [size]="big"  [disabled]="true" [buttonIcon]="icon"  ></yv-cluster-button>
 
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [size]="small"  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [size]="big"  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
@@ -92,6 +92,7 @@
 <yv-cluster-pie-component-distribution-modal [title]="'Data Distribution'"></yv-cluster-pie-component-distribution-modal>
 <hr>
 <hr>
+<yv-cluster-create-cluster></yv-cluster-create-cluster>
 <!-- <h3>slider navigation</h3>
 <hr>
 <yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>

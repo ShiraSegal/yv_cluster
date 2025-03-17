@@ -4,11 +4,12 @@ import { ButtonSize, ButtonType, TextColor, TextSize, TextWeight } from 'src/app
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
+import { RadioButtonListComponent } from '../../basic-components/radio-button-list/radio-button-list.component';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, ButtonComponent,HeadingComponent,BasicRadioButtonComponent],
+  imports: [FormsModule, ReactiveFormsModule, ButtonComponent,HeadingComponent,BasicRadioButtonComponent,RadioButtonListComponent],
   templateUrl: './enter-bookid.component.html',
   styleUrl: './enter-bookid.component.scss'
 })
@@ -22,6 +23,7 @@ export class EnterBookidComponent  {
   button1: string = 'Cancel';
   button2: string = 'Add';
   close:boolean = false;
+  radioButtonArray: string[] = ['Book ID', 'Cluster'];
   label1: string = 'Book ID';
   label2: string = 'Cluster';
   checked1: boolean = true;
