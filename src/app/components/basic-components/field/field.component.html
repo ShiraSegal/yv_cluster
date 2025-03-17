@@ -1,27 +1,22 @@
 <div class="wrapper">
-  <fieldset class="common-select-wrapper" 
-    [ngClass]="{
-      'custom-select-wrapper': state === 'default',
-      'error-layout': state === 'error',
-      'disabled-layout': state === 'disabled',
-      'focused-layout': state === 'focused',
-      'populated-layout': state === 'populated'
-    }">
-    
-    <legend class="select-legend" *ngIf="state === 'populated' || state === 'focused'">{{ label }}</legend>
+  <fieldset class="common-input-wrapper" [ngClass]="stateEnum">
+    <legend class="input-legend" [ngClass]="stateEnum">
+      {{ (stateEnum === stateEnumMain.POPULATED || stateEnum === stateEnumMain.FOCUSED) ? label : '' }}
+    </legend>
 
-    <div class="custom-select">
-      <input type="text" class="content" 
-        [value]="selectedOption || ''" 
-        
-       
+    <input
+      type="text"
+      class="custom-input"
+      [(ngModel)]="selectedOption"
       
-        [disabled]="state === 'disabled'" 
-        placeholder="Lable">
-    </div>
+      [disabled]="stateEnum === stateEnumMain.DISABLED || disabled"
+      placeholder="input"
+    />
   </fieldset>
 
-  <div class="error-message" *ngIf="state === 'error'">
-    Error Message
-  </div>
+  @if(stateEnum === stateEnumMain.ERROR){
+    <div class="error-message">
+      Error Message
+    </div>
+  }
 </div>

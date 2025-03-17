@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BadgeType } from 'src/app/enums/basic-enum';
 
 @Component({
@@ -10,6 +10,5 @@ import { BadgeType } from 'src/app/enums/basic-enum';
   styleUrl: './badge.component.scss'
 })
 export class BadgeComponent {
-@Input() property:BadgeType= BadgeType.TODO;
-
+  @Input() property:BadgeType= BadgeType.TODO;
 }

@@ -1,3 +1,4 @@
+@import "../../../../styles/colors.scss";
 .slider-navigation {
     display: flex;
     width: 7.125rem;
@@ -6,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     gap: 4.25rem;
-    background: var(--gradient-pr, linear-gradient(180deg, #1334B9 0%, #425DC7 100%));
+    background : $primary_btn;
 }
 
 .logo {
@@ -26,7 +27,7 @@
 }
 
 .tabs-bottom {
-    border-top: 0.5px solid #A1AEE3;
+    border-top: 0.5px solid $light_royal_blue;
     display: flex;
     width: 7.125rem;
     padding: 1.125rem 0rem;
@@ -45,5 +46,5 @@
     align-items: center;
     gap: 0.1875rem;
     flex-shrink: 0;
-    border-bottom: 0.5px solid #A1AEE3;
+    border-bottom: 0.5px solid $light_royal_blue;
 }

@@ -1,0 +1,25 @@
+@import "../../../../styles.scss";
+
+.row-container {
+    background: $white;
+    display: inline-flex;
+    padding: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+
+.narrow-basic-table-row.Hover {
+    background: rgba(231, 235, 248, 0.20);
+}
+
+.narrow-basic-table-row {
+    border-bottom: 1px solid;
+    border-color: $lavender_blue ;
+    display: inline-flex;
+    padding: 4px 0px;
+    align-items: center;
+    gap: 1px;
+
+}
