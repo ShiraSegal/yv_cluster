@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
+import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
@@ -31,8 +31,9 @@ import { ToastNotificationComponent } from '../basic-components/toast-notificati
 import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
 import { FieldComponent } from '../basic-components/field/field.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
-import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
-import { ViewerComponent } from '../viewer/viewer.component';
+import { SliderNavigationTabIconType, ViewerIconType } from 'src/app/enums/icon-enum';
+import { ViewerComponent } from '../basic-components/viewer/viewer.component';
+import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -60,6 +61,7 @@ import { ViewerComponent } from '../viewer/viewer.component';
       BasicRadioButtonComponent,
       CheckComponent,
      YvSelectComponent,
+     IconButtonLargeComponent,
       BasicTabComponent,
       SliderComponent,
       SwitchComponent,
@@ -75,6 +77,8 @@ export class TestComponent {
   tertiany = ButtonType.TERTIARY
   CheckStateType = CheckStateType;
   CheckType = CheckType;
+  viewerIconType = ViewerIconType;
+  iconButtonLargeType = IconButtonLargeType;
   // variant1 = ButtonIconProperty.VARIANT1
   // variant2 = ButtonIconProperty.VARIANT2
   // variant3 = ButtonIconProperty.VARIANT3

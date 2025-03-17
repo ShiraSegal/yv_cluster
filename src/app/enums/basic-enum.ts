@@ -135,4 +135,8 @@ export  enum ToastNotificationIcons {
         DISABLED = "disabled",
         ERROR = "error"
       }
+      export  enum IconButtonLargeType {
+        DEFAULT = "default",
+        HOVER = "hover",
+      } 
 
