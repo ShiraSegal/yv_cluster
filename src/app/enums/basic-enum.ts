@@ -128,10 +128,11 @@ export  enum ToastNotificationIcons {
     
       }
 
-  export enum State {
-    DEFAULT = "default",
-    FOCUSED = "focused",
-    POPULATED = "populated",
-    DISABLED = "disabled",
-    ERROR = "error"
-  }
+      export enum State {
+        DEFAULT = "default",
+        FOCUSED = "focused",
+        POPULATED = "populated",
+        DISABLED = "disabled",
+        ERROR = "error"
+      }
+

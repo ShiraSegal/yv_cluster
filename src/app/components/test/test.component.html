@@ -1,3 +1,5 @@
+<hr><h3>viewer</h3><hr>
+<yv-cluster-viewer pictureName="pictureName"></yv-cluster-viewer>
 <hr><h3>data cell</h3><hr>
 <yv-cluster-data-cells [type]=DataCellType.TEXT data="this is a text"></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]=DataCellType.MORE ></yv-cluster-data-cells>
@@ -172,37 +174,22 @@
 <h3>field</h3>
 <hr> 
  <yv-cluster-field 
-[error]="false"
-[disabled]="false"
+[property]=stateEnum.ERROR
 [label]="label"
-[focused]="true"
-[populated]="false"
-[default]="'Select'"
 ></yv-cluster-field>
-
 <yv-cluster-field 
-[error]="true"
-[disabled]="false"
+[property]=stateEnum.DEFAULT
 [label]="label"
-[focused]="false"
-[populated]="false"
-[default]="'Select'"
 ></yv-cluster-field>
-
 <yv-cluster-field 
-[error]="false"
-[disabled]="true"
+[property]=stateEnum.FOCUSED
 [label]="label"
-[focused]="false"
-[populated]="false"
-[default]="'Select'"
 ></yv-cluster-field>
-
 <yv-cluster-field 
-[error]="false"
-[disabled]="false"
+[property]=stateEnum.POPULATED
 [label]="label"
-[focused]="false"
-[populated]="true"
-[default]="'Select'" 
-></yv-cluster-field> 
+></yv-cluster-field>
+<yv-cluster-field 
+[property]=stateEnum.ERROR
+[label]="label"
+></yv-cluster-field>

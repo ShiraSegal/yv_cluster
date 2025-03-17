@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
+import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
@@ -32,6 +32,7 @@ import { PieComponentDistributionModalComponent } from '../basic-components/pie-
 import { FieldComponent } from '../basic-components/field/field.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
 import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
+import { ViewerComponent } from '../viewer/viewer.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -62,6 +63,7 @@ import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
       BasicTabComponent,
       SliderComponent,
       SwitchComponent,
+      ViewerComponent,
       TextareaComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
@@ -109,7 +111,7 @@ export class TestComponent {
   DataCellType = DataCellType;
   sliderNavigationTabIconType = SliderNavigationTabIconType;
   sliderNavigationTabType = SliderNavigationTabType;
- 
+stateEnum = State;
    cells = [
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },

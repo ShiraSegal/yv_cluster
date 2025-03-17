@@ -13,12 +13,11 @@ export class ColorsAccessibilityService {
     stylesEle: any;
 
     constructor(@Inject(PLATFORM_ID) platformId: string,
-        @Inject(DOCUMENT) private document: Document,) {
+                @Inject(DOCUMENT) private document: Document) { // הסרת הפסיק המיותר
         this.isBrowser = isPlatformBrowser(platformId);
     }
 
     setColors() {
- 
         // dynamically create CSS var declaration like in css
         this.document.documentElement.style.setProperty("--primary_btn", "#1334B9");
         this.document.documentElement.style.setProperty("--light_slate_blue", "#8999DC"); 
@@ -42,12 +41,8 @@ export class ColorsAccessibilityService {
         this.document.documentElement.style.setProperty("--forest_green", "#1F8A74");
         this.document.documentElement.style.setProperty("--black", "#000");
         this.document.documentElement.style.setProperty("--main-primery-main", "#006AE5");
-        this.document.documentElement.style.setProperty("--light-gray" , "#ccc");
-        this.document.documentElement.style.setProperty("--pastel-blue" , "#E7EBF8");
-        this.document.documentElement.style.setProperty("--royal-blue" , "#3f51b5");
+        this.document.documentElement.style.setProperty("--light-gray", "#ccc");
+        this.document.documentElement.style.setProperty("--pastel-blue", "#E7EBF8");
+        this.document.documentElement.style.setProperty("--royal-blue", "#3f51b5");
     }
 }
-
-
-
-

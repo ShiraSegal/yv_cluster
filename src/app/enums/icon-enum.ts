@@ -10,3 +10,12 @@ export enum SliderNavigationTabIconType {
     REPORTLIGHT = "fa-light fa-chart-line-up ",
     NEWCLUSTERLIGHT = "fa-light fa-plus ",
 }
+
+export enum ViewerIconType {
+    ROTATERIGHT = "fa-solid fa-arrow-rotate-right ",
+    ROTATELEFT = "fa-solid fa-arrow-rotate-left ",
+    PRINT = "fa-solid fa-print ",
+    ZOOMIN = "fa-solid fa-magnifying-glass-minus ",
+    ZOOMOUT = "fa-solid fa-magnifying-glass-plus ",
+    
+}
