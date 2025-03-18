@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { DataCellType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
+
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 
 @Component({
@@ -16,9 +17,9 @@ export class NarrowBasicTableRowComponent {
   DataCellType = DataCellType;
 
   // האם צריך להוריד? ישמש רק במקרה שירצו לשנות את המצב אחרי הקריאה הראשונית האם יש מקרה כזה??
-  changeState(newState: NarrowBasicTableRowInputState) {
-    this.property = newState;
-  }
+  // changeState(newState: NarrowBasicTableRowInputState) {
+  //   this.property = newState;
+  // }
 
  
 }

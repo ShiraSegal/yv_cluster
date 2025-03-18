@@ -12,7 +12,7 @@
     cursor: pointer;
 }
 
-.circle-status-yes {
+.circle-selected {
     display: flex;
     width: 3.4375rem;
     height: 0.3rem;
@@ -24,7 +24,7 @@
     background:$lavender_blue;
 }
 
-.circle-status-no {
+.circle-not-selected {
     display: flex;
     width: 2.75rem;
     height: 1.25rem;
@@ -35,10 +35,9 @@
     border-radius: 6.25rem;
 }
 
-.text-status-yes {
+.text-selected {
     color: $royal_blue;
     text-align: center;
-    /* Body/small */
     font-family: Poppins;
     font-size: 0.75rem;
     font-style: normal;
@@ -46,10 +45,9 @@
     line-height: normal;
 }
 
-.text-status-no {
+.text-not-selected {
     color:$slate_blue;
     text-align: center;
-    /* Body/small */
     font-family: Poppins;
     font-size: 0.75rem;
     font-style: normal;

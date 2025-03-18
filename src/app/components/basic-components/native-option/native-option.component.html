@@ -1,0 +1,18 @@
+<div class="option-wrapper" [ngClass]="optionState">
+    <div [ngClass]="optionType">
+        @if(optionType === optionTypeMain.TEXT){
+            <span class="icon-wrapper">
+                <i class="fa-regular fa-square-arrow-up-right custom-arrow"></i>
+            </span>
+        }
+        @else if(optionType === optionTypeMain.STATUS){
+            <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge>
+        }
+        @else{
+            <yv-cluster-assignee data="Ariela Zoppelmann"></yv-cluster-assignee>
+        }
+        <!-- {{ (optionType === optionTypeMain.TEXT || optionType === optionTypeMain.ASSIGNEE ) ? optionText : '' }} -->
+    </div>
+</div>
+
+
