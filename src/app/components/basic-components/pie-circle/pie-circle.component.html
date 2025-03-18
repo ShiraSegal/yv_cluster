@@ -1,6 +1,6 @@
 
 <svg class="pie-circle" viewBox="0 0 200 200">
-  <ng-container *ngFor="let item of date.LastName; let i = index">
+  <ng-container *ngFor="let item of data; let i = index">
     <!-- שרטוט חתיכת עיגול לכל אחוז -->
     <path
       [attr.d]="getPieSlice(getUpdatedBeginPlace()[i] - calculatePercentage(item.Count), getUpdatedBeginPlace()[i])"
@@ -16,13 +16,13 @@
     </ng-container>
   </ng-container>
   <!-- חתיכה אחרונה בעיגול -->
-  <path [attr.d]="getPieSlice(getUpdatedBeginPlace()[date.LastName.length - 1] || 0, 100)" fill="#1334B9" />
+  <path [attr.d]="getPieSlice(getUpdatedBeginPlace()[data.length - 1] || 0, 100)" fill="#1334B9" />
   <!-- טקסט על העיגול -->
   <text
-    [attr.x]="getTextPosition(getUpdatedBeginPlace()[date.LastName.length - 1] || 0, 100).x"
-    [attr.y]="getTextPosition(getUpdatedBeginPlace()[date.LastName.length - 1] || 0, 100).y"
+    [attr.x]="getTextPosition(getUpdatedBeginPlace()[data.length - 1] || 0, 100).x"
+    [attr.y]="getTextPosition(getUpdatedBeginPlace()[data.length - 1] || 0, 100).y"
     class="part-of-the-circle-text">
-    All Database {{ allDatabaseCount }}%
+    {{totalValue.Value}} {{ theRestPercents }}%
   </text>
 </svg>
 

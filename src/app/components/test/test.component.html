@@ -112,6 +112,7 @@
  <yv-cluster-header-cells [type]=HeaderCellType.MORE></yv-cluster-header-cells>
  <yv-cluster-header-cells [type]=HeaderCellType.PLACEOLDER></yv-cluster-header-cells>
  <hr>
+<!-- <yv-cluster-table-header [headers]="[{ data: 'string'; type: DataCellType.TEXT}]"></yv-cluster-table-header> -->
  <h3>icon button</h3>
  <hr>
  <yv-cluster-icon-button (onClick)="onClick()" [icon]="iconp"  ></yv-cluster-icon-button>
@@ -157,7 +158,7 @@
  <hr>
  <h3>rab</h3>
  <hr>
- <yv-cluster-basic-tab  [text]="'tab'" [active]="true" (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
+ <yv-cluster-basic-tab  [text]="'tab'" [status]="'active'" (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
  <hr>
  <h3>toggle</h3>
  <hr>

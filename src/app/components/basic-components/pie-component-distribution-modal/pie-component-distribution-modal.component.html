@@ -4,16 +4,15 @@
   </div>
   <div class="table-and-pie-container">
     <!-- //טבלה -->
-    <yv-cluster-pie-table></yv-cluster-pie-table>
+    <yv-cluster-pie-table [spsipicPlaceData]="data.LastNameInPlaces"  [allDatabaseData]="data.LastName"></yv-cluster-pie-table>
     <div class="pie-circle-container">
       <div class="pie-buttons-container">
-        <div class="button-text pie-button-left">All Database</div>
-        <div class="button-text pie-button-right">Minsk</div>
+        <div class="button-text" [ngClass]="{'button-with-a-backround':showAllThaDatabasePie,'button-without-a-backround':!showAllThaDatabasePie}" (click)="changeTheShowingPei()">All Database</div>
+        <div class="button-text" [ngClass]="{'button-with-a-backround':!showAllThaDatabasePie,'button-without-a-backround':showAllThaDatabasePie}" (click)="changeTheShowingPei()">Minsk</div>
       </div>
       <!-- ///עיגול -->
-      <yv-cluster-pie-circle ></yv-cluster-pie-circle>
+      <yv-cluster-pie-circle [data]="data.LastName" [totalValue]="{'TotalCount': 10000, 'Value': 'All Database'}" *ngIf="showAllThaDatabasePie"></yv-cluster-pie-circle>
+      <yv-cluster-pie-circle [data]="data.LastNameInPlaces" [totalValue]="{'TotalCount':15000, 'Value': 'Minsk'}" *ngIf="!showAllThaDatabasePie"></yv-cluster-pie-circle>
     </div>
-
-
   </div>
 </div>

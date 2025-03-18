@@ -10,8 +10,17 @@
     @for (item of tableRows; track item) {
     <!-- //שורה בטבלה -->
     <div class="table-row">
+         <div class="table-row-name">{{item}}</div>
         <div class="table-row-left-side">
-            <div class="table-row-name">{{item}}</div>
+            @for (subItem of spsipicPlaceData; track subItem.Code) {
+                <!-- <div class="table-text">{{subItem.item}}</div> -->
+                <!-- Object.entries(subItem).forEach(([key, value]) => {
+                    console.log(`${value}`);
+                  }); -->
+                  <div *ngFor="let value of subItem | keyvalue">
+                    <div>{{ value }}</div>
+                  </div>
+            }
         </div>
         <div class="table-row-right-side">
             <div class="table-row-right-side-column">
