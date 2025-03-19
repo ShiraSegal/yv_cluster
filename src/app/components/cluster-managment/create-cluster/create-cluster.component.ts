@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
@@ -11,6 +11,9 @@ import { YvSelectComponent } from '../../basic-components/yv-select/yv-select.co
 import { RadioButtonListComponent } from '../../basic-components/radio-button-list/radio-button-list.component';
 import { TextareaComponent } from '../../basic-components/textarea/textarea.component';
 import { ClusterApiService } from 'src/app/services/cluster-api.service';
+import { Observable } from 'rxjs';
+import { ClusterService } from 'src/app/services/cluster.service';
+import { log } from 'console';
 
 @Component({
   selector: 'yv-cluster-create-cluster',
@@ -47,13 +50,22 @@ export class CreateClusterComponent {
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
   radioControl = new FormControl<string | null>(null);
-
+  createClusterData = new Observable<string[]>;
+ #service=inject(ClusterService);
   ngOnInit() {
-  this.clusterData.getCreateClusterData().subscribe((data) => {
-    this.dataCells.push(data[0]);
-    console.log("ddddddddddddddddddd",data);
+  // this.createClusterData=this.clusterData.getCreateClusterData()
+  //   this.dataCells.push(data.Field);
+  //   console.log("ddddddddddddddddddd",data);
     
+  // });
+  
+  // this.createClusterData = this.#service.ClusterData$;
+  this.#service.ClusterData$.subscribe(data => {
+    console.log('SapirClusterDetails:', data); // כאן תקבל את הנתונים עצמם
+    // this.createClusterData = data; // שמירת הנתונים במשתנה
   });
+  console.log("this.createClusterData",this.createClusterData);
+  // this.dataCells.push()
    this.radioControl.setValue(this.options[0]);
   }
   onSelectionChanged(selectedOption: string) {

@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, catchError, filter, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -52,5 +53,42 @@ export class ClusterService {
   //   })).subscribe();
   //   return res;
   // }
+ 
+   
+    private createClusterData$ = new BehaviorSubject<any[]>([]);
+   
+  get ClusterData$()
+    {
+      return this.createClusterData$.asObservable();
+    }
+   
+   
+  //  async getCreateClusterData() {
+  //     var res = this.#clusterApiService.getCreateClusterData();
+  //       (await res).pipe(tap(res => {
+  //         if(res){
+  //         this.createClusterData$.next(res);
+  //         }
+  //       })).subscribe();
+  //       return res;
+  //     }
+   
 
-}
+
+  async getCreateClusterData() {
+    const res = this.#clusterApiService.getCreateClusterData();
+    const result = (await res)
+      .pipe(
+        take(1),
+        map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
+        tap(details => {
+          if (details) {
+            this.createClusterData$.next(details); // עדכון ה-Subject עם המערך
+          }
+        })
+      )
+      .subscribe(); // המרה ל-Promise כדי לעבוד עם await
+  
+    return result; // מחזיר את המערך SapirClusterDetails
+  }
+ }
