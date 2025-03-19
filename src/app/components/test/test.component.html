@@ -10,3 +10,20 @@
 
 <yv-cluster-check [type]="CheckType.CHECKED" [state]="CheckStateType.DISABLED"></yv-cluster-check>
 
+<!-- tab  -->
+<yv-cluster-basic-tab
+[status]="tabStatus"
+[text]="tabText"
+(tabChange)="onTabChange($event)">
+</yv-cluster-basic-tab>
+
+<yv-cluster-basic-tab
+[status]="tabStatus"
+[text]="tabText"
+(tabChange)="onTabChange($event)">
+</yv-cluster-basic-tab>
+<yv-cluster-basic-tab
+[status]="tabStatus"
+[text]="tabText"
+(tabChange)="onTabChange($event)">
+</yv-cluster-basic-tab>
