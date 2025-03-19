@@ -34,7 +34,6 @@ export class PieCircleComponent {
       currentBeginPlace += percentage;
     });
     this.beginPlace = currentBeginPlace;
-    this.updateRemainingPercentage(); // עדכון השארית
   }
 
   // שינוי בgetPieSlice כדי לקחת את הbeginPlace הנכון לכל חלק
@@ -85,6 +84,7 @@ export class PieCircleComponent {
     const x = radius + offsetRadius * Math.cos(angleRad);
     const y = radius + offsetRadius * Math.sin(angleRad);
 
+    this.updateRemainingPercentage() // עדכון השארית
     // החזרת המיקום החדש של הטקסט ללא סיבוב
     return { x, y };
   }

@@ -5,18 +5,21 @@ import { Component, Input, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PieCircleComponent } from '../pie-circle/pie-circle.component';
 import { PieTableComponent } from '../pie-table/pie-table.component';
+import { ButtonComponent } from '../button/button.component';
+import { ButtonSize, ButtonType } from 'src/app/enums/basic-enum';
 
 @Component({
   selector: 'yv-cluster-pie-component-distribution-modal',
   standalone: true,
-  imports: [CommonModule, FormsModule, PieCircleComponent, PieTableComponent],
+  imports: [CommonModule, FormsModule, PieCircleComponent, PieTableComponent,ButtonComponent],
   templateUrl: './pie-component-distribution-modal.component.html',
   styleUrls: ['./pie-component-distribution-modal.component.scss']
 })
 export class PieComponentDistributionModalComponent {
   @Input() title!: string;
   showAllThaDatabasePie: boolean = true;
-
+  tertiany:ButtonType=ButtonType.TERTIARY;
+  size:ButtonSize=ButtonSize.SMALL;
   data = {
     "LastName": [{
       "Count": 3000,
