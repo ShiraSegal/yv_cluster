@@ -17,10 +17,6 @@ export enum BasicTablePropertyType{
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
 
-// export enum CheckType{
-//     UNSELECTED ='unselected',
-//     SELECTED = 'checked'
-// }
 export enum CheckType{
   UNCHECKED ='unchecked',
   CHECKED = 'checked'
@@ -31,17 +27,6 @@ export enum CheckStateType{
 }
 export enum DataCellType {
   TEXT = 'text',
-  MORE = 'more',
-  STATUS = 'status',
-  CHECK = 'check',
-  LINK = 'link',
-  ICON = 'icon',
-  ASSIGNEE = 'assignee',
-  BUTTON = 'button',
-  SLIDER='slider'
-}
-export enum DataCellDataType {
-  TEXT = 'string',
   MORE = 'more',
   STATUS = 'status',
   CHECK = 'check',
