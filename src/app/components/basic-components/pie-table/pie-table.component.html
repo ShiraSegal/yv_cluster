@@ -15,7 +15,9 @@
             
             @for (subItem of spsipicPlaceData; track $index) {
                
-                <div class="table-text">{{ getValue(subItem, item.objectKey) }}</div>                 
+                <!-- <div class="table-text">{{ getValue(subItem, item.objectKey) }}</div> -->
+                <div class="table-text"><yv-cluster-data-cells [type]=DataCellType.TEXT data="{{getValue(subItem, item.objectKey)}}"></yv-cluster-data-cells></div>
+                 
             }
         </div>
         <div class="table-row-one-side">

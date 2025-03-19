@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-
-import { Component, Input, SimpleChanges } from '@angular/core';
-
+import { Component, inject, Input, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PieCircleComponent } from '../pie-circle/pie-circle.component';
 import { PieTableComponent } from '../pie-table/pie-table.component';
 import { ButtonComponent } from '../button/button.component';
 import { ButtonSize, ButtonType } from 'src/app/enums/basic-enum';
+import { Observable } from 'rxjs';
+import { ClusterService } from 'src/app/services/cluster.service';
 
 @Component({
   selector: 'yv-cluster-pie-component-distribution-modal',
@@ -16,10 +16,19 @@ import { ButtonSize, ButtonType } from 'src/app/enums/basic-enum';
   styleUrls: ['./pie-component-distribution-modal.component.scss']
 })
 export class PieComponentDistributionModalComponent {
+    #clusterService = inject(ClusterService)
   @Input() title!: string;
   showAllThaDatabasePie: boolean = true;
   tertiany:ButtonType=ButtonType.TERTIARY;
   size:ButtonSize=ButtonSize.SMALL;
+
+ 
+  statisticData: any; // מערך ולא Observable
+  ngOnInit() {
+    this.statisticData=this.#clusterService.getStatisticData();
+    console.log("statisticData:", this.statisticData); // ככה הנתונים יודפסו נכון
+  }
+
   data = {
     "LastName": [{
       "Count": 3000,
@@ -32,11 +41,15 @@ export class PieComponentDistributionModalComponent {
     }, {
       "Count": 600,
       "Code": "T342541",
-      "Value": "Frankenstein"
+      "Value": "Frankens"
     }, {
       "Count": 1500,
       "Code": "T342541",
-      "Value": "Blumenstein"
+      "Value": "Blumen"
+    }, {
+      "Count": 1200,
+      "Code": "T342541",
+      "Value": "Glukigen"
     }
     ]
     ,

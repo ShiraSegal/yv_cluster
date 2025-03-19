@@ -1,0 +1,50 @@
+[
+      {
+          "__type": "ClusteredNamesSystem.classes.StatisticsItem",
+          "LastName": {
+              "Count": 2500,
+              "Code": "T430413",
+              "Value": "Pozes"
+          },
+          "LastNameInPlaces": [
+              {
+                  "TotalCount": 150,
+                  "Count": 15,
+                  "Code": "",
+                  "Value": ""
+              }
+          ]
+      },
+      {
+          "__type": "ClusteredNamesSystem.classes.StatisticsItem",
+          "LastName": {
+              "Count": 484,
+              "Code": "T86132",
+              "Value": "Reinish"
+          },
+          "LastNameInPlaces": [
+              {
+                  "TotalCount": 3000,
+                  "Count": 100,
+                  "Code": "",
+                  "Value": ""
+              }
+          ]
+      },
+      {
+        "__type": "ClusteredNamesSystem.classes.StatisticsItem",
+        "LastName": {
+            "Count": 160000,
+            "Code": "T86132",
+            "Value": "Adler"
+        },
+        "LastNameInPlaces": [
+            {
+                "TotalCount": 16000,
+                "Count": 2500,
+                "Code": "",
+                "Value": ""
+            }
+        ]
+    }
+    ]

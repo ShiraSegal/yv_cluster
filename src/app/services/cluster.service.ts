@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, filter, take, tap } from 'rxjs';
+import { BehaviorSubject, catchError, filter, map, Observable, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
 
@@ -13,7 +13,8 @@ export class ClusterService {
 
   private autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
-
+  private statisticDataSubject$ = new BehaviorSubject<string[]>([]);
+ 
   async getAutoClusterData() {
     var res = this.#clusterApiService.getAutoClusterData();
       (await res).pipe(take(1), tap(res => {
@@ -37,6 +38,25 @@ export class ClusterService {
     return this.isLoadingBehaviorSubject$.asObservable();
   }
 
+
+
+  async getStatisticData() {
+    var res = this.#clusterApiService.getStatisticData();
+      (await res).pipe(take(1), tap(res => {
+        if(res){
+        this.statisticDataSubject$.next(res);
+        }
+      })).subscribe();
+      return res;
+    }
+  
+  get statisticData$(): Observable<any[]> {
+    return this.statisticDataSubject$.asObservable();
+  }
+
+// =================================
+
+
   // createReservation() {
   //   var res = this.#newReservationApiService.createReservation(reservtion);
   //   res.pipe(take(1), tap(res => {
@@ -52,5 +72,8 @@ export class ClusterService {
   //   })).subscribe();
   //   return res;
   // }
+
+ 
+
 
 }

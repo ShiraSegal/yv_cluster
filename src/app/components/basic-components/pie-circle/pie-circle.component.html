@@ -14,6 +14,7 @@
         {{item.Value}} {{ calculatePercentage(item.Count) | number:'1.0-0' }}%
       </text>
     </ng-container>
+
   </ng-container>
   <!-- חתיכה אחרונה בעיגול -->
   <path [attr.d]="getPieSlice(getUpdatedBeginPlace()[data.length - 1] || 0, 100)" fill="#1334B9" />

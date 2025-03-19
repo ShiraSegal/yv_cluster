@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { Observable, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -15,4 +17,11 @@ export class ClusterApiService {
 
   //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
 
+
+  async getStatisticData()
+  {
+    return this.#http.get<string[]>(environment.apiUrl + '/getStatisticData.json');
+  }
+
+  
 }

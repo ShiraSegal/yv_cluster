@@ -14,10 +14,8 @@ export class PieCircleComponent {
   pieColorsArray: string[] = ['#F6CDCD', '#A5B1C0', '#A1AEE3', '#A5EBDD',];
   @Input() totalValue!: { TotalCount: number; Value: string };
   @Input() data!: { Count: number; Code: string; Value: string }[];
-  // allDatabaseCount: number = 10000;
-  // theRestPercents: number = this.allDatabaseCount;
   remainingPercentage: number = 0;
-
+  // lastColor: string = '#F6CDCD';
 
 
   // פונקציה לחישוב אחוז מתוך סכום כללי
@@ -97,12 +95,14 @@ export class PieCircleComponent {
       });
     
       // בדוק את הערך של totalPercentage
-      console.log("Total Percentage:", totalPercentage);
+      // console.log("Total Percentage:", totalPercentage);
     
       // חישוב השארית
       this.remainingPercentage = 100 - totalPercentage;
     
       // בדוק אם השארית מחושבת נכון
-      console.log("Remaining Percentage:", this.remainingPercentage);
+      // console.log("Remaining Percentage:", this.remainingPercentage);
     }
+
+
 }

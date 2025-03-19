@@ -6,13 +6,6 @@ export  enum ButtonType {
   TERTIARY = "tertiary"
 }
  
-export enum State {
-  DEFAULT = "default",
-  FOCUSED = "focused",
-  POPULATED = "populated",
-  DISABLED = "disabled",
-  ERROR = "error"
-}
 export enum NarrowBasicTableRowInputState {
   DEFAULT = 'Default',
   HOVER = 'Hover'
@@ -26,10 +19,42 @@ export enum BasicTablePropertyType{
   OLD_SUGGESTIONS= 'Old Suggestions',
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
-export enum ButtonSize{
-  BIG="big",
-  SMALL="small"
+ 
+export enum CheckType{
+  UNCHECKED ='unchecked',
+  CHECKED = 'checked'
 }
+export enum CheckStateType{
+  ENABLED ='enabled',
+  DISABLED = 'disabled'
+}
+ 
+export enum DataCellType {
+  TEXT = 'string',
+  MORE = 'more',
+  STATUS = 'status',
+  CHECK = 'check',
+  LINK = 'link',
+  ICON = 'icon',
+  ASSIGNEE = 'assignee',
+  BUTTON = 'button',
+  SLIDER='slider',
+  PLACEOLDER = 'place-order',
+}
+ 
+export enum AutoClusterTabType {
+  SAPIR_CLUSTERS = 'Sapir Clusters',
+  MISSING_FIELD = 'Missing Field',
+  APPROVAL_GROUPS = 'Approval Groups',
+  CHECKLIST_ITEMS = 'Checklist Items',
+  DIFFERENT_CLUSTERS = 'Different Clusters',
+  ERROR_MESSAGES = 'Error Messages'
+}
+// export enum ButtonIconProperty{
+// VARIANT1="variant1",
+// VARIANT2="variant2",
+// VARIANT3="variant3"
+// }
  
 export enum ButtonIcon{
   FOLDER_PLUS="fa-light fa-folder-plus",
@@ -51,22 +76,7 @@ export enum ButtonIcon{
     NEUTRAL_GRAY = "neutral-gray",
   }
  
-  export enum TextWeight {
-    BOLD = "bold",
-    NORMAL = "normal"
-    }
  
-  export enum DataCellType {
-    TEXT = 'text',
-    MORE = 'more',
-    STATUS = 'status',
-    CHECK = 'check',
-    LINK = 'link',
-    ICON = 'icon',
-    ASSIGNEE = 'assignee',
-    BUTTON = 'button',
-    SLIDER='slider'
-  }
   export enum HeaderCellType {
     TEXT = "text",
     MORE = "more",
@@ -76,6 +86,7 @@ export enum ButtonIcon{
     CHECK = "check",
     ORDERDOWN = "order down"
   }
+  export type DataCellValue = string | number;
  
 export  enum CardIcons {
   HOURGLASS_CLOCK="fa-solid fa-hourglass-clock",
@@ -88,3 +99,38 @@ export  enum ToastNotificationIcons {
   ERROR="fa-solid fa-circle-xmark",
   SUCCESS="fa-solid fa-circle-check",
     }  
+    export  enum BadgeType {
+      TODO = "To-do",
+      DONE = "Done"
+    }
+ 
+  export enum SliderNavigationTabType{
+    VARIANT3="variant3",
+    ACTIVE="active"
+  }
+  export enum SliderNavigationTabTextType{
+    HOME="Home",
+    LOGOUT="Logout",
+    AUTOCLUSRET="Auto Cluster",
+    REPORT="Report",
+    NEWCLUSTER="New Cluster",
+   
+      }
+ 
+      export enum State {
+        DEFAULT = "default",
+        FOCUSED = "focused",
+        POPULATED = "populated",
+        DISABLED = "disabled",
+        ERROR = "error"
+      }
+      export  enum IconButtonLargeType {
+        DEFAULT = "default",
+        HOVER = "hover",
+      }
+ 
+    
+    export enum ButtonSize{
+      BIG="big",
+      SMALL="small"
+    }
