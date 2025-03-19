@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -14,8 +14,11 @@ export class PieCircleComponent {
   pieColorsArray: string[] = ['#F6CDCD', '#A5B1C0', '#A1AEE3', '#A5EBDD',];
   @Input() totalValue!: { TotalCount: number; Value: string };
   @Input() data!: { Count: number; Code: string; Value: string }[];
-  allDatabaseCount: number = 10000;
-  theRestPercents: number = this.allDatabaseCount;
+  // allDatabaseCount: number = 10000;
+  // theRestPercents: number = this.allDatabaseCount;
+  remainingPercentage: number = 0;
+
+
 
   // פונקציה לחישוב אחוז מתוך סכום כללי
   calculatePercentage(part: number): number {
@@ -31,6 +34,7 @@ export class PieCircleComponent {
       currentBeginPlace += percentage;
     });
     this.beginPlace = currentBeginPlace;
+    this.updateRemainingPercentage(); // עדכון השארית
   }
 
   // שינוי בgetPieSlice כדי לקחת את הbeginPlace הנכון לכל חלק
@@ -84,4 +88,21 @@ export class PieCircleComponent {
     // החזרת המיקום החדש של הטקסט ללא סיבוב
     return { x, y };
   }
+
+    // פונקציה חדשה לחישוב השארית
+    updateRemainingPercentage(): void {
+      let totalPercentage = 0;
+      this.data.forEach(item => {
+        totalPercentage += this.calculatePercentage(item.Count);
+      });
+    
+      // בדוק את הערך של totalPercentage
+      console.log("Total Percentage:", totalPercentage);
+    
+      // חישוב השארית
+      this.remainingPercentage = 100 - totalPercentage;
+    
+      // בדוק אם השארית מחושבת נכון
+      console.log("Remaining Percentage:", this.remainingPercentage);
+    }
 }

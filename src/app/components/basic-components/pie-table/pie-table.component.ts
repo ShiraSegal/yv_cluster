@@ -10,9 +10,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './pie-table.component.scss'
 })
 export class PieTableComponent {
-  tableRows: string[] = ['Value', 'Count'];
-  @Input() allDatabaseData!: { Count: number; Code: string; Value: string }[];
-  @Input() spsipicPlaceData!: { Count: number; Code: string; Value: string }[];
+  tableRows:any= [{'rowName':'Last Name','objectKey':'Value'}, {'rowName':'Count','objectKey':'Count'}, {'rowName':'percent','objectKey':'Count'},{ 'rowName':'Total name count','objectKey':'Code'}];
+  @Input() allDatabaseData!: { Count: number, Code: string, Value: string }[];
+  @Input() spsipicPlaceData!: {TotalCount:number, Count: number,Code: string, Value: string }[];
 
-
+getValue(subItem: any, key: string): any {
+  return subItem[key];
+}
 }

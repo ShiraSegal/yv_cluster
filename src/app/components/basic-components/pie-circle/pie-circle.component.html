@@ -22,7 +22,7 @@
     [attr.x]="getTextPosition(getUpdatedBeginPlace()[data.length - 1] || 0, 100).x"
     [attr.y]="getTextPosition(getUpdatedBeginPlace()[data.length - 1] || 0, 100).y"
     class="part-of-the-circle-text">
-    {{totalValue.Value}} {{ theRestPercents }}%
+    {{totalValue.Value}} {{ remainingPercentage | number:'1.0-0'}}%
   </text>
 </svg>
 
