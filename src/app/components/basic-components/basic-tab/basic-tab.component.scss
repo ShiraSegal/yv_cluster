@@ -1,0 +1,51 @@
+@import "src/styles.scss";
+.tab-container-active {
+    display: flex;
+    width: 10.625rem;
+    height: 3.8125rem;
+    min-width: 7.5rem;
+    max-width: 15.625rem;
+    padding: var(--Layout-small, 0.25rem) var(--Layout-medium, 0.5rem);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--Layout-medium, 0.5rem);
+    flex-shrink: 0;
+    border-bottom: 3px solid $cool_blue;
+}
+
+.tab-container-not-active {
+    display: flex;
+    width: 10.625rem;
+    height: 3.8125rem;
+    min-width: 7.5rem;
+    max-width: 15.625rem;
+    padding: var(--Layout-none, 0rem) var(--Layout-medium, 0.5rem);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--Layout-medium, 0.5rem);
+    flex-shrink: 0;
+}
+
+.tab-text-active {
+    color:$cool_blue;
+    text-align: center;
+    /* Heading/Small bold */
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.tab-text-not-active {
+    color: $slate_blue;
+    text-align: center;
+    /* Heading/Small */
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
