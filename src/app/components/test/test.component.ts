@@ -14,11 +14,12 @@ import { YvSelectComponent } from '../basic-components/yv-select/yv-select.compo
 import { YvTableHeaderComponent } from '../basic-components/yv-table-header/yv-table-header.component';
 import { YvTextareaComponent } from '../basic-components/yv-textarea/yv-textarea.component';
 import { YvCheckComponent } from '../basic-components/yv-check/yv-check.component';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [CommonModule, TempButtonComponent,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent],
+  imports: [CommonModule, TempButtonComponent,YvSliderComponent,YvAssigneeComponent,YvBasicTableComponent,YvBasicTableRowComponent,YvCheckComponent,YvDataCellsComponent,YvHeaderCellsComponent,YvInputComponent,YvSelectComponent,YvTableHeaderComponent,YvTextareaComponent,HomeComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })
