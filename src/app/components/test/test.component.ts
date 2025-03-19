@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
+import { BasicTableRowPropertyVariants, ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
@@ -34,6 +34,7 @@ import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bo
 import { SliderNavigationTabIconType, ViewerIconType } from 'src/app/enums/icon-enum';
 import { ViewerComponent } from '../basic-components/viewer/viewer.component';
 import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -71,6 +72,10 @@ import { IconButtonLargeComponent } from '../basic-components/icon-button-large/
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
+  errorControl = new FormControl<string>('');
+  defaultControl = new FormControl<string>('');
+  focusedControl = new FormControl<string>('');
+  populatedControl = new FormControl<string>('');
   label: string = 'Lable';
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
@@ -79,6 +84,7 @@ export class TestComponent {
   CheckType = CheckType;
   viewerIconType = ViewerIconType;
   iconButtonLargeType = IconButtonLargeType;
+  basicTableRowPropertyVariants = BasicTableRowPropertyVariants;
   // variant1 = ButtonIconProperty.VARIANT1
   // variant2 = ButtonIconProperty.VARIANT2
   // variant3 = ButtonIconProperty.VARIANT3

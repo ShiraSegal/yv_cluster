@@ -12,10 +12,10 @@ export enum SliderNavigationTabIconType {
 }
 
 export enum ViewerIconType {
-    ROTATERIGHT = "fa-solid fa-arrow-rotate-right ",
-    ROTATELEFT = "fa-solid fa-arrow-rotate-left ",
-    PRINT = "fa-solid fa-print ",
-    ZOOMIN = "fa-solid fa-magnifying-glass-minus ",
-    ZOOMOUT = "fa-solid fa-magnifying-glass-plus ",
+    ROTATERIGHT = "fa-light fa-arrow-rotate-right ",
+    ROTATELEFT = "fa-light fa-arrow-rotate-left ",
+    PRINT = "fa-light fa-print ",
+    ZOOMIN = "fa-light fa-magnifying-glass-minus ",
+    ZOOMOUT = "fa-light fa-magnifying-glass-plus ",
     
 }

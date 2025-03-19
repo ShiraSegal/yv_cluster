@@ -1,22 +1,18 @@
-<div class="wrapper">
-  <fieldset class="common-input-wrapper" [ngClass]="property">
-    <legend class="input-legend" [ngClass]="property">
-      {{ (property === stateEnum.POPULATED || property === stateEnum.FOCUSED) ? label : '' }}
+<div class="warpper">
+  <fieldset [ngClass]="['common-input-wrapper', property]">
+    @if(property === stateEnum.POPULATED || property === stateEnum.FOCUSED){
+    <legend [ngClass]="['input-legend', property]">
+      {{ label }}
     </legend>
- 
-    <input
-    type="text"
-    class="custom-input"
-    [formControl]="textControl" 
-    [ngClass]="{'disabled': property === stateEnum.DISABLED}"
-    [disabled]="property === stateEnum.DISABLED"
-    placeholder="input"
-  />
+    }
+
+    <input type="text" class="custom-input" [formControl]="textControl"
+      [ngClass]="{'disabled': property === stateEnum.DISABLED}" [disabled]="property === stateEnum.DISABLED"
+      [placeholder]="property" />
   </fieldset>
- 
-  @if(property === stateEnum.ERROR){
-    <div class="error-message">
-      Error Message
-    </div>
+  @if (property === stateEnum.ERROR) {
+  <div class="error-message">
+    Error Message
+  </div>
   }
 </div>

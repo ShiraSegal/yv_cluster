@@ -1,3 +1,31 @@
+<hr>
+<h3>field</h3>
+<hr> <yv-cluster-field
+[property]="stateEnum.ERROR"
+[textControl]="errorControl">
+</yv-cluster-field>
+
+<yv-cluster-field
+[property]="stateEnum.DISABLED"
+[textControl]="errorControl">
+</yv-cluster-field>
+
+<yv-cluster-field
+[property]="stateEnum.DEFAULT"
+[textControl]="defaultControl">
+</yv-cluster-field>
+
+<yv-cluster-field
+[property]="stateEnum.FOCUSED"
+[label]="'Focused Label'"
+[textControl]="focusedControl">
+</yv-cluster-field>
+
+<yv-cluster-field
+[property]="stateEnum.POPULATED"
+[label]="'Populated Label'"
+[textControl]="populatedControl">
+</yv-cluster-field>
 <hr><h3>icon-button-large</h3><hr>
 <yv-cluster-icon-button-large [icon]="viewerIconType.ZOOMIN" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
 <hr><h3>viewer</h3><hr>
@@ -15,48 +43,6 @@
 <yv-cluster-data-cells [type]=DataCellType.PLACEOLDER></yv-cluster-data-cells> 
 <hr><h3>SLIDER</h3><hr>
 <yv-cluster-slider [value]=80></yv-cluster-slider>
-<hr><h3>SELECT</h3><hr>
-<app-yv-select
-[error]="false"
-[disabled]="false"
-[label]="label"
-[focused]="true"
-[populated]="false"
-[default]="'Select'"
-[options]="['Option 1', 'Option 2', 'Option 3']"></app-yv-select>
-<app-yv-select
-[error]="false"
-[disabled]="false"
-[label]="label"
-[focused]="false"
-[populated]="true"
-[default]="'Select'"
-[options]="['Option 1', 'Option 2', 'Option 3']"></app-yv-select>
-<app-yv-select
-[error]="true"
-[disabled]="false"
-[label]="label"
-[focused]="false"
-[populated]="false"
-[default]="'Select'"
-[options]="['Option 1', 'Option 2', 'Option 3']"></app-yv-select>
-<app-yv-select
-[error]="false"
-[disabled]="true"
-[label]="label"
-[focused]="false"
-[populated]="false"
-[default]="'Select'"
-[options]="['Option 1', 'Option 2', 'Option 3']"></app-yv-select>
-<app-yv-select
-[error]="false"
-[disabled]="false"
-[label]="label"
-[focused]="false"
-[populated]="false"
-[default]="'Select'"
-[options]="['Option 1', 'Option 2', 'Option 3']"></app-yv-select>
-
 <hr>
 <h3>assignee</h3>
 <hr>
@@ -172,26 +158,26 @@
 <h3>slider navigation</h3>
 <hr>
  <yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
- <hr>
-<h3>field</h3>
-<hr> 
- <yv-cluster-field 
-[property]=stateEnum.ERROR
-[label]="label"
-></yv-cluster-field>
-<yv-cluster-field 
-[property]=stateEnum.DEFAULT
-[label]="label"
-></yv-cluster-field>
-<yv-cluster-field 
-[property]=stateEnum.FOCUSED
-[label]="label"
-></yv-cluster-field>
-<yv-cluster-field 
-[property]=stateEnum.POPULATED
-[label]="label"
-></yv-cluster-field>
-<yv-cluster-field 
-[property]=stateEnum.ERROR
-[label]="label"
-></yv-cluster-field>
+
+<hr>
+<h3>basic table</h3>
+<hr>
+<yv-cluster-basic-table
+  [headers]="[
+    { data: 'Header 1', type: HeaderCellType.TEXT },
+    { data: 'Header 2', type: HeaderCellType.TEXT },
+    { data: 'Header 3', type: HeaderCellType.TEXT }
+  ]"
+  [rows]="[
+    { property: basicTableRowPropertyVariants.DEFAULT, showAction: true, cells: [
+      { data: 'Row 1, Cell 1', type: DataCellType.TEXT },
+      { data: 'Row 1, Cell 2', type: DataCellType.TEXT },
+      { data: 'Row 1, Cell 3', type: DataCellType.TEXT }
+    ]},
+    { property: basicTableRowPropertyVariants.DEFAULT, showAction: true, cells: [
+      { data: 'Row 2, Cell 1', type: DataCellType.TEXT },
+      { data: 'Row 2, Cell 2', type: DataCellType.TEXT },
+      { data: 'Row 2, Cell 3', type: DataCellType.TEXT }
+    ]}
+  ]"
+></yv-cluster-basic-table>
