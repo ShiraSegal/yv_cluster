@@ -36,7 +36,7 @@ export class CreateClusterComponent {
   color1: TextColor = TextColor.SLATE_BLUE;
   dataCells: string[] = [];//['First Name', 'Last Name', 'Maiden Name', 'Place Of Birth', 'Authentic Date Of Birth', 'Restored Date Of Birth', 'Permanent Place', 'Place of Death', 'Gender', 'Fate'];
   hederType: HeaderCellType = HeaderCellType.TEXT;
-  options:string[]=['first name','שם בעברית','other'];
+  // options:string[]=['first name','שם בעברית','other'];
   // label1: string = 'first name';
   // checked1: boolean = true;
   // label2: string = 'שם בעברית';
@@ -50,21 +50,27 @@ export class CreateClusterComponent {
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
   radioControl = new FormControl<string | null>(null);
-  createClusterData = new Observable<string[]>;
+  createClusterData:any = new Observable<string[]>;
+  options: string[] = ['other'];
  #service=inject(ClusterService);
   ngOnInit() {
-  // this.createClusterData=this.clusterData.getCreateClusterData()
-  //   this.dataCells.push(data.Field);
-  //   console.log("ddddddddddddddddddd",data);
-    
-  // });
-  
-  // this.createClusterData = this.#service.ClusterData$;
+  //  this.#service.ClusterData$.subscribe(data => {
+  //   this.createClusterData=data;
+  //  });
+   this.createClusterData=this.#service.getCreateClusterData();
+   console.log("this.createClusterData",this.createClusterData);
+   
   this.#service.ClusterData$.subscribe(data => {
     console.log('SapirClusterDetails:', data); // כאן תקבל את הנתונים עצמם
-    // this.createClusterData = data; // שמירת הנתונים במשתנה
+     this.createClusterData = data; // שמירת הנתונים במשתנה
   });
-  console.log("this.createClusterData",this.createClusterData);
+
+  // this.createClusterData.forEach(element => {
+  //   this.options.push(element.Values);
+  // })
+    
+
+  // console.log("this.createClusterData",this.createClusterData);
   // this.dataCells.push()
    this.radioControl.setValue(this.options[0]);
   }

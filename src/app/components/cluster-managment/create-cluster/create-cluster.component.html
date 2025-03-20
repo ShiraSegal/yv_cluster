@@ -14,21 +14,21 @@
                         [color]="color1"></yv-cluster-body>
                 </div>
             </div>
-            @for(data of dataCells; track $index){
+            @for(data of this.createClusterData; track $index){
             <div class="table">
                 <div class="data-cells">
-                        <label class="label">{{data}}</label>
+                        <label class="label">{{data.Field}}</label>
                 </div>
                 <div class="options-cells">
                     <div class="radiobuttons">
-                        <yv-cluster-radio-button-list [radioButtonArray]="options" (changes)="onSelectionChanged(data)"></yv-cluster-radio-button-list>
+                        <yv-cluster-radio-button-list [radioButtonArray]="data.Values" (changes)="onSelectionChanged(data)"></yv-cluster-radio-button-list>
                     </div>
                 </div>
 
             </div>
             }
             <app-yv-select class="select" [default]="selectLabel"></app-yv-select>
-            <yv-cluster-textarea class="comments" placeholder="Comments"></yv-cluster-textarea>
+            <input class="comments" placeholder="Comments"/>
             <div class="outer-button-warp">
                 <div class="divider"></div>
                     <div class="buttons-warp">

@@ -75,22 +75,26 @@ import { FormGroup } from '@angular/forms';
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
-  label: string = 'Lable';
-  primary = ButtonType.PRIMARY
-  secondary = ButtonType.SECONDARY
-  tertiany = ButtonType.TERTIARY
-  big=ButtonSize.BIG
-  small=ButtonSize.SMALL
-  // CheckStateType = CheckStateType;
-  // CheckType = CheckType;
-  // variant1 = ButtonIconProperty.VARIANT1
-  // variant2 = ButtonIconProperty.VARIANT2
-  // variant3 = ButtonIconProperty.VARIANT3
-  // icon=ButtonIcon.CHEVRON_LEFT
-  // variant1 = ButtonIconProperty.VARIANT1
-  // variant2 = ButtonIconProperty.VARIANT2
-  // variant3 = ButtonIconProperty.VARIANT3
-  icon=ButtonIcon.CHEVRON_LEFT
+  //button component properties
+  label: string = 'Lable';//button label
+  //enum ButtonType
+  primary = ButtonType.PRIMARY//button type
+  secondary = ButtonType.SECONDARY//button type
+  tertiany = ButtonType.TERTIARY//button type
+  //enum ButtonSize
+  big=ButtonSize.BIG//button size
+  small=ButtonSize.SMALL//button size;
+  //enum ButtonIcon
+  icon=ButtonIcon.CHEVRON_LEFT//button icon
+  
+  //button component function
+  onClick() {
+    alert('test on click');
+    console.log('test on click');
+  }
+
+
+  //heading component properties
   title1 = "Heading Large"
   title2 = "Heading Medium-Bold"
   title3 = "Heading Small"
@@ -166,10 +170,7 @@ radioButtonArray:string [] = ["a", "b", "c", "d","other"];
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
   }
  
-  onClick() {
-    alert('test on click');
-    console.log('test on click');
-  }
+
   headers: { data: string; type: HeaderCellType }[] = [
     { data: 'name list', type: HeaderCellType.TEXT },
     { data: 'to do', type: HeaderCellType.TEXT },

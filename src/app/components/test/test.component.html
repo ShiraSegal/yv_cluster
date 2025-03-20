@@ -6,16 +6,17 @@
 <yv-cluster-data-cells [type]=DataCellType.CHECK data=""></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]=DataCellType.ASSIGNEE data=""></yv-cluster-data-cells>
 
+<hr>
+<h3>icon button</h3>
+<yv-cluster-icon-button (onClick)="onClick()" ></yv-cluster-icon-button>
+<br>
+<br>
+<hr>
 
-
-<yv-cluster-icon-button (onClick)="onClick()" [icon]="iconp"  ></yv-cluster-icon-button>
-<br>
-<br>
-<yv-cluster-enter-bookid/>
 <br>
 <br>
 <br>
-
+<h3>button</h3>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="small" [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [buttonIcon]="icon"></yv-cluster-button>
 
@@ -90,8 +91,16 @@
 <br>
 <br>
 <yv-cluster-pie-component-distribution-modal [title]="'Data Distribution'"></yv-cluster-pie-component-distribution-modal>
+<br>
+<br>
+<br>
+<h3>enter bookid</h3>
+<yv-cluster-enter-bookid></yv-cluster-enter-bookid>
+<br>
+<br>
+<br>
 <hr>
-<hr>
+<h3>create cluster</h3>
 <yv-cluster-create-cluster></yv-cluster-create-cluster>
 <!-- <h3>slider navigation</h3>
 <hr>
