@@ -3,8 +3,7 @@
         <div></div>
         <div (click)="changStatus()" *ngIf="!disable && checked || disable && checked" [ngClass]="{
             'circle': !disable && checked,
-            'circle-disable': disable && checked
-        }">
+            'circle-disable': disable && checked}">
             <i class="fa-regular fa-circle-dot"></i>
         </div>
 

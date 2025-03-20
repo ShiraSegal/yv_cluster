@@ -1,4 +1,10 @@
-.radio-button-list{
+.radio-button-list-row{
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+align-items: start;
+}
+.radio-button-list-column{
     display: flex;
     flex-direction: column;
     margin: 10px 0;

@@ -154,11 +154,11 @@
  <hr>
  <h3>switch</h3>
  <hr>
- <yv-cluster-switch [text]="'switch'" [status]="'active'"   (switchChange)="handleSwitchChange($event)"></yv-cluster-switch>
+ <yv-cluster-switch [text]="'switch'" [status]="StatusActiveOrNotActive.ACTIVE"   (switchChange)="handleSwitchChange($event)"></yv-cluster-switch>
  <hr>
  <h3>rab</h3>
  <hr>
- <yv-cluster-basic-tab  [text]="'tab'" [status]="'active'" (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
+ <yv-cluster-basic-tab  [text]="'tab'" [status]="StatusActiveOrNotActive.ACTIVE" (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
  <hr>
  <h3>toggle</h3>
  <hr>
@@ -170,7 +170,7 @@
  <yv-cluster-basic-radio-button   [disable]="true"  [checked]="false" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-basic-radio-button>
  <yv-cluster-basic-radio-button   [disable]="false"  [checked]="true" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-basic-radio-button>
  <yv-cluster-basic-radio-button   [disable]="true"  [checked]="true" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-basic-radio-button>
- <yv-cluster-radio-button-list  [radioButtonArray]="radioButtonArray" [disable]="false" (selectionChange)="onRadioSelectionChange($event)"></yv-cluster-radio-button-list>
+ <yv-cluster-radio-button-list  [radioButtonArray]="radioButtonArray" [disable]="false" [direction]="RadioButtonListDirection.ROW" (selectionChange)="onRadioSelectionChange($event)"></yv-cluster-radio-button-list>
  <hr>
  <h3>filter section</h3>
  <hr>

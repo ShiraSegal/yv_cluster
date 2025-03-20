@@ -1,4 +1,4 @@
-<div class="radio-button-list" [formGroup]="radioForm">
+<div class="radio-button-list-{{direction}}" [formGroup]="radioForm">
     @for (value of radioButtonArray ; track value ){
         <yv-cluster-basic-radio-button 
           [disable]="disable" 

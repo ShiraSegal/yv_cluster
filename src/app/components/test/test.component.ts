@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
 
 import {TextSize } from 'src/app/enums/basic-enum';
-import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
+import { CardIcons, ToastNotificationIcons,RadioButtonListDirection,StatusActiveOrNotActive} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
 import { ButtonComponent } from '../basic-components/button/button.component';
@@ -137,6 +137,8 @@ export class TestComponent {
   radioButtonState: boolean = false;
   CardIcons = CardIcons;
   ToastNotificationIcons = ToastNotificationIcons;
+  RadioButtonListDirection=RadioButtonListDirection
+  StatusActiveOrNotActive=StatusActiveOrNotActive; 
     selectedOption: string = '';
 radioButtonArray:string [] = ["a", "b", "c", "d","other"];
   // handleSort(event: { column: string, direction: string }) {

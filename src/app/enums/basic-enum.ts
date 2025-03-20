@@ -134,3 +134,13 @@ export  enum ToastNotificationIcons {
       BIG="big",
       SMALL="small"
     }
+
+    export enum RadioButtonListDirection{
+      ROW="row",
+      COLUMN="column"
+    }
+
+    export enum   StatusActiveOrNotActive{
+      ACTIVE="active",
+      NOT_ACTIVE="not-active"
+    }
