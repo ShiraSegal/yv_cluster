@@ -13,17 +13,17 @@ import { IconType } from 'src/app/enums/icon-enum';
 @Component({
   selector: 'yv-cluster-data-cells',
   standalone: true,
-  imports: [ ButtonComponent, SliderComponent,CheckComponent, AssigneeComponent,BadgeComponent,IconButtonLargeComponent,CommonModule],
+  imports: [ButtonComponent, SliderComponent, CheckComponent, AssigneeComponent, BadgeComponent, IconButtonLargeComponent, CommonModule],
   templateUrl: './data-cells.component.html',
   styleUrl: './data-cells.component.scss'
 })
-export class DataCellsComponent {
+export class DataCellsComponent<T extends DataCellType>  {
   //variables
-  @Input() type: DataCellType = DataCellType.TEXT;
-  @Input() data?: DataCellValue = '';
+  @Input() type!: T;
+  @Input() data!: DataCellValue<T>;
   //injecting ENUM
   badgeType = BadgeType;
-  IconType=IconType;
+  IconType = IconType;
   buttonType = ButtonType;
   buttonIcon = ButtonIcon;
   iconButtonLargeType = IconButtonLargeType;
@@ -31,6 +31,7 @@ export class DataCellsComponent {
   checkStateType = CheckStateType;
   checkType = CheckType;
   //functions
+
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;
   }
@@ -39,15 +40,7 @@ export class DataCellsComponent {
     return typeof value === 'number';
   }
 
-  getFirstName(fullName: string): string {
-    return fullName.split(' ')[0] || '';
-  }
-
-  getLastName(fullName: string): string {
-    const words = fullName.trim().split(' ');
-    return words.length > 1 ? words[words.length - 1] : '';
-  }
-    onClick() {
+  onClick() {
     alert('test on click');
     console.log('test on click');
   }

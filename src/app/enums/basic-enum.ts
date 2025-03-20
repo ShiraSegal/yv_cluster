@@ -45,6 +45,15 @@ export enum DataCellType {
   SLIDER = 'slider',
   PLACEOLDER = 'place-order',
 }
+export type DataCellValue<T extends DataCellType> = 
+  T extends DataCellType.TEXT ? string :
+  T extends DataCellType.LINK ? string | number :
+  T extends DataCellType.ASSIGNEE ? string :
+  T extends DataCellType.BUTTON ? string :
+  T extends DataCellType.SLIDER ? number | null:
+  never; 
+
+
 
 export enum AutoClusterTabType {
   SAPIR_CLUSTERS = 'Sapir Clusters',
@@ -88,7 +97,6 @@ export enum HeaderCellType {
   CHECK = "check",
   ORDERDOWN = "order down"
 }
-export type DataCellValue = string | number;
 
 export enum CardIcons {
   HOURGLASS_CLOCK = "fa-solid fa-hourglass-clock",

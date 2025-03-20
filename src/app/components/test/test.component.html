@@ -35,17 +35,16 @@
 <hr>
 
 <h3>data cell</h3>
-
-<yv-cluster-data-cells [type]=dataCellType.TEXT data="this is a text"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.MORE></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.LINK data="this is a link"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.ICON></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.CHECK></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.ASSIGNEE></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.STATUS></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.SLIDER data=50></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.BUTTON data="THIS IS A BUTTON"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.PLACEOLDER></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.TEXT" [data]="'Hello World'"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.LINK" [data]="'https://example.com'"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.SLIDER" [data]="80"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.MORE"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.CHECK"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.STATUS"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.ICON"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.PLACEOLDER"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.BUTTON" [data]="'Button'"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.ASSIGNEE" [data]="'Ariala Dror'"></yv-cluster-data-cells>
 <hr>
 
 <h3>assignee</h3>
