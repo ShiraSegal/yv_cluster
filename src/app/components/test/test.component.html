@@ -1,4 +1,17 @@
 <hr>
+<h3>check</h3>
+<yv-cluster-check></yv-cluster-check>
+<yv-cluster-check [type]="CheckType.CHECKED" [state]="CheckStateType.DISABLED"></yv-cluster-check>
+<yv-cluster-check [type]="CheckType.UNCHECKED" [state]="CheckStateType.DISABLED"></yv-cluster-check>
+<yv-cluster-check [type]="CheckType.CHECKED" [state]="CheckStateType.ENABLED"></yv-cluster-check>
+<hr>
+<hr>
+<h3>slider</h3>
+<yv-cluster-slider [value]="80"></yv-cluster-slider>
+<br>
+<yv-cluster-slider></yv-cluster-slider>
+<hr>
+<hr>
 <h3>field</h3>
 <hr>
 <yv-cluster-field [property]="stateEnum.ERROR">
@@ -18,36 +31,36 @@
 <hr>
 <h3>icon-button-large</h3>
 <hr>
-<yv-cluster-icon-button-large [icon]="viewerIconType.ZOOMIN"
+<yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
   [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
 <hr>
 <h3>data cell</h3>
 <hr>
-<yv-cluster-data-cells [type]=DataCellType.TEXT data="this is a text"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=DataCellType.MORE></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=DataCellType.LINK data="this is a link"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=DataCellType.ICON></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=DataCellType.CHECK></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=DataCellType.ASSIGNEE></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=DataCellType.STATUS></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=DataCellType.SLIDER data=50></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=DataCellType.BUTTON data="THIS IS A BUTTON"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=DataCellType.PLACEOLDER></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=dataCellType.TEXT data="this is a text"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=dataCellType.MORE></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=dataCellType.LINK data="this is a link"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=dataCellType.ICON></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=dataCellType.CHECK></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=dataCellType.ASSIGNEE></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=dataCellType.STATUS></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=dataCellType.SLIDER data=50></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=dataCellType.BUTTON data="THIS IS A BUTTON"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]=dataCellType.PLACEOLDER></yv-cluster-data-cells>
 <h3>assignee</h3>
 <hr>
 <yv-cluster-assignee data="Ariela Zoppelmann"></yv-cluster-assignee>
 <hr>
 <h3>header cell</h3>
 <hr>
-<yv-cluster-header-cells [type]=HeaderCellType.TEXT header="text"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.ORDER header="order"
+<yv-cluster-header-cells [type]=headerCellType.TEXT header="text"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.ORDER header="order"
   (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.ORDERDOWN header="order-down"
+<yv-cluster-header-cells [type]=headerCellType.ORDERDOWN header="order-down"
   (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.CHECK></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.MORE></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.PLACEOLDER></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.CHECK></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.MORE></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.PLACEOLDER></yv-cluster-header-cells>
 <hr>
 <h3>badge</h3>
 <hr>

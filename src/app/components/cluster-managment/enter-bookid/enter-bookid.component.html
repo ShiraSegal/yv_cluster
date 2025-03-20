@@ -1,7 +1,7 @@
 <form [formGroup]="formGroup">
     <div class="card">
         <div class="header-warp">
-            <yv-cluster-heading [title]="header" [size]="size" [isBold]=true></yv-cluster-heading>
+            <yv-cluster-heading [title]="header" [size]="size" [weight]="weight" [color]="color"></yv-cluster-heading>
         </div>
 
         <div class="radio-buttons">
@@ -18,11 +18,11 @@
             <div class="divider"></div>
                 <div class="buttons-warp">
                     <div class="buttons">
-                        <yv-cluster-button class="button" [disabled]="false" [isBig]="false" [buttonType]="buttomType1"
+                        <yv-cluster-button class="button" [disabled]="false" [size]="btn_size" [buttonType]="buttomType1"
                             [text]="button1" (onClick)="cancel()">
                         </yv-cluster-button>
 
-                        <yv-cluster-button class="button" [disabled]="false" [isBig]="false" [buttonType]="buttomType2"
+                        <yv-cluster-button class="button" [disabled]="false" [size]="btn_size" [buttonType]="buttomType2"
                             [text]="button2" (onClick)="add()">
                         </yv-cluster-button>
                     </div>

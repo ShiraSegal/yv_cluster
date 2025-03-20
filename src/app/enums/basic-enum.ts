@@ -19,6 +19,10 @@ export enum BasicTablePropertyType{
   OLD_SUGGESTIONS= 'Old Suggestions',
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
+export enum ButtonSize{
+  BIG="big",
+  SMALL="small"
+}
 
 export enum CheckType{
   UNCHECKED ='unchecked',
@@ -50,12 +54,6 @@ export enum AutoClusterTabType {
   DIFFERENT_CLUSTERS = 'Different Clusters',
   ERROR_MESSAGES = 'Error Messages'
 }
-// export enum ButtonIconProperty{
-// VARIANT1="variant1",
-// VARIANT2="variant2",
-// VARIANT3="variant3"
-// }
-
 export enum ButtonIcon{
   FOLDER_PLUS="fa-light fa-folder-plus",
   LAYER_PLUS="fa-light fa-layer-plus",
@@ -76,6 +74,10 @@ export enum ButtonIcon{
     NEUTRAL_GRAY = "neutral-gray",
   }
  
+  export enum TextWeight {
+    BOLD = "bold",
+    NORMAL = "normal"
+    }
 
   export enum HeaderCellType {
     TEXT = "text",
