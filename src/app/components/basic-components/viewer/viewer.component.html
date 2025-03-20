@@ -1,4 +1,4 @@
-<div class="viewer-warpper">
+<!-- <div class="viewer-warpper">
     <div class="picture-name-warpper">
     <div class="picture-name">{{pictureName}}</div></div>
     <div class="image-warrper">
@@ -11,4 +11,19 @@
         <yv-cluster-icon-button-large (onClick)="rotateLeft()" [icon]="viewerIconType.ROTATELEFT"[property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
         <yv-cluster-icon-button-large (onClick)="rotateRight()" [icon]="viewerIconType.ROTATERIGHT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
     </div>
-</div>
+</div> -->
+<div class="viewer-warpper">
+    <div class="picture-name-warpper">
+      <div class="picture-name">{{pictureName}}</div>
+    </div>
+    <div class="image-warpper">
+      <div class="image" [ngClass]="{'zoomed-in': isZoomedIn, 'zoomed-out': !isZoomedIn, 'rotated-left': rotation === -90, 'rotated-right': rotation === 90}" #imageElement></div>
+    </div>
+    <div class="button-warpper">
+      <yv-cluster-icon-button-large (onClick)="zoomIn()" [icon]="viewerIconType.ZOOMIN" [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
+      <yv-cluster-icon-button-large (onClick)="zoomOut()" [icon]="viewerIconType.ZOOMOUT" [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
+      <yv-cluster-icon-button-large (onClick)="print()" [icon]="viewerIconType.PRINT" [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
+      <yv-cluster-icon-button-large (onClick)="rotateLeft()" [icon]="viewerIconType.ROTATELEFT" [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
+      <yv-cluster-icon-button-large (onClick)="rotateRight()" [icon]="viewerIconType.ROTATERIGHT" [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
+    </div>
+  </div>
