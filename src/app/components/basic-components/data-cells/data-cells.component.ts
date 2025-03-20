@@ -19,8 +19,10 @@ import { ViewerIconType } from 'src/app/enums/icon-enum';
   styleUrl: './data-cells.component.scss'
 })
 export class DataCellsComponent {
+  //variables
   @Input() type: DataCellType = DataCellType.TEXT;
   @Input() data?: DataCellValue = '';
+  //injecting ENUM
   badgeType = BadgeType;
   buttonType = ButtonType;
   buttonIcon = ButtonIcon;
@@ -28,8 +30,8 @@ export class DataCellsComponent {
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
   checkType = CheckType;
-    viewerIconType = ViewerIconType;
-  iconp = "fa-solid fa-plus"
+  viewerIconType = ViewerIconType;
+  //functions
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;
   }

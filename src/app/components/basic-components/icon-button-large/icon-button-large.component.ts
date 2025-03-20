@@ -11,7 +11,7 @@ import { ViewerIconType } from 'src/app/enums/icon-enum';
   styleUrl: './icon-button-large.component.scss'
 })
 export class IconButtonLargeComponent {
+  //variables
   @Input() icon!: ViewerIconType;
   @Input() property!: IconButtonLargeType;
-
 }

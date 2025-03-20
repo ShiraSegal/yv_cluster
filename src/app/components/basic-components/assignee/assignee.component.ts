@@ -8,12 +8,11 @@ import { Component, Input } from '@angular/core';
   styleUrl: './assignee.component.scss'
 })
 export class AssigneeComponent {
-  
+  //variables
   @Input() data: string | undefined;
-
   assigneeInitials: string = '';
   truncatedName: string = '';
-
+//functions
   ngOnInit(): void {
     if (this.data) {
       const nameParts = this.data.split(' ');

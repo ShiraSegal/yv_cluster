@@ -11,18 +11,20 @@ import { CheckStateType, CheckType, HeaderCellType } from 'src/app/enums/basic-e
   styleUrl: './header-cells.component.scss'
 })
 export class HeaderCellsComponent {
+  //variables
   @Input() header: string | undefined;
   @Input() type: HeaderCellType = HeaderCellType.TEXT;
   @Output() sortEvent = new EventEmitter<{ column: string, direction: string }>();
+  //injecting ENUM
   HeaderCellType = HeaderCellType;
   CheckType = CheckType
   CheckStateType = CheckStateType
+  //functions
+  //פונקציה שממינת את העמודה
   sortBy(column: string) {
     if (this.type === 'order' || this.type === HeaderCellType.ORDERDOWN) {
       const direction = this.type === 'order' ? 'asc' : 'desc';
       this.sortEvent.emit({ column, direction });
-
-      // Toggle the type between 'order' and 'order-down'
       this.type = this.type === HeaderCellType.ORDER ? HeaderCellType.ORDERDOWN : HeaderCellType.ORDER;
     }
   }
