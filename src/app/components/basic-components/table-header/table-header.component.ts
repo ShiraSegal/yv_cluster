@@ -12,6 +12,5 @@ import { HeaderCellsComponent } from "../header-cells/header-cells.component";
   styleUrl: './table-header.component.scss'
 })
 export class TableHeaderComponent {
-// @Input() headers: { data: string; type: HeaderCellType }[] = [];
-// HeaderCellType =   HeaderCellType
+
 }

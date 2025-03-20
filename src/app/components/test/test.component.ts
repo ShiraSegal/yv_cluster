@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonIcon, CheckStateType, CheckType, IconButtonLargeType, SliderNavigationTabType, State, ButtonIconProperty, ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
+import { ButtonIcon, CheckStateType, CheckType, IconButtonLargeType, SliderNavigationTabType, State, ButtonIconProperty, ButtonType, DataCellType, HeaderCellType,NativeOptionState,NativeOptionType} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
@@ -33,11 +33,14 @@ import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bo
 import { SliderNavigationTabIconType, ViewerIconType } from 'src/app/enums/icon-enum';
 import { ViewerComponent } from '../basic-components/viewer/viewer.component';
 import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
+import { NativeOptionComponent } from '../basic-components/native-option/native-option.component';
+import { NarrowBasicTableComponent } from '../basic-components/narrow-basic-table/narrow-basic-table.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
   // imports: [CommonModule, TempButtonComponent,YvSelectComponent],
   imports: [
+      NativeOptionComponent,
       SlidebarNavigationComponent,
       SliderNavigationTabComponent,
       HeadingComponent,
@@ -66,13 +69,16 @@ import { IconButtonLargeComponent } from '../basic-components/icon-button-large/
       SliderComponent,
       SwitchComponent,
       ViewerComponent,
-      TextareaComponent],
+      TextareaComponent,
+      NarrowBasicTableComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
   options :string [] = [];
-  label: string = 'Lable';
+  label: string = 'Batya';
+  optionState = NativeOptionState;
+  optionType = NativeOptionType;
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
   tertiany = ButtonType.TERTIARY
@@ -114,7 +120,11 @@ export class TestComponent {
   isFocused: boolean = false;
   isPopulated: boolean = true;
   // label: string = 'label';
-
+  nativeOptions = [
+    { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
+    { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
+    { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT }
+  ];
   // title = 'yv-clusters';
   HeaderCellType = HeaderCellType;
   DataCellType = DataCellType;

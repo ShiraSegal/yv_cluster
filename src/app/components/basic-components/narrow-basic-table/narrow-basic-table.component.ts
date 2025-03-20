@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { YvSelectComponent } from '../yv-select/yv-select.component';
 import { ButtonComponent } from '../button/button.component';
-import { ButtonIcon, ButtonIconProperty, ButtonType, DataCellType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
+import { ButtonIcon, ButtonIconProperty, ButtonType, DataCellType, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType } from 'src/app/enums/basic-enum';
 import { NarrowBasicTableRowComponent } from '../narrow-basic-table-row/narrow-basic-table-row.component';
 
 @Component({
@@ -20,6 +20,11 @@ export class NarrowBasicTableComponent {
     property :NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
     cells: { data: string; type: DataCellType }[] = [{data: 'test', type: DataCellType.TEXT},{data: '' ,type: DataCellType.CHECK}]; 
     @Input() headers: string[] = [];
+     nativeOptions = [
+        { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
+        { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
+        { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT }
+      ];
     rows: { property: NarrowBasicTableRowInputState, cells: { data: string, type: DataCellType }[] }[] = [
       {
         property: NarrowBasicTableRowInputState.DEFAULT,
