@@ -49,6 +49,8 @@ export enum ButtonIcon{
     BLACK = "black",
     SLATE_BLUE = "slate-blue",
     NEUTRAL_GRAY = "neutral-gray",
+    Dark_Gray = "dark-gray",
+    COOl_BLUE="cool-blue",
   }
  
   export enum TextWeight {

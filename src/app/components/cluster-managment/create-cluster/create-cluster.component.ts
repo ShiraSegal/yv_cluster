@@ -11,7 +11,7 @@ import { YvSelectComponent } from '../../basic-components/yv-select/yv-select.co
 import { RadioButtonListComponent } from '../../basic-components/radio-button-list/radio-button-list.component';
 import { TextareaComponent } from '../../basic-components/textarea/textarea.component';
 import { ClusterApiService } from 'src/app/services/cluster-api.service';
-import { Observable } from 'rxjs';
+import { elementAt, Observable } from 'rxjs';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { log } from 'console';
 
@@ -51,7 +51,7 @@ export class CreateClusterComponent {
   buttomType2: ButtonType = ButtonType.PRIMARY;
   radioControl = new FormControl<string | null>(null);
   createClusterData:any = new Observable<string[]>;
-  options: string[] = ['other'];
+  options: string[] = [];
  #service=inject(ClusterService);
   ngOnInit() {
   //  this.#service.ClusterData$.subscribe(data => {
@@ -63,11 +63,25 @@ export class CreateClusterComponent {
   this.#service.ClusterData$.subscribe(data => {
     console.log('SapirClusterDetails:', data); // כאן תקבל את הנתונים עצמם
      this.createClusterData = data; // שמירת הנתונים במשתנה
+     this.createClusterData.forEach((element:any) => {
+      let values:any=[];
+        element.Values.forEach((element:any) => {
+          values.push(element.Value);
+        });
+        console.log("element",element);
+        if(element.HasOtherOption)
+          values.push("other");
+      element.RadioOptions=values;
+    });
+    //  this.options.push("other"); 
+     console.log("222222222222222222",this.createClusterData);
   });
 
-  // this.createClusterData.forEach(element => {
-  //   this.options.push(element.Values);
-  // })
+  
+
+
+
+
     
 
   // console.log("this.createClusterData",this.createClusterData);
