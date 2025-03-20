@@ -20,7 +20,7 @@
     line-height: 1.25rem;
 }
 
-.switch-status-yes {
+.switch-active {
     display: flex;
     flex-direction: row;
     width: 1.59375rem;
@@ -33,7 +33,7 @@
 
 }
 
-.switch-status-no {
+.switch-not-active {
     display: flex;
     flex-direction: row;
     width: 1.59375rem;
@@ -46,7 +46,7 @@
     cursor: pointer;
 }
 
-.circle-status-yes {
+.circle-active {
     width: 0.825rem;
     height: 0.825rem;
     flex-shrink: 0;
@@ -56,7 +56,7 @@
     transition: transform 0.3s;
 }
 
-.circle-status-no {
+.circle-not-active {
     margin-right: 0.8300rem;
     width: 0.825rem;
     height: 0.825rem;
@@ -67,10 +67,10 @@
     transition: transform 0.3s;
 }
 
-.switch-status-yes .circle-status-yes {
+.switch-active .circle-active {
     transform: translateX(100%);
 }
 
-.switch-status-no .circle-status-no {
+.switch-not-active .circle-not-active {
     transform: translateX(0%);
 }

@@ -1,17 +1,38 @@
-<div [ngClass]="['cell', type]"> 
-    <ng-container *ngIf="type === DataCellType.MORE">
-        <i class="fas fa-ellipsis-v more-icon"></i>
-    </ng-container>
-    <ng-container *ngIf="type === DataCellType.ICON">
-        <i class="fas fa-clipboard-list clipboard-list-icon"></i>
-    </ng-container>
-    <ng-container *ngIf="type === DataCellType.ASSIGNEE && data">
-        <yv-cluster-assignee [firstName]="data.split(' ')[0]" [lastName]="data.split(' ')[-1]"></yv-cluster-assignee>
-    </ng-container>
-    <ng-container *ngIf="type === DataCellType.CHECK">
-        <i class="fa-solid fa-chevron-right"></i>
-    </ng-container>
-    <ng-container *ngIf="type === DataCellType.SLIDER">
-       <yv-cluster-slider [value]="50"></yv-cluster-slider>
-    </ng-container>
+<div [ngClass]="['cell', type]">
+    @if(type === dataCellType.TEXT && isString(data)){
+    {{ data }}
+    }
+    @if(type === dataCellType.MORE ){
+    <i class="fas fa-ellipsis-v more-icon"></i>
+    }
+    @if(type === dataCellType.CHECK){
+        <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED></yv-cluster-check>
+    }
+
+    @if(type === dataCellType.STATUS){
+    <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge>
+    }
+
+
+    
+    @if(type === dataCellType.ASSIGNEE ){
+
+        <yv-cluster-assignee data="Ariela Zoppelmann"></yv-cluster-assignee>
+    }
+   
+    @if(type === dataCellType.LINK && isString(data)){        
+        <a [href]="data">{{ data }}</a>
+        }
+      
+    @if(type === dataCellType.ICON){           
+        <i class="fas fa-user"></i>
+    }
+ 
+    @if(type === dataCellType.SLIDER  && isNumber(data) ){       
+        <yv-cluster-slider [value]=data></yv-cluster-slider>
+    }
+    
+    @if(type === dataCellType.BUTTON && isString(data)){       
+        <yv-cluster-button (onClick)="onClick()" text=data [buttonType]=buttonType.SECONDARY [buttonIcon]=buttonIcon.CHEVRON_LEFT></yv-cluster-button>
+    }
 </div>
