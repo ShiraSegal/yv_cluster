@@ -1,9 +1,0 @@
-<button class="btn" [class]="size + ' ' + buttonType"
- [disabled]="disabled"
-(click)="onClick.emit()"
->
-  <i *ngIf="buttonIcon"
-    [class]="buttonIcon">
-  </i>
-  {{ text }}
-</button>
