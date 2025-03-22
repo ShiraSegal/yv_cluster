@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { SliderNavigationTabTextType, SliderNavigationTabType } from 'src/app/enums/basic-enum';
-import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
+import { IconType } from 'src/app/enums/icon-enum';
 
 @Component({
   selector: 'yv-cluster-slider-navigation-tab',
@@ -12,10 +12,10 @@ import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
 })
 export class SliderNavigationTabComponent {
   @Input() property!: SliderNavigationTabType;
-  @Input() icon!: SliderNavigationTabIconType;
+  @Input() icon!: IconType;
   @Input() text!: SliderNavigationTabTextType;
 
-  sliderNavigationTabIconType = SliderNavigationTabIconType;
+  iconType = IconType;
   sliderNavigationTabType = SliderNavigationTabType;
   sliderNavigationTabTextType = SliderNavigationTabTextType
   

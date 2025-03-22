@@ -8,7 +8,7 @@ import { ButtonComponent } from '../button/button.component';
 import { CheckComponent } from '../check/check.component';
 import { BadgeComponent } from '../badge/badge.component';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
-import { ViewerIconType } from 'src/app/enums/icon-enum';
+import { IconType } from 'src/app/enums/icon-enum';
 
 
 @Component({
@@ -28,7 +28,7 @@ export class DataCellsComponent {
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
   checkType = CheckType;
-    viewerIconType = ViewerIconType;
+   iconType = IconType;
   iconp = "fa-solid fa-plus"
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;

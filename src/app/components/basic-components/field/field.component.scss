@@ -42,6 +42,13 @@
 .common-input-wrapper.focused {
   border: 1px solid var(--Primery, #1334B9);
 }
+legend.default ,legend.error, legend.disabled {
+  padding: 0%;
+}
+legend.focused ,legend.populated {
+  padding: 0%;
+}
+
 
 .input-legend {
   font-family: Poppins;

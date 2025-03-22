@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { SliderNavigationTabComponent } from '../slider-navigation-tab/slider-navigation-tab.component';
 import { SliderNavigationTabTextType, SliderNavigationTabType } from 'src/app/enums/basic-enum';
-import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
+import { IconType } from 'src/app/enums/icon-enum';
 
 @Component({
   selector: 'yv-cluster-slidebar-navigation',
@@ -14,15 +14,15 @@ import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
 })
 export class SlidebarNavigationComponent {
   sliderNavigationTabTextType = SliderNavigationTabTextType;
-  sliderNavigationTabIconType = SliderNavigationTabIconType;
+  iconType = IconType;
   sliderNavigationTabType = SliderNavigationTabType;
 
   tabs = [
-    { number: 1, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.HOMELIGHT, text: SliderNavigationTabTextType.HOME },
-    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.AUTOCLUSRETLIGHT, text: SliderNavigationTabTextType.AUTOCLUSRET },
-    { number: 3, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.REPORTLIGHT, text: SliderNavigationTabTextType.REPORT },
-    { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.NEWCLUSTERLIGHT, text: SliderNavigationTabTextType.NEWCLUSTER },
-    { number: 5, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: SliderNavigationTabIconType.LOGOUTLIGHT, text: SliderNavigationTabTextType.LOGOUT },
+    { number: 1, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.HOMELIGHT, text: SliderNavigationTabTextType.HOME },
+    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.AUTOCLUSRETLIGHT, text: SliderNavigationTabTextType.AUTOCLUSRET },
+    { number: 3, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.REPORTLIGHT, text: SliderNavigationTabTextType.REPORT },
+    { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.NEWCLUSTERLIGHT, text: SliderNavigationTabTextType.NEWCLUSTER },
+    { number: 5, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LOGOUTLIGHT, text: SliderNavigationTabTextType.LOGOUT },
   ];
 
 

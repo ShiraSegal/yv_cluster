@@ -1,13 +1,12 @@
 <div class="warpper">
   <fieldset [ngClass]="['common-input-wrapper', property]">
-    @if(property === stateEnum.POPULATED || property === stateEnum.FOCUSED){
     <legend [ngClass]="['input-legend', property]">
       {{ label }}
     </legend>
-    }
-
+   
+ 
     <input type="text" class="custom-input" [formControl]="textControl"
-      [ngClass]="{'disabled': property === stateEnum.DISABLED}" [disabled]="property === stateEnum.DISABLED"
+    [disabled]="property !== stateEnum.DISABLED"
       [placeholder]="property" />
   </fieldset>
   @if (property === stateEnum.ERROR) {

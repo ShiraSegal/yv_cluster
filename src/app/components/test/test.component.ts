@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { BasicTableRowPropertyVariants, ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
+import { BadgeType, BasicTableRowPropertyVariants, ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
-import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
 import { ButtonComponent } from '../basic-components/button/button.component';
 import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
 import { ButtonIcon } from 'src/app/enums/basic-enum';
@@ -11,15 +10,11 @@ import { HeadingComponent } from '../basic-components/heading/heading.component'
 import { BodyComponent } from '../basic-components/body/body.component';
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
 import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
-import { BasicTableRowComponent } from '../basic-components/basic-table-row/basic-table-row.component';
 import { CheckComponent } from '../basic-components/check/check.component';
 import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
 import { HeaderCellsComponent } from '../basic-components/header-cells/header-cells.component';
 import { SliderComponent } from '../basic-components/slider/slider.component';
-import { TabElementComponent } from '../basic-components/tab-element/tab-element.component';
-import { TableHeaderComponent } from '../basic-components/table-header/table-header.component';
 import { TextareaComponent } from '../basic-components/textarea/textarea.component';
-import { SliderNavigationTabComponent } from '../basic-components/slider-navigation-tab/slider-navigation-tab.component';
 import { SlidebarNavigationComponent } from '../basic-components/slidebar-navigation/slidebar-navigation.component';
 import { SwitchComponent } from '../basic-components/switch/switch.component';
 import { BasicTabComponent } from '../basic-components/basic-tab/basic-tab.component';
@@ -31,60 +26,63 @@ import { ToastNotificationComponent } from '../basic-components/toast-notificati
 import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
 import { FieldComponent } from '../basic-components/field/field.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
-import { SliderNavigationTabIconType, ViewerIconType } from 'src/app/enums/icon-enum';
+import { IconType } from 'src/app/enums/icon-enum';
 import { ViewerComponent } from '../basic-components/viewer/viewer.component';
 import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
-import { FormControl } from '@angular/forms';
+import { BadgeComponent } from '../basic-components/badge/badge.component';
+import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
+import { BasicTableRowComponent } from '../basic-components/basic-table-row/basic-table-row.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
   imports: [
-      SlidebarNavigationComponent,
-      SliderNavigationTabComponent,
-      HeadingComponent,
-      BodyComponent,
-      AssigneeComponent,
-      BasicTableComponent,
-      DataCellsComponent,
-      HeaderCellsComponent,
-      TabElementComponent,
-      EnterBookidComponent,
-      FieldComponent,
-      CommonModule, 
-      IconButtonComponent,
-      FilterSectionComponent,
-      PieComponentDistributionModalComponent,
-      ButtonComponent,
-      BasicCardComponent,
-      ToastNotificationComponent,
-      BodyComponent,
-      BasicToggleComponent,
-      BasicRadioButtonComponent,
-      CheckComponent,
-     YvSelectComponent,
-     IconButtonLargeComponent,
-      BasicTabComponent,
-      SliderComponent,
-      SwitchComponent,
-      ViewerComponent,
-      TextareaComponent],
+    SlidebarNavigationComponent,
+    HeadingComponent,
+    BodyComponent,
+    AssigneeComponent,
+    BasicTableRowComponent,
+    DataCellsComponent,
+    HeaderCellsComponent,
+    EnterBookidComponent,
+    FieldComponent,
+    CommonModule,
+    IconButtonComponent,
+    FilterSectionComponent,
+    PieComponentDistributionModalComponent,
+    ButtonComponent,
+    BasicCardComponent,
+    BadgeComponent,
+    ToastNotificationComponent,
+    BodyComponent,
+    BasicToggleComponent,
+    BasicRadioButtonComponent,
+    CheckComponent,
+    IconButtonLargeComponent,
+    BasicTabComponent,
+    SliderComponent,
+    SwitchComponent,
+    ViewerComponent,
+    TextareaComponent,
+    TableHeaderComponent
+],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
-  errorControl = new FormControl<string>('');
-  defaultControl = new FormControl<string>('');
-  focusedControl = new FormControl<string>('');
-  populatedControl = new FormControl<string>('');
   label: string = 'Lable';
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
   tertiany = ButtonType.TERTIARY
   CheckStateType = CheckStateType;
+  badgeType = BadgeType;
   CheckType = CheckType;
-  viewerIconType = ViewerIconType;
+  iconType = IconType;
   iconButtonLargeType = IconButtonLargeType;
   basicTableRowPropertyVariants = BasicTableRowPropertyVariants;
+  HeaderCellType = HeaderCellType;
+  dataCellType = DataCellType;
+  sliderNavigationTabType = SliderNavigationTabType;
+stateEnum = State;
   // variant1 = ButtonIconProperty.VARIANT1
   // variant2 = ButtonIconProperty.VARIANT2
   // variant3 = ButtonIconProperty.VARIANT3
@@ -117,11 +115,7 @@ export class TestComponent {
   // label: string = 'label';
 
   // title = 'yv-clusters';
-  HeaderCellType = HeaderCellType;
-  DataCellType = DataCellType;
-  sliderNavigationTabIconType = SliderNavigationTabIconType;
-  sliderNavigationTabType = SliderNavigationTabType;
-stateEnum = State;
+
    cells = [
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },

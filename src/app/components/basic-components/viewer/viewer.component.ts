@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { ViewerIconType } from 'src/app/enums/icon-enum';
 import { CommonModule } from '@angular/common';
 import { IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
+import { IconType } from 'src/app/enums/icon-enum';
 
 @Component({
   selector: 'yv-cluster-viewer',
@@ -13,7 +13,7 @@ import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large
 })
 export class ViewerComponent {
 @Input() pictureName: string = '';
-viewerIconType = ViewerIconType;
+iconType = IconType;
 iconButtonLargeType = IconButtonLargeType;
 rotateLeft(){
 
