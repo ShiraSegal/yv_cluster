@@ -2,13 +2,35 @@
 <h3>basic table row</h3>
 <hr>
 <yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="true"
-[cells]="[{ data: 'Cell 1', type: dataCellType.TEXT }, { data: 'Cell 2', type: dataCellType.TEXT }]"></yv-cluster-basic-table-row>
-<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="false"
-[cells]="[{ data: 'Cell 1', type: dataCellType.TEXT }, { data: 'Cell 2', type: dataCellType.TEXT }]"></yv-cluster-basic-table-row>
+[cells]="[
+    { data: 'this is a text', type: dataCellType.TEXT },
+    { data: 'https://example.com', type: dataCellType.LINK },
+    { data: '', type: dataCellType.STATUS },
+    { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
+  ]">></yv-cluster-basic-table-row>
 <yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.DEFAULT" [showAction]="true"
-[cells]="[{ data: 'Cell 1', type: dataCellType.TEXT }, { data: 'Cell 2', type: dataCellType.TEXT }]"></yv-cluster-basic-table-row>
+[cells]="[
+    { data: 'this is a text', type: dataCellType.TEXT },
+    { data: 'https://example.com', type: dataCellType.LINK },
+    { data: '', type: dataCellType.STATUS },
+    { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
+  ]"></yv-cluster-basic-table-row>
+<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="false"
+[cells]="[
+  { data: 'this is a text', type: dataCellType.TEXT },
+    { data: 'press', type: dataCellType.BUTTON },
+    { data: 'https://example.com', type: dataCellType.LINK },
+    { data: '', type: dataCellType.STATUS },
+    { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
+  ]"></yv-cluster-basic-table-row>
 <yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.DEFAULT" [showAction]="false"
-[cells]="[{ data: 'Cell 1', type: dataCellType.TEXT }, { data: 'Cell 2', type: dataCellType.TEXT }]"></yv-cluster-basic-table-row>
+[cells]="[
+    { data: 'this is a text', type: dataCellType.TEXT },
+    { data: 'press', type: dataCellType.BUTTON },
+    { data: 'https://example.com', type: dataCellType.LINK },
+    { data: '', type: dataCellType.STATUS },
+    { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
+  ]"></yv-cluster-basic-table-row>
 <hr>
 <h3>badge</h3>
 <hr>
@@ -42,16 +64,16 @@
 <hr>
 <h3>data cell</h3>
 <hr>
-<yv-cluster-data-cells [type]=dataCellType.TEXT data="this is a text"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.MORE></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.LINK data="this is a link"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.ICON></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.CHECK></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.ASSIGNEE></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.STATUS></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.SLIDER data=50></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.BUTTON data="THIS IS A BUTTON"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]=dataCellType.PLACEOLDER></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.TEXT" [data]="'this is a text'"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.LINK" [data]="'https://example.com'"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.SLIDER" [data]="80"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.MORE"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.CHECK"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.STATUS"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.ICON"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.PLACEOLDER"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.BUTTON" [data]="'press'"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.ASSIGNEE" [data]="'Racheli Liff'"></yv-cluster-data-cells>
 <hr>
 <h3>SLIDER</h3>
 <hr>
@@ -87,7 +109,7 @@
 <hr>
 <h3>icon button</h3>
 <hr>
-<yv-cluster-icon-button (onClick)="onClick()" [icon]="iconp"></yv-cluster-icon-button>
+<yv-cluster-icon-button (onClick)="onClick()"></yv-cluster-icon-button>
 <hr>
 <h3>enter-bookid</h3>
 <hr>

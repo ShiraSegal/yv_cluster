@@ -15,5 +15,5 @@ export enum IconType {
     PRINT = "fa-light fa-print ",
     ZOOMIN = "fa-light fa-magnifying-glass-minus ",
     ZOOMOUT = "fa-light fa-magnifying-glass-plus ",
-    
+    CHEVRONRIGHT = "fa-light fa-chevron-right",
 }

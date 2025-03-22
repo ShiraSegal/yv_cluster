@@ -32,6 +32,7 @@ export class ColorsAccessibilityService {
         this.document.documentElement.style.setProperty("--royal_blue", "#5A71CE");
         this.document.documentElement.style.setProperty("--slate_blue", "#3F4B5A");
         this.document.documentElement.style.setProperty("--lavender_blue", "#D0D6F1");
+        this.document.documentElement.style.setProperty("--lavender_blue_transparent", "#E7EBF833");
         this.document.documentElement.style.setProperty("--cool_blue", "#2449D8");
         this.document.documentElement.style.setProperty("--light_gray_blue", "#E1E5EA");
         this.document.documentElement.style.setProperty("--light_gray", "#C4C7C5");
