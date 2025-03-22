@@ -1,5 +1,6 @@
-@import "../../../../styles.scss";
+@import "../../../../styles/colors.scss";
 
+<<<<<<< HEAD
 .common-input-wrapper {
   position: relative;
   display: flex;
@@ -60,6 +61,9 @@ line-height: 20px;
 }
 
 .wrapper {
+=======
+.warpper {
+>>>>>>> 3c27fb10a0bcaa68a8d7f34b81246fd6cf802f78
   display: flex;
   padding: 1rem;
   align-items: flex-start;
@@ -68,6 +72,7 @@ line-height: 20px;
   gap: 0.1rem;
 }
 
+<<<<<<< HEAD
 
 .error-message {
   color: var(--Additional-error-variant, #FF6665);
@@ -77,6 +82,40 @@ line-height: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 11.813px;
+=======
+.common-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 16.75rem;
+  min-width: 9.6875rem;
+  max-width: 28.125rem;
+  padding: var(--Layout-medium, 0.5rem);
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: var(--Border-radius-small, 0.25rem);
+}
+
+.common-input-wrapper.default {
+  border: 0.5px solid #3F4B5A;
+}
+
+.common-input-wrapper.error {
+  border: 0.5px solid var(--Color-4, #C00);
+  background: #FAEAEA;
+}
+
+.common-input-wrapper.disabled {
+  border: 0.5px solid rgba(196, 199, 197, 0.50);
+  background: rgba(255, 255, 255, 0.50);
+}
+
+.common-input-wrapper.populated {
+  border: 0.5px solid var(--Color-2, #262C34);
+}
+
+.common-input-wrapper.focused {
+  border: 1px solid var(--Primery, #1334B9);
+>>>>>>> 3c27fb10a0bcaa68a8d7f34b81246fd6cf802f78
 }
 
 .input-legend {
@@ -88,8 +127,13 @@ line-height: 20px;
   height: 1.1rem;
   display: flex;
   align-items: center;
+
+}
+.input-label.default {
+  color: #3F4B5A;
 }
 
+<<<<<<< HEAD
 .input-fieldset {
   padding: 0.5rem;
   position: relative;
@@ -105,4 +149,51 @@ legend.focused {
 
 legend.populated {
   color: var(--Color-2, #262C34);
+=======
+.input-label.error {
+  color: var(--Color-4, #C00);
+}
+
+.input-label.disabled {
+  color: rgba(63, 75, 90, 0.30);
+}
+
+.input-label.populated {
+  color: var(--Color-2, #262C34);
+}
+
+.input-label.focused {
+  color: var(--Primery, #1334B9);
+}
+
+.custom-input {
+  border: none;
+  background: none;
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.custom-input.disabled {
+  color: rgba(63, 75, 90, 0.30);
+
+}
+
+.error-message {
+  color: var(--Additional-error-variant, #FF6665);
+  text-align: left;
+  font-family: Rubik;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 11.813px;
+}
+legend.default ,legend.error, legend.disabled {
+  padding: 0%;
+>>>>>>> 3c27fb10a0bcaa68a8d7f34b81246fd6cf802f78
 }

@@ -1,0 +1,24 @@
+@import "../../../../styles/colors.scss";
+.icon-warpper {
+    display: flex;
+    width: 1.25rem;
+    padding: 0.1875rem 0.3125rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+}
+
+.warpper {
+    display: flex;
+    width: 2.25rem;
+    padding: 0.375rem var(--Layout-x-large, 1rem);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Layout-medium, 0.5rem);
+    border-radius: 6.25rem;
+}
+.icon{
+    color:$primary_btn;
+    font-size: 1.125rem;
+}

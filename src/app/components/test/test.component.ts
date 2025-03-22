@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
+=======
+import { BasicTableRowPropertyVariants, ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
+>>>>>>> 3c27fb10a0bcaa68a8d7f34b81246fd6cf802f78
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
@@ -31,8 +35,15 @@ import { ToastNotificationComponent } from '../basic-components/toast-notificati
 import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
 import { FieldComponent } from '../basic-components/field/field.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
+<<<<<<< HEAD
 import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
 import { ViewerComponent } from '../viewer/viewer.component';
+=======
+import { SliderNavigationTabIconType, ViewerIconType } from 'src/app/enums/icon-enum';
+import { ViewerComponent } from '../basic-components/viewer/viewer.component';
+import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
+import { FormControl } from '@angular/forms';
+>>>>>>> 3c27fb10a0bcaa68a8d7f34b81246fd6cf802f78
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -61,6 +72,7 @@ import { ViewerComponent } from '../viewer/viewer.component';
       BasicRadioButtonComponent,
       CheckComponent,
      YvSelectComponent,
+     IconButtonLargeComponent,
       BasicTabComponent,
       SliderComponent,
       SwitchComponent,
@@ -70,13 +82,30 @@ import { ViewerComponent } from '../viewer/viewer.component';
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
+  errorControl = new FormControl<string>('');
+  defaultControl = new FormControl<string>('');
+  focusedControl = new FormControl<string>('');
+  populatedControl = new FormControl<string>('');
   label: string = 'Lable';
   primary = ButtonType.PRIMARY
   secondary = ButtonType.SECONDARY
   tertiany = ButtonType.TERTIARY
   CheckStateType = CheckStateType;
   CheckType = CheckType;
+<<<<<<< HEAD
 
+=======
+  viewerIconType = ViewerIconType;
+  iconButtonLargeType = IconButtonLargeType;
+  basicTableRowPropertyVariants = BasicTableRowPropertyVariants;
+  // variant1 = ButtonIconProperty.VARIANT1
+  // variant2 = ButtonIconProperty.VARIANT2
+  // variant3 = ButtonIconProperty.VARIANT3
+  // icon=ButtonIcon.CHEVRON_LEFT
+  // variant1 = ButtonIconProperty.VARIANT1
+  // variant2 = ButtonIconProperty.VARIANT2
+  // variant3 = ButtonIconProperty.VARIANT3
+>>>>>>> 3c27fb10a0bcaa68a8d7f34b81246fd6cf802f78
   icon=ButtonIcon.CHEVRON_LEFT
   title1 = "Heading Large"
   title2 = "Heading Medium-Bold"

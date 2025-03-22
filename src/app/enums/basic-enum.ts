@@ -29,7 +29,7 @@ export enum CheckStateType{
   DISABLED = 'disabled'
 }
 
-export enum DataCellDataType {
+export enum DataCellType {
   TEXT = 'string',
   MORE = 'more',
   STATUS = 'status',
@@ -38,7 +38,8 @@ export enum DataCellDataType {
   ICON = 'icon',
   ASSIGNEE = 'assignee',
   BUTTON = 'button',
-  SLIDER='slider'
+  SLIDER='slider',
+  PLACEOLDER = 'place-order',
 }
 
 export enum AutoClusterTabType {
@@ -75,18 +76,6 @@ export enum ButtonIcon{
     NEUTRAL_GRAY = "neutral-gray",
   }
  
-  export enum DataCellType {
-    TEXT = 'text',
-    MORE = 'more',
-    STATUS = 'status',
-    CHECK = 'check',
-    LINK = 'link',
-    ICON = 'icon',
-    ASSIGNEE = 'assignee',
-    BUTTON = 'button',
-    SLIDER='slider',
-    PLACEOLDER = 'place-order',
-  }
 
   export enum HeaderCellType {
     TEXT = "text",
@@ -135,4 +124,8 @@ export  enum ToastNotificationIcons {
         DISABLED = "disabled",
         ERROR = "error"
       }
+      export  enum IconButtonLargeType {
+        DEFAULT = "default",
+        HOVER = "hover",
+      } 
 
