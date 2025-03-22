@@ -5,14 +5,13 @@
     </legend>
  
     <input
-      type="text"
-      class="custom-input"
-      [formControl]="textControl" 
-      [ngClass]="property"
-      [disabled]="property === stateEnum.DISABLED "
-     
-      placeholder="input text"
-    />
+    type="text"
+    class="custom-input"
+    [formControl]="textControl" 
+    [ngClass]="{'disabled': property === stateEnum.DISABLED}"
+    [disabled]="property === stateEnum.DISABLED"
+    placeholder="input"
+  />
   </fieldset>
  
   @if(property === stateEnum.ERROR){

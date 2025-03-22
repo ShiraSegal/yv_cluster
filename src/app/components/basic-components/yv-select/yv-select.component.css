@@ -1,5 +1,4 @@
-@import "../../../../styles.scss";
-/* @import "../../../../styles/colors.scss"; */
+@import "../../../../styles/colors.scss";
 
 .common-select-wrapper {
   position: relative;

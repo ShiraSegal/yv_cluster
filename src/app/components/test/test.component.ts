@@ -32,6 +32,7 @@ import { PieComponentDistributionModalComponent } from '../basic-components/pie-
 import { FieldComponent } from '../basic-components/field/field.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
 import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
+import { ViewerComponent } from '../viewer/viewer.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -63,6 +64,7 @@ import { SliderNavigationTabIconType } from 'src/app/enums/icon-enum';
       BasicTabComponent,
       SliderComponent,
       SwitchComponent,
+      ViewerComponent,
       TextareaComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',

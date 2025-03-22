@@ -1,6 +1,5 @@
 @import "../../../../styles.scss";
 
-
 .common-input-wrapper {
   position: relative;
   display: flex;
@@ -100,10 +99,10 @@ legend.default ,legend.error, legend.disabled {
   padding: 0%;
 }
 
-legend.focused{
+legend.focused {
   color: var(--Primery, #1334B9);
 }
 
-legend.populated{
+legend.populated {
   color: var(--Color-2, #262C34);
 }

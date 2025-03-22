@@ -1,38 +1,38 @@
 <div [ngClass]="['cell', type]">
-    @if(type === DataCellType.TEXT && isString(data)){
+    @if(type === dataCellType.TEXT && isString(data)){
     {{ data }}
     }
-    @if(type === DataCellType.MORE ){
+    @if(type === dataCellType.MORE ){
     <i class="fas fa-ellipsis-v more-icon"></i>
     }
-    @if(type === DataCellType.CHECK){
-        <yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
+    @if(type === dataCellType.CHECK){
+        <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED></yv-cluster-check>
     }
 
-    @if(type === DataCellType.STATUS){
-    <!-- <yv-cluster-badge [status]="data"></yv-cluster-badge> -->
+    @if(type === dataCellType.STATUS){
+    <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge>
     }
-    <!-- <yv-cluster-badge [status]="data"></yv-cluster-badge> -->
+
 
     
-    @if(type === DataCellType.ASSIGNEE ){
+    @if(type === dataCellType.ASSIGNEE ){
 
-        <yv-cluster-assignee firstName="Ariela" lastName="Zoppelmann"></yv-cluster-assignee>
+        <yv-cluster-assignee data="Ariela Zoppelmann"></yv-cluster-assignee>
     }
    
-    @if(type === DataCellType.LINK && isString(data)){        
+    @if(type === dataCellType.LINK && isString(data)){        
         <a [href]="data">{{ data }}</a>
         }
       
-    @if(type === DataCellType.ICON){           
+    @if(type === dataCellType.ICON){           
         <i class="fas fa-user"></i>
     }
  
-    @if(type === DataCellType.SLIDER  && isNumber(data) ){       
+    @if(type === dataCellType.SLIDER  && isNumber(data) ){       
         <yv-cluster-slider [value]=data></yv-cluster-slider>
     }
     
-    @if(type === DataCellType.BUTTON && isString(data)){       
-        <yv-cluster-button (onClick)="onClick()" text=data [buttonType]=ButtonType.SECONDARY [buttonIcon]=ButtonIcon.CHEVRON_LEFT></yv-cluster-button>
+    @if(type === dataCellType.BUTTON && isString(data)){       
+        <yv-cluster-button (onClick)="onClick()" text=data [buttonType]=buttonType.SECONDARY [buttonIcon]=buttonIcon.CHEVRON_LEFT></yv-cluster-button>
     }
 </div>

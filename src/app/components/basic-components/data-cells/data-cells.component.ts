@@ -1,28 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { ButtonIcon, ButtonType, CheckStateType, CheckType, DataCellType, DataCellValue } from 'src/app/enums/basic-enum';
+import { BadgeType, ButtonIcon, ButtonType, CheckStateType, CheckType, DataCellType, DataCellValue } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { SliderComponent } from "../slider/slider.component";
 import { IconButtonComponent } from '../icon-button/icon-button.component';
 import { ButtonComponent } from '../button/button.component';
 import { CheckComponent } from '../check/check.component';
+import { BadgeComponent } from '../badge/badge.component';
 
 
 @Component({
   selector: 'yv-cluster-data-cells',
   standalone: true,
-  imports: [CommonModule, AssigneeComponent, SliderComponent,IconButtonComponent,ButtonComponent,CheckComponent],
+  imports: [BadgeComponent, CommonModule, AssigneeComponent, SliderComponent,IconButtonComponent,ButtonComponent,CheckComponent],
   templateUrl: './data-cells.component.html',
   styleUrl: './data-cells.component.scss'
 })
 export class DataCellsComponent {
   @Input() type: DataCellType = DataCellType.TEXT;
-  @Input() data: DataCellValue = '';
-  ButtonType = ButtonType;
-  ButtonIcon = ButtonIcon;
-  DataCellType = DataCellType;
-  CheckStateType = CheckStateType;
-  CheckType = CheckType;
+  @Input() data?: DataCellValue = '';
+  badgeType = BadgeType;
+  buttonType = ButtonType;
+  buttonIcon = ButtonIcon;
+  dataCellType = DataCellType;
+  checkStateType = CheckStateType;
+  checkType = CheckType;
   iconp = "fa-solid fa-plus"
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;

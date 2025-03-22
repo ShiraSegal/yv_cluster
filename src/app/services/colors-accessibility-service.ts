@@ -13,14 +13,14 @@ export class ColorsAccessibilityService {
     stylesEle: any;
 
     constructor(@Inject(PLATFORM_ID) platformId: string,
-        @Inject(DOCUMENT) private document: Document,) {
+                @Inject(DOCUMENT) private document: Document) { // הסרת הפסיק המיותר
         this.isBrowser = isPlatformBrowser(platformId);
     }
 
     setColors() {
- 
         // dynamically create CSS var declaration like in css
         this.document.documentElement.style.setProperty("--primary_btn", "#1334B9");
+        this.document.documentElement.style.setProperty("--light_slate_blue", "#8999DC"); 
         this.document.documentElement.style.setProperty("--secondary_blue", "#425DC7");
         this.document.documentElement.style.setProperty("--table_body_strong", "#425466");
         this.document.documentElement.style.setProperty("--light_blue", "#B8C2EA");
@@ -32,7 +32,7 @@ export class ColorsAccessibilityService {
         this.document.documentElement.style.setProperty("--light_gray", "#C4C7C5");
         this.document.documentElement.style.setProperty("--silver_gray", "#A5B1C0");
         this.document.documentElement.style.setProperty("--dark_gray", "#262C34");
-    this.document.documentElement.style.setProperty("--white", "#FFFFFF");    
+        this.document.documentElement.style.setProperty("--white", "#FFF");    
         this.document.documentElement.style.setProperty("--peach_pink", "#F6CDCD");
         this.document.documentElement.style.setProperty("--red", "#C00");
         this.document.documentElement.style.setProperty("--rose_red", "#E25F5F");
@@ -41,12 +41,8 @@ export class ColorsAccessibilityService {
         this.document.documentElement.style.setProperty("--forest_green", "#1F8A74");
         this.document.documentElement.style.setProperty("--black", "#000");
         this.document.documentElement.style.setProperty("--main-primery-main", "#006AE5");
-        this.document.documentElement.style.setProperty("--light-gray" , "#ccc");
-        this.document.documentElement.style.setProperty("--pastel-blue" , "#E7EBF8");
-        this.document.documentElement.style.setProperty("--royal-blue" , "#3f51b5");
+        this.document.documentElement.style.setProperty("--light-gray", "#ccc");
+        this.document.documentElement.style.setProperty("--pastel-blue", "#E7EBF8");
+        this.document.documentElement.style.setProperty("--royal-blue", "#3f51b5");
     }
 }
-
-
-
-
