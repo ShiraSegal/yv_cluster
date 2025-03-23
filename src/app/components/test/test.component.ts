@@ -32,6 +32,7 @@ import { IconButtonLargeComponent } from '../basic-components/icon-button-large/
 import { BadgeComponent } from '../basic-components/badge/badge.component';
 import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
 import { BasicTableRowComponent } from '../basic-components/basic-table-row/basic-table-row.component';
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -101,7 +102,7 @@ stateEnum = State;
   bodyText1: string = 'Body Large Upon initial observation, it may appear that there are only two primary scenarios for ';
   bodyText2: string = 'Body Medium Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
   bodyText3: string = 'Body Small Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
- 
+  searchControl = new FormControl('');
   btnType = ButtonType.PRIMARY;
   btnType2 = ButtonType.SECONDARY;
   txt1 = "test btn1"

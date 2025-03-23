@@ -56,3 +56,11 @@
     gap: 0.25rem;
     align-self: stretch;
 }
+.rot-0 { transform: rotate(0deg); transition: transform 0.3s ease; }
+.rot-90 { transform: rotate(90deg); transition: transform 0.3s ease; }
+.rot-180 { transform: rotate(180deg); transition: transform 0.3s ease; }
+.rot-270 { transform: rotate(270deg); transition: transform 0.3s ease; }
+.rot-360 { transform: rotate(0deg); transition: transform 0.3s ease; } /* חזרה לאותו מצב */
+.rot-minus-90 { transform: rotate(-90deg); transition: transform 0.3s ease; }
+.rot-minus-180 { transform: rotate(-180deg); transition: transform 0.3s ease; }
+.rot-minus-270 { transform: rotate(-270deg); transition: transform 0.3s ease; }

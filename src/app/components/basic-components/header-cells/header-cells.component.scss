@@ -1,4 +1,5 @@
 @import "../../../../styles/colors.scss";
+
 .sort-icon {
     text-align: center;
     font-family: "Font Awesome 6 Pro";
@@ -11,43 +12,33 @@
     flex-shrink: 0;
 }
 
-.text,
-.order,
-.order-down {
+.header-cell {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 9.375rem;
     height: 3.125rem;
     padding: var(--layout-02, 0.5rem);
-    gap: 0.625rem;
-    flex-shrink: 0;
-    color:$slate_blue;
-    font-family: Poppins;
-    font-size: 0.875rem;
     font-style: normal;
     font-weight: 600;
     line-height: 1.25rem;
-    /* 142.857% */
+    gap: 0.625rem;
+    flex-shrink: 0;
+    color: $slate_blue;
+    font-family: Poppins;
+    font-size: 0.875rem;
+}
+
+.text,
+.order,
+.order-down {
+    align-items: center;
+    justify-content: space-between;
     flex: 1 0 0;
 }
 
 .header-search {
-    display: flex;
-    width: 9.375rem;
-    height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    gap: 0.625rem;
-    flex-shrink: 0;
-    color:$slate_blue;
-    font-family: Poppins;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.25rem;
+    align-items: flex-start;   
     align-self: stretch;
 }
 
@@ -72,7 +63,7 @@
 }
 
 .header-search-cancle {
-    color:$slate_blue;
+    color: $slate_blue;
     font-family: "Font Awesome 6 Pro";
     font-size: 0.625rem;
     font-style: normal;
@@ -81,41 +72,16 @@
 }
 
 .more {
-    display: flex;
     width: 1.5625rem;
-    height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
     justify-content: flex-end;
     align-items: center;
-    gap: 0.625rem;
-    color: $slate_blue;
     text-align: center;
-    font-family: "Font Awesome 6 Pro";
-    font-size: 0.875rem;
-    font-style: normal;
     font-weight: 900;
-    line-height: normal;
-    width: 1.3125rem;
-    height: 1.0625rem;
     flex-shrink: 0;
 }
 
 .place-order {
- display: flex;
-width: 1.5625rem;
-height: 3.125rem;
-padding: var(--layout-02, 0.5rem);
-justify-content: flex-end;
-align-items: center;
-gap: 0.625rem;
-}
-
-.header-cell {
-    display: flex;
+    width: 1.5625rem;
+    justify-content: flex-end;
     align-items: center;
-    padding: var(--layout-02, 0.5rem);
-    gap: 0.625rem;
-    flex-grow: 1;
-    flex-basis: 0;
-    text-align: center;
 }

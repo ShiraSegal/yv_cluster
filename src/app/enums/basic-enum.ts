@@ -95,7 +95,7 @@ export enum HeaderCellType {
   PLACEOLDER = "place-order",
   ORDER = "order",
   CHECK = "check",
-  ORDERDOWN = "order down"
+  ORDERDOWN = "order-down"
 }
 
 export enum CardIcons {

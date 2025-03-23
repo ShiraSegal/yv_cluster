@@ -1,30 +1,26 @@
 <hr>
 <h3>basic table row</h3>
 <hr>
-<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="true"
-[cells]="[
+<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="true" [cells]="[
     { data: 'this is a text', type: dataCellType.TEXT },
     { data: 'https://example.com', type: dataCellType.LINK },
     { data: '', type: dataCellType.STATUS },
     { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
   ]">></yv-cluster-basic-table-row>
-<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.DEFAULT" [showAction]="true"
-[cells]="[
+<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.DEFAULT" [showAction]="true" [cells]="[
     { data: 'this is a text', type: dataCellType.TEXT },
     { data: 'https://example.com', type: dataCellType.LINK },
     { data: '', type: dataCellType.STATUS },
     { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
   ]"></yv-cluster-basic-table-row>
-<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="false"
-[cells]="[
+<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="false" [cells]="[
   { data: 'this is a text', type: dataCellType.TEXT },
     { data: 'press', type: dataCellType.BUTTON },
     { data: 'https://example.com', type: dataCellType.LINK },
     { data: '80', type: dataCellType.SLIDER },
     { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
   ]"></yv-cluster-basic-table-row>
-<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.DEFAULT" [showAction]="false"
-[cells]="[
+<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.DEFAULT" [showAction]="false" [cells]="[
     { data: 'this is a text', type: dataCellType.TEXT },
     { data: 'press', type: dataCellType.BUTTON },
     { data: 'https://example.com', type: dataCellType.LINK },
@@ -41,22 +37,24 @@
 <hr> <yv-cluster-field [property]="stateEnum.ERROR">
 </yv-cluster-field>
 
-<yv-cluster-field [property]="stateEnum.DISABLED">
+<yv-cluster-field [property]="stateEnum.DISABLED" [textControl]="searchControl">
 </yv-cluster-field>
 
-<yv-cluster-field [property]="stateEnum.DEFAULT">
+<yv-cluster-field [property]="stateEnum.DEFAULT" [textControl]="searchControl">
 </yv-cluster-field>
 
-<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'">
+<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [textControl]="searchControl">
 </yv-cluster-field>
 
-<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'">
+<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [textControl]="searchControl">
 </yv-cluster-field>
 <hr>
 <h3>icon-button-large</h3>
 <hr>
 <yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
     [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
+<yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
+    [property]="iconButtonLargeType.HOVER"></yv-cluster-icon-button-large>
 <hr>
 <h3>viewer</h3>
 <hr>
@@ -86,9 +84,9 @@
 <h3>check</h3>
 <hr>
 <yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
+<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
+<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
+<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
 <hr>
 <h3>textarea</h3>
 <hr>
