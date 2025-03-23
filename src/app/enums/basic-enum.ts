@@ -26,18 +26,18 @@ export enum BasicTablePropertyType{
   OLD_SUGGESTIONS= 'Old Suggestions',
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
-export enum ButtonSize{
-  BIG="big",
-  SMALL="small"
-}
+// export enum ButtonSize{
+//   BIG="big",
+//   SMALL="small"
+// }
 
-export enum ButtonIcon{
-  FOLDER_PLUS="fa-light fa-folder-plus",
-  LAYER_PLUS="fa-light fa-layer-plus",
-  PLUS="fa-light fa-plus",
-  FILE_ARROW_DOWN="fa-light fa-file-arrow-down",
-  CHEVRON_LEFT="fa-light fa-chevron-left"
-  }
+// export enum ButtonIcon{
+//   FOLDER_PLUS="fa-light fa-folder-plus",
+//   LAYER_PLUS="fa-light fa-layer-plus",
+//   PLUS="fa-light fa-plus",
+//   FILE_ARROW_DOWN="fa-light fa-file-arrow-down",
+//   CHEVRON_LEFT="fa-light fa-chevron-left"
+//   }
 
   export enum TextSize{
     LARGE="large",

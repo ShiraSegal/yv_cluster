@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 // import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabIconType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
-import { ButtonSize, ButtonType, DataCellType, HeaderCellType, TextWeight} from 'src/app/enums/basic-enum';
+import { ButtonType, DataCellType, HeaderCellType, TextWeight} from 'src/app/enums/basic-enum';
 
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
 import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
 import { ButtonComponent } from '../basic-components/button/button.component';
 import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
-import { ButtonIcon } from 'src/app/enums/basic-enum';
 import { HeadingComponent } from '../basic-components/heading/heading.component';
 import { BodyComponent } from '../basic-components/body/body.component';
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
@@ -37,6 +36,7 @@ import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bo
 import { RadioButtonListComponent } from '../basic-components/radio-button-list/radio-button-list.component';
 import { CreateClusterComponent } from '../cluster-managment/create-cluster/create-cluster.component';
 import { FormGroup } from '@angular/forms';
+import { IconType } from 'src/app/enums/icon-enum';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -81,11 +81,8 @@ export class TestComponent {
   primary = ButtonType.PRIMARY//button type
   secondary = ButtonType.SECONDARY//button type
   tertiany = ButtonType.TERTIARY//button type
-  //enum ButtonSize
-  big=ButtonSize.BIG//button size
-  small=ButtonSize.SMALL//button size;
   //enum ButtonIcon
-  icon=ButtonIcon.CHEVRON_LEFT//button icon
+  icon=IconType.CHEVRON_LEFT//button icon
   
   //button component function
   onClick() {

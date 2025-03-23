@@ -4,7 +4,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
-import { ButtonSize, ButtonType, HeaderCellType, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
+import { ButtonType, HeaderCellType, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 import { BodyComponent } from '../../basic-components/body/body.component';
 import { TableHeaderComponent } from '../../basic-components/table-header/table-header.component';
 import { YvSelectComponent } from '../../basic-components/yv-select/yv-select.component';
@@ -34,7 +34,7 @@ export class CreateClusterComponent {
   weight1: TextWeight = TextWeight.BOLD;
   tableHeader2: string = 'Text Value';
   color1: TextColor = TextColor.SLATE_BLUE;
-  dataCells: string[] = [];//['First Name', 'Last Name', 'Maiden Name', 'Place Of Birth', 'Authentic Date Of Birth', 'Restored Date Of Birth', 'Permanent Place', 'Place of Death', 'Gender', 'Fate'];
+  //dataCells: string[] = [];//['First Name', 'Last Name', 'Maiden Name', 'Place Of Birth', 'Authentic Date Of Birth', 'Restored Date Of Birth', 'Permanent Place', 'Place of Death', 'Gender', 'Fate'];
   hederType: HeaderCellType = HeaderCellType.TEXT;
   // options:string[]=['first name','שם בעברית','other'];
   // label1: string = 'first name';
@@ -45,51 +45,43 @@ export class CreateClusterComponent {
   selectLabel: string = 'Cluster Level';
   button1: string = 'Cancel';
   button2: string = 'Set a cluster';
-  btn_size1: ButtonSize = ButtonSize.SMALL;
-  btn_size2: ButtonSize = ButtonSize.SMALL;
+  btn_size:boolean = false;
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
   radioControl = new FormControl<string | null>(null);
-  createClusterData:any = new Observable<string[]>;
-  options: string[] = [];
+  dataCells:any = new Observable<string[]>;
+  // options: string[] = [];
  #service=inject(ClusterService);
   ngOnInit() {
   //  this.#service.ClusterData$.subscribe(data => {
   //   this.createClusterData=data;
   //  });
-   this.createClusterData=this.#service.getCreateClusterData();
-   console.log("this.createClusterData",this.createClusterData);
-   
+  this.#service.getCreateClusterData();
   this.#service.ClusterData$.subscribe(data => {
     console.log('SapirClusterDetails:', data); // כאן תקבל את הנתונים עצמם
-     this.createClusterData = data; // שמירת הנתונים במשתנה
-     this.createClusterData.forEach((element:any) => {
+     this.dataCells = data; // שמירת הנתונים במשתנה
+     this.dataCells.forEach((d:any) => {
       let values:any=[];
-        element.Values.forEach((element:any) => {
-          values.push(element.Value);
+        d.Values.forEach((v:any) => {
+          values.push(v.Value);
         });
-        console.log("element",element);
-        if(element.HasOtherOption)
+        this.radioControl.setValue(values[0].selectedOption);
+        // values[0].selectedOption=true;
+        console.log("element",d);
+        if(d.HasOtherOption)
           values.push("other");
-      element.RadioOptions=values;
+         d.RadioOptions=values;
     });
     //  this.options.push("other"); 
-     console.log("222222222222222222",this.createClusterData);
+     console.log("222222222222222222",this.dataCells);
   });
 
-  
 
-
-
-
-    
-
-  // console.log("this.createClusterData",this.createClusterData);
-  // this.dataCells.push()
-   this.radioControl.setValue(this.options[0]);
   }
-  onSelectionChanged(selectedOption: string) {
-    this.radioControl.setValue(selectedOption);
-
+  radioForm = new FormGroup({radioControl: this.radioControl});
+  selectedOption: string = '';
+  onRadioSelectionChange(selectedValue: string) {
+    this.selectedOption = selectedValue;
+    console.log("האפשרות שנבחרה:", this.selectedOption);
   }
 }
