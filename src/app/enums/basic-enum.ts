@@ -140,7 +140,12 @@ export  enum ToastNotificationIcons {
       COLUMN="column"
     }
 
-    export enum   StatusActiveOrNotActive{
-      ACTIVE="active",
-      NOT_ACTIVE="not-active"
-    }
+    // export enum   StatusActiveOrNotActive{
+    //   ACTIVE="active",
+    //   NOT_ACTIVE="not-active"
+    // }
+
+    // export enum   ToggleOptions{
+    //   RIGHT_SELECTED="right-selected",
+    //   LEFT_SELECTED="left-selected"
+    // }

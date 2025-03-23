@@ -28,6 +28,8 @@
     <div class="right-buttons">
         <button class="icon"><i class="fa-light fa-user user-icon"></i></button>
         <button class="icon"><i class="fa-light fa-clipboard-list clipboard-list-icon"></i></button>
-        <button class="button">+ New Cluster</button>
+        <!-- <button class="button">+ New Cluster</button> -->
+        <yv-cluster-button (onClick)="onClick()" [text]="buttonText" [buttonType]="primary" [buttonIcon]="icon"></yv-cluster-button>
+
     </div>
 </div>

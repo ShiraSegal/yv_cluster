@@ -1,10 +1,10 @@
 
 import { Component } from '@angular/core';
 // import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabIconType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
-import { ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
+import { ButtonSize, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType} from 'src/app/enums/basic-enum';
 
 import {TextSize } from 'src/app/enums/basic-enum';
-import { CardIcons, ToastNotificationIcons,RadioButtonListDirection,StatusActiveOrNotActive} from 'src/app/enums/basic-enum';
+import { CardIcons, ToastNotificationIcons,RadioButtonListDirection} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
 import { ButtonComponent } from '../basic-components/button/button.component';
@@ -131,14 +131,22 @@ export class TestComponent {
     // { data: 'Slider Value', type: DataCellType.SLIDER }
   ];
   // txt1 = "test btn1"
+  //this state get the status of the switch
   switchState: boolean = false;
+  //this state get the status of the tab
   tabState: boolean = false;
+
   toggleState!: string;
   radioButtonState: boolean = false;
+    //enums
+    iconButtonLargeType = IconButtonLargeType;
+    dataCellType = DataCellType;
   CardIcons = CardIcons;
   ToastNotificationIcons = ToastNotificationIcons;
   RadioButtonListDirection=RadioButtonListDirection
-  StatusActiveOrNotActive=StatusActiveOrNotActive; 
+ ButtonSize= ButtonSize;
+ ButtonIcon=ButtonIcon
+
     selectedOption: string = '';
 radioButtonArray:string [] = ["a", "b", "c", "d","other"];
   // handleSort(event: { column: string, direction: string }) {
@@ -257,12 +265,12 @@ radioButtonArray:string [] = ["a", "b", "c", "d","other"];
   //   console.log('test on click');
   // }
  
- 
+  //switch-component function
   handleSwitchChange(state: boolean) {
     this.switchState = state;
     console.log('Switch:', state ? 'דלוק' : 'מכובה');
   }
- 
+ //basic-tab-component function
   handleTabChange(state: boolean) {
     this.tabState = state;
     console.log('Tab:', state ? 'דלוק' : 'מכובה');
@@ -276,7 +284,7 @@ radioButtonArray:string [] = ["a", "b", "c", "d","other"];
     console.log('radioButton:', state ? 'דלוק' : 'מכובה');
   }
 
-  onRadioSelectionChange(selectedValue: string) {
+  onRadioButtonListSelectionChange(selectedValue: string) {
     this.selectedOption = selectedValue;
     console.log("האפשרות שנבחרה:", this.selectedOption);
   }

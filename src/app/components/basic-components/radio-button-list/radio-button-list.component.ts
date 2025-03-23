@@ -16,11 +16,11 @@ export class RadioButtonListComponent {
   @Input() disable!: boolean;
   @Input() direction:RadioButtonListDirection = RadioButtonListDirection.COLUMN;
   @Output() selectionChange = new EventEmitter<string>();
-  
+
   radioControl = new FormControl<string | null>(null);
   radioForm = new FormGroup({radioControl: this.radioControl});
 
-  onRadioChange(selectedOption: string) {
+  onOneRadioButtonChange(selectedOption: string) {
     this.radioControl.setValue(selectedOption);
     this.selectionChange.emit(selectedOption);
   }

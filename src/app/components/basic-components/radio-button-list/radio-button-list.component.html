@@ -1,10 +1,10 @@
-<div class="radio-button-list-{{direction}}" [formGroup]="radioForm">
-    @for (value of radioButtonArray ; track value ){
+<div [ngClass]="{'radio-button-list-row': direction==='row', 'radio-button-list-column': direction==='column'}" [formGroup]="radioForm">
+    @for (value of radioButtonArray ; track value ){  
         <yv-cluster-basic-radio-button 
           [disable]="disable" 
           [checked]="radioControl.value === value" 
           [text]="value" 
-          (checkedChange)="onRadioChange(value)">
+          (checkedChange)="onOneRadioButtonChange(value)">
         </yv-cluster-basic-radio-button>
     }
   </div>

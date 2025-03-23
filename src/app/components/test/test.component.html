@@ -1,4 +1,4 @@
-
+<!-- 
  <h3>data cell</h3> 
  <yv-cluster-data-cells [type]=DataCellType.TEXT data="this is a text"></yv-cluster-data-cells>
  <yv-cluster-data-cells [type]=DataCellType.MORE data=""></yv-cluster-data-cells>
@@ -6,7 +6,7 @@
  <yv-cluster-data-cells [type]=DataCellType.ICON data=""></yv-cluster-data-cells>
  <yv-cluster-data-cells [type]=DataCellType.CHECK data=""></yv-cluster-data-cells>
  <yv-cluster-data-cells [type]=DataCellType.ASSIGNEE data=""></yv-cluster-data-cells>
-  
+   -->
  <yv-cluster-slider [value]=80></yv-cluster-slider>
  <app-yv-select
  
@@ -123,19 +123,20 @@
  <hr>
  <h3>buuton</h3>
  <hr>
- <!-- <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [buttonIcon]="icon"></yv-cluster-button>
+
+ <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="ButtonSize.SMALL" [buttonIcon]="icon"></yv-cluster-button>
  <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [buttonIcon]="icon"></yv-cluster-button>
- <yv-cluster-button  (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true [buttonIcon]="icon"></yv-cluster-button>
+ <yv-cluster-button  (onClick)="onClick()" text="Text" [buttonType]="secondary"[size]="ButtonSize.SMALL" [buttonIcon]="icon"></yv-cluster-button>
  <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [buttonIcon]="icon"></yv-cluster-button>
- <yv-cluster-button (onClick)="onClick()"text="Text" [buttonType]="tertiany" [isBig]=true [buttonIcon]="icon"></yv-cluster-button>
+ <yv-cluster-button (onClick)="onClick()"text="Text" [buttonType]="tertiany" [size]="ButtonSize.SMALL" [buttonIcon]="icon"></yv-cluster-button>
  <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [buttonIcon]="icon"></yv-cluster-button>
- <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
- <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=false [disabled]="true" [buttonIcon]="icon" ></yv-cluster-button>
- <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
- <yv-cluster-button (onClick)="onClick()"  text="Text" [buttonType]="secondary" [isBig]=false  [disabled]="true" [buttonIcon]="icon"  ></yv-cluster-button>
+ <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary"  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
+ <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="ButtonSize.SMALL" [disabled]="true" [buttonIcon]="icon" ></yv-cluster-button>
+ <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary"   [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
+ <yv-cluster-button (onClick)="onClick()"  text="Text" [buttonType]="secondary" [size]="ButtonSize.SMALL"  [disabled]="true" [buttonIcon]="icon"  ></yv-cluster-button>
   
- <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
- <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button> -->
+ <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [size]="ButtonSize.SMALL"  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
+ <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [size]="ButtonSize.SMALL"  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
  <hr>
  <h3>heading</h3>
  <hr>
@@ -154,11 +155,11 @@
  <hr>
  <h3>switch</h3>
  <hr>
- <yv-cluster-switch [text]="'switch'" [status]="StatusActiveOrNotActive.ACTIVE"   (switchChange)="handleSwitchChange($event)"></yv-cluster-switch>
+ <yv-cluster-switch [text]="'switch'" [active]="true"   (switchChange)="handleSwitchChange($event)"></yv-cluster-switch>
  <hr>
- <h3>rab</h3>
+ <h3>tab</h3>
  <hr>
- <yv-cluster-basic-tab  [text]="'tab'" [status]="StatusActiveOrNotActive.ACTIVE" (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
+ <yv-cluster-basic-tab  [text]="'tab'" [active]="true" (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
  <hr>
  <h3>toggle</h3>
  <hr>
@@ -170,11 +171,11 @@
  <yv-cluster-basic-radio-button   [disable]="true"  [checked]="false" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-basic-radio-button>
  <yv-cluster-basic-radio-button   [disable]="false"  [checked]="true" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-basic-radio-button>
  <yv-cluster-basic-radio-button   [disable]="true"  [checked]="true" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-basic-radio-button>
- <yv-cluster-radio-button-list  [radioButtonArray]="radioButtonArray" [disable]="false" [direction]="RadioButtonListDirection.ROW" (selectionChange)="onRadioSelectionChange($event)"></yv-cluster-radio-button-list>
+ <yv-cluster-radio-button-list  [radioButtonArray]="radioButtonArray" [disable]="false" [direction]="RadioButtonListDirection.COLUMN" (selectionChange)="onRadioButtonListSelectionChange($event)"></yv-cluster-radio-button-list>
  <hr>
  <h3>filter section</h3>
  <hr>
- <yv-cluster-filter-section></yv-cluster-filter-section>
+ <yv-cluster-filter-section [buttonText]="'New Cluster'" [icon]="ButtonIcon.PLUS"></yv-cluster-filter-section>
  <hr>
  <h3>card</h3>
  <hr>

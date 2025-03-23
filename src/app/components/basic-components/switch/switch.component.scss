@@ -20,7 +20,7 @@
     line-height: 1.25rem;
 }
 
-.active {
+.switch-active {
     display: flex;
     flex-direction: row;
     width: 1.59375rem;
@@ -33,7 +33,7 @@
 
 }
 
-.not-active {
+.switch-not-active {
     display: flex;
     flex-direction: row;
     width: 1.59375rem;
@@ -68,10 +68,10 @@
     transition: transform 0.3s;
 }
 
-.active .circle-active {
+.switch-active .circle-active {
     transform: translateX(100%);
 }
 
-.not-active .circle-not-active {
+.switch-not-active .circle-not-active {
     transform: translateX(0%);
 }
