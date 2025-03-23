@@ -49,11 +49,6 @@ export enum AutoClusterTabType {
   DIFFERENT_CLUSTERS = 'Different Clusters',
   ERROR_MESSAGES = 'Error Messages'
 }
-export enum ButtonIconProperty{
-VARIANT1="variant1",
-VARIANT2="variant2",
-VARIANT3="variant3"
-}
 
 export enum ButtonIcon{
   FOLDER_PLUS="fa-light fa-folder-plus",
