@@ -1,13 +1,30 @@
+<!-- <div class="viewer-warpper">
+    <div class="picture-name">{{pictureName}}</div>
+    <div class="image-warrper">
+        <div class="image"
+             [style.transform]="'scale(' + scale + ') rotate(' + rotate + 'deg)'"
+             [style.transition]="'transform 0.3s ease'"></div>
+    </div>
+    <div class="button-warpper">
+        <yv-cluster-icon-button (onClick)="zoomIn()" [icon]="iconType.ZOOMIN"></yv-cluster-icon-button>
+        <yv-cluster-icon-button (onClick)="zoomOut()" [icon]="iconType.ZOOMOUT"></yv-cluster-icon-button>
+        <yv-cluster-icon-button (onClick)="print()" [icon]="iconType.PRINT"></yv-cluster-icon-button>
+        <yv-cluster-icon-button (onClick)="rotateLeft()" [icon]="iconType.ROTATELEFT"></yv-cluster-icon-button>
+        <yv-cluster-icon-button (onClick)="rotateRight()" [icon]="iconType.ROTATERIGHT"></yv-cluster-icon-button>
+    </div>
+</div> -->
 <div class="viewer-warpper">
     <div class="picture-name">{{pictureName}}</div>
     <div class="image-warrper">
-       <div class="image"></div>
+        <div class="image"
+        [ngClass]="rotationClass || 'rot-0'"
+             [style.transition]="'transform 0.3s ease'"></div>
     </div>
     <div class="button-warpper">
-        <yv-cluster-icon-button-large (onClick)="zoomIn()" [icon]="viewerIconType.ZOOMIN" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
-        <yv-cluster-icon-button-large (onClick)="zoomOut()" [icon]="viewerIconType.ZOOMOUT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
-        <yv-cluster-icon-button-large (onClick)="print()" [icon]="viewerIconType.PRINT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
-        <yv-cluster-icon-button-large (onClick)="rotateLeft()" [icon]="viewerIconType.ROTATELEFT"[property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
-        <yv-cluster-icon-button-large (onClick)="rotateRight()" [icon]="viewerIconType.ROTATERIGHT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
+        <yv-cluster-icon-button-large (onClick)="zoomIn()" [icon]="iconType.ZOOMIN"></yv-cluster-icon-button-large>
+        <yv-cluster-icon-button-large (onClick)="zoomOut()" [icon]="iconType.ZOOMOUT"></yv-cluster-icon-button-large>
+        <yv-cluster-icon-button-large (onClick)="print()" [icon]="iconType.PRINT"></yv-cluster-icon-button-large>
+        <yv-cluster-icon-button-large (onClick)="rotateLeft()" [icon]="iconType.ROTATELEFT"></yv-cluster-icon-button-large>
+        <yv-cluster-icon-button-large (onClick)="rotateRight()" [icon]="iconType.ROTATERIGHT"></yv-cluster-icon-button-large>
     </div>
 </div>

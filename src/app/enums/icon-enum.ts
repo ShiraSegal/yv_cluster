@@ -1,4 +1,5 @@
-export enum SliderNavigationTabIconType {
+
+export enum IconType {
     HOMESOLID = "fa-solid fa-house ",
     LOGOUTSOLID = "fa-solid fa-left-from-bracket ",
     AUTOCLUSRETSOLID = "fa-solid fa-list ",
@@ -9,13 +10,10 @@ export enum SliderNavigationTabIconType {
     AUTOCLUSRETLIGHT = "fa-light fa-list ",
     REPORTLIGHT = "fa-light fa-chart-line-up ",
     NEWCLUSTERLIGHT = "fa-light fa-plus ",
-}
-
-export enum ViewerIconType {
-    ROTATERIGHT = "fa-solid fa-arrow-rotate-right ",
-    ROTATELEFT = "fa-solid fa-arrow-rotate-left ",
-    PRINT = "fa-solid fa-print ",
-    ZOOMIN = "fa-solid fa-magnifying-glass-minus ",
-    ZOOMOUT = "fa-solid fa-magnifying-glass-plus ",
-    
+    ROTATERIGHT = "fa-light fa-arrow-rotate-right ",
+    ROTATELEFT = "fa-light fa-arrow-rotate-left ",
+    PRINT = "fa-light fa-print ",
+    ZOOMIN = "fa-light fa-magnifying-glass-minus ",
+    ZOOMOUT = "fa-light fa-magnifying-glass-plus ",
+    CHEVRONRIGHT = "fa-light fa-chevron-right",
 }

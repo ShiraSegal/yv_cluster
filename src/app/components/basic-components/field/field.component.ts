@@ -12,7 +12,7 @@ import {  State } from 'src/app/enums/basic-enum';
 })
 export class FieldComponent {
   @Input() property!: State;
-  @Input() label: string = '';
+  @Input() label!: string ;
   @Input() textControl:FormControl = new FormControl<string>('');
   stateEnum =  State ;
  

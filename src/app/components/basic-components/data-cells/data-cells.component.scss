@@ -1,26 +1,32 @@
 @import "../../../../styles/colors.scss";
-
 .data-cell {
     display: flex;
+    align-items: center;
+    padding: var(--layout-02, 0.5rem);
+    gap: 0.625rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    text-align: center;
+}
+.text {
     width: 9.375rem;
     height: 2.8125rem;
-    padding: var(--layout-02, 0.5rem);
     align-items: center;
-    gap: 0.625rem;
+    color: $slate_blue;
+    font-family: Poppins;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    flex: 1 0 0;
+}
+
+.more {
+    width: 38px;
+    height: 45px;
+    justify-content: center;
     flex-shrink: 0;
 }
-
-.text {
-    color: var(--main-on-neutral, #3F4B5A);
-/* Body/medium */
-font-family: Poppins;
-font-size: 0.875rem;
-font-style: normal;
-font-weight: 400;
-line-height: 1.25rem; /* 142.857% */
-}
-
-.more {}
 
 .more-icon {
     color: $slate_blue;
@@ -36,7 +42,17 @@ line-height: 1.25rem; /* 142.857% */
 }
 
 .link {
-justify-content: flex-end;
+    width: 150px;
+    height: 45px;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    color: $main_primery_main;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    flex: 1 0 0;
 }
 
 .icon {
@@ -59,9 +75,17 @@ justify-content: flex-end;
     line-height: normal;
 }
 
-.status {}
+.status {
+    width: 150px;
+    height: 45px;
+    flex-shrink: 0;
+}
 
-.check {}
+.check {
+    justify-content: center;
+    align-self: stretch;
+    width: 1.5625rem;
+}
 
 .more-icon,
 .clipboard-list-icon,
@@ -70,10 +94,6 @@ justify-content: flex-end;
 }
 
 .fa-solid {
-    color: $slate_blue;
-    font-family: "Font Awesome 6 Pro";
+    color:$slate_blue;
     font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
 }

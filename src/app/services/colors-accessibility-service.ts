@@ -20,6 +20,11 @@ export class ColorsAccessibilityService {
     setColors() {
         // dynamically create CSS var declaration like in css
         this.document.documentElement.style.setProperty("--primary_btn", "#1334B9");
+        this.document.documentElement.style.setProperty("--green-dark", "#0C803E");
+        this.document.documentElement.style.setProperty("--light-green", "#E7FFF2");
+        this.document.documentElement.style.setProperty("--gray", "#797979");
+        this.document.documentElement.style.setProperty("--light-gray", "#D9D9D9");
+        this.document.documentElement.style.setProperty("--background-gray", "#F1F1F1");
         this.document.documentElement.style.setProperty("--light_slate_blue", "#8999DC"); 
         this.document.documentElement.style.setProperty("--secondary_blue", "#425DC7");
         this.document.documentElement.style.setProperty("--table_body_strong", "#425466");
@@ -27,9 +32,11 @@ export class ColorsAccessibilityService {
         this.document.documentElement.style.setProperty("--royal_blue", "#5A71CE");
         this.document.documentElement.style.setProperty("--slate_blue", "#3F4B5A");
         this.document.documentElement.style.setProperty("--lavender_blue", "#D0D6F1");
+        this.document.documentElement.style.setProperty("--lavender_blue_transparent", "#E7EBF833");
         this.document.documentElement.style.setProperty("--cool_blue", "#2449D8");
         this.document.documentElement.style.setProperty("--light_gray_blue", "#E1E5EA");
         this.document.documentElement.style.setProperty("--light_gray", "#C4C7C5");
+        this.document.documentElement.style.setProperty("--light_gray_opacity", "#E0E1E24D");
         this.document.documentElement.style.setProperty("--silver_gray", "#A5B1C0");
         this.document.documentElement.style.setProperty("--dark_gray", "#262C34");
         this.document.documentElement.style.setProperty("--white", "#FFF");    

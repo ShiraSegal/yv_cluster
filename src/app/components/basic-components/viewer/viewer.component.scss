@@ -1,46 +1,66 @@
-.viewer-warpper{
+@import "../../../../styles/colors.scss";
+
+.viewer-warpper {
     display: flex;
-width: 66rem;
-height: 50.3125rem;
-padding: 0.25rem 0.625rem;
-flex-direction: column;
-align-items: center;
-gap: 0.5rem;
-background: #FFF;
+    width: 66rem;
+    height: 50.3125rem;
+    padding: 0.25rem 0.625rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: #FFF;
+}
+
+.picture-name-warpper {
+    display: flex;
+    height: 3.125rem;
+    padding: var(--layout-02, 0.5rem);
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+    background: $pastel-blue;
 }
 .picture-name{
-    display: flex;
-height: 3.125rem;
-padding: var(--layout-02, 0.5rem);
-align-items: center;
-gap: 0.625rem;
-flex-shrink: 0;
-align-self: stretch;
-background: rgba(231, 235, 248, 0.50);
-color: #3F4B5A;
-font-family: Poppins;
-font-size: 1rem;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+    width: 8.375rem;
+    color: $slate_blue;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
-.image-warpper{
+
+
+.image-warpper {
+    display: flex;
+    width: 59.5625rem;
+    height: 42.3125rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+}
+
+.image {
+    width: 39.3125rem;
+    height: 42.1875rem;
+    flex-shrink: 0;
+    background: url("/assets/images/img1.jpg") lightgray -30.165px 0px / 106.634% 110.455% no-repeat;
+}
+
+.button-warpper {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
     align-self: stretch;
 }
-.image {
-    width: 39.3125rem;
-    height: 42.1875rem;
-    flex-shrink: 0;
-    background: url("/assets/images/1.PNG") lightgray -30.165px 0px / 106.634% 110.455% no-repeat;
-}
-.button-warpper{
-    display: flex;
-justify-content: center;
-align-items: center;
-gap: 0.25rem;
-align-self: stretch;
-}
+.rot-0 { transform: rotate(0deg); transition: transform 0.3s ease; }
+.rot-90 { transform: rotate(90deg); transition: transform 0.3s ease; }
+.rot-180 { transform: rotate(180deg); transition: transform 0.3s ease; }
+.rot-270 { transform: rotate(270deg); transition: transform 0.3s ease; }
+.rot-360 { transform: rotate(0deg); transition: transform 0.3s ease; } /* חזרה לאותו מצב */
+.rot-minus-90 { transform: rotate(-90deg); transition: transform 0.3s ease; }
+.rot-minus-180 { transform: rotate(-180deg); transition: transform 0.3s ease; }
+.rot-minus-270 { transform: rotate(-270deg); transition: transform 0.3s ease; }
