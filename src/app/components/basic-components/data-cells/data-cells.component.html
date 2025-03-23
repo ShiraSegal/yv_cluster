@@ -1,4 +1,4 @@
-<div [ngClass]="['cell', type]">
+<div [ngClass]="['data-cell', type]">
     @if(type === dataCellType.TEXT && isString(data)){
     {{ data }}
     }
@@ -25,7 +25,7 @@
         }
       
     @if(type === dataCellType.ICON){           
-        <i class="fas fa-user"></i>
+        <yv-cluster-icon-button-large [icon]="viewerIconType.PRINT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
     }
  
     @if(type === dataCellType.SLIDER  && isNumber(data) ){       

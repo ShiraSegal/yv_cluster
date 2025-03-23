@@ -26,18 +26,16 @@ line-height: normal;
 }
 .image-warpper{
     display: flex;
-width: 59.5625rem;
-height: 42.3125rem;
-flex-direction: column;
-align-items: center;
-gap: 0.625rem;
-flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    align-self: stretch;
 }
 .image {
     width: 39.3125rem;
     height: 42.1875rem;
     flex-shrink: 0;
-    background: url("/assets/images/img1.jpg") lightgray -30.165px 0px / 106.634% 110.455% no-repeat;
+    background: url("/assets/images/1.PNG") lightgray -30.165px 0px / 106.634% 110.455% no-repeat;
 }
 .button-warpper{
     display: flex;

@@ -1,18 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { BadgeType, ButtonIcon, ButtonType, CheckStateType, CheckType, DataCellType, DataCellValue } from 'src/app/enums/basic-enum';
+import { BadgeType, ButtonIcon, ButtonType, CheckStateType, CheckType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { SliderComponent } from "../slider/slider.component";
 import { IconButtonComponent } from '../icon-button/icon-button.component';
 import { ButtonComponent } from '../button/button.component';
 import { CheckComponent } from '../check/check.component';
 import { BadgeComponent } from '../badge/badge.component';
+import { ViewerIconType } from 'src/app/enums/icon-enum';
+import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 
 
 @Component({
   selector: 'yv-cluster-data-cells',
   standalone: true,
-  imports: [BadgeComponent, CommonModule, AssigneeComponent, SliderComponent,IconButtonComponent,ButtonComponent,CheckComponent],
+  imports: [IconButtonLargeComponent, BadgeComponent, CommonModule, AssigneeComponent, SliderComponent,IconButtonComponent,ButtonComponent,CheckComponent],
   templateUrl: './data-cells.component.html',
   styleUrl: './data-cells.component.scss'
 })
@@ -25,6 +27,8 @@ export class DataCellsComponent {
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
   checkType = CheckType;
+  viewerIconType = ViewerIconType;
+  iconButtonLargeType = IconButtonLargeType;
   iconp = "fa-solid fa-plus"
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;

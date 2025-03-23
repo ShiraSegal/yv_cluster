@@ -65,9 +65,9 @@
 <h3>check</h3>
 <hr>
 <yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
+<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
+<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
+<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
 <hr>
 <h3>textarea</h3>
 <hr>
@@ -173,25 +173,25 @@
 <hr>
  <yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
  <hr>
-<h3>field</h3>
-<hr> 
+ <h3>field</h3>
+ <hr> 
  <yv-cluster-field 
-[property]=stateEnum.ERROR
-[label]="label"
-></yv-cluster-field>
-<yv-cluster-field 
-[property]=stateEnum.DEFAULT
-[label]="label"
-></yv-cluster-field>
-<yv-cluster-field 
-[property]=stateEnum.FOCUSED
-[label]="label"
-></yv-cluster-field>
-<yv-cluster-field 
-[property]=stateEnum.POPULATED
-[label]="label"
-></yv-cluster-field>
-<yv-cluster-field 
-[property]=stateEnum.ERROR
-[label]="label"
-></yv-cluster-field>
+ [property]="stateEnum.ERROR"
+ [label]="label"
+ ></yv-cluster-field>
+ <yv-cluster-field 
+ [property]="stateEnum.DEFAULT"
+ [label]="label"
+ ></yv-cluster-field>
+ <yv-cluster-field 
+ [property]="stateEnum.FOCUSED" 
+ [label]="label"
+ ></yv-cluster-field>
+ <yv-cluster-field 
+ [property]="stateEnum.POPULATED"
+ [label]="label"
+ ></yv-cluster-field>
+ <yv-cluster-field 
+ [property]="stateEnum.ERROR"
+ [label]="label"
+ ></yv-cluster-field>
