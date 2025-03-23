@@ -1,69 +1,6 @@
 @import "../../../../styles/colors.scss";
 
-<<<<<<< HEAD
-.common-input-wrapper {
-  position: relative;
-  display: flex;
-  width: 16.75rem;
-  height: 2.5rem;
-  min-width: 9.6875rem;
-  max-width: 28.125rem;
-  padding: var(--Layout-medium, 0.5rem);
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--Layout-medium, 0.5rem);
-  flex-shrink: 0;
-  border-radius: var(--Border-radius-small, 0.25rem);
- 
-  
-}
-.common-input-wrapper.error{
-  border-radius: var(--Border-radius-small, 0.25rem);
-  border: 0.5px solid var(--Color-4, #C00);
-  background: #FAEAEA;
-}
-.common-input-wrapper.defualt {
-  border: 0.5px solid #3F4B5A;
-}
-
-.common-input-wrapper.disabled{
-  border: 0.5px solid rgba(196, 199, 197, 0.50);
-  color: rgba(63, 75, 90, 0.30);
- 
-}
-.common-input-wrapper.focused{
-  border: 1px solid var(--Primery, #1334B9);
-}
-
-.common-input-wrapper.populated{
-  border: 0.5px solid var(--Color-2, #262C34);
-}
-
-.custom-input {
-border: none;
-background: none;
-outline: none; 
-overflow: hidden;
-color: #3F4B5A; 
-
-text-overflow: ellipsis;
-font-family: Poppins;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 20px; 
-
-}
-
-.custom-input.disabled {
-  color: rgba(63, 75, 90, 0.30);
-
-}
-
-.wrapper {
-=======
 .warpper {
->>>>>>> 3c27fb10a0bcaa68a8d7f34b81246fd6cf802f78
   display: flex;
   padding: 1rem;
   align-items: flex-start;
@@ -72,17 +9,6 @@ line-height: 20px;
   gap: 0.1rem;
 }
 
-<<<<<<< HEAD
-
-.error-message {
-  color: var(--Additional-error-variant, #FF6665);
-  text-align: right;
-  font-family: Rubik;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 11.813px;
-=======
 .common-input-wrapper {
   display: flex;
   flex-direction: column;
@@ -115,8 +41,14 @@ line-height: 20px;
 
 .common-input-wrapper.focused {
   border: 1px solid var(--Primery, #1334B9);
->>>>>>> 3c27fb10a0bcaa68a8d7f34b81246fd6cf802f78
 }
+legend.default ,legend.error, legend.disabled {
+  padding: 0%;
+}
+legend.focused ,legend.populated {
+  padding: 0%;
+}
+
 
 .input-legend {
   font-family: Poppins;
@@ -133,23 +65,6 @@ line-height: 20px;
   color: #3F4B5A;
 }
 
-<<<<<<< HEAD
-.input-fieldset {
-  padding: 0.5rem;
-  position: relative;
-}
-
-legend.default ,legend.error, legend.disabled {
-  padding: 0%;
-}
-
-legend.focused {
-  color: var(--Primery, #1334B9);
-}
-
-legend.populated {
-  color: var(--Color-2, #262C34);
-=======
 .input-label.error {
   color: var(--Color-4, #C00);
 }
@@ -181,7 +96,6 @@ legend.populated {
 
 .custom-input.disabled {
   color: rgba(63, 75, 90, 0.30);
-
 }
 
 .error-message {
@@ -192,8 +106,4 @@ legend.populated {
   font-style: normal;
   font-weight: 400;
   line-height: 11.813px;
-}
-legend.default ,legend.error, legend.disabled {
-  padding: 0%;
->>>>>>> 3c27fb10a0bcaa68a8d7f34b81246fd6cf802f78
 }

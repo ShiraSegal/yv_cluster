@@ -26,12 +26,13 @@ import { ToastNotificationComponent } from '../basic-components/toast-notificati
 import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
 import { FieldComponent } from '../basic-components/field/field.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
-
+import { IconType } from 'src/app/enums/icon-enum';
 import { ViewerComponent } from '../basic-components/viewer/viewer.component';
 import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
 import { BadgeComponent } from '../basic-components/badge/badge.component';
 import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
 import { BasicTableRowComponent } from '../basic-components/basic-table-row/basic-table-row.component';
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -101,21 +102,21 @@ stateEnum = State;
   bodyText1: string = 'Body Large Upon initial observation, it may appear that there are only two primary scenarios for ';
   bodyText2: string = 'Body Medium Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
   bodyText3: string = 'Body Small Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
- 
+  searchControl = new FormControl('');
   btnType = ButtonType.PRIMARY;
   btnType2 = ButtonType.SECONDARY;
   txt1 = "test btn1"
   // txt1 = "test btn1"
- 
+
   title = 'test';
   isError: boolean = false;
   isDisabled: boolean = false;
   isFocused: boolean = false;
   isPopulated: boolean = true;
   // label: string = 'label';
- 
+
   // title = 'yv-clusters';
- 
+
    cells = [
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
@@ -139,20 +140,20 @@ stateEnum = State;
   CardIcons = CardIcons;
   ToastNotificationIcons = ToastNotificationIcons;
   // handleSort(event: { column: string, direction: string }) {
- 
+
   //   console.log(`Sorting by ${event.column} in ${event.direction} order`);
   // }
- 
+
   // onClick() {
   //   alert('test on click');
   //   console.log('test on click');
   // }
  
- 
+
   // iconp = "fa-solid fa-plus"
   // // txt1 = "Enter Book ID"
   // txt2 = "Enter Book ID"
- 
+
   handleSort(event: { column: string, direction: string }) {
  
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
@@ -253,13 +254,13 @@ stateEnum = State;
   //   alert('test on click');
   //   console.log('test on click');
   // }
- 
- 
+
+
   handleSwitchChange(state: boolean) {
     this.switchState = state;
     console.log('Switch:', state ? 'דלוק' : 'מכובה');
   }
- 
+
   handleTabChange(state: boolean) {
     this.tabState = state;
     console.log('Tab:', state ? 'דלוק' : 'מכובה');
@@ -273,3 +274,5 @@ stateEnum = State;
     console.log('radioButton:', state ? 'דלוק' : 'מכובה');
   }
 }
+
+ 

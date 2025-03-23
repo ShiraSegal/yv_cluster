@@ -7,7 +7,7 @@
     { data: 'https://example.com', type: dataCellType.LINK },
     { data: '', type: dataCellType.STATUS },
     { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
-  ]">></yv-cluster-basic-table-row>
+  ]"></yv-cluster-basic-table-row>
 <yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.DEFAULT" [showAction]="true"
 [cells]="[
     { data: 'this is a text', type: dataCellType.TEXT },
@@ -38,20 +38,16 @@
 <yv-cluster-badge [property]="badgeType.DONE"></yv-cluster-badge>
 <hr>
 <h3>field</h3>
-<hr> <yv-cluster-field [property]="stateEnum.ERROR">
-</yv-cluster-field>
- 
-<yv-cluster-field [property]="stateEnum.DISABLED">
-</yv-cluster-field>
- 
-<yv-cluster-field [property]="stateEnum.DEFAULT">
-</yv-cluster-field>
- 
-<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'">
-</yv-cluster-field>
- 
-<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'">
-</yv-cluster-field>
+<hr>
+<yv-cluster-field [property]="stateEnum.ERROR" [placeholder]="'הכנס טקסט כאן'"></yv-cluster-field>
+
+<yv-cluster-field [property]="stateEnum.DISABLED" [placeholder]="'DISABLED'"></yv-cluster-field>
+
+<yv-cluster-field [property]="stateEnum.DEFAULT" [placeholder]="'הכנס טקסט כאן'"></yv-cluster-field>
+
+<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [placeholder]="'Focused'"></yv-cluster-field>
+
+<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [placeholder]="'Populated '"></yv-cluster-field>
 <hr>
 <h3>icon-button-large</h3>
 <hr>
@@ -134,7 +130,7 @@
     [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=false [disabled]="true"
     [buttonIcon]="icon"></yv-cluster-button>
- 
+
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true [disabled]="true"
     [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false [disabled]="true"
