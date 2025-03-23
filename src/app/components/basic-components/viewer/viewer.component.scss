@@ -2,7 +2,7 @@
 
 .viewer-warpper {
     display: flex;
-    width: 66rem;
+    width: 65.8125rem;
     height: 50.3125rem;
     padding: 0.25rem 0.625rem;
     flex-direction: column;
@@ -21,7 +21,8 @@
     align-self: stretch;
     background: $pastel-blue;
 }
-.picture-name{
+
+.picture-name {
     width: 8.375rem;
     color: $slate_blue;
     font-family: Poppins;
@@ -38,16 +39,12 @@
     height: 42.3125rem;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* מרכז את התמונה אנכית */
     gap: 0.625rem;
     flex-shrink: 0;
 }
 
-.image {
-    width: 39.3125rem;
-    height: 42.1875rem;
-    flex-shrink: 0;
-    background: url("/assets/images/img1.jpg") lightgray -30.165px 0px / 106.634% 110.455% no-repeat;
-}
+
 
 .button-warpper {
     display: flex;
@@ -56,11 +53,61 @@
     gap: 0.25rem;
     align-self: stretch;
 }
-.rot-0 { transform: rotate(0deg); transition: transform 0.3s ease; }
-.rot-90 { transform: rotate(90deg); transition: transform 0.3s ease; }
-.rot-180 { transform: rotate(180deg); transition: transform 0.3s ease; }
-.rot-270 { transform: rotate(270deg); transition: transform 0.3s ease; }
-.rot-360 { transform: rotate(0deg); transition: transform 0.3s ease; } /* חזרה לאותו מצב */
-.rot-minus-90 { transform: rotate(-90deg); transition: transform 0.3s ease; }
-.rot-minus-180 { transform: rotate(-180deg); transition: transform 0.3s ease; }
-.rot-minus-270 { transform: rotate(-270deg); transition: transform 0.3s ease; }
+
+.image {
+    width: 39.3125rem;
+    height: 42.1875rem;
+    background: url('/assets/images/img1.jpg')  no-repeat;
+    background-size: contain;
+    flex-shrink: 0;
+}
+
+.rot-0 {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.rot-90 {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+}
+
+.rot-180 {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.rot-270 {
+    transform: rotate(270deg);
+    transition: transform 0.3s ease;
+}
+
+.rot-360 {
+    transform: rotate(360deg);
+    transition: transform 0.3s ease;
+}
+
+.scale-1 {
+    transform: scale(1);
+
+}
+
+.scale-1-1 {
+    transform: scale(1.1);
+}
+
+.scale-1-2 {
+    transform: scale(1.2);
+}
+
+.scale-1-3 {
+    transform: scale(1.3);
+}
+
+.scale-1-4 {
+    transform: scale(1.4);
+}
+
+.scale-1-5 {
+    transform: scale(1.5);
+}
