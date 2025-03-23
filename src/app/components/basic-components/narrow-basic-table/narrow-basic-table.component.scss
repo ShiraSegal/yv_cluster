@@ -1,9 +1,6 @@
+@import "../../../../styles.scss";
 
-.table{
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: auto;
-}
+
 .table-frame {
     display: flex;
     padding: 1.25rem 1.25rem 0.625rem 1.25rem;
@@ -21,16 +18,24 @@
     display: flex;
     align-items: center;
     gap: 1.125rem;
-    border-bottom: 1px solid #B8C2EA;display: flex;
+    border-bottom: 1px solid #B8C2EA;
     padding-bottom: 1.25rem;
     justify-content: space-between;
     align-self: stretch;
 }
-.row{
-    border-bottom: 1px solid #D0D6F1;
+
+.button-wrapper {
     display: flex;
-padding: 0.25rem 0rem;
-align-items: center;
-gap: 0.0625rem;
-align-self: stretch;
+    width: 268.5px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+
+.row {
+    // display: flex;
+    // padding: 0.25rem 0rem;
+    // align-items: center;
+    // gap: 0.0625rem;
+    // align-self: stretch;
 }
