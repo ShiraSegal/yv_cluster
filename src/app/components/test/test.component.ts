@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ButtonIcon, CheckStateType, CheckType, IconButtonLargeType, SliderNavigationTabType, State, ButtonIconProperty, ButtonType, DataCellType, HeaderCellType,NativeOptionState,NativeOptionType} from 'src/app/enums/basic-enum';
+import { ButtonIcon, ButtonIconProperty, ButtonType, DataCellType, HeaderCellType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
@@ -35,6 +36,8 @@ import { ViewerComponent } from '../basic-components/viewer/viewer.component';
 import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
 import { NativeOptionComponent } from '../basic-components/native-option/native-option.component';
 import { NarrowBasicTableComponent } from '../basic-components/narrow-basic-table/narrow-basic-table.component';
+import { NarrowBasicTableComponent } from '../basic-components/narrow-basic-table/narrow-basic-table.component';
+import { BasicTableWarpComponent } from '../basic-components/basic-table-warp/basic-table-warp.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -71,6 +74,7 @@ import { NarrowBasicTableComponent } from '../basic-components/narrow-basic-tabl
       ViewerComponent,
       TextareaComponent,
       NarrowBasicTableComponent],
+  imports: [CommonModule,NarrowBasicTableComponent, ButtonComponent,IconButtonComponent,EnterBookidComponent,ButtonComponent,HeadingComponent,BodyComponent,AssigneeComponent,BasicTableComponent,BasicTableRowComponent,BasicTableWarpComponent,CheckComponent,DataCellsComponent,HeaderCellsComponent,NarrowBasicTableComponent,SliderComponent,TabElementComponent,TableHeaderComponent,TextareaComponent,YvSelectComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
@@ -98,6 +102,7 @@ export class TestComponent {
   // variant2 = ButtonIconProperty.VARIANT2
   // variant3 = ButtonIconProperty.VARIANT3
   // icon=ButtonIcon.CHEVRON_LEFT
+  icon=ButtonIcon.CHEVRON_LEFT
   title1 = "Heading Large"
   title2 = "Heading Medium-Bold"
   title3 = "Heading Small"
