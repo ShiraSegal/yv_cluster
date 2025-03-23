@@ -81,12 +81,10 @@ export class TestComponent {
   //switch-component function
   handleSwitchChange(state: boolean) {
     this.switchState = state;
-    console.log('Switch:', state ? 'דלוק' : 'מכובה');
   }
   //basic-tab-component function
   handleTabChange(state: boolean) {
     this.tabState = state;
-    console.log('Tab:', state ? 'דלוק' : 'מכובה');
   }
   //button & icon button component function
   onClick() {
