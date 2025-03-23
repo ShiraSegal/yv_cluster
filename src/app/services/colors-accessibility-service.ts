@@ -20,14 +20,11 @@ export class ColorsAccessibilityService {
     setColors() {
         // dynamically create CSS var declaration like in css
         this.document.documentElement.style.setProperty("--primary_btn", "#1334B9");
-<<<<<<< HEAD
-=======
         this.document.documentElement.style.setProperty("--green-dark", "#0C803E");
         this.document.documentElement.style.setProperty("--light-green", "#E7FFF2");
         this.document.documentElement.style.setProperty("--gray", "#797979");
         this.document.documentElement.style.setProperty("--light-gray", "#D9D9D9");
         this.document.documentElement.style.setProperty("--background-gray", "#F1F1F1");
->>>>>>> 3c27fb10a0bcaa68a8d7f34b81246fd6cf802f78
         this.document.documentElement.style.setProperty("--light_slate_blue", "#8999DC"); 
         this.document.documentElement.style.setProperty("--secondary_blue", "#425DC7");
         this.document.documentElement.style.setProperty("--table_body_strong", "#425466");

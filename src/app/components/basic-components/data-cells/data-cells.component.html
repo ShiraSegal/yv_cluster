@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <div [ngClass]="['cell', type]">
-=======
-<div [ngClass]="['data-cell', type]">
->>>>>>> 3c27fb10a0bcaa68a8d7f34b81246fd6cf802f78
     @if(type === dataCellType.TEXT && isString(data)){
     {{ data }}
     }
@@ -29,11 +25,7 @@
         }
       
     @if(type === dataCellType.ICON){           
-<<<<<<< HEAD
         <i class="fas fa-user"></i>
-=======
-        <yv-cluster-icon-button-large [icon]="viewerIconType.PRINT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
->>>>>>> 3c27fb10a0bcaa68a8d7f34b81246fd6cf802f78
     }
  
     @if(type === dataCellType.SLIDER  && isNumber(data) ){       
