@@ -10,21 +10,17 @@
 <yv-cluster-slider [value]="80"></yv-cluster-slider>
 <br>
 <yv-cluster-slider></yv-cluster-slider>
-
 <hr>
+
 <h3>field</h3>
 <yv-cluster-field [property]="stateEnum.ERROR">
 </yv-cluster-field>
-
 <yv-cluster-field [property]="stateEnum.DISABLED">
 </yv-cluster-field>
-
 <yv-cluster-field [property]="stateEnum.DEFAULT">
 </yv-cluster-field>
-
 <yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'">
 </yv-cluster-field>
-
 <yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'">
 </yv-cluster-field>
 <hr>
@@ -38,7 +34,7 @@
 <yv-cluster-data-cells [type]="dataCellType.TEXT" [data]="'Hello World'"></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.LINK" [data]="'https://example.com'"></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.SLIDER" [data]="80"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.MORE"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.MORE" ></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.CHECK"></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.STATUS"></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.ICON"></yv-cluster-data-cells>
@@ -52,7 +48,6 @@
 <hr>
 
 <h3>header cell</h3>
-
 <yv-cluster-header-cells [type]=headerCellType.TEXT header="text"></yv-cluster-header-cells>
 <yv-cluster-header-cells [type]=headerCellType.ORDER header="order"
   (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
@@ -65,7 +60,6 @@
 <hr>
 
 <h3>badge</h3>
-
 <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge>
 <yv-cluster-badge [property]="badgeType.DONE"></yv-cluster-badge>
 <hr>

@@ -14,7 +14,7 @@ export class SwitchComponent {
   @Input() text!: string;
   @Output() switchChange = new EventEmitter<boolean>();
   toggle(){
-    this.status=="active"?this.status=StatusActiveOrNotActive.NOT_ACTIVE:this.status=StatusActiveOrNotActive.ACTIVE;
+    this.status===StatusActiveOrNotActive.ACTIVE?this.status=StatusActiveOrNotActive.NOT_ACTIVE:this.status=StatusActiveOrNotActive.ACTIVE;
     this.switchChange.emit(this.status=="active");
   }
 }

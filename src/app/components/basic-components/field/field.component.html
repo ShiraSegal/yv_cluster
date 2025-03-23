@@ -1,12 +1,10 @@
-
-
 <div class="warpper">
   <fieldset [ngClass]="['common-input-wrapper', property]">
     <legend [ngClass]="['input-legend', property]">
       {{ label }}
     </legend>
-   
- 
+
+
     <input type="text" class="custom-input" [formControl]="textControl"
       [ngClass]="{'disabled': property === stateEnum.DISABLED}" [disabled]="property === stateEnum.DISABLED"
       [placeholder]="property" />
