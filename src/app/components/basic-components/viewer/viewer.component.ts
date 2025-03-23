@@ -16,9 +16,10 @@ export class ViewerComponent {
   iconType = IconType;
   iconButtonLargeType = IconButtonLargeType;
   rotations = [
-    'rot-0', 'rot-90', 'rot-180', 'rot-270',
-    // 'rot-360', 'rot-minus-90', 'rot-minus-180', 'rot-minus-270'
+    'rot-0', 'rot-90', 'rot-180', 'rot-270', 'rot-360',
   ];
+ 
+  
   scales = [
     'scale-1', 'scale-1-1', 'scale-1-2', 'scale-1-3', 'scale-1-4', 'scale-1-5'
   ];
@@ -29,36 +30,41 @@ export class ViewerComponent {
   rotationClass = 'rot-0';
   zoomClass = 'scale-1';
   zoomIn() {
+   
     if (this.scaleIndex < this.scales.length - 1) {
       this.scaleIndex++;
       this.zoomClass = this.scales[this.scaleIndex];
+      console.log('zoomIn:', this.zoomClass); 
     }
   }
 
   zoomOut() {
+   
     if (this.scaleIndex > 0) {
       this.scaleIndex--;
       this.zoomClass = this.scales[this.scaleIndex];
+      console.log('zoomOut:', this.zoomClass); 
     }
   }
 
   rotateLeft() {
- 
+    console.log('rotateLeft called');
     this.index = (this.index - 1 + this.rotations.length) % this.rotations.length;
     this.rotate -= 90;
     this.rotationClass = this.rotations[this.index];
-    console.log('rotateLeft:', this.rotationClass); 
+    console.log('rotateLeft:', this.rotationClass);
 }
-
+ 
 rotateRight() {
-    
+  console.log('rotateRight called');
     this.index = (this.index + 1) % this.rotations.length;
     this.rotate += 90;
     this.rotationClass = this.rotations[this.index];
-    console.log('rotateRight:', this.rotationClass); 
+    console.log('rotateRight:', this.rotationClass);
 }
 
   print() {
-    
+   
   }
+
 }
