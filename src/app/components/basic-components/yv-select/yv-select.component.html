@@ -14,7 +14,7 @@
     </legend>
   
       <div class="custom-select" >
-        <span class="content" [ngClass]="stateEnum">{{ selectedOption || 'Select' }}</span>
+        <span class="content" [ngClass]="stateEnum">{{ selectedOption || default }}</span>
         <span class="icon-arrowbottom">
           <i class="fa-solid fa-chevron-down custom-arrow"  
           (click)="toggleDropdown()"></i>
