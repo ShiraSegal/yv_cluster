@@ -1,30 +1,38 @@
 <hr>
 <h3>basic table row</h3>
 <hr>
-<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="true"
-[cells]="[
+
+
+<!-- <app-select
+  [error]="false"
+  [disabled]="false"
+  [label]="'Label 5'"
+  [focused]="false"
+  [populated]="false"
+  [defaultOption]="'Select'"
+  [options]="['Option 1', 'Option 2', 'Option 3']">
+</app-select> -->
+
+<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="true" [cells]="[
+    { data: 'this is a text', type: dataCellType.TEXT },
+    { data: 'https://example.com', type: dataCellType.LINK },
+    { data: '', type: dataCellType.STATUS },
+    { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
+  ]">></yv-cluster-basic-table-row>
+<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.DEFAULT" [showAction]="true" [cells]="[
     { data: 'this is a text', type: dataCellType.TEXT },
     { data: 'https://example.com', type: dataCellType.LINK },
     { data: '', type: dataCellType.STATUS },
     { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
   ]"></yv-cluster-basic-table-row>
-<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.DEFAULT" [showAction]="true"
-[cells]="[
-    { data: 'this is a text', type: dataCellType.TEXT },
-    { data: 'https://example.com', type: dataCellType.LINK },
-    { data: '', type: dataCellType.STATUS },
-    { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
-  ]"></yv-cluster-basic-table-row>
-<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="false"
-[cells]="[
+<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="false" [cells]="[
   { data: 'this is a text', type: dataCellType.TEXT },
     { data: 'press', type: dataCellType.BUTTON },
     { data: 'https://example.com', type: dataCellType.LINK },
-    { data: '', type: dataCellType.STATUS },
+    { data: '80', type: dataCellType.SLIDER },
     { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
   ]"></yv-cluster-basic-table-row>
-<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.DEFAULT" [showAction]="false"
-[cells]="[
+<yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.DEFAULT" [showAction]="false" [cells]="[
     { data: 'this is a text', type: dataCellType.TEXT },
     { data: 'press', type: dataCellType.BUTTON },
     { data: 'https://example.com', type: dataCellType.LINK },
@@ -38,25 +46,34 @@
 <yv-cluster-badge [property]="badgeType.DONE"></yv-cluster-badge>
 <hr>
 <h3>field</h3>
+<hr> <yv-cluster-field [property]="stateEnum.ERROR" placeholder="search">
+</yv-cluster-field>
+ 
+<yv-cluster-field [property]="stateEnum.DISABLED" [textControl]="searchControl" placeholder="search">
+</yv-cluster-field>
+ 
+<yv-cluster-field [property]="stateEnum.DEFAULT" [textControl]="searchControl" placeholder="search">
+</yv-cluster-field>
+ 
+<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [textControl]="searchControl" placeholder="search">
+</yv-cluster-field>
+ 
+<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [textControl]="searchControl" placeholder="search">
+</yv-cluster-field>
 <hr>
-<yv-cluster-field [property]="stateEnum.ERROR" [placeholder]="'הכנס טקסט כאן'"></yv-cluster-field>
 
-<yv-cluster-field [property]="stateEnum.DISABLED" [placeholder]="'DISABLED'"></yv-cluster-field>
 
-<yv-cluster-field [property]="stateEnum.DEFAULT" [placeholder]="'הכנס טקסט כאן'"></yv-cluster-field>
 
-<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [placeholder]="'Focused'"></yv-cluster-field>
-
-<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [placeholder]="'Populated '"></yv-cluster-field>
-<hr>
 <h3>icon-button-large</h3>
 <hr>
 <yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
     [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
+<yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
+    [property]="iconButtonLargeType.HOVER"></yv-cluster-icon-button-large>
 <hr>
 <h3>viewer</h3>
 <hr>
-<yv-cluster-viewer pictureName="pictureName"></yv-cluster-viewer>
+<yv-cluster-viewer pictureName="img1"></yv-cluster-viewer>
 <hr>
 <h3>data cell</h3>
 <hr>
@@ -130,7 +147,7 @@
     [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=false [disabled]="true"
     [buttonIcon]="icon"></yv-cluster-button>
-
+ 
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true [disabled]="true"
     [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false [disabled]="true"

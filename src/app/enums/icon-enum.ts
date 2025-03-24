@@ -13,7 +13,7 @@ export enum IconType {
     ROTATERIGHT = "fa-light fa-arrow-rotate-right ",
     ROTATELEFT = "fa-light fa-arrow-rotate-left ",
     PRINT = "fa-light fa-print ",
-    ZOOMIN = "fa-light fa-magnifying-glass-minus ",
-    ZOOMOUT = "fa-light fa-magnifying-glass-plus ",
+    ZOOMOUT = "fa-light fa-magnifying-glass-minus ",
+    ZOOMIN = "fa-light fa-magnifying-glass-plus ",
     CHEVRONRIGHT = "fa-light fa-chevron-right",
 }

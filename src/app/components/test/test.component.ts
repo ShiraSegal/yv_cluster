@@ -33,10 +33,14 @@ import { BadgeComponent } from '../basic-components/badge/badge.component';
 import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
 import { BasicTableRowComponent } from '../basic-components/basic-table-row/basic-table-row.component';
 import { FormControl } from '@angular/forms';
+import { SelectComponent } from '../select/select.component';
+
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
   imports: [
+    SelectComponent,
+    IconButtonLargeComponent,
     SlidebarNavigationComponent,
     HeadingComponent,
     BodyComponent,
@@ -84,13 +88,6 @@ export class TestComponent {
   dataCellType = DataCellType;
   sliderNavigationTabType = SliderNavigationTabType;
 stateEnum = State;
-  // variant1 = ButtonIconProperty.VARIANT1
-  // variant2 = ButtonIconProperty.VARIANT2
-  // variant3 = ButtonIconProperty.VARIANT3
-  // icon=ButtonIcon.CHEVRON_LEFT
-  // variant1 = ButtonIconProperty.VARIANT1
-  // variant2 = ButtonIconProperty.VARIANT2
-  // variant3 = ButtonIconProperty.VARIANT3
   icon=ButtonIcon.CHEVRON_LEFT
   title1 = "Heading Large"
   title2 = "Heading Medium-Bold"
@@ -113,9 +110,7 @@ stateEnum = State;
   isDisabled: boolean = false;
   isFocused: boolean = false;
   isPopulated: boolean = true;
-  // label: string = 'label';
 
-  // title = 'yv-clusters';
 
    cells = [
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
@@ -125,12 +120,7 @@ stateEnum = State;
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE }
-    // { data: 'Checked', type: DataCellType.CHECK },
-    // { data: 'www.example.com', type: DataCellType.LINK },
-    // { data: 'Icon Data', type: DataCellType.ICON },
-    // { data: 'Assignee Name', type: DataCellType.ASSIGNEE },
-    // { data: 'Button Text', type: DataCellType.BUTTON },
-    // { data: 'Slider Value', type: DataCellType.SLIDER }
+ 
   ];
   // txt1 = "test btn1"
   switchState: boolean = false;

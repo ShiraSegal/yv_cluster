@@ -1,44 +1,17 @@
-<!-- <div class="viewer-warpper">
-    <div class="picture-name">{{pictureName}}</div>
-    <div class="image-warrper">
-        <div class="image"
-             [style.transform]="'scale(' + scale + ') rotate(' + rotate + 'deg)'"
-             [style.transition]="'transform 0.3s ease'"></div>
+<div class="viewer-warpper">
+    <div class="picture-name-warpper">
+        <div class="picture-name">{{pictureName}}</div>
     </div>
-    <div class="button-warpper">
-        <yv-cluster-icon-button (onClick)="zoomIn()" [icon]="iconType.ZOOMIN"></yv-cluster-icon-button>
-        <yv-cluster-icon-button (onClick)="zoomOut()" [icon]="iconType.ZOOMOUT"></yv-cluster-icon-button>
-        <yv-cluster-icon-button (onClick)="print()" [icon]="iconType.PRINT"></yv-cluster-icon-button>
-        <yv-cluster-icon-button (onClick)="rotateLeft()" [icon]="iconType.ROTATELEFT"></yv-cluster-icon-button>
-        <yv-cluster-icon-button (onClick)="rotateRight()" [icon]="iconType.ROTATERIGHT"></yv-cluster-icon-button>
-    </div>
-</div> -->
-
-<!-- <div class="viewer-warpper">
-    <div class="picture-name">{{pictureName}}</div>
+   
     <div class="image-warrper">
-        <div class="image" [ngClass]="rotationClass">
-            <div>
-
+        <img [src]="pictureUrl" class="printable-image" [ngClass]="zoomClass">
+    </div>
+ 
     <div class="button-warpper">
-     
         <yv-cluster-icon-button-large (click)="zoomIn()" [icon]="iconType.ZOOMIN"></yv-cluster-icon-button-large>
         <yv-cluster-icon-button-large (click)="zoomOut()" [icon]="iconType.ZOOMOUT"></yv-cluster-icon-button-large>
         <yv-cluster-icon-button-large (click)="print()" [icon]="iconType.PRINT"></yv-cluster-icon-button-large>
         <yv-cluster-icon-button-large (click)="rotateLeft()" [icon]="iconType.ROTATELEFT"></yv-cluster-icon-button-large>
         <yv-cluster-icon-button-large (click)="rotateRight()" [icon]="iconType.ROTATERIGHT"></yv-cluster-icon-button-large>
     </div>
-</div> -->
-<!-- <button (click)="rotateRight()"></button>
-<button (click)="rotateLeft()"></button>
-<button (click)="zoomIn()"></button>
-<button (click)="zoomOut()"></button>
-<div class="image" [ngClass]="rotationClass" [ngClass]="zoomClass">  <img class="img" src="/assets/images/img1.jpg"></div> -->
-
-
-        <button (click)="rotateRight()">Rotate Right</button>
-        <button (click)="rotateLeft()">Rotate Left</button>
-        <button (click)="zoomIn()">Zoom In</button>
-        <button (click)="zoomOut()">Zoom Out</button>
-     
-        <div class="image" [ngClass]="rotationClass" [ngClass]="zoomClass">  <img class="img" src="/assets/images/img1.jpg"></div>
+</div>

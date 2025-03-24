@@ -2,7 +2,7 @@
 
 .viewer-warpper {
     display: flex;
-    width: 66rem;
+    width: 65.8125rem;
     height: 50.3125rem;
     padding: 0.25rem 0.625rem;
     flex-direction: column;
@@ -21,7 +21,8 @@
     align-self: stretch;
     background: $pastel-blue;
 }
-.picture-name{
+
+.picture-name {
     width: 8.375rem;
     color: $slate_blue;
     font-family: Poppins;
@@ -31,18 +32,19 @@
     line-height: normal;
 }
 
-
-.image-warpper {
+.image-warrper {
     display: flex;
     width: 59.5625rem;
     height: 42.3125rem;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 0.625rem;
     flex-shrink: 0;
+    overflow: hidden; /* Ensure the image stays within the container */
+    background-repeat: no-repeat;
+    background-size: contain;
 }
-
-
 
 .button-warpper {
     display: flex;
@@ -51,30 +53,18 @@
     gap: 0.25rem;
     align-self: stretch;
 }
-// .image-container {
-//     flex: 1;
-//     display: flex;
-//     justify-content: flex-end;
-//     margin: auto;
 
-//   }
-  .img {
-    width: 39.3125rem;
-    height: 42.1875rem;
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    margin: auto;
+.image-warrper img {
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    width: auto;
+    height:  42.3125rem;
+    max-width: none; /* Allow the image to grow beyond the container */
+    max-height: none; /* Allow the image to grow beyond the container */
 }
-.rot-0 { transform: rotate(0deg); transition: transform 0.3s ease; }
-.rot-90 { transform: rotate(90deg); transition: transform 0.3s ease; }
-.rot-180 { transform: rotate(180deg); transition: transform 0.3s ease; }
-.rot-270 { transform: rotate(270deg); transition: transform 0.3s ease; }
-.rot-360 { transform: rotate(360deg); transition: transform 0.3s ease; }
 
 .scale-1 {
     transform: scale(1);
-    
 }
 
 .scale-1-1 {
@@ -97,3 +87,27 @@
     transform: scale(1.5);
 }
 
+@media print {
+    body * {
+        visibility: hidden !important;
+    }
+    .printable-image, .printable-image * {
+        visibility: visible !important;
+    }
+    .printable-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+    }
+    .printable-image img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
