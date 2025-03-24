@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 // import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabIconType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
-import { ButtonSize, ButtonType, DataCellType, HeaderCellType, TextWeight} from 'src/app/enums/basic-enum';
+import { ButtonType, DataCellType, HeaderCellType, TextWeight} from 'src/app/enums/basic-enum';
 
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
 import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
 import { ButtonComponent } from '../basic-components/button/button.component';
 import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
-import { ButtonIcon } from 'src/app/enums/basic-enum';
 import { HeadingComponent } from '../basic-components/heading/heading.component';
 import { BodyComponent } from '../basic-components/body/body.component';
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
@@ -37,6 +36,7 @@ import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bo
 import { RadioButtonListComponent } from '../basic-components/radio-button-list/radio-button-list.component';
 import { CreateClusterComponent } from '../cluster-managment/create-cluster/create-cluster.component';
 import { FormGroup } from '@angular/forms';
+import { IconType } from 'src/app/enums/icon-enum';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -75,22 +75,23 @@ import { FormGroup } from '@angular/forms';
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
-  label: string = 'Lable';
-  primary = ButtonType.PRIMARY
-  secondary = ButtonType.SECONDARY
-  tertiany = ButtonType.TERTIARY
-  big=ButtonSize.BIG
-  small=ButtonSize.SMALL
-  // CheckStateType = CheckStateType;
-  // CheckType = CheckType;
-  // variant1 = ButtonIconProperty.VARIANT1
-  // variant2 = ButtonIconProperty.VARIANT2
-  // variant3 = ButtonIconProperty.VARIANT3
-  // icon=ButtonIcon.CHEVRON_LEFT
-  // variant1 = ButtonIconProperty.VARIANT1
-  // variant2 = ButtonIconProperty.VARIANT2
-  // variant3 = ButtonIconProperty.VARIANT3
-  icon=ButtonIcon.CHEVRON_LEFT
+  //button component properties
+  label: string = 'Lable';//button label
+  //enum ButtonType
+  primary = ButtonType.PRIMARY//button type
+  secondary = ButtonType.SECONDARY//button type
+  tertiany = ButtonType.TERTIARY//button type
+  //enum ButtonIcon
+  icon=IconType.CHEVRON_LEFT_LIGHT//button icon
+  
+  //button component function
+  onClick() {
+    alert('test on click');
+    console.log('test on click');
+  }
+
+
+  //heading component properties
   title1 = "Heading Large"
   title2 = "Heading Medium-Bold"
   title3 = "Heading Small"
@@ -166,10 +167,7 @@ radioButtonArray:string [] = ["a", "b", "c", "d","other"];
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
   }
  
-  onClick() {
-    alert('test on click');
-    console.log('test on click');
-  }
+
   headers: { data: string; type: HeaderCellType }[] = [
     { data: 'name list', type: HeaderCellType.TEXT },
     { data: 'to do', type: HeaderCellType.TEXT },

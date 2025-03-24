@@ -8,20 +8,21 @@
                 <div class="table-header">
                     <yv-cluster-body [bodyText]="tableHeader1" [size]="size1" [weight]="weight1"
                         [color]="color1"></yv-cluster-body>
+                        <!-- <yv-cluster-header-cells [header]="tableHeader1"></yv-cluster-header-cells> -->
                 </div>
                 <div class="header-cell">
                     <yv-cluster-body [bodyText]="tableHeader2" [size]="size1" [weight]="weight1"
                         [color]="color1"></yv-cluster-body>
                 </div>
             </div>
-            @for(data of dataCells; track $index){
+            @for(data of this.dataCells; track $index){
             <div class="table">
                 <div class="data-cells">
-                        <label class="label">{{data}}</label>
+                        <label class="label">{{data.Field}}</label>
                 </div>
                 <div class="options-cells">
                     <div class="radiobuttons">
-                        <yv-cluster-radio-button-list [radioButtonArray]="options" (changes)="onSelectionChanged(data)"></yv-cluster-radio-button-list>
+                        <yv-cluster-radio-button-list [radioButtonArray]="data.RadioOptions" (selectionChange)="onRadioSelectionChange($event)"></yv-cluster-radio-button-list>
                     </div>
                 </div>
 
@@ -33,11 +34,11 @@
                 <div class="divider"></div>
                     <div class="buttons-warp">
                         <div class="buttons">
-                            <yv-cluster-button  [size]="btn_size1" [buttonType]="buttomType1"
+                            <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType1"
                                 [text]="button1">
                             </yv-cluster-button>
     
-                            <yv-cluster-button  [size]="btn_size2" [buttonType]="buttomType2"
+                            <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType2"
                                 [text]="button2">
                             </yv-cluster-button>
                         </div>

@@ -1,0 +1,21 @@
+export enum IconType {
+    HOUSE_SOLID = "fa-solid fa-house ",
+    LEFT_FROM_BRACKET_SOLID = "fa-solid fa-left-from-bracket ",
+    LIST_SOLID = "fa-solid fa-list ",
+    CHART_LINE_UP_SOLID = "fa-solid fa-chart-line-up ",
+    PLUS_SOLID = "fa-solid fa-plus ",
+    HOUSE_LIGHT = "fa-light fa-house ",
+    LEFT_FROM_BRACKET_LIGHT = "fa-light fa-left-from-bracket ",
+    LIST_LIGHT = "fa-light fa-list ",
+    CHART_LINE_UP_LIGHT = "fa-light fa-chart-line-up ",
+    ARROW_ROTATE_RIGHT_LIGHT = "fa-light fa-arrow-rotate-right ",
+    ARROW_ROTATE_LEFT_LIGHT = "fa-light fa-arrow-rotate-left ",
+    PRINT_LIGHT = "fa-light fa-print ",
+    MAGNIFYING_GLASS_MINUS_LIGHT = "fa-light fa-magnifying-glass-minus ",
+    MAGNIFYING_GLASS_PLUS_LIGHT = "fa-light fa-magnifying-glass-plus ",
+    FOLDER_PLUS_LIGHT = "fa-light fa-folder-plus",
+    LAYER_PLUS_LIGHT = "fa-light fa-layer-plus",
+    PLUS_REGULAR = "fa-regular fa-plus",
+    FILE_ARROW_DOWN_LIGHT = "fa-light fa-file-arrow-down",
+    CHEVRON_LEFT_LIGHT = "fa-light fa-chevron-left"   
+}

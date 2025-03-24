@@ -6,34 +6,35 @@
 <yv-cluster-data-cells [type]=DataCellType.CHECK data=""></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]=DataCellType.ASSIGNEE data=""></yv-cluster-data-cells>
 
+<hr>
+<h3>icon button</h3>
+<yv-cluster-icon-button (onClick)="onClick()" ></yv-cluster-icon-button>
+<br>
+<br>
+<hr>
 
-
-<yv-cluster-icon-button (onClick)="onClick()" [icon]="iconp"  ></yv-cluster-icon-button>
-<br>
-<br>
-<yv-cluster-enter-bookid/>
 <br>
 <br>
 <br>
-
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="small" [buttonIcon]="icon"></yv-cluster-button>
+<h3>button</h3>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [buttonIcon]="icon"></yv-cluster-button>
 
-<yv-cluster-button  (onClick)="onClick()" text="Text" [buttonType]="secondary" [size]="small" [buttonIcon]="icon"></yv-cluster-button>
+<yv-cluster-button  (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [buttonIcon]="icon"></yv-cluster-button>
 
-<yv-cluster-button (onClick)="onClick()"text="Text" [buttonType]="tertiany" [size]="small" [buttonIcon]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()"text="Text" [buttonType]="tertiany" [isBig]=true [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [buttonIcon]="icon"></yv-cluster-button>
 
 <br>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="small" [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="big" [disabled]="true" [buttonIcon]="icon" ></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=false [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
 
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [size]="small"  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()"  text="Text" [buttonType]="secondary" [size]="big"  [disabled]="true" [buttonIcon]="icon"  ></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()"  text="Text" [buttonType]="secondary" [isBig]=false  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
 
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [size]="small"  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [size]="big"  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false  [disabled]="true" [buttonIcon]="icon" ></yv-cluster-button>
 <hr>
 <h3>heading</h3>
 <hr>
@@ -90,8 +91,16 @@
 <br>
 <br>
 <yv-cluster-pie-component-distribution-modal [title]="'Data Distribution'"></yv-cluster-pie-component-distribution-modal>
+<br>
+<br>
+<br>
+<h3>enter bookid</h3>
+<yv-cluster-enter-bookid></yv-cluster-enter-bookid>
+<br>
+<br>
+<br>
 <hr>
-<hr>
+<h3>create cluster</h3>
 <yv-cluster-create-cluster></yv-cluster-create-cluster>
 <!-- <h3>slider navigation</h3>
 <hr>
