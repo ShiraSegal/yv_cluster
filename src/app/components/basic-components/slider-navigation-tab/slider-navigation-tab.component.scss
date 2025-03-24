@@ -1,5 +1,6 @@
 @import "../../../../styles/colors.scss";
 
+
 .tab {
     display: flex;
     width: 5.875rem;
@@ -7,34 +8,34 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    flex-direction: column; 
+    width: 5.875rem;
+    flex-direction: column;
     gap: 0.1875rem;
- padding: 0.40625rem 0rem;
+    padding: 0.40625rem 0rem;
 }
 
-.variant3 {
-   
-}
 
 .active {
     border-radius: 0.3125rem;
     background: $secondary_blue;
 }
 
+.icon {
+    
+    font-size: 1.875rem;
+}
 
-
-.fa-light .text-icon {
+.fa-light {
     color: $white;
-    align-self: stretch;
 }
 
 
-.fa-solid .text-icon {
+.fa-solid {
     color: $lavender_blue;
-    align-self: stretch;
 }
 
 .text-icon {
+    color: #FFF;
     text-align: center;
     font-family: Poppins;
     font-size: 0.75rem;
@@ -43,4 +44,3 @@
     line-height: normal;
     align-self: stretch;
 }
-

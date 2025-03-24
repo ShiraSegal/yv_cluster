@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BadgeType, BasicTableRowPropertyVariants, ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
+import { BadgeType, BasicTableRowPropertyVariants, ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabTextType, SliderNavigationTabType, State} from 'src/app/enums/basic-enum';
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
@@ -33,6 +33,7 @@ import { BadgeComponent } from '../basic-components/badge/badge.component';
 import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
 import { BasicTableRowComponent } from '../basic-components/basic-table-row/basic-table-row.component';
 import { FormControl } from '@angular/forms';
+import { SliderNavigationTabComponent } from '../basic-components/slider-navigation-tab/slider-navigation-tab.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -50,6 +51,7 @@ import { FormControl } from '@angular/forms';
     IconButtonComponent,
     FilterSectionComponent,
     PieComponentDistributionModalComponent,
+    SliderNavigationTabComponent,
     ButtonComponent,
     BasicCardComponent,
     BadgeComponent,
@@ -82,8 +84,9 @@ export class TestComponent {
   basicTableRowPropertyVariants = BasicTableRowPropertyVariants;
   HeaderCellType = HeaderCellType;
   dataCellType = DataCellType;
-  sliderNavigationTabType = SliderNavigationTabType;
 stateEnum = State;
+ sliderNavigationTabType = SliderNavigationTabType;
+  sliderNavigationTabTextType = SliderNavigationTabTextType
   // variant1 = ButtonIconProperty.VARIANT1
   // variant2 = ButtonIconProperty.VARIANT2
   // variant3 = ButtonIconProperty.VARIANT3

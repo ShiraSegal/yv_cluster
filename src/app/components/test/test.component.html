@@ -1,4 +1,14 @@
 <hr>
+<h3>slider navigation tab</h3>
+<hr>
+<yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.VARIANT3" [icon]="iconType.HOMELIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
+<yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.ACTIVE" [icon]="iconType.HOMESOLID" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
+<hr><hr>
+<h3>slider navigation</h3>
+<hr>
+<yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
+<hr>
+<hr>
 <h3>basic table row</h3>
 <hr>
 <yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="true" [cells]="[
@@ -34,19 +44,19 @@
 <yv-cluster-badge [property]="badgeType.DONE"></yv-cluster-badge>
 <hr>
 <h3>field</h3>
-<hr> <yv-cluster-field [property]="stateEnum.ERROR">
+<hr> <yv-cluster-field [property]="stateEnum.ERROR" placeholder="search">
 </yv-cluster-field>
 
-<yv-cluster-field [property]="stateEnum.DISABLED" [textControl]="searchControl">
+<yv-cluster-field [property]="stateEnum.DISABLED" [textControl]="searchControl" placeholder="search">
 </yv-cluster-field>
 
-<yv-cluster-field [property]="stateEnum.DEFAULT" [textControl]="searchControl">
+<yv-cluster-field [property]="stateEnum.DEFAULT" [textControl]="searchControl" placeholder="search">
 </yv-cluster-field>
 
-<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [textControl]="searchControl">
+<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [textControl]="searchControl" placeholder="search">
 </yv-cluster-field>
 
-<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [textControl]="searchControl">
+<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [textControl]="searchControl" placeholder="search">
 </yv-cluster-field>
 <hr>
 <h3>icon-button-large</h3>
@@ -58,7 +68,9 @@
 <hr>
 <h3>viewer</h3>
 <hr>
-<yv-cluster-viewer pictureName="pictureName"></yv-cluster-viewer>
+<yv-cluster-viewer pictureName="1"></yv-cluster-viewer>
+<yv-cluster-viewer pictureName="img1"></yv-cluster-viewer>
+<yv-cluster-viewer pictureName="00023"></yv-cluster-viewer>
 <hr>
 <h3>data cell</h3>
 <hr>
@@ -209,9 +221,4 @@
 <hr>
 <yv-cluster-pie-component-distribution-modal
     [title]="'Data Distribution'"></yv-cluster-pie-component-distribution-modal>
-<hr>
-<hr>
-<h3>slider navigation</h3>
-<hr>
-<yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
 <hr>

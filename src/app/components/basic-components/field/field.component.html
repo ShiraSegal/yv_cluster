@@ -5,7 +5,7 @@
     </legend>
 
     <input type="text" class="custom-input" [formControl]="textControl" [readonly]="property === stateEnum.DISABLED"
-      [placeholder]="textControl" />
+    [placeholder]="placeholder" />
   </fieldset>
   @if (property === stateEnum.ERROR) {
   <div class="error-message">

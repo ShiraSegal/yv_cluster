@@ -17,15 +17,14 @@ export class SlidebarNavigationComponent {
   iconType = IconType;
   sliderNavigationTabType = SliderNavigationTabType;
 
+  
   tabs = [
-    { number: 1, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.HOMELIGHT, text: SliderNavigationTabTextType.HOME },
-    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.AUTOCLUSRETLIGHT, text: SliderNavigationTabTextType.AUTOCLUSRET },
-    { number: 3, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.REPORTLIGHT, text: SliderNavigationTabTextType.REPORT },
-    { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.NEWCLUSTERLIGHT, text: SliderNavigationTabTextType.NEWCLUSTER },
-    { number: 5, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LOGOUTLIGHT, text: SliderNavigationTabTextType.LOGOUT },
+    { number: 1, property: new FormControl(SliderNavigationTabType.VARIANT3),text: SliderNavigationTabTextType.HOME},
+    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), text: SliderNavigationTabTextType.AUTOCLUSRET},
+    { number: 3, property: new FormControl(SliderNavigationTabType.VARIANT3), text: SliderNavigationTabTextType.REPORT},
+    { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), text: SliderNavigationTabTextType.NEWCLUSTER},
+    { number: 5, property: new FormControl(SliderNavigationTabType.VARIANT3), text: SliderNavigationTabTextType.LOGOUT},
   ];
-
-
 
   setActiveTab(tabControl: FormControl) {
     this.tabs.forEach(tab => {
@@ -36,5 +35,7 @@ export class SlidebarNavigationComponent {
     tabControl.setValue(SliderNavigationTabType.ACTIVE);
   }
 
-
+  trackByNumber(index: number, tab: any): number {
+    return tab.number;
+  }
 }
