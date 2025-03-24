@@ -50,11 +50,12 @@ export class PieComponentDistributionModalComponent {
       "Count": 1500,
       "Code": "T342541",
       "Value": "Blumen"
-    }, {
-      "Count": 1200,
-      "Code": "T342541",
-      "Value": "Glukigen"
     }
+    // , {
+    //   "Count": 1200,
+    //   "Code": "T342541",
+    //   "Value": "Glukigen"
+    // }
     // , {
     //   "Count": 200,
     //   "Code": "T342541",
