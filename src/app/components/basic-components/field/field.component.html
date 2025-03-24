@@ -1,0 +1,15 @@
+<div class="warpper">
+  <fieldset [ngClass]="['common-input-wrapper', property]">
+    <legend [ngClass]="['input-legend', property]">
+      {{ label }}
+    </legend>
+
+    <input type="text" class="custom-input" [formControl]="textControl" [readonly]="property === stateEnum.DISABLED"
+    [placeholder]="placeholder" />
+  </fieldset>
+  @if (property === stateEnum.ERROR) {
+  <div class="error-message">
+    Error Message
+  </div>
+  }
+</div>

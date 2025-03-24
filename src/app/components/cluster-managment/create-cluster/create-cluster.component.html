@@ -21,14 +21,16 @@
                 </div>
                 <div class="options-cells">
                     <div class="radiobuttons">
-                        <yv-cluster-radio-button-list [radioButtonArray]="data.RadioOptions" (click)="onRadioSelectionChange(data.RadioOptions)"></yv-cluster-radio-button-list>
+                        <yv-cluster-radio-button-list [radioButtonArray]="data.RadioOptions" (selectionChange)="onRadioSelectionChange($event)"></yv-cluster-radio-button-list>
                     </div>
                 </div>
 
             </div>
             }
-            <app-yv-select class="select" [default]="selectLabel"></app-yv-select>
-            <input class="comments" placeholder="Comments"/>
+            <app-yv-select class="select" [default]="selectLabel" [options]="options"></app-yv-select>
+            <!-- <input class="comments" placeholder="Comments"/> -->
+        <!-- <yv-cluster-field></yv-cluster-field> -->
+             
             <div class="outer-button-warp">
                 <div class="divider"></div>
                     <div class="buttons-warp">

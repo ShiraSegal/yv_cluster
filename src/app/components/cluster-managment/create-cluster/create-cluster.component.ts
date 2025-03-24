@@ -14,11 +14,12 @@ import { ClusterApiService } from 'src/app/services/cluster-api.service';
 import { elementAt, Observable } from 'rxjs';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { log } from 'console';
+import { FieldComponent } from '../../basic-components/field/field.component';
 
 @Component({
   selector: 'yv-cluster-create-cluster',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule,CommonModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent,RadioButtonListComponent, BodyComponent, TableHeaderComponent, YvSelectComponent, ButtonComponent,TextareaComponent],
+  imports: [FormsModule, ReactiveFormsModule,CommonModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent,RadioButtonListComponent, BodyComponent, TableHeaderComponent, YvSelectComponent, ButtonComponent,TextareaComponent,FieldComponent],
   templateUrl: './create-cluster.component.html',
   styleUrl: './create-cluster.component.scss'
 })
@@ -50,7 +51,7 @@ export class CreateClusterComponent {
   buttomType2: ButtonType = ButtonType.PRIMARY;
   radioControl = new FormControl<string | null>(null);
   dataCells:any = new Observable<string[]>;
-  // options: string[] = [];
+  options: string[] = ['Exact','Most Probable','Possible'];
  #service=inject(ClusterService);
   ngOnInit() {
   //  this.#service.ClusterData$.subscribe(data => {
