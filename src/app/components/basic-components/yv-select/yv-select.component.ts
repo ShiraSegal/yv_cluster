@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { State } from 'src/app/enums/basic-enum';
+import { NativeOptionState, NativeOptionType, State } from 'src/app/enums/basic-enum';
+import { NativeOptionComponent } from '../native-option/native-option.component';
 
 @Component({
   selector: 'app-yv-select',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,NativeOptionComponent],
   templateUrl: './yv-select.component.html',
   styleUrl: './yv-select.component.css'
 })
@@ -16,21 +17,21 @@ export class YvSelectComponent {
   @Input() focused: boolean = false;
   @Input() populated: boolean = false;
   @Input() default: string = '';
-  @Input() options: string[] = [];
+  @Input() options: { optionType: NativeOptionType; optionState: NativeOptionState }[] = [];
 
   stateEnum: State = State.DEFAULT;
   state :string = 'default'
-  selectedOption: string | null = null;
+  selectedOption: { optionType: NativeOptionType; optionState: NativeOptionState } | null = null;
   dropdownOpen = false; 
   stateEnumMain = State;
 
   toggleDropdown() {
-    if (this.stateEnum !== State.DISABLED) {
+    if (this.stateEnum !== State.DISABLED && this.stateEnum !== State.ERROR) {
       this.dropdownOpen = !this.dropdownOpen;
     }
   }
  
-  selectOption(option: string) {
+  selectOption(option: { optionType: NativeOptionType; optionState: NativeOptionState }) {
     this.selectedOption = option;
     this.dropdownOpen = false;
   }

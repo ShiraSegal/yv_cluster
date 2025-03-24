@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class PieCircleComponent {
   beginPlace: number = 0;
-  pieColorsArray: string[] = ['#F6CDCD', '#A5B1C0', '#A1AEE3', '#A5EBDD',];
+  @Input() pieColorsArray!: string[];
   @Input() totalValue!: { TotalCount: number; Value: string };
   @Input() data!: { Count: number; Code: string; Value: string }[];
   remainingPercentage: number = 0;

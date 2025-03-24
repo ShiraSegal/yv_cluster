@@ -15,6 +15,7 @@ export class PieTableComponent {
   tableRows:any= [{'rowName':'Last Name','objectKey':'Value'}, {'rowName':'Count','objectKey':'Count'}, {'rowName':'percent','objectKey':'Count'},{ 'rowName':'Total name count','objectKey':'Code'}];
   @Input() allDatabaseData!: { Count: number, Code: string, Value: string }[];
   @Input() spsipicPlaceData!: {TotalCount:number, Count: number,Code: string, Value: string }[];
+  @Input() tableColorsArray!: string[];
   DataCellType = DataCellType;
 getValue(subItem: any, key: string): any {
   return subItem[key];

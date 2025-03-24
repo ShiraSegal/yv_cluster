@@ -8,7 +8,7 @@
  <yv-cluster-data-cells [type]=DataCellType.ASSIGNEE data=""></yv-cluster-data-cells>
    -->
  <yv-cluster-slider [value]=80></yv-cluster-slider>
- <app-yv-select
+ <!-- <app-yv-select
  
  [error]="false"
  
@@ -83,7 +83,19 @@
  [default]="'Select'"
  
  [options]="['Option 1', 'Option 2', 'Option 3']"></app-yv-select>
-  
+ <hr> -->
+ <h3>field</h3>
+ <hr>
+ <yv-cluster-field [property]="stateEnum.ERROR" [placeholder]="'הכנס טקסט כאן'"></yv-cluster-field>
+ 
+ <yv-cluster-field [property]="stateEnum.DISABLED" [placeholder]="'DISABLED'"></yv-cluster-field>
+ 
+ <yv-cluster-field [property]="stateEnum.DEFAULT" [placeholder]="'הכנס טקסט כאן'"></yv-cluster-field>
+ 
+ <yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [placeholder]="'Focused'"></yv-cluster-field>
+ 
+ <yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [placeholder]="'Populated '"></yv-cluster-field>
+ <hr>
  <hr>
  <h3>assignee</h3>
  <hr>

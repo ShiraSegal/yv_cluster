@@ -18,6 +18,8 @@ import { ClusterService } from 'src/app/services/cluster.service';
 export class PieComponentDistributionModalComponent {
     #clusterService = inject(ClusterService)
   @Input() title!: string;
+  colorsArray: string[] = ['#F6CDCD', '#A5B1C0', '#A1AEE3', '#A5EBDD',];
+
   showAllThaDatabasePie: boolean = true;
   tertiany:ButtonType=ButtonType.TERTIARY;
   size:ButtonSize=ButtonSize.SMALL;
@@ -25,7 +27,9 @@ export class PieComponentDistributionModalComponent {
  
   statisticData: any; // מערך ולא Observable
   ngOnInit() {
-    this.statisticData=this.#clusterService.getStatisticData();
+    this.#clusterService.statisticData$.subscribe(data=>{
+      this.statisticData=data;
+    });
     console.log("statisticData:", this.statisticData); // ככה הנתונים יודפסו נכון
   }
 
@@ -51,6 +55,16 @@ export class PieComponentDistributionModalComponent {
       "Code": "T342541",
       "Value": "Glukigen"
     }
+    // , {
+    //   "Count": 200,
+    //   "Code": "T342541",
+    //   "Value": "Glukigen"
+    // }
+    // , {
+    //   "Count": 200,
+    //   "Code": "T342541",
+    //   "Value": "Glukigen"
+    // }
     ]
     ,
     "LastNameInPlaces": [

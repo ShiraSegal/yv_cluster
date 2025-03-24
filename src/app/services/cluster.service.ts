@@ -51,6 +51,9 @@ export class ClusterService {
     }
   
   get statisticData$(): Observable<any[]> {
+    if(!this.statisticDataSubject$.value.length){
+      this.getStatisticData();
+    }
     return this.statisticDataSubject$.asObservable();
   }
 

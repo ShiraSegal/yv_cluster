@@ -1,0 +1,70 @@
+.option-wrapper {
+    display: flex;
+    width: 10rem;
+    padding: var(--Layout-medium, 0.5rem);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--Layout-x-large, 1rem);
+    border-radius: var(--Border-radius-none, 0rem);
+}
+
+.option-wrapper:hover {
+    background: rgba(231, 235, 248, 0.50);
+}
+
+.text {
+    display: flex;
+    height: 22px;
+    padding: 0px var(--Layout-medium, 8px);
+    align-items: center;
+    gap: var(--Layout-large, 12px);
+    align-self: stretch;
+}
+
+.assignee {
+    display: flex;
+    align-items: center;
+    gap: 0.125rem;
+    color: $slate_blue;
+    text-align: right;
+    font-family: Poppins;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.circle {
+    width: 1.507rem;
+    height: 1.507rem;
+    flex-shrink: 0;
+    fill: #8999DC;
+}
+.letters{
+    color: #FFF;
+font-family: Rubik;
+font-size: 0.6rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;display: flex;
+width: 0.91119rem;
+height: 0.73594rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+}
+.icon-wrapper {
+    color: var(--Gray-100, #3B3B3B);
+    text-align: center;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    display: flex;
+    width: 14px;
+    height: 14px;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}

@@ -149,3 +149,12 @@ export  enum ToastNotificationIcons {
     //   RIGHT_SELECTED="right-selected",
     //   LEFT_SELECTED="left-selected"
     // }
+    export enum NativeOptionType{
+      ASSIGNEE = "assignee",
+      STATUS = "status",
+      TEXT = "text"
+    }
+    export enum NativeOptionState{
+      DEFAULT = "default",
+      HOVER = "hover"
+    }

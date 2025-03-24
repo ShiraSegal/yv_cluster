@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 // import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabIconType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
-import { ButtonSize, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType} from 'src/app/enums/basic-enum';
+import { ButtonSize, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, State} from 'src/app/enums/basic-enum';
 
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons,RadioButtonListDirection} from 'src/app/enums/basic-enum';
@@ -35,6 +35,7 @@ import { PieComponentDistributionModalComponent } from '../basic-components/pie-
 // import { FieldComponent } from '../basic-components/field/field.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
 import { RadioButtonListComponent } from '../basic-components/radio-button-list/radio-button-list.component';
+import { FieldComponent } from '../basic-components/field/field.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -66,7 +67,8 @@ import { RadioButtonListComponent } from '../basic-components/radio-button-list/
       SliderComponent,
       SwitchComponent,
       TextareaComponent,
-      RadioButtonListComponent
+      RadioButtonListComponent,
+      FieldComponent
     ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
@@ -149,6 +151,7 @@ export class TestComponent {
 
     selectedOption: string = '';
 radioButtonArray:string [] = ["a", "b", "c", "d","other"];
+stateEnum = State;
   // handleSort(event: { column: string, direction: string }) {
  
   //   console.log(`Sorting by ${event.column} in ${event.direction} order`);

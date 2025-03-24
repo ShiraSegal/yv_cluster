@@ -1,5 +1,4 @@
 <div class="radio-container">
-    <div></div>
     @if(!disable && checked || disable && checked){
     <div (click)="changStatus()" [ngClass]="{'circle': !disable && checked,'circle-disable': disable && checked}">
         <i class="fa-regular fa-circle-dot"></i>
@@ -18,7 +17,9 @@
     @if (text !== "other") {
     <div class="text-radio-button">{{ text }}</div>
     } @else {
-    <input type="text" class="text-radio-button" placeholder="other" />
+    <!-- <input type="text" class="text-radio-button" placeholder="other" /> -->
+    <yv-cluster-field [property]="stateEnum.DEFAULT" [placeholder]="'other'"></yv-cluster-field>
+
     }
 
 </div>
