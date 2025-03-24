@@ -29,8 +29,16 @@
         <yv-cluster-icon-button-large (click)="rotateRight()" [icon]="iconType.ROTATERIGHT"></yv-cluster-icon-button-large>
     </div>
 </div> -->
-<button (click)="rotateRight()"></button>
+<!-- <button (click)="rotateRight()"></button>
 <button (click)="rotateLeft()"></button>
 <button (click)="zoomIn()"></button>
 <button (click)="zoomOut()"></button>
-<div class="image" [ngClass]="rotationClass" [ngClass]="zoomClass">  <img class="img" src="/assets/images/img1.jpg"></div>
+<div class="image" [ngClass]="rotationClass" [ngClass]="zoomClass">  <img class="img" src="/assets/images/img1.jpg"></div> -->
+
+
+        <button (click)="rotateRight()">Rotate Right</button>
+        <button (click)="rotateLeft()">Rotate Left</button>
+        <button (click)="zoomIn()">Zoom In</button>
+        <button (click)="zoomOut()">Zoom Out</button>
+     
+        <div class="image" [ngClass]="rotationClass" [ngClass]="zoomClass">  <img class="img" src="/assets/images/img1.jpg"></div>

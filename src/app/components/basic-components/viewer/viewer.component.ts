@@ -9,17 +9,15 @@ import { IconType } from 'src/app/enums/icon-enum';
   standalone: true,
   imports: [IconButtonLargeComponent, CommonModule],
   templateUrl: './viewer.component.html',
-  styleUrl: './viewer.component.scss'
+  styleUrls: ['./viewer.component.scss']
 })
 export class ViewerComponent {
   @Input() pictureName: string = '';
   iconType = IconType;
   iconButtonLargeType = IconButtonLargeType;
   rotations = [
-    'rot-0', 'rot-90', 'rot-180', 'rot-270', 'rot-360',
+    'rot-0', 'rot-90', 'rot-180', 'rot-270', 'rot-360'
   ];
- 
-  
   scales = [
     'scale-1', 'scale-1-1', 'scale-1-2', 'scale-1-3', 'scale-1-4', 'scale-1-5'
   ];
@@ -29,8 +27,8 @@ export class ViewerComponent {
   scaleIndex: number = 0;
   rotationClass = 'rot-0';
   zoomClass = 'scale-1';
+
   zoomIn() {
-   
     if (this.scaleIndex < this.scales.length - 1) {
       this.scaleIndex++;
       this.zoomClass = this.scales[this.scaleIndex];
@@ -39,7 +37,6 @@ export class ViewerComponent {
   }
 
   zoomOut() {
-   
     if (this.scaleIndex > 0) {
       this.scaleIndex--;
       this.zoomClass = this.scales[this.scaleIndex];
@@ -50,21 +47,18 @@ export class ViewerComponent {
   rotateLeft() {
     console.log('rotateLeft called');
     this.index = (this.index - 1 + this.rotations.length) % this.rotations.length;
-    this.rotate -= 90;
     this.rotationClass = this.rotations[this.index];
-    console.log('rotateLeft:', this.rotationClass);
-}
- 
-rotateRight() {
-  console.log('rotateRight called');
-    this.index = (this.index + 1) % this.rotations.length;
-    this.rotate += 90;
-    this.rotationClass = this.rotations[this.index];
-    console.log('rotateRight:', this.rotationClass);
-}
-
-  print() {
-   
+    console.log('rotateLeft:', this.rotationClass); 
   }
 
+  rotateRight() {
+    console.log('rotateRight called');
+    this.index = (this.index + 1) % this.rotations.length;
+    this.rotationClass = this.rotations[this.index];
+    console.log('rotateRight:', this.rotationClass); 
+  }
+
+  print() {
+    // פונקציונליות הדפסה
+  }
 }
