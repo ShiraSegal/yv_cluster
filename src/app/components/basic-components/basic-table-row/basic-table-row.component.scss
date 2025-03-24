@@ -12,18 +12,16 @@
   justify-content: space-between;
 }
 
-.special-cell {
+.check .more .placeolder .icon .place-order{
   flex-grow: 0;
   flex-basis: auto;
   margin-left: auto;
 }
 
-.regular-cell {
+.text .link .asignee .button .status .slider{
   flex-grow: 1;
   flex-basis: 0;
 }
-
-
 
 .Variant2 {
   background: $lavender_blue_transparent;

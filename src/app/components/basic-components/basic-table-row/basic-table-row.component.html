@@ -1,7 +1,7 @@
 
     <div class="basic-table-row" [ngClass]="property">
       @for(cell of cells;track cell.data){
-        <div [ngClass]="{'special-cell': cell.type === dataCellType.ICON || cell.type === dataCellType.CHECK || cell.type === dataCellType.MORE, 'regular-cell': cell.type !== dataCellType.ICON && cell.type !== dataCellType.CHECK && cell.type !== dataCellType.MORE}">
+        <div [ngClass]="cell.type">
            <yv-cluster-data-cells [data]="cell.data" [type]="cell.type"></yv-cluster-data-cells>
       </div>
       }
