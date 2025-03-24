@@ -52,5 +52,19 @@ export class ClusterService {
   //   })).subscribe();
   //   return res;
   // }
-
+//   private createClusterData$ = new BehaviorSubject<string[]>([]);
+ 
+// get CompareData$()
+//   {
+//     return this.createClusterData$.asObservable();
+//   }
+//   async getCompareData() {
+//     var res = this.#clusterApiService.getCreateClusterData();
+//       (await res).pipe(take(1), tap(res => {
+//         if(res){
+//         this.autoClusterListSubject$.next(res);
+//         }
+//       })).subscribe();
+//       return res;
+//     }
 }

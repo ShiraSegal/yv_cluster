@@ -31,7 +31,7 @@ export class CreateClusterComponent {
   weight1: TextWeight = TextWeight.BOLD;
   tableHeader2: string = 'Text Value';
   color1: TextColor = TextColor.SLATE_BLUE;
-  dataCells: string[] = [];//['First Name', 'Last Name', 'Maiden Name', 'Place Of Birth', 'Authentic Date Of Birth', 'Restored Date Of Birth', 'Permanent Place', 'Place of Death', 'Gender', 'Fate'];
+  dataCells: string[] = ['First Name', 'Last Name', 'Maiden Name', 'Place Of Birth', 'Authentic Date Of Birth', 'Restored Date Of Birth', 'Permanent Place', 'Place of Death', 'Gender', 'Fate'];
   hederType: HeaderCellType = HeaderCellType.TEXT;
   options:string[]=['first name','שם בעברית','other'];
   // label1: string = 'first name';
@@ -48,14 +48,14 @@ export class CreateClusterComponent {
   buttomType2: ButtonType = ButtonType.PRIMARY;
   radioControl = new FormControl<string | null>(null);
 
-  ngOnInit() {
-  this.clusterData.getCreateClusterData().subscribe((data) => {
-    this.dataCells.push(data[0]);
-    console.log("ddddddddddddddddddd",data);
+  // ngOnInit() {
+  // this.clusterData.getCreateClusterData().subscribe((data) => {
+  //   this.dataCells.push(data[0]);
+  //   console.log("ddddddddddddddddddd",data);
     
-  });
-   this.radioControl.setValue(this.options[0]);
-  }
+  // });
+  //  this.radioControl.setValue(this.options[0]);
+  // }
   onSelectionChanged(selectedOption: string) {
     this.radioControl.setValue(selectedOption);
 
