@@ -1,181 +1,95 @@
-import { Component } from '@angular/core';
-import { ButtonType, DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
-import {TextSize } from 'src/app/enums/basic-enum';
-import { CommonModule } from '@angular/common';
-import { TempButtonComponent } from '../basic-components/temp-button/temp-button.component';
-import { ButtonComponent } from '../basic-components/button/button.component';
-import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
-import { EnterBookidComponent } from '../basic-components/enter-bookid/enter-bookid.component';
-import { ButtonIcon } from 'src/app/enums/basic-enum';
-import { ButtonIconProperty } from 'src/app/enums/basic-enum';
-import { HeaderComponent } from '../core-components/yv-header/yv-header.component';
-import { HeadingComponent } from '../basic-components/heading/heading.component';
-import { BodyComponent } from '../basic-components/body/body.component';
-
+import { CommonModule } from "@angular/common";
+import { CheckComponent } from "../basic-components/check/check.component";
+import { SliderComponent } from "../basic-components/slider/slider.component";
+import { Component } from "@angular/core";
+import { CheckStateType, CheckType } from "src/app/enums/check-enum";
+import { BadgeType, ButtonIcon, ButtonSize, ButtonType, CardIcons, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State, StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
-import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
-import { BasicTableRowComponent } from '../basic-components/basic-table-row/basic-table-row.component';
-import { BasicTableWarpComponent } from '../basic-components/basic-table-warp/basic-table-warp.component';
-import { CheckComponent } from '../basic-components/check/check.component';
 import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
 import { HeaderCellsComponent } from '../basic-components/header-cells/header-cells.component';
-import { NarrowBasicTableComponent } from '../basic-components/narrow-basic-table/narrow-basic-table.component';
-import { SliderComponent } from '../basic-components/slider/slider.component';
-import { TabElementComponent } from '../basic-components/tab-element/tab-element.component';
-import { TableHeaderComponent } from '../basic-components/table-header/table-header.component';
-import { TextareaComponent } from '../basic-components/textarea/textarea.component';
-
+import { FieldComponent } from '../basic-components/field/field.component';
+import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
+import { BadgeComponent } from '../basic-components/badge/badge.component';
+import { IconType } from 'src/app/enums/icon-enum';
+import { ButtonComponent } from "../basic-components/button/button.component";
+import { SwitchComponent } from "../basic-components/switch/switch.component";
+import { BasicTabComponent } from "../basic-components/basic-tab/basic-tab.component";
+import { BasicCardComponent } from "../basic-components/basic-card/basic-card.component";
+import { IconButtonComponent } from "../basic-components/icon-button/icon-button.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
-  imports: [CommonModule, TempButtonComponent,IconButtonComponent,EnterBookidComponent,ButtonComponent,HeadingComponent,BodyComponent,AssigneeComponent,BasicTableComponent,BasicTableRowComponent,BasicTableWarpComponent,CheckComponent,DataCellsComponent,HeaderCellsComponent,NarrowBasicTableComponent,SliderComponent,TabElementComponent,TableHeaderComponent,TextareaComponent],
+  imports: [
+    IconButtonComponent,
+    SliderComponent,
+    CheckComponent,
+    BadgeComponent,
+    AssigneeComponent,
+    DataCellsComponent,
+    HeaderCellsComponent,
+    FieldComponent,
+    CommonModule,
+    ButtonComponent,
+    SwitchComponent,
+    BasicTabComponent,
+    BasicCardComponent,
+    IconButtonLargeComponent,],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
-  primary = ButtonType.PRIMARY
-  secondary = ButtonType.SECONDARY
-  tertiany = ButtonType.TERTIARY
-  variant1 = ButtonIconProperty.VARIANT1
-  variant2 = ButtonIconProperty.VARIANT2
-  variant3 = ButtonIconProperty.VARIANT3
-  icon=ButtonIcon.CHEVRON_LEFT
-  title1 = "Heading Large"
-  title2 = "Heading Medium-Bold"
-  title3 = "Heading Small"
-  title4 = "Heading Small-bold"
-  size1:TextSize = TextSize.LARGE
-  size2:TextSize = TextSize.MEDIUM
-  size3:TextSize = TextSize.SMALL
-  bodyText1: string = 'Body Large Upon initial observation, it may appear that there are only two primary scenarios for ';
-  bodyText2: string = 'Body Medium Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
-  bodyText3: string = 'Body Small Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
+  //enums-----------------------------------------------------------------------
+  headerCellType = HeaderCellType;//header cell types
+  dataCellType = DataCellType;//data cell types
+  iconType = IconType;//  types of icons.  
+  sliderNavigationTabType = SliderNavigationTabType;//types of slider navigation tab
+  stateEnum = State;//  types of input & select.
+  badgeType = BadgeType;//types of badge
+  iconButtonLargeType = IconButtonLargeType;
+  StatusActiveOrNotActive = StatusActiveOrNotActive;
+  CardIcons = CardIcons;
+  ButtonType = ButtonType;
+  ButtonSize = ButtonSize;
+  CheckStateType = CheckStateType; // types of check state.
+  CheckType = CheckType; // check type.
+  ButtonIcon = ButtonIcon;
+  //variables-----------------------------------------------------------------------
+  // button component properties
+  label: string = 'Lable';//button label
+  //enum ButtonType
+  primary = ButtonType.PRIMARY//button type
+  secondary = ButtonType.SECONDARY//button type
+  tertiany = ButtonType.TERTIARY//button type
+  //enum ButtonSize
+  big = ButtonSize.BIG//button size
+  small = ButtonSize.SMALL//button size;
+  //enum ButtonIcon
+  icon = ButtonIcon.CHEVRON_LEFT//button icon
 
-  btnType = ButtonType.PRIMARY;
-  btnType2 = ButtonType.SECONDARY;
-  txt1 = "test btn1"
- 
+  //this state get the status of the switch
+  switchState: boolean = false;
+  //this state get the status of the tab
+  tabState: boolean = false;
 
-  title = 'yv-clusters';
-  HeaderCellType = HeaderCellType;
-  DataCellType = DataCellType;
 
- 
-  cells = [
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE }
-    // { data: 'Checked', type: DataCellType.CHECK },
-    // { data: 'www.example.com', type: DataCellType.LINK },
-    // { data: 'Icon Data', type: DataCellType.ICON },
-    // { data: 'Assignee Name', type: DataCellType.ASSIGNEE },
-    // { data: 'Button Text', type: DataCellType.BUTTON },
-    // { data: 'Slider Value', type: DataCellType.SLIDER }
-  ];
+
+  //functions-----------------------------------------------------------------------
+  //header-cell- sort function
   handleSort(event: { column: string, direction: string }) {
-
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
   }
-
+  //switch-component function
+  handleSwitchChange(state: boolean) {
+    this.switchState = state;
+  }
+  //basic-tab-component function
+  handleTabChange(state: boolean) {
+    this.tabState = state;
+  }
+  //button & icon button component function
   onClick() {
     alert('test on click');
     console.log('test on click');
   }
-  headers: { data: string; type: HeaderCellType }[] = [
-    { data: 'name list', type: HeaderCellType.TEXT },
-    { data: 'to do', type: HeaderCellType.TEXT },
-    { data: '', type: HeaderCellType.PLACEOLDER },
-  ];
-
-  rows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
-    {
-      property: 'Default',
-      showAction: false,
-      cells: [
-        { data: 'Data ', type: DataCellType.TEXT },
-        { data: 'Data ', type: DataCellType.TEXT },
-        { data: '', type: DataCellType.CHECK },
-      ]
-    },
-    {
-      property: 'Default',
-      showAction: false,
-      cells: [
-        { data: 'Data 2', type: DataCellType.TEXT },
-        { data: 'Link to something', type: DataCellType.LINK },
-       
-      ]
-    }
-  ];
-  headers2: { data: string; type: HeaderCellType }[] = [
-    { data: 'name list', type: HeaderCellType.TEXT },
-    { data: 'done', type: HeaderCellType.TEXT },
-    { data: '', type: HeaderCellType.CHECK },
-  ];
-
-  rows2: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
-    {
-      property: 'Default',
-      showAction: false,
-      cells: [
-        { data: 'Data 1', type: DataCellType.TEXT },
-        { data: 'Data 1', type: DataCellType.TEXT },
-        { data: 'Link to something', type: DataCellType.LINK },
-      ]
-    },
-    {
-      property: 'Default',
-      showAction: false,
-      cells: [
-        { data: 'Data 1', type: DataCellType.TEXT },
-        { data: 'Data 1', type: DataCellType.TEXT },
-        { data: 'Link to something', type: DataCellType.LINK },
-      ]
-    }
-  ];
-
-  headers1: { data: string; type: HeaderCellType }[] = [
-    { data: 'name list', type: HeaderCellType.TEXT },
-    { data: 'done ', type: HeaderCellType.TEXT },
-    { data: 'to do', type: HeaderCellType.TEXT },
-    { data: '', type: HeaderCellType.PLACEOLDER },
-  ];
-
-  rows1: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
-    {
-      property: 'Default',
-      showAction: false,
-      cells: [
-        { data: 'Data ', type: DataCellType.TEXT },
-        { data: ' ', type: DataCellType.SLIDER },
-        { data: 'Data ', type: DataCellType.TEXT },
-        { data: '', type: DataCellType.CHECK },
-      ]
-    },
-    {
-      property: 'Default',
-      showAction: false,
-      cells: [
-        { data: 'Data ', type: DataCellType.TEXT },
-        { data: ' ', type: DataCellType.SLIDER },
-        { data: 'Data ', type: DataCellType.TEXT },
-        { data: '', type: DataCellType.CHECK },
-
-      ]
-    }
-  ];
-  
-  iconp = "fa-solid fa-plus"
-  txt1 = "Enter Book ID"
-
-  // onClick()
-  // {
-  //   alert('test on click');
-  //   console.log('test on click');
-  // }
-
 }
+

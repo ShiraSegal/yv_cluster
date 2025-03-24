@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { CardIcons } from 'src/app/enums/card-icons-enum';
+import { CardIcons } from 'src/app/enums/basic-enum';
 
 
 
@@ -14,7 +14,9 @@ import { CardIcons } from 'src/app/enums/card-icons-enum';
 export class BasicCardComponent {
   CardIcons = CardIcons;
   @Input() text!: string;
-   @Input() iconName!: CardIcons;
-   ngOnInit(): void{
-   }
+  @Input() iconName!: CardIcons;
+  iconNameTheSecondWord!: string;
+  ngOnInit(): void {
+    this.iconNameTheSecondWord = this.iconName.split(' ')[1];
+  }
 }
