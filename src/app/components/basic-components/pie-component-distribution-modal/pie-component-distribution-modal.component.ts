@@ -5,7 +5,7 @@ import { PieCircleComponent } from '../pie-circle/pie-circle.component';
 import { PieTableComponent } from '../pie-table/pie-table.component';
 import { ButtonComponent } from '../button/button.component';
 import { ButtonSize, ButtonType } from 'src/app/enums/basic-enum';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { ClusterService } from 'src/app/services/cluster.service';
 
 @Component({
@@ -23,15 +23,18 @@ export class PieComponentDistributionModalComponent {
   showAllThaDatabasePie: boolean = true;
   tertiany:ButtonType=ButtonType.TERTIARY;
   size:ButtonSize=ButtonSize.SMALL;
+  statisticData!:Observable<any[]>;
 
   constructor(private clusterService: ClusterService) {}
-  statisticData: any; // מערך ולא Observable
+
   ngOnInit() {
-    this.clusterService.statisticData$.subscribe(data => {
-      this.statisticData = data;
-    });
-    console.log("statisticData:", this.statisticData); // ככה הנתונים יודפסו נכון
+      this.statisticData = this.#clusterService.statisticData$;
+      console.log("statisticData: ", this.statisticData);
+      
   }
+
+
+
 
   data = {
     "LastName": [{

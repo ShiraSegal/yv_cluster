@@ -46,14 +46,17 @@ export class ClusterService {
   }
 
   async getStatisticData() {
-    var res = this.#clusterApiService.getStatisticData();
-      (await res).pipe(take(1), tap(res => {
-        if(res){
-        this.statisticDataSubject$.next(res);
+    this.#clusterApiService.getStatisticData().pipe(
+      take(1),
+      tap(res => {
+        if (res) {
+          console.log("res: ", res);
+          
+          this.statisticDataSubject$.next(res);  
         }
-      })).subscribe();
-      return res;
-    }
+      })
+    ).subscribe(); 
+  }
   
  
 
