@@ -33,18 +33,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
     align-self: stretch;
+    gap: 1.5rem;
 }
 
 .tabs-bottom {
-    border-top: 0.5px solid $light_royal_blue;
     display: flex;
     width: 7.125rem;
-    padding: 1.125rem 0rem;
+    padding: 0rem; 
     flex-direction: column;
     align-items: center;
-    gap: 0.1875rem;
+    gap: 0rem;
     margin-top: auto;
 }
 
@@ -52,10 +51,17 @@
     display: flex;
     width: 7.125rem;
     height: 0.0625rem;
-    padding: 0.75rem 0rem;
+    padding: 0rem; 
     flex-direction: column;
     align-items: center;
-    gap: 0.1875rem;
+    gap: 0rem;
     flex-shrink: 0;
     border-bottom: 0.5px solid #A1AEE3;
+    margin-bottom: 0rem; 
+}
+
+.line-bottom {
+
+ padding-top: 25rem; 
+
 }

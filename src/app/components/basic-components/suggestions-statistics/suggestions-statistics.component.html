@@ -1,0 +1,10 @@
+<div class="cirrcle-wrapper">
+
+<svg [attr.width]="radius * 2" [attr.height]="radius * 2" [attr.viewBox]="'0 0 ' + (radius * 2) + ' ' + (radius * 2)">
+    <ng-container *ngFor="let segment of segments">
+      <path [attr.d]="describeArc(radius, radius, radius, innerRadius, segment.startAngle, segment.endAngle)" [attr.fill]="segment.color"></path>
+    </ng-container>
+
+  </svg> 
+ 
+</div>

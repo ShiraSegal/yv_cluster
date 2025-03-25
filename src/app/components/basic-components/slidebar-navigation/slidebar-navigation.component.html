@@ -1,26 +1,55 @@
 <div class="slider-navigation">
     <div class="logo"></div>
 
-    @for (i of tabs;track i.number) { 
-        @if (i.number < 4) { 
-        <yv-cluster-slider-navigation-tab
-        [property]="tabs[i.number].property.value!" [icon]="tabs[i.number].icon" [text]="tabs[i.number].text"
-        (click)="setActiveTab(tabs[i.number].property)">
-        </yv-cluster-slider-navigation-tab>
-        }
-        @if (i.number === 4) {
-        <div class="line"></div>
-        <yv-cluster-slider-navigation-tab [property]="tabs[i.number].property.value!" [icon]="tabs[i.number].icon"
-            [text]="tabs[i.number].text" (click)="setActiveTab(tabs[i.number].property)">
-        </yv-cluster-slider-navigation-tab>
-        }
+    <div class="tabs">
+        <div class="tabs-top">
+            <ng-container *ngFor="let tab of tabs; let i = index">
+                <ng-container *ngIf="i < 3" >
+                    <yv-cluster-slider-navigation-tab
 
-        @if (i.number === 5) {
-        <div class="tabs-bottom">
-            <yv-cluster-slider-navigation-tab [property]="tabs[i.number].property.value!" [icon]="tabs[i.number].icon"
-                [text]="tabs[i.number].text" (click)="setActiveTab(tabs[i.number].property)">
-            </yv-cluster-slider-navigation-tab>
+                        [property]="tab.property.value!"
+                        [icon]="activeTabIndex === i ? tab.activeIcon : tab.icon"
+                        [text]="tab.text"
+                        (click)="setActiveTab(i)">
+                    </yv-cluster-slider-navigation-tab>
+                </ng-container>
+            </ng-container>
+            <div class="line"></div>
+            <ng-container *ngFor="let tab of tabs; let i = index">
+                <ng-container *ngIf="i === 3">
+                    <yv-cluster-slider-navigation-tab
+                       
+                        [property]="tab.property.value!"
+                        [icon]="activeTabIndex === i ? tab.activeIcon : tab.icon"
+                        [text]="tab.text"
+                        (click)="setActiveTab(i)">
+                    </yv-cluster-slider-navigation-tab>
+                </ng-container>
+            </ng-container>
         </div>
-        }
-        }
+        <div class=" line line-bottom"></div>
+        <ng-container *ngFor="let tab of tabs; let i = index">
+            <ng-container *ngIf="i === 4">
+                <yv-cluster-slider-navigation-tab
+                    [property]="tab.property.value!"
+                    [icon]="activeTabIndex === i ? tab.activeIcon : tab.icon"
+                    [text]="tab.text"
+                    (click)="setActiveTab(i)">
+                </yv-cluster-slider-navigation-tab>
+            </ng-container>
+            <ng-container *ngIf="i === 5">
+             
+                <div class="tabs-bottom"> 
+                     
+                    <yv-cluster-slider-navigation-tab
+                        [property]="tab.property.value!"
+                        [icon]="activeTabIndex === i ? tab.activeIcon : tab.icon"
+                        [text]="tab.text"
+                        (click)="setActiveTab(i)">
+                    </yv-cluster-slider-navigation-tab>
+                    
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
 </div>

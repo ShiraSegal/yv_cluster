@@ -33,13 +33,14 @@ import { BadgeComponent } from '../basic-components/badge/badge.component';
 import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
 import { BasicTableRowComponent } from '../basic-components/basic-table-row/basic-table-row.component';
 import { FormControl } from '@angular/forms';
-import { SelectComponent } from '../select/select.component';
+import { SuggestionsStatisticsComponent } from '../basic-components/suggestions-statistics/suggestions-statistics.component';
+
 
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
   imports: [
-    SelectComponent,
+   SuggestionsStatisticsComponent,
     IconButtonLargeComponent,
     SlidebarNavigationComponent,
     HeadingComponent,
@@ -122,6 +123,14 @@ stateEnum = State;
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE }
  
   ];
+
+
+    circleData = [
+      { color: '#ff0000', value: 30 },
+      { color: '#00ff00', value: 20 },
+      { color: '#0000ff', value: 50 }
+    ];
+
   // txt1 = "test btn1"
   switchState: boolean = false;
   tabState: boolean = false;
