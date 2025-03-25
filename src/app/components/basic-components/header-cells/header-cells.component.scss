@@ -44,10 +44,10 @@
 
 .header-search-search {
     display: flex;
-    height: 15px;
+    height: 0.9375rem; 
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 10px;
+    gap: 0.625rem; 
     flex-shrink: 0;
     align-self: stretch;
 }
@@ -59,7 +59,7 @@
     align-items: center;
     gap: 0.625rem;
     align-self: stretch;
-    border-bottom: 1px solid $slate_blue;
+    border-bottom: 0.0625rem solid $slate_blue; 
 }
 
 .header-search-cancle {

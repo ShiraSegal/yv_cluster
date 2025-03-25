@@ -1,33 +1,23 @@
 <div class="slider-navigation">
     <div class="logo"></div>
 
-    @for (tab of tabs;track i.number) { 
-        @if (i.number < 4) { 
-            <yv-cluster-slider-navigation-tab
-            [property]="tab.property.value"
-            [icon]="tab.property.value === sliderNavigationTabType.ACTIVE ? iconType[tab.text + 'SOLID'] : iconType[tab.text + 'LIGHT']"
-            [text]="tab.text"
-            (click)="setActiveTab(tab.property)">
+    @for (i of tabs;track i.number) {
+    @if (i.number < 4) { <yv-cluster-slider-navigation-tab [property]="tabs[i.number].property.value!"
+        [icon]="tabs[i.number].icon" [text]="tabs[i.number].text" (click)="setActiveTab(tabs[i.number].property)">
         </yv-cluster-slider-navigation-tab>
         }
         @if (i.number === 4) {
         <div class="line"></div>
-        <yv-cluster-slider-navigation-tab
-                [property]="tab.property.value"
-                [icon]="tab.property.value === sliderNavigationTabType.ACTIVE ? iconType[tab.text + 'SOLID'] : iconType[tab.text + 'LIGHT']"
-                [text]="tab.text"
-                (click)="setActiveTab(tab.property)">
-            </yv-cluster-slider-navigation-tab>
+        <yv-cluster-slider-navigation-tab [property]="tabs[i.number].property.value!" [icon]="tabs[i.number].icon"
+            [text]="tabs[i.number].text" (click)="setActiveTab(tabs[i.number].property)">
+        </yv-cluster-slider-navigation-tab>
         }
 
         @if (i.number === 5) {
         <div class="tabs-bottom">
-            <yv-cluster-slider-navigation-tab
-            [property]="tab.property.value"
-            [icon]="tab.property.value === sliderNavigationTabType.ACTIVE ? iconType[tab.text + 'SOLID'] : iconType[tab.text + 'LIGHT']"
-            [text]="tab.text"
-            (click)="setActiveTab(tab.property)">
-        </yv-cluster-slider-navigation-tab>
+            <yv-cluster-slider-navigation-tab [property]="tabs[i.number].property.value!" [icon]="tabs[i.number].icon"
+                [text]="tabs[i.number].text" (click)="setActiveTab(tabs[i.number].property)">
+            </yv-cluster-slider-navigation-tab>
         </div>
         }
         }

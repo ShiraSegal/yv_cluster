@@ -5,7 +5,7 @@
   padding: 1rem;
   align-items: flex-start;
   flex-direction: column;
-  background: #FFF;
+  background:$white;
   gap: 0.1rem;
 }
 
@@ -22,33 +22,34 @@
 }
 
 .common-input-wrapper.default {
-  border: 0.5px solid #3F4B5A;
+  border: 0.03125rem solid $slate_blue;
 }
 
 .common-input-wrapper.error {
-  border: 0.5px solid var(--Color-4, #C00);
-  background: #FAEAEA;
+  border: 0.03125rem solid var(--Color-4,$red);
+  background:$light-red;
 }
 
 .common-input-wrapper.disabled {
-  border: 0.5px solid rgba(196, 199, 197, 0.50);
-  background: rgba(255, 255, 255, 0.50);
+  border: 0.03125rem solid $gray-light-transparent;
+  background:$white-transparent;
 }
 
 .common-input-wrapper.populated {
-  border: 0.5px solid var(--Color-2, #262C34);
+  border: 0.03125rem solid var(--Color-2,$dark_gray);
 }
 
 .common-input-wrapper.focused {
-  border: 1px solid var(--Primery, #1334B9);
+  border: 0.0625rem solid var(--Primery, $primary_btn);
 }
-legend.default ,legend.error, legend.disabled {
-  padding: 0%;
-}
-legend.focused ,legend.populated {
+
+legend.default, legend.error, legend.disabled {
   padding: 0%;
 }
 
+legend.focused, legend.populated {
+  padding: 0%;
+}
 
 .input-legend {
   font-family: Poppins;
@@ -59,26 +60,26 @@ legend.focused ,legend.populated {
   height: 1.1rem;
   display: flex;
   align-items: center;
-
 }
+
 .input-label.default {
-  color: #3F4B5A;
+  color:$dark-gray-2;
 }
 
 .input-label.error {
-  color: var(--Color-4, #C00);
+  color: var(--Color-4, $red);
 }
 
 .input-label.disabled {
-  color: rgba(63, 75, 90, 0.30);
+  color:$light_slate_blue;
 }
 
 .input-label.populated {
-  color: var(--Color-2, #262C34);
+  color: var(--Color-2,$dark_gray);
 }
 
 .input-label.focused {
-  color: var(--Primery, #1334B9);
+  color: var(--Primery, $primary_btn);
 }
 
 .custom-input {
@@ -88,22 +89,22 @@ legend.focused ,legend.populated {
   overflow: hidden;
   text-overflow: ellipsis;
   font-family: Poppins;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.25rem;
 }
 
 .custom-input.disabled {
-  color: rgba(63, 75, 90, 0.30);
+  color:$light_slate_blue;
 }
 
 .error-message {
-  color: var(--Additional-error-variant, #FF6665);
+  color: var(--Additional-error-variant,$error-red);
   text-align: left;
   font-family: Rubik;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 11.813px;
+  line-height: 0.7383125rem;
 }

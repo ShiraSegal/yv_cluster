@@ -38,7 +38,7 @@
 }
 
 .tabs-bottom {
-    border-top: 0.5px solid $light_royal_blue;
+    border-top: 0.03125rem solid $light_royal_blue; 
     display: flex;
     width: 7.125rem;
     padding: 1.125rem 0rem;
@@ -57,5 +57,5 @@
     align-items: center;
     gap: 0.1875rem;
     flex-shrink: 0;
-    border-bottom: 0.5px solid #A1AEE3;
+    border-bottom: 0.03125rem solid$light-blue;
 }

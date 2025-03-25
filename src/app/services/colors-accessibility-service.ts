@@ -20,6 +20,12 @@ export class ColorsAccessibilityService {
     setColors() {
         // dynamically create CSS var declaration like in css
         this.document.documentElement.style.setProperty("--primary_btn", "#1334B9");
+        this.document.documentElement.style.setProperty("--gray-light-transparent", "#c4c7c580"); // אפור בהיר עם שקיפות
+this.document.documentElement.style.setProperty("--white-transparent", "#FFFFFF80"); // לבן עם שקיפות
+this.document.documentElement.style.setProperty("--dark-gray-2", "#3F4B5A"); // אפור כהה
+this.document.documentElement.style.setProperty("--dark-gray-transparent", "#3F4B5A4D"); // אפור כהה עם שקיפות
+this.document.documentElement.style.setProperty("--error-red", "#FF6665"); // אדום לשגיאות
+this.document.documentElement.style.setProperty("--light-blue", "#A1AEE3"); // כחול בהיר
         this.document.documentElement.style.setProperty("--green-dark", "#0C803E");
         this.document.documentElement.style.setProperty("--light-green", "#E7FFF2");
         this.document.documentElement.style.setProperty("--gray", "#797979");
@@ -42,6 +48,7 @@ export class ColorsAccessibilityService {
         this.document.documentElement.style.setProperty("--white", "#FFF");    
         this.document.documentElement.style.setProperty("--peach_pink", "#F6CDCD");
         this.document.documentElement.style.setProperty("--red", "#C00");
+        this.document.documentElement.style.setProperty("--light-red", "#FAEAEA");
         this.document.documentElement.style.setProperty("--rose_red", "#E25F5F");
         this.document.documentElement.style.setProperty("--light_red", "#FFEDED");
         this.document.documentElement.style.setProperty("--mint_green", "#A5EBDD");
