@@ -15,6 +15,7 @@ export enum BasicTableRowPropertyVariants {
   VARIANT2 = 'Variant2',
 }
 
+
 export enum BasicTablePropertyType {
   OLD_SUGGESTIONS = 'Old Suggestions',
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
@@ -24,10 +25,6 @@ export enum ButtonSize {
   SMALL = "small"
 }
 
-export enum CheckType {
-  UNCHECKED = 'unchecked',
-  CHECKED = 'checked'
-}
 export enum CheckStateType {
   ENABLED = 'enabled',
   DISABLED = 'disabled'
@@ -45,6 +42,8 @@ export enum DataCellType {
   SLIDER = 'slider',
   PLACEOLDER = 'place-order',
 }
+
+
 export type DataCellValue<T extends DataCellType> = 
   T extends DataCellType.TEXT ? string :
   T extends DataCellType.LINK ? string | number :
@@ -71,11 +70,8 @@ export enum ButtonIcon {
   CHEVRON_LEFT = "fa-light fa-chevron-left"
 }
 
-export enum TextSize {
-  LARGE = "large",
-  MEDIUM = "medium",
-  SMALL = "small"
-}
+
+
 
 export enum TextColor {
   BLACK = "black",
@@ -114,6 +110,8 @@ export enum BadgeType {
   DONE = "Done"
 }
 
+
+
 export enum SliderNavigationTabType {
   VARIANT3 = "variant3",
   ACTIVE = "active"
@@ -126,6 +124,9 @@ export enum SliderNavigationTabTextType {
   NEWCLUSTER = "New Cluster",
 
 }
+
+
+
 
 export enum State {
   DEFAULT = "default",
@@ -142,3 +143,4 @@ export enum StatusActiveOrNotActive {
   ACTIVE = "active",
   NOT_ACTIVE = "not-active"
 }
+

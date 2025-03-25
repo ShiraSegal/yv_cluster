@@ -10,7 +10,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './icon-button.component.scss'
 })
 export class IconButtonComponent {
-  @Input() icon:string="";
   @Output() onClick = new EventEmitter();
 
   handleClick() {

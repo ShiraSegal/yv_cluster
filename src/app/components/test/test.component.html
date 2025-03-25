@@ -35,20 +35,30 @@
 <yv-cluster-badge [property]="badgeType.DONE"></yv-cluster-badge>
 <hr>
 <h3>field</h3>
+<yv-cluster-field [property]="stateEnum.ERROR">
 <hr> <yv-cluster-field [property]="stateEnum.ERROR" placeholder="search">
 </yv-cluster-field>
+<yv-cluster-field [property]="stateEnum.DISABLED">
 
 <yv-cluster-field [property]="stateEnum.DISABLED" [textControl]="searchControl" placeholder="search">
 </yv-cluster-field>
+<yv-cluster-field [property]="stateEnum.DEFAULT">
 
 <yv-cluster-field [property]="stateEnum.DEFAULT" [textControl]="searchControl" placeholder="search">
 </yv-cluster-field>
+<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'">
 
 <yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [textControl]="searchControl" placeholder="search">
 </yv-cluster-field>
+<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'">
 
 <yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [textControl]="searchControl" placeholder="search">
 </yv-cluster-field>
+<hr>
+
+<h3>icon-button-large</h3>
+<yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
+  [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
 <hr>
 <h3>icon-button-large</h3>
 <hr>
@@ -80,10 +90,11 @@
 <hr>
 <yv-cluster-slider [value]=80></yv-cluster-slider>
 <hr>
+
 <h3>assignee</h3>
-<hr>
 <yv-cluster-assignee data="Ariela Zoppelmann"></yv-cluster-assignee>
 <hr>
+
 <h3>check</h3>
 <hr>
 <yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
@@ -97,6 +108,15 @@
 <yv-cluster-textarea label="last name"></yv-cluster-textarea>
 <hr>
 <h3>header cell</h3>
+<yv-cluster-header-cells [type]=headerCellType.TEXT header="text"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.ORDER header="order"
+  (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.ORDERDOWN header="order-down"
+  (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.CHECK></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.MORE></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.PLACEOLDER></yv-cluster-header-cells>
 <hr>
 <yv-cluster-header-cells [type]=HeaderCellType.TEXT header="text"></yv-cluster-header-cells>
 <yv-cluster-header-cells [type]=HeaderCellType.ORDER header="order"
@@ -157,9 +177,15 @@
 <yv-cluster-body [bodyText]="bodyText3" [size]="size3" [isBold]=false></yv-cluster-body>
 <hr>
 <h3>switch</h3>
+<yv-cluster-switch [text]="'switch'" [status]="StatusActiveOrNotActive.ACTIVE"
+  (switchChange)="handleSwitchChange($event)"></yv-cluster-switch>
 <hr>
 <yv-cluster-switch [text]="'switch'" [active]="true" (switchChange)="handleSwitchChange($event)"></yv-cluster-switch>
 <hr>
+
+<h3>tab</h3>
+<yv-cluster-basic-tab [text]="'tab'" [status]="StatusActiveOrNotActive.ACTIVE"
+  (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
 <h3>rab</h3>
 <hr>
 <yv-cluster-basic-tab [text]="'tab'" [active]="true" (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
@@ -180,17 +206,28 @@
 <yv-cluster-basic-radio-button [disable]="true" [checked]="true" [text]="'Text'"
     (checkedChange)="handleRadioButtonChange($event)"></yv-cluster-basic-radio-button>
 <hr>
-<h3>filter section</h3>
-<hr>
-<yv-cluster-filter-section></yv-cluster-filter-section>
-<hr>
+
 <h3>card</h3>
-<hr>
 <yv-cluster-basic-card [iconName]="CardIcons.HOME" [text]="'30 New clusters pending'"></yv-cluster-basic-card>
 <br>
 <yv-cluster-basic-card [iconName]="CardIcons.HOURGLASS_CLOCK"
+  [text]="'30 New Suggestions pending'"></yv-cluster-basic-card>
+<yv-cluster-basic-card [iconName]="CardIcons.HOURGLASS_CLOCK"
     [text]="'30 New Suggestions pending'"></yv-cluster-basic-card>
 <br>
+<yv-cluster-basic-card [iconName]="CardIcons.EDIT"
+  [text]="'70 Clusters created manually this month'"></yv-cluster-basic-card>
+<br>
+<yv-cluster-basic-card [iconName]="CardIcons.CLOCK_FIVE"
+  [text]="'560 Old Suggestions  pending'"></yv-cluster-basic-card>
+<br>
+<yv-cluster-basic-card [iconName]="CardIcons.CIRCLE_CHECK"
+  [text]="'120 Suggestions processed this month'"></yv-cluster-basic-card>
+<hr>
+
+<h3>button</h3>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="small"
+  [buttonIcon]="icon"></yv-cluster-button>
 <yv-cluster-basic-card [iconName]="CardIcons.EDIT"
     [text]="'70 Clusters created manually this month'"></yv-cluster-basic-card>
 <br>
@@ -199,19 +236,6 @@
 <br>
 <yv-cluster-basic-card [iconName]="CardIcons.CIRCLE_CHECK"
     [text]="'120 Suggestions processed this month'"></yv-cluster-basic-card>
-<hr>
-<h3>toast</h3>
-<hr>
-<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.ERROR" [message]="'Cluster created successfully!'"
-    [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
-<br>
-<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.SUCCESS" [message]="'Cluster created successfully!'"
-    [text]="'Text'" [duration]="90000"></yv-cluster-toast-notification>
-<hr>
-<h3>pie-component-distribution-modal</h3>
-<hr>
-<yv-cluster-pie-component-distribution-modal
-    [title]="'Data Distribution'"></yv-cluster-pie-component-distribution-modal>
 <hr>
 <hr>
 <h3>slider navigation tab</h3>

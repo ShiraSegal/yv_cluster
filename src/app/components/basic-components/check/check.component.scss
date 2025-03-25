@@ -9,6 +9,7 @@
     height: 3.125rem; 
 }
 
+<<<<<<< HEAD
 .check.enabled.selected {
     color: $primary_btn;
     font-family: "Font Awesome 6 Pro";
@@ -20,6 +21,40 @@
 
 .check.enabled.unselected {
     color: $slate_blue;
+=======
+  .check.enabled.checked {
+color: $primary_btn;
+font-family: "Font Awesome 6 Pro";
+font-size: 14px;
+font-style: normal;
+font-weight: 900;
+line-height: normal;
+  }
+  
+
+  .check.enabled.unchecked {
+    color: $slate_blue;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+  }
+  
+
+  .check.disabled.checked {
+    color: $silver_gray;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+  }
+  
+  
+  .check.disabled.unchecked {
+    color: $silver_gray;
+>>>>>>> origin/main
     font-family: "Font Awesome 6 Pro";
     font-size: 0.875rem;
     font-style: normal;
