@@ -13,7 +13,7 @@ export class ClusterService {
 
   private autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
-  private statisticDataSubject$ = new BehaviorSubject<string[]>([]);
+  private statisticDataSubject$ = new BehaviorSubject<any[]>([]);
  
   async getAutoClusterData() {
     var res = this.#clusterApiService.getAutoClusterData();
@@ -38,7 +38,12 @@ export class ClusterService {
     return this.isLoadingBehaviorSubject$.asObservable();
   }
 
-
+  get statisticData$(): Observable<any[]> {
+    if(!this.statisticDataSubject$.value.length){
+      this.getStatisticData();
+    }
+    return this.statisticDataSubject$.asObservable();
+  }
 
   async getStatisticData() {
     var res = this.#clusterApiService.getStatisticData();
@@ -50,12 +55,7 @@ export class ClusterService {
       return res;
     }
   
-  get statisticData$(): Observable<any[]> {
-    if(!this.statisticDataSubject$.value.length){
-      this.getStatisticData();
-    }
-    return this.statisticDataSubject$.asObservable();
-  }
+ 
 
 // =================================
 

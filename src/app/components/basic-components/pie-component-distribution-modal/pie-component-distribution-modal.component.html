@@ -4,13 +4,12 @@
   </div>
   <div class="table-and-pie-container">
     <!-- //טבלה -->
-    <yv-cluster-pie-table [spsipicPlaceData]="data.LastNameInPlaces"  [allDatabaseData]="data.LastName" [tableColorsArray]="colorsArray"></yv-cluster-pie-table>
+    <yv-cluster-pie-table [spsipicPlaceData]="data.LastNameInPlaces"  [allDatabaseData]="data.LastName" [tableColorsArray]="colorsArray" [allDatabaseTotalValue]="{'TotalCount': 10000, 'Value': 'All Database'}"  [thePlaceTotalValue]="{'TotalCount':15000, 'Value': 'Minsk'}"></yv-cluster-pie-table>
     <div class="pie-circle-container">
       <div class="pie-buttons-container">
         <!-- <div class="button-text" [ngClass]="{'button-with-a-backround':!showAllThaDatabasePie,'button-without-a-backround':showAllThaDatabasePie}" (click)="changeTheShowingPei()">Minsk</div>
         <div class="button-text" [ngClass]="{'button-with-a-backround':showAllThaDatabasePie,'button-without-a-backround':!showAllThaDatabasePie}" (click)="changeTheShowingPei()">All Database</div> -->
-       
-       
+         
         <yv-cluster-button (onClick)="changeTheShowingPei()" text="All Database" [buttonType]="tertiany" [size]="size"></yv-cluster-button>
         <yv-cluster-button (onClick)="changeTheShowingPei()" text="Minsk" [buttonType]="tertiany" [size]="size" ></yv-cluster-button>
 

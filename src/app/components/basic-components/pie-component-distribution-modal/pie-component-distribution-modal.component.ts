@@ -24,11 +24,11 @@ export class PieComponentDistributionModalComponent {
   tertiany:ButtonType=ButtonType.TERTIARY;
   size:ButtonSize=ButtonSize.SMALL;
 
- 
+  constructor(private clusterService: ClusterService) {}
   statisticData: any; // מערך ולא Observable
   ngOnInit() {
-    this.#clusterService.statisticData$.subscribe(data=>{
-      this.statisticData=data;
+    this.clusterService.statisticData$.subscribe(data => {
+      this.statisticData = data;
     });
     console.log("statisticData:", this.statisticData); // ככה הנתונים יודפסו נכון
   }

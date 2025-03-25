@@ -63,7 +63,7 @@ padding: 0.25rem 0rem;
 align-items: center;
 gap: 0.0625rem;
 align-self: stretch;
-
+border-bottom: 1px solid #D0D6F1
 }
 .table-row-one-side{
     display: flex;
@@ -128,13 +128,13 @@ align-self: stretch;
     flex: 1 0 0;
     align-self: stretch;
 }
-.data-cell-color-1{
+.data-cell-color-0{
     background-color:#F6CDCD;
 }
-.data-cell-color-2{
+.data-cell-color-1{
     background-color:#A5B1C0;
 }
-.data-cell-color-0{
+.data-cell-color-2{
     background-color:#A1AEE3;
 }
 .data-cell-color-3{

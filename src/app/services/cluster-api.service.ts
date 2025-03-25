@@ -18,10 +18,11 @@ export class ClusterApiService {
   //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
 
 
-  async getStatisticData()
-  {
-    return this.#http.get<string[]>(environment.apiUrl + '/getStatisticData.json');
+  // async getStatisticData()
+  // {
+  //   return this.#http.get<string[]>(environment.apiUrl +/getStatisticData.json');
+  // }
+  getStatisticData(): Observable<any[]> {
+    return this.#http.get<any[]>(environment.apiUrl +'./assets/json-data/getStatisticData.json');
   }
-
-  
 }
