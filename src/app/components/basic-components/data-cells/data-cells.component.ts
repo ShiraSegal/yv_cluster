@@ -39,10 +39,9 @@ export class DataCellsComponent<T extends DataCellType>  {
   isNumber(value: any): value is number {
     return typeof value === 'number';
   }
- // for the button component
+
   onClick() {
     alert('test on click');
     console.log('test on click');
   }
 }
-

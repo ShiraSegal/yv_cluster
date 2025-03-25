@@ -1,19 +1,19 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'yv-cluster-assignee',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './assignee.component.html',
   styleUrl: './assignee.component.scss'
 })
 export class AssigneeComponent {
-//variables
+  
   @Input() data: string | undefined;
+
   assigneeInitials: string = '';
   truncatedName: string = '';
-//functions
+
   ngOnInit(): void {
     if (this.data) {
       const nameParts = this.data.split(' ');
