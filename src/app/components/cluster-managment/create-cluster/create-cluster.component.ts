@@ -4,7 +4,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
-import { ButtonType, HeaderCellType, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
+import { ButtonType, HeaderCellType, State, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 import { BodyComponent } from '../../basic-components/body/body.component';
 import { TableHeaderComponent } from '../../basic-components/table-header/table-header.component';
 import { YvSelectComponent } from '../../basic-components/yv-select/yv-select.component';
@@ -15,11 +15,12 @@ import { elementAt, Observable } from 'rxjs';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { log } from 'console';
 import { HeaderCellsComponent } from '../../basic-components/header-cells/header-cells.component';
+import { FieldComponent } from '../../basic-components/field/field.component';
 
 @Component({
   selector: 'yv-cluster-create-cluster',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule,CommonModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent,RadioButtonListComponent, BodyComponent, TableHeaderComponent, YvSelectComponent, ButtonComponent,TextareaComponent,HeaderCellsComponent],
+  imports: [FormsModule, ReactiveFormsModule,CommonModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent,RadioButtonListComponent, BodyComponent, TableHeaderComponent, YvSelectComponent, ButtonComponent,TextareaComponent,HeaderCellsComponent,FieldComponent],
   templateUrl: './create-cluster.component.html',
   styleUrl: './create-cluster.component.scss'
 })
@@ -37,18 +38,13 @@ export class CreateClusterComponent {
   color1: TextColor = TextColor.SLATE_BLUE;
   //dataCells: string[] = [];//['First Name', 'Last Name', 'Maiden Name', 'Place Of Birth', 'Authentic Date Of Birth', 'Restored Date Of Birth', 'Permanent Place', 'Place of Death', 'Gender', 'Fate'];
   hederType: HeaderCellType = HeaderCellType.TEXT;
-  // options:string[]=['first name','שם בעברית','other'];
-  // label1: string = 'first name';
-  // checked1: boolean = true;
-  // label2: string = 'שם בעברית';
-  // checked2: boolean = false;
-  // label3: string = 'other';
   selectLabel: string = 'Cluster Level';
   button1: string = 'Cancel';
   button2: string = 'Set a cluster';
   btn_size:boolean = false;
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
+  stateEnum =  State ;
   radioControl = new FormControl<string | null>(null);
   dataCells:any = new Observable<string[]>;
   // options: string[] = [];

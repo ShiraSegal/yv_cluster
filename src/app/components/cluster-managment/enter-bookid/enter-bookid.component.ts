@@ -1,15 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonType, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
+import { ButtonType, State, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
 import { RadioButtonListComponent } from '../../basic-components/radio-button-list/radio-button-list.component';
+import { FieldComponent } from '../../basic-components/field/field.component';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, ButtonComponent,HeadingComponent,BasicRadioButtonComponent,RadioButtonListComponent],
+  imports: [FormsModule, ReactiveFormsModule, ButtonComponent,HeadingComponent,BasicRadioButtonComponent,RadioButtonListComponent,FieldComponent],
   templateUrl: './enter-bookid.component.html',
   styleUrl: './enter-bookid.component.scss'
 })
@@ -30,6 +31,7 @@ export class EnterBookidComponent  {
   checked2: boolean = false;
   weight:TextWeight=TextWeight.BOLD;
   color:TextColor=TextColor.NEUTRAL_GRAY;
+  stateEnum =  State ;
 
   // יצירת טופס עם FormGroup ו-Control
   formGroup: FormGroup = new FormGroup({
