@@ -16,18 +16,8 @@ export class ViewerComponent {
   pictureUrl: string = '';
   iconType = IconType;
   iconButtonLargeType = IconButtonLargeType;
-  rotations = [
-    'rot-0', 'rot-90', 'rot-180', 'rot-270'
-  ];
-
-  scales = [
-    'scale-1', 'scale-1-1', 'scale-1-2', 'scale-1-3', 'scale-1-4', 'scale-1-5'
-  ];
-  scale: number = 1;
   rotate: number = 0;
-  index: number = 0;
   scaleIndex: number = 0;
-  rotationClass = 'rot-0';
   zoomClass = 'scale-1'; // Assuming you have a zoomClass property
 
   ngOnChanges(changes: SimpleChanges) {
@@ -59,9 +49,9 @@ export class ViewerComponent {
   }
 
   zoomIn() {
-    if (this.scaleIndex < this.scales.length - 1) {
+    if (this.scaleIndex < 5) {
       this.scaleIndex++;
-      this.zoomClass = this.scales[this.scaleIndex];
+      this.updateTransform();
       console.log('zoomIn:', this.zoomClass);
     }
   }
@@ -69,23 +59,28 @@ export class ViewerComponent {
   zoomOut() {
     if (this.scaleIndex > 0) {
       this.scaleIndex--;
-      this.zoomClass = this.scales[this.scaleIndex];
+      this.updateTransform();
       console.log('zoomOut:', this.zoomClass);
     }
   }
 
   rotateLeft() {
     console.log('rotateLeft called');
-    this.index = (this.index - 1 + this.rotations.length) % this.rotations.length;
-    this.rotationClass = this.rotations[this.index];
-    console.log('rotateLeft:', this.rotationClass);
+    this.rotate -= 90;
+    this.updateTransform();
   }
 
   rotateRight() {
     console.log('rotateRight called');
-    this.index = (this.index + 1) % this.rotations.length;
-    this.rotationClass = this.rotations[this.index];
-    console.log('rotateRight:', this.rotationClass);
+    this.rotate += 90;
+    this.updateTransform();
+  }
+
+  updateTransform() {
+    const imgElement = document.querySelector('.printable-image') as HTMLElement;
+    if (imgElement) {
+      imgElement.style.transform = `rotate(${this.rotate}deg) scale(${1 + this.scaleIndex * 0.1})`;
+    }
   }
 
   print() {

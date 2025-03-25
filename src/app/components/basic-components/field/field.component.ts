@@ -14,7 +14,7 @@ export class FieldComponent {
   @Input() property!: State;
   @Input() label!: string ;
   @Input() textControl:FormControl = new FormControl<string>('');
-  @Input() placeholder: string = ''; 
+  @Input() placeholder!: string ; 
   stateEnum =  State ;
  
 }

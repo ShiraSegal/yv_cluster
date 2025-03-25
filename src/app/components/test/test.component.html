@@ -33,6 +33,103 @@
 <hr>
 <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge>
 <yv-cluster-badge [property]="badgeType.DONE"></yv-cluster-badge>
+
+<h3>icon-button-large</h3>
+<hr>
+<yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
+    [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
+<yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
+    [property]="iconButtonLargeType.HOVER"></yv-cluster-icon-button-large>
+<hr>
+<h3>viewer</h3>
+<hr>
+ <!-- <yv-cluster-viewer pictureName="1"></yv-cluster-viewer> -->
+<yv-cluster-viewer pictureName="img1"></yv-cluster-viewer> 
+<!-- <yv-cluster-viewer pictureName="00023"></yv-cluster-viewer> -->
+<hr>
+<h3>slider navigation tab</h3>
+<hr>
+<yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.VARIANT3" [icon]="iconType.HOMELIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
+<yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.ACTIVE" [icon]="iconType.HOMELIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
+<hr><hr>
+<h3>slider navigation</h3>
+<hr>
+<yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
+<hr>
+<hr>
+<h3>check</h3>
+<yv-cluster-check></yv-cluster-check>
+<yv-cluster-check [type]="CheckType.CHECKED" [state]="CheckStateType.DISABLED"></yv-cluster-check>
+<yv-cluster-check [type]="CheckType.UNCHECKED" [state]="CheckStateType.DISABLED"></yv-cluster-check>
+<yv-cluster-check [type]="CheckType.CHECKED" [state]="CheckStateType.ENABLED"></yv-cluster-check>
+<hr>
+<h3>slider</h3>
+<yv-cluster-slider [value]="80"></yv-cluster-slider>
+<br>
+<yv-cluster-slider></yv-cluster-slider>
+<hr>
+<h3>data cell</h3>
+<yv-cluster-data-cells [type]="dataCellType.TEXT" [data]="'Hello World'"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.LINK" [data]="'https://example.com'"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.SLIDER" [data]="80"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.MORE" ></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.CHECK"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.STATUS"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.ICON"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.PLACEOLDER"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.BUTTON" [data]="'Button'"></yv-cluster-data-cells>
+<yv-cluster-data-cells [type]="dataCellType.ASSIGNEE" [data]="'Ariala Dror'"></yv-cluster-data-cells>
+<hr>
+
+<h3>assignee</h3>
+<yv-cluster-assignee data="Ariela Zoppelmann"></yv-cluster-assignee>
+<hr>
+
+<h3>header cell</h3>
+<yv-cluster-header-cells [type]=headerCellType.TEXT header="text"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.ORDER header="order"
+  (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.ORDERDOWN header="order-down"
+  (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.CHECK></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.MORE></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.PLACEOLDER></yv-cluster-header-cells>
+<hr>
+<h3>switch</h3>
+<yv-cluster-switch [text]="'switch'" [status]="StatusActiveOrNotActive.ACTIVE"
+  (switchChange)="handleSwitchChange($event)"></yv-cluster-switch>
+<hr>
+
+<h3>tab</h3>
+<yv-cluster-basic-tab [text]="'tab'" [status]="StatusActiveOrNotActive.ACTIVE"
+  (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
+<hr>
+
+<h3>card</h3>
+<yv-cluster-basic-card [iconName]="CardIcons.HOME" [text]="'30 New clusters pending'"></yv-cluster-basic-card>
+<br>
+<yv-cluster-basic-card [iconName]="CardIcons.HOURGLASS_CLOCK"
+  [text]="'30 New Suggestions pending'"></yv-cluster-basic-card>
+<br>
+<yv-cluster-basic-card [iconName]="CardIcons.EDIT"
+  [text]="'70 Clusters created manually this month'"></yv-cluster-basic-card>
+<br>
+<yv-cluster-basic-card [iconName]="CardIcons.CLOCK_FIVE"
+  [text]="'560 Old Suggestions  pending'"></yv-cluster-basic-card>
+<br>
+<yv-cluster-basic-card [iconName]="CardIcons.CIRCLE_CHECK"
+  [text]="'120 Suggestions processed this month'"></yv-cluster-basic-card>
+<hr>
+
+<h3>button</h3>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="small"
+  [buttonIcon]="icon"></yv-cluster-button>
+<hr>
+
+<h3>icon button</h3>
+<yv-cluster-icon-button (onClick)="onClick()"></yv-cluster-icon-button>
+<hr>
 <hr>
 <h3>field</h3>
 <yv-cluster-field [property]="stateEnum.ERROR">
@@ -54,196 +151,4 @@
 
 <yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [textControl]="searchControl" placeholder="search">
 </yv-cluster-field>
-<hr>
-
-<h3>icon-button-large</h3>
-<yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
-  [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
-<hr>
-<h3>icon-button-large</h3>
-<hr>
-<yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
-    [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
-<yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
-    [property]="iconButtonLargeType.HOVER"></yv-cluster-icon-button-large>
-<hr>
-<h3>viewer</h3>
-<hr>
-<yv-cluster-viewer pictureName="1"></yv-cluster-viewer>
-<yv-cluster-viewer pictureName="img1"></yv-cluster-viewer>
-<yv-cluster-viewer pictureName="00023"></yv-cluster-viewer>
-<hr>
-<h3>data cell</h3>
-<hr>
-<yv-cluster-data-cells [type]="dataCellType.TEXT" [data]="'this is a text'"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.LINK" [data]="'https://example.com'"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.SLIDER" [data]="80"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.MORE"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.CHECK"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.STATUS"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.ICON"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.PLACEOLDER"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.BUTTON" [data]="'press'"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.ASSIGNEE" [data]="'Racheli Liff'"></yv-cluster-data-cells>
-<hr>
-<h3>SLIDER</h3>
-<hr>
-<yv-cluster-slider [value]=80></yv-cluster-slider>
-<hr>
-
-<h3>assignee</h3>
-<yv-cluster-assignee data="Ariela Zoppelmann"></yv-cluster-assignee>
-<hr>
-
-<h3>check</h3>
-<hr>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
-<hr>
-<h3>textarea</h3>
-<hr>
-<yv-cluster-textarea label="email"></yv-cluster-textarea>
-<yv-cluster-textarea label="last name"></yv-cluster-textarea>
-<hr>
-<h3>header cell</h3>
-<yv-cluster-header-cells [type]=headerCellType.TEXT header="text"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.ORDER header="order"
-  (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.ORDERDOWN header="order-down"
-  (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.CHECK></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.MORE></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.PLACEOLDER></yv-cluster-header-cells>
-<hr>
-<yv-cluster-header-cells [type]=HeaderCellType.TEXT header="text"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.ORDER header="order"
-    (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.ORDERDOWN header="order-down"
-    (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.CHECK></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.MORE></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.PLACEOLDER></yv-cluster-header-cells>
-<hr>
-<h3>icon button</h3>
-<hr>
-<yv-cluster-icon-button (onClick)="onClick()"></yv-cluster-icon-button>
-<hr>
-<h3>enter-bookid</h3>
-<hr>
-<yv-cluster-enter-bookid />
-<hr>
-<h3>buuton</h3>
-<hr>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true
-    [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true
-    [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true
-    [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [disabled]="true"
-    [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=false [disabled]="true"
-    [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true [disabled]="true"
-    [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=false [disabled]="true"
-    [buttonIcon]="icon"></yv-cluster-button>
-
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true [disabled]="true"
-    [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false [disabled]="true"
-    [buttonIcon]="icon"></yv-cluster-button>
-<hr>
-<h3>heading</h3>
-<hr>
-<yv-cluster-heading [title]="title1" [size]="size1" [isBold]=true></yv-cluster-heading>
-<yv-cluster-heading [title]="title2" [size]="size2" [isBold]=true></yv-cluster-heading>
-<yv-cluster-heading [title]="title3" [size]="size3" [isBold]=false></yv-cluster-heading>
-<yv-cluster-heading [title]="title4" [size]="size3" [isBold]=true></yv-cluster-heading>
-<hr>
-<h3>body</h3>
-<hr>
-<yv-cluster-body [bodyText]="bodyText1" [size]="size1" [isBold]=false></yv-cluster-body>
-<yv-cluster-body [bodyText]="bodyText1" [size]="size1" [isBold]=true></yv-cluster-body>
-<yv-cluster-body [bodyText]="bodyText2" [size]="size2" [isBold]=false></yv-cluster-body>
-<yv-cluster-body [bodyText]="bodyText2" [size]="size2" [isBold]=true></yv-cluster-body>
-<yv-cluster-body [bodyText]="bodyText3" [size]="size3" [isBold]=false></yv-cluster-body>
-<hr>
-<h3>switch</h3>
-<yv-cluster-switch [text]="'switch'" [status]="StatusActiveOrNotActive.ACTIVE"
-  (switchChange)="handleSwitchChange($event)"></yv-cluster-switch>
-<hr>
-<yv-cluster-switch [text]="'switch'" [active]="true" (switchChange)="handleSwitchChange($event)"></yv-cluster-switch>
-<hr>
-
-<h3>tab</h3>
-<yv-cluster-basic-tab [text]="'tab'" [status]="StatusActiveOrNotActive.ACTIVE"
-  (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
-<h3>rab</h3>
-<hr>
-<yv-cluster-basic-tab [text]="'tab'" [active]="true" (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
-<hr>
-<h3>toggle</h3>
-<hr>
-<yv-cluster-basic-toggle [rightSelected]="true" [rightText]="'English'" [leftText]="'עברית'"
-    (toggleChange)="handleToggleChange($event)"></yv-cluster-basic-toggle>
-<hr>
-<h3>radio button</h3>
-<hr>
-<yv-cluster-basic-radio-button [disable]="false" [checked]="false" [text]="'Text'"
-    (checkedChange)="handleRadioButtonChange($event)"></yv-cluster-basic-radio-button>
-<yv-cluster-basic-radio-button [disable]="true" [checked]="false" [text]="'Text'"
-    (checkedChange)="handleRadioButtonChange($event)"></yv-cluster-basic-radio-button>
-<yv-cluster-basic-radio-button [disable]="false" [checked]="true" [text]="'Text'"
-    (checkedChange)="handleRadioButtonChange($event)"></yv-cluster-basic-radio-button>
-<yv-cluster-basic-radio-button [disable]="true" [checked]="true" [text]="'Text'"
-    (checkedChange)="handleRadioButtonChange($event)"></yv-cluster-basic-radio-button>
-<hr>
-
-<h3>card</h3>
-<yv-cluster-basic-card [iconName]="CardIcons.HOME" [text]="'30 New clusters pending'"></yv-cluster-basic-card>
-<br>
-<yv-cluster-basic-card [iconName]="CardIcons.HOURGLASS_CLOCK"
-  [text]="'30 New Suggestions pending'"></yv-cluster-basic-card>
-<yv-cluster-basic-card [iconName]="CardIcons.HOURGLASS_CLOCK"
-    [text]="'30 New Suggestions pending'"></yv-cluster-basic-card>
-<br>
-<yv-cluster-basic-card [iconName]="CardIcons.EDIT"
-  [text]="'70 Clusters created manually this month'"></yv-cluster-basic-card>
-<br>
-<yv-cluster-basic-card [iconName]="CardIcons.CLOCK_FIVE"
-  [text]="'560 Old Suggestions  pending'"></yv-cluster-basic-card>
-<br>
-<yv-cluster-basic-card [iconName]="CardIcons.CIRCLE_CHECK"
-  [text]="'120 Suggestions processed this month'"></yv-cluster-basic-card>
-<hr>
-
-<h3>button</h3>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="small"
-  [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-basic-card [iconName]="CardIcons.EDIT"
-    [text]="'70 Clusters created manually this month'"></yv-cluster-basic-card>
-<br>
-<yv-cluster-basic-card [iconName]="CardIcons.CLOCK_FIVE"
-    [text]="'560 Old Suggestions  pending'"></yv-cluster-basic-card>
-<br>
-<yv-cluster-basic-card [iconName]="CardIcons.CIRCLE_CHECK"
-    [text]="'120 Suggestions processed this month'"></yv-cluster-basic-card>
-<hr>
-<hr>
-<h3>slider navigation tab</h3>
-<hr>
-<yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.VARIANT3" [icon]="iconType.HOMELIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
-<yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.ACTIVE" [icon]="iconType.HOMELIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
-<hr><hr>
-<h3>slider navigation</h3>
-<hr>
-<yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
 <hr>
