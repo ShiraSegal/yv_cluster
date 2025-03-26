@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output,EventEmitter } from '@angular/core';
+import { StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
 
 
 @Component({
@@ -10,13 +11,12 @@ import { Component, Input, Output,EventEmitter } from '@angular/core';
   styleUrl: './basic-tab.component.scss'
 })
 export class BasicTabComponent {
-  // @Input() active: boolean=false;
-  @Input() status: string='active';
+  @Input() status:StatusActiveOrNotActive=StatusActiveOrNotActive.ACTIVE;
   @Input() text!: string;
   @Output() tabChange = new EventEmitter<boolean>();
 
   changeStatus(){
-    this.status=='active'?this.status='not-active':this.status='active';
+    this.status=='active'?this.status=StatusActiveOrNotActive.NOT_ACTIVE:this.status=StatusActiveOrNotActive.ACTIVE;
     this.tabChange.emit(this.status=='active');
   }
 

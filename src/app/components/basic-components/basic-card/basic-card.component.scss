@@ -1,0 +1,84 @@
+@import "src/styles.scss";
+.card-container {
+    display: flex;
+    width: 32.125rem;
+    height: 6.5625rem;
+    padding: 0.9375rem 1.875rem;
+    align-items: center;
+    gap: 1.5625rem;
+    border-radius: 0.625rem;
+    background: $white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.icon-circle {
+    display: flex;
+    width: 3.125rem;
+    height: 3.125rem;
+    padding: 0.625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+    border-radius: 6.25rem;
+    background: $light_blue;
+}
+
+.circle-background-fa-hourglass-clock {
+    background:$primary_btn;
+}
+
+.circle-background-fa-clock-five {
+    background: $mint_green;
+}
+
+.circle-background-fa-circle-check {
+    background:$light_blue;
+}
+
+.circle-background-fa-pen-to-square {
+    background:$peach_pink;
+}
+
+.circle-background-fa-house {
+    background:$light_blue;
+}
+
+.icon-fa-hourglass-clock {
+    color: $lavender_blue;
+}
+
+.icon-fa-clock-five {
+    color: $forest_green;
+}
+
+.icon-fa-circle-check {
+    color: $royal_blue;
+}
+
+.icon-fa-pen-to-square {
+    color:$rose_red;
+}
+
+.icon-fa-house {
+    color:$white;
+}
+
+i {
+    color: $white;
+    text-align: center;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 1.25rem;
+    font-style: normal;
+    line-height: normal;
+}
+
+.card-text {
+    flex: 1 0 0;
+    color:$dark_gray;
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
