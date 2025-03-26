@@ -1,51 +1,59 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { BasicTablePropertyType, BasicTableRowPropertyVariants } from 'src/app/enums/basic-enum';
-import { DataCellType ,HeaderCellType ,AutoClusterTabType } from 'src/app/enums/basic-enum';
+import { BasicTablePropertyType, BasicTableRowPropertyVariants, NarrowBasicTableRowInputState, StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
+import { DataCellType, HeaderCellType, AutoClusterTabType } from 'src/app/enums/basic-enum';
+import { BasicTabComponent } from '../basic-tab/basic-tab.component';
+import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table-warp',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, BasicTabComponent ,NarrowBasicTableComponent],
   templateUrl: './narrow-basic-table-warp.component.html',
   styleUrl: './narrow-basic-table-warp.component.scss'
 })
 export class NarrowBasicTableWarpComponent {
 
-    @Input() title: string  = '';
-    @Input() subTitle: string  = '';
-    @Input() data: { [tab : AutoClusterTabType] :{ Headers: { data: string; type: HeaderCellType }[] , Rows: { property: BasicTableRowPropertyVariants; showAction: boolean; cells: { data: string; type: DataCellType }[] }[]}} =
-    {[AutoClusterTabType.SAPIR_CLUSTERS]: {
-      Headers: [
-        { data: 'initialization value', type: HeaderCellType.TEXT }
-       
-      ],
-      Rows: [
-        { 
-          property: BasicTableRowPropertyVariants.DEFAULT, 
-          showAction: true, 
-          cells: [
-            { data: 'initialization value', type: DataCellType.TEXT }
-          
-          ]
-        }
-      ]
-    }};
+  @Input() subTitle: string = '';
+  @Input() data: Partial<Record<AutoClusterTabType, {
+    Headers: { data: string; type: HeaderCellType }[];
+    Rows: {
+      property: NarrowBasicTableRowInputState;
+      showAction: boolean;
+      cells: { data: string; type: DataCellType }[]
+    }[]
+  }>> =
+    {
+      [AutoClusterTabType.SAPIR_CLUSTERS]: {
+        Headers: [],
+        Rows: []
+      }
+    };
+  currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
+  tabs = [
+    { text: AutoClusterTabType.SAPIR_CLUSTERS, status: StatusActiveOrNotActive.ACTIVE },
+    { text: AutoClusterTabType.MISSING_FIELD, status: StatusActiveOrNotActive.NOT_ACTIVE },
+    { text: AutoClusterTabType.ERROR_MESSAGES, status:  StatusActiveOrNotActive.NOT_ACTIVE },
+    { text: AutoClusterTabType.DIFFERENT_CLUSTERS, status:  StatusActiveOrNotActive.NOT_ACTIVE },
+    { text: AutoClusterTabType.CHECKLIST_ITEMS, status:  StatusActiveOrNotActive.NOT_ACTIVE },
+    { text: AutoClusterTabType.APPROVAL_GROUPS, status:  StatusActiveOrNotActive.NOT_ACTIVE }
 
-   
-    currenTab : AutoClusterTabType = AutoClusterTabType.SAPIR_CLUSTERS;
-    tabStatus: string = 'active';
-  tabText: string = 'Click to change status';
+  ];
 
-  onTabChange(isActive: boolean) {
-    this.tabStatus = isActive ? 'active' : 'not-active';
-    this.
+  setActiveTab(tabText: AutoClusterTabType) {
+    this.tabs = this.tabs.map((tab, index) => ({
+      ...tab,
+      status: tab.text === tabText ? StatusActiveOrNotActive.ACTIVE : StatusActiveOrNotActive.NOT_ACTIVE
+
+    }));
+    this.currentTab = tabText;
   }
-    AutoClusterTabType=AutoClusterTabType;
-    HeaderCellType=HeaderCellType;
-    DataCellType=DataCellType;
-    BasicTablePropertyType=BasicTablePropertyType;
-    BasicTableRowPropertyVariants=BasicTableRowPropertyVariants;
+  AutoClusterTabType = AutoClusterTabType;
+  HeaderCellType = HeaderCellType;
+  DataCellType = DataCellType;
+  BasicTablePropertyType = BasicTablePropertyType;
+  narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
+  StatusActiveOrNotActive=StatusActiveOrNotActive;
 
 }
-

@@ -1,0 +1,5 @@
+<div class="narrow-basic-table-row" [ngClass]="property">
+  @for(cell of cells;track cell){
+  <yv-cluster-data-cells [data]="cell.data" [type]="cell.type"></yv-cluster-data-cells>
+  }
+</div>

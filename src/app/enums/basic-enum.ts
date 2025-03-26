@@ -8,7 +8,8 @@ export enum ButtonType {
 
 export enum NarrowBasicTableRowInputState {
   DEFAULT = 'Default',
-  HOVER = 'Hover'
+  HOVER = 'Hover',
+  STATE1 = "STATE1"
 }
 export enum BasicTableRowPropertyVariants {
   DEFAULT = 'Default',
@@ -142,4 +143,3 @@ export enum StatusActiveOrNotActive {
   ACTIVE = "active",
   NOT_ACTIVE = "not-active"
 }
-

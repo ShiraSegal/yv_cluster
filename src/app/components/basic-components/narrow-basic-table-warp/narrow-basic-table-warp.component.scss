@@ -1,0 +1,54 @@
+@import "../../../../styles/colors.scss";
+
+.warp-table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.text-container {
+    display: flex;
+    width: 916px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.title {
+    width: 916px;
+    color: $slate_blue;
+
+    /* Heading/large */
+    font-family: Poppins;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.sub-title {
+    color: $black;
+    font-family: Poppins;
+    font-size: 18.191px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 916px;
+}
+
+.tabs-container {
+    border-bottom: 0.5px solid $sage_gray;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+
+}
+
+.basic-table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
