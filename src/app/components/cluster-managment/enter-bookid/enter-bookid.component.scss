@@ -53,6 +53,7 @@
         padding: var(--Layout-medium, 0.5rem);
         align-items: center;
         gap: var(--Layout-medium, 0.5rem);
+        align-self: stretch;
         overflow: hidden;
         color: $slate_blue;
         text-overflow: ellipsis;

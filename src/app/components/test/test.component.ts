@@ -82,7 +82,7 @@ export class TestComponent {
   secondary = ButtonType.SECONDARY//button type
   tertiany = ButtonType.TERTIARY//button type
   //enum ButtonIcon
-  icon=IconType.CHEVRON_LEFT//button icon
+  icon=IconType.CHEVRON_LEFT_LIGHT//button icon
   
   //button component function
   onClick() {

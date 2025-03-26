@@ -11,7 +11,7 @@ import { IconType } from 'src/app/enums/icon-enum';
   styleUrl: './icon-button.component.scss'
 })
 export class IconButtonComponent {
-  @Input() icon:IconType=IconType.PLUS;
+  @Input() icon:IconType=IconType.PLUS_REGULAR;
   @Output() onClick = new EventEmitter();
 
   handleClick() {

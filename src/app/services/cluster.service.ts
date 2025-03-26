@@ -59,6 +59,10 @@ export class ClusterService {
    
   get ClusterData$()
     {
+      if(!this.createClusterData$.value.length)
+      {
+        this.getCreateClusterData();
+      }
       return this.createClusterData$.asObservable();
     }
    

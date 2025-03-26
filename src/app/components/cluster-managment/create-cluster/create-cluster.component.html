@@ -8,6 +8,7 @@
                 <div class="table-header">
                     <yv-cluster-body [bodyText]="tableHeader1" [size]="size1" [weight]="weight1"
                         [color]="color1"></yv-cluster-body>
+                        <!-- <yv-cluster-header-cells [header]="tableHeader1"></yv-cluster-header-cells> -->
                 </div>
                 <div class="header-cell">
                     <yv-cluster-body [bodyText]="tableHeader2" [size]="size1" [weight]="weight1"
@@ -21,16 +22,15 @@
                 </div>
                 <div class="options-cells">
                     <div class="radiobuttons">
-                        <yv-cluster-radio-button-list [radioButtonArray]="data.RadioOptions" (selectionChange)="onRadioSelectionChange($event)"></yv-cluster-radio-button-list>
+                        <yv-cluster-radio-button-list [radioButtonArray]="data.RadioOptions" (selectionChange)="onRadioSelectionChange($event)" formControlName="radiosChoose"></yv-cluster-radio-button-list>
                     </div>
                 </div>
 
             </div>
             }
-            <app-yv-select class="select" [default]="selectLabel" [options]="options"></app-yv-select>
+            <!-- <app-yv-select class="select" [default]="selectLabel" [options]="options"></app-yv-select> -->
             <!-- <input class="comments" placeholder="Comments"/> -->
-        <!-- <yv-cluster-field></yv-cluster-field> -->
-             
+             <!-- <yv-cluster-field [property]="stateEnum.DEFAULT"></yv-cluster-field> -->
             <div class="outer-button-warp">
                 <div class="divider"></div>
                     <div class="buttons-warp">

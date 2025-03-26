@@ -13,8 +13,10 @@
             <!-- <input type="radio" formControlName="selection" value="cluster" />
             <label class="value">Cluster</label> -->
         </div>
-        <!-- <yv-cluster-field></yv-cluster-field> -->
-        <input class="input" type="text" formControlName="bookId"/>
+
+        <!-- <input class="input" type="text" formControlName="bookId"/> -->
+             <yv-cluster-field [property]="stateEnum.DEFAULT"></yv-cluster-field>
+
         <div class="outer-button-warp">
             <div class="divider"></div>
                 <div class="buttons-warp">

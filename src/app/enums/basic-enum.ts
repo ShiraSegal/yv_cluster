@@ -26,6 +26,7 @@ export enum BasicTablePropertyType{
   OLD_SUGGESTIONS= 'Old Suggestions',
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
+
 // export enum ButtonSize{
 //   BIG="big",
 //   SMALL="small"

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonType, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
+import { ButtonType, State, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
@@ -31,6 +31,7 @@ export class EnterBookidComponent  {
   checked2: boolean = false;
   weight:TextWeight=TextWeight.BOLD;
   color:TextColor=TextColor.NEUTRAL_GRAY;
+  stateEnum =  State ;
 
   // יצירת טופס עם FormGroup ו-Control
   formGroup: FormGroup = new FormGroup({
