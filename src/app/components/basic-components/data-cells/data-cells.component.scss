@@ -1,4 +1,5 @@
 @import "../../../../styles/colors.scss";
+
 .data-cell {
     display: flex;
     align-items: center;
@@ -8,9 +9,9 @@
     flex-basis: 0;
     text-align: center;
 }
+
 .text {
-    // width: 9.375rem;
-    width : 100%;
+    width: 100%;
     height: 2.8125rem;
     align-items: center;
     color: $slate_blue;
@@ -23,10 +24,12 @@
 }
 
 .more {
-    // width: 38px;
-    width : 100%;
-    height: 45px;
-    justify-content: center;
+
+    width: 100%;
+    height: 2.8125rem;
+
+    // justify-content: center;
+
     flex-shrink: 0;
 }
 
@@ -34,41 +37,49 @@
     color: $slate_blue;
     text-align: center;
     font-family: "Font Awesome 6 Pro";
-    font-size: 14px;
+    font-size: 0.875rem;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
-    // width: 21px;
-    width : 100%;
-    height: 17px;
+    width: 1.3125rem;
+    height: 1.0625rem;
     flex-shrink: 0;
+
 }
 
 .link {
-    // width: 150px;
-    width : 100%;
-    height: 45px;
-    justify-content: flex-start;
+
+    display: flex;
+    width: 100%;
+    height: 2.8125rem;
+    padding: var(--layout-02, 0.5rem);
+    align-items: center;
+    gap: 0.625rem;
     flex-shrink: 0;
-    color: $main_primery_main;
+    flex: 1 0 0;
+    color: $main-primery-main;
+
+    /* Body/medium */
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px;
-    flex: 1 0 0;
+    line-height: 1.25rem;
+    /* 142.857% */
 }
 
 .icon {
     display: flex;
-    // width: 38px;
-    width : 100%;
-    height: 45px;
-    padding: var(--layout-02, 8px);
-    justify-content: center;
+    width: 100%;
+    height: 2.8125rem;
+    padding: var(--layout-02, 0.5rem);
+
+    // justify-content: center;
+    
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
     flex-shrink: 0;
+
 }
 
 .clipboard-list-icon {
@@ -78,12 +89,17 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+
+
 }
 
 .status {
-    // width: 150px;
-    width : 100%;
-    height: 45px;
+    display: flex;
+    width: 100%;
+    height: 2.8125rem;
+    padding: var(--layout-02, 0.5rem);
+    align-items: center;
+    gap: 0.625rem;
     flex-shrink: 0;
 }
 
@@ -100,6 +116,6 @@
 }
 
 .fa-solid {
-    color:$slate_blue;
+    color: $slate_blue;
     font-size: 0.875rem;
 }

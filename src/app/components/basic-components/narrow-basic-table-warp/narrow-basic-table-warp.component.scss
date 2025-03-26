@@ -46,9 +46,23 @@
 
 }
 
+// .basic-table-container {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     align-self: stretch;
+// }
+
 .basic-table-container {
+    border-radius: 0.75rem;
+    background: $white;
+
+    /* Drop shadow card */
+    box-shadow: 0px 10px 60px 0px rgba(117, 115, 115, 0.10);
     display: flex;
+    padding: 1.25rem 1.25rem 0.625rem 1.25rem;
     flex-direction: column;
     align-items: flex-start;
+    gap: 1.5rem;
     align-self: stretch;
 }

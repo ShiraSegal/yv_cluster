@@ -17,10 +17,15 @@ import { BasicTabComponent } from "../basic-components/basic-tab/basic-tab.compo
 import { BasicCardComponent } from "../basic-components/basic-card/basic-card.component";
 import { IconButtonComponent } from "../basic-components/icon-button/icon-button.component";
 import { NarrowBasicTableWarpComponent } from "../basic-components/narrow-basic-table-warp/narrow-basic-table-warp.component";
+import { wrap } from "node:module";
+import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
+import { NarrowBasicTableRowComponent } from "../basic-components/narrow-basic-table-row/narrow-basic-table-row.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
   imports: [
+    NarrowBasicTableRowComponent,
+    TableHeaderComponent,
     NarrowBasicTableWarpComponent,
     IconButtonComponent,
     SliderComponent,
@@ -42,69 +47,116 @@ import { NarrowBasicTableWarpComponent } from "../basic-components/narrow-basic-
 export class TestComponent {
 
   //data-----------------------------------------------------------------------
-   
-  customData = {
-    [AutoClusterTabType.SAPIR_CLUSTERS]: {
-      Headers: [{ data: '', type: HeaderCellType.CHECK },
-        { data: 'Cluster ID', type: HeaderCellType.TEXT },
-        { data: 'Comments', type: HeaderCellType.TEXT },
-        { data: 'Date of report', type: HeaderCellType.TEXT }
+  // table-header
+  exampleTableHeader = [{ data: '', type: HeaderCellType.CHECK },
+  { data: 'Header ', type: HeaderCellType.TEXT },
+  { data: 'Header ', type: HeaderCellType.TEXT },
+  { data: 'Header ', type: HeaderCellType.TEXT }
+  ];
+  exampleTableHeader2 = [{ data: '', type: HeaderCellType.CHECK },
+  { data: 'CNT', type: HeaderCellType.TEXT },
+  { data: 'Clustern ID ', type: HeaderCellType.TEXT },
+  { data: 'MissingFileds ', type: HeaderCellType.TEXT },
+  { data: 'Comments ', type: HeaderCellType.TEXT },
+  { data: 'Status ', type: HeaderCellType.TEXT }
+    ,
+  { data: 'Assignee ', type: HeaderCellType.TEXT }
+    ,
+  { data: 'Data of report ', type: HeaderCellType.TEXT }
+    ,
+  { data: 'Assignee Data ', type: HeaderCellType.TEXT }
+  ];
+  exampleTableHeader3 = [{ data: '', type: HeaderCellType.CHECK },
+  { data: 'Header ', type: HeaderCellType.TEXT },
+  { data: 'Header ', type: HeaderCellType.TEXT },
+  { data: 'Header ', type: HeaderCellType.TEXT }
+  ];
+  // narrow-row
+  exampleNarrowRow = [
+    { data: '', type: DataCellType.CHECK },
+    { data: '454682', type: DataCellType.TEXT },
+    { data: 'New', type: DataCellType.TEXT },
+    { data: '01/01/2005', type: DataCellType.TEXT }
+  ];
+  exampleNarrowRow2 = [
+    { data: '', type: DataCellType.CHECK },
+    { data: '1', type: DataCellType.TEXT },
+    { data: '2145286', type: DataCellType.TEXT },
+    { data: 'MissingFileds', type: DataCellType.TEXT }
+    ,
+    { data: 'The error message indicates the actual data structure assigned to customData has nested arrays .', type: DataCellType.TEXT }
+    ,
+    { data:' ', type: DataCellType.STATUS },
+    { data: 'Ariel Shron', type: DataCellType.ASSIGNEE }
+    ,
+    { data: '01/01/2005', type: DataCellType.TEXT },
+    { data: '20/02/2000', type: DataCellType.TEXT }
 
-      ],
+  ];
+  exampleNarrowRow3 = [
+    { data: '', type: DataCellType.CHECK },
+    { data: '454682', type: DataCellType.TEXT },
+    { data: 'New', type: DataCellType.TEXT },
+    { data: '01/01/2005', type: DataCellType.TEXT }
+  ];
+  //  narrow-table-wrap
+  exampleDataForNarrowTable = {
+    [AutoClusterTabType.SAPIR_CLUSTERS]: {
+      Headers: this.exampleTableHeader,
       Rows: [
         {
           property: NarrowBasicTableRowInputState.DEFAULT,
           showAction: false,
-          cells: [{ data: 'CustomCell', type: DataCellType.CHECK }]
+          cells: this.exampleNarrowRow
+        },
+        {
+          property: NarrowBasicTableRowInputState.HOVER,
+          showAction: false,
+          cells: this.exampleNarrowRow
         },
         {
           property: NarrowBasicTableRowInputState.DEFAULT,
           showAction: false,
-          cells: [{ data: 'CustomCell', type: DataCellType.TEXT }]
-        },{
-          property: NarrowBasicTableRowInputState.DEFAULT,
-          showAction: false,
-          cells: [{ data: 'CustomCell', type: DataCellType.TEXT }]
+          cells: this.exampleNarrowRow
         },
         {
-          property: NarrowBasicTableRowInputState.DEFAULT,
+          property: NarrowBasicTableRowInputState.HOVER,
           showAction: false,
-          cells: [{ data: 'CustomCell', type: DataCellType.TEXT }]
-        }
+          cells: this.exampleNarrowRow
+        },
       ]
     },
-  
-  [AutoClusterTabType.MISSING_FIELD]: {
-    Headers: [{ data: '', type: HeaderCellType.CHECK },
-      { data: 'fdhfghj ID', type: HeaderCellType.TEXT },
-      { data: 'Comments', type: HeaderCellType.TEXT },
-      { data: 'Date of report', type: HeaderCellType.TEXT }
 
-    ],
-    Rows: [
-      {
-        property: NarrowBasicTableRowInputState.DEFAULT,
-        showAction: false,
-        cells: [{ data: 'CustomCell', type: DataCellType.CHECK }]
-      },
-      {
-        property: NarrowBasicTableRowInputState.DEFAULT,
-        showAction: false,
-        cells: [{ data: 'CustomCell', type: DataCellType.TEXT }]
-      },{
-        property: NarrowBasicTableRowInputState.DEFAULT,
-        showAction: false,
-        cells: [{ data: 'CustomCell', type: DataCellType.TEXT }]
-      },
-      {
-        property: NarrowBasicTableRowInputState.DEFAULT,
-        showAction: false,
-        cells: [{ data: 'CustomCell', type: DataCellType.TEXT }]
-      }
-    ]
-  }};
+    [AutoClusterTabType.MISSING_FIELD]: {
+      Headers: this.exampleTableHeader2,
+      Rows: [
+        {
+          property: NarrowBasicTableRowInputState.DEFAULT,
+          showAction: false,
+          cells: this.exampleNarrowRow2
+        },
+        {
+          property: NarrowBasicTableRowInputState.HOVER,
+          showAction: false,
+          cells: this.exampleNarrowRow2
+        },
+        {
+          property: NarrowBasicTableRowInputState.DEFAULT,
+          showAction: false,
+          cells: this.exampleNarrowRow2
+        },
+        {
+          property: NarrowBasicTableRowInputState.HOVER,
+          showAction: false,
+          cells: this.exampleNarrowRow2
+        }
+        
+      ]
+    }
+  };
 
   customSubtitle = 'Custom Subtitle';
+
 
   //enums-----------------------------------------------------------------------
   headerCellType = HeaderCellType;//header cell types
@@ -121,8 +173,9 @@ export class TestComponent {
   CheckStateType = CheckStateType; // types of check state.
   CheckType = CheckType; // check type.
   ButtonIcon = ButtonIcon;
-  AutoClusterTabType=AutoClusterTabType;
-  narrowBasicTableRowInputState=NarrowBasicTableRowInputState;
+  AutoClusterTabType = AutoClusterTabType;
+  NarrowBasicTableRowInputState = NarrowBasicTableRowInputState;
+
   //variables-----------------------------------------------------------------------
   // button component properties
   label: string = 'Lable';//button label
