@@ -47,6 +47,7 @@ export class CreateClusterComponent {
   stateEnum =  State ;
   radioControl = new FormControl<string | null>(null);
   dataCells:any = new Observable<string[]>;
+  selectedOption: string = '';
   // options: string[] = [];
  #service=inject(ClusterService);
   ngOnInit() {
@@ -63,6 +64,8 @@ export class CreateClusterComponent {
           values.push(v.Value);
         });
         this.radioControl.setValue(values[0].selectedOption);
+        console.log("rrrrrrrrrr",this.radioControl);
+        
         // values[0].selectedOption=true;
         console.log("element",d);
         if(d.HasOtherOption)
@@ -75,8 +78,8 @@ export class CreateClusterComponent {
 
 
   }
-  radioForm = new FormGroup({radioControl: this.radioControl});
-  selectedOption: string = '';
+  // radioForm = new FormGroup({radioControl: this.radioControl});
+
   onRadioSelectionChange(selectedValue: string) {
     this.selectedOption = selectedValue;
     console.log("האפשרות שנבחרה:", this.selectedOption);
