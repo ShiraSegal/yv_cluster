@@ -1,0 +1,4 @@
+.app-wrraper{
+    display: flex;
+    flex-direction: row;
+}

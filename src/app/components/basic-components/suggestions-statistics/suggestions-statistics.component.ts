@@ -11,9 +11,9 @@ import { Component, Input, SimpleChanges, OnChanges } from '@angular/core';
 export class SuggestionsStatisticsComponent implements OnChanges {
   @Input() data: { color: string, value: number }[] = [];
   @Input() radius: number = 100;
-  @Input() innerRadius: number = 50; // רדיוס העיגול הפנימי הלבן
+  @Input() innerRadius: number = 50;
 
-  segments: { color: string, startAngle: number, endAngle: number }[] = [];
+  segments: { color: string, startAngle: number, endAngle: number, className: string }[] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data']) {
@@ -25,9 +25,9 @@ export class SuggestionsStatisticsComponent implements OnChanges {
     const total = this.data.reduce((sum, item) => sum + item.value, 0);
     let startAngle = 0;
 
-    this.segments = this.data.map(item => {
+    this.segments = this.data.map((item, index) => {
       const endAngle = startAngle + (item.value / total) * 360;
-      const segment = { color: item.color, startAngle, endAngle };
+      const segment = { color: item.color, startAngle, endAngle, className: `segment-${index}` };
       startAngle = endAngle;
       return segment;
     });

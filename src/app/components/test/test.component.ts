@@ -125,12 +125,12 @@ stateEnum = State;
   ];
 
 
-    circleData = [
-      { color: '#ff0000', value: 30 },
-      { color: '#00ff00', value: 20 },
-      { color: '#0000ff', value: 50 }
-    ];
-
+  circleData = [
+    { color: '#A5EBDD', value: 26 },
+    { color: '#1334B9', value: 14 },
+    { color: '#A1AEE3', value: 40 },
+    { color: '#F6CDCD', value: 30 }
+  ];
   // txt1 = "test btn1"
   switchState: boolean = false;
   tabState: boolean = false;
@@ -138,20 +138,6 @@ stateEnum = State;
   radioButtonState: boolean = false;
   CardIcons = CardIcons;
   ToastNotificationIcons = ToastNotificationIcons;
-  // handleSort(event: { column: string, direction: string }) {
-
-  //   console.log(`Sorting by ${event.column} in ${event.direction} order`);
-  // }
-
-  // onClick() {
-  //   alert('test on click');
-  //   console.log('test on click');
-  // }
- 
-
-  // iconp = "fa-solid fa-plus"
-  // // txt1 = "Enter Book ID"
-  // txt2 = "Enter Book ID"
 
   handleSort(event: { column: string, direction: string }) {
  

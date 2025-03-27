@@ -1,10 +1,13 @@
-<div class="cirrcle-wrapper">
+<div class="wrraper">
+  <div class="title">Suggestions Statistics</div>
+<svg class="circle-chart" [attr.viewBox]="'0 0 ' + (radius * 2) + ' ' + (radius * 2)">
+  <ng-container *ngFor="let segment of segments">
+    <path [attr.d]="describeArc(radius, radius, radius, innerRadius, segment.startAngle, segment.endAngle)" [attr.class]="segment.className"></path>
+  </ng-container>
+  <circle [attr.cx]="radius" [attr.cy]="radius" [attr.r]="innerRadius" class="inner-circle"></circle>
+</svg>
+<div class="data">
+<div></div>
 
-<svg [attr.width]="radius * 2" [attr.height]="radius * 2" [attr.viewBox]="'0 0 ' + (radius * 2) + ' ' + (radius * 2)">
-    <ng-container *ngFor="let segment of segments">
-      <path [attr.d]="describeArc(radius, radius, radius, innerRadius, segment.startAngle, segment.endAngle)" [attr.fill]="segment.color"></path>
-    </ng-container>
-
-  </svg> 
- 
+</div>
 </div>

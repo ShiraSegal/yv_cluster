@@ -1,18 +1,60 @@
 :host {
-    display: block;
-  }
+  display: block;
+}
 
-  .cirrcle-wrapper{
-    display: flex;
+.circle-chart {
+  width: 300px; /* Set a fixed width */
+  height: 300px; /* Set a fixed height */
+}
+
+.inner-circle {
+  fill: white;
+}
+
+.segment-0 {
+  fill: #A5EBDD;
+}
+
+.segment-1 {
+  fill: #1334B9;
+}
+
+.segment-2 {
+  fill: #A1AEE3;
+}
+
+.segment-3 {
+  fill: #F6CDCD;
+}
+.wrraper{
+  border-radius: 0.5rem;
+background: #FFF;
+
+/* דיב */
+box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+display: flex;
 width: 35.6875rem;
 height: 42.0625rem;
 padding: 1.875rem;
 flex-direction: column;
 justify-content: space-between;
 align-items: center;
-border-radius: 0.5rem;
-background: #FFF;
+}
+.title{
+  color: #3F4B5A;
 
-
-
-  }
+/* Heading/Small bold */
+font-family: Poppins;
+font-size: 1.125rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+align-self: stretch;
+}
+.data{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  align-self: stretch;
+}
