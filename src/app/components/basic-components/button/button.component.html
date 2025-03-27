@@ -1,10 +1,9 @@
-<button [ngClass]="{'btn': true,'primary': buttonType === 'primary','secondary': buttonType === 'secondary',
-'tertiary': buttonType === 'tertiary',
-  'big-btn': isBig,
-  'small-btn': !isBig,
-}" [disabled]="disabled" (click)="onClick.emit()">
-  <i *ngIf="icon"
-    [ngClass]="{'variant1':iconProperty==='variant1','variant2':iconProperty==='variant2','variant3':iconProperty==='variant3'}"
-    [class]="icon" ></i>
+<button class="btn" [class]="size + ' ' + buttonType"
+ [disabled]="disabled"
+(click)="onClick.emit()"
+>
+  <i *ngIf="buttonIcon"
+    [class]="buttonIcon">
+  </i>
   {{ text }}
 </button>

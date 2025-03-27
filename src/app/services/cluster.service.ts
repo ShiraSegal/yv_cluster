@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, take, tap } from 'rxjs';
+import { BehaviorSubject, catchError, filter, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
 
@@ -9,14 +9,30 @@ import { ClusterApiService } from './cluster-api.service';
 })
 export class ClusterService {
   #translateService = inject(TranslateService);
-  #reservationApiService = inject(ClusterApiService)
+  #clusterApiService = inject(ClusterApiService)
 
-  //private reservationItemBehaviorSubject$ = new BehaviorSubject<ReservationItem>(new ReservationItem());
+  private autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
 
-  // get reservationItem$() {
-  //   return this.reservationItemBehaviorSubject$.asObservable();
-  // }
+  async getAutoClusterData() {
+    var res = this.#clusterApiService.getAutoClusterData();
+      (await res).pipe(take(1), tap(res => {
+        if(res){
+        this.autoClusterListSubject$.next(res);
+        }
+      })).subscribe();
+      return res;
+    }
+
+  get missingFieldsItem$() {
+    //return this.autoClusterListSubject$.pipe(map(s=>{s.clusterID, s.comments})).asObservable();//filter only missingFileds
+    return this.autoClusterListSubject$.asObservable();
+  }
+
+  get checklistItem$() {
+    return this.autoClusterListSubject$.asObservable();//filter only missingFileds
+  }
+
   get isLoading$() {
     return this.isLoadingBehaviorSubject$.asObservable();
   }

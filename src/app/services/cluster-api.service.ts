@@ -9,10 +9,10 @@ export class ClusterApiService {
   basicParam: string = 'reservations';
   #http = inject(HttpClient);
 
-  // async getReservationData(reservationNumber: string,lang:string) {
-  //   return this.#http.get<ResultItem>(
-  //     environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
-  //   );
-  // }
+  async getAutoClusterData() {
+    return this.#http.get<string[]>('/assets/getAutoCluster.json');
+  }
+
+  //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
 
 }
