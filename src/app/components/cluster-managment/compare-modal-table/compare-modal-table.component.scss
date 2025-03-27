@@ -1,0 +1,108 @@
+@import "src/styles.scss";
+
+.table-header {
+    display: flex;
+    padding: 0.25rem 0rem;
+    align-items: center;
+    gap: 0.9375rem;
+    align-self: stretch;
+    // position: sticky;
+    // top: 0;
+    background-color: white;
+    z-index: 1;
+    height: 3.125rem;
+}
+.save-place {
+    display: flex;
+    width: 11.375rem;
+    height: 3.125rem;
+    padding: var(--layout-02, 0.5rem);
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+}
+
+.record-header {
+    display: flex;
+    padding: var(--layout-02, 0.5rem);
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 0 0;
+    align-self: stretch;
+    background: rgba(231, 235, 248, 0.50);
+}
+
+.cluster-number {
+    color: #3F4B5A;
+    width: 8.375rem;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.language-toggel-button {
+    display: flex;
+    padding: 0.0625rem;
+    align-items: center;
+}
+
+.row-header {
+    display: flex;
+    width: 11.375rem;
+    height: 3.125rem;
+    padding: var(--layout-02, 0.5rem);
+    align-items: center;
+    gap: 0.625rem;
+    border-bottom: 0.5px solid var(--D0D6F1, #D0D6F1);
+    // width: 8.375rem;
+    flex-shrink: 0;
+    color: $slate_blue;
+    font-family: Poppins;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.25rem;
+}
+
+.table-container {
+    display: flex;
+    align-self: stretch;
+    flex-direction: row;
+    padding: 0.25rem 0rem;
+    align-items: center;
+    gap: 0.9375rem;
+    overflow-y: auto;
+    max-height: 50.3125rem;
+}
+
+.details-container {
+    display: flex;
+    align-self: stretch;
+    flex-direction: row;
+    padding: 0.25rem 0rem;
+    align-items: center;
+    gap: 0.9375rem;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.data-cell {
+    display: flex;
+    padding: var(--layout-02, 0.5rem);
+    align-items: center;
+    gap: 0.625rem;
+    flex: 1 0 0;
+    height: 3.125rem;
+    align-self: stretch;
+    border-bottom: 0.5px solid var(--D0D6F1, #D0D6F1);
+    // width: 8.375rem;
+    color: $slate_blue;
+    font-family: Rubik;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

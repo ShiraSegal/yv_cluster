@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {  RouterOutlet } from '@angular/router';
 import { TestComponent } from './components/test/test.component';
 
@@ -10,5 +10,9 @@ import { TestComponent } from './components/test/test.component';
   imports: [RouterOutlet,TestComponent],
 })
 export class AppComponent {
+  title = 'yv-clusters';
+  constructor() {
+  }
+
 
 }

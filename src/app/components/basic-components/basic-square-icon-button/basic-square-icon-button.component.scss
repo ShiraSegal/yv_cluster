@@ -22,12 +22,10 @@
         border: 1px solid var(--D0D6F1, #D0D6F1);
         background: var(--E7EBF8, #E7EBF8);
     }
-    &:active{
-        border-radius: 0.25rem;
-        border: 2px solid var(--Primery, #1334B9);
-        background: var(--E7EBF8, #E7EBF8);
-        color: var(--Primery, #1334B9);
-    }
-
 }
-
+.btn.active{
+    border-radius: 0.25rem;
+    border: 2px solid var(--Primery, #1334B9);
+    background: var(--E7EBF8, #E7EBF8);
+    color: var(--Primery, #1334B9);
+}

@@ -7,9 +7,9 @@ import { SquareIconButtonIcon } from 'src/app/enums/basic-enum';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './basic-square-icon-button.component.html',
-  styleUrl: './basic-square-icon-button.component.scss'
+  styleUrls: ['./basic-square-icon-button.component.scss']
 })
 export class BasicSquareIconButtonComponent {
-    @Input() icon:SquareIconButtonIcon  = SquareIconButtonIcon.LIST;
-
+  @Input() icon: SquareIconButtonIcon = SquareIconButtonIcon.LIST;
+  @Input() isActive = false;
 }

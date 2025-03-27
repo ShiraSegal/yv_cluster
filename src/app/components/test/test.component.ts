@@ -13,19 +13,14 @@ import { BadgeComponent } from '../basic-components/badge/badge.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { ButtonComponent } from "../basic-components/button/button.component";
 import { SwitchComponent } from "../basic-components/switch/switch.component";
-import { BasicTabComponent } from "../basic-components/basic-tab/basic-tab.component";
+// import { BasicTabComponent } from "../basic-components/basic-tab/basic-tab.component";
 import { BasicCardComponent } from "../basic-components/basic-card/basic-card.component";
 import { IconButtonComponent } from "../basic-components/icon-button/icon-button.component";
-import { Component } from '@angular/core';
-import { ButtonComponent } from '../basic-components/button/button.component';
-import { ButtonIconProperty, ButtonType,SquareIconButtonIcon } from '../../enums/basic-enum';
-import { CommonModule } from '@angular/common';
-import { BasicSquareIconButtonComponent } from '../basic-components/basic-square-icon-button/basic-square-icon-button.component';
-import { CompareModalButtonComponent } from '../basic-components/compare-modal-button/compare-modal-button.component';
-
+import { CompareModalTableComponent } from "../cluster-managment/compare-modal-table/compare-modal-table.component";
+import { CompareModalButtonComponent } from "../basic-components/compare-modal-button/compare-modal-button.component";
+import { CompareModalPageComponent } from "../cluster-managment/compare-modal-page/compare-modal-page.component";
 @Component({
-  selector: 'app-test',
-  imports: [CommonModule, ButtonComponent,BasicSquareIconButtonComponent,CompareModalButtonComponent],
+  selector: 'yv-cluster-test',
   standalone: true,
   imports: [
     IconButtonComponent,
@@ -39,14 +34,12 @@ import { CompareModalButtonComponent } from '../basic-components/compare-modal-b
     CommonModule,
     ButtonComponent,
     SwitchComponent,
-    BasicTabComponent,
+    // BasicTabComponent,
     BasicCardComponent,
-    IconButtonLargeComponent,],
+    IconButtonLargeComponent,CompareModalPageComponent,CompareModalTableComponent,
+    CompareModalButtonComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
-  styleUrls: ['./test.component.css'],
-
-
 })
 export class TestComponent {
   //enums-----------------------------------------------------------------------
@@ -99,18 +92,8 @@ export class TestComponent {
   }
   //button & icon button component function
   onClick() {
-  primary = ButtonType.PRIMARY
-  secondary = ButtonType.SECONDARY
-  tertiany = ButtonType.TERTIARY
-  variant1=ButtonIconProperty.VARIANT1
-  variant2=ButtonIconProperty.VARIANT2
-  variant3=ButtonIconProperty.VARIANT3
-  list=SquareIconButtonIcon.LIST
-  image=SquareIconButtonIcon.IMAGE
-
-  onClick()
-  {
     alert('test on click');
+    console.log('test on click');
   }
 }
 

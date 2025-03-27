@@ -8,7 +8,7 @@
     height: 50px;
   }
 
-  .check.enabled.checked {
+  .check.enabled.selected {
 color: $primary_btn;
 font-family: "Font Awesome 6 Pro";
 font-size: 14px;
@@ -18,7 +18,7 @@ line-height: normal;
   }
   
 
-  .check.enabled.unchecked {
+  .check.enabled.unselected {
     color: $slate_blue;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
@@ -28,7 +28,7 @@ line-height: normal;
   }
   
 
-  .check.disabled.checked {
+  .check.desabled.selected {
     color: $silver_gray;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
@@ -38,7 +38,7 @@ line-height: normal;
   }
   
   
-  .check.disabled.unchecked {
+  .check.desabled.unselected {
     color: $silver_gray;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
