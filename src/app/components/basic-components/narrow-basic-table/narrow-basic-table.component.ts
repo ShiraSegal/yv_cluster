@@ -15,8 +15,10 @@ import { FieldComponent } from '../field/field.component';
   styleUrl: './narrow-basic-table.component.scss'
 })
 export class NarrowBasicTableComponent {
-  // @Input() headers: { data: string; type: HeaderCellType }[] = []
-    label: string = 'Select Label'; 
+  
+  @Input() tableHeaders: { data: string; type: HeaderCellType }[] = []
+  @Input() tableRows: { property: NarrowBasicTableRowInputState; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = []
+    label: string = 'Select Label';  
     primary = ButtonType.PRIMARY
     variant3 = ButtonIconProperty.VARIANT3
     icon=ButtonIcon.PLUS

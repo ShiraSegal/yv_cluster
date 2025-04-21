@@ -21,7 +21,6 @@ import { TextareaComponent } from '../basic-components/textarea/textarea.compone
 import { SliderNavigationTabComponent } from '../basic-components/slider-navigation-tab/slider-navigation-tab.component';
 import { SlidebarNavigationComponent } from '../basic-components/slidebar-navigation/slidebar-navigation.component';
 import { SwitchComponent } from '../basic-components/switch/switch.component';
-import { BasicTabComponent } from '../basic-components/basic-tab/basic-tab.component';
 import { BasicToggleComponent } from '../basic-components/basic-toggle/basic-toggle.component';
 import { BasicRadioButtonComponent } from '../basic-components/basic-radio-button/basic-radio-button.component';
 import { FilterSectionComponent } from '../basic-components/filter-section/filter-section.component';
@@ -35,7 +34,7 @@ import { ViewerComponent } from '../basic-components/viewer/viewer.component';
 import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
 import { NativeOptionComponent } from '../basic-components/native-option/native-option.component';
 import { NarrowBasicTableComponent } from '../basic-components/narrow-basic-table/narrow-basic-table.component';
-import { BasicTableWarpComponent } from '../basic-components/basic-table-warp/basic-table-warp.component';
+// import { BasicTableWarpComponent } from '../basic-components/basic-table-warp/basic-table-warp.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -66,7 +65,6 @@ import { BasicTableWarpComponent } from '../basic-components/basic-table-warp/ba
       CheckComponent,
      YvSelectComponent,
      IconButtonLargeComponent,
-      BasicTabComponent,
       SliderComponent,
       SwitchComponent,
       ViewerComponent,

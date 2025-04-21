@@ -149,3 +149,7 @@ export  enum ToastNotificationIcons {
         VARIANT3="variant3"
         }
 
+        export enum StatusActiveOrNotActive {
+          ACTIVE = "active",
+          NOT_ACTIVE = "not-active"
+        }
