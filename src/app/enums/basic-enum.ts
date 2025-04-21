@@ -19,15 +19,7 @@ export enum BasicTablePropertyType{
   OLD_SUGGESTIONS= 'Old Suggestions',
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
- 
-export enum CheckType{
-  UNCHECKED ='unchecked',
-  CHECKED = 'checked'
-}
-export enum CheckStateType{
-  ENABLED ='enabled',
-  DISABLED = 'disabled'
-}
+
  
 export enum DataCellType {
   TEXT = 'string',
@@ -76,7 +68,16 @@ export enum ButtonIcon{
     NEUTRAL_GRAY = "neutral-gray",
   }
  
- 
+  export enum CheckType {
+    UNCHECKED = 'unchecked',
+    CHECKED = 'checked'
+  }
+  export enum CheckStateType {
+    ENABLED = 'enabled',
+    DISABLED = 'disabled'
+  }
+  
+  
   export enum HeaderCellType {
     TEXT = "text",
     MORE = "more",
@@ -86,8 +87,16 @@ export enum ButtonIcon{
     CHECK = "check",
     ORDERDOWN = "order down"
   }
-  export type DataCellValue = string | number;
- 
+  // export type DataCellValue = string | number;
+  export type DataCellValue<T extends DataCellType> = 
+  T extends DataCellType.TEXT ? string :
+  T extends DataCellType.LINK ? string | number :
+  T extends DataCellType.ASSIGNEE ? string :
+  T extends DataCellType.BUTTON ? string :
+  T extends DataCellType.SLIDER ? number | null:
+  never; 
+
+
 export  enum CardIcons {
   HOURGLASS_CLOCK="fa-solid fa-hourglass-clock",
   CLOCK_FIVE="fa-solid fa-clock-five",

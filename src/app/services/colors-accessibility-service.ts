@@ -50,6 +50,7 @@ export class ColorsAccessibilityService {
         this.document.documentElement.style.setProperty("--grade_variant_2","#F0F2F4" );
          this.document.documentElement.style.setProperty("--neutral_gray","#2A323C" );
         this.document.documentElement.style.setProperty("--light_royal_blue","#A1AEE3" );
+        this.document.documentElement.style.setProperty("--soft_blue_violet","#8999DC" );
     }
 
 

@@ -1,26 +1,8 @@
-
-//pie-circle
-
+@import "src/styles.scss";
 .pie-circle{
     width: 21.07744rem;
     height: 21.07744rem;
     
-}
-.circle {
-    cx: 100;
-    cy: 100;
-    r: 100;
-    fill: #7185D5;
-}
-.circle-100-percent{
-    cx: 100;
-    cy: 100;
-    r: 100;
-     fill:#F6CDCD;
-}
-
-.part-of-the-circle {
-    fill: #F6CDCD;
 }
 
 // .part-of-the-circle-text{
@@ -34,7 +16,7 @@
 
 // }
 .part-of-the-circle-text {
-    fill: #000; /* צבע הטקסט */
+    fill: $black; /* צבע הטקסט */
     font-family: Poppins;
     font-size: 0.4rem; /* גודל טקסט קטן יותר כדי להתאים לחלקים */
     font-style: normal;

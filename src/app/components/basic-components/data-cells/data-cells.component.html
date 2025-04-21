@@ -1,38 +1,34 @@
 <div [ngClass]="['data-cell', type]">
-    @if(type === dataCellType.TEXT && isString(data)){
+    @if(type === dataCellType.TEXT){
     {{ data }}
     }
     @if(type === dataCellType.MORE ){
     <i class="fas fa-ellipsis-v more-icon"></i>
     }
     @if(type === dataCellType.CHECK){
-        <!-- <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED></yv-cluster-check> -->
+        <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED></yv-cluster-check>
     }
- 
+
     @if(type === dataCellType.STATUS){
-    <!-- <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge> -->
+    <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge>
     }
- 
- 
-   
-    @if(type === dataCellType.ASSIGNEE ){
- 
-        <yv-cluster-assignee data="Ariela Zoppelmann"></yv-cluster-assignee>
+    @if(type === dataCellType.ASSIGNEE && isString(data)){
+        <yv-cluster-assignee [data]="data" ></yv-cluster-assignee>
     }
    
-    @if(type === dataCellType.LINK && isString(data)){        
+    @if(type === dataCellType.LINK ){        
         <a [href]="data">{{ data }}</a>
         }
-     
-    @if(type === dataCellType.ICON){          
-        <!-- <yv-cluster-icon-button-large [icon]="viewerIconType.PRINT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large> -->
+      
+    @if(type === dataCellType.ICON){           
+        <yv-cluster-icon-button-large [icon]="IconType.CHEVRONRIGHT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
     }
  
-    @if(type === dataCellType.SLIDER  && isNumber(data) ){      
-        <yv-cluster-slider [value]=data></yv-cluster-slider>
+    @if(type === dataCellType.SLIDER && isNumber(data) ){       
+        <yv-cluster-slider [value]="data"></yv-cluster-slider>
     }
-   
-    @if(type === dataCellType.BUTTON && isString(data)){      
+    
+    @if(type === dataCellType.BUTTON){       
         <yv-cluster-button (onClick)="onClick()" text=data [buttonType]=buttonType.SECONDARY [buttonIcon]=buttonIcon.CHEVRON_LEFT></yv-cluster-button>
     }
 </div>

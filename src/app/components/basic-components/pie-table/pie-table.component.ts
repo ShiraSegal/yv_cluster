@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
-import { DataCellType} from 'src/app/enums/basic-enum';
+import { DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
 import { LOADIPHLPAPI } from 'node:dns';
+import { HeaderCellsComponent } from '../header-cells/header-cells.component';
 
 @Component({
   selector: 'yv-cluster-pie-table',
   standalone: true,
-  imports: [CommonModule, FormsModule,DataCellsComponent],
+  imports: [CommonModule, FormsModule,DataCellsComponent,HeaderCellsComponent],
   templateUrl: './pie-table.component.html',
   styleUrl: './pie-table.component.scss'
 })
@@ -21,6 +22,7 @@ export class PieTableComponent {
   @Input() thePlaceTotalValue!: { TotalCount: number; Value: string };
   
   DataCellType = DataCellType;
+  HeaderCellType=HeaderCellType
 getValue(subItem: any, key: string): any {
   return subItem[key];
 }

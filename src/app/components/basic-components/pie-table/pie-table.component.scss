@@ -1,3 +1,4 @@
+@import "src/styles.scss";
 .table-container{
     display: flex;
 width: 58.5625rem;
@@ -34,7 +35,7 @@ justify-content: center;
 align-items: center;
 gap: 0.625rem;
 flex: 1 0 0;
-background: var(--Secondary, #425DC7);
+background: $secondary_blue;
 }
 .all-database-areas{
     display: flex;
@@ -44,7 +45,7 @@ justify-content: center;
 align-items: center;
 gap: 0.625rem;
 flex: 1 0 0;
-background: var(--A1AEE3, #A1AEE3);
+background: $light_royal_blue;
 }
 //שורה הטבלה
 .table-row{
@@ -54,7 +55,7 @@ background: var(--A1AEE3, #A1AEE3);
     align-items: center;
     gap: 0.0625rem;
     align-self: stretch;
-    border-bottom: 1px solid #D0D6F1;
+    border-bottom: 1px solid $lavender_blue;
 }
 .table-first-row{
     display: flex;
@@ -63,7 +64,7 @@ padding: 0.25rem 0rem;
 align-items: center;
 gap: 0.0625rem;
 align-self: stretch;
-border-bottom: 1px solid #D0D6F1
+border-bottom: 1px solid $lavender_blue;
 }
 .table-row-one-side{
     display: flex;
@@ -76,20 +77,12 @@ border-bottom: 1px solid #D0D6F1
 }
 
 .table-row-name{
-//     width: 8.375rem;
-// flex-shrink: 0;
-// color: var(--Color-2, #262C34);
-// font-family: Rubik;
-// font-size: 1rem;
-// font-style: normal;
-// font-weight: 500;
-// line-height: normal;
-display: flex;
-width: 8rem;
-padding: var(--layout-02, 0.5rem);
-align-items: center;
-gap: 0.625rem;
-align-self: stretch;
+    display: flex;
+    width: 8rem;
+    padding: var(--layout-02, 0.5rem);
+    align-items: center;
+    gap: 0.625rem;
+    align-self: stretch;
 }
 .table-row-right-side-all-column{
     display: flex;
@@ -129,15 +122,15 @@ align-self: stretch;
     align-self: stretch;
 }
 .data-cell-color-0{
-    background-color:#F6CDCD;
+    background-color:$peach_pink;
 }
 .data-cell-color-1{
-    background-color:#A5B1C0;
+    background-color:$silver_gray;
 }
 .data-cell-color-2{
-    background-color:#A1AEE3;
+    background-color:$light_royal_blue;
 }
 .data-cell-color-3{
-    background-color: #A5EBDD;
+    background-color:$mint_green;
 }
 
