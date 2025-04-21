@@ -118,12 +118,12 @@
     gap: 0.625rem;
     flex: 1 0 0;
     /* התאמה לצורת התאים */
-    text-align: center;
     height: 2.8125rem;
     /* זהה לגובה של .cell */
     width: 9.375rem;
     flex: 1 0 0;
     min-width: 0;
     /* אם יש לך רוחב קבוע */
-
+    text-align: center;
+    justify-content: center;
 }

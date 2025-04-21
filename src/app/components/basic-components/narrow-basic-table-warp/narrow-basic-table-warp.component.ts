@@ -14,6 +14,12 @@ import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-ta
   styleUrl: './narrow-basic-table-warp.component.scss'
 })
 export class NarrowBasicTableWarpComponent {
+  AutoClusterTabType = AutoClusterTabType;
+  HeaderCellType = HeaderCellType;
+  DataCellType = DataCellType;
+  BasicTablePropertyType = BasicTablePropertyType;
+  narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
+  StatusActiveOrNotActive=StatusActiveOrNotActive;
 
   @Input() subTitle: string = '';
   @Input() data: Partial<Record<AutoClusterTabType, {
@@ -26,8 +32,23 @@ export class NarrowBasicTableWarpComponent {
   }>> =
     {
       [AutoClusterTabType.SAPIR_CLUSTERS]: {
-        Headers: [],
-        Rows: []
+        Headers: [{ data: '', type: HeaderCellType.CHECK },
+          { data: 'Cluster ID ', type: HeaderCellType.TEXT },
+          { data: 'Comments ', type: HeaderCellType.TEXT },
+          { data: 'Date of report ', type: HeaderCellType.TEXT }
+          ],
+        Rows:  [
+          {
+            property: this.narrowBasicTableRowInputState.DEFAULT,
+            showAction: false,
+            cells: [
+              { data: '', type: DataCellType.CHECK },
+              { data: '454682', type: DataCellType.TEXT },
+              { data: 'New', type: DataCellType.TEXT },
+              { data: '01/01/2005', type: DataCellType.TEXT }
+            ]
+          }
+        ]
       }
     };
   currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
@@ -49,11 +70,6 @@ export class NarrowBasicTableWarpComponent {
     }));
     this.currentTab = tabText;
   }
-  AutoClusterTabType = AutoClusterTabType;
-  HeaderCellType = HeaderCellType;
-  DataCellType = DataCellType;
-  BasicTablePropertyType = BasicTablePropertyType;
-  narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
-  StatusActiveOrNotActive=StatusActiveOrNotActive;
+ 
 
 }

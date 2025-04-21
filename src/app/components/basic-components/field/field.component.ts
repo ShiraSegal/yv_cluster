@@ -11,11 +11,10 @@ import {  State } from 'src/app/enums/basic-enum';
   styleUrls: ['./field.component.scss']
 })
 export class FieldComponent {
-  //variables
   @Input() property!: State;
   @Input() label!: string ;
   @Input() textControl:FormControl = new FormControl<string>('');
-  //injecting ENUM
+  @Input() placeholder: string = ''; 
   stateEnum =  State ;
  
 }

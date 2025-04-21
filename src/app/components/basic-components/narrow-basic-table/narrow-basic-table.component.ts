@@ -31,32 +31,14 @@ export class NarrowBasicTableComponent {
     // property :NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
     // cells: { data: string; type: DataCellType }[] = [{data: 'test', type: DataCellType.TEXT},{data: '' ,type: DataCellType.CHECK}];
     stateEnum = State
-    // headers: { data: string; type: HeaderCellType }[] = [
-    //   {data: '', type: HeaderCellType.CHECK},
-    //   { data: 'ClusterId ', type: HeaderCellType.TEXT },
-    //   { data: 'Comments', type: HeaderCellType.TEXT },
-    //   { data: 'Date of report', type: HeaderCellType.TEXT }
-    // ];
-
     nativeOptions = NativeOptionType;
     rowProperty: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
 
-  // Define the cells for the row
-    // rowCells: { data: string; type: DataCellType }[] = [
-    // { data: '', type: DataCellType.CHECK },
-    // { data: 'Cell 2', type: DataCellType.TEXT },
-    // { data: 'NEW', type: DataCellType.TEXT },
-    // { data: 'Cell 3', type: DataCellType.TEXT }
-
-  // ] ;
-  // nativeOptions = [
-  //   { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
-  //   { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
-  //   { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
-  // ];
-
-    // @Input() showAction: boolean = false;
-
+  nativeOptionswe = [
+    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
+    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
+    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
+  ];
     trackByFn(index: number, item: any): any {
       return index; 
     }

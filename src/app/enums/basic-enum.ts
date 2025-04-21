@@ -63,15 +63,15 @@ export enum AutoClusterTabType {
   DIFFERENT_CLUSTERS = 'Different Clusters',
   ERROR_MESSAGES = 'Error Messages'
 }
-export enum ButtonIcon {
-  FOLDER_PLUS = "fa-light fa-folder-plus",
-  LAYER_PLUS = "fa-light fa-layer-plus",
-  PLUS = "fa-light fa-plus",
-  FILE_ARROW_DOWN = "fa-light fa-file-arrow-down",
-  CHEVRON_LEFT = "fa-light fa-chevron-left"
-}
 
 
+export enum ButtonIcon{
+  FOLDER_PLUS="fa-light fa-folder-plus",
+  LAYER_PLUS="fa-light fa-layer-plus",
+  PLUS="fa-light fa-plus",
+  FILE_ARROW_DOWN="fa-light fa-file-arrow-down",
+  CHEVRON_LEFT="fa-light fa-chevron-left"
+  }
 
 export enum TextSize {
   LARGE = "large",
@@ -137,10 +137,7 @@ export enum State {
   ERROR = "error"
 }
 
-export enum StatusActiveOrNotActive {
-  ACTIVE = "active",
-  NOT_ACTIVE = "not-active"
-}
+
       export  enum IconButtonLargeType {
         DEFAULT = "default",
         HOVER = "hover",
@@ -160,3 +157,7 @@ export enum StatusActiveOrNotActive {
         VARIANT3="variant3"
         }
 
+        export enum StatusActiveOrNotActive {
+          ACTIVE = "active",
+          NOT_ACTIVE = "not-active"
+        }

@@ -8,6 +8,7 @@
     flex-grow: 1;
     flex-basis: 0;
     text-align: center;
+    justify-content: center;
 }
 
 .text {
@@ -32,6 +33,7 @@
 
     flex-shrink: 0;
 }
+
 
 .more-icon {
     color: $slate_blue;

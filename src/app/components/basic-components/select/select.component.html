@@ -1,5 +1,4 @@
 
-
 <div class="wrapper">
     <fieldset class="common-select-wrapper" [ngClass]='stateEnum'>
   
@@ -7,8 +6,18 @@
         {{ (stateEnum === stateEnumMain.POPULATED || stateEnum === stateEnumMain.FOCUSED) ? label : '' }}
       </legend>
   
-      <div class="custom-select" >
-        <span class="content" [ngClass]="stateEnum">{{ selectedOption || default }}</span>
+      <div class="custom-select">
+        <span class="content" [ngClass]="stateEnum">
+          <ng-container *ngIf="selectedOption">
+            <yv-cluster-native-option
+              [optionType]="selectedOption.optionType"
+              [optionState]="selectedOption.optionState">
+            </yv-cluster-native-option>
+          </ng-container>
+          <ng-container *ngIf="!selectedOption">
+            {{ default }}
+          </ng-container>
+        </span>
         <span class="icon-arrowbottom">
           <i class="fa-solid fa-chevron-down custom-arrow" (click)="toggleDropdown()"></i>
         </span>

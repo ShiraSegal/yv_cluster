@@ -35,9 +35,10 @@ export class SelectComponent {
   }
  
   selectOption(option: { optionType: NativeOptionType; optionState: NativeOptionState }): void {
-    this.setOptionsBasedOnSelect(option.optionType);
+    this.selectedOption = option; 
+    this.dropdownOpen = false; 
   }
-  
+
   onFocus() {
     if (this.stateEnum !== State.DISABLED) {
       this.stateEnum = State.FOCUSED;
