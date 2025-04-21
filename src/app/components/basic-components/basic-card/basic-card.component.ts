@@ -14,7 +14,9 @@ import { CardIcons } from 'src/app/enums/basic-enum';
 export class BasicCardComponent {
   CardIcons = CardIcons;
   @Input() text!: string;
-   @Input() iconName!: CardIcons;
-   ngOnInit(): void{
-   }
+  @Input() iconName!: CardIcons;
+  iconNameTheSecondWord!: string;
+  ngOnInit(): void {
+    this.iconNameTheSecondWord = this.iconName.split(' ')[1];
+  }
 }

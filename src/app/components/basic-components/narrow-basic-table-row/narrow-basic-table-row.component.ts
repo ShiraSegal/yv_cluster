@@ -15,4 +15,5 @@ export class NarrowBasicTableRowComponent {
   @Input() property: NarrowBasicTableRowInputState  = NarrowBasicTableRowInputState.DEFAULT ;
   @Input() cells: { data: string; type: DataCellType }[] = [];
   DataCellType = DataCellType;
+ 
 }

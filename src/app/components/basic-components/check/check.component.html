@@ -1,3 +1,5 @@
 <div class="check" [ngClass]="[type, state]" (click)="toggleCheckbox()">
+
     <input type="checkbox" [checked]="type ===CheckType.CHECKED" [disabled]="state === CheckStateType.DISABLED">
+
   </div>

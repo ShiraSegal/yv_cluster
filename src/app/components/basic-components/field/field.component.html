@@ -2,6 +2,10 @@
   <fieldset [ngClass]="['common-input-wrapper', property]">
     <legend [ngClass]="['input-legend', property]">
       {{ label }}
+<div class="warpper">
+  <fieldset [ngClass]="['common-input-wrapper', property]">
+    <legend [ngClass]="['input-legend', property]">
+      {{ label }}
     </legend>
    
  
@@ -9,6 +13,7 @@
     [disabled]="property !== stateEnum.DISABLED"
       [placeholder]="property" />
   </fieldset>
+
   @if (property === stateEnum.ERROR) {
   <div class="error-message">
     Error Message

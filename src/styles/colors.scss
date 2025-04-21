@@ -1,15 +1,20 @@
 $primary_btn: var(--primary_btn);
 $light_slate_blue: var(--light_slate_blue);
 $light_blue: var(--light_blue);
+$green-dark:var(--green-dark);
+$light-green:var(--light-green);
+$gray:var(--gray);
+$light-gray:var(--light-gray);
+$background-gray:var(--background-gray);
 $light_royal_blue: var(--light_royal_blue);
 $royal_blue: var(--royal_blue);
-$deep_royal_blue: var(--deep_royal_blue); // נוסף
+$deep_royal_blue: var(--deep_royal_blue);
 $slate_blue: var(--slate_blue);
 $lavender_blue: var(--lavender_blue);
 $cool_blue: var(--cool_blue);
 $light_gray_blue: var(--light_gray_blue);
 $light_gray: var(--light_gray);
-$soft_gray: var(--soft_gray); // נוסף (במקום light-gray הכפול)
+$soft_gray: var(--soft_gray);
 $sage_gray: var(--sage_gray);
 $silver_gray: var(--silver_gray);
 $neutral_gray: var(--neutral_gray);
@@ -27,7 +32,6 @@ $white: var(--white);
 $medium_blue: var(--medium_blue);
 $grade_variant_2: var(--grade_variant_2);
 $grade_variant_3: var(--grade_variant_3);
-$grade_variant_4: var(--grade_variant_4);
 $secondary_blue: var(--secondary_blue);
 $table_body_strong: var(--table_body_strong);
 $main_primery_main: var(--main-primery-main);

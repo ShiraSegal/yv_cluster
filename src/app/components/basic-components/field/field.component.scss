@@ -22,30 +22,32 @@
 }
 
 .common-input-wrapper.default {
+  height: 1.5rem;
   border: 0.5px solid #3F4B5A;
 }
 
 .common-input-wrapper.error {
+  height: 1.5rem;
   border: 0.5px solid var(--Color-4, #C00);
   background: #FAEAEA;
 }
 
 .common-input-wrapper.disabled {
+  height: 1.5rem;
   border: 0.5px solid rgba(196, 199, 197, 0.50);
   background: rgba(255, 255, 255, 0.50);
 }
 
 .common-input-wrapper.populated {
+  height: 2rem;
   border: 0.5px solid var(--Color-2, #262C34);
 }
 
 .common-input-wrapper.focused {
+  height: 2rem;
   border: 1px solid var(--Primery, #1334B9);
 }
 legend.default ,legend.error, legend.disabled {
-  padding: 0%;
-}
-legend.focused ,legend.populated {
   padding: 0%;
 }
 
