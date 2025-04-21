@@ -1,21 +1,29 @@
 @import "../../../../styles/colors.scss";
+
 .table-header {
-    display: flex;
-    // width: 101.0625rem;
-    padding: 0.25rem 0rem;
-    align-items: center;
-    align-self: stretch;
-    justify-content: space-between; 
-  }
-  
-  .special-cell {
-    flex-grow: 0;
-    flex-basis: auto;
-    margin-left: auto;
-  }
-  
-  .regular-cell {
-    flex-grow: 1;
-    flex-basis: 0;
-  }
-  
+
+  height: 5.125rem;
+  justify-content: space-between;
+  align-self: stretch;
+
+  // ??
+  border-bottom: 1px solid $lavender_blue;
+
+  display: flex;
+  width: 100%;
+  padding: 0.25rem 0rem;
+  align-items: center;
+
+
+}
+
+.special-cell {
+  flex-grow: 0;
+  flex-basis: auto;
+  margin-left: auto;
+}
+
+.regular-cell {
+  flex-grow: 1;
+  flex-basis: 0;
+}

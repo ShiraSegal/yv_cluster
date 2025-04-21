@@ -1,25 +1,37 @@
 @import "src/styles.scss";
 
 .Hover {
-  background: rgba(231, 235, 248, 0.20);
+    background: rgba(231, 235, 248, 0.20);
 }
 
 .narrow-basic-table-row {
-  // border-bottom: 1px solid #D0D6F1;
-  display: flex;
-  width: 100%;
-  padding: 0.25rem 0rem;
-  align-items: center;
-  gap: 0.0625rem;
+    border-bottom: 1px solid $lavender_blue;
+    display: flex;
+    padding: 0.25rem 0rem;
+    align-items: center;
+    gap: 0.0625rem;
+
 }
 
-.slider .button .assignee .link .status .text {
-  flex-grow: 1;
-  flex-basis: 0;
+.special-cell {
+    flex-grow: 0;
+    flex-basis: auto;
+    margin-left: auto;
 }
 
-.icon .check .more {
-  flex-grow: 0;
-  flex-basis: auto;
-  margin-left: auto;
+.regular-cell {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.cell {
+
+    display: flex;
+    height: 3.125rem;
+    padding: var(--layout-02, 0.5rem);
+    align-items: center;
+    gap: 0.625rem;
+    flex: 1 0 0;
+
+
 }

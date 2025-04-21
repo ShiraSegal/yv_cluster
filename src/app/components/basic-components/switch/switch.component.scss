@@ -20,7 +20,7 @@
     line-height: 1.25rem;
 }
 
-.switch-active {
+.active {
     display: flex;
     flex-direction: row;
     width: 1.59375rem;
@@ -33,7 +33,7 @@
 
 }
 
-.switch-not-active {
+.not-active {
     display: flex;
     flex-direction: row;
     width: 1.59375rem;
@@ -41,8 +41,9 @@
     justify-content: flex-end;
     align-items: center;
     border-radius: 82.5px;
-    border: 1.5px solid $light_gray;
-    background: $light_gray;
+    border: 1.5px solid $sage_gray;
+    background: $sage_gray;
+
     cursor: pointer;
 }
 
@@ -67,10 +68,10 @@
     transition: transform 0.3s;
 }
 
-.switch-active .circle-active {
+.active .circle-active {
     transform: translateX(100%);
 }
 
-.switch-not-active .circle-not-active {
+.not-active .circle-not-active {
     transform: translateX(0%);
 }

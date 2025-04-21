@@ -3,11 +3,9 @@
     <legend [ngClass]="['input-legend', property]">
       {{ label }}
     </legend>
-   
- 
-    <input type="text" class="custom-input" [formControl]="textControl"
-    [disabled]="property !== stateEnum.DISABLED"
-      [placeholder]="property" />
+
+    <input type="text" class="custom-input" [formControl]="textControl" [readonly]="property === stateEnum.DISABLED"
+    [placeholder]="placeholder" />
   </fieldset>
   @if (property === stateEnum.ERROR) {
   <div class="error-message">
