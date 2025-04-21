@@ -30,6 +30,7 @@ export class NarrowBasicTableComponent {
       { data: 'ClusterId ', type: HeaderCellType.TEXT },
       { data: 'Comments', type: HeaderCellType.TEXT },
       { data: 'Date of report', type: HeaderCellType.TEXT }
+      
     ];
 
     rowProperty: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;

@@ -1,4 +1,5 @@
 @import "../../../../styles/colors.scss";
+
 .sort-icon {
     text-align: center;
     font-family: "Font Awesome 6 Pro";
@@ -22,7 +23,7 @@
     padding: var(--layout-02, 0.5rem);
     gap: 0.625rem;
     flex-shrink: 0;
-    color:$slate_blue;
+    color: $slate_blue;
     font-family: Poppins;
     font-size: 0.875rem;
     font-style: normal;
@@ -42,7 +43,7 @@
     align-items: flex-start;
     gap: 0.625rem;
     flex-shrink: 0;
-    color:$slate_blue;
+    color: $slate_blue;
     font-family: Poppins;
     font-size: 0.875rem;
     font-style: normal;
@@ -72,7 +73,7 @@
 }
 
 .header-search-cancle {
-    color:$slate_blue;
+    color: $slate_blue;
     font-family: "Font Awesome 6 Pro";
     font-size: 0.625rem;
     font-style: normal;
@@ -101,13 +102,13 @@
 }
 
 .place-order {
- display: flex;
-width: 1.5625rem;
-height: 3.125rem;
-padding: var(--layout-02, 0.5rem);
-justify-content: flex-end;
-align-items: center;
-gap: 0.625rem;
+    display: flex;
+    width: 1.5625rem;
+    height: 3.125rem;
+    padding: var(--layout-02, 0.5rem);
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.625rem;
 }
 
 .header-cell {
@@ -115,7 +116,14 @@ gap: 0.625rem;
     align-items: center;
     padding: var(--layout-02, 0.5rem);
     gap: 0.625rem;
-    flex-grow: 1;
-    flex-basis: 0;
+    flex: 1 0 0;
+    /* התאמה לצורת התאים */
     text-align: center;
+    height: 2.8125rem;
+    /* זהה לגובה של .cell */
+    width: 9.375rem;
+    flex: 1 0 0;
+    min-width: 0;
+    /* אם יש לך רוחב קבוע */
+
 }
