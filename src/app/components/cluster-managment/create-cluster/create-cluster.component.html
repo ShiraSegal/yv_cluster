@@ -20,9 +20,10 @@
                 <div class="data-cells">
                         <label class="label">{{data.Field}}</label>
                 </div>
+                <!-- <input [formControlName]="data.Field"  > -->
                 <div class="options-cells">
                     <div class="radiobuttons">
-                        <yv-cluster-radio-button-list [radioButtonArray]="data.RadioOptions" (selectionChange)="onRadioSelectionChange($event)"></yv-cluster-radio-button-list>
+                        <yv-cluster-radio-button-list [radioButtonArray]="data.RadioOptions" (selectionChange)="onRadioSelectionChange($event, $index)" [formControlName]="data.Field"></yv-cluster-radio-button-list>
                     </div>
                 </div>
 

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Inject } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, forwardRef, inject, Inject } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
@@ -20,13 +20,20 @@ import { FieldComponent } from '../../basic-components/field/field.component';
 @Component({
   selector: 'yv-cluster-create-cluster',
   standalone: true,
+  // providers: [
+  //   {
+  //     provide: NG_VALUE_ACCESSOR,
+  //     useExisting: forwardRef(() =>),
+  //     multi: true,
+  //   }
+  // ],
   imports: [FormsModule, ReactiveFormsModule,CommonModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent,RadioButtonListComponent, BodyComponent, TableHeaderComponent, YvSelectComponent, ButtonComponent,TextareaComponent,HeaderCellsComponent,FieldComponent],
   templateUrl: './create-cluster.component.html',
   styleUrl: './create-cluster.component.scss'
 })
 export class CreateClusterComponent {
   constructor(private clusterData: ClusterApiService) { }
-  formGroup: FormGroup = new FormGroup({});
+   formGroup: FormGroup = new FormGroup({});
   header: string = 'Create Cluster';
   size: TextSize = TextSize.SMALL;
   weight: TextWeight = TextWeight.BOLD;
@@ -49,6 +56,8 @@ export class CreateClusterComponent {
   dataCells:any = new Observable<string[]>;
   selectedOption: string = '';
   // options: string[] = [];
+  private formBuilder = inject(FormBuilder);
+
  #service=inject(ClusterService);
   ngOnInit() {
   //  this.#service.ClusterData$.subscribe(data => {
@@ -76,12 +85,40 @@ export class CreateClusterComponent {
      console.log("222222222222222222",this.dataCells);
   });
 
+  this.formGroup = this.formBuilder.group({
+    FirstName: ['', Validators.required],
+    LastName: ['', Validators.required],
+    PlaceOfBirth: ['', Validators.required],
+    AuthenticDateOfBirth: ['', Validators.required],
+    RestoredDateOfBirth: ['', Validators.required],
+    PermanentPlace: ['', Validators.required],
+    PlaceOfDeath: ['', Validators.required],
+    AuthenticDateOfDeath: ['', Validators.required],
+    RestoredDateOfDeath: ['', Validators.required],
+    Gender: ['', Validators.required],
+    Fate: ['', Validators.required],
+
+    // values: this.formBuilder.array([], [this.dataCells])
+  });
 
   }
-  // radioForm = new FormGroup({radioControl: this.radioControl});
 
-  onRadioSelectionChange(selectedValue: string) {
+  // get values(): FormArray {
+  //   return this.formGroup.get('values') as FormArray;
+  // }
+  // // radioForm = new FormGroup({radioControl: this.radioControl});
+  // addValue(): void {
+  //   this.values.push(this.formBuilder.control('', Validators.required));
+  // }
+
+  onRadioSelectionChange(selectedValue: string, index: number) {
     this.selectedOption = selectedValue;
     console.log("האפשרות שנבחרה:", this.selectedOption);
+    console.log("index", index);
+    console.log(this.formGroup.controls);
+    
+    
   }
+
+
 }
