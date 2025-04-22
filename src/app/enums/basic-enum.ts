@@ -167,3 +167,7 @@ export  enum ToastNotificationIcons {
       DEFAULT = "default",
       HOVER = "hover"
     }
+    export enum BigCardIcons{
+      ROBOT="fa-solid fa-robot",
+      EDIT="fa-solid fa-pen-to-square",
+    }

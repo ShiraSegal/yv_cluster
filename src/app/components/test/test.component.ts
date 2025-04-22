@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 // import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabIconType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
-import { ButtonSize, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, State} from 'src/app/enums/basic-enum';
+import {  BigCardIcons, ButtonSize, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, State} from 'src/app/enums/basic-enum';
 
 import {TextSize } from 'src/app/enums/basic-enum';
 import { CardIcons, ToastNotificationIcons,RadioButtonListDirection} from 'src/app/enums/basic-enum';
@@ -150,7 +150,7 @@ export class TestComponent {
   RadioButtonListDirection=RadioButtonListDirection
  ButtonSize= ButtonSize;
  ButtonIcon=ButtonIcon
-
+ BigCardIcons=BigCardIcons
     selectedOption: string = '';
 radioButtonArray:string [] = ["a", "b", "c", "d","other"];
 stateEnum = State;
