@@ -17,6 +17,7 @@ import { ButtonIconProperty, NativeOptionState, NativeOptionType } from 'src/app
 })
 export class NarrowBasicTableComponent {
   
+  
   @Input() Headers: { data: string; type: HeaderCellType }[]= [];
   @Input() Rows: { 
     property: NarrowBasicTableRowInputState; 
