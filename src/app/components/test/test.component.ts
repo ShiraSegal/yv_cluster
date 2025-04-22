@@ -36,6 +36,7 @@ import { PieComponentDistributionModalComponent } from '../basic-components/pie-
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
 import { RadioButtonListComponent } from '../basic-components/radio-button-list/radio-button-list.component';
 import { FieldComponent } from '../basic-components/field/field.component';
+import { BigCardComponent } from '../basic-components/big-card/big-card.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -68,7 +69,8 @@ import { FieldComponent } from '../basic-components/field/field.component';
       SwitchComponent,
       TextareaComponent,
       RadioButtonListComponent,
-      FieldComponent
+      FieldComponent,
+      BigCardComponent
     ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
