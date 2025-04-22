@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Inject } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ToastNotificationIcons} from 'src/app/enums/basic-enum';
+import { Component, forwardRef, inject, Inject } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
@@ -13,54 +14,76 @@ import { TextareaComponent } from '../../basic-components/textarea/textarea.comp
 import { ClusterApiService } from 'src/app/services/cluster-api.service';
 import { elementAt, Observable } from 'rxjs';
 import { ClusterService } from 'src/app/services/cluster.service';
-import { log } from 'console';
 import { HeaderCellsComponent } from '../../basic-components/header-cells/header-cells.component';
 import { FieldComponent } from '../../basic-components/field/field.component';
+import { ToastNotificationComponent } from '../../basic-components/toast-notification/toast-notification.component';
 
 @Component({
   selector: 'yv-cluster-create-cluster',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule,CommonModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent,RadioButtonListComponent, BodyComponent, TableHeaderComponent, YvSelectComponent, ButtonComponent,TextareaComponent,HeaderCellsComponent,FieldComponent],
+  imports: [FormsModule, ReactiveFormsModule,CommonModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent,RadioButtonListComponent, BodyComponent, TableHeaderComponent, YvSelectComponent, ButtonComponent,TextareaComponent,HeaderCellsComponent,FieldComponent,ToastNotificationComponent],
   templateUrl: './create-cluster.component.html',
   styleUrl: './create-cluster.component.scss'
 })
 export class CreateClusterComponent {
-  constructor(private clusterData: ClusterApiService) { }
+  // constructor(private clusterData: ClusterApiService) { }
+
+  formBuilder = inject(FormBuilder);
+  #service=inject(ClusterService);
+
+  //form validation
   formGroup!: FormGroup;
+  formIsValid!: boolean;
+
+  //form data
+  dataCells:any = new Observable<string[]>;
+
+  //close dialog
+  close:boolean = false;
+
+  //header
   header: string = 'Create Cluster';
   size: TextSize = TextSize.SMALL;
   weight: TextWeight = TextWeight.BOLD;
   color: TextColor = TextColor.NEUTRAL_GRAY;
+  //table header
   tableHeader1: string = 'Field';
   size1: TextSize = TextSize.MEDIUM;
   weight1: TextWeight = TextWeight.BOLD;
   tableHeader2: string = 'Text Value';
   color1: TextColor = TextColor.SLATE_BLUE;
   //dataCells: string[] = [];//['First Name', 'Last Name', 'Maiden Name', 'Place Of Birth', 'Authentic Date Of Birth', 'Restored Date Of Birth', 'Permanent Place', 'Place of Death', 'Gender', 'Fate'];
-  hederType: HeaderCellType = HeaderCellType.TEXT;
+  // hederType: HeaderCellType = HeaderCellType.TEXT;
+  //select
   selectLabel: string = 'Cluster Level';
+  options: string[] = ['Exact','Most Probable','Possible'];
+
+  //text field
+  stateEnum =  State ;
+
+  //buttons
   button1: string = 'Cancel';
   button2: string = 'Set a cluster';
   btn_size:boolean = false;
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
-  stateEnum =  State ;
-  radioControl!:string;
-  // radioForm = new FormGroup({radioControl: this.radioControl});
-  dataCells:any = new Observable<string[]>;
-  selectedOption: string = '';
-  options: string[] = ['Exact','Most Probable','Possible'];
-  // radiosChoose:any=new FormControl('');
- #service=inject(ClusterService);
+
+  //toast notification
+  ToastNotificationIcons =ToastNotificationIcons;
+
+
+
   
 
   
   ngOnInit() {
-    this.formGroup = new FormGroup({
-      radioControl: new FormControl('', [Validators.required]),
-  },
-      //   , [rarePriceValidator()]
-  );
+    console.log("formIsValid",this.formIsValid);
+    
+  //   this.formGroup = new FormGroup({
+  //     radioControl: new FormControl('', [Validators.required]),
+  // },
+  //     //   , [rarePriceValidator()]
+  // );
     // this.formGroup = new FormGroup({
     //   radiosChoose: new FormControl('', [Validators.required]),
     // },);
@@ -89,23 +112,54 @@ export class CreateClusterComponent {
      console.log("222222222222222222",this.dataCells);
   });
 
+  this.formGroup = this.formBuilder.group({
+    FirstName: ['', Validators.required],
+    LastName: ['', Validators.required],
+    PlaceOfBirth: ['', Validators.required],
+    AuthenticDateOfBirth: ['', Validators.required],
+    RestoredDateOfBirth: ['', Validators.required],
+    PermanentPlace: ['', Validators.required],
+    PlaceOfDeath: ['', Validators.required],
+    AuthenticDateOfDeath: ['', Validators.required],
+    RestoredDateOfDeath: ['', Validators.required],
+    Gender: ['', Validators.required],
+    Fate: ['', Validators.required],
+    // option: ['', Validators.required],
+
+
+    // values: this.formBuilder.array([], [this.dataCells])
+  });
 
   }
-  onRadioSelectionChange(selectedValue: string) {
-    this.selectedOption = selectedValue;
-    console.log("האפשרות שנבחרה:", this.selectedOption);
-    
-  }
+
+  // get values(): FormArray {
+  //   return this.formGroup.get('values') as FormArray;
+  // }
+  // // radioForm = new FormGroup({radioControl: this.radioControl});
+  // addValue(): void {
+  //   this.values.push(this.formBuilder.control('', Validators.required));
+  // }
+
+  // onRadioSelectionChange(selectedValue: string, index: number) {
+  //   this.selectedOption = selectedValue;
+  //   console.log("האפשרות שנבחרה:", this.selectedOption);
+  //   console.log("index", index);
+  //   console.log(this.formGroup.controls);
+  // }
 
   createCluster(){
     console.log("formGroup",this.formGroup);
-    console.log("rrrrrrad",this.radioControl);
+    // console.log("rrrrrrad",this.radioControl);
     
-    if(!this.formGroup.valid){
-     alert("Please fill all the fields");
+    if(this.formGroup.valid){
+      // alert("Cluster created successfully");
+      this.formIsValid = true;
     }
     else{
-      alert("Cluster created successfully");
+      this.formIsValid = false;
+
     }
   }
+
+
 }

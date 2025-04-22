@@ -20,23 +20,24 @@
                 <div class="data-cells">
                         <label class="label">{{data.Field}}</label>
                 </div>
+                <!-- <input [formControlName]="data.Field"  > -->
                 <div class="options-cells">
                     <div class="radiobuttons">
-                        <yv-cluster-radio-button-list [radioButtonArray]="data.RadioOptions" [(ngModel)]="radioControl" (selectionChange)="onRadioSelectionChange($event)" formControlName="radioControl"></yv-cluster-radio-button-list>
+                        <yv-cluster-radio-button-list [radioButtonArray]="data.RadioOptions"  [formControlName]="data.Field"></yv-cluster-radio-button-list>
                     </div>
                 </div>
 
             </div>
             }
-            <!-- <app-yv-select class="select" [default]="selectLabel" [options]="options"></app-yv-select> -->
+            <app-yv-select class="select" [default]="selectLabel" [options]="options" formControlName="option"></app-yv-select>
             <!-- <input class="comments" placeholder="Comments"/> -->
-             <!-- <yv-cluster-field [property]="stateEnum.DEFAULT"></yv-cluster-field> -->
+             <yv-cluster-field [property]="stateEnum.DEFAULT"></yv-cluster-field>
             <div class="outer-button-warp">
                 <div class="divider"></div>
                     <div class="buttons-warp">
                         <div class="buttons">
                             <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType1"
-                                [text]="button1">
+                                [text]="button1" (onClick)="this.close=true">
                             </yv-cluster-button>
     
                             <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType2"
@@ -50,3 +51,10 @@
         </div>
     </div>
 </form>
+@if(formIsValid==true){
+<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.SUCCESS"[message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+
+}
+@if(formIsValid==false){
+<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.ERROR" [message]="'Please fill all the fields'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+}
