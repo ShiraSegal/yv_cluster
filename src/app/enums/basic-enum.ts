@@ -32,13 +32,6 @@ export enum BasicTablePropertyType{
 //   SMALL="small"
 // }
 
-// export enum ButtonIcon{
-//   FOLDER_PLUS="fa-light fa-folder-plus",
-//   LAYER_PLUS="fa-light fa-layer-plus",
-//   PLUS="fa-light fa-plus",
-//   FILE_ARROW_DOWN="fa-light fa-file-arrow-down",
-//   CHEVRON_LEFT="fa-light fa-chevron-left"
-//   }
 
   export enum TextSize{
     LARGE="large",
@@ -50,8 +43,13 @@ export enum BasicTablePropertyType{
     BLACK = "black",
     SLATE_BLUE = "slate-blue",
     NEUTRAL_GRAY = "neutral-gray",
-    Dark_Gray = "dark-gray",
+    DARK_GRAY = "dark-gray",
     COOl_BLUE="cool-blue",
+    PRIMARY_BTN= "primary_btn",
+    MEDIUM_GRAY="medium_gray",
+    VIBRANT_GREEN="vibrant_green",
+    DEEP_BLACK="deep_black",
+    WHITE="white"
   }
  
   export enum TextWeight {

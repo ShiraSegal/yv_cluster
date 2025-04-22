@@ -66,29 +66,7 @@ export class ClusterService {
       return this.createClusterData$.asObservable();
     }
    
-  
-  //  async getCreateClusterData() {
-  //     var res = this.#clusterApiService.getCreateClusterData();
-      
-  //       (await res).pipe(tap(res => {
-  //         if(res){
-  //         this.createClusterData$.next(res);
-  //         }
-  //       })).subscribe();
-  //       console.log("res",res);
-        
-  //       return res;
-  //     }
-   
-      // async getCreateClusterData() {
-      //   var res = this.#clusterApiService.getCreateClusterData();
-      //     (await res).pipe(take(1), tap(res => {
-      //       if(res){
-      //       this.createClusterData$.next(res);
-      //       }
-      //     })).subscribe();
-      //     return res;
-      //   }
+
 
   async getCreateClusterData() {
     const res = this.#clusterApiService.getCreateClusterData();

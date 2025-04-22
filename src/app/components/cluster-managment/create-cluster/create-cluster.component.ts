@@ -45,15 +45,22 @@ export class CreateClusterComponent {
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
   stateEnum =  State ;
-  radioControl = new FormControl<string | null>(null);
+  radioControl!:string;
+  // radioForm = new FormGroup({radioControl: this.radioControl});
   dataCells:any = new Observable<string[]>;
   selectedOption: string = '';
   options: string[] = ['Exact','Most Probable','Possible'];
+  // radiosChoose:any=new FormControl('');
  #service=inject(ClusterService);
   
 
   
   ngOnInit() {
+    this.formGroup = new FormGroup({
+      radioControl: new FormControl('', [Validators.required]),
+  },
+      //   , [rarePriceValidator()]
+  );
     // this.formGroup = new FormGroup({
     //   radiosChoose: new FormControl('', [Validators.required]),
     // },);
@@ -70,8 +77,7 @@ export class CreateClusterComponent {
         d.Values.forEach((v:any) => {
           values.push(v.Value);
         });
-        this.radioControl.setValue(values[0].selectedOption);
-        console.log("rrrrrrrrrr",this.radioControl);
+    
         
         // values[0].selectedOption=true;
         console.log("element",d);
@@ -85,9 +91,21 @@ export class CreateClusterComponent {
 
 
   }
-  radioForm = new FormGroup({radioControl: this.radioControl});
   onRadioSelectionChange(selectedValue: string) {
     this.selectedOption = selectedValue;
     console.log("האפשרות שנבחרה:", this.selectedOption);
+    
+  }
+
+  createCluster(){
+    console.log("formGroup",this.formGroup);
+    console.log("rrrrrrad",this.radioControl);
+    
+    if(!this.formGroup.valid){
+     alert("Please fill all the fields");
+    }
+    else{
+      alert("Cluster created successfully");
+    }
   }
 }

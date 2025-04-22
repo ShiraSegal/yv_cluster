@@ -22,7 +22,7 @@
                 </div>
                 <div class="options-cells">
                     <div class="radiobuttons">
-                        <yv-cluster-radio-button-list [radioButtonArray]="data.RadioOptions" (selectionChange)="onRadioSelectionChange($event)" formControlName="radiosChoose"></yv-cluster-radio-button-list>
+                        <yv-cluster-radio-button-list [radioButtonArray]="data.RadioOptions" [(ngModel)]="radioControl" (selectionChange)="onRadioSelectionChange($event)" formControlName="radioControl"></yv-cluster-radio-button-list>
                     </div>
                 </div>
 
@@ -40,7 +40,7 @@
                             </yv-cluster-button>
     
                             <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType2"
-                                [text]="button2">
+                                [text]="button2" (onClick)="createCluster()">
                             </yv-cluster-button>
                         </div>
                     </div>
