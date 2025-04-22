@@ -71,6 +71,8 @@ export class CreateClusterComponent {
           values.push(v.Value);
         });
         this.radioControl.setValue(values[0].selectedOption);
+        console.log("rrrrrrrrrr",this.radioControl);
+        
         // values[0].selectedOption=true;
         console.log("element",d);
         if(d.HasOtherOption)
