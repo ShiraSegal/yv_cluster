@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { CardIcons } from 'src/app/enums/basic-enum';
+import { IconType } from 'src/app/enums/icon-enum';
 
 
 
@@ -12,9 +12,9 @@ import { CardIcons } from 'src/app/enums/basic-enum';
   styleUrl: './basic-card.component.scss'
 })
 export class BasicCardComponent {
-  CardIcons = CardIcons;
+  iconType=IconType;
   @Input() text!: string;
-   @Input() iconName!: CardIcons;
+   @Input() iconName!: IconType;
    ngOnInit(): void{
    }
 }

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import {  BigCardIcons, ButtonSize, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, State} from 'src/app/enums/basic-enum';
 
 import {TextSize } from 'src/app/enums/basic-enum';
-import { CardIcons, ToastNotificationIcons,RadioButtonListDirection} from 'src/app/enums/basic-enum';
+import {  ToastNotificationIcons,RadioButtonListDirection} from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
 import { ButtonComponent } from '../basic-components/button/button.component';
@@ -37,6 +37,7 @@ import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bo
 import { RadioButtonListComponent } from '../basic-components/radio-button-list/radio-button-list.component';
 import { FieldComponent } from '../basic-components/field/field.component';
 import { BigCardComponent } from '../basic-components/big-card/big-card.component';
+import { IconType } from 'src/app/enums/icon-enum';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -116,6 +117,7 @@ export class TestComponent {
   // title = 'yv-clusters';
   HeaderCellType = HeaderCellType;
   DataCellType = DataCellType;
+  iconType=IconType;
   // SliderNavigationTabIconType = SliderNavigationTabIconType;
   // SliderNavigationTabType = SliderNavigationTabType;
  
@@ -145,7 +147,6 @@ export class TestComponent {
     //enums
     iconButtonLargeType = IconButtonLargeType;
     dataCellType = DataCellType;
-  CardIcons = CardIcons;
   ToastNotificationIcons = ToastNotificationIcons;
   RadioButtonListDirection=RadioButtonListDirection
  ButtonSize= ButtonSize;

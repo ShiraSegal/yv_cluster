@@ -15,4 +15,9 @@ export enum IconType {
     ZOOMIN = "fa-light fa-magnifying-glass-minus ",
     ZOOMOUT = "fa-light fa-magnifying-glass-plus ",
     CHEVRONRIGHT = "fa-light fa-chevron-right",
+    HOURGLASS_CLOCK="fa-solid fa-hourglass-clock",
+    CLOCK_FIVE="fa-solid fa-clock-five",
+    EDIT="fa-solid fa-pen-to-square",
+    CIRCLE_CHECK="fa-solid fa-circle-check",
+    HOME="fa-light fa-house"
 }

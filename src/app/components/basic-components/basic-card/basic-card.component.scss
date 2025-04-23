@@ -24,45 +24,51 @@
     background: $light_blue;
 }
 
-.circle-background-hourglass-clock {
-    background:$primary_btn;
-}
-
-.circle-background-clock-five {
-    background: $mint_green;
-}
-
-.circle-background-circle-check {
-    background:$light_blue;
-}
-
-.circle-background-edit {
-    background:$peach_pink;
-}
-
-.circle-background-home {
-    background:$light_blue;
-}
-
-.icon-hourglass-clock {
+::ng-deep .fa-solid.fa-hourglass-clock{
+    background:$primary_btn !important;
     color: $lavender_blue;
 }
 
-.icon-clock-five {
+::ng-deep .fa-solid.fa-clock-five {
+    background: $mint_green !important;
     color: $forest_green;
 }
 
-.icon-circle-check {
+::ng-deep .fa-solid.fa-circle-check {
+    background:$light_blue;
     color: $royal_blue;
+
 }
 
-.icon-edit {
+::ng-deep .fa-solid.fa-pen-to-square {
+    background:$peach_pink !important;
     color:$rose_red;
 }
 
-.icon-home {
+::ng-deep .fa-light.fa-house {
+    background:$light_blue;
     color:$white;
 }
+
+// .icon-hourglass-clock {
+//     color: $lavender_blue;
+// }
+
+// .icon-clock-five {
+//     color: $forest_green;
+// }
+
+// .icon-circle-check {
+//     color: $royal_blue;
+// }
+
+// .icon-edit {
+//     color:$rose_red;
+// }
+
+// .icon-home {
+//     color:$white;
+// }
 
 i {
     color: $white;
