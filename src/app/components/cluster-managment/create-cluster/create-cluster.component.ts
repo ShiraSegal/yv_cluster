@@ -34,6 +34,7 @@ export class CreateClusterComponent {
   //form validation
   formGroup!: FormGroup;
   formIsValid!: boolean;
+  formGroupFields: any = {};
 
   //form data
   dataCells:any = new Observable<string[]>;
@@ -80,20 +81,7 @@ export class CreateClusterComponent {
   
   ngOnInit() {
     console.log("formIsValid",this.formIsValid);
-    
-  //   this.formGroup = new FormGroup({
-  //     radioControl: new FormControl('', [Validators.required]),
-  // },
-  //     //   , [rarePriceValidator()]
-  // );
-    // this.formGroup = new FormGroup({
-    //   radiosChoose: new FormControl('', [Validators.required]),
-    // },);
-    
-  //  this.#service.ClusterData$.subscribe(data => {
-  //   this.createClusterData=data;
-  //  });
-  // this.#service.getCreateClusterData();
+
   this.#service.ClusterData$.subscribe(data => {
     console.log('SapirClusterDetails:', data); // כאן תקבל את הנתונים עצמם
      this.dataCells = data; // שמירת הנתונים במשתנה
@@ -110,67 +98,28 @@ export class CreateClusterComponent {
           values.push("other");
          d.RadioOptions=values;
     });
-    //  this.options.push("other"); 
      console.log("222222222222222222",this.dataCells);
+
+
+  this.dataCells.forEach((field: any) => {
+    this.formGroupFields[field.Field] = ['', Validators.required];
   });
 
-  // this.formGroup = this.formBuilder.group({
-  //   FirstName: ['', Validators.required],
-  //   LastName: ['', Validators.required],
-  //   PlaceOfBirth: ['', Validators.required],
-  //   AuthenticDateOfBirth: ['', Validators.required],
-  //   RestoredDateOfBirth: ['', Validators.required],
-  //   PermanentPlace: ['', Validators.required],
-  //   PlaceOfDeath: ['', Validators.required],
-  //   AuthenticDateOfDeath: ['', Validators.required],
-  //   RestoredDateOfDeath: ['', Validators.required],
-  //   Gender: ['', Validators.required],
-  //   Fate: ['', Validators.required],
-  //   // option: ['', Validators.required],
-
-
-  //   // values: this.formBuilder.array([], [this.dataCells])
-  // });
-
-  
-  const formGroupFields:any= [];
-  this.dataCells.forEach((field:any) => {
-    formGroupFields[field] = ['', Validators.required];
+  this.formGroup = this.formBuilder.group(this.formGroupFields);
   });
 
-  this.formGroup = this.formBuilder.group(formGroupFields);
 }
-
-  }
-
-  // get values(): FormArray {
-  //   return this.formGroup.get('values') as FormArray;
-  // }
-  // // radioForm = new FormGroup({radioControl: this.radioControl});
-  // addValue(): void {
-  //   this.values.push(this.formBuilder.control('', Validators.required));
-  // }
-
-  // onRadioSelectionChange(selectedValue: string, index: number) {
-  //   this.selectedOption = selectedValue;
-  //   console.log("האפשרות שנבחרה:", this.selectedOption);
-  //   console.log("index", index);
-  //   console.log(this.formGroup.controls);
-  // }
 
   createCluster(){
     console.log("formGroup",this.formGroup);
-    // console.log("rrrrrrad",this.radioControl);
     
     if(this.formGroup.valid){
-      // alert("Cluster created successfully");
       this.formIsValid = true;
     }
     else{
       this.formIsValid = false;
-
     }
   }
 
-
 }
+
