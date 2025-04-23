@@ -46,6 +46,7 @@ export class CreateClusterComponent {
   size: TextSize = TextSize.SMALL;
   weight: TextWeight = TextWeight.BOLD;
   color: TextColor = TextColor.NEUTRAL_GRAY;
+  
   //table header
   tableHeader1: string = 'Field';
   size1: TextSize = TextSize.MEDIUM;
@@ -54,6 +55,7 @@ export class CreateClusterComponent {
   color1: TextColor = TextColor.SLATE_BLUE;
   //dataCells: string[] = [];//['First Name', 'Last Name', 'Maiden Name', 'Place Of Birth', 'Authentic Date Of Birth', 'Restored Date Of Birth', 'Permanent Place', 'Place of Death', 'Gender', 'Fate'];
   // hederType: HeaderCellType = HeaderCellType.TEXT;
+
   //select
   selectLabel: string = 'Cluster Level';
   options: string[] = ['Exact','Most Probable','Possible'];
@@ -112,23 +114,32 @@ export class CreateClusterComponent {
      console.log("222222222222222222",this.dataCells);
   });
 
-  this.formGroup = this.formBuilder.group({
-    FirstName: ['', Validators.required],
-    LastName: ['', Validators.required],
-    PlaceOfBirth: ['', Validators.required],
-    AuthenticDateOfBirth: ['', Validators.required],
-    RestoredDateOfBirth: ['', Validators.required],
-    PermanentPlace: ['', Validators.required],
-    PlaceOfDeath: ['', Validators.required],
-    AuthenticDateOfDeath: ['', Validators.required],
-    RestoredDateOfDeath: ['', Validators.required],
-    Gender: ['', Validators.required],
-    Fate: ['', Validators.required],
-    // option: ['', Validators.required],
+  // this.formGroup = this.formBuilder.group({
+  //   FirstName: ['', Validators.required],
+  //   LastName: ['', Validators.required],
+  //   PlaceOfBirth: ['', Validators.required],
+  //   AuthenticDateOfBirth: ['', Validators.required],
+  //   RestoredDateOfBirth: ['', Validators.required],
+  //   PermanentPlace: ['', Validators.required],
+  //   PlaceOfDeath: ['', Validators.required],
+  //   AuthenticDateOfDeath: ['', Validators.required],
+  //   RestoredDateOfDeath: ['', Validators.required],
+  //   Gender: ['', Validators.required],
+  //   Fate: ['', Validators.required],
+  //   // option: ['', Validators.required],
 
 
-    // values: this.formBuilder.array([], [this.dataCells])
+  //   // values: this.formBuilder.array([], [this.dataCells])
+  // });
+
+  
+  const formGroupFields:any= [];
+  this.dataCells.forEach((field:any) => {
+    formGroupFields[field] = ['', Validators.required];
   });
+
+  this.formGroup = this.formBuilder.group(formGroupFields);
+}
 
   }
 
