@@ -32,7 +32,6 @@ export class ClusterService {
   //   return data;
   // }
   getAutoClusterData() {
-    debugger
      return this.#clusterApiService.getAutoClusterData();
     // .subscribe(data => {
     //   console.log('Real data:', data);

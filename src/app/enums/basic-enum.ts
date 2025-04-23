@@ -45,13 +45,13 @@ export enum DataCellType {
   SLIDER = 'slider',
   PLACEOLDER = 'place-order',
 }
-export type DataCellValue<T extends DataCellType> = 
+export type DataCellValue<T extends DataCellType> =
   T extends DataCellType.TEXT ? string :
   T extends DataCellType.LINK ? string | number :
   T extends DataCellType.ASSIGNEE ? string :
   T extends DataCellType.BUTTON ? string :
-  T extends DataCellType.SLIDER ? number | null:
-  never; 
+  T extends DataCellType.SLIDER ? number | null :
+  never;
 
 
 
@@ -65,13 +65,13 @@ export enum AutoClusterTabType {
 }
 
 
-export enum ButtonIcon{
-  FOLDER_PLUS="fa-light fa-folder-plus",
-  LAYER_PLUS="fa-light fa-layer-plus",
-  PLUS="fa-light fa-plus",
-  FILE_ARROW_DOWN="fa-light fa-file-arrow-down",
-  CHEVRON_LEFT="fa-light fa-chevron-left"
-  }
+export enum ButtonIcon {
+  FOLDER_PLUS = "fa-light fa-folder-plus",
+  LAYER_PLUS = "fa-light fa-layer-plus",
+  PLUS = "fa-light fa-plus",
+  FILE_ARROW_DOWN = "fa-light fa-file-arrow-down",
+  CHEVRON_LEFT = "fa-light fa-chevron-left"
+}
 
 export enum TextSize {
   LARGE = "large",
@@ -137,27 +137,26 @@ export enum State {
   ERROR = "error"
 }
 
+export enum IconButtonLargeType {
+  DEFAULT = "default",
+  HOVER = "hover",
+}
+export enum NativeOptionType {
+  ASSIGNEE = "assignee",
+  STATUS = "status",
+  TEXT = "text"
+}
+export enum NativeOptionState {
+  DEFAULT = "default",
+  HOVER = "hover"
+}
+export enum ButtonIconProperty {
+  VARIANT1 = "variant1",
+  VARIANT2 = "variant2",
+  VARIANT3 = "variant3"
+}
 
-      export  enum IconButtonLargeType {
-        DEFAULT = "default",
-        HOVER = "hover",
-      } 
-      export enum NativeOptionType{
-        ASSIGNEE = "assignee",
-        STATUS = "status",
-        TEXT = "text"
-      }
-      export enum NativeOptionState{
-        DEFAULT = "default",
-        HOVER = "hover"
-      }
-      export enum ButtonIconProperty{
-        VARIANT1="variant1",
-        VARIANT2="variant2",
-        VARIANT3="variant3"
-        }
-
-        export enum StatusActiveOrNotActive {
-          ACTIVE = "active",
-          NOT_ACTIVE = "not-active"
-        }
+export enum StatusActiveOrNotActive {
+  ACTIVE = "active",
+  NOT_ACTIVE = "not-active"
+}
