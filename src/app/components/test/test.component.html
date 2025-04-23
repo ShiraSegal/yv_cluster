@@ -29,32 +29,12 @@
     { data: 'Racheli Liff', type: dataCellType.ASSIGNEE }
   ]"></yv-cluster-basic-table-row>
 <hr>
-<h3>badge</h3>
+<!-- <h3>badge</h3>
 <hr>
 <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge>
 <yv-cluster-badge [property]="badgeType.DONE"></yv-cluster-badge>
-<hr>
-<h3>field</h3>
-<yv-cluster-field [property]="stateEnum.ERROR">
-<hr> <yv-cluster-field [property]="stateEnum.ERROR" placeholder="search">
-</yv-cluster-field>
-<yv-cluster-field [property]="stateEnum.DISABLED">
+<hr> -->
 
-<yv-cluster-field [property]="stateEnum.DISABLED" [textControl]="searchControl" placeholder="search">
-</yv-cluster-field>
-<yv-cluster-field [property]="stateEnum.DEFAULT">
-
-<yv-cluster-field [property]="stateEnum.DEFAULT" [textControl]="searchControl" placeholder="search">
-</yv-cluster-field>
-<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'">
-
-<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [textControl]="searchControl" placeholder="search">
-</yv-cluster-field>
-<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'">
-
-<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [textControl]="searchControl" placeholder="search">
-</yv-cluster-field>
-<hr>
 
 <h3>icon-button-large</h3>
 <yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
@@ -69,9 +49,9 @@
 <hr>
 <h3>viewer</h3>
 <hr>
-<yv-cluster-viewer pictureName="1"></yv-cluster-viewer>
+<!-- <yv-cluster-viewer pictureName="1"></yv-cluster-viewer> -->
 <yv-cluster-viewer pictureName="img1"></yv-cluster-viewer>
-<yv-cluster-viewer pictureName="00023"></yv-cluster-viewer>
+<!-- <yv-cluster-viewer pictureName="00023"></yv-cluster-viewer> -->
 <hr>
 <h3>data cell</h3>
 <hr>
@@ -102,11 +82,6 @@
 <yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
 <yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
 <hr>
-<h3>textarea</h3>
-<hr>
-<yv-cluster-textarea label="email"></yv-cluster-textarea>
-<yv-cluster-textarea label="last name"></yv-cluster-textarea>
-<hr>
 <h3>header cell</h3>
 <yv-cluster-header-cells [type]=headerCellType.TEXT header="text"></yv-cluster-header-cells>
 <yv-cluster-header-cells [type]=headerCellType.ORDER header="order"
@@ -118,21 +93,12 @@
 <yv-cluster-header-cells [type]=headerCellType.MORE></yv-cluster-header-cells>
 <yv-cluster-header-cells [type]=headerCellType.PLACEOLDER></yv-cluster-header-cells>
 <hr>
-<yv-cluster-header-cells [type]=HeaderCellType.TEXT header="text"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.ORDER header="order"
-    (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.ORDERDOWN header="order-down"
-    (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.CHECK></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.MORE></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=HeaderCellType.PLACEOLDER></yv-cluster-header-cells>
-<hr>
+
 <h3>icon button</h3>
 <hr>
 <yv-cluster-icon-button (onClick)="onClick()"></yv-cluster-icon-button>
 <hr>
-<h3>enter-bookid</h3>
+<!-- <h3>enter-bookid</h3>
 <hr>
 <yv-cluster-enter-bookid />
 <hr>
@@ -205,9 +171,9 @@
     (checkedChange)="handleRadioButtonChange($event)"></yv-cluster-basic-radio-button>
 <yv-cluster-basic-radio-button [disable]="true" [checked]="true" [text]="'Text'"
     (checkedChange)="handleRadioButtonChange($event)"></yv-cluster-basic-radio-button>
-<hr>
+<hr> -->
 
-<h3>card</h3>
+<!-- <h3>card</h3>
 <yv-cluster-basic-card [iconName]="CardIcons.HOME" [text]="'30 New clusters pending'"></yv-cluster-basic-card>
 <br>
 <yv-cluster-basic-card [iconName]="CardIcons.HOURGLASS_CLOCK"
@@ -223,12 +189,12 @@
 <br>
 <yv-cluster-basic-card [iconName]="CardIcons.CIRCLE_CHECK"
   [text]="'120 Suggestions processed this month'"></yv-cluster-basic-card>
-<hr>
+<hr> -->
 
-<h3>button</h3>
+<!-- <h3>button</h3>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="small"
-  [buttonIcon]="icon"></yv-cluster-button>
-<yv-cluster-basic-card [iconName]="CardIcons.EDIT"
+  [buttonIcon]="icon"></yv-cluster-button> -->
+<!-- <yv-cluster-basic-card [iconName]="CardIcons.EDIT"
     [text]="'70 Clusters created manually this month'"></yv-cluster-basic-card>
 <br>
 <yv-cluster-basic-card [iconName]="CardIcons.CLOCK_FIVE"
@@ -236,7 +202,7 @@
 <br>
 <yv-cluster-basic-card [iconName]="CardIcons.CIRCLE_CHECK"
     [text]="'120 Suggestions processed this month'"></yv-cluster-basic-card>
-<hr>
+<hr> -->
 <hr>
 <h3>slider navigation tab</h3>
 <hr>
@@ -246,4 +212,25 @@
 <h3>slider navigation</h3>
 <hr>
 <yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
+<hr>
+<h3>field</h3>
+<yv-cluster-field [property]="stateEnum.ERROR">
+<hr> <yv-cluster-field [property]="stateEnum.ERROR" placeholder="search">
+</yv-cluster-field>
+<yv-cluster-field [property]="stateEnum.DISABLED">
+
+<yv-cluster-field [property]="stateEnum.DISABLED" [textControl]="searchControl" placeholder="search">
+</yv-cluster-field>
+<yv-cluster-field [property]="stateEnum.DEFAULT">
+
+<yv-cluster-field [property]="stateEnum.DEFAULT" [textControl]="searchControl" placeholder="search">
+</yv-cluster-field>
+<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'">
+
+<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [textControl]="searchControl" placeholder="search">
+</yv-cluster-field>
+<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'">
+
+<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [textControl]="searchControl" placeholder="search">
+</yv-cluster-field>
 <hr>

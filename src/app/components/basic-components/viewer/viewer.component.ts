@@ -17,7 +17,8 @@ export class ViewerComponent {
   iconType = IconType;
   iconButtonLargeType = IconButtonLargeType;
   rotations = [
-    'rot-0', 'rot-90', 'rot-180', 'rot-270'
+    'rot-0', 'rot-90', 'rot-180', 'rot-270', 
+    'rot-360', 'rot-minus-90', 'rot-minus-180', 'rot-minus-270'
   ];
 
   scales = [
@@ -28,7 +29,7 @@ export class ViewerComponent {
   index: number = 0;
   scaleIndex: number = 0;
   rotationClass = 'rot-0';
-  zoomClass = 'scale-1'; // Assuming you have a zoomClass property
+  zoomClass = 'scale-1';
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['pictureName']) {
@@ -75,6 +76,10 @@ export class ViewerComponent {
   }
 
   rotateLeft() {
+    // let newRotation = (this.rotationIndex + direction / 90) % this.rotations.length;
+    // if (newRotation < 0) {
+    //   newRotation += this.rotations.length;
+      debugger
     console.log('rotateLeft called');
     this.index = (this.index - 1 + this.rotations.length) % this.rotations.length;
     this.rotationClass = this.rotations[this.index];
@@ -82,6 +87,7 @@ export class ViewerComponent {
   }
 
   rotateRight() {
+    debugger
     console.log('rotateRight called');
     this.index = (this.index + 1) % this.rotations.length;
     this.rotationClass = this.rotations[this.index];
