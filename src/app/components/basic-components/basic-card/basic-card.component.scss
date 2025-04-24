@@ -7,7 +7,7 @@
     align-items: center;
     gap: 1.5625rem;
     border-radius: 0.625rem;
-    background: $white;
+    background: $c-FFFFFF;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
@@ -21,51 +21,51 @@
     gap: 0.625rem;
     flex-shrink: 0;
     border-radius: 6.25rem;
-    background: $light_blue;
+    background: $c-B8C2EA;
 }
 
 .circle-background-hourglass-clock {
-    background:$primary_btn;
+    background:$c-1334B9;
 }
 
 .circle-background-clock-five {
-    background: $mint_green;
+    background: $c-A5EBDD;
 }
 
 .circle-background-circle-check {
-    background:$light_blue;
+    background:$c-B8C2EA;
 }
 
 .circle-background-edit {
-    background:$peach_pink;
+    background:$c-F6CDCD;
 }
 
 .circle-background-home {
-    background:$light_blue;
+    background:$c-B8C2EA;
 }
 
 .icon-hourglass-clock {
-    color: $lavender_blue;
+    color: $c-D0D6F1;
 }
 
 .icon-clock-five {
-    color: $forest_green;
+    color: $c-1F8A7;
 }
 
 .icon-circle-check {
-    color: $royal_blue;
+    color: $c-5A71CE;
 }
 
 .icon-edit {
-    color:$rose_red;
+    color:$c-E25F5;
 }
 
 .icon-home {
-    color:$white;
+    color:$c-FFFFFF;
 }
 
 i {
-    color: $white;
+    color: $c-FFFFFF;
     text-align: center;
     font-family: "Font Awesome 6 Pro";
     font-size: 1.25rem;
@@ -75,7 +75,7 @@ i {
 
 .card-text {
     flex: 1 0 0;
-    color:$dark_gray;
+    color:$c-262C34;
     font-family: Poppins;
     font-size: 1.125rem;
     font-style: normal;

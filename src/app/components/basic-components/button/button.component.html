@@ -1,4 +1,4 @@
-<button [ngClass]="{'btn': true,'primary': buttonType === 'primary','secondary': buttonType === 'secondary',
+<!-- <button [ngClass]="{'btn': true,'primary': buttonType === 'primary','secondary': buttonType === 'secondary',
 'tertiary': buttonType === 'tertiary',
   'big': isBig,
   'small': !isBig,
@@ -7,5 +7,14 @@
 >
   <i *ngIf="buttonIcon"
     [class]="buttonIcon"></i>
+  {{ text }}
+</button> -->
+
+<button class="btn" [ngClass]="buttonType"  [disabled]="disabled"
+(click)="onClick.emit()"
+>
+@if(buttonIcon){
+  <i [class]="buttonIcon"></i>
+}
   {{ text }}
 </button>

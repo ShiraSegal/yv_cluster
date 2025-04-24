@@ -75,9 +75,6 @@ export class CreateClusterComponent {
   ToastNotificationIcons =ToastNotificationIcons;
 
 
-
-  
-
   
   ngOnInit() {
     console.log("formIsValid",this.formIsValid);
@@ -104,13 +101,18 @@ export class CreateClusterComponent {
   this.dataCells.forEach((field: any) => {
     this.formGroupFields[field.Field] = ['', Validators.required];
   });
-
+  this.formGroupFields['option'] = ['', Validators.required];
   this.formGroup = this.formBuilder.group(this.formGroupFields);
+
+
+  
   });
 
 }
 
   createCluster(){
+    console.log("formGroupFields",this.formGroupFields);
+console.log("clusterLevel",this.formGroupFields['ClusterLevel']);
     console.log("formGroup",this.formGroup);
     
     if(this.formGroup.valid){
@@ -119,6 +121,8 @@ export class CreateClusterComponent {
     else{
       this.formIsValid = false;
     }
+    console.log("formIsValid",this.formIsValid);
+    
   }
 
 }

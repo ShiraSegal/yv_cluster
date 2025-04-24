@@ -21,7 +21,7 @@
     padding: var(--layout-02, 0.5rem);
     gap: 0.625rem;
     flex-shrink: 0;
-    color:$slate_blue;
+    color:$c-3F4B5A;
     font-family: Poppins;
     font-size: 0.875rem;
     font-style: normal;
@@ -41,7 +41,7 @@
     align-items: flex-start;
     gap: 0.625rem;
     flex-shrink: 0;
-    color:$slate_blue;
+    color:$c-3F4B5A;
     font-family: Poppins;
     font-size: 0.875rem;
     font-style: normal;
@@ -67,11 +67,11 @@
     align-items: center;
     gap: 0.625rem;
     align-self: stretch;
-    border-bottom: 1px solid $slate_blue;
+    border-bottom: 1px solid $c-3F4B5A;
 }
 
 .header-search-cancle {
-    color:$slate_blue;
+    color:$c-3F4B5A;
     font-family: "Font Awesome 6 Pro";
     font-size: 0.625rem;
     font-style: normal;
@@ -87,7 +87,7 @@
     justify-content: flex-end;
     align-items: center;
     gap: 0.625rem;
-    color: $slate_blue;
+    color: $c-3F4B5A;
     text-align: center;
     font-family: "Font Awesome 6 Pro";
     font-size: 0.875rem;
