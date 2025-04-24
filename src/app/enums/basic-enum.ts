@@ -96,14 +96,6 @@ export enum ButtonIcon{
   T extends DataCellType.SLIDER ? number | null:
   never; 
 
-
-// export  enum CardIcons {
-//   HOURGLASS_CLOCK="fa-solid fa-hourglass-clock",
-//   CLOCK_FIVE="fa-solid fa-clock-five",
-//   EDIT="fa-solid fa-pen-to-square",
-//   CIRCLE_CHECK="fa-solid fa-circle-check",
-//   HOME="fa-light fa-house"
-//     }
 export  enum ToastNotificationIcons {
   ERROR="fa-solid fa-circle-xmark",
   SUCCESS="fa-solid fa-circle-check",
@@ -167,7 +159,9 @@ export  enum ToastNotificationIcons {
       DEFAULT = "default",
       HOVER = "hover"
     }
-    export enum BigCardIcons{
-      ROBOT="fa-solid fa-robot",
-      EDIT="fa-solid fa-pen-to-square",
+
+
+    export enum BigCardSize{
+      SHORT = "short",
+      LONG = "long"
     }

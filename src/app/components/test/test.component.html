@@ -98,19 +98,19 @@
  <yv-cluster-filter-section [buttonText]="'New Cluster'" [icon]="ButtonIcon.PLUS"></yv-cluster-filter-section>
  <hr>
  <h3>card</h3>
- <yv-cluster-basic-card [iconName]="iconType.HOME" [text]="'30 New clusters pending'"></yv-cluster-basic-card>
+ <yv-cluster-basic-card [iconName]="iconType.HOME" [text]="'30 New clusters pending'" [circleColor]="'#B8C2EA'" [iconColor]="'#FFFFFF'" ></yv-cluster-basic-card>
  <br>
- <yv-cluster-basic-card [iconName]="iconType.HOURGLASS_CLOCK" [text]="'30 New Suggestions pending'"></yv-cluster-basic-card>
+ <yv-cluster-basic-card [iconName]="iconType.HOURGLASS_CLOCK" [text]="'30 New Suggestions pending'" [circleColor]="'#1334B9'" [iconColor]="'#D0D6F1'"></yv-cluster-basic-card>
  <br>
- <yv-cluster-basic-card [iconName]="iconType.EDIT" [text]="'70 Clusters created manually this month'"></yv-cluster-basic-card>
+ <yv-cluster-basic-card [iconName]="iconType.EDIT" [text]="'70 Clusters created manually this month'" [circleColor]="'#F6CDCD'" [iconColor]="'#E25F5F'"></yv-cluster-basic-card>
  <br>
- <yv-cluster-basic-card [iconName]="iconType.CLOCK_FIVE" [text]="'560 Old Suggestions  pending'"></yv-cluster-basic-card>
+ <yv-cluster-basic-card [iconName]="iconType.CLOCK_FIVE" [text]="'560 Old Suggestions  pending'" [circleColor]="'#A5EBDD'" [iconColor]="'#1F8A74'"></yv-cluster-basic-card>
  <br>
- <yv-cluster-basic-card [iconName]="iconType.CIRCLE_CHECK" [text]="'120 Suggestions processed this month'"></yv-cluster-basic-card>
+ <yv-cluster-basic-card [iconName]="iconType.CIRCLE_CHECK" [text]="'120 Suggestions processed this month'" [circleColor]="'#B8C2EA'" [iconColor]="'#5A71CE'"></yv-cluster-basic-card>
  <h3>big card</h3>
-<yv-cluster-big-card [text]="'Number of clusters generated automatically'" [number]="1.500" [iconName]="BigCardIcons.ROBOT"></yv-cluster-big-card>
+<yv-cluster-big-card [text]="'Number of clusters generated automatically'" [number]="1.500" [iconName]="iconType.ROBOT" [size]="BigCardSize.SHORT"></yv-cluster-big-card>
  <br>
- <yv-cluster-big-card [text]="'Number of clusters generated automatically'" [number]="1.500" [iconName]="BigCardIcons.EDIT"></yv-cluster-big-card>
+ <yv-cluster-big-card [text]="'Number of clusters generated automatically'" [number]="1.500" [iconName]="iconType.EDIT" [size]="BigCardSize.LONG"></yv-cluster-big-card>
  <br>
  <hr>
  <h3>toast</h3>

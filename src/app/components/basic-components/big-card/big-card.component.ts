@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BigCardIcons } from 'src/app/enums/basic-enum';
-
+import { BigCardSize } from 'src/app/enums/basic-enum';
+import { IconType } from 'src/app/enums/icon-enum';
 @Component({
   selector: 'yv-cluster-big-card',
   standalone: true,
@@ -11,9 +11,12 @@ import { BigCardIcons } from 'src/app/enums/basic-enum';
   styleUrl: './big-card.component.scss'
 })
 export class BigCardComponent {
-  BigCardIcons=BigCardIcons;
-   @Input() text!:string;
-   @Input() number!:number;
-      @Input() iconName!: string;
-      
+  @Input() text!: string;
+  @Input() number!: number;
+  @Input() iconName!: IconType;
+  @Input() size!: BigCardSize;
+  
+  iconType = IconType;
+  bigCardSize=BigCardSize;
+
 }

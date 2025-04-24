@@ -21,55 +21,35 @@
     gap: 0.625rem;
     flex-shrink: 0;
     border-radius: 6.25rem;
-    background: $light_blue;
+    // background: $light_blue;
+    background-color: var(--circle-color);
+    color: var(--icon-color);
 }
-
-::ng-deep .fa-solid.fa-hourglass-clock{
-    background:$primary_btn !important;
-    color: $lavender_blue;
-}
-
-::ng-deep .fa-solid.fa-clock-five {
-    background: $mint_green !important;
-    color: $forest_green;
-}
-
-::ng-deep .fa-solid.fa-circle-check {
-    background:$light_blue;
-    color: $royal_blue;
-
-}
-
-::ng-deep .fa-solid.fa-pen-to-square {
-    background:$peach_pink !important;
-    color:$rose_red;
-}
-
-::ng-deep .fa-light.fa-house {
-    background:$light_blue;
-    color:$white;
-}
-
-// .icon-hourglass-clock {
+// ::ng-deep .fa-solid.fa-hourglass-clock{
+//     background:$primary_btn !important;
 //     color: $lavender_blue;
 // }
 
-// .icon-clock-five {
+// ::ng-deep .fa-solid.fa-clock-five {
+//     background: $mint_green !important;
 //     color: $forest_green;
 // }
 
-// .icon-circle-check {
+// ::ng-deep .fa-solid.fa-circle-check {
+//     background:$light_blue;
 //     color: $royal_blue;
+
 // }
 
-// .icon-edit {
+// ::ng-deep .fa-solid.fa-pen-to-square {
+//     background:$peach_pink !important;
 //     color:$rose_red;
 // }
 
-// .icon-home {
+// ::ng-deep .fa-light.fa-house {
+//     background:$light_blue !important;
 //     color:$white;
 // }
-
 i {
     color: $white;
     text-align: center;

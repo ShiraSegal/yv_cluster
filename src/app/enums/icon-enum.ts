@@ -19,5 +19,6 @@ export enum IconType {
     CLOCK_FIVE="fa-solid fa-clock-five",
     EDIT="fa-solid fa-pen-to-square",
     CIRCLE_CHECK="fa-solid fa-circle-check",
-    HOME="fa-light fa-house"
+    HOME="fa-light fa-house",
+    ROBOT="fa-solid fa-robot",
 }

@@ -11,31 +11,18 @@ import { ClusterService } from 'src/app/services/cluster.service';
 @Component({
   selector: 'yv-cluster-pie-component-distribution-modal',
   standalone: true,
-  imports: [CommonModule, FormsModule, PieCircleComponent, PieTableComponent,ButtonComponent],
+  imports: [CommonModule, FormsModule, PieCircleComponent, PieTableComponent, ButtonComponent],
   templateUrl: './pie-component-distribution-modal.component.html',
   styleUrls: ['./pie-component-distribution-modal.component.scss']
 })
 export class PieComponentDistributionModalComponent {
-    #clusterService = inject(ClusterService)
   @Input() title!: string;
+  #clusterService = inject(ClusterService)
+  tertiany: ButtonType = ButtonType.TERTIARY;
+  size: ButtonSize = ButtonSize.SMALL;
+  statisticData!: Observable<any[]>;
   colorsArray: string[] = ['#F6CDCD', '#A5B1C0', '#A1AEE3', '#A5EBDD',];
-
   showAllThaDatabasePie: boolean = true;
-  tertiany:ButtonType=ButtonType.TERTIARY;
-  size:ButtonSize=ButtonSize.SMALL;
-  statisticData!:Observable<any[]>;
-
-  constructor(private clusterService: ClusterService) {}
-
-  ngOnInit() {
-      this.statisticData = this.#clusterService.statisticData$;
-      console.log("statisticData: ", this.statisticData);
-      
-  }
-
-
-
-
   data = {
     "LastName": [{
       "Count": 3000,
@@ -54,21 +41,21 @@ export class PieComponentDistributionModalComponent {
       "Code": "T342541",
       "Value": "Blumen"
     }
-    // , {
-    //   "Count": 1200,
-    //   "Code": "T342541",
-    //   "Value": "Glukigen"
-    // }
-    // , {
-    //   "Count": 200,
-    //   "Code": "T342541",
-    //   "Value": "Glukigen"
-    // }
-    // , {
-    //   "Count": 200,
-    //   "Code": "T342541",
-    //   "Value": "Glukigen"
-    // }
+      // , {
+      //   "Count": 1200,
+      //   "Code": "T342541",
+      //   "Value": "Glukigen"
+      // }
+      // , {
+      //   "Count": 200,
+      //   "Code": "T342541",
+      //   "Value": "Glukigen"
+      // }
+      // , {
+      //   "Count": 200,
+      //   "Code": "T342541",
+      //   "Value": "Glukigen"
+      // }
     ]
     ,
     "LastNameInPlaces": [
@@ -94,6 +81,13 @@ export class PieComponentDistributionModalComponent {
 
       }
     ]
+  }
+
+  constructor(private clusterService: ClusterService) { }
+  ngOnInit() {
+    this.statisticData = this.#clusterService.statisticData$;
+    console.log("statisticData: ", this.statisticData);
+
   }
   changeTheShowingPei() {
     this.showAllThaDatabasePie = !this.showAllThaDatabasePie;

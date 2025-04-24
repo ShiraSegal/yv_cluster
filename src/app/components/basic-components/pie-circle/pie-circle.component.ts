@@ -10,12 +10,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './pie-circle.component.scss'
 })
 export class PieCircleComponent {
-  beginPlace: number = 0;
   @Input() pieColorsArray!: string[];
   @Input() totalValue!: { TotalCount: number; Value: string };
   @Input() data!: { Count: number; Code: string; Value: string }[];
+  beginPlace: number = 0;
   remainingPercentage: number = 0;
-  // lastColor: string = '#F6CDCD';
 
 
   // פונקציה לחישוב אחוז מתוך סכום כללי
