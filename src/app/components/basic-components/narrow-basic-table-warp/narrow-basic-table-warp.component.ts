@@ -98,7 +98,7 @@ export class NarrowBasicTableWarpComponent {
   }
   readonly DBKeyToHeaderMap: { [key: string]: string } = {
     clusterID: 'Cluster ID',
-    comment: 'Comments',
+    // comment: 'Comments',
     missingField: 'Missing field',
     status: 'Status',
     assignee: 'Assignee',
@@ -124,7 +124,7 @@ export class NarrowBasicTableWarpComponent {
       { data: 'CNT', type: HeaderCellType.TEXT },
       { data: this.DBKeyToHeaderMap['clusterID'], type: HeaderCellType.TEXT },
       { data: this.DBKeyToHeaderMap['missingField'], type: HeaderCellType.TEXT },
-      { data: this.DBKeyToHeaderMap['comment'], type: HeaderCellType.TEXT },
+      { data: 'Comments', type: HeaderCellType.TEXT },
       { data: 'Status', type: HeaderCellType.TEXT },
       { data: 'Assignee', type: HeaderCellType.TEXT },
       { data: 'Date of report', type: HeaderCellType.TEXT },
@@ -169,23 +169,39 @@ export class NarrowBasicTableWarpComponent {
     ],
     
   };
-  // Fetch data for the current tab and map it to the table format
   loadDataForTab() {
-    debugger;
+  //   debugger;
+  // const tabData = this.getDataForCurrentTab(); 
+
+  //   this.Headers = this.TabHeaders[this.currentTab];
+
+  //   this.Rows = tabData.map((item: any) => ({
+  //     property: item,
+  //     showAction: true,
+  //     cells: this.Headers.map(header => ({
+  //       data: item[header.data] || '', 
+  //       type: DataCellType.TEXT
+  //     }))
+  //   }));
   const tabData = this.getDataForCurrentTab(); 
 
-    // Set headers for the current tab
-    this.Headers = this.TabHeaders[this.currentTab];
-
-    // Map rows for the current tab
-    this.Rows = tabData.map((item: any) => ({
-      property: item,
-      showAction: true,
-      cells: this.Headers.map(header => ({
-        data: item[header.data] || '', // Match data with header labels
+  this.Headers = this.TabHeaders[this.currentTab];
+  const headerToKeyMap = Object.entries(this.DBKeyToHeaderMap).reduce((acc, [key, value]) => {
+    acc[value] = key;
+    return acc;
+  }, {} as { [key: string]: string });
+  
+  this.Rows = tabData.map((item: any) => ({
+    property: item,
+    showAction: true,
+    cells: this.Headers.map(header => {
+      const jsonKey = headerToKeyMap[header.data] || header.data; // Map header name to JSON key
+      return {
+        data: item[jsonKey] || '', // Use the mapped JSON key to fetch data
         type: DataCellType.TEXT
-      }))
-    }));
+      };
+    })
+  }));
   }
   ngOnInit() {
     this.data1 = this.clusterService.getAutoClusterData().subscribe((data) => {
