@@ -1,0 +1,110 @@
+@import "../../../../styles/colors.scss";
+
+.warpper {
+  display: flex;
+  padding: 1rem;
+  align-items: flex-start;
+  flex-direction: column;
+  background:$white;
+  gap: 0.1rem;
+}
+
+.common-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 16.75rem;
+  min-width: 9.6875rem;
+  max-width: 28.125rem;
+  padding: var(--Layout-medium, 0.5rem);
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: var(--Border-radius-small, 0.25rem);
+}
+
+.common-input-wrapper.default {
+  border: 0.03125rem solid $slate_blue;
+}
+
+.common-input-wrapper.error {
+  border: 0.03125rem solid var(--Color-4,$red);
+  background:$light-red;
+}
+
+.common-input-wrapper.disabled {
+  border: 0.03125rem solid $gray-light-transparent;
+  background:$white-transparent;
+}
+
+.common-input-wrapper.populated {
+  border: 0.03125rem solid var(--Color-2,$dark_gray);
+}
+
+.common-input-wrapper.focused {
+  border: 0.0625rem solid var(--Primery, $primary_btn);
+}
+
+legend.default, legend.error, legend.disabled {
+  padding: 0%;
+}
+
+legend.focused, legend.populated {
+  padding: 0%;
+}
+
+.input-legend {
+  font-family: Poppins;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.input-label.default {
+  color:$dark-gray-2;
+}
+
+.input-label.error {
+  color: var(--Color-4, $red);
+}
+
+.input-label.disabled {
+  color:$light_slate_blue;
+}
+
+.input-label.populated {
+  color: var(--Color-2,$dark_gray);
+}
+
+.input-label.focused {
+  color: var(--Primery, $primary_btn);
+}
+
+.custom-input {
+  border: none;
+  background: none;
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+
+.custom-input.disabled {
+  color:$light_slate_blue;
+}
+
+.error-message {
+  color: var(--Additional-error-variant,$error-red);
+  text-align: left;
+  font-family: Rubik;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.7383125rem;
+}

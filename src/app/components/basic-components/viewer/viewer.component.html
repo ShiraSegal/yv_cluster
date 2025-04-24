@@ -1,0 +1,17 @@
+<div class="viewer-warpper">
+    <div class="picture-name-warpper">
+        <div class="picture-name">{{pictureName}}</div>
+    </div>
+    
+    <div class="image-warrper">
+        <img [src]="pictureUrl" class=" printable-image" [ngClass]="rotationClass" [ngClass]="zoomClass">
+    </div>
+
+    <div class="button-warpper">
+        <yv-cluster-icon-button-large (click)="zoomIn()" [icon]="iconType.ZOOMIN"></yv-cluster-icon-button-large>
+        <yv-cluster-icon-button-large (click)="zoomOut()" [icon]="iconType.ZOOMOUT"></yv-cluster-icon-button-large>
+        <yv-cluster-icon-button-large (click)="print()" [icon]="iconType.PRINT"></yv-cluster-icon-button-large>
+        <yv-cluster-icon-button-large (click)="rotateLeft()" [icon]="iconType.ROTATELEFT"></yv-cluster-icon-button-large>
+        <yv-cluster-icon-button-large (click)="rotateRight()" [icon]="iconType.ROTATERIGHT"></yv-cluster-icon-button-large>
+    </div>
+</div>
