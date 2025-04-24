@@ -17,15 +17,15 @@ export class SlidebarNavigationComponent {
   iconType = IconType;
   sliderNavigationTabType = SliderNavigationTabType;
   activeTabIndex: number | null = null;
- 
+
   tabs = [
-    { number: 1, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.HOMELIGHT, activeIcon: IconType.HOMESOLID, text: SliderNavigationTabTextType.HOME },
-    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.AUTOCLUSRETLIGHT, activeIcon: IconType.AUTOCLUSRETSOLID, text: SliderNavigationTabTextType.AUTOCLUSRET },
-    { number: 3, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.REPORTLIGHT, activeIcon: IconType.REPORTSOLID, text: SliderNavigationTabTextType.REPORT },
-    { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.NEWCLUSTERLIGHT, activeIcon: IconType.NEWCLUSTERSOLID, text: SliderNavigationTabTextType.NEWCLUSTER },
-    { number: 5, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LOGOUTLIGHT, activeIcon: IconType.LOGOUTSOLID, text: SliderNavigationTabTextType.LOGOUT },
+    { number: 0, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.HOMELIGHT, activeIcon: IconType.HOMESOLID, text: SliderNavigationTabTextType.HOME },
+    { number: 1, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.AUTOCLUSRETLIGHT, activeIcon: IconType.AUTOCLUSRETSOLID, text: SliderNavigationTabTextType.AUTOCLUSRET },
+    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.REPORTLIGHT, activeIcon: IconType.REPORTSOLID, text: SliderNavigationTabTextType.REPORT },
+    { number: 3, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.NEWCLUSTERLIGHT, activeIcon: IconType.NEWCLUSTERSOLID, text: SliderNavigationTabTextType.NEWCLUSTER },
+    { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LOGOUTLIGHT, activeIcon: IconType.LOGOUTSOLID, text: SliderNavigationTabTextType.LOGOUT },
   ];
- 
+
   setActiveTab(tabIndex: number) {
     this.activeTabIndex = tabIndex;
     this.tabs.forEach((tab, index) => {
