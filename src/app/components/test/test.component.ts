@@ -25,8 +25,8 @@ import { SlidebarNavigationComponent } from "../basic-components/slidebar-naviga
 import { FormControl } from "@angular/forms";
 import { NarrowBasicTableRowComponent } from "../basic-components/narrow-basic-table-row/narrow-basic-table-row.component";
 import { NarrowBasicTableWarpComponent } from "../basic-components/narrow-basic-table-warp/narrow-basic-table-warp.component";
-import { SelectComponent } from "../basic-components/select/select.component";
 import { CheckType } from "src/app/enums/check-enum";
+import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -50,8 +50,8 @@ import { CheckType } from "src/app/enums/check-enum";
     CommonModule,
     ButtonComponent,
     SwitchComponent,
+    TableHeaderComponent,
     BasicTabComponent,
-    SelectComponent,
     BasicCardComponent,
     IconButtonLargeComponent],
      
@@ -197,6 +197,8 @@ export class TestComponent {
   AutoClusterTabType = AutoClusterTabType;
   NarrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   nativeOptionType = NativeOptionType;
+  optionState = NativeOptionState;
+  optionType = NativeOptionType;
 
   //variables-----------------------------------------------------------------------
   // button component properties
@@ -223,48 +225,14 @@ searchControl = new FormControl('');
   handleSort(event: { column: string, direction: string }) {
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
   }
-  switch-component function
+  //switch-component function
   options :string [] = [];
-  label: string = 'Batya';
-  optionState = NativeOptionState;
-  optionType = NativeOptionType;
-  primary = ButtonType.PRIMARY
-  secondary = ButtonType.SECONDARY
-  tertiany = ButtonType.TERTIARY
-  variant1 = ButtonIconProperty.VARIANT1
-  variant2 = ButtonIconProperty.VARIANT2
-
-
-  icon=ButtonIcon.CHEVRON_LEFT
-  CheckStateType = CheckStateType;
-  CheckType = CheckType;
-  viewerIconType = ViewerIconType;
-  iconButtonLargeType = IconButtonLargeType;
   variant1 = ButtonIconProperty.VARIANT1
   variant2 = ButtonIconProperty.VARIANT2
   variant3 = ButtonIconProperty.VARIANT3
-  icon=ButtonIcon.CHEVRON_LEFT
-  variant1 = ButtonIconProperty.VARIANT1
-  variant2 = ButtonIconProperty.VARIANT2
-  variant3 = ButtonIconProperty.VARIANT3
-  icon=ButtonIcon.CHEVRON_LEFT
-  icon=ButtonIcon.CHEVRON_LEFT
-  title1 = "Heading Large"
-  title2 = "Heading Medium-Bold"
-  title3 = "Heading Small"
-  title4 = "Heading Small-bold"
-  size1:TextSize = TextSize.LARGE
-  size2:TextSize = TextSize.MEDIUM
-  size3:TextSize = TextSize.SMALL
-  bodyText1: string = 'Body Large Upon initial observation, it may appear that there are only two primary scenarios for ';
-  bodyText2: string = 'Body Medium Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
-  bodyText3: string = 'Body Small Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
- 
   btnType = ButtonType.PRIMARY;
   btnType2 = ButtonType.SECONDARY;
   txt1 = "test btn1"
-  // txt1 = "test btn1"
-
   title = 'test';
   isError: boolean = false;
   isDisabled: boolean = false;
@@ -275,10 +243,6 @@ searchControl = new FormControl('');
     { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
     { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT }
   ];
-  title = 'yv-clusters';
-  HeaderCellType = HeaderCellType;
-  DataCellType = DataCellType;
-
    cells = [
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
     { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
@@ -294,111 +258,13 @@ searchControl = new FormControl('');
     { data: 'Button Text', type: DataCellType.BUTTON },
     { data: 'Slider Value', type: DataCellType.SLIDER }
   ];
-  txt1 = "test btn1"
-  switchState: boolean = false;
-  tabState: boolean = false;
+
   toggleState!: string;
   radioButtonState: boolean = false;
-   CardIcons = CardIcons;
   ToastNotificationIcons = ToastNotificationIcons;
-
    iconp = "fa-solid fa-plus"
-   txt1 = "Enter Book ID"
    txt2 = "Enter Book ID"
  
-  headers: { data: string; type: HeaderCellType }[] = [
-    { data: 'name list', type: HeaderCellType.TEXT },
-    { data: 'to do', type: HeaderCellType.TEXT },
-    { data: '', type: HeaderCellType.PLACEOLDER },
-  ];
- 
-  rows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
-    {
-      property: 'Default',
-      showAction: false,
-      cells: [
-        { data: 'Data ', type: DataCellType.TEXT },
-        { data: 'Data ', type: DataCellType.TEXT },
-        { data: '', type: DataCellType.CHECK },
-      ]
-    },
-    {
-      property: 'Default',
-      showAction: false,
-      cells: [
-        { data: 'Data 2', type: DataCellType.TEXT },
-        { data: 'Link to something', type: DataCellType.LINK },
-       
-      ]
-    }
-  ];
-  headers2: { data: string; type: HeaderCellType }[] = [
-    { data: 'name list', type: HeaderCellType.TEXT },
-    { data: 'done', type: HeaderCellType.TEXT },
-    { data: '', type: HeaderCellType.CHECK },
-  ];
- 
-  rows2: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
-    {
-      property: 'Default',
-      showAction: false,
-      cells: [
-        { data: 'Data 1', type: DataCellType.TEXT },
-        { data: 'Data 1', type: DataCellType.TEXT },
-        { data: 'Link to something', type: DataCellType.LINK },
-      ]
-    },
-    {
-      property: 'Default',
-      showAction: false,
-      cells: [
-        { data: 'Data 1', type: DataCellType.TEXT },
-        { data: 'Data 1', type: DataCellType.TEXT },
-        { data: 'Link to something', type: DataCellType.LINK },
-      ]
-    }
-  ];
- 
-  headers1: { data: string; type: HeaderCellType }[] = [
-    { data: 'name list', type: HeaderCellType.TEXT },
-    { data: 'done ', type: HeaderCellType.TEXT },
-    { data: 'to do', type: HeaderCellType.TEXT },
-    { data: '', type: HeaderCellType.PLACEOLDER },
-  ];
- 
-  rows1: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
-    {
-      property: 'Default',
-      showAction: false,
-      cells: [
-        { data: 'Data ', type: DataCellType.TEXT },
-        { data: ' ', type: DataCellType.SLIDER },
-        { data: 'Data ', type: DataCellType.TEXT },
-        { data: '', type: DataCellType.CHECK },
-      ]
-    },
-    {
-      property: 'Default',
-      showAction: false,
-      cells: [
-        { data: 'Data ', type: DataCellType.TEXT },
-        { data: ' ', type: DataCellType.SLIDER },
-        { data: 'Data ', type: DataCellType.TEXT },
-        { data: '', type: DataCellType.CHECK },
- 
-      ]
-    }
-  ];
- 
-  iconp = "fa-solid fa-plus"
-  // txt1 = "Enter Book ID"
-  // onClick()
-  // {
-  //   alert('test on click');
-  //   console.log('test on click');
-  // }
-
-
   handleSwitchChange(state: boolean) {
     this.switchState = state;
   }
