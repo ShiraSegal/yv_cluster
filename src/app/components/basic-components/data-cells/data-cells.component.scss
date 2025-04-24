@@ -1,5 +1,6 @@
 @import "../../../../styles/colors.scss";
 
+
 .data-cell {
     display: flex;
     align-items: center;
@@ -8,7 +9,9 @@
     flex-grow: 1;
     flex-basis: 0;
     text-align: center;
+    justify-content: center;
 }
+
 
 .text {
     width: 9.375rem;
@@ -30,17 +33,22 @@
     flex-shrink: 0;
 }
 
+
 .more-icon {
     color: $slate_blue;
     text-align: center;
     font-family: "Font Awesome 6 Pro";
+    font-size: 0.875rem;
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
     width: 1.3125rem;
     height: 1.0625rem;
+    width: 1.3125rem;
+    height: 1.0625rem;
     flex-shrink: 0;
+
 }
 
 .link {
@@ -48,8 +56,12 @@
     height: 2.8125rem;
     justify-content: flex-start;
     flex-shrink: 0;
-    color: $main_primery_main;
+    flex: 1 0 0;
+    color: $main-primery-main;
+
+    /* Body/medium */
     font-family: Poppins;
+    font-size: 0.875rem;
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
@@ -65,7 +77,9 @@
     justify-content: center;
     align-items: center;
     gap: 0.625rem;
+    gap: 0.625rem;
     flex-shrink: 0;
+
 }
 
 .clipboard-list-icon {
@@ -75,6 +89,8 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+
+
 }
 
 .status {
