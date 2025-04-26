@@ -21,7 +21,7 @@
         }
       
     @if(type === dataCellType.ICON){           
-        <yv-cluster-icon-button-large [icon]="IconType.CHEVRONRIGHT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
+        <yv-cluster-icon-button-large [icon]="IconType.CHEVRON_LEFT_LIGHT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
     }
  
     @if(type === dataCellType.SLIDER && isNumber(data) ){       
@@ -29,6 +29,6 @@
     }
     
     @if(type === dataCellType.BUTTON){       
-        <yv-cluster-button (onClick)="onClick()" text=data [buttonType]=buttonType.SECONDARY [buttonIcon]=buttonIcon.CHEVRON_LEFT></yv-cluster-button>
+        <yv-cluster-button (onClick)="onClick()" text=data [buttonType]=buttonType.SECONDARY [iconType]=IconType.CHEVRON_LEFT_LIGHT></yv-cluster-button>
     }
 </div>

@@ -5,7 +5,7 @@
   padding: 1rem;
   align-items: flex-start;
   flex-direction: column;
-  background:$white;
+  background:$c-FFFFFF;
   gap: 0.1rem;
 }
 
@@ -22,12 +22,12 @@
 }
 
 .common-input-wrapper.default {
-  border: 0.03125rem solid $slate_blue;
+  border: 0.03125rem solid $c-3F4B5A;
 }
 
 .common-input-wrapper.error {
-  border: 0.03125rem solid var(--Color-4,$red);
-  background:$light-red;
+  border: 0.03125rem solid var(--Color-4,$c-C00);
+  background:$c-FAEAEA;
 }
 
 .common-input-wrapper.disabled {
@@ -36,11 +36,11 @@
 }
 
 .common-input-wrapper.populated {
-  border: 0.03125rem solid var(--Color-2,$dark_gray);
+  border: 0.03125rem solid $c-262C34;
 }
 
 .common-input-wrapper.focused {
-  border: 0.0625rem solid var(--Primery, $primary_btn);
+  border: 0.0625rem solid  $c-1334B9;
 }
 
 legend.default, legend.error, legend.disabled {
@@ -63,11 +63,11 @@ legend.focused, legend.populated {
 }
 
 .input-label.default {
-  color:$dark-gray-2;
+  color:$c-3F4B5A;
 }
 
 .input-label.error {
-  color: var(--Color-4, $red);
+  color:$c-C00;
 }
 
 .input-label.disabled {
@@ -75,11 +75,11 @@ legend.focused, legend.populated {
 }
 
 .input-label.populated {
-  color: var(--Color-2,$dark_gray);
+  color: $c-262C34;
 }
 
 .input-label.focused {
-  color: var(--Primery, $primary_btn);
+  color: $c-1334B9;
 }
 
 .custom-input {

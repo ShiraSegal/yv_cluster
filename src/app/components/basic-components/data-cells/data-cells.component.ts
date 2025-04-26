@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { BadgeType, ButtonIcon, ButtonType, CheckStateType, CheckType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
+import { BadgeType, ButtonType, CheckStateType, CheckType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { BadgeComponent } from '../badge/badge.component';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
@@ -25,7 +25,6 @@ export class DataCellsComponent<T extends DataCellType>  {
   badgeType = BadgeType;
   IconType = IconType;
   buttonType = ButtonType;
-  buttonIcon = ButtonIcon;
   iconButtonLargeType = IconButtonLargeType;
   dataCellType = DataCellType;
   checkStateType = CheckStateType;

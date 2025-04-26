@@ -1,4 +1,20 @@
+
+<h3>heading</h3>
+<yv-cluster-heading [title]="title1" [size]="size1" [weight]="weight1"></yv-cluster-heading>
+<yv-cluster-heading [title]="title2" [size]="size2" [weight]="weight1"></yv-cluster-heading>
+<yv-cluster-heading [title]="title3" [size]="size3" [weight]="weight2"></yv-cluster-heading>
+<yv-cluster-heading [title]="title4" [size]="size3" [weight]="weight1"></yv-cluster-heading>
 <hr>
+
+
+<h3>body</h3>
+<yv-cluster-body [bodyText]="bodyText1" [size]="size1" [weight]="weight2"></yv-cluster-body>
+<yv-cluster-body [bodyText]="bodyText1" [size]="size1" [weight]="weight1"></yv-cluster-body>
+<yv-cluster-body [bodyText]="bodyText2" [size]="size2" [weight]="weight2"></yv-cluster-body>
+<yv-cluster-body [bodyText]="bodyText2" [size]="size2" [weight]="weight1"></yv-cluster-body>
+<yv-cluster-body [bodyText]="bodyText3" [size]="size3" [weight]="weight2"></yv-cluster-body> 
+<hr>
+
 <h3>check</h3>
 <yv-cluster-check></yv-cluster-check>
 <yv-cluster-check [type]="CheckType.CHECKED" [state]="CheckStateType.DISABLED"></yv-cluster-check>
@@ -26,7 +42,7 @@
 <hr>
 
 <h3>icon-button-large</h3>
-<yv-cluster-icon-button-large [icon]="iconType.ZOOMIN"
+<yv-cluster-icon-button-large [icon]="iconType.MAGNIFYING_GLASS_PLUS_LIGHT"
   [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
 <hr>
 
@@ -91,10 +107,41 @@
 <hr>
 
 <h3>button</h3>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="small"
-  [buttonIcon]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [iconType]="icon"></yv-cluster-button>
+
+<yv-cluster-button  (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [iconType]="icon"></yv-cluster-button>
+
+<yv-cluster-button (onClick)="onClick()"text="Text" [buttonType]="tertiany" [isBig]=true [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [iconType]="icon"></yv-cluster-button>
+
+<br>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [disabled]="true" [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=false [disabled]="true" [iconType]="icon"></yv-cluster-button>
+
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true  [disabled]="true" [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()"  text="Text" [buttonType]="secondary" [isBig]=false  [disabled]="true" [iconType]="icon"></yv-cluster-button>
+
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true  [disabled]="true" [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false  [disabled]="true" [iconType]="icon" ></yv-cluster-button>
 <hr>
 
 <h3>icon button</h3>
 <yv-cluster-icon-button (onClick)="onClick()"></yv-cluster-icon-button>
 <hr>
+<!-- <h3>toast notification</h3>
+<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.ERROR"[message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+<br>
+<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.SUCCESS"[message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="90000"></yv-cluster-toast-notification>
+<hr> -->
+<!-- <h3>pie</h3>
+<yv-cluster-pie-component-distribution-modal [title]="'Data Distribution'"></yv-cluster-pie-component-distribution-modal>
+<hr> -->
+
+<h3>enter bookid</h3>
+<yv-cluster-enter-bookid></yv-cluster-enter-bookid>
+<hr>
+<br>
+<h3>create cluster</h3>
+<yv-cluster-create-cluster></yv-cluster-create-cluster>

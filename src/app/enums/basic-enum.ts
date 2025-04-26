@@ -19,10 +19,11 @@ export enum BasicTablePropertyType {
   OLD_SUGGESTIONS = 'Old Suggestions',
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
-export enum ButtonSize {
-  BIG = "big",
-  SMALL = "small"
-}
+
+// export enum ButtonSize{
+//   BIG="big",
+//   SMALL="small"
+// }
 
 export enum CheckType {
   UNCHECKED = 'unchecked',
@@ -63,13 +64,13 @@ export enum AutoClusterTabType {
   DIFFERENT_CLUSTERS = 'Different Clusters',
   ERROR_MESSAGES = 'Error Messages'
 }
-export enum ButtonIcon {
-  FOLDER_PLUS = "fa-light fa-folder-plus",
-  LAYER_PLUS = "fa-light fa-layer-plus",
-  PLUS = "fa-light fa-plus",
-  FILE_ARROW_DOWN = "fa-light fa-file-arrow-down",
-  CHEVRON_LEFT = "fa-light fa-chevron-left"
-}
+// export enum IconType {
+//   FOLDER_PLUS = "fa-light fa-folder-plus",
+//   LAYER_PLUS = "fa-light fa-layer-plus",
+//   PLUS = "fa-light fa-plus",
+//   FILE_ARROW_DOWN = "fa-light fa-file-arrow-down",
+//   CHEVRON_LEFT = "fa-light fa-chevron-left"
+// }
 
 export enum TextSize {
   LARGE = "large",
@@ -77,16 +78,23 @@ export enum TextSize {
   SMALL = "small"
 }
 
-export enum TextColor {
-  BLACK = "black",
-  SLATE_BLUE = "slate-blue",
-  NEUTRAL_GRAY = "neutral-gray",
-}
-
-export enum TextWeight {
-  BOLD = "bold",
-  NORMAL = "normal"
-}
+  export enum TextColor {
+    BLACK = "black",
+    SLATE_BLUE = "slate-blue",
+    NEUTRAL_GRAY = "neutral-gray",
+    DARK_GRAY = "dark-gray",
+    COOl_BLUE="cool-blue",
+    PRIMARY_BTN= "primary_btn",
+    MEDIUM_GRAY="medium_gray",
+    VIBRANT_GREEN="vibrant_green",
+    DEEP_BLACK="deep_black",
+    WHITE="white"
+  }
+ 
+  export enum TextWeight {
+    BOLD = "bold",
+    NORMAL = "normal"
+    }
 
 export enum HeaderCellType {
   TEXT = "text",
@@ -143,3 +151,7 @@ export enum StatusActiveOrNotActive {
   NOT_ACTIVE = "not-active"
 }
 
+export enum RadioButtonListDirection{
+  ROW="row",
+  COLUMN="column"
+}
