@@ -20,9 +20,11 @@ export class PieTableComponent {
   @Input() allDatabaseTotalValue!: { TotalCount: number; Value: string };
   @Input() thePlaceTotalValue!: { TotalCount: number; Value: string };
   tableRows:any= [{'rowName':'Last Name','objectKey':'Value'}, {'rowName':'Count','objectKey':'Count'}, {'rowName':'percent','objectKey':'Count'},{ 'rowName':'Total name count','objectKey':'Code'}];
-
+  totalAllNamesInTheDatabase:number=180056
+//enums
   DataCellType = DataCellType;
   HeaderCellType=HeaderCellType
+  //functoins
 getValue(subItem: any, key: string): any {
   return subItem[key];
 }

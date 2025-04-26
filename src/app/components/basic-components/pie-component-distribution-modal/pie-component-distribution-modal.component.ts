@@ -42,7 +42,7 @@ export class PieComponentDistributionModalComponent {
       "Value": "Blumen"
     }
       // , {
-      //   "Count": 1200,
+      //   "Count": 200,
       //   "Code": "T342541",
       //   "Value": "Glukigen"
       // }
