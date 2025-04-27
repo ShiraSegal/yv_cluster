@@ -21,4 +21,6 @@ export enum IconType {
     CIRCLE_CHECK="fa-solid fa-circle-check",
     HOME="fa-light fa-house",
     ROBOT="fa-solid fa-robot",
+    LINK_SIMPLE="fa-solid fa-link-simple",
+    LIST="fa-solid fa-list",
 }
