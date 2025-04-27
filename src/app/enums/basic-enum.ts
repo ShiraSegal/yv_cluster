@@ -110,8 +110,6 @@ export enum BadgeType {
   DONE = "Done"
 }
 
-
-
 export enum SliderNavigationTabType {
   VARIANT3 = "variant3",
   ACTIVE = "active"
@@ -124,9 +122,6 @@ export enum SliderNavigationTabTextType {
   NEWCLUSTER = "New Cluster",
 
 }
-
-
-
 
 export enum State {
   DEFAULT = "default",
@@ -144,3 +139,17 @@ export enum StatusActiveOrNotActive {
   NOT_ACTIVE = "not-active"
 }
 
+export enum NativeOptionType{
+  ASSIGNEE = "assignee",
+  STATUS = "status",
+  TEXT = "text"
+}
+export enum NativeOptionState{
+  DEFAULT = "default",
+  HOVER = "hover"
+}
+export enum ButtonIconProperty{
+  VARIANT1="variant1",
+  VARIANT2="variant2",
+  VARIANT3="variant3"
+  }

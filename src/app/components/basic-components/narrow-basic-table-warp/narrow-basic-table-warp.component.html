@@ -1,0 +1,18 @@
+<div class="table-container">
+  <div class="warp-table-container">
+    <div class="text-container">
+      <div class="title">Auto Cluster List</div>
+      <div class="sub-title">{{subTitle}}</div>
+    </div>
+
+    <div class="tabs-container">
+      @for (tab of tabs; track tab) {
+      <yv-cluster-basic-tab [text]="tab.text" [status]="tab.status" (tabChange)="setActiveTab(tab.text)">
+      </yv-cluster-basic-tab>
+      }
+    </div>
+  </div>
+<div class="basic-table-container">
+  <yv-cluster-narrow-basic-table [Headers]="Headers" [Rows]="Rows"></yv-cluster-narrow-basic-table>
+</div>
+</div>

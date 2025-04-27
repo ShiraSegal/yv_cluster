@@ -1,0 +1,14 @@
+<div class="table-frame">
+    <yv-cluster-filter-section [buttonText]="'New Cluster'"></yv-cluster-filter-section>
+    <div class="data-container">
+        <div class="headers-container">
+            <yv-cluster-table-header [headers]="Headers"></yv-cluster-table-header>
+        </div>
+        <div class="rows-container">
+            @for (row of Rows; track row){
+            <yv-cluster-narrow-basic-table-row [property]="row.property"
+                [cells]="row.cells"></yv-cluster-narrow-basic-table-row>
+            }
+        </div>
+    </div>
+</div>

@@ -1,13 +1,15 @@
 import { CommonModule } from "@angular/common";
 import { CheckComponent } from "../basic-components/check/check.component";
 import { SliderComponent } from "../basic-components/slider/slider.component";
-import { BadgeType, ButtonIcon, ButtonSize, CardIcons, StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
+import { AutoClusterTabType, BadgeType, ButtonIcon, ButtonSize, CardIcons, NarrowBasicTableRowInputState, StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
 import { BasicTableRowPropertyVariants, ButtonType, CheckStateType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabTextType, SliderNavigationTabType, State } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../basic-components/button/button.component';
 import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
+import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
 import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
 import { HeaderCellsComponent } from '../basic-components/header-cells/header-cells.component';
+import { SlidebarNavigationComponent } from '../basic-components/slidebar-navigation/slidebar-navigation.component';
 import { SwitchComponent } from '../basic-components/switch/switch.component';
 import { BasicTabComponent } from '../basic-components/basic-tab/basic-tab.component';
 import { FieldComponent } from '../basic-components/field/field.component';
@@ -20,16 +22,26 @@ import { FormControl } from '@angular/forms';
 import { SliderNavigationTabComponent } from '../basic-components/slider-navigation-tab/slider-navigation-tab.component';
 import { Component } from "@angular/core";
 import { CheckType } from "src/app/enums/check-enum";
-import { SlidebarNavigationComponent } from "../basic-components/slidebar-navigation/slidebar-navigation.component";
+import { BadgeComponent } from "../basic-components/badge/badge.component";
+import { NarrowBasicTableRowComponent } from "../basic-components/narrow-basic-table-row/narrow-basic-table-row.component";
+import { NarrowBasicTableWarpComponent } from "../basic-components/narrow-basic-table-warp/narrow-basic-table-warp.component";
+import { NarrowBasicTableComponent } from "../basic-components/narrow-basic-table/narrow-basic-table.component";
+import { FilterSectionComponent } from "../basic-components/filter-section/filter-section.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
   imports: [
+    NarrowBasicTableRowComponent,
+    NarrowBasicTableWarpComponent,
+    NarrowBasicTableComponent,
+    IconButtonComponent,
     SliderComponent,
     CheckComponent,
     AssigneeComponent,
     DataCellsComponent,
     HeaderCellsComponent,
+    FilterSectionComponent,
+    BadgeComponent,
     FieldComponent,
     CommonModule,
     ButtonComponent,
@@ -71,6 +83,115 @@ export class TestComponent {
   ButtonSize = ButtonSize;
   ButtonIcon = ButtonIcon;
   //variables-----------------------------------------------------------------------
+   // table-header
+   exampleTableHeader = [{ data: '', type: HeaderCellType.CHECK },
+    { data: 'Header ', type: HeaderCellType.TEXT },
+    { data: 'Header ', type: HeaderCellType.TEXT },
+    { data: 'Header ', type: HeaderCellType.TEXT }
+    ];
+    exampleTableHeader2 = [{ data: '', type: HeaderCellType.CHECK },
+    { data: 'CNT', type: HeaderCellType.TEXT },
+    { data: 'Clustern ID ', type: HeaderCellType.TEXT },
+    { data: 'MissingFileds ', type: HeaderCellType.TEXT },
+    { data: 'Comments ', type: HeaderCellType.TEXT },
+    { data: 'Status ', type: HeaderCellType.TEXT }
+      ,
+    { data: 'Assignee ', type: HeaderCellType.TEXT }
+      ,
+    { data: 'Data of report ', type: HeaderCellType.TEXT }
+      ,
+    { data: 'Assignee Data ', type: HeaderCellType.TEXT }
+    ];
+    exampleTableHeader3 = [{ data: '', type: HeaderCellType.CHECK },
+    { data: 'Header ', type: HeaderCellType.TEXT },
+    { data: 'Header ', type: HeaderCellType.TEXT },
+    { data: 'Header ', type: HeaderCellType.TEXT }
+    ];
+    // narrow-row
+    exampleNarrowRow = [
+      { data: '', type: DataCellType.CHECK },
+      { data: '454682', type: DataCellType.TEXT },
+      { data: 'New', type: DataCellType.TEXT },
+      { data: '01/01/2005', type: DataCellType.TEXT }
+    ];
+    exampleNarrowRow2 = [
+      { data: '', type: DataCellType.CHECK },
+      { data: '1', type: DataCellType.TEXT },
+      { data: '2145286', type: DataCellType.TEXT },
+      { data: 'MissingFileds', type: DataCellType.TEXT }
+      ,
+      { data: 'The error message indicates the actual data structure assigned to customData has nested arrays .', type: DataCellType.TEXT }
+      ,
+      { data:' ', type: DataCellType.STATUS },
+      { data: 'Ariel Shron', type: DataCellType.ASSIGNEE }
+      ,
+      { data: '01/01/2005', type: DataCellType.TEXT },
+      { data: '20/02/2000', type: DataCellType.TEXT }
+  
+    ];
+    exampleNarrowRow3 = [
+      { data: '', type: DataCellType.CHECK },
+      { data: '454682', type: DataCellType.TEXT },
+      { data: 'New', type: DataCellType.TEXT },
+      { data: '01/01/2005', type: DataCellType.TEXT }
+    ];
+    //  narrow-table-wrap
+    exampleDataForNarrowTable = {
+      [AutoClusterTabType.SAPIR_CLUSTERS]: {
+        Headers: this.exampleTableHeader,
+        Rows: [
+          {
+            property: NarrowBasicTableRowInputState.DEFAULT,
+            showAction: false,
+            cells: this.exampleNarrowRow
+          },
+          {
+            property: NarrowBasicTableRowInputState.HOVER,
+            showAction: false,
+            cells: this.exampleNarrowRow
+          },
+          {
+            property: NarrowBasicTableRowInputState.DEFAULT,
+            showAction: false,
+            cells: this.exampleNarrowRow
+          },
+          {
+            property: NarrowBasicTableRowInputState.HOVER,
+            showAction: false,
+            cells: this.exampleNarrowRow
+          },
+        ]
+      },
+  
+      [AutoClusterTabType.MISSING_FIELD]: {
+        Headers: this.exampleTableHeader2,
+        Rows: [
+          {
+            property: NarrowBasicTableRowInputState.DEFAULT,
+            showAction: false,
+            cells: this.exampleNarrowRow2
+          },
+          {
+            property: NarrowBasicTableRowInputState.HOVER,
+            showAction: false,
+            cells: this.exampleNarrowRow2
+          },
+          {
+            property: NarrowBasicTableRowInputState.DEFAULT,
+            showAction: false,
+            cells: this.exampleNarrowRow2
+          },
+          {
+            property: NarrowBasicTableRowInputState.HOVER,
+            showAction: false,
+            cells: this.exampleNarrowRow2
+          }
+          
+        ]
+      }
+    };
+  
+    customSubtitle = 'Custom Subtitle';
   // button component properties
   // label: string = 'Lable';//button label
   //enum ButtonType
@@ -85,7 +206,7 @@ export class TestComponent {
 
   //this state get the status of the switch
   basicTableRowPropertyVariants = BasicTableRowPropertyVariants;
-  headerCellType = HeaderCellType;
+  HeaderCellType = HeaderCellType;
   dataCellType = DataCellType;
   stateEnum = State;
   sliderNavigationTabType = SliderNavigationTabType;
