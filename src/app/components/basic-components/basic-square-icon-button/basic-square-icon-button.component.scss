@@ -1,0 +1,32 @@
+@import "src/styles.scss";
+.btn {
+    display: flex;
+    width: 3.75rem;
+    height: 3.75rem;
+    padding: 0.625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--C4C7C5, $c-C4C7C5);
+    background: $c-FFFFFF;
+    color: $c-000;
+    text-align: center;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 1.5625rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    &:hover{
+        border-radius: 0.25rem;
+        border: 1px solid var(--D0D6F1, $c-D0D6F1);
+        background: var(--E7EBF8, $c-E7EBF8);
+    }
+}
+.btn.active{
+    border-radius: 0.25rem;
+    border: 2px solid var(--Primery, $c-1334B9);
+    background: var(--E7EBF8, $c-E7EBF8);
+    color: var(--Primery, $c-1334B9);
+}

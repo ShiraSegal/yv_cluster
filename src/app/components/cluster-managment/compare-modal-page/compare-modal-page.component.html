@@ -1,0 +1,13 @@
+
+
+<div class="outer-frame">
+  <div class="table-frame">
+    <yv-cluster-compare-modal-table [records]="records"></yv-cluster-compare-modal-table>
+   
+  </div>
+  <div class="space-between"></div>
+  <div class="compare-buttons-frame">
+    <yv-cluster-compare-modal-button *ngFor="let record of records; let i = index" [recordName]="record.name"
+      [index]="i" (viewModeChange)="handleViewModeChange($event)"></yv-cluster-compare-modal-button>
+  </div>
+</div>

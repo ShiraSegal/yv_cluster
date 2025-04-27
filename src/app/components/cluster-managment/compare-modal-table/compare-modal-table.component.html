@@ -1,0 +1,29 @@
+<!-- <div class="frame"> -->
+  <div class="table-container">
+    <div>
+      <div class="save-place"></div>
+      <div *ngFor="let column of columns" class="row-header">{{ column.header }}</div>
+    </div>
+    <!-- <div class="details-container"> -->
+      @for(record of records;track $index){
+      <div>
+        @if(record.status==='details'){
+        <div class="record-header">
+          <p class="cluster-number">{{ record.name }}</p>
+          <div class="language-toggel-button">
+            <yv-cluster-basic-toggle [rightSelected]="true" [rightText]="'English'" [leftText]="'עברית'"
+              (toggleChange)="handleToggleChange($event)"></yv-cluster-basic-toggle>
+          </div>
+        </div>
+        <div *ngFor="let column of columns" class="data-cell">
+          {{column.values[$index]}}
+        </div>
+        }
+        @else{
+        <yv-cluster-viewer pictureName="img3" [pictureName]="record.name"></yv-cluster-viewer>
+        }
+      </div>
+      }
+    </div>
+  <!-- </div> -->
+<!-- </div> -->

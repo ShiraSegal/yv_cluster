@@ -1,0 +1,102 @@
+@import "src/styles.scss";
+.toast-notification-container-success{
+    display: flex;
+    width: 33.6875rem;
+    padding: var(--Layout-medium, 0.8rem) var(--Layout-x-large, 1rem) var(--Layout-medium, 0.8rem) var(--Layout-medium, 0.5rem);
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--Layout-medium, 0.5rem);
+    border-radius: var(--Border-radius-small, 0.25rem);
+    border: 1px solid $c-E1E5EA;
+    background: $c-FFFFFF;
+    box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);
+
+animation: slide-up 1s ease-out forwards;
+
+}
+.toast-notification-container-error{
+    display: flex;
+    width: 33.6875rem;
+    padding: var(--Layout-medium, 0.8rem) var(--Layout-x-large, 1rem) var(--Layout-medium, 0.8rem) var(--Layout-medium, 0.5rem);
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--Layout-medium, 0.5rem);
+    border-radius: var(--Border-radius-small, 0.25rem);
+    border: 1px solid $c-C00;
+    background: $c-FFEDED;
+    box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);
+
+    animation: slide-up 1s ease-out forwards;
+}
+@keyframes slide-up {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+.icon-success{
+    color: $c-1334B9;
+    text-align: center;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 1.5625rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+.icon-error{
+    color: $red;
+    text-align: center;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 1.5625rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+.message{
+    align-self: stretch;
+    color:$c-000;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    width: 100%;
+}
+
+.text{
+    color: $c-1334B9;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem; 
+}
+.x-button{
+    display: flex;
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: var(--Layout-small, 0.25rem);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+}
+.x-icon{
+    color: $c-3F4B5A;
+    text-align: right;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+
+}

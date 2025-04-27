@@ -1,0 +1,23 @@
+@import "src/styles.scss";
+.btn {
+    display: flex;
+    width: 1.575rem;
+    height: 1.575rem;
+    padding: 0.2625rem;
+    justify-content: center;
+    align-items: center;
+    gap: var(--Layout-medium, 0.35rem);
+    border-radius: 4.375rem;
+    color: $c-1334B9;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 0.7875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    background-color: $c-FFFFFF;
+    gap: var(--Layout-medium, 0.35rem);
+    border: none;
+    &:hover {
+        background:$c-E0E1E64D;
+    }
+}
