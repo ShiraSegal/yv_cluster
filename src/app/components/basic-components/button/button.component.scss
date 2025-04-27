@@ -14,37 +14,37 @@
 }
  
 .primary {
-  border: 1px solid $primary_btn;
-  background:$primary_btn;
-  color: $white;
+  border: 1px solid $c-1334B9;
+  background:$c-1334B9;
+  color: $c-FFFFFF;
  
   &:disabled {
-    color: $sage_gray;
-    border: 1px solid  $grade_variant_2;
-    background:  $grade_variant_2;
+    color: $c-C4C7C5;
+    border: 1px solid  $c-F0F2F4;
+    background:  $c-F0F2F4;
   }
 }
  
 .secondary {
-  border: 1px solid $light_royal_blue;
-  background-color:$white;
-  color: $primary_btn;
+  border: 1px solid $c-A1AEE3;
+  background-color:$c-FFFFFF;
+  color: $c-1334B9;
   &:hover {
     background: $pastel-blue;
   }
  
   &:disabled {
-    color: $sage_gray;
-    border: 1px solid  $silver_gray;
-    background: $white;
+    color: $c-C4C7C5;
+    border: 1px solid  $c-A5B1C0;
+    background: $c-FFFFFF;
   }
  
 }
  
 .tertiary {
-  border: 0px solid $primary_btn;
-  color: $primary_btn;
-  background-color:$white;
+  border: 0px solid $c-1334B9;
+  color: $c-1334B9;
+  background-color:$c-FFFFFF;
  
   &:hover {
     background: $pastel-blue;
@@ -54,9 +54,9 @@
     background: $pastel-blue;
   }
   &:disabled {
-    color:$sage_gray;
-    border: 1px solid $white;
-    background: $white;
+    color:$c-C4C7C5;
+    border: 1px solid $c-FFFFFF;
+    background: $c-FFFFFF;
   }
 }
  

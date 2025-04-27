@@ -40,7 +40,7 @@
     align-items: center;
     gap: 0.625rem;
     flex: 1 0 0;
-    background: $secondary_blue;
+    background: $c-425DC7;
 }
 
 .all-database-areas {
@@ -51,7 +51,7 @@
     align-items: center;
     gap: 0.625rem;
     flex: 1 0 0;
-    background: $light_royal_blue;
+    background: $c-A1AEE3;
 }
 
 //שורה הטבלה
@@ -62,7 +62,7 @@
     align-items: center;
     gap: 0.0625rem;
     align-self: stretch;
-    border-bottom: 1px solid $lavender_blue;
+    border-bottom: 1px solid $c-D0D6F1;
 }
 
 .table-first-row {
@@ -72,7 +72,7 @@
     align-items: center;
     gap: 0.0625rem;
     align-self: stretch;
-    border-bottom: 1px solid $lavender_blue;
+    border-bottom: 1px solid $c-D0D6F1;
 }
 
 .table-row-one-side {
@@ -133,17 +133,17 @@
 }
 
 .data-cell-color-0 {
-    background-color: $peach_pink;
+    background-color: $c-F6CDCD;
 }
 
 .data-cell-color-1 {
-    background-color: $silver_gray;
+    background-color: $c-A5B1C0;
 }
 
 .data-cell-color-2 {
-    background-color: $light_royal_blue;
+    background-color: $c-A1AEE3;
 }
 
 .data-cell-color-3 {
-    background-color: $mint_green;
+    background-color: $c-A5EBDD;
 }

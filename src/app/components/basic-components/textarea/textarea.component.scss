@@ -6,7 +6,7 @@
     align-items: center;
     gap: 1px;
     align-self: stretch;
-    border-bottom: 1px solid $lavender_blue;
+    border-bottom: 1px solid $c-D0D6F1;
   }
    
   textarea {
@@ -33,7 +33,7 @@
     top: 50%; /* Center the label vertically */
     transform: translateY(-50%); /* Center the label vertically */
     transition: 0.2s ease all; /* Smooth transition for the label */
-    color: $slate_blue; /* Set the color */
+    color: $c-3F4B5A; /* Set the color */
     font-family: Rubik; /* Set the font family */
     font-size: 14px;
     font-style: normal; /* Set the font style */

@@ -7,7 +7,7 @@ justify-content: center;
 align-items: flex-start;
 gap: 1.5rem;
 border-radius: var(--Border-radius-x-large, 0.625rem);
-background: $white;
+background: $c-FFFFFF;
 box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10), 0px -4px 5px 0px rgba(0, 0, 0, 0.05);
 }
 .component-tittle{
@@ -17,7 +17,7 @@ gap: 0.25rem;
 align-self: stretch;
 }
 .component-tittle-text{
-    color: $slate_blue;
+    color: $c-3F4B5A;
 font-family: Poppins;
 font-size: 1.625rem;
 font-style: normal;
@@ -60,11 +60,11 @@ justify-content: center;
 align-items: center;
 gap: var(--Layout-medium, 0.5rem);
 border-radius: var(--Border-radius-small, 0.25rem);
-border: 0px solid $primary_btn;
+border: 0px solid $c-1334B9;
 cursor: pointer;
 }
 .button-text{
-    color: $primary_btn;
+    color: $c-1334B9;
     text-align: center;
     /* Body/medium */
     font-family: Poppins;

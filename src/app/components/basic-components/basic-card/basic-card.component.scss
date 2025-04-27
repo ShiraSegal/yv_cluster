@@ -7,7 +7,7 @@
     align-items: center;
     gap: 1.5625rem;
     border-radius: 0.625rem;
-    background: $white;
+    background: $c-FFFFFF;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
@@ -21,37 +21,37 @@
     gap: 0.625rem;
     flex-shrink: 0;
     border-radius: 6.25rem;
-    // background: $light_blue;
+    // background: $c-B8C2EA;
     background-color: var(--circle-color);
     color: var(--icon-color);
 }
 // ::ng-deep .fa-solid.fa-hourglass-clock{
 //     background:$primary_btn !important;
-//     color: $lavender_blue;
+//     color: $c-D0D6F1;
 // }
 
 // ::ng-deep .fa-solid.fa-clock-five {
-//     background: $mint_green !important;
-//     color: $forest_green;
+//     background: $c-A5EBDD !important;
+//     color: $c-1F8A74;
 // }
 
 // ::ng-deep .fa-solid.fa-circle-check {
-//     background:$light_blue;
+//     background:$c-B8C2EA;
 //     color: $royal_blue;
 
 // }
 
 // ::ng-deep .fa-solid.fa-pen-to-square {
-//     background:$peach_pink !important;
-//     color:$rose_red;
+//     background:$c-F6CDCD !important;
+//     color:$c-E25F5F;
 // }
 
 // ::ng-deep .fa-light.fa-house {
-//     background:$light_blue !important;
-//     color:$white;
+//     background:$c-B8C2EA !important;
+//     color:$c-FFFFFF;
 // }
 i {
-    color: $white;
+    color: $c-FFFFFF;
     text-align: center;
     font-family: "Font Awesome 6 Pro";
     font-size: 1.25rem;
@@ -61,7 +61,7 @@ i {
 
 .card-text {
     flex: 1 0 0;
-    color:$dark_gray;
+    color:$c-262C34;
     font-family: Poppins;
     font-size: 1.125rem;
     font-style: normal;

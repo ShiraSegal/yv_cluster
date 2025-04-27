@@ -9,7 +9,7 @@
   }
 
   .check.enabled.checked {
-color: $primary_btn;
+color: $c-1334B9;
 font-family: "Font Awesome 6 Pro";
 font-size: 14px;
 font-style: normal;
@@ -19,7 +19,7 @@ line-height: normal;
   
 
   .check.enabled.unchecked {
-    color: $slate_blue;
+    color: $c-3F4B5A;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
     font-style: normal;
@@ -29,7 +29,7 @@ line-height: normal;
   
 
   .check.disabled.checked {
-    color: $silver_gray;
+    color: $c-A5B1C0;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
     font-style: normal;
@@ -39,7 +39,7 @@ line-height: normal;
   
   
   .check.disabled.unchecked {
-    color: $silver_gray;
+    color: $c-A5B1C0;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
     font-style: normal;

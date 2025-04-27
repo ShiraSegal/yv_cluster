@@ -53,6 +53,4 @@ export class ColorsAccessibilityService {
         this.document.documentElement.style.setProperty("--soft_blue_violet","#8999DC" );
     }
 
-
-
 }
