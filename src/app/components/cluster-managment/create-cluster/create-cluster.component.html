@@ -23,7 +23,7 @@
                 <!-- <input [formControlName]="data.Field"> -->
                 <div class="options-cells">
                     <div class="radiobuttons">
-                        <yv-cluster-radio-button-list [radioButtonValuesArray]="data.RadioOptions"  [formControlName]="data.Field"></yv-cluster-radio-button-list>
+                        <yv-cluster-radio-button-list [radioButtonValuesArray]="data.RadioOptions"  [formControlName]="data.Field" (selectionChange)="checkChange($event)"></yv-cluster-radio-button-list>
                     </div>
                 </div>
 
@@ -40,7 +40,7 @@
                                 [text]="button1" (onClick)="this.close=true">
                             </yv-cluster-button>
     
-                            <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType2"
+                            <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType2" [disabled]="!this.formGroup.valid"
                                 [text]="button2" (onClick)="createCluster()">
                             </yv-cluster-button>
                         </div>

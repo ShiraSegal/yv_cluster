@@ -16,11 +16,11 @@
 }
 
 .btn.big{
-  height: 2.5rem !important;
-  padding: 0.75rem 2.25rem !important;
+  height: 2.5rem ;
+  padding: 0.75rem 2.25rem ;
 }
 
-.btn.primary {
+.primary {
   border: 1px solid $c-1334B9;
   background:$c-1334B9;
   color: $c-FFFFFF;
@@ -32,7 +32,7 @@
   }
 }
 
-.btn.secondary {
+.secondary {
   border: 1px solid $c-A1AEE3;
   background-color:$c-FFFFFF;
   color: $c-1334B9;
@@ -48,7 +48,7 @@
 
 }
 
-.btn.tertiary {
+.tertiary {
   border: 0px solid $c-1334B9;
   color: $c-1334B9;
   background-color:$c-FFFFFF;

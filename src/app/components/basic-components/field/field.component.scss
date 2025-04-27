@@ -31,8 +31,8 @@
 }
 
 .common-input-wrapper.disabled {
-  border: 0.03125rem solid $gray-light-transparent;
-  background:$white-transparent;
+  border: 0.03125rem solid $c-c4c7c580;
+  background:$c-FFFFFF80;
 }
 
 .common-input-wrapper.populated {
@@ -71,7 +71,7 @@ legend.focused, legend.populated {
 }
 
 .input-label.disabled {
-  color:$light_slate_blue;
+  color:$c-8999DC;
 }
 
 .input-label.populated {
@@ -96,7 +96,7 @@ legend.focused, legend.populated {
 }
 
 .custom-input.disabled {
-  color:$light_slate_blue;
+  color:$c-8999DC;
 }
 
 .error-message {

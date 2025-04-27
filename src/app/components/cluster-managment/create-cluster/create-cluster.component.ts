@@ -99,13 +99,19 @@ export class CreateClusterComponent {
   this.dataCells.forEach((field: any) => {
     this.formGroupFields[field.Field] = ['', Validators.required];
   });
-  this.formGroupFields['option'] = ['', Validators.required];
+  // this.formGroupFields['option'] = ['', Validators.required];
   this.formGroup = this.formBuilder.group(this.formGroupFields);
 
+  
 
   
   });
 
+}
+
+checkChange(selected:string){
+
+  
 }
 
   createCluster(){
@@ -117,11 +123,12 @@ console.log("clusterLevel",this.formGroupFields['ClusterLevel']);
       this.formIsValid = true;
     }
     else{
+      // this.disabled=false
       this.formIsValid = false;
     }
     console.log("formIsValid",this.formIsValid);
     
   }
 
-}
 
+}
