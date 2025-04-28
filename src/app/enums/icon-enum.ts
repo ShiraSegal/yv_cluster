@@ -1,3 +1,4 @@
+
 export enum IconType {
     HOUSE_SOLID = "fa-solid fa-house ",
     LEFT_FROM_BRACKET_SOLID = "fa-solid fa-left-from-bracket ",
@@ -17,5 +18,26 @@ export enum IconType {
     LAYER_PLUS_LIGHT = "fa-light fa-layer-plus",
     PLUS_REGULAR = "fa-regular fa-plus",
     FILE_ARROW_DOWN_LIGHT = "fa-light fa-file-arrow-down",
-    CHEVRON_LEFT_LIGHT = "fa-light fa-chevron-left"   
+    CHEVRON_LEFT_LIGHT = "fa-light fa-chevron-left" ,
+    NEWCLUSTERLIGHT = "fa-light fa-plus ",
+    REPORTSOLID = "fa-solid fa-chart-line-up ",
+    AUTOCLUSRETSOLID = "fa-solid fa-list ",
+    CHEVRONRIGHT = "fa-light fa-chevron-right"
 }
+    // HOMESOLID = "fa-solid fa-house ",
+    // LOGOUTSOLID = "fa-solid fa-left-from-bracket ",
+    // AUTOCLUSRETSOLID = "fa-solid fa-list ",
+    // REPORTSOLID = "fa-solid fa-chart-line-up ",
+    // NEWCLUSTERSOLID = "fa-solid fa-plus ",
+    // HOMELIGHT = "fa-light fa-house ",
+    // LOGOUTLIGHT = "fa-light fa-left-from-bracket ",
+    // AUTOCLUSRETLIGHT = "fa-light fa-list ",
+    // REPORTLIGHT = "fa-light fa-chart-line-up ",
+    // NEWCLUSTERLIGHT = "fa-light fa-plus ",
+    // ROTATERIGHT = "fa-light fa-arrow-rotate-right ",
+    // ROTATELEFT = "fa-light fa-arrow-rotate-left ",
+    // PRINT = "fa-light fa-print ",
+    // ZOOMOUT = "fa-light fa-magnifying-glass-minus ",
+    // ZOOMIN = "fa-light fa-magnifying-glass-plus ",
+    // CHEVRONRIGHT = "fa-light fa-chevron-right",
+//}

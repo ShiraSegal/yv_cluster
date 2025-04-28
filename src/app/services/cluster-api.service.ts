@@ -22,7 +22,7 @@ export class ClusterApiService {
   //     map(response => response?.SapirClusterDetails || []) // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
   //   );
   // }
-  
+
   //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
 
 }

@@ -15,6 +15,7 @@ export enum BasicTableRowPropertyVariants {
   VARIANT2 = 'Variant2',
 }
 
+
 export enum BasicTablePropertyType {
   OLD_SUGGESTIONS = 'Old Suggestions',
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
@@ -24,10 +25,10 @@ export enum BasicTablePropertyType {
 //   BIG="big",
 //   SMALL="small"
 // }
-
-export enum CheckType {
-  UNCHECKED = 'unchecked',
-  CHECKED = 'checked'
+export enum TextSize {
+  LARGE = "large",
+  MEDIUM = "medium",
+  SMALL = "small"
 }
 export enum CheckStateType {
   ENABLED = 'enabled',
@@ -46,13 +47,15 @@ export enum DataCellType {
   SLIDER = 'slider',
   PLACEOLDER = 'place-order',
 }
-export type DataCellValue<T extends DataCellType> = 
+
+
+export type DataCellValue<T extends DataCellType> =
   T extends DataCellType.TEXT ? string :
   T extends DataCellType.LINK ? string | number :
   T extends DataCellType.ASSIGNEE ? string :
   T extends DataCellType.BUTTON ? string :
-  T extends DataCellType.SLIDER ? number | null:
-  never; 
+  T extends DataCellType.SLIDER ? number | null :
+  never;
 
 
 
@@ -64,19 +67,12 @@ export enum AutoClusterTabType {
   DIFFERENT_CLUSTERS = 'Different Clusters',
   ERROR_MESSAGES = 'Error Messages'
 }
-// export enum IconType {
-//   FOLDER_PLUS = "fa-light fa-folder-plus",
-//   LAYER_PLUS = "fa-light fa-layer-plus",
-//   PLUS = "fa-light fa-plus",
-//   FILE_ARROW_DOWN = "fa-light fa-file-arrow-down",
-//   CHEVRON_LEFT = "fa-light fa-chevron-left"
-// }
 
-export enum TextSize {
-  LARGE = "large",
-  MEDIUM = "medium",
-  SMALL = "small"
-}
+
+
+
+
+
 
   export enum TextColor {
     BLACK = "black",
@@ -90,7 +86,7 @@ export enum TextSize {
     DEEP_BLACK="deep_black",
     WHITE="white"
   }
- 
+
   export enum TextWeight {
     BOLD = "bold",
     NORMAL = "normal"
@@ -103,7 +99,7 @@ export enum HeaderCellType {
   PLACEOLDER = "place-order",
   ORDER = "order",
   CHECK = "check",
-  ORDERDOWN = "order down"
+  ORDERDOWN = "order-down"
 }
 
 export enum CardIcons {
@@ -122,6 +118,8 @@ export enum BadgeType {
   DONE = "Done"
 }
 
+
+
 export enum SliderNavigationTabType {
   VARIANT3 = "variant3",
   ACTIVE = "active"
@@ -135,6 +133,9 @@ export enum SliderNavigationTabTextType {
 
 }
 
+
+
+
 export enum State {
   DEFAULT = "default",
   FOCUSED = "focused",
@@ -142,10 +143,26 @@ export enum State {
   DISABLED = "disabled",
   ERROR = "error"
 }
+
 export enum IconButtonLargeType {
   DEFAULT = "default",
   HOVER = "hover",
 }
+export enum NativeOptionType {
+  ASSIGNEE = "assignee",
+  STATUS = "status",
+  TEXT = "text"
+}
+export enum NativeOptionState {
+  DEFAULT = "default",
+  HOVER = "hover"
+}
+export enum ButtonIconProperty {
+  VARIANT1 = "variant1",
+  VARIANT2 = "variant2",
+  VARIANT3 = "variant3"
+}
+
 export enum StatusActiveOrNotActive {
   ACTIVE = "active",
   NOT_ACTIVE = "not-active"
