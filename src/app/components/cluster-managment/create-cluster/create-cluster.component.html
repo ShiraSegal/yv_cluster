@@ -20,18 +20,18 @@
                 <div class="data-cells">
                         <label class="label">{{data.Field}}</label>
                 </div>
-                <!-- <input [formControlName]="data.Field"  > -->
+                <!-- <input [formControlName]="data.Field"> -->
                 <div class="options-cells">
                     <div class="radiobuttons">
-                        <yv-cluster-radio-button-list [radioButtonArray]="data.RadioOptions"  [formControlName]="data.Field"></yv-cluster-radio-button-list>
+                        <yv-cluster-radio-button-list [radioButtonValuesArray]="data.RadioOptions"  [formControlName]="data.Field" (selectionChange)="checkChange($event)"></yv-cluster-radio-button-list>
                     </div>
                 </div>
 
             </div>
             }
-            <app-yv-select class="select" [default]="selectLabel" [options]="options" formControlName="option"></app-yv-select>
-            <!-- <input class="comments" placeholder="Comments"/> -->
-             <yv-cluster-field [property]="stateEnum.DEFAULT"></yv-cluster-field>
+            <!-- <app-yv-select class="select" [default]="selectLabel" [options]="options" formControlName="option"></app-yv-select> -->
+            <textarea class="comments" placeholder="Comments" style="resize: none;"></textarea>
+             <!-- <yv-cluster-field [property]="stateEnum.DEFAULT"></yv-cluster-field> -->
             <div class="outer-button-warp">
                 <div class="divider"></div>
                     <div class="buttons-warp">
@@ -40,7 +40,7 @@
                                 [text]="button1" (onClick)="this.close=true">
                             </yv-cluster-button>
     
-                            <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType2"
+                            <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType2" [disabled]="!this.formGroup.valid"
                                 [text]="button2" (onClick)="createCluster()">
                             </yv-cluster-button>
                         </div>

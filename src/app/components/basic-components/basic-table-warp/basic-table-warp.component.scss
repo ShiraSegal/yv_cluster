@@ -1,6 +1,6 @@
 
 .table-name {
-    color: $dark_gray;
+    color: $c-262C34;
     font-family: Poppins;
     font-size: 1.375rem;
     font-style: normal;
@@ -15,7 +15,7 @@
     align-items: flex-start;
     gap: 1.125rem;
     align-self: stretch;
-    border-bottom: 0.5px solid $light_gray;
+    border-bottom: 0.5px solid $c-ccc;
   }
   
   .tabs {

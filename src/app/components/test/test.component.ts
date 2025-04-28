@@ -1,95 +1,121 @@
 
-import { Component } from '@angular/core';
 // import { ButtonType, CheckStateType, CheckType, DataCellType, HeaderCellType, SliderNavigationTabIconType, SliderNavigationTabType} from 'src/app/enums/basic-enum';
-import { ButtonType, DataCellType, HeaderCellType, TextWeight} from 'src/app/enums/basic-enum';
+import { TextWeight} from 'src/app/enums/basic-enum';
 
 import {TextSize } from 'src/app/enums/basic-enum';
-import { CardIcons, ToastNotificationIcons} from 'src/app/enums/basic-enum';
-import { CommonModule } from '@angular/common';
-import { YvSelectComponent } from '../basic-components/yv-select/yv-select.component';
-import { ButtonComponent } from '../basic-components/button/button.component';
-import { IconButtonComponent } from '../basic-components/icon-button/icon-button.component';
+import {ToastNotificationIcons} from 'src/app/enums/basic-enum';
+// import { SelectComponent } from '../basic-components/select/select.component';
 import { HeadingComponent } from '../basic-components/heading/heading.component';
 import { BodyComponent } from '../basic-components/body/body.component';
+import { CommonModule } from "@angular/common";
+import { CheckComponent } from "../basic-components/check/check.component";
+import { Component } from "@angular/core";
+import { CheckStateType, CheckType } from "src/app/enums/check-enum";
+import { BadgeType, ButtonType, CardIcons, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State, StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
-import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
-import { BasicTableRowComponent } from '../basic-components/basic-table-row/basic-table-row.component';
-import { CheckComponent } from '../basic-components/check/check.component';
 import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
 import { HeaderCellsComponent } from '../basic-components/header-cells/header-cells.component';
 import { SliderComponent } from '../basic-components/slider/slider.component';
-import { TabElementComponent } from '../basic-components/tab-element/tab-element.component';
-import { TableHeaderComponent } from '../basic-components/table-header/table-header.component';
-import { TextareaComponent } from '../basic-components/textarea/textarea.component';
+// import { TabElementComponent } from '../basic-components/tab-element/tab-element.component';
+// import { TableHeaderComponent } from '../basic-components/table-header/table-header.component';
+// import { TextareaComponent } from '../basic-components/textarea/textarea.component';
 // import { SliderNavigationTabComponent } from '../basic-components/slider-navigation-tab/slider-navigation-tab.component';
-import { SlidebarNavigationComponent } from '../basic-components/slidebar-navigation/slidebar-navigation.component';
-import { SwitchComponent } from '../basic-components/switch/switch.component';
-import { BasicTabComponent } from '../basic-components/basic-tab/basic-tab.component';
+// import { SlidebarNavigationComponent } from '../basic-components/slidebar-navigation/slidebar-navigation.component';
 import { BasicToggleComponent } from '../basic-components/basic-toggle/basic-toggle.component';
 import { BasicRadioButtonComponent } from '../basic-components/basic-radio-button/basic-radio-button.component';
-import { FilterSectionComponent } from '../basic-components/filter-section/filter-section.component';
-import { BasicCardComponent } from '../basic-components/basic-card/basic-card.component';
+// import { FilterSectionComponent } from '../basic-components/filter-section/filter-section.component';
 import { ToastNotificationComponent } from '../basic-components/toast-notification/toast-notification.component';
-import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
+// import { PieComponentDistributionModalComponent } from '../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component';
 // import { FieldComponent } from '../basic-components/field/field.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
 import { RadioButtonListComponent } from '../basic-components/radio-button-list/radio-button-list.component';
 import { CreateClusterComponent } from '../cluster-managment/create-cluster/create-cluster.component';
 import { FormGroup } from '@angular/forms';
+import { FieldComponent } from '../basic-components/field/field.component';
+import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
+import { BadgeComponent } from '../basic-components/badge/badge.component';
 import { IconType } from 'src/app/enums/icon-enum';
+import { ButtonComponent } from "../basic-components/button/button.component";
+import { SwitchComponent } from "../basic-components/switch/switch.component";
+import { BasicTabComponent } from "../basic-components/basic-tab/basic-tab.component";
+import { BasicCardComponent } from "../basic-components/basic-card/basic-card.component";
+import { IconButtonComponent } from "../basic-components/icon-button/icon-button.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
   imports: [
-      SlidebarNavigationComponent,
-      // SliderNavigationTabComponent,
-      HeadingComponent,
-      BodyComponent,
-      AssigneeComponent,
-      BasicTableComponent,
-      DataCellsComponent,
-      HeaderCellsComponent,
-      TabElementComponent,
-      EnterBookidComponent,
-      // FieldComponent,
-      CommonModule,
-      IconButtonComponent,
-      FilterSectionComponent,
-      PieComponentDistributionModalComponent,
-      ButtonComponent,
-      BasicCardComponent,
-      ToastNotificationComponent,
-      BodyComponent,
-      BasicToggleComponent,
-      BasicRadioButtonComponent,
-      CheckComponent,
-     YvSelectComponent,
-      BasicTabComponent,
-      SliderComponent,
-      SwitchComponent,
-      TextareaComponent,
-      RadioButtonListComponent,
-      CreateClusterComponent
-    ],
+    // SlidebarNavigationComponent,
+    // SliderNavigationTabComponent,
+    HeadingComponent,
+    BodyComponent,
+    AssigneeComponent,
+    // BasicTableComponent,
+    DataCellsComponent,
+    HeaderCellsComponent,
+    // TabElementComponent,
+    EnterBookidComponent,
+    // FieldComponent,
+    CommonModule,
+    IconButtonComponent,
+    // FilterSectionComponent,
+    // PieComponentDistributionModalComponent,
+    ButtonComponent,
+    BasicCardComponent,
+    // ToastNotificationIcons,
+    ToastNotificationComponent,
+    BodyComponent,
+    BasicToggleComponent,
+    BasicRadioButtonComponent,
+    CheckComponent,
+  //  SelectComponent,
+    BasicTabComponent,
+    SliderComponent,
+    SwitchComponent,
+    RadioButtonListComponent,
+    CreateClusterComponent,
+    SliderComponent,
+    CheckComponent,
+    BadgeComponent,
+    AssigneeComponent,
+    DataCellsComponent,
+    HeaderCellsComponent,
+    FieldComponent,
+    CommonModule,
+    ButtonComponent,
+    SwitchComponent,
+    BasicTabComponent,
+    BasicCardComponent,
+    IconButtonLargeComponent,],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
-  //button component properties
+  //enums-----------------------------------------------------------------------
+  headerCellType = HeaderCellType;//header cell types
+  dataCellType = DataCellType;//data cell types
+  iconType = IconType;//  types of icons.  
+  sliderNavigationTabType = SliderNavigationTabType;//types of slider navigation tab
+  stateEnum = State;//  types of input & select.
+  badgeType = BadgeType;//types of badge
+  iconButtonLargeType = IconButtonLargeType;
+  StatusActiveOrNotActive = StatusActiveOrNotActive;
+  CardIcons = CardIcons;
+  ButtonType = ButtonType;
+  CheckStateType = CheckStateType; // types of check state.
+  CheckType = CheckType; // check type.
+  IconType = IconType;
+  //variables-----------------------------------------------------------------------
+  // button component properties
   label: string = 'Lable';//button label
   //enum ButtonType
   primary = ButtonType.PRIMARY//button type
   secondary = ButtonType.SECONDARY//button type
   tertiany = ButtonType.TERTIARY//button type
-  //enum ButtonIcon
-  icon=IconType.CHEVRON_LEFT_LIGHT//button icon
-  
-  //button component function
-  onClick() {
-    alert('test on click');
-    console.log('test on click');
-  }
+  //enum IconType
+  icon = IconType.CHEVRON_LEFT_LIGHT//button icon
 
+  //this state get the status of the switch
+ 
 
   //heading component properties
   title1 = "Heading Large"
@@ -140,32 +166,17 @@ export class TestComponent {
   ];
   // txt1 = "test btn1"
   switchState: boolean = false;
+  //this state get the status of the tab
   tabState: boolean = false;
-  toggleState!: string;
-  radioButtonState: boolean = false;
-  CardIcons = CardIcons;
-  ToastNotificationIcons = ToastNotificationIcons;
-    selectedOption: string = '';
-radioButtonArray:string [] = ["a", "b", "c", "d","other"];
-  // handleSort(event: { column: string, direction: string }) {
- 
-  //   console.log(`Sorting by ${event.column} in ${event.direction} order`);
-  // }
- 
-  // onClick() {
-  //   alert('test on click');
-  //   console.log('test on click');
-  // }
- 
- 
-  // iconp = "fa-solid fa-plus"
-  // // txt1 = "Enter Book ID"
-  // txt2 = "Enter Book ID"
- 
+
+
+
+  //functions-----------------------------------------------------------------------
+  //header-cell- sort function
   handleSort(event: { column: string, direction: string }) {
- 
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
   }
+  //switch-component function
  
 
   headers: { data: string; type: HeaderCellType }[] = [
@@ -263,24 +274,15 @@ radioButtonArray:string [] = ["a", "b", "c", "d","other"];
  
   handleSwitchChange(state: boolean) {
     this.switchState = state;
-    console.log('Switch:', state ? 'דלוק' : 'מכובה');
   }
- 
+  //basic-tab-component function
   handleTabChange(state: boolean) {
     this.tabState = state;
-    console.log('Tab:', state ? 'דלוק' : 'מכובה');
   }
-  handleToggleChange(state: string) {
-    this.toggleState = state;
-    console.log('state:', state);
-  }
-  handleRadioButtonChange(state: boolean) {
-    this.radioButtonState = state;
-    console.log('radioButton:', state ? 'דלוק' : 'מכובה');
-  }
-
-  onRadioSelectionChange(selectedValue: string) {
-    this.selectedOption = selectedValue;
-    console.log("האפשרות שנבחרה:", this.selectedOption);
+  //button & icon button component function
+  onClick() {
+    alert('test on click');
+    console.log('test on click');
   }
 }
+

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonType, State, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
+import { ButtonType, RadioButtonListDirection, State, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
@@ -24,14 +24,16 @@ export class EnterBookidComponent  {
   button1: string = 'Cancel';
   button2: string = 'Add';
   close:boolean = false;
-  radioButtonArray: string[] = ['Book ID', 'Cluster'];
-  label1: string = 'Book ID';
-  label2: string = 'Cluster';
+  direction:RadioButtonListDirection= RadioButtonListDirection.ROW;
+  radioButtonArray: any[] = [{key:'Book ID',value:'Book ID'}, {key:'Cluster',value:'Cluster'}];
+  // label1: string = 'Book ID';
+  // label2: string = 'Cluster';
   checked1: boolean = true;
   checked2: boolean = false;
   weight:TextWeight=TextWeight.BOLD;
   color:TextColor=TextColor.NEUTRAL_GRAY;
   stateEnum =  State ;
+
 
   // יצירת טופס עם FormGroup ו-Control
   formGroup: FormGroup = new FormGroup({

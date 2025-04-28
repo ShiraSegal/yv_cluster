@@ -15,10 +15,15 @@ export class ButtonComponent {
   @Input() buttonType: ButtonType = ButtonType.PRIMARY;
   @Input() disabled: boolean = false;
   @Input() isBig: boolean = false;
-  @Input() buttonIcon!: IconType;
+  @Input() iconType!: IconType;
 
   @Output() onClick = new EventEmitter<void>();
-
+ngOnInit() {
+  console.log(this.buttonType);
+  console.log(this.isBig);
+  
+  
+}
   handleClick() {
     if (!this.disabled) {
       this.onClick.emit();

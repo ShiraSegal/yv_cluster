@@ -1,7 +1,7 @@
 @import "src/styles.scss";
 header{
     align-self: stretch;
-    color: var(--Palette-Black-88, rgba(0, 0, 0, 0.88));
+    color: rgba(0, 0, 0, 0.88);
     font-family: Poppins;
     font-style: normal;
     line-height: normal;
@@ -22,32 +22,32 @@ header{
     font-weight: 400;
 }
 .neutral-gray{
-    color: $neutral-gray;
+    color: $c-2A323C;
 }
 .slate-blue{
-    color: $slate_blue;
+    color: $c-3F4B5A;
 }
 .black{
-    color: $black;
+    color: $c-000;
 }
 .dark-gray{
-    color: $dark_gray;
+    color: $c-262C34;
 }
 .cool-blue{
-    color: $cool-blue;
+    color: $c-2449D8;
 }
 .deep_black{
-    color: $deep_black;
+    color: $c-040405;
 }
 .vibrant_green{
-    color: $vibrant_green;
+    color: $c-0C803E;
 }
 .white{
-    color: $white;
+    color: $c-FFFFFF;
 }
 .medium-gray{
-    color: $medium-gray;
+    color: $c-797979;
 }
 .primary_btn{
-    color: $primary_btn;
+    color: $c-1334B9;
 }

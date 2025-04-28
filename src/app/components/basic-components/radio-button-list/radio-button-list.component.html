@@ -1,22 +1,8 @@
-<!-- <div class="radio-button-list" [formGroup]="radioForm">
-    @for (value of radioButtonArray ; track value ){
-        <yv-cluster-basic-radio-button 
-          [disable]="disable" 
-          [checked]="radioControl.value === value" 
-          [text]="value" 
-          (checkedChange)="onRadioChange(value)">
-        </yv-cluster-basic-radio-button>
-    }
-  </div> -->
-
-  <div class="radio-button-list">
-    <ng-container *ngFor="let value of radioButtonArray">
-      <yv-cluster-basic-radio-button
-        [disable]="disable"
-        [checked]="internalValue === value"
-        [text]="value"
-        (checkedChange)="onRadioChange(value)">
-      </yv-cluster-basic-radio-button>
-    </ng-container>
-  </div>
-  
+<div [ngClass]="{'radio-button-list-row': direction==='row', 'radio-button-list-column': direction==='column'}"
+  [formGroup]="radioForm">
+  @for (obj of radioButtonValuesArray ; track obj.key ){
+  <yv-cluster-basic-radio-button [disable]="disable" [checked]="radioControl.value === obj.key" [text]="obj.value"
+    (checkedChange)="onOneRadioButtonChange(obj.key)">
+  </yv-cluster-basic-radio-button>
+  }
+</div>

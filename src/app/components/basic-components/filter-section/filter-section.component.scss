@@ -19,7 +19,7 @@
     align-items: center;
     gap: var(--layout-medium, 0.5rem);
     border-radius: var(--border-radius-small, 0.25rem);
-    border: 0.5px solid $slate_blue;
+    border: 0.5px solid $c-3F4B5A;
 }
 
 .selects-container {
@@ -51,7 +51,7 @@
 }
 
 i {
-    color: $primary_btn;
+    color: $c-1334B9;
     font-family: "Font Awesome 6 Pro";
     font-size: 1.125rem;
     font-style: normal;
