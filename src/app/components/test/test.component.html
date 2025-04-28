@@ -160,3 +160,35 @@
 <yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
 <yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
 <hr>
+
+<h3>button</h3>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [iconType]="icon"></yv-cluster-button>
+
+<yv-cluster-button  (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [iconType]="icon"></yv-cluster-button>
+
+<yv-cluster-button (onClick)="onClick()"text="Text" [buttonType]="tertiany" [isBig]=true [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [iconType]="icon"></yv-cluster-button>
+
+<br>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [disabled]="true" [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=false [disabled]="true" [iconType]="icon"></yv-cluster-button>
+
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true  [disabled]="true" [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()"  text="Text" [buttonType]="secondary" [isBig]=false  [disabled]="true" [iconType]="icon"></yv-cluster-button>
+
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true  [disabled]="true" [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false  [disabled]="true" [iconType]="icon" ></yv-cluster-button>
+<hr>
+
+<h3>icon button</h3>
+<yv-cluster-icon-button (onClick)="onClick()"></yv-cluster-icon-button>
+<hr>
+
+<h3>enter bookid</h3>
+<yv-cluster-enter-bookid></yv-cluster-enter-bookid>
+<hr>
+<br>
+<h3>create cluster</h3>
+<yv-cluster-create-cluster></yv-cluster-create-cluster>

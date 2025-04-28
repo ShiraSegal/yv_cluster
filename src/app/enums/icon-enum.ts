@@ -19,10 +19,11 @@ export enum IconType {
     PLUS_REGULAR = "fa-regular fa-plus",
     FILE_ARROW_DOWN_LIGHT = "fa-light fa-file-arrow-down",
     CHEVRON_LEFT_LIGHT = "fa-light fa-chevron-left" ,
-    NEWCLUSTERLIGHT = "fa-light fa-plus ",
-    REPORTSOLID = "fa-solid fa-chart-line-up ",
-    AUTOCLUSRETSOLID = "fa-solid fa-list ",
-    CHEVRONRIGHT = "fa-light fa-chevron-right"
+    PLUS_LIGHT = "fa-light fa-plus ",
+    CHEVRON_RIGHT_LIGHT = "fa-light fa-chevron-right"
+    // REPORTSOLID = "fa-solid fa-chart-line-up ",
+    // AUTOCLUSRETSOLID = "fa-solid fa-list ",
+    // CHEVRONRIGHT = "fa-light fa-chevron-right"
 }
     // HOMESOLID = "fa-solid fa-house ",
     // LOGOUTSOLID = "fa-solid fa-left-from-bracket ",
