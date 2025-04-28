@@ -39,6 +39,7 @@ import { FieldComponent } from '../basic-components/field/field.component';
 import { BigCardComponent } from '../basic-components/big-card/big-card.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { FormControl } from '@angular/forms';
+import { SatisticCardComponent } from '../basic-components/satistic-card/satistic-card.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -72,7 +73,8 @@ import { FormControl } from '@angular/forms';
     TextareaComponent,
     RadioButtonListComponent,
     FieldComponent,
-    BigCardComponent
+    BigCardComponent,
+    SatisticCardComponent,
   ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',

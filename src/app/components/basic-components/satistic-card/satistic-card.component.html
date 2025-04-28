@@ -1,0 +1,36 @@
+<div class="card-container">
+    <svg class="circle" xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" fill="none">
+        <circle cx="80" cy="80" r="76" stroke="#E7EBF8" stroke-width="8" />
+    </svg>
+    
+    
+    <div class="card-text">{{text}}</div>
+    <div class="done-and-to-do">
+        <div class="done">
+            <div class="circle-and-text">
+                <svg class="done-circle" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18"
+                    fill="none">
+                    <ellipse cx="9.5" cy="9" rx="9.5" ry="9" fill="url(#paint0_linear_526_27674)" />
+                    <defs>
+                        <linearGradient id="paint0_linear_526_27674" x1="19" y1="1.44783" x2="1.90053" y2="19.7857"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#D0D6F1" />
+                            <stop offset="1" stop-color="#1334B9" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="text">Done</div>
+            </div>
+            <div class="number">{{doneNumber}}</div>
+        </div>
+        <div class="to-do">
+            <div class="circle-and-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                    <ellipse cx="9.5" cy="9" rx="9.5" ry="9" fill="#E7EBF8" />
+                </svg>
+                <div class="text"> To do</div>
+            </div>
+            <div class="number">{{toDoNumber}}</div>
+        </div> 
+    </div>
+</div>
