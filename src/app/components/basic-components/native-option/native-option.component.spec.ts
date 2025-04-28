@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BasicTableRowComponent } from './basic-table-row.component';
+import { NativeOptionComponent } from './native-option.component';
 
-describe('BasicTableRowComponent', () => {
-  let component: BasicTableRowComponent;
-  let fixture: ComponentFixture<BasicTableRowComponent>;
+describe('NativeOptionComponent', () => {
+  let component: NativeOptionComponent;
+  let fixture: ComponentFixture<NativeOptionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BasicTableRowComponent]
+      imports: [NativeOptionComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(BasicTableRowComponent);
+    fixture = TestBed.createComponent(NativeOptionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

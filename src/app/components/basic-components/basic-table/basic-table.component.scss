@@ -1,0 +1,19 @@
+@import "../../../../styles/colors.scss";
+.basic-table {
+    display: flex;
+    width: 64.6875rem;
+    padding: 1.875rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.875rem;
+    border-radius: 0.5rem;
+    background-color: $white;
+    box-shadow:0rem 0rem 0.25rem 0rem;
+  }
+  
+  .table-data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  }

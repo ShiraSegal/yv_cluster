@@ -1,3 +1,4 @@
+
 export enum IconType {
     HOMESOLID = "fa-solid fa-house ",
     LOGOUTSOLID = "fa-solid fa-left-from-bracket ",

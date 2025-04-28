@@ -26,9 +26,9 @@
 }
  
 .secondary {
-  border: 1px solid $c-A1AEE3;
-  background-color:$c-FFFFFF;
-  color: $c-1334B9;
+  border: 1px solid $light_royal_blue;
+  background-color:$white;
+  color: $primary_btn;
   &:hover {
     background: $pastel-blue;
   }
@@ -59,7 +59,6 @@
     background: $c-FFFFFF;
   }
 }
- 
 .big{
   height: var(--Layout-10, 2.5rem);
   padding: var(--Layout-large, 0.75rem) var(--Layout-3x-large, 2.25rem);

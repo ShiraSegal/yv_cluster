@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output,EventEmitter } from '@angular/core';
+import { StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
 
 @Component({
   selector: 'yv-cluster-switch',

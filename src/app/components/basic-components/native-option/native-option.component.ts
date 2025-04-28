@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, Input } from '@angular/core';
-import { BadgeType, NativeOptionState, NativeOptionType } from 'src/app/enums/basic-enum';
+import { BadgeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from '../assignee/assignee.component';
+import { NativeOptionState, NativeOptionType } from 'src/app/enums/native-option-enum';
 import { BadgeComponent } from '../badge/badge.component';
 
 @Component({

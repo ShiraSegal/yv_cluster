@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { BadgeType, ButtonIcon, ButtonType, CheckStateType, CheckType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
+import { BadgeType, ButtonIcon, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { BadgeComponent } from '../badge/badge.component';
+import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 import { CheckComponent } from '../check/check.component';
 import { SliderComponent } from '../slider/slider.component';
 import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
-import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
+import { CheckType } from 'src/app/enums/check-enum';
 
 
 @Component({

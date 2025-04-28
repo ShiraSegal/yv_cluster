@@ -1,5 +1,5 @@
 @import "src/styles.scss";
-.tab-container-active {
+.active {
     display: flex;
     width: 10.625rem;
     height: 3.8125rem;
@@ -14,7 +14,7 @@
     border-bottom: 3px solid $c-2449D8;
 }
 
-.tab-container-not-active {
+.not-active {
     display: flex;
     width: 10.625rem;
     height: 3.8125rem;

@@ -84,11 +84,11 @@ export class PieComponentDistributionModalComponent {
   }
 
   constructor(private clusterService: ClusterService) { }
-  ngOnInit() {
-    this.statisticData = this.#clusterService.statisticData$;
-    console.log("statisticData: ", this.statisticData);
+  // ngOnInit() {
+  //   this.statisticData = this.#clusterService.statisticData$;
+  //   console.log("statisticData: ", this.statisticData);
 
-  }
+  // }
   changeTheShowingPei() {
     this.showAllThaDatabasePie = !this.showAllThaDatabasePie;
     console.log("האם הפאי של כל המסד נתונים מוצג?:" + this.showAllThaDatabasePie);

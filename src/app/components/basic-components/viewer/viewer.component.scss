@@ -1,0 +1,109 @@
+@import "../../../../styles/colors.scss";
+
+.viewer-warpper {
+    display: flex;
+    width: 65.8125rem;
+    height: 50.3125rem;
+    padding: 0.25rem 0.625rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: #FFF;
+}
+
+.picture-name-warpper {
+    display: flex;
+    height: 3.125rem;
+    padding: var(--layout-02, 0.5rem);
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+    background: $pastel-blue;
+}
+
+.picture-name {
+    width: 8.375rem;
+    color: $slate_blue;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.image-warrper {
+    display: flex;
+    width: 59.5625rem;
+    height: 42.3125rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+    overflow: hidden; /* Ensure the image stays within the container */
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.button-warpper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    align-self: stretch;
+}
+
+.image-warrper img {
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    width: auto;
+    height:  42.3125rem;
+    max-width: none; /* Allow the image to grow beyond the container */
+    max-height: none; /* Allow the image to grow beyond the container */
+}
+
+.scale-1 {
+    transform: scale(1);
+}
+
+.scale-1-1 {
+    transform: scale(1.1);
+}
+
+.scale-1-2 {
+    transform: scale(1.2);
+}
+
+.scale-1-3 {
+    transform: scale(1.3);
+}
+
+.scale-1-4 {
+    transform: scale(1.4);
+}
+
+.scale-1-5 {
+    transform: scale(1.5);
+}
+
+@media print {
+    body * {
+        visibility: hidden !important;
+    }
+    .printable-image, .printable-image * {
+        visibility: visible !important;
+    }
+    .printable-image {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top:50%;
+        left: 50%;
+        width:100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+    }
+}
