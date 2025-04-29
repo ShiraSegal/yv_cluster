@@ -14,7 +14,7 @@ export class ClusterApiService {
   async getAutoClusterData() {
     return this.#http.get<string[]>('/assets/getAutoCluster.json');
   }
-  async getCreateClusterData() {
+  getCreateClusterData() {
     return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`);
   }
   // getCreateClusterData(): Observable<any[]> {

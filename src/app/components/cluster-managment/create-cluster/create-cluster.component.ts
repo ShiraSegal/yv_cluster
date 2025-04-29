@@ -76,8 +76,9 @@ export class CreateClusterComponent {
   
   ngOnInit() {
     console.log("formIsValid",this.formIsValid);
-
-  this.#service.ClusterData$.subscribe(data => {
+  
+  this.#service.getCreateClusterData().subscribe(data => {
+    debugger
     console.log('SapirClusterDetails:', data); // כאן תקבל את הנתונים עצמם
      this.dataCells = data; // שמירת הנתונים במשתנה
      this.dataCells.forEach((d:any) => {

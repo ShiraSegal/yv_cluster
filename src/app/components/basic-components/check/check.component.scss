@@ -11,7 +11,7 @@
 
 <<<<<<< HEAD
 .check.enabled.selected {
-    color: $primary_btn;
+    color: $c-1334B9;
     font-family: "Font Awesome 6 Pro";
     font-size: 0.875rem; 
     font-style: normal;
@@ -20,10 +20,10 @@
 }
 
 .check.enabled.unselected {
-    color: $slate_blue;
+    color: $c-3F4B5A;
 =======
   .check.enabled.checked {
-color: $primary_btn;
+color: $c-1334B9;
 font-family: "Font Awesome 6 Pro";
 font-size: 14px;
 font-style: normal;
@@ -33,7 +33,7 @@ line-height: normal;
   
 
   .check.enabled.unchecked {
-    color: $slate_blue;
+    color: $c-3F4B5A;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
     font-style: normal;

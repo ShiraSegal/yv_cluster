@@ -68,34 +68,32 @@ export class ClusterService {
   // }
  
    
-    private createClusterData$ = new BehaviorSubject<any[]>([]);
+   createClusterData$ = new BehaviorSubject<any[]>([]);
    
-  get ClusterData$()
-    {
-      if(!this.createClusterData$.value.length)
-      {
-        this.getCreateClusterData();
-      }
-      return this.createClusterData$.asObservable();
-    }
+  // get ClusterData$()
+  //   {
+  //     if(!this.createClusterData$.value.length)
+  //     {
+  //       this.getCreateClusterData();
+  //     }
+  //     return this.createClusterData$.asObservable();
+  //   }
    
 
 
-  async getCreateClusterData() {
-    const res = this.#clusterApiService.getCreateClusterData();
-    console.log("res",res);
+   getCreateClusterData() {
     
-    const result = (await res)
+    const result = this.#clusterApiService.getCreateClusterData()
       .pipe(
         take(1),
         map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
-        tap(details => {
+       
+        tap(details => { debugger
           if (details) {
             this.createClusterData$.next(details); // עדכון ה-Subject עם המערך
           }
         })
       )
-      .subscribe(); // המרה ל-Promise כדי לעבוד עם await
       console.log("result",result);
       
     return result; // מחזיר את המערך SapirClusterDetails

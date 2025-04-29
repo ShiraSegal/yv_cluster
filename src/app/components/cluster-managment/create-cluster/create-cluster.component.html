@@ -39,8 +39,7 @@
                             <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType1"
                                 [text]="button1" (onClick)="close=true">
                             </yv-cluster-button>
-    
-                            <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType2" [disabled]="formGroup.valid"
+                            <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType2" [disabled]="!formGroup.valid"
                                 [text]="button2" (onClick)="createCluster()">
                             </yv-cluster-button>
                         </div>
