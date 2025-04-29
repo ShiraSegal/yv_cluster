@@ -13,17 +13,23 @@ import { BasicSmallIconButtonComponent } from '../basic-small-icon-button/basic-
 })
 export class CompareModalButtonComponent {
   @Input() recordName!: string;
-  @Input() index!: number; // Input for record index
-  @Output() viewModeChange = new EventEmitter<{ index: number, mode: 'image' | 'details' }>(); // Output event emitter with index
+  @Input() index!: number;
+  
   list = SquareIconButtonIcon.LIST;
   image = SquareIconButtonIcon.IMAGE;
   trash = SmallIconButtonIcon.TRASH;
   clipBoard = SmallIconButtonIcon.LIST;
-
-  activeButton: 'image' | 'details' = 'details';
-
-  setActive(button: 'image' | 'details') {
-    this.activeButton = button;
-    this.viewModeChange.emit({ index: this.index, mode: button }); // Emit change event with index
-  }
+@Output() detailsMode = new EventEmitter<boolean>();
+@Output() imageMode = new EventEmitter<boolean>();
+  
+ isDetailsModeOn = true;
+ isImageModeOn = false;
+  ImageModeReplaceStatus() {
+    this.isImageModeOn = !this.isImageModeOn;
+    this.imageMode.emit(this.isImageModeOn); // שולח את המצב הנוכחי  
+}
+  DetailsModeReplaceStatus() {
+  this.isDetailsModeOn = !this.isDetailsModeOn;
+  this.detailsMode.emit(this.isDetailsModeOn); // שולח את המצב הנוכחי  
+}
 }

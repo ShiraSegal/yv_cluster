@@ -2,13 +2,13 @@
     <div class="inner-frame">
       <yv-cluster-basic-square-icon-button
         [icon]="image"
-        [isActive]="activeButton === 'image'"
-        (click)="setActive('image')"
+        [isActive]="isImageModeOn"
+        (click)="ImageModeReplaceStatus()"
       ></yv-cluster-basic-square-icon-button>
       <yv-cluster-basic-square-icon-button
         [icon]="list"
-        [isActive]="activeButton === 'details'"
-        (click)="setActive('details')"
+        [isActive]="isDetailsModeOn"
+        (click)="DetailsModeReplaceStatus()"
       ></yv-cluster-basic-square-icon-button>
     </div>
     <div class="inner-frame2">
