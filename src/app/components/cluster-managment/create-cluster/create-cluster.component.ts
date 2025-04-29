@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ToastNotificationIcons} from 'src/app/enums/basic-enum';
+import { NativeOptionState, NativeOptionType, ToastNotificationIcons } from 'src/app/enums/basic-enum';
 import { Component, forwardRef, inject, Inject } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../../basic-components/button/button.component';
@@ -14,12 +14,13 @@ import { ClusterService } from 'src/app/services/cluster.service';
 import { HeaderCellsComponent } from '../../basic-components/header-cells/header-cells.component';
 import { FieldComponent } from '../../basic-components/field/field.component';
 import { ToastNotificationComponent } from '../../basic-components/toast-notification/toast-notification.component';
+import { SelectComponent } from '../../basic-components/select/select.component';
 // import { SelectComponent } from '../../basic-components/select/select.component';
 
 @Component({
   selector: 'yv-cluster-create-cluster',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule,CommonModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent,RadioButtonListComponent, BodyComponent, ButtonComponent,HeaderCellsComponent,FieldComponent,ToastNotificationComponent],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent, RadioButtonListComponent, BodyComponent, ButtonComponent, HeaderCellsComponent, FieldComponent, ToastNotificationComponent, SelectComponent],
   templateUrl: './create-cluster.component.html',
   styleUrl: './create-cluster.component.scss'
 })
@@ -27,7 +28,7 @@ export class CreateClusterComponent {
   // constructor(private clusterData: ClusterApiService) { }
 
   formBuilder = inject(FormBuilder);
-  #service=inject(ClusterService);
+  clusterService = inject(ClusterService);
 
   //form validation
   formGroup!: FormGroup;
@@ -35,17 +36,17 @@ export class CreateClusterComponent {
   formGroupFields: any = {};
 
   //form data
-  dataCells:any = new Observable<string[]>;
+  dataCells: any = new Observable<string[]>;
 
   //close dialog
-  close:boolean = false;
+  close: boolean = false;
 
   //header
   header: string = 'Create Cluster';
   size: TextSize = TextSize.SMALL;
   weight: TextWeight = TextWeight.BOLD;
   color: TextColor = TextColor.NEUTRAL_GRAY;
-  
+
   //table header
   tableHeader1: string = 'Field';
   size1: TextSize = TextSize.MEDIUM;
@@ -57,78 +58,85 @@ export class CreateClusterComponent {
 
   //select
   selectLabel: string = 'Cluster Level';
-  options: string[] = ['Exact','Most Probable','Possible'];
+  nativeOptionType = NativeOptionType;
+  // options: string[] = ['Exact','Most Probable','Possible'];
+  options = [
+    { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
+    { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
+    { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT }
+  ];
 
   //text field
-  stateEnum =  State ;
+  stateEnum = State;
 
   //buttons
   button1: string = 'Cancel';
   button2: string = 'Set a cluster';
-  btn_size:boolean = false;
+  btn_size: boolean = false;
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
 
   //toast notification
-  ToastNotificationIcons =ToastNotificationIcons;
+  ToastNotificationIcons = ToastNotificationIcons;
 
 
-  
+
   ngOnInit() {
-    console.log("formIsValid",this.formIsValid);
-  
-  this.#service.getCreateClusterData().subscribe(data => {
-    debugger
-    console.log('SapirClusterDetails:', data); // כאן תקבל את הנתונים עצמם
-     this.dataCells = data; // שמירת הנתונים במשתנה
-     this.dataCells.forEach((d:any) => {
-      let values:any=[];
-        d.Values.forEach((v:any) => {
-          values.push({key:v.NameCode,value:v.Value});
+    console.log("formIsValid", this.formIsValid);
+    this.createClusterFormData();
+
+
+  }
+  createClusterFormData() {
+    this.clusterService.getCreateClusterData().subscribe(data => {
+      debugger
+      console.log('SapirClusterDetails:', data); // כאן תקבל את הנתונים עצמם
+      this.dataCells = data; // שמירת הנתונים במשתנה
+      this.dataCells.forEach((d: any) => {
+        let values: any = [];
+        d.Values.forEach((v: any) => {
+          values.push({ key: v.NameCode, value: v.Value });
         });
-    
-        
+
+
         // values[0].selectedOption=true;
-        console.log("element",d);
-        if(d.HasOtherOption)
-          values.push({key:"other",value:"other"});
-         d.RadioOptions=values;
+        console.log("element", d);
+        if (d.HasOtherOption)
+          values.push({ key: "other", value: "other" });
+        d.RadioOptions = values;
+      });
+      console.log("222222222222222222", this.dataCells);
+
+      this.initializeFormGroup();
     });
-     console.log("222222222222222222",this.dataCells);
+  }
+  initializeFormGroup() {
+    this.dataCells.forEach((field: any) => {
+      this.formGroupFields[field.Field] = ['', Validators.required];
+    });
+    this.formGroup = this.formBuilder.group(this.formGroupFields);
+  }
+  checkChange(selected: string) {
 
+    console.log("valid", this.formGroup.valid);
+    console.log("formGroup", this.formGroup);
 
-  this.dataCells.forEach((field: any) => {
-    this.formGroupFields[field.Field] = ['', Validators.required];
-  });
-  // this.formGroupFields['option'] = ['', Validators.required];
-  this.formGroup = this.formBuilder.group(this.formGroupFields);
+  }
 
-  
+  createCluster() {
+    console.log("formGroupFields", this.formGroupFields);
+    // console.log("clusterLevel",this.formGroupFields['ClusterLevel']);
+    console.log("formGroup", this.formGroup);
 
-  
-  });
-
-}
-
-checkChange(selected:string){
-
-  
-}
-
-  createCluster(){
-    console.log("formGroupFields",this.formGroupFields);
-console.log("clusterLevel",this.formGroupFields['ClusterLevel']);
-    console.log("formGroup",this.formGroup);
-    
-    if(this.formGroup.valid){
+    if (this.formGroup.valid) {
       this.formIsValid = true;
     }
-    else{
+    else {
       // this.disabled=false
       this.formIsValid = false;
     }
-    console.log("formIsValid",this.formIsValid);
-    
+    console.log("formIsValid", this.formIsValid);
+
   }
 
 

@@ -48,6 +48,7 @@ import { CheckType } from "src/app/enums/check-enum";
 import { NarrowBasicTableRowComponent } from "../basic-components/narrow-basic-table-row/narrow-basic-table-row.component";
 import { NarrowBasicTableWarpComponent } from "../basic-components/narrow-basic-table-warp/narrow-basic-table-warp.component";
 import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
+import { SelectComponent } from '../basic-components/select/select.component';
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -75,7 +76,7 @@ import { TableHeaderComponent } from "../basic-components/table-header/table-hea
     BasicToggleComponent,
     BasicRadioButtonComponent,
     CheckComponent,
-  //  SelectComponent,
+   SelectComponent,
     BasicTabComponent,
     SliderComponent,
     SwitchComponent,

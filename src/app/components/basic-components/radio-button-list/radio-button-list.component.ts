@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { BasicRadioButtonComponent } from '../basic-radio-button/basic-radio-button.component';
 import { RadioButtonListDirection } from 'src/app/enums/basic-enum';
 
@@ -9,7 +9,14 @@ import { RadioButtonListDirection } from 'src/app/enums/basic-enum';
   standalone: true,
   imports: [CommonModule,FormsModule,ReactiveFormsModule,BasicRadioButtonComponent],
   templateUrl: './radio-button-list.component.html',
-  styleUrl: './radio-button-list.component.scss'
+  styleUrl: './radio-button-list.component.scss',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => RadioButtonListComponent),
+      multi: true
+    }
+  ]
 })
 export class RadioButtonListComponent {
   @Input() radioButtonArray:string [] = ["a", "b", "c", "d","other"];
@@ -21,6 +28,7 @@ export class RadioButtonListComponent {
   radioControl = new FormControl<string | null>(null);
   radioForm = new FormGroup({radioControl: this.radioControl});
 
+  
   onOneRadioButtonChange(selectedOption: string) {
     this.radioControl.setValue(selectedOption);
     this.selectionChange.emit(selectedOption);

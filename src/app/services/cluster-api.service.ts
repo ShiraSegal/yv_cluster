@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { SapirClusterModel } from '../models/sapir-cluster-model.model';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class ClusterApiService {
     return this.#http.get<string[]>('/assets/getAutoCluster.json');
   }
   getCreateClusterData() {
-    return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`);
+    return this.#http.get<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`);
   }
   // getCreateClusterData(): Observable<any[]> {
   //   return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`).pipe(
