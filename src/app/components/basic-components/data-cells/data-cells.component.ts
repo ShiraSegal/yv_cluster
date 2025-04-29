@@ -31,7 +31,9 @@ export class DataCellsComponent<T extends DataCellType>  {
   checkStateType = CheckStateType;
   checkType = CheckType;
   //functions
-
+  // ngOnInit() {
+  //   console.log('data', this.data);
+  //   console.log('type', this.type);}
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;
   }

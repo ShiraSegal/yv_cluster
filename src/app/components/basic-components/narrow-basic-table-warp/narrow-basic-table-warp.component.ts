@@ -6,6 +6,7 @@ import { BasicTabComponent } from '../basic-tab/basic-tab.component';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { SlidebarNavigationComponent } from '../slidebar-navigation/slidebar-navigation.component';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class NarrowBasicTableWarpComponent {
   tabData: any; 
 
   clusterService = inject(ClusterService);
+  form!: FormGroup;
 
  readonly TabToJSONKeyMap: { [key in AutoClusterTabType]: string } = {
     [AutoClusterTabType.SAPIR_CLUSTERS]: 'ClustersForSapir',
@@ -204,9 +206,15 @@ export class NarrowBasicTableWarpComponent {
   }));
   }
   ngOnInit() {
-    this.data1 = this.clusterService.getAutoClusterData().subscribe((data) => {
-      this.tabData = data
-    })
+    // console.log('data', this.Rows);
+    
+    this.data1 = this.clusterService.getAutoClusterData().subscribe({
+      next: (data) => {
+        this.tabData = data
+      },
+      error: (error) => {
+        console.error("error getAutoClusterData occurred:", error);
+      }});
     this.loadDataForTab();
   }
 
