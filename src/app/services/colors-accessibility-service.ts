@@ -16,7 +16,7 @@ export class ColorsAccessibilityService {
                 @Inject(DOCUMENT) private document: Document) { // הסרת הפסיק המיותר
         this.isBrowser = isPlatformBrowser(platformId);
     }
-
+// 
     setColors() {
         // dynamically create CSS var declaration like in css
         this.document.documentElement.style.setProperty("--primary_btn", "#1334B9");

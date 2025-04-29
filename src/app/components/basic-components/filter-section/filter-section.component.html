@@ -1,0 +1,18 @@
+<div class="filter-section-container">
+    <div class="selects-container">
+        <yv-cluster-field [property]="stateEnum.DEFAULT" [placeholder]="'Search'"></yv-cluster-field>
+        <yv-cluster-select [default]="'Select Date'" [dropdownType]="nativeOptions.TEXT"></yv-cluster-select>
+        <yv-cluster-select [default]="'Filter By Status'" [dropdownType]="nativeOptions.STATUS"  [options]="badgeOptions"></yv-cluster-select>
+        <yv-cluster-select [default]="'Filter By Assignee'" [dropdownType]="nativeOptions.ASSIGNEE"
+            [options]="assigneeOptions"></yv-cluster-select>
+    </div>
+    <div class="right-buttons">
+        <yv-cluster-icon-button-large [icon]="iconType.USER"
+            [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
+            <yv-cluster-icon-button-large [icon]="iconType.CLIPBPOARD"
+            [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>             
+        <yv-cluster-button (onClick)="onClick()" [text]="buttonText" [buttonType]="primary"
+            [buttonIcon]="icon"></yv-cluster-button>
+
+    </div>
+</div>

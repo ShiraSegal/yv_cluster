@@ -1,0 +1,30 @@
+@import "src/styles.scss";
+
+.filter-section-container {
+    display: flex;
+    width: 99.4375rem;
+    height: 3.5rem;
+    padding-bottom: 1.25rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #B8C2EA;
+}
+
+
+
+.selects-container {
+    display: flex;
+    align-items: center;
+    gap: 1.125rem;
+
+}
+
+.right-buttons {
+    display: flex;
+    width: 16.78125rem;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+

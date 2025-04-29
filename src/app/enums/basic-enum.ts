@@ -63,6 +63,11 @@ export enum AutoClusterTabType {
   ERROR_MESSAGES = 'Error Messages'
 }
 
+export enum HomeTableTabType {
+ NEWֹֹֹֹֹֹ_SUGGESTIONS = 'new-suggestion',
+  OLD_SUGGESTIONS = 'old_suggestion',
+  
+}
 
 export enum ButtonIcon {
   FOLDER_PLUS = "fa-light fa-folder-plus",
@@ -112,8 +117,6 @@ export enum BadgeType {
   DONE = "Done"
 }
 
-
-
 export enum SliderNavigationTabType {
   VARIANT3 = "variant3",
   ACTIVE = "active"
@@ -127,9 +130,6 @@ export enum SliderNavigationTabTextType {
 
 }
 
-
-
-
 export enum State {
   DEFAULT = "default",
   FOCUSED = "focused",
@@ -142,22 +142,23 @@ export enum IconButtonLargeType {
   DEFAULT = "default",
   HOVER = "hover",
 }
-export enum NativeOptionType {
-  ASSIGNEE = "assignee",
-  STATUS = "status",
-  TEXT = "text"
-}
-export enum NativeOptionState {
-  DEFAULT = "default",
-  HOVER = "hover"
-}
-export enum ButtonIconProperty {
-  VARIANT1 = "variant1",
-  VARIANT2 = "variant2",
-  VARIANT3 = "variant3"
-}
 
 export enum StatusActiveOrNotActive {
   ACTIVE = "active",
   NOT_ACTIVE = "not-active"
 }
+
+export enum NativeOptionType{
+  ASSIGNEE = "assignee",
+  STATUS = "status",
+  TEXT = "text"
+}
+export enum NativeOptionState{
+  DEFAULT = "default",
+  HOVER = "hover"
+}
+export enum ButtonIconProperty{
+  VARIANT1="variant1",
+  VARIANT2="variant2",
+  VARIANT3="variant3"
+  }
