@@ -6,9 +6,9 @@ import { BadgeComponent } from '../badge/badge.component';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 import { CheckComponent } from '../check/check.component';
 import { SliderComponent } from '../slider/slider.component';
-import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { CheckType } from 'src/app/enums/check-enum';
+import { ButtonComponent } from '../button/button.component';
 
 
 @Component({

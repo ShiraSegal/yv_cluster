@@ -2,7 +2,7 @@
 import { SliderComponent } from "../basic-components/slider/slider.component";
 import { Component } from "@angular/core";
 import { CheckComponent } from "../basic-components/check/check.component";
-import { AutoClusterTabType, BadgeType, BasicTableRowPropertyVariants, BigCardSize, ButtonIconProperty, ButtonSize, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, RadioButtonListDirection, SliderNavigationTabTextType, StatusActiveOrNotActive, ToastNotificationIcons } from 'src/app/enums/basic-enum';
+import { AutoClusterTabType, BadgeType, BasicTableRowPropertyVariants, BigCardSize, ButtonIconProperty, ButtonSize, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, RadioButtonListDirection, SliderNavigationTabTextType, StatusActiveOrNotActive, TextSize, TextWeight, ToastNotificationIcons } from 'src/app/enums/basic-enum';
 import { ButtonIcon, CheckStateType, IconButtonLargeType, SliderNavigationTabType, State, ButtonType, DataCellType, HeaderCellType } from 'src/app/enums/basic-enum';
 import { CardIcons } from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
@@ -38,6 +38,8 @@ import { RadioButtonListComponent } from "../basic-components/radio-button-list/
 import { BasicRadioButtonComponent } from "../basic-components/basic-radio-button/basic-radio-button.component";
 import { BasicToggleComponent } from "../basic-components/basic-toggle/basic-toggle.component";
 import { EnterBookidComponent } from "../cluster-managment/enter-bookid/enter-bookid.component";
+import { HeadingComponent } from "../basic-components/heading/heading.component";
+import { BodyComponent } from "../basic-components/body/body.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -104,6 +106,8 @@ import { EnterBookidComponent } from "../cluster-managment/enter-bookid/enter-bo
     BasicTabComponent,
     HeaderCellsComponent,
     EnterBookidComponent,
+    HeadingComponent,
+    BodyComponent
     
   ],
   templateUrl: './test.component.html',
@@ -123,9 +127,10 @@ export class TestComponent {
   // variant1 = ButtonIconProperty.VARIANT1
   // variant2 = ButtonIconProperty.VARIANT2
   // variant3 = ButtonIconProperty.VARIANT3
-  icon = ButtonIcon.CHEVRON_LEFT
+  icon = IconType.CHEVRON_LEFT_LIGHT//button icon
   //enums-----------------------------------------------------------------------
-  iconType = IconType;//  types of icons.  
+  iconType = IconType;//  types of icons. 
+  IconType = IconType; 
   badgeType = BadgeType;//types of badge
   CheckStateType = CheckStateType;
   CheckType = CheckType;
@@ -149,6 +154,72 @@ export class TestComponent {
   optionType = NativeOptionType;
   ToastNotificationIcons = ToastNotificationIcons;
   RadioButtonListDirection=RadioButtonListDirection;
+  //variables-----------------------------------------------------------------------
+  // button component properties
+  switchState: boolean = false;
+  tabState: boolean = false;
+  searchControl = new FormControl('');
+  big = ButtonSize.BIG//button size
+  small = ButtonSize.SMALL//button size;
+  toggleState!: string;
+  radioButtonState: boolean = false;
+  iconp = "fa-solid fa-plus"
+  txt2 = "Enter Book ID"
+
+  //heading component properties
+  title1 = "Heading Large"
+  title2 = "Heading Medium-Bold"
+  title3 = "Heading Small"
+  title4 = "Heading Small-bold"
+  size1 = TextSize.LARGE
+  size2 = TextSize.MEDIUM
+  size3 = TextSize.SMALL
+  weight1=TextWeight.BOLD
+  weight2=TextWeight.NORMAL
+  bodyText1: string = 'Body Large Upon initial observation, it may appear that there are only two primary scenarios for ';
+  bodyText2: string = 'Body Medium Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
+  bodyText3: string = 'Body Small Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
+
+  btnType = ButtonType.PRIMARY;
+  btnType2 = ButtonType.SECONDARY;
+  txt1 = "test btn1"
+  options: string[] = [];
+  variant1 = ButtonIconProperty.VARIANT1
+  variant2 = ButtonIconProperty.VARIANT2
+  variant3 = ButtonIconProperty.VARIANT3
+  title = 'test';
+  isError: boolean = false;
+  isDisabled: boolean = false;
+  isFocused: boolean = false;
+  isPopulated: boolean = true;
+  // label: string = 'label';
+
+  // title = 'yv-clusters';
+  HeaderCellType = HeaderCellType;
+  DataCellType = DataCellType;
+  // SliderNavigationTabIconType = SliderNavigationTabIconType;
+  // SliderNavigationTabType = SliderNavigationTabType;
+  selectedOption: string = '';
+  radioButtonArray: string[] = ["a", "b", "c", "d", "other"];
+
+  cells = [
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
+    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE }
+    // { data: 'Checked', type: DataCellType.CHECK },
+    // { data: 'www.example.com', type: DataCellType.LINK },
+    // { data: 'Icon Data', type: DataCellType.ICON },
+    // { data: 'Assignee Name', type: DataCellType.ASSIGNEE },
+    // { data: 'Button Text', type: DataCellType.BUTTON },
+    // { data: 'Slider Value', type: DataCellType.SLIDER }
+  ];
+
+
+
   //data-----------------------------------------------------------------------
   // table-header
   exampleTableHeader = [{ data: '', type: HeaderCellType.CHECK },
@@ -265,82 +336,8 @@ export class TestComponent {
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
   ];
 
-//variables-----------------------------------------------------------------------
-  // button component properties
-  //switch
-  switchState: boolean = false;
-  //this state get the status of the tab
-  tabState: boolean = false;
-  //field placeolder
-  searchControl = new FormControl('');
-  //enum ButtonSize
-  big = ButtonSize.BIG//button size
-  small = ButtonSize.SMALL//button size;
 
-  toggleState!: string;
-  radioButtonState: boolean = false;
-
-  iconp = "fa-solid fa-plus"
-  txt2 = "Enter Book ID"
-
-  title1 = "Heading Large"
-  title2 = "Heading Medium-Bold"
-  title3 = "Heading Small"
-  title4 = "Heading Small-bold"
-  // size1: TextSize = TextSize.LARGE
-  // size2: TextSize = TextSize.MEDIUM
-  // size3: TextSize = TextSize.SMALL
-  bodyText1: string = 'Body Large Upon initial observation, it may appear that there are only two primary scenarios for ';
-  bodyText2: string = 'Body Medium Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
-  bodyText3: string = 'Body Small Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
-
-  btnType = ButtonType.PRIMARY;
-  btnType2 = ButtonType.SECONDARY;
-  txt1 = "test btn1"
-  // txt1 = "test btn1"
-
-  // size1: TextSize = TextSize.LARGE
-  // size2: TextSize = TextSize.MEDIUM
-  // size3: TextSize = TextSize.SMALL
-
-
-  options: string[] = [];
-  variant1 = ButtonIconProperty.VARIANT1
-  variant2 = ButtonIconProperty.VARIANT2
-  variant3 = ButtonIconProperty.VARIANT3
-  title = 'test';
-  isError: boolean = false;
-  isDisabled: boolean = false;
-  isFocused: boolean = false;
-  isPopulated: boolean = true;
-  // label: string = 'label';
-
-  // title = 'yv-clusters';
-  HeaderCellType = HeaderCellType;
-  DataCellType = DataCellType;
-  // SliderNavigationTabIconType = SliderNavigationTabIconType;
-  // SliderNavigationTabType = SliderNavigationTabType;
-
-  cells = [
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-    { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE }
-    // { data: 'Checked', type: DataCellType.CHECK },
-    // { data: 'www.example.com', type: DataCellType.LINK },
-    // { data: 'Icon Data', type: DataCellType.ICON },
-    // { data: 'Assignee Name', type: DataCellType.ASSIGNEE },
-    // { data: 'Button Text', type: DataCellType.BUTTON },
-    // { data: 'Slider Value', type: DataCellType.SLIDER }
-  ];
-
-
-
-  selectedOption: string = '';
-  radioButtonArray: string[] = ["a", "b", "c", "d", "other"];
+  
 
   // handleSort(event: { column: string, direction: string }) {
 
@@ -363,35 +360,11 @@ export class TestComponent {
     { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
     { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT }
   ];
-  // cells = [
-  //   { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-  //   { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-  //   { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-  //   { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-  //   { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-  //   { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-  //   { data: 'Ariela koppelmann', type: DataCellType.ASSIGNEE },
-  //   { data: 'Checked', type: DataCellType.CHECK },
-  //   { data: 'www.example.com', type: DataCellType.LINK },
-  //   { data: 'Icon Data', type: DataCellType.ICON },
-  //   { data: 'Assignee Name', type: DataCellType.ASSIGNEE },
-  //   { data: 'Button Text', type: DataCellType.BUTTON },
-  //   { data: 'Slider Value', type: DataCellType.SLIDER }
-  // ];
-
   //functions-----------------------------------------------------------------------
   //header-cell- sort function
   handleSort(event: { column: string, direction: string }) {
     console.log(`Sorting by ${event.column} in ${event.direction} order`);
   }
-  // //switch-component function
-  // handleSwitchChange(state: boolean) {
-  //   this.switchState = state;
-  // }
-  // //basic-tab-component function
-  // handleTabChange(state: boolean) {
-  //   this.tabState = state;
-  // }
   //button & icon button component function
   onClick() {
     alert('test on click');

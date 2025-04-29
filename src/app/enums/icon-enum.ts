@@ -24,4 +24,6 @@ export enum IconType {
     ROBOT="fa-solid fa-robot",
     LINK_SIMPLE="fa-solid fa-link-simple",
     LIST="fa-solid fa-list",
+    CHEVRON_RIGHT_LIGHT = "fa-light fa-chevron-right",
+    CHEVRON_LEFT_LIGHT = "fa-light fa-chevron-left" ,
 }

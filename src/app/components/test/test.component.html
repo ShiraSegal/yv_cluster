@@ -103,7 +103,7 @@
  <h3>enter-bookid</h3>
  <yv-cluster-enter-bookid/>
  <hr>
- <h3>buuton</h3>
+ <!-- <h3>buuton</h3>
 
  <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [size]="ButtonSize.SMALL" [buttonIcon]="icon"></yv-cluster-button>
  <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [buttonIcon]="icon"></yv-cluster-button>
@@ -117,20 +117,42 @@
  <yv-cluster-button (onClick)="onClick()"  text="Text" [buttonType]="secondary" [size]="ButtonSize.SMALL"  [disabled]="true" [buttonIcon]="icon"  ></yv-cluster-button>
   
  <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [size]="ButtonSize.SMALL"  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
- <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [size]="ButtonSize.SMALL"  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button>
+ <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [size]="ButtonSize.SMALL"  [disabled]="true" [buttonIcon]="icon"></yv-cluster-button> -->
+ 
+ <h3>button</h3>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [iconType]="icon"></yv-cluster-button>
+
+<yv-cluster-button  (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [iconType]="icon"></yv-cluster-button>
+
+<yv-cluster-button (onClick)="onClick()"text="Text" [buttonType]="tertiany" [isBig]=true [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [iconType]="icon"></yv-cluster-button>
+
+<br>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [disabled]="true" [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=false [disabled]="true" [iconType]="icon"></yv-cluster-button>
+
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true  [disabled]="true" [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()"  text="Text" [buttonType]="secondary" [isBig]=false  [disabled]="true" [iconType]="icon"></yv-cluster-button>
+
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true  [disabled]="true" [iconType]="icon"></yv-cluster-button>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false  [disabled]="true" [iconType]="icon" ></yv-cluster-button>
+<hr>
  <hr>
  <h3>heading</h3>
- <!-- <yv-cluster-heading [title]="title1" [size]="size1" ></yv-cluster-heading>
- <yv-cluster-heading [title]="title2" [size]="size2" ></yv-cluster-heading>
- <yv-cluster-heading [title]="title3" [size]="size3" ></yv-cluster-heading>
- <yv-cluster-heading [title]="title4" [size]="size3" ></yv-cluster-heading>
- <hr> -->
- <!-- <h3>body</h3>
- <yv-cluster-body [bodyText]="bodyText1" [size]="size1" [isBold]=false></yv-cluster-body>
- <yv-cluster-body [bodyText]="bodyText1" [size]="size1" [isBold]=true></yv-cluster-body>
- <yv-cluster-body [bodyText]="bodyText2" [size]="size2" [isBold]=false></yv-cluster-body>
- <yv-cluster-body [bodyText]="bodyText2" [size]="size2" [isBold]=true></yv-cluster-body>
- <yv-cluster-body [bodyText]="bodyText3" [size]="size3" [isBold]=false></yv-cluster-body>  -->
+ <yv-cluster-heading [title]="title1" [size]="size1" [weight]="weight1"></yv-cluster-heading>
+ <yv-cluster-heading [title]="title2" [size]="size2" [weight]="weight1"></yv-cluster-heading>
+ <yv-cluster-heading [title]="title3" [size]="size3" [weight]="weight2"></yv-cluster-heading>
+ <yv-cluster-heading [title]="title4" [size]="size3" [weight]="weight1"></yv-cluster-heading>
+ <hr>
+ 
+ <h3>body</h3>
+ <yv-cluster-body [bodyText]="bodyText1" [size]="size1" [weight]="weight2"></yv-cluster-body>
+ <yv-cluster-body [bodyText]="bodyText1" [size]="size1" [weight]="weight1"></yv-cluster-body>
+ <yv-cluster-body [bodyText]="bodyText2" [size]="size2" [weight]="weight2"></yv-cluster-body>
+ <yv-cluster-body [bodyText]="bodyText2" [size]="size2" [weight]="weight1"></yv-cluster-body>
+ <yv-cluster-body [bodyText]="bodyText3" [size]="size3" [weight]="weight2"></yv-cluster-body>
  <hr>
  <h3>switch</h3>
  <yv-cluster-switch [text]="'switch'" [active]="true"   (switchChange)="handleSwitchChange($event)"></yv-cluster-switch>
@@ -161,6 +183,7 @@
  <yv-cluster-basic-card [iconName]="iconType.CLOCK_FIVE" [text]="'560 Old Suggestions  pending'" [circleColor]="'#A5EBDD'" [iconColor]="'#1F8A74'"></yv-cluster-basic-card>
  <br>
  <yv-cluster-basic-card [iconName]="iconType.CIRCLE_CHECK" [text]="'120 Suggestions processed this month'" [circleColor]="'#B8C2EA'" [iconColor]="'#5A71CE'"></yv-cluster-basic-card>
+ <hr>
  <h3>big card</h3>
 <yv-cluster-big-card [text]="'Cluster creation from the automated list'" [number]="1.200" [iconName]="iconType.LIST" [size]="BigCardSize.SHORT" [circleColor]="'#E7EBF8'" [iconColor]="'#5A71CE'"></yv-cluster-big-card>
 <br>
@@ -170,6 +193,8 @@
  <br>
  <yv-cluster-big-card [text]="'Manual creation of clusters.'" [number]="350" [iconName]="iconType.EDIT" [size]="BigCardSize.LONG" [circleColor]="'#425DC7'" [iconColor]="'#E7EBF8'"></yv-cluster-big-card>
  <br>
+ <hr>
+ <h3>satistic card</h3>
  <yv-cluster-satistic-card [text]="'Handling proposals from the automated lists'" [doneNumber]="1200" [toDoNumber]="355"></yv-cluster-satistic-card>
  <br>
  <hr>
@@ -203,42 +228,6 @@
 <yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
 <yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
 <hr>
-<h3>header cell</h3>
-<hr>
-<yv-cluster-header-cells [type]=headerCellType.TEXT header="text"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.ORDER header="order"
-  (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.ORDERDOWN header="order-down"
-  (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.CHECK></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.MORE></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.PLACEOLDER></yv-cluster-header-cells>
-<h3>button</h3>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]=ButtonType.PRIMARY [size]="small"
-  [buttonIcon]="icon"></yv-cluster-button>
-  <hr>
-<h3>slider navigation tab</h3>
-<hr>
-<yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.VARIANT3" [icon]="iconType.HOMELIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
-<yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.ACTIVE" [icon]="iconType.HOMELIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
-<hr>
-<h3>slider navigation</h3>
-<hr>
-<yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
-<hr>
-<h3>switch</h3>
-<hr>
-<!-- <yv-cluster-switch [text]="'switch'" [status]="StatusActiveOrNotActive.ACTIVE"
-  (switchChange)="handleSwitchChange($event)"></yv-cluster-switch> -->
-<hr>
-<h3>tab</h3>
-<hr>
-<!-- <yv-cluster-basic-tab [text]="'tab'" [status]="StatusActiveOrNotActive.ACTIVE"
-  (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab> -->
-<hr>
-<h3>card</h3>
-
 <hr>
 <h3>narrow-basic-table-row </h3>
 <yv-cluster-narrow-basic-table-row [property]="NarrowBasicTableRowInputState.HOVER" [cells]="exampleNarrowRow"></yv-cluster-narrow-basic-table-row>
@@ -252,11 +241,4 @@
 <hr>
 <yv-cluster-table-header [headers]="exampleTableHeader"></yv-cluster-table-header>
 <hr>
-<h3>field</h3>
-<hr>
-<yv-cluster-field [property]="stateEnum.ERROR" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
-<yv-cluster-field [property]="stateEnum.DISABLED" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
-<yv-cluster-field [property]="stateEnum.DEFAULT" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
-<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
-<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
-<hr>
+
