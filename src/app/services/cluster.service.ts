@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, take, tap } from 'rxjs';
+import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, of, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
 
@@ -50,25 +50,19 @@ export class ClusterService {
     return this.isLoadingBehaviorSubject$.asObservable();
   }
 
-  // get statisticData$(): Observable<any[]> {
-  //   if(!this.statisticDataSubject$.value.length){
-  //     this.getStatisticData();
-  //   }
-  //   return this.statisticDataSubject$.asObservable();
-  // }
-
-  // async getStatisticData() {
-  //   this.#clusterApiService.getStatisticData().pipe(
-  //     take(1),
-  //     tap(res => {
-  //       if (res) {
-  //         console.log("res: ", res);
-          
-  //         this.statisticDataSubject$.next(res);  
-  //       }
-  //     })
-  //   ).subscribe(); 
-  // }
+  getStatisticData() {
+    // let lang = this.#clusterApiService.getStatisticData === undefined ? Language.English : this.#translateService.currentLang;
+    var res = this.#clusterApiService.getStatisticData()
+      .pipe(
+        take(1),
+        tap(res => {
+        }),
+        catchError(err => {
+          return of(null);
+        })
+      );
+    return res;
+  }
   
  
 

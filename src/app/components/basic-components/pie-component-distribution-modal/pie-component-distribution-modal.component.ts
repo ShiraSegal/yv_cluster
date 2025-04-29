@@ -23,6 +23,7 @@ export class PieComponentDistributionModalComponent {
   statisticData!: Observable<any[]>;
   colorsArray: string[] = ['#F6CDCD', '#A5B1C0', '#A1AEE3', '#A5EBDD',];
   showAllThaDatabasePie: boolean = true;
+  bigData:any[] = [];
   data = {
     "LastName": [{
       "Count": 3000,
@@ -81,14 +82,26 @@ export class PieComponentDistributionModalComponent {
 
       }
     ]
-  }
+  };
 
+  subscription:Observable<any> []= [];
   constructor(private clusterService: ClusterService) { }
-  // ngOnInit() {
-  //   this.statisticData = this.#clusterService.statisticData$;
-  //   console.log("statisticData: ", this.statisticData);
-
-  // }
+  ngOnInit() {
+    this.#clusterService.getStatisticData().subscribe({
+ 
+      next: (res: any) => {
+        this.bigData = res;
+        console.log("this.bigData", this.bigData);
+        
+      },
+      error: (error) => {
+        console.error("getSpecialActivitiesData occurred:", error);
+        // this.#loadingServise.decrement();
+      }
+ 
+ 
+    })
+  }
   changeTheShowingPei() {
     this.showAllThaDatabasePie = !this.showAllThaDatabasePie;
     console.log("האם הפאי של כל המסד נתונים מוצג?:" + this.showAllThaDatabasePie);

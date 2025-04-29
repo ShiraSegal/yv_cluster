@@ -21,8 +21,8 @@ export class ClusterApiService {
 
   //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
 
-  getStatisticData(): Observable<any[]> {
-    return this.#http.get<any[]>(environment.apiUrl + './assets/json-data/getStatisticData.json');
+  getStatisticData(): Observable<any> {
+    return this.#http.get('./assets/json-data/getStatisticData.json');
   }
   }
 
