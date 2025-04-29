@@ -8,12 +8,15 @@
 
     <div class="tabs-container">
       @for (tab of tabs; track tab) {
-      <yv-cluster-basic-tab [text]="tab.text" [status]="tab.status" (tabChange)="setActiveTab(tab.text)">
+      <yv-cluster-basic-tab [text]="tab.text" 
+      
+      [status]="tab.status" (tabChange)="setActiveTab(tab.text)">
       </yv-cluster-basic-tab>
       }
     </div>
   </div>
 <div class="basic-table-container">
-  <yv-cluster-narrow-basic-table [Headers]="Headers" [Rows]="Rows"></yv-cluster-narrow-basic-table>
+  <yv-cluster-narrow-basic-table
+   [Headers]="Headers" [Rows]="Rows"></yv-cluster-narrow-basic-table>
 </div>
 </div>
