@@ -19,5 +19,5 @@ export class BasicTabComponent {
     this.status=='active'?this.status=StatusActiveOrNotActive.NOT_ACTIVE:this.status=StatusActiveOrNotActive.ACTIVE;
     this.tabChange.emit(this.status=='active');
   }
-
 }
+// }

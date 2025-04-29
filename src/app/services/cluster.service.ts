@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, filter, take, tap } from 'rxjs';
+import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
 
@@ -41,15 +41,15 @@ export class ClusterService {
     // });
     //return this.autoClusterListSubject$.pipe(map(s=>{s.clusterID, s.comments})).asObservable();//filter only missingFileds
   }
- 
+
   get checklistItem$() {
     return this.autoClusterListSubject$.asObservable();//filter only missingFileds
   }
- 
+
   get isLoading$() {
     return this.isLoadingBehaviorSubject$.asObservable();
   }
- 
+
   // createReservation() {
   //   var res = this.#newReservationApiService.createReservation(reservtion);
   //   res.pipe(take(1), tap(res => {

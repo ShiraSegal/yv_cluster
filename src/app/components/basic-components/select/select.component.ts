@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { NativeOptionState, NativeOptionType, State } from 'src/app/enums/basic-enum';
+import { State } from 'src/app/enums/basic-enum';
+import { NativeOptionState, NativeOptionType } from 'src/app/enums/native-option-enum';
 import { NativeOptionComponent } from '../native-option/native-option.component';
-
 
 @Component({
   selector: 'yv-cluster-select',
@@ -68,7 +68,8 @@ export class SelectComponent {
   setOptionsBasedOnSelect( dropdownType: NativeOptionType): void {
     switch (dropdownType) {
       case 'status':
-          this.dropdownType = this.nativeOptionType.STATUS;     
+          this.dropdownType = this.nativeOptionType.STATUS;
+        
         break;
       case 'assignee':
           this.dropdownType = this.nativeOptionType.ASSIGNEE;

@@ -49,8 +49,8 @@ export type DataCellValue<T extends DataCellType> =
   T extends DataCellType.LINK ? string | number :
   T extends DataCellType.ASSIGNEE ? string :
   T extends DataCellType.BUTTON ? string :
-  T extends DataCellType.SLIDER ? number | null:
-  never; 
+  T extends DataCellType.SLIDER ? number | null :
+  never;
 
 
 
@@ -62,6 +62,13 @@ export enum AutoClusterTabType {
   DIFFERENT_CLUSTERS = 'Different Clusters',
   ERROR_MESSAGES = 'Error Messages'
 }
+
+export enum HomeTableTabType {
+ NEWֹֹֹֹֹֹ_SUGGESTIONS = 'new-suggestion',
+  OLD_SUGGESTIONS = 'old_suggestion',
+  
+}
+
 export enum ButtonIcon {
   FOLDER_PLUS = "fa-light fa-folder-plus",
   LAYER_PLUS = "fa-light fa-layer-plus",
@@ -130,10 +137,12 @@ export enum State {
   DISABLED = "disabled",
   ERROR = "error"
 }
+
 export enum IconButtonLargeType {
   DEFAULT = "default",
   HOVER = "hover",
 }
+
 export enum StatusActiveOrNotActive {
   ACTIVE = "active",
   NOT_ACTIVE = "not-active"
