@@ -21,11 +21,16 @@ export enum BasicTablePropertyType {
   OLD_SUGGESTIONS = 'Old Suggestions',
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
-export enum ButtonSize {
-  BIG = "big",
+
+export enum ButtonSize{
+  BIG="big",
+  SMALL="small"
+}
+export enum TextSize {
+  LARGE = "large",
+  MEDIUM = "medium",
   SMALL = "small"
 }
-
 export enum CheckStateType {
   ENABLED = 'enabled',
   DISABLED = 'disabled'
@@ -45,7 +50,7 @@ export enum DataCellType {
 }
 
 
-export type DataCellValue<T extends DataCellType> = 
+export type DataCellValue<T extends DataCellType> =
   T extends DataCellType.TEXT ? string :
   T extends DataCellType.LINK ? string | number :
   T extends DataCellType.ASSIGNEE ? string :
@@ -76,28 +81,28 @@ export enum HomeTableTabType {
   
 }
 
-export enum ButtonIcon {
-  FOLDER_PLUS = "fa-light fa-folder-plus",
-  LAYER_PLUS = "fa-light fa-layer-plus",
-  PLUS = "fa-light fa-plus",
-  FILE_ARROW_DOWN = "fa-light fa-file-arrow-down",
-  CHEVRON_LEFT = "fa-light fa-chevron-left",
-  EMPTY = ""
-}
 
 
 
 
-export enum TextColor {
-  BLACK = "black",
-  SLATE_BLUE = "slate-blue",
-  NEUTRAL_GRAY = "neutral-gray",
-}
 
-export enum TextWeight {
-  BOLD = "bold",
-  NORMAL = "normal"
-}
+  export enum TextColor {
+    BLACK = "black",
+    SLATE_BLUE = "slate-blue",
+    NEUTRAL_GRAY = "neutral-gray",
+    DARK_GRAY = "dark-gray",
+    COOl_BLUE="cool-blue",
+    PRIMARY_BTN= "primary_btn",
+    MEDIUM_GRAY="medium_gray",
+    VIBRANT_GREEN="vibrant_green",
+    DEEP_BLACK="deep_black",
+    WHITE="white"
+  }
+
+  export enum TextWeight {
+    BOLD = "bold",
+    NORMAL = "normal"
+    }
 
 export enum HeaderCellType {
   TEXT = "text",
@@ -151,10 +156,6 @@ export enum IconButtonLargeType {
   HOVER = "hover",
 }
 
-export enum StatusActiveOrNotActive {
-  ACTIVE = "active",
-  NOT_ACTIVE = "not-active"
-}
 
 export enum NativeOptionType{
   ASSIGNEE = "assignee",
@@ -165,8 +166,18 @@ export enum NativeOptionState{
   DEFAULT = "default",
   HOVER = "hover"
 }
-export enum ButtonIconProperty{
-  VARIANT1="variant1",
-  VARIANT2="variant2",
-  VARIANT3="variant3"
-  }
+export enum ButtonIconProperty {
+  VARIANT1 = "variant1",
+  VARIANT2 = "variant2",
+  VARIANT3 = "variant3"
+}
+
+export enum StatusActiveOrNotActive {
+  ACTIVE = "active",
+  NOT_ACTIVE = "not-active"
+}
+
+export enum RadioButtonListDirection{
+  ROW="row",
+  COLUMN="column"
+}

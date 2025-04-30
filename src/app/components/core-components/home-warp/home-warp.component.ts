@@ -11,8 +11,8 @@ import { ClusterService } from 'src/app/services/cluster.service';
 export class HomeWarpComponent {
   tableData: any;
   clusterService = inject(ClusterService);
-  ngOnInit() {
-    this.clusterService.getAutoClusterData().subscribe({
+  async ngOnInit() {
+    (await this.clusterService.getAutoClusterData()).subscribe({
       next: (data) => {
         console.log('Received data:', data);
         this.tableData = data;     

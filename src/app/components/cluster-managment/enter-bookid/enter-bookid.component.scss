@@ -1,0 +1,103 @@
+@import "src/styles.scss";
+.card {
+    display: flex;
+    min-width: 18.75rem;
+    max-width: 24.25rem;
+    padding:1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    border-radius: 0.625rem;
+    background:$c-FFFFFF;
+    box-shadow: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.30);
+
+    .header-warp {
+        display: flex;
+        width: 24.25rem;
+        align-items: center;
+        gap:0.5rem;
+    }
+
+    .radio-buttons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1rem;
+
+        .radio {
+            color:$c-3F4B5A;
+            text-align: right;
+            font-family: "Font Awesome 6 Pro";
+            font-size: 0.875rem;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 1.5rem;
+            letter-spacing: -0.01313rem;
+        }
+
+        .value {
+            color:$c-3F4B5A;
+            font-family: Poppins;
+            font-size: 0.875rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.25rem;
+        }
+    }
+
+    .input {
+        display: flex;
+        height: 2.0625rem;
+        min-width: 9.6875rem;
+        max-width: 28.125rem;
+        padding: 0.5rem;
+        align-items: center;
+        gap: 0.5rem;
+        align-self: stretch;
+        overflow: hidden;
+        color: $c-3F4B5A;
+        text-overflow: ellipsis;
+        font-family: Poppins;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.25rem;
+        align-self: stretch;
+        border-radius: 0.25rem;
+        border: 0.5px solid $c-3F4B5A;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        flex: 1 0 0;
+    }
+
+    .outer-button-warp {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
+        align-self: stretch;
+        .divider {
+            height: 0.4375rem;
+            align-self: stretch;
+            border-top: 1px solid $c-E1E5EA;
+        
+        }
+
+        .buttons-warp {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            gap: 0.625rem;
+            align-self: stretch;
+
+            .buttons {
+                display: flex;
+                align-items: flex-start;
+                gap: 0.5rem;
+
+            }
+        }
+    }
+}

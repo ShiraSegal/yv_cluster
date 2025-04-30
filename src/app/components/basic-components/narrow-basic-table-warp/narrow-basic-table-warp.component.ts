@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
-import { BasicTablePropertyType, BasicTableRowPropertyVariants, ButtonIcon, ButtonSize, ButtonType, NarrowBasicTableRowInputState, StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
+import { BasicTablePropertyType, ButtonType, NarrowBasicTableRowInputState, StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
 import { DataCellType, HeaderCellType, AutoClusterTabType } from 'src/app/enums/basic-enum';
 import { BasicTabComponent } from '../basic-tab/basic-tab.component';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
@@ -241,14 +241,12 @@ loadDataForTab() {
     }),
   }));
 }
-  ngOnInit() {
-    this.clusterService.getAutoClusterData().subscribe((data) => {
-      this.tabData = data;
-      this.loadDataForTab(); // Call this after data is available
-    });
-  }
-
-
+  async ngOnInit() {
+  this.data1 = (await this.clusterService.getAutoClusterData()).subscribe((data) => {
+    this.tabData = data
+  })
+  this.loadDataForTab();
 }
 
+}
 

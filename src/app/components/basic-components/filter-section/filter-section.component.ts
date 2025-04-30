@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ButtonIcon, ButtonSize, ButtonType, IconButtonLargeType, NativeOptionState, NativeOptionType, State } from 'src/app/enums/basic-enum';
+import { ButtonSize, ButtonType, IconButtonLargeType, NativeOptionState, NativeOptionType, State } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../button/button.component';
 import { CommonModule } from '@angular/common';
 import { IconType } from 'src/app/enums/icon-enum';
@@ -17,7 +17,7 @@ import { FieldComponent } from '../field/field.component';
 export class FilterSectionComponent {
 
   @Input() buttonText: string = 'test';
-  @Input() icon:ButtonIcon = ButtonIcon.PLUS;
+  @Input() icon:IconType = IconType.PLUS_REGULAR;
  stateEnum = State;
   ButtonSize = ButtonSize;
   primary = ButtonType.PRIMARY

@@ -1,11 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
-import { ButtonComponent } from '../button/button.component';
-import { ButtonIcon, ButtonSize, ButtonType, DataCellType, HeaderCellType, NarrowBasicTableRowInputState, State } from 'src/app/enums/basic-enum';
+import {  ButtonType, DataCellType, HeaderCellType, NarrowBasicTableRowInputState, State } from 'src/app/enums/basic-enum';
 import { NarrowBasicTableRowComponent } from '../narrow-basic-table-row/narrow-basic-table-row.component';
 import { TableHeaderComponent } from '../table-header/table-header.component';
-import { FieldComponent } from '../field/field.component';
-import { SelectComponent } from '../select/select.component';
 import { ButtonIconProperty, NativeOptionState, NativeOptionType } from 'src/app/enums/native-option-enum';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { IconType } from 'src/app/enums/icon-enum';

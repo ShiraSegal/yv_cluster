@@ -15,16 +15,16 @@
     @if(type === dataCellType.ASSIGNEE && isString(data)){
         <yv-cluster-assignee [data]="data" ></yv-cluster-assignee>
     }
-   
-    @if(type === dataCellType.LINK ){        
+
+    @if(type === dataCellType.LINK ){
         <a [href]="data">{{ data }}</a>
         }
-      
-    @if(type === dataCellType.ICON){           
-        <yv-cluster-icon-button-large [icon]="IconType.CHEVRONRIGHT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
+
+    @if(type === dataCellType.ICON){
+        <!-- <yv-cluster-icon-button-large [icon]="IconType.CHEVRONRIGHT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large> -->
     }
- 
-    @if(type === dataCellType.SLIDER && isNumber(data) ){       
+
+    @if(type === dataCellType.SLIDER && isNumber(data) ){
         <yv-cluster-slider [value]="data"></yv-cluster-slider>
     }
     

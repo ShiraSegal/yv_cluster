@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { ButtonIcon, ButtonSize, ButtonType, DataCellType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
+import { ButtonType, DataCellType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
  
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { IconType } from 'src/app/enums/icon-enum';

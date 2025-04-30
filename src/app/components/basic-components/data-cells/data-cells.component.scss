@@ -15,27 +15,27 @@
 
 .text {
     width: 9.375rem;
-    height: 2.8125rem; 
+    height: 2.8125rem;
     align-items: center;
-    color: $slate_blue;
+    color: $c-3F4B5A;
     font-family: Poppins;
-    font-size: 0.875rem; 
+    font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.25rem; 
+    line-height: 1.25rem;
     flex: 1 0 0;
 }
 
 .more {
     width: 2.375rem;
-    height: 2.8125rem; 
+    height: 2.8125rem;
     justify-content: center;
     flex-shrink: 0;
 }
 
 
 .more-icon {
-    color: $slate_blue;
+    color: $c-3F4B5A;
     text-align: center;
     font-family: "Font Awesome 6 Pro";
     font-size: 0.875rem;
@@ -57,7 +57,7 @@
     justify-content: flex-start;
     flex-shrink: 0;
     flex: 1 0 0;
-    color: $main-primery-main;
+   // color: $main-primery-main;
 
     /* Body/medium */
     font-family: Poppins;
@@ -65,14 +65,14 @@
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.25rem; 
+    line-height: 1.25rem;
     flex: 1 0 0;
 }
 
 .icon {
     display: flex;
-    width: 2.375rem; 
-    height: 2.8125rem; 
+    width: 2.375rem;
+    height: 2.8125rem;
     padding: var(--layout-02, 0.5rem);
     justify-content: center;
     align-items: center;
@@ -83,9 +83,9 @@
 }
 
 .clipboard-list-icon {
-    color: $primary_btn;
+    color: $c-1334B9;
     font-family: "Font Awesome 6 Pro";
-    font-size: 1.125rem; 
+    font-size: 1.125rem;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
@@ -95,7 +95,7 @@
 
 .status {
     width: 9.375rem;
-    height: 2.8125rem; 
+    height: 2.8125rem;
     flex-shrink: 0;
 }
 
@@ -112,6 +112,6 @@
 }
 
 .fa-solid {
-    color: $slate_blue;
-    font-size: 0.875rem; 
+    color: $c-3F4B5A;
+    font-size: 0.875rem;
 }

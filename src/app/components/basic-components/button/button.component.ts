@@ -12,18 +12,13 @@ import { IconType } from 'src/app/enums/icon-enum';
 })
 export class ButtonComponent {
   @Input() text: string |undefined= "";
-  @Input() buttonType: ButtonType |undefined = ButtonType.PRIMARY;
-  @Input() disabled: boolean  |undefined= false;
-  @Input() isBig: boolean |undefined = false;
-  @Input() iconType!: IconType |undefined;
+  @Input() buttonType: ButtonType|undefined= ButtonType.PRIMARY;
+  @Input() disabled: boolean |undefined= false;
+  @Input() isBig: boolean|undefined = false;
+  @Input() iconType!: IconType|undefined;
 
   @Output() onClick = new EventEmitter<void>();
-  ngOnInit() {
-  console.log(this.buttonType);
-  console.log(this.isBig);
-  
-  
-}
+
   handleClick() {
     if (!this.disabled) {
       this.onClick.emit();
