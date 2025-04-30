@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
 import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
 import { HeaderCellsComponent } from '../basic-components/header-cells/header-cells.component';
-import { FieldComponent } from '../basic-components/field/field.component';
 import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
 import { BadgeComponent } from '../basic-components/badge/badge.component';
 import { IconType } from 'src/app/enums/icon-enum';
@@ -40,6 +39,7 @@ import { BasicToggleComponent } from "../basic-components/basic-toggle/basic-tog
 import { EnterBookidComponent } from "../cluster-managment/enter-bookid/enter-bookid.component";
 import { HeadingComponent } from "../basic-components/heading/heading.component";
 import { BodyComponent } from "../basic-components/body/body.component";
+import { FieldComponent } from "../basic-components/field/field.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -51,7 +51,6 @@ import { BodyComponent } from "../basic-components/body/body.component";
     DataCellsComponent,
     HeaderCellsComponent,
     BadgeComponent,
-    FieldComponent,
     CommonModule,
     ButtonComponent,
     SwitchComponent,
@@ -487,5 +486,3 @@ export class TestComponent {
 
 
 }
-
-

@@ -2,8 +2,8 @@ import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, catchError, filter, lastValueFrom, map, Observable, of, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
-import { LastName } from '../models/LastName';
 import { LastNameInPlaces } from '../models/LastNameInPlaces';
+import { LastName } from '../models/LastName';
 import { StatisticDetail } from '../models/StatisticDetail';
 import { StatisticData } from '../models/StatisticData';
 
@@ -112,8 +112,5 @@ export class ClusterService {
   //   })).subscribe();
   //   return res;
   // }
-
- 
-
 
 }

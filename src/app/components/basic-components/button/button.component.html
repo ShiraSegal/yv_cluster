@@ -22,7 +22,7 @@
   {{ text }}
 </button> -->
 
-<button class="btn" [class]="buttonType" [ngClass]="{'big': isBig}" [disabled]="disabled"
+<button class="btn" [class]="buttonType || 'default-button-type'" [ngClass]="{'big': isBig}" [disabled]="disabled"
 (click)="onClick.emit()"
 >
 @if(iconType){

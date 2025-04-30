@@ -6,7 +6,7 @@
     padding: 0.0625rem;
     align-items: center;
     border-radius: 1.875rem;
-    border: 0.5px solid $soft_blue_violet;
+    border: 0.5px solid var(--8999DC, #8999DC);
     background: $c-FFFFFF;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
     cursor: pointer;
@@ -36,7 +36,7 @@
 }
 
 .text-selected {
-    color: $royal_blue;
+    color: $c-5A71CE;
     text-align: center;
     font-family: Poppins;
     font-size: 0.75rem;
