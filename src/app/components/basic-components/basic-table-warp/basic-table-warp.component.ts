@@ -3,12 +3,12 @@ import { BasicTablePropertyType, BasicTableRowPropertyVariants, HeaderCellType, 
 import { DataCellType } from 'src/app/enums/basic-enum';
 import { BasicTableComponent } from '../basic-table/basic-table.component';
 import { CommonModule } from '@angular/common';
-import { TabElementComponent } from '../tab-element/tab-element.component';
+
 
 @Component({
   selector: 'yv-cluster-basic-table-warp',
   standalone: true,
-  imports: [BasicTableComponent ,CommonModule , TabElementComponent],
+  imports: [BasicTableComponent ,CommonModule ],
   templateUrl: './basic-table-warp.component.html',
   styleUrl: './basic-table-warp.component.css'
 })
@@ -53,7 +53,7 @@ export class BasicTableWarpComponent {
    
        }));
        this.currentTab = tabText;
-       this.loadDataForTab();
+      //  this.loadDataForTab();
      }
      readonly DBKeyToHeaderMap: { [key: string]: string } = {
         nameList: 'Name List',
@@ -64,50 +64,50 @@ export class BasicTableWarpComponent {
         assigneeData: 'Assignee data',
       };
 
-     readonly TabHeaders: { [key in HomeTableTabType]: { data: string, type: HeaderCellType }[] } = {
-       [HomeTableTabType.NEWֹֹֹֹֹֹ_SUGGESTIONS]: [
-         { data: '', type: HeaderCellType.CHECK },
-         { data: this.DBKeyToHeaderMap['clusterID'], type: HeaderCellType.TEXT },
-         { data: this.DBKeyToHeaderMap['comment'], type: HeaderCellType.TEXT },
-         { data: this.DBKeyToHeaderMap['dateOfReport'], type: HeaderCellType.TEXT }
-       ],
-       [AutoClusterTabType.MISSING_FIELD]: [
-         { data: '', type: HeaderCellType.CHECK },
-         { data: 'CNT', type: HeaderCellType.TEXT },
-         { data: this.DBKeyToHeaderMap['clusterID'], type: HeaderCellType.TEXT },
-         { data: this.DBKeyToHeaderMap['missingField'], type: HeaderCellType.TEXT },
-         { data: 'Comments', type: HeaderCellType.TEXT },
-         { data: 'Status', type: HeaderCellType.TEXT },
-         { data: 'Assignee', type: HeaderCellType.TEXT },
-         { data: 'Date of report', type: HeaderCellType.TEXT },
-         { data: 'Assignee data', type: HeaderCellType.TEXT }
+    //  readonly TabHeaders: { [key in HomeTableTabType]: { data: string, type: HeaderCellType }[] } = {
+    //    [HomeTableTabType.NEWֹֹֹֹֹֹ_SUGGESTIONS]: [
+    //      { data: '', type: HeaderCellType.CHECK },
+    //      { data: this.DBKeyToHeaderMap['clusterID'], type: HeaderCellType.TEXT },
+    //      { data: this.DBKeyToHeaderMap['comment'], type: HeaderCellType.TEXT },
+    //      { data: this.DBKeyToHeaderMap['dateOfReport'], type: HeaderCellType.TEXT }
+    //    ],
+    //    [AutoClusterTabType.MISSING_FIELD]: [
+    //      { data: '', type: HeaderCellType.CHECK },
+    //      { data: 'CNT', type: HeaderCellType.TEXT },
+    //      { data: this.DBKeyToHeaderMap['clusterID'], type: HeaderCellType.TEXT },
+    //      { data: this.DBKeyToHeaderMap['missingField'], type: HeaderCellType.TEXT },
+    //      { data: 'Comments', type: HeaderCellType.TEXT },
+    //      { data: 'Status', type: HeaderCellType.TEXT },
+    //      { data: 'Assignee', type: HeaderCellType.TEXT },
+    //      { data: 'Date of report', type: HeaderCellType.TEXT },
+    //      { data: 'Assignee data', type: HeaderCellType.TEXT }
    
-       ],      
-     };
-     loadDataForTab() {
-     const tabData = this.getDataForCurrentTab(); 
+    //    ],      
+    //  };
+    //  loadDataForTab() {
+    //  const tabData = this.getDataForCurrentTab(); 
    
-     this.Headers = this.TabHeaders[this.currentTab];
-     const headerToKeyMap = Object.entries(this.DBKeyToHeaderMap).reduce((acc, [key, value]) => {
-       acc[value] = key;
-       return acc;
-     }, {} as { [key: string]: string });
+    //  this.Headers = this.TabHeaders[this.currentTab];
+    //  const headerToKeyMap = Object.entries(this.DBKeyToHeaderMap).reduce((acc, [key, value]) => {
+    //    acc[value] = key;
+    //    return acc;
+    //  }, {} as { [key: string]: string });
      
-     this.Rows = tabData.map((item: any) => ({
-       property: item,
-       showAction: true,
-       cells: this.Headers.map(header => {
-         const jsonKey = headerToKeyMap[header.data] || header.data; // Map header name to JSON key
-         return {
-           data: item[jsonKey] || '', // Use the mapped JSON key to fetch data
-           type: DataCellType.TEXT
-         };
-       })
-     }));
-     }
-     ngOnInit() {
-       this.loadDataForTab();
-     }
+    //  this.Rows = tabData.map((item: any) => ({
+    //    property: item,
+    //    showAction: true,
+    //    cells: this.Headers.map(header => {
+    //      const jsonKey = headerToKeyMap[header.data] || header.data; // Map header name to JSON key
+    //      return {
+    //        data: item[jsonKey] || '', // Use the mapped JSON key to fetch data
+    //        type: DataCellType.TEXT
+    //      };
+    //    })
+    //  }));
+    //  }
+    //  ngOnInit() {
+    //    this.loadDataForTab();
+    //  }
    
     }
     

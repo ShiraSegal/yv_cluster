@@ -36,7 +36,7 @@ import { HomeWarpComponent } from "../core-components/home-warp/home-warp.compon
     HomeWarpComponent,
     // SliderNavigationTabComponent,
     // SlidebarNavigationComponent,
-    // ButtonComponent,
+     ButtonComponent,
     // CheckComponent,
     // IconButtonLargeComponent,
     // BasicTabComponent,
@@ -46,7 +46,7 @@ import { HomeWarpComponent } from "../core-components/home-warp/home-warp.compon
     // SlidebarNavigationComponent,
     // BasicCardComponent,
     // NarrowBasicTableRowComponent,
-    // NarrowBasicTableWarpComponent,
+     NarrowBasicTableWarpComponent,
     // IconButtonComponent,
     // SliderComponent,
     // CheckComponent,
@@ -228,7 +228,7 @@ export class TestComponent {
   big = ButtonSize.BIG//button size
   small = ButtonSize.SMALL//button size;
   //enum ButtonIcon
-  icon = ButtonIcon.CHEVRON_LEFT//button icon
+  icon = IconType.CHEVRONRIGHT//button icon
 
   toggleState!: string;
   radioButtonState: boolean = false;

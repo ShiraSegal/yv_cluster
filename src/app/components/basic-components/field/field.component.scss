@@ -4,7 +4,7 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  background:$white;
+  background:$c-FFFFFF;
   gap: 0.1rem;
 }
 
@@ -25,17 +25,17 @@
 }
 
 .common-input-wrapper.error {
-  border: 0.03125rem solid var(--Color-4,$red);
+  border: 0.03125rem solid var(--Color-4,$c-C00);
   background:$light-red;
 }
 
 .common-input-wrapper.disabled {
-  border: 0.03125rem solid $gray-light-transparent;
-  background:$white-transparent;
+  border: 0.03125rem solid $c-c4c7c580;
+  background:$c-FFFFFF-transparent;
 }
 
 .common-input-wrapper.populated {
-  border: 0.03125rem solid var(--Color-2,$dark_gray);
+  border: 0.03125rem solid var(--Color-2,$c-262C34);
 }
 
 .common-input-wrapper.focused {
@@ -62,11 +62,11 @@ legend.focused, legend.populated {
 }
 
 .input-label.default {
-  color:$dark-gray-2;
+  color:$c-3F4B5A;
 }
 
 .input-label.error {
-  color: var(--Color-4, $red);
+  color: var(--Color-4, $c-C00);
 }
 
 .input-label.disabled {
@@ -74,7 +74,7 @@ legend.focused, legend.populated {
 }
 
 .input-label.populated {
-  color: var(--Color-2,$dark_gray);
+  color: var(--Color-2,$c-262C34);
 }
 
 .input-label.focused {
@@ -99,7 +99,7 @@ legend.focused, legend.populated {
 }
 
 .error-message {
-  color: var(--Additional-error-variant,$error-red);
+  color: var(--Additional-error-variant,$c-FF6665);
   text-align: left;
   font-family: Rubik;
   font-size: 0.6875rem;

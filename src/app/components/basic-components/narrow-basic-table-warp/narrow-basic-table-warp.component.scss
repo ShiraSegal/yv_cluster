@@ -1,4 +1,4 @@
-@import "../../../../styles/colors.scss";
+@import "src/styles.scss";
 
 .warp-table-container {
     display: flex;
@@ -29,7 +29,7 @@
 }
 
 .sub-title {
-    color: $black;
+    color: $c-000;
     font-family: Poppins;
     font-size: 18.191px;
     font-style: normal;
@@ -55,7 +55,7 @@
 
 .basic-table-container {
     border-radius: 0.75rem;
-    background: $white;
+    background: $c-FFFFFF;
 
     /* Drop shadow card */
     box-shadow: 0px 10px 60px 0px rgba(117, 115, 115, 0.10);

@@ -1,4 +1,5 @@
 import * as e from "express";
+import { IconType } from "./icon-enum";
 
 export enum ButtonType {
   PRIMARY = "primary",
@@ -48,7 +49,13 @@ export type DataCellValue<T extends DataCellType> =
   T extends DataCellType.TEXT ? string :
   T extends DataCellType.LINK ? string | number :
   T extends DataCellType.ASSIGNEE ? string :
-  T extends DataCellType.BUTTON ? string :
+  T extends DataCellType.BUTTON ? { 
+    text?: string; 
+    buttonType?: ButtonType; 
+    disabled?: boolean; 
+    isBig?: boolean; // Changed from size
+    iconType?: IconType; // Changed from buttonIcon
+  } : // אובייקט מורכב עבור BUTTON
   T extends DataCellType.SLIDER ? number | null :
   never;
 
@@ -74,7 +81,8 @@ export enum ButtonIcon {
   LAYER_PLUS = "fa-light fa-layer-plus",
   PLUS = "fa-light fa-plus",
   FILE_ARROW_DOWN = "fa-light fa-file-arrow-down",
-  CHEVRON_LEFT = "fa-light fa-chevron-left"
+  CHEVRON_LEFT = "fa-light fa-chevron-left",
+  EMPTY = ""
 }
 
 
