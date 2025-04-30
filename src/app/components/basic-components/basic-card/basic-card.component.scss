@@ -8,6 +8,7 @@
     gap: 1.5625rem;
     border-radius: 0.625rem;
     background: $c-FFFFFF;
+    background: $c-FFFFFF;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
@@ -22,6 +23,7 @@
     flex-shrink: 0;
     border-radius: 6.25rem;
     background: $c-B8C2EA;
+    background: $c-B8C2EA;
 }
 
 .circle-background-fa-hourglass-clock {
@@ -34,17 +36,21 @@
 
 .circle-background-fa-circle-check {
     background:$c-B8C2EA;
+    background:$c-B8C2EA;
 }
 
 .circle-background-fa-pen-to-square {
+    background:$c-F6CDCD;
     background:$c-F6CDCD;
 }
 
 .circle-background-fa-house {
     background:$c-B8C2EA;
+    background:$c-B8C2EA;
 }
 
 .icon-fa-hourglass-clock {
+    color: $c-D0D6F1;
     color: $c-D0D6F1;
 }
 
@@ -54,6 +60,7 @@
 
 .icon-fa-circle-check {
     color: $c-5A71CE;
+    color: $c-5A71CE;
 }
 
 .icon-fa-pen-to-square {
@@ -62,9 +69,11 @@
 
 .icon-fa-house {
     color:$c-FFFFFF;
+    color:$c-FFFFFF;
 }
 
 i {
+    color: $c-FFFFFF;
     color: $c-FFFFFF;
     text-align: center;
     font-family: "Font Awesome 6 Pro";
@@ -75,6 +84,7 @@ i {
 
 .card-text {
     flex: 1 0 0;
+    color:$c-262C34;
     color:$c-262C34;
     font-family: Poppins;
     font-size: 1.125rem;

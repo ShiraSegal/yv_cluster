@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { BadgeType, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
+import { BadgeType, ButtonIcon, ButtonSize, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { BadgeComponent } from '../badge/badge.component';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
@@ -39,7 +39,22 @@ export class DataCellsComponent<T extends DataCellType>  {
   isNumber(value: any): value is number {
     return typeof value === 'number';
   }
-
+  isButtonData(data: any): data is {
+    text?: string;
+    buttonType?: ButtonType;
+    disabled?: boolean;
+    isBig?: boolean; // Changed from size
+        iconType?: IconType; // Changed from buttonIcon
+  } {
+    return (
+      data &&
+      (typeof data.text === 'string' || typeof data.text === 'undefined') &&
+      (typeof data.buttonType === 'string' || typeof data.buttonType === 'undefined') &&
+      (typeof data.disabled === 'boolean' || typeof data.disabled === 'undefined') &&
+      (typeof data.size === 'string' || typeof data.size === 'undefined') &&
+      (typeof data.buttonIcon === 'string' || typeof data.buttonIcon === 'undefined')
+    );
+    }
   onClick() {
     alert('test on click');
     console.log('test on click');

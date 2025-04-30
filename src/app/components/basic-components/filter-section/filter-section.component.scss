@@ -1,4 +1,8 @@
 @import "src/styles.scss";
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/racheli
 .filter-section-container {
     display: flex;
     width: 99.4375rem;
@@ -9,6 +13,7 @@
     border-bottom: 1px solid #B8C2EA;
 }
 
+<<<<<<< HEAD
 .select {
     display: flex;
     width: 16.75rem;
@@ -21,11 +26,18 @@
     border-radius: var(--border-radius-small, 0.25rem);
     border: 0.5px solid $c-3F4B5A;
 }
+=======
+
+>>>>>>> origin/racheli
 
 .selects-container {
     display: flex;
     align-items: center;
     gap: 1.125rem;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/racheli
 }
 
 .right-buttons {
@@ -37,6 +49,7 @@
     flex-shrink: 0;
 }
 
+<<<<<<< HEAD
 .icon {
     display: flex;
     width: 2.25rem;
@@ -72,3 +85,5 @@ i {
     width: 9rem;
     color: white;
 }
+=======
+>>>>>>> origin/racheli

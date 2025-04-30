@@ -10,9 +10,12 @@
   {{ text }}
 </button> -->
 
-<button class="btn" [class]="buttonType" [ngClass]="{'big': isBig}" [disabled]="disabled"
+<button class="btn" [ngClass]="buttonType" [ngClass]="{'big': isBig}" [disabled]="disabled"
 (click)="onClick.emit()"
 >
+@if(iconType){
+  <i [class]="iconType"></i>
+}
 @if(iconType){
   <i [class]="iconType"></i>
 }
