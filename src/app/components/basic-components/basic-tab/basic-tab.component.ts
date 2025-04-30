@@ -20,5 +20,5 @@ export class BasicTabComponent {
     this.active=!this.active;
     this.tabChange.emit(this.active);
   }
+
 }
-// }

@@ -6,6 +6,7 @@ import { LastName } from '../models/LastName';
 import { LastNameInPlaces } from '../models/LastNameInPlaces';
 import { StatisticDetail } from '../models/StatisticDetail';
 import { StatisticData } from '../models/StatisticData';
+// import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -93,7 +94,6 @@ export class ClusterService {
     );
   }
 
-
 // =================================
 
 
@@ -117,3 +117,4 @@ export class ClusterService {
 
 
 }
+

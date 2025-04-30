@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
 import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
 import { HeaderCellsComponent } from '../basic-components/header-cells/header-cells.component';
-import { FieldComponent } from '../basic-components/field/field.component';
 import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
 import { BadgeComponent } from '../basic-components/badge/badge.component';
 import { IconType } from 'src/app/enums/icon-enum';
@@ -40,6 +39,8 @@ import { BasicToggleComponent } from "../basic-components/basic-toggle/basic-tog
 import { EnterBookidComponent } from "../cluster-managment/enter-bookid/enter-bookid.component";
 import { HeadingComponent } from "../basic-components/heading/heading.component";
 import { BodyComponent } from "../basic-components/body/body.component";
+import { HomeWarpComponent } from "../core-components/home-warp/home-warp.component";
+import { FieldComponent } from "../basic-components/field/field.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -109,6 +110,41 @@ import { BodyComponent } from "../basic-components/body/body.component";
     HeadingComponent,
     BodyComponent
     
+    // IconButtonComponent,
+    // HomeWarpComponent,
+    // SliderNavigationTabComponent,
+    // SlidebarNavigationComponent,
+    //  ButtonComponent,
+    // CheckComponent,
+    // IconButtonLargeComponent,
+    // BasicTabComponent,
+    // SliderComponent,
+    // SwitchComponent,
+    // ViewerComponent,
+    // SlidebarNavigationComponent,
+    // BasicCardComponent,
+    // NarrowBasicTableRowComponent,
+    //  NarrowBasicTableWarpComponent,
+    // IconButtonComponent,
+    // SliderComponent,
+    // CheckComponent,
+    // ViewerComponent,
+    // BadgeComponent,
+    // BasicTableRowComponent,
+    // BadgeComponent,
+    // AssigneeComponent,
+    // DataCellsComponent,
+    // HeaderCellsComponent,
+    // SliderNavigationTabComponent,
+    // SlidebarNavigationComponent,
+    // FieldComponent,
+    // CommonModule,
+    // ButtonComponent,
+    // SwitchComponent,
+    // TableHeaderComponent,
+    // BasicTabComponent,
+    // BasicCardComponent,
+    // IconButtonLargeComponent
   ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
@@ -336,7 +372,9 @@ export class TestComponent {
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
   ];
 
-
+//variables-----------------------------------------------------------------------
+  // button component properties
+ 
   
 
   // handleSort(event: { column: string, direction: string }) {
@@ -487,5 +525,6 @@ export class TestComponent {
 
 
 }
+
 
 

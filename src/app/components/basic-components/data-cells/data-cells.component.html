@@ -15,20 +15,27 @@
     @if(type === dataCellType.ASSIGNEE && isString(data)){
         <yv-cluster-assignee [data]="data" ></yv-cluster-assignee>
     }
-   
-    @if(type === dataCellType.LINK ){        
+
+    @if(type === dataCellType.LINK ){
         <a [href]="data">{{ data }}</a>
         }
-      
-    @if(type === dataCellType.ICON){           
-        <yv-cluster-icon-button-large [icon]="IconType.CHEVRONRIGHT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
+
+    @if(type === dataCellType.ICON){
+        <!-- <yv-cluster-icon-button-large [icon]="IconType.CHEVRONRIGHT" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large> -->
     }
- 
-    @if(type === dataCellType.SLIDER && isNumber(data) ){       
+
+    @if(type === dataCellType.SLIDER && isNumber(data) ){
         <yv-cluster-slider [value]="data"></yv-cluster-slider>
     }
     
-    @if(type === dataCellType.BUTTON){       
-        <yv-cluster-button (onClick)="onClick()" text=data [buttonType]=buttonType.SECONDARY [buttonIcon]=buttonIcon.CHEVRON_LEFT></yv-cluster-button>
+    @if(type ===dataCellType.BUTTON && isButtonData(data)){       
+        <yv-cluster-button
+        (onClick)="onClick()"
+        [text]="data.text"
+        [buttonType]="data.buttonType"
+        [disabled]="data.disabled"
+        [isBig]="data.isBig"
+        [iconType]="data.iconType">
+      </yv-cluster-button>
     }
 </div>

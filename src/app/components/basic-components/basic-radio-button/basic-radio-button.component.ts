@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output,EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { FieldComponent } from '../field/field.component';
 import { State } from 'src/app/enums/basic-enum';
+import { FieldComponent } from '../field/field.component';
 
 @Component({
   selector: 'yv-cluster-basic-radio-button',

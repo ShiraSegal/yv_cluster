@@ -1,4 +1,4 @@
-@import "../../../../styles/colors.scss";
+@import "src/styles.scss";
 
 
 .tab {
@@ -17,7 +17,7 @@
 
 .active {
     border-radius: 0.3125rem;
-    background: $secondary_blue;
+    background: $c-425DC7;
 }
 
 .icon {
@@ -26,16 +26,16 @@
 }
 
 .fa-light {
-    color: $white;
+    color: $c-FFFFFF;
 }
 
 
 .fa-solid {
-    color: $lavender_blue;
+    color: $c-D0D6F1;
 }
 
 .text-icon {
-    color:$white;
+    color:$c-FFFFFF;
     text-align: center;
     font-family: Poppins;
     font-size: 0.75rem;
