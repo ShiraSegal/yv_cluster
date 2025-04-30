@@ -26,7 +26,8 @@ export class RadioButtonListComponent {
   @Output() selectionChange = new EventEmitter<string>();
 
   radioControl = new FormControl<string | null>(null);
-  radioForm = new FormGroup({radioControl: this.radioControl});
+  radioForm:FormGroup = new FormGroup({radioControl: this.radioControl});
+
 
   
   onOneRadioButtonChange(selectedOption: string) {
