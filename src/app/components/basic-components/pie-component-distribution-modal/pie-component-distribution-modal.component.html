@@ -4,7 +4,7 @@
   </div>
   <div class="table-and-pie-container">
     <!-- //table -->
-    <yv-cluster-pie-table [spsipicPlaceData]="data.LastNameInPlaces" [allDatabaseData]="data.LastName"
+    <yv-cluster-pie-table [spsipicPlaceData]="lastNamesInPlaces" [allDatabaseData]="lastNames"
       [tableColorsArray]="colorsArray" [allDatabaseTotalValue]="{'TotalCount': 10000, 'Value': 'All Database'}"
       [thePlaceTotalValue]="{'TotalCount':15000, 'Value': 'Minsk'}"></yv-cluster-pie-table>
     <div class="pie-circle-container">
@@ -22,11 +22,11 @@
 
       <!-- ///pie -->
       @if(showAllThaDatabasePie){
-      <yv-cluster-pie-circle [data]="data.LastName" [totalValue]="{'TotalCount': 10000, 'Value': 'All Database'}"
+      <yv-cluster-pie-circle [data]="lastNames" [totalValue]="{'TotalCount': 90000, 'Value': 'All Database'}"
         [pieColorsArray]="colorsArray"></yv-cluster-pie-circle>
       }
       @if(!showAllThaDatabasePie){
-      <yv-cluster-pie-circle [data]="data.LastNameInPlaces" [totalValue]="{'TotalCount':15000, 'Value': 'Minsk'}"
+      <yv-cluster-pie-circle [data]="lastNamesInPlaces" [totalValue]="{'TotalCount':15000, 'Value': 'Minsk'}"
         [pieColorsArray]="colorsArray"></yv-cluster-pie-circle>
       }
     </div>

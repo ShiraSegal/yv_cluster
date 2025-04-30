@@ -7,6 +7,7 @@ import { ButtonComponent } from '../button/button.component';
 import { ButtonSize, ButtonType } from 'src/app/enums/basic-enum';
 import { from, Observable } from 'rxjs';
 import { ClusterService } from 'src/app/services/cluster.service';
+import { StatisticData } from 'src/app/models/StatisticData';
 
 @Component({
   selector: 'yv-cluster-pie-component-distribution-modal',
@@ -20,10 +21,11 @@ export class PieComponentDistributionModalComponent {
   #clusterService = inject(ClusterService)
   tertiany: ButtonType = ButtonType.TERTIARY;
   size: ButtonSize = ButtonSize.SMALL;
-  statisticData!: Observable<any[]>;
   colorsArray: string[] = ['#F6CDCD', '#A5B1C0', '#A1AEE3', '#A5EBDD',];
   showAllThaDatabasePie: boolean = true;
-  bigData:any[] = [];
+  statisticData:StatisticData;
+  lastNames: any[] = []; // מערך של LastName
+  lastNamesInPlaces: any[] = []; // מערך של LastNameInPlaces
   data = {
     "LastName": [{
       "Count": 3000,
@@ -90,9 +92,14 @@ export class PieComponentDistributionModalComponent {
     this.#clusterService.getStatisticData().subscribe({
  
       next: (res: any) => {
-        this.bigData = res;
-        console.log("this.bigData", this.bigData);
-        
+        this.statisticData = res;
+        console.log("this.bigData", this.statisticData);
+                // עיבוד הנתונים
+                this.lastNames = this.statisticData.details.map((detail: any) => detail.lastName);
+                this.lastNamesInPlaces = this.statisticData.details.map((detail: any) => detail.lastNameInPlaces);
+            
+                console.log("Last Names:", this.lastNames);
+                console.log("Last Names In Places:", this.lastNamesInPlaces);
       },
       error: (error) => {
         console.error("getSpecialActivitiesData occurred:", error);
@@ -101,6 +108,8 @@ export class PieComponentDistributionModalComponent {
  
  
     })
+
+
   }
   changeTheShowingPei() {
     this.showAllThaDatabasePie = !this.showAllThaDatabasePie;

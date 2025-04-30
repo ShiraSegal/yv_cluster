@@ -11,9 +11,9 @@
           "LastNameInPlaces": 
               {
                   "TotalCount": 150,
-                  "Count": 15,
+                  "Count": 150,
                   "Code": "",
-                  "Value": ""
+                  "Value": "Rhine"
               }
           
       },
@@ -28,22 +28,22 @@
                   "TotalCount": 3000,
                   "Count": 100,
                   "Code": "",
-                  "Value": ""
+                  "Value": "Koeln"
               }
           
       },
       {
         "LastName": {
-            "Count": 160000,
+            "Count": 1600,
             "Code": "T86132",
             "Value": "Adler"
         },
         "LastNameInPlaces": 
             {
-                "TotalCount": 16000,
+                "TotalCount": 1600,
                 "Count": 2500,
                 "Code": "",
-                "Value": ""
+                "Value": "Loeln"
             }
         
     }
