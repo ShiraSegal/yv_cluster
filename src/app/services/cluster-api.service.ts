@@ -18,6 +18,10 @@ export class ClusterApiService {
   getCreateClusterData() {
     return this.#http.get<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`);
   }
+
+  createCluster(SapirClusterModel: SapirClusterModel){
+    return  this.#http.post<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`, SapirClusterModel);
+  }
   // getCreateClusterData(): Observable<any[]> {
   //   return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`).pipe(
   //     map(response => response?.SapirClusterDetails || []) // מיפוי התוצאה להחזרת SapirClusterDetails בלבד

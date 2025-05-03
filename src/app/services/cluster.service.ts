@@ -1,8 +1,9 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, take, tap } from 'rxjs';
+import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, of, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
 import { map } from 'rxjs/operators';
+import { SapirClusterModel } from '../models/sapir-cluster-model.model';
 
 
 @Injectable({
@@ -68,7 +69,7 @@ export class ClusterService {
   // }
  
    
-   createClusterData$ = new BehaviorSubject<any[]>([]);
+  //  createClusterData$ = new BehaviorSubject<any[]>([]);
    
   // get ClusterData$()
   //   {
@@ -86,16 +87,32 @@ export class ClusterService {
     const result = this.#clusterApiService.getCreateClusterData()
       .pipe(
         take(1),
-        map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
+        // map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
        
-        tap(details => { debugger
-          if (details) {
-            this.createClusterData$.next(details); // עדכון ה-Subject עם המערך
-          }
+        tap(res => {
+        }),
+        catchError(err => {
+          return of(null);
         })
-      )
+      );
+
       console.log("result",result);
       
     return result; // מחזיר את המערך SapirClusterDetails
+  }
+
+
+  createCluster(sapirClusterModel: SapirClusterModel) {
+    const result = this.#clusterApiService.createCluster(sapirClusterModel)
+      .pipe(
+        take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
+        tap(res => {
+          console.log("Cluster created successfully:", res); // לוג לתוצאה
+        }),
+        catchError(err => {
+          console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
+          return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
+        })
+      );
   }
  }

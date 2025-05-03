@@ -9,7 +9,7 @@
     gap: 1rem;
     border-radius: 0.625rem;
     background:$c-FFFFFF;
-    box-shadow: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.30);
+    box-shadow: 0px 6px 10px 4px $c-00000026, 0px 2px 3px 0px $c-0000004d;
 
     .header-warp {
         display: flex;
