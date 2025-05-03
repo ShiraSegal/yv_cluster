@@ -41,6 +41,7 @@ import { HeadingComponent } from "../basic-components/heading/heading.component"
 import { BodyComponent } from "../basic-components/body/body.component";
 import { HomeWarpComponent } from "../core-components/home-warp/home-warp.component";
 import { FieldComponent } from "../basic-components/field/field.component";
+import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id-details/table-group-id-details.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -108,7 +109,8 @@ import { FieldComponent } from "../basic-components/field/field.component";
     HeaderCellsComponent,
     EnterBookidComponent,
     HeadingComponent,
-    BodyComponent
+    BodyComponent,
+    TableGroupIdDetailsComponent
     
     // IconButtonComponent,
     // HomeWarpComponent,
