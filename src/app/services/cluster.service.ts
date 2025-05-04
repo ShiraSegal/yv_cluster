@@ -102,17 +102,19 @@ export class ClusterService {
   }
 
 
-  createCluster(sapirClusterModel: SapirClusterModel) {
+  createCluster(sapirClusterModel: SapirClusterModel){
     const result = this.#clusterApiService.createCluster(sapirClusterModel)
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
           console.log("Cluster created successfully:", res); // לוג לתוצאה
+          return true;
         }),
         catchError(err => {
           console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
-          return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
+          return of(false); // החזרת ערך ברירת מחדל במקרה של שגיאה
         })
       );
+      return result;;
   }
  }

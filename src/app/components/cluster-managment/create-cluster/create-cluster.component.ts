@@ -148,6 +148,7 @@ export class CreateClusterComponent {
     console.log("this.formGroupFields", this.formGroupFields);
     
     this.formGroup = this.formBuilder.group(this.formGroupFields);
+    
   }
 
   checkChange(selected: string) {
@@ -171,18 +172,18 @@ export class CreateClusterComponent {
           }
         });
       });
-      // this.clusterService.createCluster(this.clusterModel).subscribe({
-      //   next: (res) => {
-      //     if (res) {
-      //       console.log("Cluster created:", res);
-      //     } else {
-      //       console.warn("Cluster creation failed.");
-      //     }
-      //   },
-      //   error: (err) => {
-      //     console.error("Error during cluster creation:", err);
-      //   }
-      // });
+      this.clusterService.createCluster(this.clusterModel).subscribe({
+        next: (res) => {
+          if (res) {
+            console.log("Cluster created:", res);
+          } else {
+            console.warn("Cluster creation failed.");
+          }
+        },
+        error: (err) => {
+          console.error("Error during cluster creation:", err);
+        }
+      });
     }
     else {
       // this.disabled=false
