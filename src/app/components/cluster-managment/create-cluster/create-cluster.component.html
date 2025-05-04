@@ -15,7 +15,7 @@
                         [color]="color1"></yv-cluster-body>
                 </div>
             </div>
-            @for(data of this.dataCells; track $index){
+            @for(data of dataCells; track $index){
             <div class="table">
                 <div class="data-cells">
                         <label class="label">{{data.Field}}</label>
@@ -23,12 +23,14 @@
                 <!-- <input [formControlName]="data.Field"> -->
                 <div class="options-cells">
                     <div class="radiobuttons">
-                        <yv-cluster-radio-button-list [radioButtonValuesArray]="data.RadioOptions"  [formControlName]="data.Field" (selectionChange)="checkChange($event)"></yv-cluster-radio-button-list>
+                        <yv-cluster-radio-button-list [radioButtonValuesArray]="data.RadioOptions"  [formControlName]="data.Field" (selectionChange)="checkChange($event,data.Field)"></yv-cluster-radio-button-list>
                     </div>
                 </div>
 
             </div>
             }
+            <!-- <yv-cluster-radio-button-list   formControlName="check" (selectionChange)="checkChange($event,data)"></yv-cluster-radio-button-list> -->
+
             <!-- <app-yv-select class="select" [default]="selectLabel" [options]="options" formControlName="option"></app-yv-select> -->
              <yv-cluster-select class="select" [default]="selectLabel" [dropdownType]="nativeOptionType.TEXT" [options]="options" formControlName="option"></yv-cluster-select>
             <textarea class="comments" placeholder="Comments" style="resize: none;"></textarea>

@@ -33,7 +33,7 @@ export class CreateClusterComponent {
   clusterService = inject(ClusterService);
 
   //form validation
-  formGroup!: FormGroup;
+  formGroup: FormGroup;
   formIsValid!: boolean;
   formGroupFields: any = {};
 
@@ -146,14 +146,20 @@ export class CreateClusterComponent {
       this.formGroupFields[field.Field] = ['', Validators.required];
     });
     console.log("this.formGroupFields", this.formGroupFields);
+     
     
     this.formGroup = this.formBuilder.group(this.formGroupFields);
+    //  this.formGroup = this.formBuilder.group({check:['', Validators.required]});
+
     
   }
 
-  checkChange(selected: string) {
+  checkChange(index: string, selected: string) {
     console.log("selected", selected); 
     console.log("valid", this.formGroup.valid);
+    console.log("index", index);
+    this.formGroup.get(selected)?.setValue(index);
+    console.log("formGroup", this.formGroup.value);
     console.log("formGroup", this.formGroup);
 
   }
@@ -165,13 +171,17 @@ export class CreateClusterComponent {
 
     if (this.formGroup.valid) {
       this.formIsValid = true;
-      this.clusterModel.SapirClusterDetails.forEach((field: any) => {
-        field.Values.forEach((value: any) => {
-          if (value === this.formGroup.controls[field.Field]) {
-            value = this.formGroup.get(field.Field)?.value;
-          }
+      this.clusterModel.SapirClusterDetails.map((field: any) => {
+        field.Values.find((value: any) => {
+        // ((value: any) => {
+         value.NameCode === this.formGroup.controls[field.Field].value;
+          // if (field.v === this.formGroup.controls[field.Field]) {
+          //   value = this.formGroup.get(field.Field)?.value;
+          // }
         });
       });
+      console.log("this.clusterModel", this.clusterModel);
+
       this.clusterService.createCluster(this.clusterModel).subscribe({
         next: (res) => {
           if (res) {
