@@ -18,17 +18,17 @@
                 "FatherFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "",
-                    "Value": ""
+                    "Value": "aaa"
                 },
                 "MotherFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "",
-                    "Value": ""
+                    "Value": "bbb"
                 },
                 "PlaceOfBirth": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "",
-                    "Value": ""
+                    "Value": "ccc"
                 },
                 "PermanentPlace": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
@@ -48,7 +48,7 @@
                 "SpouseFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "",
-                    "Value": ""
+                    "Value": "ccc"
                 },
                 "MaidenName": "",
                 "IsClustered": 0,
@@ -93,6 +93,183 @@
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "5427846",
                     "Value": "Kassel,Kassel (Kassel),Hesse-Nassau,Germany"
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": "28/08/1871"
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T1196978",
+                    "Value": "Page of Testimony"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T93181",
+                    "Value": "Nathan"
+                },
+                "MaidenName": "Adler",
+                "IsClustered": 0,
+                "ExistsClusterId": "",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 126295,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "20984298",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T97467",
+                    "Value": "Bertha"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T60363 T60363",
+                    "Value": "Adler"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T101576",
+                    "Value": "Moses"
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T104283",
+                    "Value": "Chana"
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5434071",
+                    "Value": "Fritzlar"
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5427846",
+                    "Value": "Hesse-Nassau,Germany"
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": "28/08/1871"
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T1196978",
+                    "Value": "Page of Testimony"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T93181",
+                    "Value": "Nathan"
+                },
+                "MaidenName": "Adler",
+                "IsClustered": 0,
+                "ExistsClusterId": "",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 126295,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "59490421",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T97467",
+                    "Value": "Bertha"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T60363 T60363",
+                    "Value": "Adler"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T101576",
+                    "Value": "Moses"
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T104283",
+                    "Value": "Ester"
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5434071",
+                    "Value": "Niedenstein"
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5427846",
+                    "Value": "Kassel"
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": "28/08/1871"
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T1196978",
+                    "Value": "Page of Testimony"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T93181",
+                    "Value": "Nathan"
+                },
+                "MaidenName": "Adler",
+                "IsClustered": 0,
+                "ExistsClusterId": "",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 126295,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "15615161",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T97467",
+                    "Value": "Bertha"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T60363 T60363",
+                    "Value": "Adler"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T101576",
+                    "Value": "Moses"
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T104283",
+                    "Value": "Shira"
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5434071",
+                    "Value": "Niedenstein"
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5427846",
+                    "Value": "Kassel"
                 },
                 "DateOfBirth": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",

@@ -46,5 +46,6 @@ export enum IconType {
     LINK_SIMPLE="fa-solid fa-link-simple",
     LIST="fa-solid fa-list",
     USER="fa-light fa-user user-icon",
-    CLIPBPOARD = "fa-light fa-clipboard-list clipboard-list-icon"
+    CLIPBPOARD = "fa-light fa-clipboard-list clipboard-list-icon",
+    TRASH="fa-light fa-trash",
 }

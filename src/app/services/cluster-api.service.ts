@@ -18,6 +18,12 @@ export class ClusterApiService {
   async getCreateClusterData() {
     return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`);
   }
+  getStatisticData(): Observable<any> {
+    return this.#http.get('./assets/json-data/getStatisticData.json');
+  }
+  getClusterGroupDetails(): Observable<any> {
+    return this.#http.get('./assets/json-data/getClusterGroupDetails.json');
+  }
   // getCreateClusterData(): Observable<any[]> {
   //   return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`).pipe(
   //     map(response => response?.SapirClusterDetails || []) // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
@@ -26,9 +32,7 @@ export class ClusterApiService {
 
   //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
 
-  getStatisticData(): Observable<any> {
-    return this.#http.get('./assets/json-data/getStatisticData.json');
-  }
+
   }
 
 

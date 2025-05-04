@@ -1,14 +1,21 @@
 @import "src/styles.scss";
 
 .table-header {
-  height: 5.125rem;
-  justify-content: space-between;
-  align-self: stretch;
-  border-bottom: 1px solid $c-D0D6F1;
+  // height: 5.125rem;
+  // justify-content: space-between;
+  // align-self: stretch;
+  // border-bottom: 1px solid $c-D0D6F1;
+  // display: flex;
+  // width: 100%;
+  // padding: 0.25rem 0rem;
+  // align-items: center;
+
   display: flex;
-  width: 100%;
-  padding: 0.25rem 0rem;
-  align-items: center;
+padding: 0.25rem 0rem;
+align-items: center;
+align-self: stretch;
+ border-bottom: 1px solid $c-D0D6F1;
+//  width: 100rem;
 }
 
 .regular-cell {

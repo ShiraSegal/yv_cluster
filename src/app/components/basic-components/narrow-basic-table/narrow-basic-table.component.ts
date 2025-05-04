@@ -57,7 +57,6 @@ iconType = IconType
     rows: this.#fb.array([])
   });
   ngOnInit() {
-    debugger
     console.log('Rows on Init:', this.Rows);
     this.Rows?.forEach((row, index) => {
       const control = this.#fb.group({
