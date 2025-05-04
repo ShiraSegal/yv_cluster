@@ -22,7 +22,8 @@ export class PieComponentDistributionModalComponent {
   @Input() title: string;
 
   #clusterService = inject(ClusterService)
-    #loadingService = inject(LoadingService)
+  #data: { title: string } = inject(MAT_DIALOG_DATA);
+  #dialogRef = inject(MatDialogRef<PieComponentDistributionModalComponent>);
 
   tertiany: ButtonType = ButtonType.TERTIARY;
   size: ButtonSize = ButtonSize.SMALL;
@@ -33,37 +34,29 @@ export class PieComponentDistributionModalComponent {
   lastNamesInPlaces: any[] = []; // מערך של lastNameInPlaces
   totalCount: number = 0; // סך כל ה-countים
   subscription: Observable<any>[] = [];
+  allDatabaseTotalValue: { TotalCount: number, Value: string } = { TotalCount: 90000, Value: 'All Database' };
+  thePlaceTotalValue: { TotalCount: number, Value: string } = { TotalCount: 1000, Value: 'Minsk' };
 
-  constructor(
-    private clusterService: ClusterService,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: { title: string },
-    @Optional() public dialogRef: MatDialogRef<PieComponentDistributionModalComponent>
-    ) {}
-    onClose(): void {
-      this.dialogRef.close();  // סוגר את הדיאלוג
-    }
+  onClose(): void {
+    this.#dialogRef.close();  // סוגר את הדיאלוג
+  }
   ngOnInit() {
-    this.title = this.data.title;
-    // this.#loadingService.show(); // התחלת טעינה
+    this.title = this.#data.title;
     this.#clusterService.getstatisticData().subscribe({
       next: (res: any) => {
         this.statisticData = res;
-       // // console.log("this.bigData", this.statisticData);
+        // // console.log("this.bigData", this.statisticData);
         // עיבוד הנתונים
         this.lastNames = this.statisticData.details.map((detail: any) => detail.lastName);
         this.lastNamesInPlaces = this.statisticData.details.map((detail: any) => detail.lastNameInPlaces);
         this.totalCount = this.statisticData.totalCount;
-       // // console.log("Total Count:", this.totalCount);
-       // // console.log("Last Names:", this.lastNames);
-       // // console.log("Last Names In Places:", this.lastNamesInPlaces);
         console.log("Total Count:", this.totalCount);
         console.log("Last Names:", this.lastNames);
         console.log("Last Names In Places:", this.lastNamesInPlaces);
-          //  this.#loadingService.hide(); // סיום טעינה
+        // this.thePlaceTotalValue.TotalCount=this.lastNamesInPlaces[0].count;
       },
       error: (error) => {
         console.error("getSpecialActivitiesData occurred:", error);
-        // this.#loadingServise.decrement();
       }
 
 
@@ -75,7 +68,7 @@ export class PieComponentDistributionModalComponent {
     console.log("this.statisticData" + this.statisticData);
 
     this.showAllThaDatabasePie = !this.showAllThaDatabasePie;
-   // // console.log("האם הפאי של כל המסד נתונים מוצג?:" + this.showAllThaDatabasePie);
+    // // console.log("האם הפאי של כל המסד נתונים מוצג?:" + this.showAllThaDatabasePie);
 
   }
 }

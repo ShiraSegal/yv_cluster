@@ -5,14 +5,14 @@
                 (switchChange)="onPrefCodeChange($event)"></yv-cluster-switch>
             <div class="icon-wrapper" (mouseenter)="showTooltip = true" (mouseleave)="showTooltip = false">
                 <yv-cluster-data-cells [type]="dataCellType.ICON" [moreData]="{icon:iconType.RIGHT_LEFT_LIGHT}"
-                    (iconClick)="onRightLeftClick()"></yv-cluster-data-cells>
+                    (expand)="onRightLeftClick()"  typeText="icon"></yv-cluster-data-cells>
                 @if(showTooltip){
                 <yv-cluster-tooltip class="tooltip" [text]="'Data compare'"></yv-cluster-tooltip>
                 }
             </div>
             <div class="icon-with-badge" (mouseenter)="showPopover = true" (mouseleave)="showPopover = false">
                 <yv-cluster-data-cells [type]="dataCellType.ICON" [moreData]="{icon:iconType.USER_LIGHT}"
-                    (iconClick)="onUserClick()"></yv-cluster-data-cells>
+                    (expand)="onUserClick()"  typeText="icon"></yv-cluster-data-cells>
                 <div class="badge">
                     <div class="number">
                         {{numberCRM}}

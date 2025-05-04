@@ -43,6 +43,7 @@ export class NarrowBasicTableRowComponent {
   rowGroupControls: { control: FormControl, name: string }[];
 
   ngOnInit() {
+    
     this.updateControlsArray()
     this.subscription.add(this.rowGroup.valueChanges.subscribe((value) => {
       console.log('RowGroup changed: 💜', value);
@@ -82,16 +83,21 @@ ngOnChanges(changes: SimpleChanges): void {
     this.subscription.unsubscribe()
   }
   onIconDeletClick() {
-    console.log('narrow Icon delete clicked');
+    // console.log('narrow Icon delete clicked');
     
-    const cellControl = this.rowGroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי
-    const cellData = cellControl?.value?.data;
+    // const cellControl = this.rowGroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי
+    // const cellData = cellControl?.value?.data;
 
-    if (typeof cellData === 'string') {
-      this.bookIdToDelet.emit(cellData);
-    } else {
-      this.bookIdToDelet.emit('');
-    }
+    // if (typeof cellData === 'string') {
+    //   this.bookIdToDelet.emit(cellData);
+    // } else {
+    //   this.bookIdToDelet.emit('');
+    // }
+
+    let rowBookId:string = this.rowGroup.get('bookId')?.value; // 'groupID' הוא המפתח של קבוצת השורה
+    console.log('rowGroupId: ', rowBookId);
+    
+     this.bookIdToDelet.emit(rowBookId);
   }
 
   onOpenClick(){

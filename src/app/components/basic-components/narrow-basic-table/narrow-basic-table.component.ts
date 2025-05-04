@@ -70,5 +70,29 @@ updateRowGroups() {
   trackByIndex(index: number, item: AbstractControl): number {
     return index;
   }
+  deleteRowByBookId(bookId: string) {
+    // this.rowsFormArray.controls.forEach((row, index) => {
+    //   if (row.get('id')?.value === bookId)
+    //     this.rowsFormArray.removeAt(index)
+    // });
+    // this.Rows = this.Rows.filter(item => item[1].data !== bookId);
+    // // this.initRowsArray()
+    // this.checkedControls = [];
+    // this.rowsFormArray.controls.forEach((c) => {
+    //   this.checkedControls.push(c.get('checked') as FormControl);
+    // })
+console.log('deleteRowByBookId called with bookId:', bookId);
 
+    this.rowGroup.forEach((row, index) => {
+      console.log('delete: ', bookId);
+      
+      if(row.controls['bookId'].value===bookId) {
+        
+        this.rowsFormArray.removeAt(index);
+        this.updateRowGroups(); // Update the row groups after deletion
+        
+      }
+  })
+   
+  }
 }

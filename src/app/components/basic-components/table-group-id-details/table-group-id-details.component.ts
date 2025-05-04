@@ -191,18 +191,18 @@ export class TableGroupIdDetailsComponent {
   // }
 
   //מחיקת שורה
-  deleteByBookId(bookId: string) {
-    this.rowsFormArray.controls.forEach((row, index) => {
-      if (row.get('id')?.value === bookId)
-        this.rowsFormArray.removeAt(index)
-    });
-    this.Rows = this.Rows.filter(item => item[1].data !== bookId);
-    // this.initRowsArray()
-    this.checkedControls = [];
-    this.rowsFormArray.controls.forEach((c) => {
-      this.checkedControls.push(c.get('checked') as FormControl);
-    })
-  }
+  // deleteByBookId(bookId: string) {
+  //   this.rowsFormArray.controls.forEach((row, index) => {
+  //     if (row.get('id')?.value === bookId)
+  //       this.rowsFormArray.removeAt(index)
+  //   });
+  //   this.Rows = this.Rows.filter(item => item[1].data !== bookId);
+  //   // this.initRowsArray()
+  //   this.checkedControls = [];
+  //   this.rowsFormArray.controls.forEach((c) => {
+  //     this.checkedControls.push(c.get('checked') as FormControl);
+  //   })
+  // }
 
   // //בחירת check
   // checkChange(checkStatus: CheckType) {

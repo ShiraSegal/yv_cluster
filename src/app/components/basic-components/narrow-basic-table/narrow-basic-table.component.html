@@ -20,7 +20,8 @@
                 @else {
                 <yv-cluster-narrow-basic-table-row [currentTab]="currentTab" [prefCodeStatus]="prefCodeStatus"
                     [property]="narrowBasicTableRowInputState.DEFAULT" [rowGroup]="rowGroup"
-                    [length]="narrowBasicTableRowLength.SHORT">
+                    [length]="narrowBasicTableRowLength.SHORT"
+                    (bookIdToDelet)="deleteRowByBookId($event)">
                 </yv-cluster-narrow-basic-table-row>
                 }
                 }
