@@ -93,6 +93,7 @@ export class CreateClusterComponent {
     this.clusterService.getCreateClusterData().subscribe({
       next: (res: SapirClusterModel | null) => {
         if (res) {
+          
         this.clusterModel=res as SapirClusterModel;
           this.dataCells = res.SapirClusterDetails; // Process the data if it's not null
                this.dataCells.forEach((d: any) => {
@@ -172,13 +173,16 @@ export class CreateClusterComponent {
     if (this.formGroup.valid) {
       this.formIsValid = true;
       this.clusterModel.SapirClusterDetails.map((field: any) => {
-        field.Values.find((value: any) => {
+        console.log("field",field);
+        const values=field.Values.filter((value: any) => {
         // ((value: any) => {
-         value.NameCode === this.formGroup.controls[field.Field].value;
-          // if (field.v === this.formGroup.controls[field.Field]) {
-          //   value = this.formGroup.get(field.Field)?.value;
-          // }
+        return  value.NameCode === this.formGroup.controls[field.Field].value;
         });
+        console.log("values",values);
+        
+        field.Values = values;
+        console.log("field.Values",field.Values);
+        
       });
       console.log("this.clusterModel", this.clusterModel);
 
