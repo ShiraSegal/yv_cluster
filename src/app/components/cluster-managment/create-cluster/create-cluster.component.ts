@@ -38,7 +38,7 @@ export class CreateClusterComponent {
   formGroupFields: any = {};
 
   //form data
-  dataCells:SapirClusterDetail[]= new Array<SapirClusterDetail>();
+  dataCells:any[];
   clusterModel: SapirClusterModel = new SapirClusterModel();
 
   //close dialog
@@ -93,10 +93,13 @@ export class CreateClusterComponent {
     this.clusterService.getCreateClusterData().subscribe({
       next: (res: SapirClusterModel | null) => {
         if (res) {
+          console.log("getCreateClusterData", res);
           
         this.clusterModel=res as SapirClusterModel;
+        console.log("this.clusterModel", this.clusterModel);
+        
           this.dataCells = res.SapirClusterDetails; // Process the data if it's not null
-               this.dataCells.forEach((d: any) => {
+          this.dataCells.forEach((d: any) => {
         let values: any = [];
         d.Values.forEach((v: any) => {
           values.push({ key: v.NameCode, value: v.Value });

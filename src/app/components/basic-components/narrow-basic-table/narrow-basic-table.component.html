@@ -1,11 +1,6 @@
 <div class="table-frame">
     <div class="table-actions">
-        <yv-cluster-field [property]="stateEnum.DEFAULT" [placeholder]="'Search'"></yv-cluster-field>
-        <yv-cluster-select [default]="'Select Date'" [dropdownType]="nativeOptions.TEXT" ></yv-cluster-select>
-        <yv-cluster-select [default]="'Filter By Status'" [dropdownType]="nativeOptions.STATUS"></yv-cluster-select>
-        <yv-cluster-select [default]="'Filter By Assignee'" [dropdownType]="nativeOptions.ASSIGNEE" [options]="nativeOptionswe"></yv-cluster-select>
-        <div class="button-wrapper"><yv-cluster-button (onClick)="onClick()" text="New Cluster" [buttonType]="primary"
-                [iconType]="icon"></yv-cluster-button></div>
+       <yv-cluster-filter-section></yv-cluster-filter-section>
     </div>
 
     <div class="data-container">

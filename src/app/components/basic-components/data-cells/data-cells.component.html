@@ -27,8 +27,15 @@
     @if(type === dataCellType.SLIDER && isNumber(data) ){
         <yv-cluster-slider [value]="data"></yv-cluster-slider>
     }
-
-    @if(type === dataCellType.BUTTON){
-        <yv-cluster-button (onClick)="onClick()" text=data [buttonType]=buttonType.SECONDARY [iconType]=IconType.CHEVRON_LEFT_LIGHT></yv-cluster-button>
+    
+    @if(type ===dataCellType.BUTTON && isButtonData(data)){       
+        <!-- <yv-cluster-button
+        (onClick)="onClick()"
+        [text]="data.text"
+        [buttonType]="data.buttonType"
+        [disabled]="data.disabled"
+        [isBig]="data.isBig"
+        [iconType]="data.iconType">
+      </yv-cluster-button> -->
     }
 </div>

@@ -4,6 +4,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
 import { map } from 'rxjs/operators';
 import { SapirClusterModel } from '../models/sapir-cluster-model.model';
+import { LastNameInPlaces } from '../models/LastNameInPlaces';
+import { LastName } from '../models/LastName';
+import { StatisticDetail } from '../models/StatisticDetail';
+import { StatisticData } from '../models/StatisticData';
 
 
 @Injectable({
@@ -52,6 +56,49 @@ export class ClusterService {
     return this.isLoadingBehaviorSubject$.asObservable();
   }
 
+  // getStatisticData() {
+  //   // let lang = this.#clusterApiService.getStatisticData === undefined ? Language.English : this.#translateService.currentLang;
+  //   var res = this.#clusterApiService.getStatisticData()
+  //     .pipe(
+  //       take(1),
+  //       tap(res => {
+  //       }),
+  //       catchError(err => {
+  //         return of(null);
+  //       })
+  //     );
+  //   return res;
+  // }
+  
+  getStatisticData(): Observable<StatisticData | null> {
+    return this.#clusterApiService.getStatisticData().pipe(
+      take(1),
+      map((res: any) => {
+        // Map the raw data to the defined StatisticData structure
+        return new StatisticData(
+          res.totalCount,
+          res.details.map((detail: any) => new StatisticDetail(
+            new LastName(detail.LastName.Count, detail.LastName.Code, detail.LastName.Value),
+            new LastNameInPlaces(
+              detail.LastNameInPlaces.TotalCount,
+              detail.LastNameInPlaces.Count,
+              detail.LastNameInPlaces.Code,
+              detail.LastNameInPlaces.Value
+            )
+          ))
+        );
+      }),
+      catchError(err => {
+        console.error('Error fetching statistic data:', err);
+        return of(null);
+      })
+    );
+  }
+
+
+// =================================
+
+
   // createReservation() {
   //   var res = this.#newReservationApiService.createReservation(reservtion);
   //   res.pipe(take(1), tap(res => {
@@ -90,6 +137,8 @@ export class ClusterService {
         // map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
        
         tap(res => {
+          console.log("getCreateClusterData", res);
+          
         }),
         catchError(err => {
           return of(null);
@@ -115,6 +164,6 @@ export class ClusterService {
           return of(false); // החזרת ערך ברירת מחדל במקרה של שגיאה
         })
       );
-      return result;;
+      return result;
   }
  }

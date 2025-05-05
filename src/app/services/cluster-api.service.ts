@@ -20,7 +20,7 @@ export class ClusterApiService {
   }
 
   createCluster(SapirClusterModel: SapirClusterModel){
-    return  this.#http.post<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`, SapirClusterModel);
+    return this.#http.post<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`, SapirClusterModel);
   }
   // getCreateClusterData(): Observable<any[]> {
   //   return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`).pipe(
@@ -30,4 +30,9 @@ export class ClusterApiService {
 
   //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
 
-}
+  getStatisticData(): Observable<any> {
+    return this.#http.get('./assets/json-data/getStatisticData.json');
+  }
+  }
+
+

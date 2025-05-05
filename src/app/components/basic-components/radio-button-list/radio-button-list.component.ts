@@ -25,7 +25,7 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   @Input() direction:RadioButtonListDirection = RadioButtonListDirection.COLUMN;
   @Output() selectionChange = new EventEmitter<string>();
 
-  radioControl = new FormControl<string | null>(null);
+  radioControl = new FormControl();
   radioForm:FormGroup = new FormGroup({radioControl: this.radioControl});
 
   
@@ -33,6 +33,7 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   private onTouched: () => void = () => {};
 
   writeValue(value: string | null): void {
+    debugger
     this.radioControl.setValue(value);
   }
 

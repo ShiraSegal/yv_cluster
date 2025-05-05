@@ -1,8 +1,7 @@
-@import "../../../../styles/colors.scss";
+@import "src/styles.scss";
 
 .warpper {
   display: flex;
-  padding: 1rem;
   align-items: flex-start;
   flex-direction: column;
   background:$c-FFFFFF;
@@ -32,15 +31,15 @@
 
 .common-input-wrapper.disabled {
   border: 0.03125rem solid $c-c4c7c580;
-  background:$c-FFFFFF80;
+  background:$c-FFFFFF;
 }
 
 .common-input-wrapper.populated {
-  border: 0.03125rem solid $c-262C34;
+  border: 0.03125rem solid var(--Color-2,$c-262C34);
 }
 
 .common-input-wrapper.focused {
-  border: 0.0625rem solid  $c-1334B9;
+  border: 0.0625rem solid var(--Primery, $c-1334B9);
 }
 
 legend.default, legend.error, legend.disabled {
@@ -67,7 +66,7 @@ legend.focused, legend.populated {
 }
 
 .input-label.error {
-  color:$c-C00;
+  color: var(--Color-4, $c-C00);
 }
 
 .input-label.disabled {
@@ -75,11 +74,11 @@ legend.focused, legend.populated {
 }
 
 .input-label.populated {
-  color: $c-262C34;
+  color: var(--Color-2,$c-262C34);
 }
 
 .input-label.focused {
-  color: $c-1334B9;
+  color: var(--Primery, $c-1334B9);
 }
 
 .custom-input {

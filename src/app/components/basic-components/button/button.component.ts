@@ -18,7 +18,7 @@ export class ButtonComponent {
   @Input() iconType!: IconType;
 
   @Output() onClick = new EventEmitter<void>();
-ngOnInit() {
+  ngOnInit() {
   console.log(this.buttonType);
   console.log(this.isBig);
   
