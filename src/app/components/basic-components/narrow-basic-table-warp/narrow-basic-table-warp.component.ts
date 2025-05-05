@@ -45,7 +45,11 @@ export class NarrowBasicTableWarpComponent {
     Rows: {
       property: NarrowBasicTableRowInputState;
       showAction: boolean;
-      cells: { data: string; type: DataCellType }[]
+      cells: {
+        data: string;
+        type: DataCellType;
+        moreData?: { [key: string]: any };
+      }[];
     }[]
   }>> =
     {
@@ -111,16 +115,11 @@ export class NarrowBasicTableWarpComponent {
   Rows: {
     property: any;
     showAction: boolean;
-    cells:{ 
-    data: string | { 
-      text?: string; 
-      buttonType?: ButtonType; 
-      disabled?: boolean; 
-      isBig?: boolean; // Changed from size
-        iconType?: IconType; // Changed from buttonIcon
-    }; 
-    type: DataCellType; 
-  }[];
+    cells: {
+      data: string;
+      type: DataCellType;
+      moreData?: { [key: string]: any };
+    }[];
   }[] = [];
   readonly TabHeaders: { [key in AutoClusterTabType]: { data: string, type: HeaderCellType }[] } = {
     [AutoClusterTabType.SAPIR_CLUSTERS]: [
@@ -215,27 +214,27 @@ loadDataForTab() {
         return {
           data: "",
           type: DataCellType.CHECK,
+          moreData: {},
         };
       } else if (dataCellType === DataCellType.ASSIGNEE) {
         return {
           data: "Racheli Liff",
           type: DataCellType.ASSIGNEE,
+          moreData: {},
         };
-      } else if (dataCellType === DataCellType.BUTTON) {
+      
+      }  else if (dataCellType === DataCellType.BUTTON) {
         return {
-          data: {
-            text: "open", // Button text
-            buttonType: ButtonType.SECONDARY, // Button type
-            disabled: false, // Button enabled status
-            isBig:false, // Button size
-            buttonIcon: IconType.PLUS_REGULAR, // Button icon
-          },
+          data: "",
           type: DataCellType.BUTTON,
+          moreData: {['buttonType']: ButtonType.SECONDARY, ['text']: 'open',['isBig']: false,},
         };
+      
       } else {
         return {
           data: cellData,
           type: dataCellType,
+          moreData: {},
         };
       }
     }),
