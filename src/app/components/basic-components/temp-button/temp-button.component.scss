@@ -8,19 +8,19 @@
 .primary
 {
   border-radius: var(--Border-radius-small, 0.25rem);
-  border: 1px solid #1334B9;
+  border: 1px solid $c-1334B9;
   background: $c-1334B9;
 }
 
 .secondary
 {
   border-radius: var(--Border-radius-small, 0.25rem);
-  border: 1px solid #A1AEE3;
+  border: 1px solid $c-A1AEE3;
 }
 
 .tertiary{
   border-radius: var(--Border-radius-small, 0.25rem);
-  border: 0px solid #1334B9;
+  border: 0px solid $c-1334B9;
 }
 
 .big-btn

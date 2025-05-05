@@ -85,8 +85,8 @@ export class TestComponent {
   //enums-----------------------------------------------------------------------
   iconType = IconType;//  types of icons.
   badgeType = BadgeType;//types of badge
-  CheckStateType = CheckStateType;
-  CheckType = CheckType;
+  checkStateType = CheckStateType;
+  checkType = CheckType;
   headerCellType = HeaderCellType;//header cell types
   dataCellType = DataCellType;//data cell types
   sliderNavigationTabType = SliderNavigationTabType;//types of slider navigation tab
@@ -94,7 +94,7 @@ export class TestComponent {
   iconButtonLargeType = IconButtonLargeType;
   StatusActiveOrNotActive = StatusActiveOrNotActive;
   CardIcons = CardIcons;
-  ButtonType = ButtonType;
+  buttonType = ButtonType;
   IconType = IconType;
   basicTableRowPropertyVariants = BasicTableRowPropertyVariants;
   sliderNavigationTabTextType = SliderNavigationTabTextType
@@ -306,7 +306,7 @@ export class TestComponent {
     { data: '', type: HeaderCellType.PLACEOLDER },
   ];
 
-  rows: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
+  rows: { property: string; showAction: boolean; cells:{ data: string; type: DataCellType ; moreData?: { [key: string]: any }}[] }[] = [
     {
       property: 'Default',
       showAction: false,
@@ -332,7 +332,7 @@ export class TestComponent {
     { data: '', type: HeaderCellType.CHECK },
   ];
 
-  rows2: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
+  rows2: { property: string; showAction: boolean; cells:{ data: string; type: DataCellType ; moreData?: { [key: string]: any }}[] }[] = [
     {
       property: 'Default',
       showAction: false,
@@ -360,7 +360,7 @@ export class TestComponent {
     { data: '', type: HeaderCellType.PLACEOLDER },
   ];
 
-  rows1: { property: string; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [
+  rows1: { property: string; showAction: boolean; cells:{ data: string; type: DataCellType ; moreData?: { [key: string]: any }}[] }[] = [
     {
       property: 'Default',
       showAction: false,

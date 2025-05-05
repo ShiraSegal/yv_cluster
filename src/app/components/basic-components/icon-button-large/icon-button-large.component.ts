@@ -13,6 +13,7 @@ import { IconType } from 'src/app/enums/icon-enum';
 export class IconButtonLargeComponent {
   @Input() icon!: IconType;
   @Input() property!: IconButtonLargeType;
+  
 @Output() onClick = new EventEmitter<void>();
 
   handleClick() {  

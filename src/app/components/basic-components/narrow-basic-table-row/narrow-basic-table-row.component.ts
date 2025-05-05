@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { ButtonType, DataCellType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
+import {  DataCellType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
  
 import { DataCellsComponent } from '../data-cells/data-cells.component';
-import { IconType } from 'src/app/enums/icon-enum';
  
 @Component({
   selector: 'yv-cluster-narrow-basic-table-row',
@@ -14,16 +13,11 @@ import { IconType } from 'src/app/enums/icon-enum';
 })
 export class NarrowBasicTableRowComponent {
   @Input() property: NarrowBasicTableRowInputState  = NarrowBasicTableRowInputState.DEFAULT ;
-  @Input() cells: { 
-    data: string | { 
-      text?: string; 
-      buttonType?: ButtonType; 
-      disabled?: boolean; 
-      isBig?: boolean; // Changed from size
-      iconType?: IconType; // Changed from buttonIcon
-    }; 
-    type: DataCellType; 
+  @Input() cells: {
+    data: string; 
+    type: DataCellType;
+    moreData?: { [key: string]: any }; // Optional additional data
   }[] = [];
   DataCellType = DataCellType;
- 
 }
+

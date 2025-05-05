@@ -11,7 +11,7 @@ import { TableHeaderComponent } from '../table-header/table-header.component';
   styleUrl: './basic-table.component.scss'
 })
 export class BasicTableComponent {
-  @Input() rows: { property: BasicTableRowPropertyVariants; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [];
+  @Input() rows: { property: BasicTableRowPropertyVariants; showAction: boolean; cells: { data: string; type: DataCellType ; moreData?: { [key: string]: any }}[] }[] = [];
   @Input() headers: { data: string; type: HeaderCellType }[] = [];
 
 

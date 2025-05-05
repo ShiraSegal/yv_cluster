@@ -22,16 +22,11 @@ export class NarrowBasicTableComponent {
   @Input() Rows: {
     property: NarrowBasicTableRowInputState;
     showAction: boolean;
-    cells:{ 
-      data: string | { 
-        text?: string; 
-        buttonType?: ButtonType; 
-        disabled?: boolean; 
-        isBig?: boolean; // Changed from size
-        iconType?: IconType; // Changed from buttonIcon
-      }; 
-      type: DataCellType; 
-    }[]
+    cells: {
+      data: string;
+      type: DataCellType;
+      moreData?: { [key: string]: any };
+    }[];
   }[] | undefined = [];
 
   label: string = 'Select Label';
@@ -39,7 +34,7 @@ export class NarrowBasicTableComponent {
   variant3 = ButtonIconProperty.VARIANT3
 iconType = IconType
   // property :NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
-  // cells: { data: string; type: DataCellType }[] = [{data: 'test', type: DataCellType.TEXT},{data: '' ,type: DataCellType.CHECK}];
+  // cells:{ data: string; type: DataCellType ; moreData?: { [key: string]: any }}[] = [{data: 'test', type: DataCellType.TEXT},{data: '' ,type: DataCellType.CHECK}];
   stateEnum = State
   nativeOptions = NativeOptionType;
   rowProperty: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;

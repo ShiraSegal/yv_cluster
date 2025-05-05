@@ -31,6 +31,8 @@ export enum IconType {
     AUTOCLUSRETLIGHT = "fa-light fa-list ",
     REPORTLIGHT = "fa-light fa-chart-line-up ",
     NEWCLUSTERLIGHT = "fa-light fa-plus ",
+    CRMCLUSTERSOLID = "fa-solid fa-envelope-open-text ",
+    CRMCLUSTERLIGHT = "fa-light fa-envelope-open-text ",
     ROTATERIGHT = "fa-light fa-arrow-rotate-right ",
     ROTATELEFT = "fa-light fa-arrow-rotate-left ",
     PRINT = "fa-light fa-print ",

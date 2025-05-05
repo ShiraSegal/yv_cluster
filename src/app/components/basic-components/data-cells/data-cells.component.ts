@@ -10,19 +10,28 @@ import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { CheckType } from 'src/app/enums/check-enum';
 
-
 @Component({
   selector: 'yv-cluster-data-cells',
   standalone: true,
-  imports: [ButtonComponent, SliderComponent, CheckComponent, AssigneeComponent, BadgeComponent, CommonModule],
+  imports: [
+    ButtonComponent,
+    SliderComponent,
+    CheckComponent,
+    AssigneeComponent,
+    BadgeComponent,
+    CommonModule,
+    IconButtonLargeComponent
+  ],
   templateUrl: './data-cells.component.html',
-  styleUrl: './data-cells.component.scss'
+  styleUrls: ['./data-cells.component.scss']
 })
-export class DataCellsComponent<T extends DataCellType>  {
-  //variables
+export class DataCellsComponent<T extends DataCellType> {
+  // variables
   @Input() type!: T;
   @Input() data!: DataCellValue<T>;
-  //injecting ENUM
+  @Input() moreData: { [key: string]: any } = {}; // אובייקט לפרמטרים נוספים
+  
+  // injecting ENUM
   badgeType = BadgeType;
   IconType = IconType;
   buttonType = ButtonType;
@@ -30,8 +39,8 @@ export class DataCellsComponent<T extends DataCellType>  {
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
   checkType = CheckType;
-  //functions
 
+  // functions
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;
   }
@@ -39,24 +48,10 @@ export class DataCellsComponent<T extends DataCellType>  {
   isNumber(value: any): value is number {
     return typeof value === 'number';
   }
-  isButtonData(data: any): data is {
-    text?: string;
-    buttonType?: ButtonType;
-    disabled?: boolean;
-    isBig?: boolean; // Changed from size
-        iconType?: IconType; // Changed from buttonIcon
-  } {
-    return (
-      data &&
-      (typeof data.text === 'string' || typeof data.text === 'undefined') &&
-      (typeof data.buttonType === 'string' || typeof data.buttonType === 'undefined') &&
-      (typeof data.disabled === 'boolean' || typeof data.disabled === 'undefined') &&
-      (typeof data.size === 'string' || typeof data.size === 'undefined') &&
-      (typeof data.buttonIcon === 'string' || typeof data.buttonIcon === 'undefined')
-    );
-    }
+
+
   onClick() {
-    alert('test on click');
-    console.log('test on click');
+    alert('Test on click');
+    console.log('Test on click');
   }
 }

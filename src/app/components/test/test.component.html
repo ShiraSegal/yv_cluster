@@ -1,7 +1,7 @@
 <h3>narrow-basic-table-warp</h3>
 <hr>
 <yv-cluster-narrow-basic-table-warp [subTitle]="customSubtitle"></yv-cluster-narrow-basic-table-warp>
-<!-- <hr>
+<hr>
 <h3>heading</h3>
 <yv-cluster-heading [title]="title1" [size]="size1" [weight]="weight1"></yv-cluster-heading>
 <yv-cluster-heading [title]="title2" [size]="size2" [weight]="weight1"></yv-cluster-heading>
@@ -18,29 +18,8 @@
 <yv-cluster-body [bodyText]="bodyText3" [size]="size3" [weight]="weight2"></yv-cluster-body>
 <hr>
 <yv-cluster-home-warp></yv-cluster-home-warp>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [iconType]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [iconType]="icon"></yv-cluster-button>
-
-<yv-cluster-button  (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true [iconType]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [iconType]="icon"></yv-cluster-button>
-
-<yv-cluster-button (onClick)="onClick()"text="Text" [buttonType]="tertiany" [isBig]=true [iconType]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [iconType]="icon"></yv-cluster-button>
-
-<br>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [disabled]="true" [iconType]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=false [disabled]="true" [iconType]="icon"></yv-cluster-button>
-
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="secondary" [isBig]=true  [disabled]="true" [iconType]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()"  text="Text" [buttonType]="secondary" [isBig]=false  [disabled]="true" [iconType]="icon"></yv-cluster-button>
-
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true  [disabled]="true" [iconType]="icon"></yv-cluster-button>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false  [disabled]="true" [iconType]="icon" ></yv-cluster-button>
-<yv-cluster-narrow-basic-table-warp [subTitle]="customSubtitle"></yv-cluster-narrow-basic-table-warp>
- <hr>
 <h3>basic table row</h3>
 <hr>
-<h1>hi from efrat ilan, successes to every budy</h1>
 <yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="true" [cells]="[
     { data: 'this is a text', type: dataCellType.TEXT },
     { data: 'https://example.com', type: dataCellType.LINK },
@@ -75,9 +54,9 @@
 <hr>
 <h3>icon-button-large</h3>
 <hr>
-<yv-cluster-icon-button-large [icon]="iconType.MAGNIFYING_GLASS_PLUS_LIGHT"
+<yv-cluster-icon-button-large (onClick)="onClick()" [icon]="iconType.MAGNIFYING_GLASS_PLUS_LIGHT"
     [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
-<yv-cluster-icon-button-large [icon]="iconType.MAGNIFYING_GLASS_PLUS_LIGHT"
+<yv-cluster-icon-button-large (onClick)="onClick()" [icon]="iconType.MAGNIFYING_GLASS_PLUS_LIGHT"
     [property]="iconButtonLargeType.HOVER"></yv-cluster-icon-button-large>
 <hr>
 <h3>viewer</h3>
@@ -87,14 +66,33 @@
 <yv-cluster-viewer pictureName="00023"></yv-cluster-viewer>
  <hr>
 <h3>data cell</h3>
-<hr>
-<yv-cluster-data-cells [type]="dataCellType.TEXT" [data]="'this is a text'"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.LINK" [data]="'https://example.com'"></yv-cluster-data-cells>
+<hr><yv-cluster-data-cells 
+[type]="dataCellType.TEXT" 
+[data]="'This is a text'">
+</yv-cluster-data-cells>
+
+<yv-cluster-data-cells 
+[type]="dataCellType.LINK" 
+[data]="'https://example.com'">
+</yv-cluster-data-cells>
+
+<yv-cluster-data-cells 
+[type]="dataCellType.ICON" 
+[moreData]="{ icon: IconType.USER }">
+</yv-cluster-data-cells>
+
+<yv-cluster-data-cells 
+[type]="dataCellType.CHECK" 
+[moreData]="{ type: checkType.CHECKED, state: checkStateType.DISABLED }">
+</yv-cluster-data-cells>
+
+<yv-cluster-data-cells 
+[type]="dataCellType.BUTTON" 
+[data]="{ text: 'Click Me', buttonType: buttonType.PRIMARY, disabled: false }">
+</yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.SLIDER" [data]="80"></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.MORE"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.CHECK"></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.STATUS"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.ICON"></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.PLACEOLDER"></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.ASSIGNEE" [data]="'Racheli Liff'"></yv-cluster-data-cells>
 <hr>
@@ -108,10 +106,10 @@
 <hr>
 <h3>check</h3>
 <hr>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
+<yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED></yv-cluster-check>
+<yv-cluster-check [type]=checkType.CHECKED [state]=checkStateType.ENABLED></yv-cluster-check>
+<yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.DISABLED></yv-cluster-check>
+<yv-cluster-check [type]=checkType.CHECKED [state]=checkStateType.DISABLED></yv-cluster-check>
 <hr>
 <h3>header cell</h3>
 <hr>
@@ -125,7 +123,7 @@
 <yv-cluster-header-cells [type]=headerCellType.MORE></yv-cluster-header-cells>
 <yv-cluster-header-cells [type]=headerCellType.PLACEOLDER></yv-cluster-header-cells>
 <h3>button</h3>
-<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]=ButtonType.PRIMARY
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]=buttonType.PRIMARY
   [iconType]="icon"></yv-cluster-button>
   <hr>
 <h3>slider navigation tab</h3>
@@ -211,4 +209,4 @@
 <br>
 <h3>create cluster</h3>
 <yv-cluster-create-cluster></yv-cluster-create-cluster>
-<hr>  -->
+<hr> 

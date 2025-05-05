@@ -4,7 +4,7 @@
     <div class="tabs">
         <div class="tabs-top">
             @for(tab of tabs; track tab.number){
-            @if(tab.number < 3){ <div class="tab-top">
+            @if(tab.number < 4){ <div class="tab-top">
                 <yv-cluster-slider-navigation-tab [property]="tab.property.value!"
                     [icon]="activeTabIndex === tab.number ? tab.activeIcon : tab.icon" [text]="tab.text"
                     (click)="setActiveTab(tab.number)">
@@ -12,7 +12,7 @@
         </div>
         }
 
-        @if(tab.number === 3){
+        @if(tab.number === 4){
             <div class="tab-center">
         <div class="line"></div>
         <yv-cluster-slider-navigation-tab [property]="tab.property.value!"
@@ -21,7 +21,7 @@
         </yv-cluster-slider-navigation-tab>
     </div>
         }
-        @if(tab.number === 4 ){
+        @if(tab.number === 5 ){
         <div class="tab-bottom">
             <div class="line"></div>
             <yv-cluster-slider-navigation-tab [property]="tab.property.value!"

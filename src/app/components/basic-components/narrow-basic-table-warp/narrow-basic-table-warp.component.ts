@@ -242,11 +242,11 @@ loadDataForTab() {
   }));
 }
   async ngOnInit() {
-  this.data1 = (await this.clusterService.getAutoClusterData()).subscribe((data) => {
-    this.tabData = data
-  })
-  this.loadDataForTab();
-}
+    (await this.clusterService.getAutoClusterData()).subscribe((data) => {
+      this.tabData = data;
+      this.loadDataForTab(); // Call this after data is available
+    });
+  }
+
 
 }
-
