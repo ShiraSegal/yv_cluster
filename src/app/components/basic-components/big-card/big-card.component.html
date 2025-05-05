@@ -1,0 +1,9 @@
+
+<div [ngClass]="size">
+
+  <i class="{{iconName}} icon-circle" [ngClass]="iconName"></i>
+  <div [ngClass]="{'text-container':size===bigCardSize.SHORT}">
+    <div class="card-text">{{text}}</div>
+    <div class="card-number">{{ formatNumber(number) }}</div>
+  </div>
+</div>

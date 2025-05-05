@@ -1,0 +1,77 @@
+<div class="card-container">
+    <svg width="164" height="164" viewBox="0 0 164 164" xmlns="http://www.w3.org/2000/svg">
+        <!-- הגדרת הצל -->
+        <defs>
+            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="rgba(0, 0, 0, 0.1)" />
+            </filter>
+            <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1334B9"/>
+                <stop offset="100%" stop-color="#D0D6F1" />
+            </linearGradient>
+        </defs>
+        
+        <!-- עיגול רקע עם הצל -->
+        <circle
+            cx="82" cy="82" r="76"
+            stroke="#E7EBF8"
+            stroke-width="9"
+            fill="none"
+            filter="url(#shadow)"
+        />
+      
+        <!-- פס התקדמות -->
+    <!-- מעגל ההתקדמות -->
+    <circle
+    cx="82" cy="82" r="76"
+    [attr.stroke-dasharray]="dashArray"
+    [attr.stroke-dashoffset]="dashOffset"
+    stroke="url(#gradient)"
+    stroke-width="9"
+    stroke-linecap="butt"
+    fill="none"
+    transform="rotate(-90 82 82)"
+    filter="url(#shadow)"
+  ></circle>
+      
+        <!-- הטקסט במרכז -->
+        <text x="80" y="100" text-anchor="middle" dominant-baseline="middle" font-size="36" font-weight="bold" fill="#000">
+            {{doneNumber}}
+        </text>
+        <text x="80" y="75" text-anchor="middle" font-size="16" fill="#333">
+            Done
+        </text>
+    </svg>
+    
+    <div class="card-text">{{text}}</div>
+    <div class="done-and-to-do">
+        <div class="done">
+            <div class="circle-and-text">
+                <svg class="done-circle" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18"
+                    fill="none">
+                    <ellipse cx="9.5" cy="9" rx="9.5" ry="9" fill="url(#paint0_linear_526_27674)" />
+                    <defs>
+                        <linearGradient id="paint0_linear_526_27674" x1="19" y1="1.44783" x2="1.90053" y2="19.7857"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#D0D6F1" />
+                            <stop offset="1" stop-color="#1334B9" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="text">Done</div>
+            </div>
+            <div class="number">{{doneNumber}}</div>
+        </div>
+        <div class="to-do">
+            <div class="circle-and-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                    <ellipse cx="9.5" cy="9" rx="9.5" ry="9" fill="#E7EBF8" />
+                </svg>
+                <div class="text"> To do</div>
+            </div>
+            <div class="number">{{toDoNumber}}</div>
+        </div> 
+    </div>
+
+
+</div>
