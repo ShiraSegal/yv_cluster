@@ -1,4 +1,4 @@
-<form [formGroup]="form"> </form>
+<form [formGroup]="tableDataForm"> 
 <div class="table-frame">
     <div class="table-actions">
         <yv-cluster-field [property]="stateEnum.DEFAULT" [placeholder]="'Search'"></yv-cluster-field>
@@ -9,15 +9,21 @@
                 [buttonIcon]="icon"></yv-cluster-button></div>
     </div>
 
-    <div class="data-container">
+    <div class="data-container" formArrayName="rowsFormArray">
         <div class="headers-container">
             <yv-cluster-table-header [headers]="Headers"></yv-cluster-table-header>
         </div>
         <div class="rows-container">
-            @for (row of Rows; track row){
-            <yv-cluster-narrow-basic-table-row [property]="row.property" 
-                [cells]="row.cells"></yv-cluster-narrow-basic-table-row>
-            }
-        </div>
+            @for (group of rowGroup; track $index) {
+                <div [formGroup]="group" [formGroupName]="$index">
+                  <yv-cluster-narrow-basic-table-row 
+                    [property]="Rows[$index].property" 
+                    [cells]="Rows[$index].cells"
+                    [formGroup]="group">
+                  </yv-cluster-narrow-basic-table-row>
+                </div>
+              }
+          </div>
     </div>
 </div>
+</form>
