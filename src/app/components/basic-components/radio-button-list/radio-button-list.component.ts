@@ -3,6 +3,7 @@ import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/cor
 import { ControlValueAccessor, FormControl, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { BasicRadioButtonComponent } from '../basic-radio-button/basic-radio-button.component';
 import { RadioButtonListDirection } from 'src/app/enums/basic-enum';
+import { log } from 'node:util';
 
 @Component({
   selector: 'yv-cluster-radio-button-list',
@@ -33,15 +34,23 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   private onTouched: () => void = () => {};
 
   writeValue(value: string | null): void {
-    debugger
-    this.radioControl.setValue(value);
+    console.log("writeValue", value);
+    if (!value) {
+      const defaultOption = this.radioButtonValuesArray.find(option => option.key === "");
+      this.radioControl.setValue(defaultOption ? defaultOption.key : null);
+    }
+    // this.radioControl.setValue(value);
   }
 
   registerOnChange(fn: (value: string | null) => void): void {
+    console.log("registerOnChange", fn);
+    
     this.onChange = fn;
   }
 
   registerOnTouched(fn: () => void): void {
+    console.log("registerOnTouched", fn);
+    
     this.onTouched = fn;
   }
 
@@ -54,10 +63,16 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   }
 
   
-  onOneRadioButtonChange(selectedOption: string) {
-    this.radioControl.setValue(selectedOption);
-    this.selectionChange.emit(selectedOption);
+  onRadioChange(value: string): void {
+    console.log("onRadioChange", value);
+    this.onChange(value); // עדכון הערך
+    this.radioControl.setValue(value); // עדכון הערך של FormControl
+    this.selectionChange.emit(value); // פליטת האירוע
   }
+  // onOneRadioButtonChange(selectedOption: string) {
+  //   this.radioControl.setValue(selectedOption);
+  //   this.selectionChange.emit(selectedOption);
+  // }
 }
 
 

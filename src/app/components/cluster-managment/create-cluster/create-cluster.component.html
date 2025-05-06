@@ -20,7 +20,6 @@
                 <div class="data-cells">
                         <label class="label">{{data.Field}}</label>
                 </div>
-                <!-- <input [formControlName]="data.Field"> -->
                 <div class="options-cells">
                     <div class="radiobuttons">
                         <yv-cluster-radio-button-list [radioButtonValuesArray]="data.RadioOptions"  [formControlName]="data.Field" (selectionChange)="checkChange($event,data.Field)"></yv-cluster-radio-button-list>
@@ -60,3 +59,4 @@
 @if(formIsValid==false){
 <yv-cluster-toast-notification [iconName]="ToastNotificationIcons.ERROR" [message]="'Please fill all the fields'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
 }
+

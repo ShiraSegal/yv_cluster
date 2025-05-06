@@ -104,11 +104,25 @@ export class CreateClusterComponent {
         d.Values.forEach((v: any) => {
           values.push({ key: v.NameCode, value: v.Value });
         });
-                console.log("element", d);
-        if (d.HasOtherOption)
+        if (d.HasOtherOption) {
           values.push({ key: "other", value: "other" });
+        }
         d.RadioOptions = values;
+
+        // Set default selection if NameCode is empty
+        // const defaultOption = d.Values.find((v: any) => v.NameCode === "");
+        // if (defaultOption) {
+        //   // Remove the default selection logic
+        //   this.formGroupFields[d.Field] = ['', Validators.required];
+        // } else {
+        //   this.formGroupFields[d.Field] = ['', Validators.required];
+        // }
+
+        // if (defaultOption) {
+        //   this.formGroupFields[d.Field] = [defaultOption.NameCode, Validators.required];
+        // }
       });
+      
       console.log("222222222222222222", this.dataCells);
 
       this.initializeFormGroup();
@@ -147,13 +161,14 @@ export class CreateClusterComponent {
   
   initializeFormGroup() {
     this.dataCells.forEach((field: any) => {
-      this.formGroupFields[field.Field] = ['', Validators.required];
+      this.formGroupFields[field.Field] = [field.Field, Validators.required];
     });
     console.log("this.formGroupFields", this.formGroupFields);
      
     
     this.formGroup = this.formBuilder.group(this.formGroupFields);
     //  this.formGroup = this.formBuilder.group({check:['', Validators.required]});
+console.log("this.formGroup", this.formGroup);
 
     
   }
@@ -162,7 +177,7 @@ export class CreateClusterComponent {
     console.log("selected", selected); 
     console.log("valid", this.formGroup.valid);
     console.log("index", index);
-    this.formGroup.get(selected)?.setValue(index);
+    // this.formGroup.get(selected)?.setValue(index);
     console.log("formGroup", this.formGroup.value);
     console.log("formGroup", this.formGroup);
 
@@ -179,7 +194,7 @@ export class CreateClusterComponent {
         console.log("field",field);
         const values=field.Values.filter((value: any) => {
         // ((value: any) => {
-        return  value.NameCode === this.formGroup.controls[field.Field].value;
+        return value.NameCode === this.formGroup.controls[field.Field].value;
         });
         console.log("values",values);
         
@@ -203,12 +218,6 @@ export class CreateClusterComponent {
       });
     }
     else {
-      // this.disabled=false
-      this.formIsValid = false;
-    }
-    console.log("formIsValid", this.formIsValid);
-
-  }
-
-
-}
+      //  this.disabled=false    
+         this.formIsValid = false;    }  
+           console.log("formIsValid", this.formIsValid);  }}
