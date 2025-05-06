@@ -240,11 +240,15 @@ loadDataForTab() {
     }),
   }));
 }
-  async ngOnInit() {
-    (await this.clusterService.getAutoClusterData()).subscribe((data) => {
-      this.tabData = data;
-      this.loadDataForTab(); // Call this after data is available
-    });
+   async ngOnInit() {
+    this.data1 = (await this.clusterService.getAutoClusterData()).subscribe({
+      next: (data) => {
+        this.tabData = data
+      },
+      error: (error) => {
+        console.error("error getAutoClusterData occurred:", error);
+      }});
+    this.loadDataForTab();
   }
 
 
