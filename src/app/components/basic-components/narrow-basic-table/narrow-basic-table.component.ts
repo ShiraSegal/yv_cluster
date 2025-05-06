@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input, SimpleChanges } from '@angular/core';
-import { ButtonType, DataCellType, HeaderCellType, NarrowBasicTableRowInputState, State } from 'src/app/enums/basic-enum';
+import {  ButtonType, DataCellType, HeaderCellType, NarrowBasicTableRowInputState, State } from 'src/app/enums/basic-enum';
 import { NarrowBasicTableRowComponent } from '../narrow-basic-table-row/narrow-basic-table-row.component';
 import { TableHeaderComponent } from '../table-header/table-header.component';
 import { ButtonIconProperty, NativeOptionState, NativeOptionType } from 'src/app/enums/native-option-enum';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { IconType } from 'src/app/enums/icon-enum';
 import { FilterSectionComponent } from "../filter-section/filter-section.component";
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table',
@@ -16,6 +17,7 @@ import { FilterSectionComponent } from "../filter-section/filter-section.compone
   styleUrl: './narrow-basic-table.component.scss'
 })
 export class NarrowBasicTableComponent {
+
 
 
   @Input() Headers: { data: string; type: HeaderCellType }[] = [];
@@ -37,11 +39,7 @@ export class NarrowBasicTableComponent {
   nativeOptions = NativeOptionType;
   rowProperty: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
 
-  nativeOptionswe = [
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
-  ];
+  
   #fb = inject(FormBuilder)
 
   tableDataForm: FormGroup = this.#fb.group({
@@ -62,7 +60,7 @@ export class NarrowBasicTableComponent {
 
   initializeRowsFormArray() {
     this.rowsFormArray.clear(); // Clear the FormArray before adding new rows
-    this.Rows?.forEach((row, index) => {
+    this.Rows?.forEach((row,index) => {
       const rowGroup = this.#fb.group({
         // id: [row.cells[index].data],
         status: this.#fb.control(row.cells.find(cell => cell.type === DataCellType.STATUS)?.data || ''),
@@ -92,11 +90,21 @@ export class NarrowBasicTableComponent {
       this.initializeRowsFormArray(); // Initialize the FormArray when Rows changes
     }
   }
+
+
+  nativeOptionswe = [
+    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
+    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
+    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
+  ];
+  
   trackByFn(index: number, item: any): any {
     return index;
   }
   onClick() {
     alert('test on click');
     console.log('test on click');
-  }
+}
+
+
 }

@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, take, tap } from 'rxjs';
+import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, of, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
 import { map } from 'rxjs/operators';
@@ -15,37 +15,21 @@ export class ClusterService {
   private autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
   private isDataFetched = false;
-   
-  // async getAutoClusterData(): Promise<string[]> {
-  //   if (this.isDataFetched) {
-  //     return this.autoClusterListSubject$.getValue(); // כבר הבאנו, נחזיר את הערך
-  //   }
-   
-  //   this.isDataFetched = true;
-   
-  //   // ממיר Observable ל-Promise
-  //   const data = await lastValueFrom((await this.#clusterApiService.getAutoClusterData()).pipe(take(1)));
-   
-  //   if (data) {
-  //     this.autoClusterListSubject$.next(data);
-  //   }
-   
-  //   return data;
-  // }
-  getAutoClusterData() {
-     return this.#clusterApiService.getAutoClusterData();
-    // .subscribe(data => {
-    //   console.log('Real data:', data);
-    //   // this.autoClusterListSubject$.next(data);
-    //   return data.ClustersWithMissingFields;
-    //   // now you can use data however you like
-    // });
-    //return this.autoClusterListSubject$.pipe(map(s=>{s.clusterID, s.comments})).asObservable();//filter only missingFileds
+  
+  async getAutoClusterData() {
+    var res = (await this.#clusterApiService.getAutoClusterData())
+      .pipe(
+        take(1),
+        tap(res => {
+        }),
+        catchError(err => {
+          return of(null);
+        })
+      );
+    return res;
+    
   }
 
-  get checklistItem$() {
-    return this.autoClusterListSubject$.asObservable();//filter only missingFileds
-  }
 
   get isLoading$() {
     return this.isLoadingBehaviorSubject$.asObservable();

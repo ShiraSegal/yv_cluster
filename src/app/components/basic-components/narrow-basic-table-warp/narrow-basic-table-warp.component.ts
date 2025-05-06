@@ -6,7 +6,8 @@ import { BasicTabComponent } from '../basic-tab/basic-tab.component';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { SlidebarNavigationComponent } from '../slidebar-navigation/slidebar-navigation.component';
-import { IconType } from 'src/app/enums/icon-enum';
+import {  FormGroup } from '@angular/forms';
+
 
 
 @Component({
@@ -23,11 +24,11 @@ export class NarrowBasicTableWarpComponent {
   BasicTablePropertyType = BasicTablePropertyType;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   StatusActiveOrNotActive = StatusActiveOrNotActive;
-  // missingFieldData: any[] = [];
   data1: any;
   tabData: any;
 
   clusterService = inject(ClusterService);
+  form!: FormGroup;
 
   readonly TabToJSONKeyMap: { [key in AutoClusterTabType]: string } = {
     [AutoClusterTabType.SAPIR_CLUSTERS]: 'ClustersForSapir',
@@ -87,6 +88,21 @@ export class NarrowBasicTableWarpComponent {
     { text: AutoClusterTabType.APPROVAL_GROUPS, status: StatusActiveOrNotActive.NOT_ACTIVE }
 
   ];
+  HeaderToDataCellTypeMap: { [key in HeaderCellType]?: DataCellType } = {
+    [HeaderCellType.TEXT]: DataCellType.TEXT, // Default: Text-to-Text
+    [HeaderCellType.CHECK]: DataCellType.CHECK, // Checkboxes
+    [HeaderCellType.MORE]: DataCellType.MORE,
+    [HeaderCellType.ORDER]: DataCellType.TEXT, // Ordered text
+    [HeaderCellType.HEADERSEARCH]: DataCellType.TEXT, // Searchable headers
+    [HeaderCellType.PLACEOLDER]: DataCellType.PLACEOLDER, // Placeholder
+  };
+  getDataCellTypeForHeader(header: string, headerType: HeaderCellType): DataCellType {
+    if (headerType === HeaderCellType.CHECK) return DataCellType.CHECK; // זיהוי על פי סוג
+    if (header === 'Status') return DataCellType.STATUS;
+    if (header === 'Assignee') return DataCellType.ASSIGNEE;
+    if (header === '') return DataCellType.BUTTON;
+    return DataCellType.TEXT; // ברירת מחדל
+  }
   getDataForCurrentTab(): any[] {
     const jsonKey = this.TabToJSONKeyMap[this.currentTab];
     return this.tabData?.[jsonKey] || [];
@@ -120,6 +136,7 @@ export class NarrowBasicTableWarpComponent {
       type: DataCellType;
       moreData?: { [key: string]: any };
     }[];
+
   }[] = [];
   readonly TabHeaders: { [key in AutoClusterTabType]: { data: string, type: HeaderCellType }[] } = {
     [AutoClusterTabType.SAPIR_CLUSTERS]: [
@@ -173,24 +190,7 @@ export class NarrowBasicTableWarpComponent {
       { data: 'Assignee data', type: HeaderCellType.TEXT }
     ],
   };
-  // Map HeaderCellType to DataCellType dynamically
- HeaderToDataCellTypeMap: { [key in HeaderCellType]?: DataCellType } = {
-  [HeaderCellType.TEXT]: DataCellType.TEXT, // Default: Text-to-Text
-  [HeaderCellType.CHECK]: DataCellType.CHECK, // Checkboxes
-  [HeaderCellType.MORE]: DataCellType.MORE,
-  [HeaderCellType.ORDER]: DataCellType.TEXT, // Ordered text
-  [HeaderCellType.HEADERSEARCH]: DataCellType.TEXT, // Searchable headers
-  [HeaderCellType.PLACEOLDER]: DataCellType.PLACEOLDER, // Placeholder
-};
 
-// Special Cases: Custom logic to map header labels to data-cell types
-getDataCellTypeForHeader(header: string, headerType: HeaderCellType): DataCellType {
-  if (headerType === HeaderCellType.CHECK) return DataCellType.CHECK; // זיהוי על פי סוג
-  if (header === 'Status') return DataCellType.STATUS;
-  if (header === 'Assignee') return DataCellType.ASSIGNEE;
-  if (header === '') return DataCellType.BUTTON;
-  return DataCellType.TEXT; // ברירת מחדל
-}
 loadDataForTab() {
   const tabData = this.getDataForCurrentTab();
   this.Headers = this.TabHeaders[this.currentTab];
@@ -240,7 +240,9 @@ loadDataForTab() {
     }),
   }));
 }
-   async ngOnInit() {
+  
+
+  async ngOnInit() {
     this.data1 = (await this.clusterService.getAutoClusterData()).subscribe({
       next: (data) => {
         this.tabData = data
@@ -252,4 +254,7 @@ loadDataForTab() {
   }
 
 
+
 }
+
+
