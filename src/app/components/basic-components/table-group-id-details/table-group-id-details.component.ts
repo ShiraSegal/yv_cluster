@@ -213,16 +213,28 @@ console.log(rowGroup+" rowGroup created for row eeeeeeeeeeee");
 
   // }
   openDialog() {
-    this.dialogRef = this.#dialog.open(PieComponentDistributionModalComponent, {
-      data: { title: 'Data Distribution' },
-      disableClose: true,
-      hasBackdrop: true,
-      panelClass: 'custom-dialog',
-      autoFocus: false,
-      width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
-      height: 'auto',
+    // this.dialogRef = this.#dialog.open(PieComponentDistributionModalComponent, {
+    //   data: { title: 'Data Distribution' },
+    //   disableClose: true,
+    //   hasBackdrop: true,
+    //   panelClass: 'custom-dialog',
+    //   autoFocus: false,
+    //   width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
+    //   height: 'auto',
 
-    });
+    // });
+this.dialogRef = this.#dialog.open(PieComponentDistributionModalComponent, {
+  data: { title: 'Data Distribution' },
+  disableClose: true,
+  hasBackdrop: true,
+  panelClass: 'custom-dialog',
+  autoFocus: false,
+  width: '90vw',
+  maxWidth: '100vw',
+  height: 'auto',
+  maxHeight: '80vh',  // ✅ שים לב לשינוי פה
+});
+
   }
   openPeiComponent() {
     // // console.log("openPeiComponent");
