@@ -11,25 +11,18 @@ import { CheckStateType, CheckType } from 'src/app/enums/check-enum';
   styleUrl: './check.component.scss'
 })
 export class CheckComponent implements ControlValueAccessor {
-  // @Input() type: CheckType =CheckType.UNCHECKED ;
+  @Input() type: CheckType =CheckType.UNCHECKED ;
   @Input() state: CheckStateType = CheckStateType.ENABLED;  
 
   CheckType=CheckType;
   CheckStateType=CheckStateType;
 
-  private _type: CheckType = CheckType.UNCHECKED;
-  get type(): CheckType {
-    return this._type;
-  }
-  set type(value: CheckType) {
-    this._type = value;
-    this.onChange(value);
-  }
-  private onChange: (value: CheckType) => void = () => {};
-  public onTouched: () => void = () => {};
+
+ onChange: (value: CheckType) => void = () => {};
+ onTouched: () => void = () => {};
 
   writeValue(value: CheckType): void {
-    this._type = value || CheckType.UNCHECKED;
+    this.type = value || CheckType.UNCHECKED;
   }
   registerOnChange(fn: (value: CheckType) => void): void {
     this.onChange = fn;

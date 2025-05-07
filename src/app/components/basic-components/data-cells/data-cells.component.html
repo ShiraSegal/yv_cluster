@@ -13,7 +13,11 @@
         [state]="moreData['state'] || checkStateType.ENABLED"
       ></yv-cluster-check>
     }
-  
+    @if(type === dataCellType.CHECK) {
+      <yv-cluster-check
+        [state]="moreData['state'] || checkStateType.ENABLED"
+      ></yv-cluster-check>
+    }
     @if(type === dataCellType.STATUS) {
       <yv-cluster-badge [property]="moreData['property'] || badgeType.TODO"></yv-cluster-badge>
     }
@@ -29,7 +33,7 @@
     @if(type === dataCellType.ICON) {
       <yv-cluster-icon-button-large
         (onClick)="onClick()"
-        [icon]="moreData['icon'] || IconType.CHEVRONRIGHT"
+        [icon]="moreData['icon'] || IconType.CHEVRON_RIGHT_LIGHT"
         [property]="moreData['property'] || iconButtonLargeType.DEFAULT"
       ></yv-cluster-icon-button-large>
     }
