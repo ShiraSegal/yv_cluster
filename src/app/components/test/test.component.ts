@@ -67,6 +67,7 @@ import { SelectComponent } from '../basic-components/select/select.component';
     BasicTabComponent,
     SliderComponent,
     SwitchComponent,
+    FieldComponent,
     RadioButtonListComponent,
     CreateClusterComponent,
     BadgeComponent,
