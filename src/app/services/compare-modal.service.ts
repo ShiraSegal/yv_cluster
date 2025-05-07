@@ -31,7 +31,7 @@ export class CompareModalService {
       const res = this.#clusterApiService.getCompareData();
       console.log("res",res);
       
-      const result = (await res)
+      const result = (res)
         .pipe(
           take(1),
           map(res => res || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד

@@ -11,27 +11,7 @@
     background: #FFF;
 }
 
-.picture-name-warpper {
-    display: flex;
-    height: 3.125rem;
-    // padding: var(--layout-02, 0.5rem);
-    align-items: center;
-    gap: 0.625rem;
-    flex-shrink: 0;
-    align-self: stretch;
-    width: 64.75rem;
-    background: $c-E7EBF87F;
-}
 
-.picture-name {
-    width: 8.375rem;
-    color: $c-3F4B5A;
-    font-family: Poppins;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
 
 .image-warrper {
     display: flex;

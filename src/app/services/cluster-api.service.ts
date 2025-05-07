@@ -13,7 +13,7 @@ export class ClusterApiService {
     return this.#http.get<string[]>('/assets/getAutoCluster.json');
   }
 
-  async getCompareData() {
+  getCompareData() {
     return this.#http.get<string[]>('/assets/getCompareData.json');
   }
 

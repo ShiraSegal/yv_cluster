@@ -37,7 +37,8 @@ import { CompareModalPageComponent } from "../cluster-managment/compare-modal-pa
     // BasicTabComponent,
     BasicCardComponent,
     IconButtonLargeComponent,CompareModalPageComponent,CompareModalTableComponent,
-    CompareModalButtonComponent],
+    CompareModalButtonComponent,
+    CompareModalTableComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })

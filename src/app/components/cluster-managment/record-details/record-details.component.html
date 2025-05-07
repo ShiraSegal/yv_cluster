@@ -1,26 +1,24 @@
 <div class="details-container">
-  @if(details.detailsOn===true){
-    <div class="details">
-  <div class="record-header">
-    <p class="cluster-number">{{ details.name }}</p>
-    <div class="language-toggel-button">
-      <yv-cluster-basic-toggle [rightSelected]="true" [rightText]="'English'" [leftText]="'עברית'"
-        (toggleChange)="handleToggleChange($event)"></yv-cluster-basic-toggle>
+  @if(details.detailsOn){
+  <div class="details">
+    <div class="record-header">
+      <p class="cluster-number">{{ details.name }}</p>
+      <div class="language-toggel-button">
+        <yv-cluster-basic-toggle [rightSelected]="true" [rightText]="'English'" [leftText]="'עברית'"
+          (toggleChange)="handleToggleChange($event)"></yv-cluster-basic-toggle>
+      </div>
+    </div>
+    <div *ngFor="let detail of details.details" class="data-cell">
+      {{detail.value}}
     </div>
   </div>
-  <div *ngFor="let detail of details.details" class="data-cell">
-    {{detail.value}}
-  </div>
-</div>
   }
-  @if(details.imageOn===true){
-    <div class="details">
+  @if(details.imageOn){
+  <div class="image">
+    <div class="picture-name-warpper">
+      <div class="picture-name">{{ details.name}}</div>
+    </div>
     <yv-cluster-viewer pictureName="img1" [pictureName]="details.name"></yv-cluster-viewer>
   </div>
   }
 </div>
-
-
-
-
-

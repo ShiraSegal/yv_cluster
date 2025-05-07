@@ -1,19 +1,9 @@
 @import "src/styles.scss";
-.table-header {
-    display: flex;
-    padding: 0.25rem 0rem;
-    align-items: center;
-    gap: 0.9375rem;
-    align-self: stretch;
-    background-color: $c-FFFFFF;
-    z-index: 1;
-    height: 3.125rem;
-}
 .save-place {
     display: flex;
     width: 11.375rem;
     height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
+    // padding: var(--layout-02, 0.5rem);
     justify-content: flex-end;
     align-items: center;
     gap: 0.625rem;
@@ -36,16 +26,17 @@
 }
 .table-container {
     display: flex;
-    align-self: stretch;
-    flex-direction: row;
+    // align-self: stretch;
+    // flex-direction: row;
     padding: 0.25rem 0rem;
-    align-items: center;
+    // align-items: center;
     gap: 0.9375rem;
     top:0;
-    overflow: auto; /* מאפשר גלילה אופקית וגם אנכית */
-    max-height: 50.3125rem; /* מגביל את הגובה המקסימלי */
+    overflow: auto;
+    max-height: 50.3125rem;
     max-width: 100%; 
-    position: static; 
+
+    // position: static; 
 }
 .space-between {
     display: flex;
