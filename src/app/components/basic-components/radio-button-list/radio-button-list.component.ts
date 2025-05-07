@@ -35,11 +35,11 @@ export class RadioButtonListComponent implements ControlValueAccessor {
 
   writeValue(value: string | null): void {
     console.log("writeValue", value);
-    if (!value) {
-      const defaultOption = this.radioButtonValuesArray.find(option => option.key === "");
-      this.radioControl.setValue(defaultOption ? defaultOption.key : null);
-    }
-    // this.radioControl.setValue(value);
+    // if (!value) {
+    //   const defaultOption = this.radioButtonValuesArray.find(option => option.key === "");
+    //   this.radioControl.setValue(defaultOption ? defaultOption.key : null);
+    // }
+     this.radioControl.setValue(value);
   }
 
   registerOnChange(fn: (value: string | null) => void): void {

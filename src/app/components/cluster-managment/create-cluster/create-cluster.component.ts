@@ -38,7 +38,7 @@ export class CreateClusterComponent {
   formGroupFields: any = {};
 
   //form data
-  dataCells:any[];
+  dataCells: any[];
   clusterModel: SapirClusterModel = new SapirClusterModel();
 
   //close dialog
@@ -56,8 +56,6 @@ export class CreateClusterComponent {
   weight1: TextWeight = TextWeight.BOLD;
   tableHeader2: string = 'Text Value';
   color1: TextColor = TextColor.SLATE_BLUE;
-  //dataCells: string[] = [];//['First Name', 'Last Name', 'Maiden Name', 'Place Of Birth', 'Authentic Date Of Birth', 'Restored Date Of Birth', 'Permanent Place', 'Place of Death', 'Gender', 'Fate'];
-  // hederType: HeaderCellType = HeaderCellType.TEXT;
 
   //select
   selectLabel: string = 'Cluster Level';
@@ -70,7 +68,7 @@ export class CreateClusterComponent {
   ];
 
   //text field
-  stateEnum = State;
+  comments: string = '';
 
   //buttons
   button1: string = 'Cancel';
@@ -94,39 +92,48 @@ export class CreateClusterComponent {
       next: (res: SapirClusterModel | null) => {
         if (res) {
           console.log("getCreateClusterData", res);
-          
-        this.clusterModel=res as SapirClusterModel;
-        console.log("this.clusterModel", this.clusterModel);
-        
+
+          this.clusterModel = res as SapirClusterModel;
+          console.log("this.clusterModel", this.clusterModel);
+
           this.dataCells = res.SapirClusterDetails; // Process the data if it's not null
           this.dataCells.forEach((d: any) => {
-        let values: any = [];
-        d.Values.forEach((v: any) => {
-          values.push({ key: v.NameCode, value: v.Value });
-        });
-        if (d.HasOtherOption) {
-          values.push({ key: "other", value: "other" });
-        }
-        d.RadioOptions = values;
+            let values: any = [];
+            d.Values.forEach((v: any) => {
+              if (v.NameCode === "") {
+                console.log(`Value "${v.Value}" has an empty NameCode.`);
+                v.NameCode = "unknown"; // או כל ערך ברירת מחדל אחר
+              }
+              values.push({ key: v.NameCode, value: v.Value });
 
-        // Set default selection if NameCode is empty
-        // const defaultOption = d.Values.find((v: any) => v.NameCode === "");
-        // if (defaultOption) {
-        //   // Remove the default selection logic
-        //   this.formGroupFields[d.Field] = ['', Validators.required];
-        // } else {
-        //   this.formGroupFields[d.Field] = ['', Validators.required];
-        // }
+            });
+            if (d.HasOtherOption) {
+              values.push({ key: "other", value: "other" });
+            }
+            d.RadioOptions = values;
 
-        // if (defaultOption) {
-        //   this.formGroupFields[d.Field] = [defaultOption.NameCode, Validators.required];
-        // }
-      });
-      
-      console.log("222222222222222222", this.dataCells);
+            // Set default selection if NameCode is empty
+            // const defaultOption = d.Values.find((v: any) => v.NameCode === "");
+            // if (defaultOption) {
+            //   // Remove the default selection logic
+            //   this.formGroupFields[d.Field] = ['', Validators.required];
+            // } else {
+            //   this.formGroupFields[d.Field] = ['', Validators.required];
+            // }
 
-      this.initializeFormGroup();
-    
+            // if (defaultOption) {
+            //   this.formGroupFields[d.Field] = [defaultOption.NameCode, Validators.required];
+            // }
+          });
+
+          console.log("222222222222222222", this.dataCells);
+
+          this.initializeFormGroup();
+
+          this.formGroup.get('comments')?.valueChanges.subscribe(value => {
+            console.log('Comments value changed:', value);
+          });
+
         } else {
           console.warn("No data received from getCreateClusterData.");
           this.dataCells = [];
@@ -137,44 +144,24 @@ export class CreateClusterComponent {
       },
     });
   }
-    // this.clusterService.getCreateClusterData().subscribe(data => {
-    //   debugger
-    //   console.log('SapirClusterDetails:', data); // כאן תקבל את הנתונים עצמם
-    //   this.dataCells = data; // שמירת הנתונים במשתנה
-    //   this.dataCells.forEach((d: any) => {
-    //     let values: any = [];
-    //     d.Values.forEach((v: any) => {
-    //       values.push({ key: v.NameCode, value: v.Value });
-    //     });
 
-
-    //     // values[0].selectedOption=true;
-    //     console.log("element", d);
-    //     if (d.HasOtherOption)
-    //       values.push({ key: "other", value: "other" });
-    //     d.RadioOptions = values;
-    //   });
-    //   console.log("222222222222222222", this.dataCells);
-
-    //   this.initializeFormGroup();
-    // });
-  
   initializeFormGroup() {
     this.dataCells.forEach((field: any) => {
-      this.formGroupFields[field.Field] = [field.Field, Validators.required];
+      this.formGroupFields[field.Field] = ['', Validators.required];
     });
-    console.log("this.formGroupFields", this.formGroupFields);
-     
-    
-    this.formGroup = this.formBuilder.group(this.formGroupFields);
-    //  this.formGroup = this.formBuilder.group({check:['', Validators.required]});
-console.log("this.formGroup", this.formGroup);
+    // this.formGroupFields['comments'] = [''];
+    this.formGroupFields['comments'] = [''];
 
-    
+    console.log("this.formGroupFields", this.formGroupFields);
+
+
+    this.formGroup = this.formBuilder.group(this.formGroupFields);
+    console.log("this.formGroup", this.formGroup);
+
+
   }
 
-  checkChange(index: string, selected: string) {
-    console.log("selected", selected); 
+  checkChange(index: string) {
     console.log("valid", this.formGroup.valid);
     console.log("index", index);
     // this.formGroup.get(selected)?.setValue(index);
@@ -185,25 +172,25 @@ console.log("this.formGroup", this.formGroup);
 
   createCluster() {
     console.log("formGroupFields", this.formGroupFields);
-    // console.log("clusterLevel",this.formGroupFields['ClusterLevel']);
     console.log("formGroup", this.formGroup);
 
     if (this.formGroup.valid) {
       this.formIsValid = true;
       this.clusterModel.SapirClusterDetails.map((field: any) => {
-        console.log("field",field);
-        const values=field.Values.filter((value: any) => {
-        // ((value: any) => {
-        return value.NameCode === this.formGroup.controls[field.Field].value;
+        console.log("field", field);
+        const values = field.Values.filter((value: any) => {
+          return value.NameCode === this.formGroup.controls[field.Field].value;
         });
-        console.log("values",values);
-        
+        console.log("values", values);
+
         field.Values = values;
-        console.log("field.Values",field.Values);
-        
+
+        console.log("field.Values", field.Values);
+
       });
       console.log("this.clusterModel", this.clusterModel);
-
+      console.log("comments", this.formGroup.value.comments);
+      this.clusterModel.Comments = this.formGroup.value.comments;
       this.clusterService.createCluster(this.clusterModel).subscribe({
         next: (res) => {
           if (res) {
@@ -218,6 +205,8 @@ console.log("this.formGroup", this.formGroup);
       });
     }
     else {
-      //  this.disabled=false    
-         this.formIsValid = false;    }  
-           console.log("formIsValid", this.formIsValid);  }}
+      this.formIsValid = false;
+    }
+    console.log("formIsValid", this.formIsValid);
+  }
+}

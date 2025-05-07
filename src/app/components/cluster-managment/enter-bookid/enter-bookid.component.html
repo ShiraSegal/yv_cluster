@@ -5,17 +5,16 @@
         </div>
 
         <div class="radio-buttons">
-            <yv-cluster-radio-button-list [radioButtonValuesArray]="radioButtonArray"  class="radio" [direction]="direction"></yv-cluster-radio-button-list>
+            <yv-cluster-radio-button-list class="radio" [radioButtonValuesArray]="radioButtonArray" formControlName="selection"  [direction]="direction" (selectionChange)="checkedChange($event)"></yv-cluster-radio-button-list>
         </div>
 
-        <input class="input" type="text" formControlName="bookId"/>
-             <!-- <yv-cluster-field [property]="stateEnum.DEFAULT"></yv-cluster-field> -->
+        <input class="input" type="text" formControlName="input"/>
         <div class="outer-button-warp">
             <div class="divider"></div>
                 <div class="buttons-warp">
                     <div class="buttons">
                         <yv-cluster-button [disabled]="false" [isBig]="btn_size" [buttonType]="buttomType1"
-                            [text]="button1" (onClick)="cancel()">
+                            [text]="button1" (onClick)="close = true">
                         </yv-cluster-button>
 
                         <yv-cluster-button [disabled]="false" [isBig]="btn_size" [buttonType]="buttomType2"
@@ -27,3 +26,9 @@
         </div>
     </div>
 </form>
+@if(formIsValid){
+<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.SUCCESS" [message]="message"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+}
+@if(formIsValid==false){
+<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.ERROR" [message]="'Please choose or fill before submitting.'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+}
