@@ -1,25 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { ControlValueAccessor, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CheckStateType, CheckType } from 'src/app/enums/check-enum';
 
 @Component({
   selector: 'yv-cluster-check',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './check.component.html',
   styleUrl: './check.component.scss'
 })
 export class CheckComponent implements ControlValueAccessor {
   @Input() type: CheckType =CheckType.UNCHECKED ;
   @Input() state: CheckStateType = CheckStateType.ENABLED;  
+  @Input() checkedControl: FormControl;
 
   CheckType=CheckType;
   CheckStateType=CheckStateType;
 
-
- onChange: (value: CheckType) => void = () => {};
- onTouched: () => void = () => {};
+   onChange: (value: CheckType) => void = () => {};
+   onTouched: () => void = () => {};
 
   writeValue(value: CheckType): void {
     this.type = value || CheckType.UNCHECKED;
@@ -36,8 +36,12 @@ export class CheckComponent implements ControlValueAccessor {
   
 
   toggleCheckbox() {
+    // console.log('Before Toggle:', this.Rows, this.rowsFormArray.value);
     if (this.state !== CheckStateType.DISABLED) {
       this.type = this.type === CheckType.CHECKED ? CheckType.UNCHECKED : CheckType.CHECKED;
+      if (this.checkedControl) {
+        this.checkedControl.setValue(this.type === CheckType.CHECKED, { emitEvent: true });
+      }
       this.onChange(this.type); // Notify the form control about the change
       this.onTouched(); // Notify the form control that the component was touched
     }

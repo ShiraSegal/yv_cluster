@@ -9,10 +9,12 @@ import { SliderComponent } from '../slider/slider.component';
 import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { CheckType } from 'src/app/enums/check-enum';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'yv-cluster-data-cells',
   standalone: true,
+
   imports: [
     ButtonComponent,
     SliderComponent,
@@ -21,7 +23,8 @@ import { CheckType } from 'src/app/enums/check-enum';
     BadgeComponent,
     CommonModule,
     IconButtonLargeComponent
-  ],
+    , ReactiveFormsModule, SliderComponent, CheckComponent, AssigneeComponent, BadgeComponent, IconButtonLargeComponent, CommonModule],
+
   templateUrl: './data-cells.component.html',
   styleUrls: ['./data-cells.component.scss']
 })
@@ -30,8 +33,14 @@ export class DataCellsComponent<T extends DataCellType> {
   @Input() type!: T;
   @Input() data!: DataCellValue<T>;
   @Input() moreData: { [key: string]: any } = {}; // אובייקט לפרמטרים נוספים
-  
+
   // injecting ENUM
+
+  @Input() checkedControl:FormControl<any>;
+  @Input() assigneeControl:FormControl<any>;
+  @Input() statusControl:FormControl<any>;
+  //injecting ENUM
+
   badgeType = BadgeType;
   IconType = IconType;
   buttonType = ButtonType;

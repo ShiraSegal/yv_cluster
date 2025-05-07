@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { CheckStateType, DataCellType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
-import {  ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { CheckComponent } from '../check/check.component';
  
 @Component({
@@ -19,6 +19,12 @@ export class NarrowBasicTableRowComponent {
     type: DataCellType;
     moreData?: { [key: string]: any }; // Optional additional data
   }[] = [];
+
+  @Input() checkedControl: FormControl;
+  @Input() assigneeControl: FormControl;
+  @Input() statusControl: FormControl;
+  
+
   DataCellType = DataCellType;
   CheckStateType = CheckStateType
 
