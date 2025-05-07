@@ -3,7 +3,7 @@ import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/cor
 import { CheckStateType, DataCellType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
  
 import { DataCellsComponent } from '../data-cells/data-cells.component';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { CheckComponent } from '../check/check.component';
  
 @Component({
@@ -16,7 +16,9 @@ import { CheckComponent } from '../check/check.component';
 export class NarrowBasicTableRowComponent {
   @Input() property: NarrowBasicTableRowInputState  = NarrowBasicTableRowInputState.DEFAULT ;
   @Input() cells: { data: string; type: DataCellType }[] = [];
-
+  @Input() checkedControl: FormControl;
+  @Input() assigneeControl: FormControl;
+  @Input() statusControl: FormControl;
   
   
   DataCellType = DataCellType;

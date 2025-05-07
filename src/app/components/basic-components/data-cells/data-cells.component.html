@@ -5,8 +5,9 @@
     @if(type === dataCellType.MORE ){
     <i class="fas fa-ellipsis-v more-icon"></i>
     }
+
     @if(type === dataCellType.CHECK){
-        <yv-cluster-check [state]=checkStateType.ENABLED></yv-cluster-check>
+        <yv-cluster-check [state]=checkStateType.ENABLED [formControl]="checkedControl" ></yv-cluster-check>
     }
 
     @if(type === dataCellType.STATUS){

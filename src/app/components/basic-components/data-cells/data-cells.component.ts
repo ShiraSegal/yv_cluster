@@ -8,12 +8,13 @@ import { CheckComponent } from '../check/check.component';
 import { SliderComponent } from '../slider/slider.component';
 import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'yv-cluster-data-cells',
   standalone: true,
-  imports: [ButtonComponent, SliderComponent, CheckComponent, AssigneeComponent, BadgeComponent, IconButtonLargeComponent, CommonModule],
+  imports: [ButtonComponent,ReactiveFormsModule, SliderComponent, CheckComponent, AssigneeComponent, BadgeComponent, IconButtonLargeComponent, CommonModule],
   templateUrl: './data-cells.component.html',
   styleUrl: './data-cells.component.scss'
 })
@@ -21,6 +22,9 @@ export class DataCellsComponent<T extends DataCellType>  {
   //variables
   @Input() type!: T;
   @Input() data!: DataCellValue<T>;
+  @Input() checkedControl:FormControl<any>;
+  @Input() assigneeControl:FormControl<any>;
+  @Input() statusControl:FormControl<any>;
   //injecting ENUM
   badgeType = BadgeType;
   IconType = IconType;

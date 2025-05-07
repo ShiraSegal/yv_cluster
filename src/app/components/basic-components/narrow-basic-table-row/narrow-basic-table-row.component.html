@@ -5,7 +5,7 @@
   <div
     [ngClass]="{'special-cell': cell.type === DataCellType.ICON || cell.type === DataCellType.CHECK || cell.type === DataCellType.MORE, 'regular-cell': cell.type !== DataCellType.ICON && cell.type !== DataCellType.CHECK && cell.type !== DataCellType.MORE}">
     <div class="cell">
-      <yv-cluster-data-cells [data]="cell.data" [type]="cell.type"></yv-cluster-data-cells>
+      <yv-cluster-data-cells [data]="cell.data" [type]="cell.type" [checkedControl]="checkedControl" [assigneeControl]="assigneeControl" [statusControl]="statusControl"></yv-cluster-data-cells>
     </div>
     <!-- <div class="cell checkbox-cell">
       <yv-cluster-check [state]=CheckStateType.ENABLED formControlName="checked"></yv-cluster-check>
