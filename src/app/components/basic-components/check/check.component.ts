@@ -1,14 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { ControlValueAccessor, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { CheckStateType, CheckType } from 'src/app/enums/check-enum';
+import { FieldComponent } from '../field/field.component';
 
 @Component({
   selector: 'yv-cluster-check',
   standalone: true,
   imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './check.component.html',
-  styleUrl: './check.component.scss'
+  styleUrl: './check.component.scss',
+   providers: [
+        {
+          provide: NG_VALUE_ACCESSOR,
+          useExisting: forwardRef(() => CheckComponent),
+          multi: true
+        }
+      ]
 })
 export class CheckComponent implements ControlValueAccessor {
   @Input() type: CheckType =CheckType.UNCHECKED ;

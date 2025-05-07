@@ -12,24 +12,30 @@ export class ClusterService {
   #translateService = inject(TranslateService);
   #clusterApiService = inject(ClusterApiService)
 
-  private autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
+ autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
   private isDataFetched = false;
   
   async getAutoClusterData() {
-    var res = (await this.#clusterApiService.getAutoClusterData())
-      .pipe(
-        take(1),
-        tap(res => {
-        }),
-        catchError(err => {
-          return of(null);
-        })
-      );
-    return res;
-    
+    try {
+      const res = (await this.#clusterApiService.getAutoClusterData())
+        .pipe(
+          take(1),
+          tap((data: any[]) => {
+            console.log('Fetched data:', data); // בדיקה שהנתונים מגיעים
+            this.autoClusterListSubject$.next(data); // שמירת הנתונים ב-BehaviorSubject
+          }),
+          catchError(err => {
+            console.error('Error fetching auto cluster data:', err);
+            return of([]); // החזרת מערך ריק במקרה של שגיאה
+          })
+        );
+      return res.toPromise(); // ודא שהפונקציה מחזירה Promise
+    } catch (error) {
+      console.error('Error in getAutoClusterData:', error);
+      return [];
+    }
   }
-
 
   get isLoading$() {
     return this.isLoadingBehaviorSubject$.asObservable();

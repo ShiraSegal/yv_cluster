@@ -6,7 +6,7 @@ import { BasicTabComponent } from '../basic-tab/basic-tab.component';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { SlidebarNavigationComponent } from '../slidebar-navigation/slidebar-navigation.component';
-import {  FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 
 
@@ -28,8 +28,6 @@ export class NarrowBasicTableWarpComponent {
   tabData: any;
 
   clusterService = inject(ClusterService);
-  form!: FormGroup;
-
   readonly TabToJSONKeyMap: { [key in AutoClusterTabType]: string } = {
     [AutoClusterTabType.SAPIR_CLUSTERS]: 'ClustersForSapir',
     [AutoClusterTabType.MISSING_FIELD]: 'ClustersWithMissingFields',
@@ -109,12 +107,13 @@ export class NarrowBasicTableWarpComponent {
   }
 
   setActiveTab(tabText: AutoClusterTabType) {
-    this.tabs = this.tabs.map((tab, index) => ({
+    this.tabs = this.tabs.map((tab) => ({
       ...tab,
       status: tab.text === tabText ? StatusActiveOrNotActive.ACTIVE : StatusActiveOrNotActive.NOT_ACTIVE
-
     }));
     this.currentTab = tabText;
+
+    // טען מחדש את הנתונים מהשירות
     this.loadDataForTab();
   }
   readonly DBKeyToHeaderMap: { [key: string]: string } = {
@@ -191,67 +190,60 @@ export class NarrowBasicTableWarpComponent {
     ],
   };
 
-loadDataForTab() {
-  const tabData = this.getDataForCurrentTab();
-  this.Headers = this.TabHeaders[this.currentTab];
+  loadDataForTab() {
+    const jsonKey = this.TabToJSONKeyMap[this.currentTab]; // מיפוי הטאב למפתח המתאים
+    const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
+    console.log('Mapped Tab Data:', tabData); // בדיקה של הנתונים הממופים
+    console.log('Current Tab:', this.currentTab);
+    console.log('Mapped JSON Key:', this.TabToJSONKeyMap[this.currentTab]);
+    if (!tabData.length) {
+      console.warn('No data available for the current tab'); // הודעה אם אין נתונים
+      return;
+    }
 
-  const headerToKeyMap = Object.entries(this.DBKeyToHeaderMap).reduce((acc, [key, value]) => {
-    acc[value] = key;
-    return acc;
-  }, {} as { [key: string]: string });
+    this.Headers = this.TabHeaders[this.currentTab];
 
-  this.Rows = tabData.map((item: any) => ({
-    property: item,
-    showAction: true,
-    cells: this.Headers.map(header => {
-      const jsonKey = headerToKeyMap[header.data] || header.data; // Map header name to JSON key
-      const cellData = item[jsonKey] || ''; // Get the cell data, default to an empty string
+    const headerToKeyMap = Object.entries(this.DBKeyToHeaderMap).reduce((acc, [key, value]) => {
+      acc[value] = key;
+      return acc;
+    }, {} as { [key: string]: string });
 
-      // Get DataCellType dynamically
-      const dataCellType = this.getDataCellTypeForHeader(header.data, header.type);
+    this.Rows = tabData.map((item: any) => ({
+      property: item,
+      showAction: true,
+      cells: this.Headers.map(header => {
+        const jsonKey = headerToKeyMap[header.data] || header.data;
+        const cellData = item[jsonKey] || '';
 
-      if (dataCellType === DataCellType.CHECK) {
-        return {
-          data: "",
-          type: DataCellType.CHECK,
-          moreData: {},
-        };
-      } else if (dataCellType === DataCellType.ASSIGNEE) {
-        return {
-          data: "Racheli Liff",
-          type: DataCellType.ASSIGNEE,
-          moreData: {},
-        };
-      
-      }  else if (dataCellType === DataCellType.BUTTON) {
-        return {
-          data: "",
-          type: DataCellType.BUTTON,
-          moreData: {['buttonType']: ButtonType.SECONDARY, ['text']: 'open',['isBig']: false,},
-        };
-      
-      } else {
-        return {
-          data: cellData,
-          type: dataCellType,
-          moreData: {},
-        };
-      }
-    }),
-  }));
-}
-  
+        const dataCellType = this.getDataCellTypeForHeader(header.data, header.type);
+
+        if (dataCellType === DataCellType.CHECK) {
+          return { data: "", type: DataCellType.CHECK, moreData: {} };
+        } else if (dataCellType === DataCellType.ASSIGNEE) {
+          return { data: item.assignee || "Racheli Liff", type: DataCellType.ASSIGNEE, moreData: {} };
+        } else if (dataCellType === DataCellType.BUTTON) {
+          return { data: "", type: DataCellType.BUTTON, moreData: { ['buttonType']: ButtonType.SECONDARY, ['text']: 'open', ['isBig']: false } };
+        } else {
+          return { data: cellData, type: dataCellType, moreData: {} };
+        }
+      }),
+    }));
+  }
+
 
   async ngOnInit() {
-    this.data1 = (await this.clusterService.getAutoClusterData()).subscribe({
-      next: (data) => {
-        this.tabData = data
-      },
-      error: (error) => {
-        console.error("error getAutoClusterData occurred:", error);
-      }});
+    console.log('Initializing component...');
+    await this.clusterService.getAutoClusterData();
+
+    this.clusterService.autoClusterListSubject$.subscribe((data) => {
+      console.log('Data received in component:', data); // בדיקה שהנתונים מגיעים
+      this.tabData = data; // שמירת הנתונים ב-tabData
+      this.loadDataForTab(); // טען את הנתונים לטבלה
+    });
+
     this.loadDataForTab();
   }
+
 
 
 

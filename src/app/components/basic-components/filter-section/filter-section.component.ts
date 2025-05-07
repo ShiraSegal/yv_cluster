@@ -1,5 +1,5 @@
 
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -12,7 +12,6 @@ import {
   State
 } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
-
 import { ButtonComponent } from '../button/button.component';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 import { SelectComponent } from '../select/select.component';
@@ -76,5 +75,9 @@ export class FilterSectionComponent {
     console.log('Submit clicked:', this.filterForm.value);
   }
 
-
+  @Output() toggleAssigneeClicked = new EventEmitter<void>(); // Output event
+  onClick2(): void {
+    debugger
+    this.toggleAssigneeClicked.emit(); // Emit the event
+  }
 }

@@ -32,13 +32,8 @@ export class DataCellsComponent<T extends DataCellType> {
   // variables
   @Input() type!: T;
   @Input() data!: DataCellValue<T>;
-  @Input() moreData: { [key: string]: any } = {}; // אובייקט לפרמטרים נוספים
-
-  // injecting ENUM
-
-  @Input() checkedControl:FormControl<any>;
-  @Input() assigneeControl:FormControl<any>;
-  @Input() statusControl:FormControl<any>;
+  @Input() moreData: { [key: string]: any }; // אובייקט לפרמטרים נוספים
+  @Input() control!: FormControl<any>; // Add this input
   //injecting ENUM
 
   badgeType = BadgeType;
