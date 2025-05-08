@@ -1,4 +1,4 @@
-<div  [ngClass]=type>
+<div  [ngClass]="[type,'header-cell']">
     {{header}}
     @if(type === HeaderCellType.ORDER){
     <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>

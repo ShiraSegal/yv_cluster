@@ -20,3 +20,23 @@ body {
   margin: 0;
   font-family: Assistant;
 }
+@import "./styles/colors.scss";
+@import "./styles/images.scss";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+
+html,
+body {
+  height: 100%;
+}
+
+@font-face {
+  font-family: Assistant;
+  src: url('../src/assets/fonts/Assistant.ttf');
+}
+
+body {
+  margin: 0;
+  font-family: Assistant;
+}

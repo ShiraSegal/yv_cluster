@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { BasicTableRowPropertyVariants, DataCellType, IconButtonLargeType } from 'src/app/enums/basic-enum';
-import { TabElementComponent } from '../tab-element/tab-element.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 

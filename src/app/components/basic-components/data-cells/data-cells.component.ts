@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { BadgeType, ButtonIcon, ButtonType, CheckStateType, CheckType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
+import { BadgeType, ButtonIcon, ButtonSize, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { BadgeComponent } from '../badge/badge.component';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 import { CheckComponent } from '../check/check.component';
 import { SliderComponent } from '../slider/slider.component';
-import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
+import { CheckType } from 'src/app/enums/check-enum';
+import { ButtonComponent } from '../button/button.component';
 
 
 @Component({
@@ -25,7 +26,6 @@ export class DataCellsComponent<T extends DataCellType>  {
   badgeType = BadgeType;
   IconType = IconType;
   buttonType = ButtonType;
-  buttonIcon = ButtonIcon;
   iconButtonLargeType = IconButtonLargeType;
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
@@ -39,10 +39,24 @@ export class DataCellsComponent<T extends DataCellType>  {
   isNumber(value: any): value is number {
     return typeof value === 'number';
   }
- // for the button component
+  isButtonData(data: any): data is {
+    text?: string;
+    buttonType?: ButtonType;
+    disabled?: boolean;
+    isBig?: boolean; // Changed from size
+        iconType?: IconType; // Changed from buttonIcon
+  } {
+    return (
+      data &&
+      (typeof data.text === 'string' || typeof data.text === 'undefined') &&
+      (typeof data.buttonType === 'string' || typeof data.buttonType === 'undefined') &&
+      (typeof data.disabled === 'boolean' || typeof data.disabled === 'undefined') &&
+      (typeof data.size === 'string' || typeof data.size === 'undefined') &&
+      (typeof data.buttonIcon === 'string' || typeof data.buttonIcon === 'undefined')
+    );
+    }
   onClick() {
     alert('test on click');
     console.log('test on click');
   }
 }
-

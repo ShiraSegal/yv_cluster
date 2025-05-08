@@ -1,8 +1,9 @@
+@import "src/styles.scss";
+
 p{
-color: var(--Palette-Black-88, rgba(0, 0, 0, 0.88));
+color: rgba(0, 0, 0, 0.88);
 font-family: Poppins;
 font-style: normal;
-font-weight: 400;
 line-height: normal;
 }
 .large{
@@ -10,11 +11,44 @@ line-height: normal;
 }
 .medium{
     font-size: 0.875rem;
-    line-height: 1.25rem; /* 142.857% */
+    line-height: 1.25rem; 
 }
 .small{
     font-size: 0.75rem;
 }
 .bold{
     font-weight: 600;
+}
+.normal{
+    font-weight: 400;
+}
+.neutral-gray{
+    color: $c-2A323C;
+}
+.slate-blue{
+    color: $c-3F4B5A;
+}
+.black{
+    color: $c-000;
+}
+.dark-gray{
+    color: $c-262C34;
+}
+.cool-blue{
+    color: $c-2449D8;
+}
+.deep_black{
+    color: $c-040405;
+}
+.vibrant_green{
+    color: $c-0C803E;
+}
+.white{
+    color: $c-FFFFFF;
+}
+.medium-gray{
+    color: $c-797979;
+}
+.primary_btn{
+    color: $c-1334B9;
 }

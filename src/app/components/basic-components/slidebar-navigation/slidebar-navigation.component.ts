@@ -16,25 +16,24 @@ export class SlidebarNavigationComponent {
   sliderNavigationTabTextType = SliderNavigationTabTextType;
   iconType = IconType;
   sliderNavigationTabType = SliderNavigationTabType;
+  activeTabIndex: number | null = null;
 
   tabs = [
-    { number: 1, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.HOMELIGHT, text: SliderNavigationTabTextType.HOME },
-    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.AUTOCLUSRETLIGHT, text: SliderNavigationTabTextType.AUTOCLUSRET },
-    { number: 3, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.REPORTLIGHT, text: SliderNavigationTabTextType.REPORT },
-    { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.NEWCLUSTERLIGHT, text: SliderNavigationTabTextType.NEWCLUSTER },
-    { number: 5, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LOGOUTLIGHT, text: SliderNavigationTabTextType.LOGOUT },
+    { number: 0, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.HOUSE_LIGHT, activeIcon: IconType.HOUSE_SOLID, text: SliderNavigationTabTextType.HOME },
+    { number: 1, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LIST_LIGHT, activeIcon: IconType.LIST_SOLID, text: SliderNavigationTabTextType.AUTOCLUSRET },
+    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.CHART_LINE_UP_LIGHT, activeIcon: IconType.CHART_LINE_UP_SOLID, text: SliderNavigationTabTextType.REPORT },
+    { number: 3, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.PLUS_LIGHT, activeIcon: IconType.PLUS_SOLID, text: SliderNavigationTabTextType.NEWCLUSTER },
+    { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LEFT_FROM_BRACKET_LIGHT, activeIcon: IconType.LIST_SOLID, text: SliderNavigationTabTextType.LOGOUT },
   ];
 
-
-
-  setActiveTab(tabControl: FormControl) {
-    this.tabs.forEach(tab => {
-      if (tab.property !== tabControl) {
+  setActiveTab(tabIndex: number) {
+    this.activeTabIndex = tabIndex;
+    this.tabs.forEach((tab, index) => {
+      if (index !== tabIndex) {
         tab.property.setValue(SliderNavigationTabType.VARIANT3);
+      } else {
+        tab.property.setValue(SliderNavigationTabType.ACTIVE);
       }
     });
-    tabControl.setValue(SliderNavigationTabType.ACTIVE);
   }
-
-
 }

@@ -20,7 +20,7 @@
     line-height: 1.25rem;
 }
 
-.active {
+.switch-active {
     display: flex;
     flex-direction: row;
     width: 1.59375rem;
@@ -33,7 +33,7 @@
 
 }
 
-.not-active {
+.switch-not-active {
     display: flex;
     flex-direction: row;
     width: 1.59375rem;
@@ -44,9 +44,10 @@
     border: 1.5px solid $c-C4C7C5;
     background: $c-C4C7C5;
 
+    border: 1.5px solid $c-C4C7C5;
+    background: $c-C4C7C5;
     cursor: pointer;
 }
-
 .circle-active {
     width: 0.825rem;
     height: 0.825rem;
@@ -68,10 +69,10 @@
     transition: transform 0.3s;
 }
 
-.active .circle-active {
+.switch-active .circle-active {
     transform: translateX(100%);
 }
 
-.not-active .circle-not-active {
+.switch-not-active .circle-not-active {
     transform: translateX(0%);
 }

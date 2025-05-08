@@ -1,4 +1,4 @@
-@import "../../../../styles/colors.scss";
+@import "src/styles.scss";
 .basic-table-row {
   display: flex;
   flex-direction: row;
@@ -8,7 +8,7 @@
   align-items: center;
   gap: 0.0625rem;
   flex-shrink: 0;
-  border-bottom: 1px solid $c-D0D6F1;
+  border-bottom:0.0625rem solid $c-D0D6F1;;
   justify-content: space-between;
 }
 

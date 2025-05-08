@@ -5,24 +5,27 @@
         </div>
 
         <div class="radio-buttons">
-            <yv-cluster-basic-radio-button class="radio"  formControlName="selection" value="bookid" [disabled]=false [checked]=checked1 [text]="label1" (click)="checkedChange()"></yv-cluster-basic-radio-button>
+            <yv-cluster-radio-button-list [radioButtonValuesArray]="radioButtonArray"  class="radio" [direction]="direction"></yv-cluster-radio-button-list>
+            <!-- <yv-cluster-basic-radio-button class="radio"  formControlName="selection" value="bookid" [disabled]=false [checked]=checked1 [text]="label1" (click)="checkedChange()"></yv-cluster-basic-radio-button> -->
             <!-- <input type="radio" formControlName="selection" value="bookid" />
             <label class="value">Book ID</label> -->
-            <yv-cluster-basic-radio-button class="radio"  formControlName="selection" value="cluster" [disabled]=false [checked]=checked2 [text]="label2" (click)="checkedChange()"></yv-cluster-basic-radio-button>
+            <!-- <yv-cluster-radio-button-list [radioButtonArray]="radioButtonArray" class="radio" [direction]="direction"></yv-cluster-radio-button-list> -->
+            <!-- <yv-cluster-basic-radio-button class="radio"  formControlName="selection" value="cluster" [disabled]=false [checked]=checked2 [text]="label2" (click)="checkedChange()"></yv-cluster-basic-radio-button> -->
             <!-- <input type="radio" formControlName="selection" value="cluster" />
             <label class="value">Cluster</label> -->
         </div>
 
         <input class="input" type="text" formControlName="bookId"/>
+             <!-- <yv-cluster-field [property]="stateEnum.DEFAULT"></yv-cluster-field> -->
         <div class="outer-button-warp">
             <div class="divider"></div>
                 <div class="buttons-warp">
                     <div class="buttons">
-                        <yv-cluster-button class="button" [disabled]="false" [size]="btn_size" [buttonType]="buttomType1"
+                        <yv-cluster-button [disabled]="false" [isBig]="btn_size" [buttonType]="buttomType1"
                             [text]="button1" (onClick)="cancel()">
                         </yv-cluster-button>
 
-                        <yv-cluster-button class="button" [disabled]="false" [size]="btn_size" [buttonType]="buttomType2"
+                        <yv-cluster-button [disabled]="false" [isBig]="btn_size" [buttonType]="buttomType2"
                             [text]="button2" (onClick)="add()">
                         </yv-cluster-button>
                     </div>

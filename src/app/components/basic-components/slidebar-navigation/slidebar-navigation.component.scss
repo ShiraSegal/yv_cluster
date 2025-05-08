@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     gap: 4.25rem;
-    background: var(--gradient-pr, linear-gradient(180deg, $c-1334B9 0%, $c-425DC7 100%));
+    background: var(--gradient-pr, linear-gradient(180deg, $primary_btn 0%, $secondary_blue 100%));
 }
 
 .logo {
@@ -37,15 +37,20 @@
     align-self: stretch;
 }
 
-.tabs-bottom {
-    border-top: 0.5px solid $c-A1AEE3;
+.tab-bottom {    
+    padding-top: 21.125rem;
     display: flex;
-    width: 7.125rem;
-    padding: 1.125rem 0rem;
     flex-direction: column;
     align-items: center;
-    gap: 0.1875rem;
-    margin-top: auto;
+    gap: 1.5rem;
+    align-self: stretch;
+}
+.tab-center{
+    display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1.5rem;
+align-self: stretch;
 }
 
 .line {
@@ -57,5 +62,5 @@
     align-items: center;
     gap: 0.1875rem;
     flex-shrink: 0;
-    border-bottom: 0.5px solid #A1AEE3;
+    border-bottom: 0.03125rem solid $light-blue;
 }

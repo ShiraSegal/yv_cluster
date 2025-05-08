@@ -1,13 +1,164 @@
-.card{
-    display: flex;
-width: 40rem;
-padding: var(--Layout-x-large, 1rem);
-flex-direction: column;
-align-items: flex-start;
-gap: var(--Layout-x-large, 1rem);
-    border-radius: var(--Border-radius-x-large, 0.625rem);
-background: #FFF;
+@import "src/styles.scss";
 
-/* 4 */
-box-shadow: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.30);
+.card {
+    display: flex;
+    width: 40rem;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    border-radius: 0.625rem;
+    background: $c-FFFFFF;
+
+    /* 4 */
+    box-shadow: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.30);
+
+    .header-warp {
+        display: flex;
+        width: 24.25rem;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .form-warp {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: stretch;
+
+        .form-header-warp {
+            display: flex;
+            padding: 0.25rem 0rem;
+            align-items: center;
+            align-self: stretch;
+            border-bottom: 1px solid $c-D0D6F1;
+
+            .header-cell {
+                display: flex;
+                width: 24.125rem;
+                height: 3.125rem;
+                padding: 0.5rem;
+                align-items: center;
+                gap: 0.625rem;
+            }
+
+            .table-header {
+                display: flex;
+                height: 3.125rem;
+                padding: 0.5rem;
+                align-items: center;
+                gap: 0.625rem;
+                flex: 1 0 0;
+            }
+        }
+
+        .table {
+            display: flex;
+            padding: 0.25rem 0rem;
+            align-items: center;
+            gap: 0.0625rem;
+            align-self: stretch;
+            border-bottom: 1px solid $c-D0D6F1;
+
+            .data-cells {
+                display: flex;
+                padding: 0.5rem;
+                align-items: center;
+                gap: 0.625rem;
+                flex: 1 0 0;
+                align-self: stretch;
+
+                .label {
+                    flex: 1 0 0;
+                    color: $c-3F4B5A;
+                    font-family: Rubik;
+                    font-size: 0.875rem;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+            }
+
+            .options-cells {
+                display: flex;
+                width: 24.125rem;
+                padding: 0.5rem;
+                align-items: center;
+                gap: 0.625rem;
+                align-self: stretch;
+
+                .radiobuttons {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 0.625rem;
+                }
+            }
+        }
+
+        .select {}
+
+        .comments {
+            display: flex;
+            width: 38rem;
+            height: 4rem;
+            padding: 0.5rem;
+            align-items: flex-start;
+            gap: 0.5rem;
+            border-radius: 0.25rem;
+            border: 0.5px solid $c-3F4B5A;
+            color: $c-3F4B5A;
+            font-family: Poppins;
+            font-size: 0.875rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.25rem;
+
+            &::placeholder {
+                height: 1.875rem;
+                flex: 1 0 0;
+                color: $c-3F4B5A;
+
+                /* Body/medium */
+                font-family: Poppins;
+                font-size: 0.875rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.25rem;
+            }
+        }
+
+        .outer-button-warp {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+            align-self: stretch;
+
+            .divider {
+                height: 0.4375rem;
+                align-self: stretch;
+                border-top: 1px solid $c-E1E5EA;
+            }
+
+            .buttons-warp {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-end;
+                gap: 0.625rem;
+                align-self: stretch;
+
+                .buttons {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.5rem;
+                }
+            }
+
+        }
+
+    }
+
 }
