@@ -34,8 +34,14 @@ export class NarrowBasicTableComponent {
   tableDataForm: FormGroup = this.#fb.group({
     rowsFormArray: this.#fb.array([])
   });
-
+//varibles:
+nativeOptionswe = [
+  { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
+  { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
+  { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
+];
   ngOnInit() {
+    this.initializeRowsFormArray();
     debugger
     this.tableDataForm.valueChanges.subscribe((value) => {
       console.log('Basic table Form Value:', value);
@@ -45,22 +51,11 @@ export class NarrowBasicTableComponent {
        console.log('table Rows value changes:', value)
     }
   );
+  console.log('Rows:', this.Rows);
+  
   }
   // Initialize the FormArray with the rows data
-  initializeRowsFormArray() {
-    this.rowsFormArray.clear(); 
-    this.Rows?.forEach((row,index) => {
-      const rowGroup = this.#fb.group({
-        // id: [row.cells[index].data],
-        status : new FormControl(row.cells.find(cell => cell.type === DataCellType.STATUS)?.data || ''),
-        assignee : new FormControl(row.cells.find(cell => cell.type === DataCellType.ASSIGNEE)?.data || ''),
-        checked : new FormControl(row.cells.find(cell => cell.type === DataCellType.CHECK)?.data || false),
-      });
-      this.rowsFormArray.push(rowGroup);
-      console.log('Rows:', this.Rows);
-      console.log('FormArray Controls:', this.rowsFormArray.controls);
-    });
-  }
+
   get rowsFormArray(): FormArray {
     return this.tableDataForm.get('rowsFormArray') as FormArray;
   }
@@ -86,6 +81,20 @@ export class NarrowBasicTableComponent {
       }
     }
   }
+  initializeRowsFormArray() {
+    this.rowsFormArray.clear(); 
+    this.Rows?.forEach((row,index) => {
+      const rowGroup = this.#fb.group({
+        // id: [row.cells[index].data],
+        status : new FormControl(row.cells.find(cell => cell.type === DataCellType.STATUS)?.data || ''),
+        assignee : new FormControl(row.cells.find(cell => cell.type === DataCellType.ASSIGNEE)?.data || ''),
+        checked : new FormControl(row.cells.find(cell => cell.type === DataCellType.CHECK)?.data || false),
+      });
+      this.rowsFormArray.push(rowGroup);
+      console.log('Rows:', this.Rows);
+      console.log('FormArray Controls:', this.rowsFormArray.controls);
+    });
+  }
     label: string = 'Select Label'; 
     primary = ButtonType.PRIMARY
     variant3 = ButtonIconProperty.VARIANT3
@@ -96,11 +105,7 @@ export class NarrowBasicTableComponent {
     nativeOptions = NativeOptionType;
     rowProperty: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
 
-  nativeOptionswe = [
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
-  ];
+
     trackByFn(index: number, item: any): any {
       return index; 
     }
