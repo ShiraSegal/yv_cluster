@@ -1,7 +1,8 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, filter, take, tap } from 'rxjs';
+import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, of, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -11,26 +12,29 @@ export class ClusterService {
   #translateService = inject(TranslateService);
   #clusterApiService = inject(ClusterApiService)
 
-  private autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
+ autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
-
+  private isDataFetched = false;
+  
   async getAutoClusterData() {
-    var res = this.#clusterApiService.getAutoClusterData();
-      (await res).pipe(take(1), tap(res => {
-        if(res){
-        this.autoClusterListSubject$.next(res);
-        }
-      })).subscribe();
-      return res;
+    try {
+      const res = (await this.#clusterApiService.getAutoClusterData())
+        .pipe(
+          take(1),
+          tap((data: any[]) => {
+            console.log('Fetched data:', data); // בדיקה שהנתונים מגיעים
+            this.autoClusterListSubject$.next(data); // שמירת הנתונים ב-BehaviorSubject
+          }),
+          catchError(err => {
+            console.error('Error fetching auto cluster data:', err);
+            return of([]); // החזרת מערך ריק במקרה של שגיאה
+          })
+        );
+      return res.toPromise(); // ודא שהפונקציה מחזירה Promise
+    } catch (error) {
+      console.error('Error in getAutoClusterData:', error);
+      return [];
     }
-
-  get missingFieldsItem$() {
-    //return this.autoClusterListSubject$.pipe(map(s=>{s.clusterID, s.comments})).asObservable();//filter only missingFileds
-    return this.autoClusterListSubject$.asObservable();
-  }
-
-  get checklistItem$() {
-    return this.autoClusterListSubject$.asObservable();//filter only missingFileds
   }
 
   get isLoading$() {
@@ -52,5 +56,40 @@ export class ClusterService {
   //   })).subscribe();
   //   return res;
   // }
+ 
+   
+    private createClusterData$ = new BehaviorSubject<any[]>([]);
+   
+  get ClusterData$()
+    {
+      if(!this.createClusterData$.value.length)
+      {
+        this.getCreateClusterData();
+      }
+      return this.createClusterData$.asObservable();
+    }
+   
 
-}
+
+  async getCreateClusterData() {
+    const res = this.#clusterApiService.getCreateClusterData();
+    console.log("res",res);
+    
+    const result = (await res)
+      .pipe(
+        take(1),
+        map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
+        tap(details => {
+          if (details) {
+            this.createClusterData$.next(details); // עדכון ה-Subject עם המערך
+          }
+        })
+      )
+      .subscribe(); // המרה ל-Promise כדי לעבוד עם await
+      console.log("result",result);
+      
+    return result; // מחזיר את המערך SapirClusterDetails
+  }
+ }
+
+

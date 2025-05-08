@@ -1,4 +1,4 @@
-<div  [ngClass]=type>
+<div  [ngClass]="[type,'header-cell']">
     {{header}}
     @if(type === HeaderCellType.ORDER){
     <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>
@@ -13,6 +13,6 @@
     </div>
     }
     @if(type === HeaderCellType.CHECK){
-    <yv-cluster-check type="unselected" state="enabled"></yv-cluster-check>
+    <yv-cluster-check [state]=CheckStateType.ENABLED></yv-cluster-check>
     }
 </div>

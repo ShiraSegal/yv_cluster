@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonType} from '../../../enums/basic-enum';
-import { ButtonIcon } from 'src/app/enums/basic-enum';
+import { IconType } from 'src/app/enums/icon-enum';
 
 @Component({
   selector: 'yv-cluster-button',
@@ -15,12 +15,15 @@ export class ButtonComponent {
   @Input() buttonType: ButtonType = ButtonType.PRIMARY;
   @Input() disabled: boolean = false;
   @Input() isBig: boolean = false;
-  @Input() showIcon: boolean = true;
-  // @Input() iconProperty: ButtonIconProperty = ButtonIconProperty.VARIANT1;
-  @Input() buttonIcon!: ButtonIcon;
+  @Input() iconType!: IconType;
 
   @Output() onClick = new EventEmitter<void>();
-
+  ngOnInit() {
+  console.log(this.buttonType);
+  console.log(this.isBig);
+  
+  
+}
   handleClick() {
     if (!this.disabled) {
       this.onClick.emit();

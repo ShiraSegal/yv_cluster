@@ -1,33 +1,44 @@
-$primary_btn: var(--primary_btn);
-$light_blue: var(--light_blue);
-$light_royal_blue: var(--light_royal_blue);
-$royal_blue: var(--royal_blue);
-$deep_royal_blue: var(--deep_royal_blue); // נוסף
-$slate_blue: var(--slate_blue);
-$lavender_blue: var(--lavender_blue);
-$cool_blue: var(--cool_blue);
-$light_gray_blue: var(--light_gray_blue);
-$light_gray: var(--light_gray);
-$soft_gray: var(--soft_gray); // נוסף (במקום light-gray הכפול)
-$sage_gray: var(--sage_gray);
-$silver_gray: var(--silver_gray);
-$neutral_gray: var(--neutral_gray);
-$dark_gray: var(--dark_gray);
-$peach_pink: var(--peach_pink);
-$red: var(--red);
-$rose_red: var(--rose_red);
-$light_red: var(--light_red);
-$mint_green: var(--mint_green);
-$forest_green: var(--forest_green);
-$black: var(--black);
-$dialog_header: var(--Neutral-Grey-800);
-$radio_button: var(--main-on-neutral);
-$white: var(--white);
-$medium-blue: var(--medium-blue);
-$grade_variant_2: var(--grade_variant_2);
-$grade_variant_3: var(--grade_variant_3);
-$grade_variant_4: var(--grade_variant_4);
-$secondary_blue: var(--secondary_blue);
-$table_body_strong: var(--table_body_strong);
-$main_primery_main: var(--main-primery-main);
-$pastel_blue: var(--pastel-blue);
+$c-1334B9:#1334B9;//$primary_btn
+$c-B8C2EA:#B8C2EA;//$light_blue
+$c-A1AEE3:#A1AEE3;//$light_royal_blue
+$c-5A71CE:#5A71CE;//$royal_blue
+$c-3f51b5:#3f51b5;//$royal-blue
+$c-3F4B5A:#3F4B5A;//$slate_blue
+$c-8999DC:#8999DC;//$light_slate_blue
+$c-D0D6F1:#D0D6F1;//$lavender_blue
+$c-E7EBF833:#E7EBF833;//$lavender_blue_transparent
+$c-2449D8:#2449D8;//$cool_blue
+$c-425DC7:#425DC7;//$secondary_blue
+$c-425466:#425466;//$table_body_strong
+$c-006AE5:#006AE5;//$main_primery_main
+$c-E1E5EA:#E1E5EA;//$light_gray_blue
+$c-E7EBF8:#E7EBF8;//$pastel_blue
+$c-FFFFFF:#FFFFFF;//$white
+$c-FFFFFF80:#FFFFFF80;//$white-transparent
+$c-F0F2F4:#F0F2F4;//$grade_variant_2
+$c-D9D9D9:#D9D9D9;//$light-gray
+$c-ccc:#ccc;//$light_gray
+$c-c4c7c580:#c4c7c580;//$gray-light-transparent
+$c-E0E1E24D:#E0E1E24D;//$light_gray_opacity
+$c-C4C7C5:#C4C7C5;//$sage_gray
+$c-A5B1C0:#A5B1C0;//$silver_gray
+$c-797979:#797979;//$medium_gray
+$c-F1F1F1:#F1F1F1;//$background-gray
+$c-2A323C:#2A323C;//$neutral_gray
+$c-262C34:#262C34;//$dark_gray
+$c-3F4B5A:#3F4B5A;//$dark-gray-2
+$c-3F4B5A4D:#3F4B5A4D;//$dark-gray-transparent
+$c-FFEDED:#FFEDED;//$light_red
+$c-FAEAEA:#FAEAEA;//$light_red                 ^
+$c-F6CDCD:#F6CDCD;//$peach_pink
+$c-C00:#C00;//$red
+$c-FF6665:#FF6665;//$error-red
+$c-E25F5F:#E25F5F;//$rose_red
+$c-A5EBDD:#A5EBDD;//$mint_green
+$c-E7FFF2:#E7FFF2;//$light-green
+$c-1F8A74:#1F8A74;//$forest_green
+$c-0C803E:#0C803E;//$vibrant_green
+$c-040405:#040405;//$deep_black
+$c-000:#000;//$black
+$c-7573731A:#7573731A;//$gray-transparent
+$c-3B3B3B : #3B3B3B;

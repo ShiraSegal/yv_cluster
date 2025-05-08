@@ -1,8 +1,19 @@
-<div class="row-container">
-  <div class="narrow-basic-table-row" [ngClass]="property">
-    @for(cell of cells;track cell.data){
-    
-    <yv-cluster-data-cells [data]="cell.data" [type]="cell.type"></yv-cluster-data-cells>
-}
-  </div>
+<div class="narrow-basic-table-row" [ngClass]="property">
+  @for (cell of cells; track cell) {
+    <div
+      [ngClass]="{
+        'special-cell': cell.type === DataCellType.ICON || cell.type === DataCellType.CHECK || cell.type === DataCellType.MORE,
+        'regular-cell': cell.type !== DataCellType.ICON && cell.type !== DataCellType.CHECK && cell.type !== DataCellType.MORE
+      }"
+    >
+      <div class="cell">
+        <yv-cluster-data-cells 
+          [data]="cell.data" 
+          [type]="cell.type" 
+          [moreData]="cell.moreData || {}"
+          [control]="getControl(cell.type)"
+        ></yv-cluster-data-cells>
+      </div>
+    </div>
+  }
 </div>

@@ -13,9 +13,5 @@ export class SliderComponent {
   colorWidth?: string;
   ngOnInit(): void {
     this.colorWidth = `${(this.value / 100) * 8.5}rem`;
-
   }
-
-
-
 }

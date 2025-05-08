@@ -1,0 +1,32 @@
+export enum IconType {
+    HOUSE_SOLID = "fa-solid fa-house", // היה גם: HOMESOLID
+    LEFT_FROM_BRACKET_SOLID = "fa-solid fa-left-from-bracket", // היה גם: LOGOUTSOLID
+    LIST_SOLID = "fa-solid fa-list", // היה גם: AUTOCLUSRETSOLID
+    CHART_LINE_UP_SOLID = "fa-solid fa-chart-line-up", // היה גם: REPORTSOLID
+    PLUS_SOLID = "fa-solid fa-plus", // היה גם: NEWCLUSTERSOLID,LIST
+    HOUSE_LIGHT = "fa-light fa-house", // היה גם: HOMELIGHT, HOME
+    LEFT_FROM_BRACKET_LIGHT = "fa-light fa-left-from-bracket", // היה גם: LOGOUTLIGHT
+    LIST_LIGHT = "fa-light fa-list", // היה גם: AUTOCLUSRETLIGHT
+    CHART_LINE_UP_LIGHT = "fa-light fa-chart-line-up", // היה גם: REPORTLIGHT
+    ARROW_ROTATE_RIGHT_LIGHT = "fa-light fa-arrow-rotate-right", // היה גם: ROTATERIGHT
+    ARROW_ROTATE_LEFT_LIGHT = "fa-light fa-arrow-rotate-left", // היה גם: ROTATELEFT
+    PRINT_LIGHT = "fa-light fa-print", // היה גם: PRINT
+    MAGNIFYING_GLASS_MINUS_LIGHT = "fa-light fa-magnifying-glass-minus", // היה גם: ZOOMIN
+    MAGNIFYING_GLASS_PLUS_LIGHT = "fa-light fa-magnifying-glass-plus", // היה גם: ZOOMOUT
+    FOLDER_PLUS_LIGHT = "fa-light fa-folder-plus",
+    LAYER_PLUS_LIGHT = "fa-light fa-layer-plus",
+    PLUS_REGULAR = "fa-regular fa-plus",
+    FILE_ARROW_DOWN_LIGHT = "fa-light fa-file-arrow-down",
+    CHEVRON_LEFT_LIGHT = "fa-light fa-chevron-left",
+    PLUS_LIGHT = "fa-light fa-plus", // היה גם: NEWCLUSTERLIGHT
+    CHEVRON_RIGHT_LIGHT = "fa-light fa-chevron-right", // היה גם: CHEVRONRIGHT
+    HOURGLASS_CLOCK_SOLID = "fa-solid fa-hourglass-clock",
+    CLOCK_FIVE_SOLID = "fa-solid fa-clock-five",
+    EDIT_SOLID = "fa-solid fa-pen-to-square",
+    CIRCLE_CHECK_SOLID = "fa-solid fa-circle-check",
+    USER_LIGHT = "fa-light fa-user user-icon",
+    CLIPBOARD_LIST_LIGHT = "fa-light fa-clipboard-list clipboard-list-icon",
+    ROBOT_SOLID = "fa-solid fa-robot",
+    LINK_SIMPLE_SOLID = "fa-solid fa-link-simple",
+    NOTHING = ""
+}

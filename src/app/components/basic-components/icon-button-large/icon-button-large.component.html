@@ -1,0 +1,9 @@
+
+<button
+  [ngClass]="[property, isSelected ? 'selected' : '']"
+  (click)="handleClick()"
+>
+  <div class="icon-warpper">
+    <i [ngClass]="[icon, 'icon']"></i>
+  </div>
+</button>
