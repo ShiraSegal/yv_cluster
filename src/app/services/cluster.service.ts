@@ -68,30 +68,30 @@ export class ClusterService {
   //   return res;
   // }
   
-  getStatisticData(): Observable<StatisticData | null> {
-    return this.#clusterApiService.getStatisticData().pipe(
-      take(1),
-      map((res: any) => {
-        // Map the raw data to the defined StatisticData structure
-        return new StatisticData(
-          res.totalCount,
-          res.details.map((detail: any) => new StatisticDetail(
-            new LastName(detail.LastName.Count, detail.LastName.Code, detail.LastName.Value),
-            new LastNameInPlaces(
-              detail.LastNameInPlaces.TotalCount,
-              detail.LastNameInPlaces.Count,
-              detail.LastNameInPlaces.Code,
-              detail.LastNameInPlaces.Value
-            )
-          ))
-        );
-      }),
-      catchError(err => {
-        console.error('Error fetching statistic data:', err);
-        return of(null);
-      })
-    );
-  }
+  // getStatisticData(): Observable<StatisticData | null> {
+  //   return this.#clusterApiService.getStatisticData().pipe(
+  //     take(1),
+  //     map((res: any) => {
+  //       // Map the raw data to the defined StatisticData structure
+  //       return new StatisticData(
+  //         res.totalCount,
+  //         res.details.map((detail: any) => new StatisticDetail(
+  //           new LastName(detail.LastName.Count, detail.LastName.Code, detail.LastName.Value),
+  //           new LastNameInPlaces(
+  //             detail.LastNameInPlaces.TotalCount,
+  //             detail.LastNameInPlaces.Count,
+  //             detail.LastNameInPlaces.Code,
+  //             detail.LastNameInPlaces.Value
+  //           )
+  //         ))
+  //       );
+  //     }),
+  //     catchError(err => {
+  //       console.error('Error fetching statistic data:', err);
+  //       return of(null);
+  //     })
+  //   );
+  // }
 
 
 // =================================

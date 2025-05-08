@@ -1,17 +1,35 @@
-
-<div class="table-container">
-  <div>
+<div class="container">
+  <div class="table-header">
     <div class="save-place"></div>
     <div *ngFor="let header of records[0].details" class="row-header">{{ header.key }}</div>
   </div>
-  @for(record of records;track $index){
-  <yv-cluster-record-details [details]="record"></yv-cluster-record-details>
-  }
+  <div class="table-container">
+    @for(record of records;track $index){
+    <yv-cluster-record-details [details]="record"></yv-cluster-record-details>
+    }
+  </div>
 </div>
 <div class="space-between"></div>
 <div class="compare-buttons-frame">
   <yv-cluster-compare-modal-button *ngFor="let record of records; let i = index" [recordName]="record.name" [index]="i"
-  (detailsMode)="handleDetailsModeChange($event,i)"
-  (imageMode)="handleImageModeChange($event,i)">
+    (detailsMode)="handleDetailsModeChange($event,i)" (imageMode)="handleImageModeChange($event,i)">
     ></yv-cluster-compare-modal-button>
 </div>
+
+<!-- <div class="table-container">
+  <div class="table-header">
+    <div class="save-place"></div>
+    <div *ngFor="let header of records[0].details" class="row-header">{{ header.key }}</div>
+  </div>
+  <section class="details-container">
+    @for(record of records;track $index){
+    <yv-cluster-record-details [details]="record"></yv-cluster-record-details>
+    }
+  </section>
+</div>
+<div class="space-between"></div>
+<div class="compare-buttons-frame">
+  <yv-cluster-compare-modal-button *ngFor="let record of records; let i = index" [recordName]="record.name" [index]="i"
+    (detailsMode)="handleDetailsModeChange($event,i)" (imageMode)="handleImageModeChange($event,i)">
+    ></yv-cluster-compare-modal-button>
+</div> -->

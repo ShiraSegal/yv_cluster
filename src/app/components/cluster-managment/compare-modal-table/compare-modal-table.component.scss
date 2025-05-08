@@ -23,21 +23,23 @@
     font-style: normal;
     font-weight: 600;
     line-height: 1.25rem;
+    margin-right: 0.675rem;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    overflow-y: auto;
+    max-height: 50.3125rem;
+    max-width: 111.5rem; 
 }
 .table-container {
     display: flex;
-    // align-self: stretch;
-    // flex-direction: row;
-    padding: 0.25rem 0rem;
-    // align-items: center;
     gap: 0.9375rem;
     top:0;
-    overflow: auto;
-    max-height: 50.3125rem;
-    max-width: 100%; 
 
-    // position: static; 
 }
+
+
 .space-between {
     display: flex;
     height: 0.8125rem;
@@ -50,3 +52,8 @@
     align-items: flex-start;
     gap: 1.5rem;
 }
+// .details-container{
+//     display: flex;
+//     overflow-x: auto ;
+//     // flex-direction: column;
+// }

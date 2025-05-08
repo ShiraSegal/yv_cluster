@@ -47,4 +47,6 @@ export enum IconType {
     ROBOT="fa-solid fa-robot",
     LINK_SIMPLE="fa-solid fa-link-simple",
     LIST="fa-solid fa-list",
+    TRASH="fa-solid fa-trash",
+    IMAGE="fa-solid fa-image"
 }

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { SmallIconButtonIcon } from 'src/app/enums/basic-enum';
+import {IconType } from 'src/app/enums/icon-enum';
 
 
 @Component({
@@ -11,5 +11,5 @@ import { SmallIconButtonIcon } from 'src/app/enums/basic-enum';
   styleUrl: './basic-small-icon-button.component.scss'
 })
 export class BasicSmallIconButtonComponent {
-    @Input() icon:SmallIconButtonIcon  = SmallIconButtonIcon.TRASH;
+    @Input() icon:IconType  = IconType.TRASH;
 }

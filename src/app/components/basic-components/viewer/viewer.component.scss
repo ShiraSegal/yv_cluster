@@ -8,28 +8,7 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    background: #FFF;
-}
-
-.picture-name-warpper {
-    display: flex;
-    height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
-    align-self: stretch;
-    background: $pastel-blue;
-}
-
-.picture-name {
-    width: 8.375rem;
-    color: $slate_blue;
-    font-family: Poppins;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+    background: $c-FFFFFF;
 }
 
 .image-warrper {

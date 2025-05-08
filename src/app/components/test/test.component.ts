@@ -27,7 +27,7 @@ import { NarrowBasicTableRowComponent } from "../basic-components/narrow-basic-t
 import { NarrowBasicTableWarpComponent } from "../basic-components/narrow-basic-table-warp/narrow-basic-table-warp.component";
 import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
 import { PieCircleComponent } from "../basic-components/pie-circle/pie-circle.component";
-import { PieComponentDistributionModalComponent } from "../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component";
+// import { PieComponentDistributionModalComponent } from "../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component";
 import { PieTableComponent } from "../basic-components/pie-table/pie-table.component";
 import { BigCardComponent } from "../basic-components/big-card/big-card.component";
 import { SatisticCardComponent } from "../basic-components/satistic-card/satistic-card.component";
@@ -40,6 +40,7 @@ import { EnterBookidComponent } from "../cluster-managment/enter-bookid/enter-bo
 import { HeadingComponent } from "../basic-components/heading/heading.component";
 import { BodyComponent } from "../basic-components/body/body.component";
 import { FieldComponent } from "../basic-components/field/field.component";
+import { CompareModalTableComponent } from "../cluster-managment/compare-modal-table/compare-modal-table.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -93,7 +94,7 @@ import { FieldComponent } from "../basic-components/field/field.component";
     BasicCardComponent,
     IconButtonLargeComponent,
     PieCircleComponent,
-    PieComponentDistributionModalComponent,
+    // PieComponentDistributionModalComponent,
     PieTableComponent,
     BigCardComponent,
     SatisticCardComponent,
@@ -106,7 +107,8 @@ import { FieldComponent } from "../basic-components/field/field.component";
     HeaderCellsComponent,
     EnterBookidComponent,
     HeadingComponent,
-    BodyComponent
+    BodyComponent,
+    CompareModalTableComponent
     
   ],
   templateUrl: './test.component.html',

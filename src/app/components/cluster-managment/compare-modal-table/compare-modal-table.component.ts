@@ -21,14 +21,14 @@ export class CompareModalTableComponent {
     #service=inject(ClusterService);
     subscription: Subscription = new Subscription();
     ngOnInit(){
-      console.log(1);
-      this.subscription.add(this.#service.getCompareDataObservable().subscribe((res: any[]) => {
-        this.compareData = res
-        // this.selecteOptions = this.gradelist.map((grade) => {
-        //   return grade.grade
-        // })
+      // console.log(1);
+      // this.subscription.add(this.#service.getCompareDataObservable().subscribe((res: any[]) => {
+      //   this.compareData = res
+      //   // this.selecteOptions = this.gradelist.map((grade) => {
+      //   //   return grade.grade
+      //   // })
    
-      }))
+      // }))
     }
 
     ngOnDestroy(): void {
@@ -160,19 +160,19 @@ records = [
       { key: "BOOK_ID", value: "15900962" },
       { key: "BELONGS_TO", value: "Yad Vashem - Pages of Testimony Names Memorial Collection" },
       // Duplicate
-      //   // { key: "CLUSTER_ID", value: "16229261, Reinisch, Pozes, Matilda" },
-      //   // { key: "FIRST_NAME", value: "Matilda" },
-      //   // { key: "LAST_NAME", value: "Reinisch Reinish Pozes" },
-      //   // { key: "MAIDEN_NAME", value: "" },
-      //   // { key: "TITLE", value: "" },
-      //   // { key: "GENDER", value: "Female" },
-      //   // { key: "FATHER_FIRST_NAME", value: "Shlomo Zalman" },
-      //   // { key: "MOTHER_FIRST_NAME", value: "Miriam" },
-      //   // { key: "PERMANENT_PLACE", value: "Sniatin,Sniatyn,Stanislawow,Poland" },
-      //   // { key: "STATUS", value: "alive post war" },
-      //   // { key: "SOURCE", value: "Page of Testimony" },
-      //   // { key: "BOOK_ID", value: "15900962" },
-      //   // { key: "BELONGS_TO", value: "Yad Vashem - Pages of Testimony Names Memorial Collection" }
+        { key: "CLUSTER_ID", value: "16229261, Reinisch, Pozes, Matilda" },
+        { key: "FIRST_NAME", value: "Matilda" },
+        { key: "LAST_NAME", value: "Reinisch Reinish Pozes" },
+        { key: "MAIDEN_NAME", value: "" },
+        { key: "TITLE", value: "" },
+        { key: "GENDER", value: "Female" },
+        { key: "FATHER_FIRST_NAME", value: "Shlomo Zalman" },
+        { key: "MOTHER_FIRST_NAME", value: "Miriam" },
+        { key: "PERMANENT_PLACE", value: "Sniatin,Sniatyn,Stanislawow,Poland" },
+        { key: "STATUS", value: "alive post war" },
+        { key: "SOURCE", value: "Page of Testimony" },
+        { key: "BOOK_ID", value: "15900962" },
+        { key: "BELONGS_TO", value: "Yad Vashem - Pages of Testimony Names Memorial Collection" }
     ]
   },
   {

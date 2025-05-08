@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { SquareIconButtonIcon } from 'src/app/enums/basic-enum';
+import {IconType } from 'src/app/enums/icon-enum';
 
 @Component({
   selector: 'yv-cluster-basic-square-icon-button',
@@ -10,6 +10,6 @@ import { SquareIconButtonIcon } from 'src/app/enums/basic-enum';
   styleUrls: ['./basic-square-icon-button.component.scss']
 })
 export class BasicSquareIconButtonComponent {
-  @Input() icon: SquareIconButtonIcon = SquareIconButtonIcon.LIST;
+  @Input() icon: IconType = IconType.LIST;
   @Input() isActive = false;
 }

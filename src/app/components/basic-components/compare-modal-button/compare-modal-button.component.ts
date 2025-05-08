@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { SquareIconButtonIcon, SmallIconButtonIcon } from 'src/app/enums/basic-enum';
 import { BasicSquareIconButtonComponent } from '../basic-square-icon-button/basic-square-icon-button.component';
 import { BasicSmallIconButtonComponent } from '../basic-small-icon-button/basic-small-icon-button.component';
+import {IconType } from 'src/app/enums/icon-enum';
+
 
 @Component({
   selector: 'yv-cluster-compare-modal-button',
@@ -15,10 +16,10 @@ export class CompareModalButtonComponent {
   @Input() recordName!: string;
   @Input() index!: number;
   
-  list = SquareIconButtonIcon.LIST;
-  image = SquareIconButtonIcon.IMAGE;
-  trash = SmallIconButtonIcon.TRASH;
-  clipBoard = SmallIconButtonIcon.LIST;
+  list = IconType.LIST;
+  image = IconType.IMAGE;
+  trash = IconType.TRASH;
+  clipBoard = IconType.LIST;
 @Output() detailsMode = new EventEmitter<boolean>();
 @Output() imageMode = new EventEmitter<boolean>();
   
