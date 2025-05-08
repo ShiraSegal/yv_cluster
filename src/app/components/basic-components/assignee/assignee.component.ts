@@ -8,7 +8,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   styleUrls: ['./assignee.component.scss'],
 })
 export class AssigneeComponent implements ControlValueAccessor {
-  @Input() data: string | undefined = 'Racheli Liff'; // Default value
+  @Input() data: string | undefined = 'UnAssignee'; // Default value
   @Output() assigneeChange = new EventEmitter<string>();
 
   assigneeInitials: string = '';

@@ -1,4 +1,4 @@
-
+<!-- 
 <button
   [ngClass]="[property, isSelected ? 'selected' : '']"
   (click)="handleClick()"
@@ -6,4 +6,11 @@
   <div class="icon-warpper">
     <i [ngClass]="[icon, 'icon']"></i>
   </div>
-</button>
+</button> -->
+<div
+  class="icon-button-large"
+  [ngClass]="[property, isSelected ? 'selected' : '']"
+  (click)="handleClick()"
+>
+  <i [ngClass]="icon"></i>
+</div>

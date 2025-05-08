@@ -1,6 +1,8 @@
 <div class="table-frame">
     <div class="table-actions">
-       <yv-cluster-filter-section></yv-cluster-filter-section>
+       <yv-cluster-filter-section (onClickAddCluster)="onClickAddCluster()"
+       (onClicShowkAssineeOrStatus)="onClicShowkAssineeOrStatus()"
+       (onFilterValuesChange)="onFilterValuesChange($event)"></yv-cluster-filter-section>
     </div>
 
     <div class="data-container">
@@ -9,6 +11,7 @@
         </div>
         <div class="rows-container">
             @for (row of Rows; track row){
+                <!-- Rows filter -->
             <yv-cluster-narrow-basic-table-row [property]="row.property"
                 [cells]="row.cells"></yv-cluster-narrow-basic-table-row>
             }

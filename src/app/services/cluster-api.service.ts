@@ -24,5 +24,9 @@ export class ClusterApiService {
   // }
 
   //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
-
+  getAssigneeList(): Observable<{ name: string }[]> {
+    return this.#http.get<{ name: string }[]>(`${this.apiUrl}/getAssignees.json`);
+  }
+  
+  
 }

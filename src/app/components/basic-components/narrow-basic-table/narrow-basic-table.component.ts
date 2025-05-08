@@ -7,6 +7,7 @@ import { ButtonIconProperty, NativeOptionState, NativeOptionType } from 'src/app
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { IconType } from 'src/app/enums/icon-enum';
 import { FilterSectionComponent } from "../filter-section/filter-section.component";
+import { log } from 'console';
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table',
@@ -72,4 +73,18 @@ iconType = IconType
     alert('test on click');
     console.log('test on click');
   }
+  onClickAddCluster(){
+    //open dialog create new cluster
+  }
+  onClicShowkAssineeOrStatus(){
+
+  }
+  onFilterValuesChange(values: any[]){
+   console.log('filter values:', values);
+   //create filter arr 
+   // filter this.Rows based on the values
+
+  }
+  //status assun
+  //rows- מי שבחור לשנו ת את הסטטוס או האסימי בטופס כמובן
 }
