@@ -2,9 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonType, RadioButtonListDirection, State, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../../basic-components/button/button.component';
+import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
 import { RadioButtonListComponent } from '../../basic-components/radio-button-list/radio-button-list.component';
-import { HeadingComponent } from 'src/app/components/basic-components/heading/heading.component';
 import { FieldComponent } from '../../basic-components/field/field.component';
 
 @Component({

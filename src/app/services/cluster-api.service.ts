@@ -35,7 +35,6 @@ export class ClusterApiService {
 
   //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
 
-
   }
 
 

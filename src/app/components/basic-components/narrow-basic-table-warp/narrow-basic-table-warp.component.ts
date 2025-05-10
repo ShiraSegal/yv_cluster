@@ -5,8 +5,13 @@ import { DataCellType, HeaderCellType, AutoClusterTabType } from 'src/app/enums/
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { SlidebarNavigationComponent } from '../slidebar-navigation/slidebar-navigation.component';
+<<<<<<< HEAD
 import { BasicTabComponent } from '../basic-tab/basic-tab.component';
 import { IconType } from 'src/app/enums/icon-enum';
+=======
+import { IconType } from 'src/app/enums/icon-enum';
+import { BasicTabComponent } from '../basic-tab/basic-tab.component';
+>>>>>>> origin/main
 
 
 @Component({
@@ -84,12 +89,12 @@ export class NarrowBasicTableWarpComponent {
 
   // ];
   tabs = [
-    { text: AutoClusterTabType.SAPIR_CLUSTERS, status:true },
+    { text: AutoClusterTabType.SAPIR_CLUSTERS, status: true },
     { text: AutoClusterTabType.MISSING_FIELD, status: false },
     { text: AutoClusterTabType.ERROR_MESSAGES, status: false },
-    { text: AutoClusterTabType.DIFFERENT_CLUSTERS, status: false },
-    { text: AutoClusterTabType.CHECKLIST_ITEMS, status: false},
-    { text: AutoClusterTabType.APPROVAL_GROUPS, status:  false }
+    { text: AutoClusterTabType.DIFFERENT_CLUSTERS, status: false},
+    { text: AutoClusterTabType.CHECKLIST_ITEMS, status: false },
+    { text: AutoClusterTabType.APPROVAL_GROUPS, status: false }
 
   ];
   getDataForCurrentTab(): any[] {

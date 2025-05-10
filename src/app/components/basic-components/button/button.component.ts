@@ -1,7 +1,7 @@
-import { CommonModule } from "@angular/common";
-import { Component, Input, Output,EventEmitter } from "@angular/core";
-import { ButtonType } from "src/app/enums/basic-enum";
-import { IconType } from "src/app/enums/icon-enum";
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ButtonType} from '../../../enums/basic-enum';
+import { IconType } from 'src/app/enums/icon-enum';
 
 @Component({
   selector: 'yv-cluster-button',

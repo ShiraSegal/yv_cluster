@@ -25,6 +25,19 @@ export enum BasicTablePropertyType {
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
 
+// export enum ButtonSize{
+//   BIG="big",
+//   SMALL="small"
+// }
+export enum TextSize {
+  LARGE = "large",
+  MEDIUM = "medium",
+  SMALL = "small"
+}
+export enum CheckStateType {
+  ENABLED = 'enabled',
+  DISABLED = 'disabled'
+}
 
 export enum DataCellType {
   TEXT = 'string',
@@ -46,19 +59,9 @@ export enum DataCellType {
 // }
  
  
-  export enum TextSize{
-    LARGE="large",
-    MEDIUM="medium",
-    SMALL="small"
-  }
- 
   export enum CheckType {
     UNCHECKED = 'unchecked',
     CHECKED = 'checked'
-  }
-  export enum CheckStateType {
-    ENABLED = 'enabled',
-    DISABLED = 'disabled'
   }
   
 
@@ -196,3 +199,4 @@ export enum ButtonIconProperty{
       BIG="big",
       SMALL="small"
     }
+  

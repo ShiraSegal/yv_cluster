@@ -54,7 +54,6 @@ import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-h
     DataCellsComponent,
     HeaderCellsComponent,
     BadgeComponent,
-    FieldComponent,
     CommonModule,
     ButtonComponent,
     SwitchComponent,
@@ -375,9 +374,13 @@ export class TestComponent {
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
   ];
 
+<<<<<<< HEAD
 //variables-----------------------------------------------------------------------
   // button component properties
  
+=======
+
+>>>>>>> origin/main
   
 
   // handleSort(event: { column: string, direction: string }) {
@@ -530,7 +533,11 @@ export class TestComponent {
 
   }
 
+<<<<<<< HEAD
 }
 
 
 
+=======
+}
+>>>>>>> origin/main

@@ -21,7 +21,7 @@
 }
 
 .common-input-wrapper.default {
-  border: 0.03125rem solid $c-3F4B5A;
+  border: 0.03125rem solid $slate_blue;
 }
 
 .common-input-wrapper.error {
@@ -31,7 +31,7 @@
 
 .common-input-wrapper.disabled {
   border: 0.03125rem solid $c-c4c7c580;
-  background:$c-FFFFFF80;
+  background:$c-FFFFFF;
 }
 
 .common-input-wrapper.populated {
@@ -39,7 +39,7 @@
 }
 
 .common-input-wrapper.focused {
-  border: 0.0625rem solid  $c-1334B9;
+  border: 0.0625rem solid var(--Primery, $primary_btn);
 }
 
 legend.default, legend.error, legend.disabled {
@@ -70,7 +70,7 @@ legend.focused, legend.populated {
 }
 
 .input-label.disabled {
-  color:$c-8999DC;
+  color:$light_slate_blue;
 }
 
 .input-label.populated {
@@ -78,7 +78,7 @@ legend.focused, legend.populated {
 }
 
 .input-label.focused {
-  color: $c-1334B9;
+  color: var(--Primery, $primary_btn);
 }
 
 .custom-input {
@@ -95,7 +95,7 @@ legend.focused, legend.populated {
 }
 
 .custom-input.disabled {
-  color:$c-8999DC;
+  color:$light_slate_blue;
 }
 
 .error-message {

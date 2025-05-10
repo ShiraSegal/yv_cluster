@@ -1,4 +1,4 @@
-@import "src/styles.scss";
+@import "../../../../styles/colors.scss";
 
 .slider-navigation {
     display: flex;
@@ -8,7 +8,11 @@
     flex-direction: column;
     align-items: center;
     gap: 4.25rem;
+<<<<<<< HEAD
     background: var(--gradient-pr, linear-gradient(180deg, $c-1334B9 0%, $c-425DC7 100%));
+=======
+    background: var(--gradient-pr, linear-gradient(180deg, $primary_btn 0%, $secondary_blue 100%));
+>>>>>>> origin/main
 }
 
 .logo {
@@ -62,6 +66,5 @@ align-self: stretch;
     align-items: center;
     gap: 0.1875rem;
     flex-shrink: 0;
-    border-bottom: 0.03125rem solid 
-    ;
+    border-bottom: 0.03125rem solid $light-blue;
 }
