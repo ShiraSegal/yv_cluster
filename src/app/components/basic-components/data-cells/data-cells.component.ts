@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output ,EventEmitter} from '@angular/core';
 import { BadgeType, ButtonIcon, ButtonSize, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { BadgeComponent } from '../badge/badge.component';
@@ -21,7 +21,11 @@ import { CheckType } from 'src/app/enums/check-enum';
 export class DataCellsComponent<T extends DataCellType>  {
   //variables
   @Input() type!: T;
-  @Input() data!: DataCellValue<T>;
+  @Input() data: DataCellValue<T>;
+  @Input() moreData: { [key: string]: any } = {}; // אובייקט לפרמטרים נוספים
+  @Output() checkStatus= new EventEmitter<CheckType>();
+  @Output() iconClick = new EventEmitter<void>();
+bookId:string ="";
   //injecting ENUM
   badgeType = BadgeType;
   IconType = IconType;
@@ -32,7 +36,12 @@ export class DataCellsComponent<T extends DataCellType>  {
   checkStateType = CheckStateType;
   checkType = CheckType;
   //functions
-
+ngOnInit() {
+  if (typeof this.data==="string" &&this.data.includes('collections.yadvashem.org/en/names/')) {
+    const parts = this.data.split('/');
+    this.bookId= parts[parts.length - 1];
+    console.log("bookId", this.bookId);}
+}
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;
   }
@@ -56,8 +65,13 @@ export class DataCellsComponent<T extends DataCellType>  {
       (typeof data.buttonIcon === 'string' || typeof data.buttonIcon === 'undefined')
     );
     }
+    checkChange(checkStatus:CheckType) {
+      this.checkStatus.emit(checkStatus);
+      console.log("data cells check status", checkStatus)
+    }
   onClick() {
-    alert('test on click');
-    console.log('test on click');
+    // alert('click');
+    this.iconClick.emit();
+
   }
 }

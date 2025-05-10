@@ -6,24 +6,31 @@
     <i class="fas fa-ellipsis-v more-icon"></i>
     }
     @if(type === dataCellType.CHECK){
-        <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED></yv-cluster-check>
+        <yv-cluster-check [type]="moreData['checkStatus']||checkType.UNCHECKED" [state]=checkStateType.ENABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
     }
 
     @if(type === dataCellType.STATUS){
     <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge>
     }
     @if(type === dataCellType.ASSIGNEE && isString(data)){
-        <yv-cluster-assignee [data]="data" ></yv-cluster-assignee>
+        <yv-cluster-assignee [data]="data"></yv-cluster-assignee>
     }
 
     @if(type === dataCellType.LINK ){
-        <a [href]="data">{{ data }}</a>
+        @if(bookId===""){
+            <a [href]="data">{{ data }}</a>
         }
-
-    @if(type === dataCellType.ICON){
-        <yv-cluster-icon-button-large [icon]="IconType.TRASH" [property]="iconButtonLargeType.DEFAULT" ></yv-cluster-icon-button-large>
+        @else{
+            <a [href]="data">{{ bookId }}</a>
+        }
     }
-
+    @if(type === dataCellType.ICON) {
+        <yv-cluster-icon-button-large
+          (onClick)="onClick()"
+          [icon]="moreData['icon'] || IconType.CHEVRONRIGHT"
+          [property]="moreData['property'] || iconButtonLargeType.DEFAULT"
+        ></yv-cluster-icon-button-large>
+      }
     @if(type === dataCellType.SLIDER && isNumber(data) ){
         <yv-cluster-slider [value]="data"></yv-cluster-slider>
     }

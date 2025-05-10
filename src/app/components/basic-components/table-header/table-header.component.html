@@ -12,7 +12,7 @@
     @for (header of headers ; track header)
       {
         <div [ngClass]="{'special-cell': header.type === HeaderCellType.CHECK || header.type === HeaderCellType.MORE || header.type === HeaderCellType.PLACEOLDER, 'regular-cell': header.type !== HeaderCellType.CHECK && header.type !== HeaderCellType.MORE && header.type !== HeaderCellType.PLACEOLDER}">
-          <yv-cluster-header-cells [header]="header.data" [type]="header.type"></yv-cluster-header-cells>
+          <yv-cluster-header-cells [header]="header.data" [type]="header.type" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"></yv-cluster-header-cells>
       </div>
       }
 </div>

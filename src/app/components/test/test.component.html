@@ -183,13 +183,13 @@
  <h3>card</h3>
  <yv-cluster-basic-card [iconName]="iconType.HOME" [text]="'30 New clusters pending'" [circleColor]="'#B8C2EA'" [iconColor]="'#FFFFFF'" ></yv-cluster-basic-card>
  <br>
- <yv-cluster-basic-card [iconName]="iconType.HOURGLASS_CLOCK" [text]="'30 New Suggestions pending'" [circleColor]="'#1334B9'" [iconColor]="'#D0D6F1'"></yv-cluster-basic-card>
+ <yv-cluster-basic-card [iconName]="iconType.HOURGLASS_CLOCK" [text]="'30 New Suggestions pending'" [circleColor]="cardColorEnum.BLUE" [iconColor]="'#D0D6F1'"></yv-cluster-basic-card>
  <br>
- <yv-cluster-basic-card [iconName]="iconType.EDIT" [text]="'70 Clusters created manually this month'" [circleColor]="'#F6CDCD'" [iconColor]="'#E25F5F'"></yv-cluster-basic-card>
+ <yv-cluster-basic-card [iconName]="iconType.EDIT" [text]="'70 Clusters created manually this month'" [circleColor]="cardColorEnum.ORANGE" [iconColor]="'#E25F5F'"></yv-cluster-basic-card>
  <br>
- <yv-cluster-basic-card [iconName]="iconType.CLOCK_FIVE" [text]="'560 Old Suggestions  pending'" [circleColor]="'#A5EBDD'" [iconColor]="'#1F8A74'"></yv-cluster-basic-card>
+ <yv-cluster-basic-card [iconName]="iconType.CLOCK_FIVE" [text]="'560 Old Suggestions  pending'" [circleColor]="cardColorEnum.GREEN" [iconColor]="'#1F8A74'"></yv-cluster-basic-card>
  <br>
- <yv-cluster-basic-card [iconName]="iconType.CIRCLE_CHECK" [text]="'120 Suggestions processed this month'" [circleColor]="'#B8C2EA'" [iconColor]="'#5A71CE'"></yv-cluster-basic-card>
+ <yv-cluster-basic-card [iconName]="iconType.CIRCLE_CHECK" [text]="'120 Suggestions processed this month'" [circleColor]="cardColorEnum.LIGHT_BLUE" [iconColor]="'#5A71CE'"></yv-cluster-basic-card>
  <hr>
  <h3>big card</h3>
 <yv-cluster-big-card [text]="'Cluster creation from the automated list'" [number]="1.200" [iconName]="iconType.LIST" [size]="BigCardSize.SHORT" [circleColor]="'#E7EBF8'" [iconColor]="'#5A71CE'"></yv-cluster-big-card>
@@ -206,12 +206,15 @@
  <br>
  <hr>
  <h3>toast</h3>
- <yv-cluster-toast-notification [iconName]="ToastNotificationIcons.ERROR"[message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+ <yv-cluster-toast-notification [iconName]="iconType.ERROR"[message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
  <br>
- <yv-cluster-toast-notification [iconName]="ToastNotificationIcons.SUCCESS"[message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="90000"></yv-cluster-toast-notification>
- <hr>
+ <yv-cluster-toast-notification [iconName]="iconType.SUCCESS"[message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="90000"></yv-cluster-toast-notification>
+ <!-- <hr>
  <h3>pie component distribution modal</h3>
- <yv-cluster-pie-component-distribution-modal [title]="'Data Distribution'"></yv-cluster-pie-component-distribution-modal>
+ <yv-cluster-pie-component-distribution-modal [title]="'Data Distribution'"></yv-cluster-pie-component-distribution-modal> -->
+ <hr>
+ <h3>filter handling suggestions</h3>
+ <yv-cluster-filter-handling-suggestions></yv-cluster-filter-handling-suggestions>
  <hr>
  <h3>table group id details</h3>
  <yv-cluster-table-group-id-details></yv-cluster-table-group-id-details>
@@ -230,10 +233,10 @@
 <hr>
 <h3>check</h3>
 <hr>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
+<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
+<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.ENABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
+<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.DISABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
+<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.DISABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
 <hr>
 <h3>header cell</h3>
 <hr>

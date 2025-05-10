@@ -21,35 +21,30 @@
     gap: 0.625rem;
     flex-shrink: 0;
     border-radius: 6.25rem;
-    // background: $c-B8C2EA;
-    background-color: var(--circle-color);
-    color: var(--icon-color);
+    background: $c-B8C2EA;
 }
-// ::ng-deep .fa-solid.fa-hourglass-clock{
-//     background:$primary_btn !important;
-//     color: $c-D0D6F1;
-// }
+.icon-circle.red{
+    background: $c-F6CDCD;
+    color: $c-E25F5F;
+}
+.icon-circle.blue{
+    background:$c-1334B9CC;
+        color: $c-D0D6F1;
+}
+.icon-circle.light-blue{
+    background:$c-B8C2EA;
+    color: $c-5A71CE;
+}
+.icon-circle.green{
+    background: $c-A5EBDD;
+    color: $c-1F8A74;
 
-// ::ng-deep .fa-solid.fa-clock-five {
-//     background: $c-A5EBDD !important;
-//     color: $c-1F8A74;
-// }
+}
+.icon-circle.orange{
+    background:$c-F6CDCD;
+        color:$c-E25F5F;
+}
 
-// ::ng-deep .fa-solid.fa-circle-check {
-//     background:$c-B8C2EA;
-//     color: $royal_blue;
-
-// }
-
-// ::ng-deep .fa-solid.fa-pen-to-square {
-//     background:$c-F6CDCD !important;
-//     color:$c-E25F5F;
-// }
-
-// ::ng-deep .fa-light.fa-house {
-//     background:$c-B8C2EA !important;
-//     color:$c-FFFFFF;
-// }
 i {
     color: $c-FFFFFF;
     text-align: center;

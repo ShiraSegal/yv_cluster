@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
 
@@ -13,5 +13,10 @@ import { IconType } from 'src/app/enums/icon-enum';
 export class IconButtonLargeComponent {
   @Input() icon!: IconType;
   @Input() property!: IconButtonLargeType;
+  
+  @Output() onClick = new EventEmitter<void>();
 
+  handleClick() {  
+      this.onClick.emit();
+  }
 }

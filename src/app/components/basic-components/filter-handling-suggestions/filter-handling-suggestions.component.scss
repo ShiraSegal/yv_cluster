@@ -1,0 +1,15 @@
+.filter-container{
+    display: flex;
+padding-bottom: 1.25rem;
+justify-content: space-between;
+align-items: flex-start;
+align-self: stretch;
+border-bottom: 1px solid #B8C2EA;
+}
+.buttons-container{
+    display: flex;
+justify-content: flex-end;
+align-items: center;
+gap: 0.5rem;
+flex: 1 0 0;
+}

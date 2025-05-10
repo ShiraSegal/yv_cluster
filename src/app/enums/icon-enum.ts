@@ -48,4 +48,7 @@ export enum IconType {
     USER="fa-light fa-user user-icon",
     CLIPBPOARD = "fa-light fa-clipboard-list clipboard-list-icon",
     TRASH="fa-light fa-trash",
+    ERROR = "fa-solid fa-circle-xmark",
+    SUCCESS = "fa-solid fa-circle-check",
+    COPY_LIGHT="fa-light fa-copy",
 }

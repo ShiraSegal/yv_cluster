@@ -2,9 +2,8 @@
 import { SliderComponent } from "../basic-components/slider/slider.component";
 import { Component } from "@angular/core";
 import { CheckComponent } from "../basic-components/check/check.component";
-import { AutoClusterTabType, BadgeType, BasicTableRowPropertyVariants, BigCardSize, ButtonIconProperty, ButtonSize, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, RadioButtonListDirection, SliderNavigationTabTextType, StatusActiveOrNotActive, TextSize, TextWeight, ToastNotificationIcons } from 'src/app/enums/basic-enum';
+import { AutoClusterTabType, BadgeType, BasicTableRowPropertyVariants, BigCardSize, ButtonIconProperty, ButtonSize, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, RadioButtonListDirection, SliderNavigationTabTextType, StatusActiveOrNotActive, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 import { ButtonIcon, CheckStateType, IconButtonLargeType, SliderNavigationTabType, State, ButtonType, DataCellType, HeaderCellType } from 'src/app/enums/basic-enum';
-import { CardIcons } from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
 import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
@@ -42,6 +41,8 @@ import { BodyComponent } from "../basic-components/body/body.component";
 import { HomeWarpComponent } from "../core-components/home-warp/home-warp.component";
 import { FieldComponent } from "../basic-components/field/field.component";
 import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id-details/table-group-id-details.component";
+import { CardColor } from "src/app/enums/card-colors.enum";
+import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-handling-suggestions/filter-handling-suggestions.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -110,7 +111,8 @@ import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id
     EnterBookidComponent,
     HeadingComponent,
     BodyComponent,
-    TableGroupIdDetailsComponent
+    TableGroupIdDetailsComponent,
+    FilterHandlingSuggestionsComponent
     
     // IconButtonComponent,
     // HomeWarpComponent,
@@ -178,7 +180,6 @@ export class TestComponent {
   stateEnum = State;//  types of input & select.
   iconButtonLargeType = IconButtonLargeType;
   StatusActiveOrNotActive = StatusActiveOrNotActive;
-  CardIcons = CardIcons;
   ButtonType = ButtonType;
   ButtonSize = ButtonSize;
   ButtonIcon = ButtonIcon;
@@ -190,8 +191,8 @@ export class TestComponent {
   nativeOptionType = NativeOptionType;
   optionState = NativeOptionState;
   optionType = NativeOptionType;
-  ToastNotificationIcons = ToastNotificationIcons;
   RadioButtonListDirection=RadioButtonListDirection;
+  cardColorEnum=CardColor;
   //variables-----------------------------------------------------------------------
   // button component properties
   switchState: boolean = false;
@@ -524,7 +525,10 @@ export class TestComponent {
     this.selectedOption = selectedValue;
     console.log("האפשרות שנבחרה:", this.selectedOption);
   }
+  checkChange(checkStatus:CheckType) {
+    console.log("check status", checkStatus)
 
+  }
 
 }
 

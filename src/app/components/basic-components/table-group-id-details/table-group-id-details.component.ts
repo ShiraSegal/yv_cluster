@@ -9,6 +9,9 @@ import { NarrowBasicTableRowComponent } from '../narrow-basic-table-row/narrow-b
 import { ClusterService } from 'src/app/services/cluster.service';
 import { RootObjectOfClusterGroupDetails } from 'src/app/models/RootObjectOfClusterGroupDetails';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
+import { CheckType } from 'src/app/enums/check-enum';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { PieComponentDistributionModalComponent } from '../pie-component-distribution-modal/pie-component-distribution-modal.component';
 
 @Component({
   selector: 'yv-cluster-table-group-id-details',
@@ -20,11 +23,15 @@ import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large
 export class TableGroupIdDetailsComponent {
   #clusterService = inject(ClusterService)
   clusterGroupDetails: RootObjectOfClusterGroupDetails[] = [];
+  headerCheckStatus: CheckType = CheckType.UNCHECKED;
+  Rows: any[];
+
   ButtonType = ButtonType;
   DataCellType = DataCellType;
   iconType= IconType;
   iconButtonLargeType = IconButtonLargeType;
   NarrowBasicTableRowInputState = NarrowBasicTableRowInputState;
+
   Headers = [{ data: '', type: HeaderCellType.CHECK },
   { data: 'Book ID', type: HeaderCellType.TEXT },
   { data: 'Cluster ID', type: HeaderCellType.TEXT },
@@ -37,32 +44,11 @@ export class TableGroupIdDetailsComponent {
   { data: 'Date of Birth', type: HeaderCellType.TEXT },
   { data: 'Place of Birth', type: HeaderCellType.TEXT },
   { data: 'Permanent Place', type: HeaderCellType.TEXT },
-  { data: 'Source', type: HeaderCellType.TEXT }
+  { data: 'Source', type: HeaderCellType.TEXT },
+  { data: '', type: HeaderCellType.MORE }
   ]
 
-  // exampleNarrowRow = [
-  //   { data: '', type: DataCellType.CHECK },
-  //   { data: '454682', type: DataCellType.TEXT },
-  //   { data: 'New', type: DataCellType.TEXT },
-  //   { data: '01/01/2005', type: DataCellType.TEXT },
-  //   { data: 'dsvsdv', type: DataCellType.TEXT },
-  //   { data: 'dsvds', type: DataCellType.TEXT },
-  //   { data: 'sdvdvvdcccc hjbjvv jkhbjk', type: DataCellType.TEXT },
-  //   { data: 'dsvsdv', type: DataCellType.TEXT },
-  //   { data: 'dsvds', type: DataCellType.TEXT },
-  //   { data: 'sdvdvvd', type: DataCellType.TEXT },
-  //   { data: 'dsvsdv', type: DataCellType.TEXT },
-  //   { data: 'dsvds', type: DataCellType.TEXT },
-  //   { data: 'sdvdvvd', type: DataCellType.TEXT }
-  // ];
-  // exampleNarrowRow3 = [
-  //   { data: '', type: DataCellType.CHECK },
-  //   { data: '454111', type: DataCellType.TEXT },
-  //   { data: 'New', type: DataCellType.TEXT },
-  //   { data: '02/08/2009', type: DataCellType.TEXT }
-  // ];
 
-  Rows: any[] = [];
 
   ngOnInit() {
     this.#clusterService.getClusterGroupDetails().subscribe((res: RootObjectOfClusterGroupDetails | null) => {
@@ -71,8 +57,8 @@ export class TableGroupIdDetailsComponent {
 
         this.Rows = res.d.ClusteredNameRowList.map(row => {
           return [
-            { data: '', type: DataCellType.CHECK },
-            { data: row.BookId, type: DataCellType.TEXT },
+            { data: '', type: DataCellType.CHECK,moreData:{checkStatus:CheckType.UNCHECKED} },
+            { data: 'https://collections.yadvashem.org/en/names/'+row.BookId, type: DataCellType.LINK },
             { data: row.ExistsClusterId || 'New', type: DataCellType.TEXT },
             { data: row.Score, type: DataCellType.TEXT },
             { data: row.FirstName?.Value ?? '', type: DataCellType.TEXT },
@@ -84,7 +70,7 @@ export class TableGroupIdDetailsComponent {
             { data: row.PlaceOfBirth?.Value ?? '', type: DataCellType.TEXT },
             { data: row.PermanentPlace?.Value ?? '', type: DataCellType.TEXT },
             { data: row.Source?.Value ?? '', type: DataCellType.TEXT },
-            { data: IconType.AUTOCLUSRETLIGHT, type: DataCellType.ICON }
+            { data: IconType.AUTOCLUSRETLIGHT, type: DataCellType.ICON ,moreData:{icon: IconType.TRASH}}
           ];
         });
 
@@ -96,4 +82,43 @@ export class TableGroupIdDetailsComponent {
       console.error("getClusterGroupDetails occurred:", error);
     });
   }
+
+  headerCheckChange(checkStatus:CheckType) {
+    this.headerCheckStatus = checkStatus;
+    console.log("header table group id check status", this.headerCheckStatus)
+    this.Rows.forEach((row) => {
+      row[0].moreData.checkStatus = checkStatus;
+    });
+  }
+  deleteByBookId(bookId: string) {
+    this.Rows = this.#clusterService.deleteClusteredNameByBookId(this.Rows, bookId);
+  }
+  checkChange(checkStatus:CheckType) {
+    console.log(" TableGroupIdDetailsComponent check status", checkStatus)
+
+  }
+
+
+  //////////////////////
+  // #dialog = inject(MatDialog);
+ dialogRef: MatDialogRef<PieComponentDistributionModalComponent> | null = null;
+ #dialog = inject(MatDialog);
+ openDialog() {
+  console.log("openDialog");
+  
+ this.dialogRef = this.#dialog.open(PieComponentDistributionModalComponent, {
+  data: { title: 'Data Distribution' },
+  disableClose: true, 
+  hasBackdrop: true,
+  panelClass: 'custom-dialog',
+  autoFocus: false,
+  width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
+  height: 'auto',
+
+});
+ }
+ openPeiComponent(){
+  console.log("openPeiComponent");
+  this.openDialog()
+    }
 }

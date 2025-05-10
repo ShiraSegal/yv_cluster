@@ -15,6 +15,9 @@ export class HeaderCellsComponent {
   @Input() header: string | undefined;
   @Input() type: HeaderCellType = HeaderCellType.TEXT;
   @Output() sortEvent = new EventEmitter<{ column: string, direction: string }>();
+  @Output() checkStatus= new EventEmitter<CheckType>();
+  @Output() openDialog= new EventEmitter<boolean>();
+
   HeaderCellType = HeaderCellType;
   CheckType = CheckType
   CheckStateType = CheckStateType
@@ -26,5 +29,15 @@ export class HeaderCellsComponent {
       // Toggle the type between 'order' and 'order-down'
       this.type = this.type === HeaderCellType.ORDER ? HeaderCellType.ORDERDOWN : HeaderCellType.ORDER;
     }
+  }
+
+  checkChange(checkStatus:CheckType) {
+    console.log(" header cells check status", checkStatus)
+    this.checkStatus.emit(checkStatus);
+
+  }
+  openPeiComponent(){
+console.log("openPeiComponent");
+this.openDialog.emit(true);
   }
 }
