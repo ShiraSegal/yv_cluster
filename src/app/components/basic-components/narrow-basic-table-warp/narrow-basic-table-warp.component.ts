@@ -5,13 +5,8 @@ import { DataCellType, HeaderCellType, AutoClusterTabType } from 'src/app/enums/
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { SlidebarNavigationComponent } from '../slidebar-navigation/slidebar-navigation.component';
-<<<<<<< HEAD
-import { BasicTabComponent } from '../basic-tab/basic-tab.component';
-import { IconType } from 'src/app/enums/icon-enum';
-=======
 import { IconType } from 'src/app/enums/icon-enum';
 import { BasicTabComponent } from '../basic-tab/basic-tab.component';
->>>>>>> origin/main
 
 
 @Component({
