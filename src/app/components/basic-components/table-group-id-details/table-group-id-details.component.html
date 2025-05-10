@@ -4,9 +4,5 @@
 
 </div>
 @for (row of Rows; track row){
-<<<<<<< HEAD
 <yv-cluster-narrow-basic-table-row [property]="NarrowBasicTableRowInputState.DEFAULT" [cells]="row" (checkStatus)="checkChange($event)" (bookIdToDelet)="deleteByBookId($event)"></yv-cluster-narrow-basic-table-row>
-=======
-<yv-cluster-narrow-basic-table-row [property]="NarrowBasicTableRowInputState.DEFAULT" [cells]="row"></yv-cluster-narrow-basic-table-row>
->>>>>>> 09ef4e1 (table data from the json)
 }
