@@ -24,9 +24,6 @@ export class ClusterApiService {
   getClusterGroupDetails(): Observable<any> {
     return this.#http.get('./assets/json-data/getClusterGroupDetails.json');
   }
-  deleteClusterObject(id: number): Observable<any> {
-    return this.#http.delete('./assets/json-data/getClusterGroupDetails.json');
-  }
   // getCreateClusterData(): Observable<any[]> {
   //   return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`).pipe(
   //     map(response => response?.SapirClusterDetails || []) // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
@@ -34,6 +31,7 @@ export class ClusterApiService {
   // }
 
   //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
+
 
   }
 

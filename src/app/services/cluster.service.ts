@@ -130,6 +130,7 @@ export class ClusterService {
   deleteClusteredNameByBookId(list: any[], bookId: string): any[] {
     return list.filter(item => item[1].data !== bookId);
   }
+  
 // =================================
 
 

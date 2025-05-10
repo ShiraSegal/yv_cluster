@@ -122,7 +122,11 @@
             },
             {
                 "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+<<<<<<< HEAD
                 "BookId": "13890743",
+=======
+                "BookId": "20984298",
+>>>>>>> 09ef4e1 (table data from the json)
                 "FirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "T97467",
@@ -181,7 +185,11 @@
             },
             {
                 "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+<<<<<<< HEAD
                 "BookId": "13890744",
+=======
+                "BookId": "59490421",
+>>>>>>> 09ef4e1 (table data from the json)
                 "FirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "T97467",
@@ -240,7 +248,11 @@
             },
             {
                 "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+<<<<<<< HEAD
                 "BookId": "13890747",
+=======
+                "BookId": "15615161",
+>>>>>>> 09ef4e1 (table data from the json)
                 "FirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "T97467",
