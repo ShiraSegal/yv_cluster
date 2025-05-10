@@ -1,0 +1,36 @@
+<div class="popover-warp">
+    <div class="header-warp">
+        <!-- <yv-cluster-header-cells class="header" [header]="header" [type]="headerCellType"></yv-cluster-header-cells> -->
+        <yv-cluster-body class="header" [bodyText]="header" [size]="size" [weight]="weight" [color]="color"></yv-cluster-body>
+    </div>
+    @if(type === 'status'){
+    <div class="native-option">
+        <!-- <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge> -->
+        <yv-cluster-native-option [optionType]="optionType.STATUS"
+            [badgeStatus]="badgeType.TODO"></yv-cluster-native-option>
+    </div>
+    <div class="native-option">
+        <yv-cluster-native-option [optionType]="optionType.STATUS"
+            [badgeStatus]="badgeType.DONE"></yv-cluster-native-option>
+
+    </div>
+    }
+    @else if(type === 'assignee'){
+    @for(option of popoverOptions; track $index){
+    <div class="native-option">
+        <yv-cluster-native-option [optionType]="optionType.ASSIGNEE" [assigneeName]="option"></yv-cluster-native-option>
+
+    </div>
+    }
+
+    }
+    @else{
+    @for(option of popoverOptions; track $index){
+    <div class="native-option">
+        <yv-cluster-native-option [optionType]="optionType.TEXT" [linkName]="option"></yv-cluster-native-option>
+        <!-- {{option}} -->
+    </div>
+    }
+    }
+
+</div>

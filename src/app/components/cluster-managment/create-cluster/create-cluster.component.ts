@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NativeOptionState, NativeOptionType, ToastNotificationIcons } from 'src/app/enums/basic-enum';
+import { NativeOptionState, NativeOptionType, SelectType, ToastNotificationIcons } from 'src/app/enums/basic-enum';
 import { Component, forwardRef, inject, Inject } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../../basic-components/button/button.component';
@@ -29,13 +29,16 @@ import { SapirClusterDetail } from 'src/app/models/sapir-cluster-detail.model';
 export class CreateClusterComponent {
   // constructor(private clusterData: ClusterApiService) { }
 
-  formBuilder = inject(FormBuilder);
-  clusterService = inject(ClusterService);
+  #formBuilder = inject(FormBuilder);
+  #clusterService = inject(ClusterService);
 
   //form validation
-  formGroup: FormGroup;
+  createClusterForm: FormGroup= this.#formBuilder.group({
+    comments: ['']
+  });
+
   formIsValid!: boolean;
-  formGroupFields: any = {};
+  createClusterFormFields: any = {};
 
   //form data
   dataCells: any[];
@@ -59,13 +62,13 @@ export class CreateClusterComponent {
 
   //select
   selectLabel: string = 'Cluster Level';
-  nativeOptionType = NativeOptionType;
-  // options: string[] = ['Exact','Most Probable','Possible'];
-  options = [
-    { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
-    { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
-    { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT }
-  ];
+  selectType = SelectType;
+  options: string[] = ['Exact','Most Probable','Possible'];
+  // options = [
+  //   { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
+  //   { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
+  //   { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT }
+  // ];
 
   //text field
   comments: string = '';
@@ -88,7 +91,7 @@ export class CreateClusterComponent {
   }
 
   createClusterFormData() {
-    this.clusterService.getCreateClusterData().subscribe({
+    this.#clusterService.getCreateClusterData().subscribe({
       next: (res: SapirClusterModel | null) => {
         if (res) {
           console.log("getCreateClusterData", res);
@@ -111,28 +114,12 @@ export class CreateClusterComponent {
               values.push({ key: "other", value: "other" });
             }
             d.RadioOptions = values;
-
-            // Set default selection if NameCode is empty
-            // const defaultOption = d.Values.find((v: any) => v.NameCode === "");
-            // if (defaultOption) {
-            //   // Remove the default selection logic
-            //   this.formGroupFields[d.Field] = ['', Validators.required];
-            // } else {
-            //   this.formGroupFields[d.Field] = ['', Validators.required];
-            // }
-
-            // if (defaultOption) {
-            //   this.formGroupFields[d.Field] = [defaultOption.NameCode, Validators.required];
-            // }
+   
           });
 
           console.log("222222222222222222", this.dataCells);
 
           this.initializeFormGroup();
-
-          this.formGroup.get('comments')?.valueChanges.subscribe(value => {
-            console.log('Comments value changed:', value);
-          });
 
         } else {
           console.warn("No data received from getCreateClusterData.");
@@ -147,39 +134,40 @@ export class CreateClusterComponent {
 
   initializeFormGroup() {
     this.dataCells.forEach((field: any) => {
-      this.formGroupFields[field.Field] = ['', Validators.required];
+      this.createClusterForm.addControl(field.Field, new FormControl('', Validators.required));
     });
-    // this.formGroupFields['comments'] = [''];
-    this.formGroupFields['comments'] = [''];
+    // this.createClusterFormFields['comments'] = [''];
+    // this.createClusterForm.controls['comments'] = new FormControl('');
+    // this.createClusterFormFields=
 
-    console.log("this.formGroupFields", this.formGroupFields);
+    console.log("this.createClusterForm", this.createClusterForm);
 
 
-    this.formGroup = this.formBuilder.group(this.formGroupFields);
-    console.log("this.formGroup", this.formGroup);
+    // this.createClusterForm = this.#formBuilder.group(this.createClusterFormFields);
+    // console.log("this.createClusterForm", this.createClusterForm);
 
 
   }
 
   checkChange(index: string) {
-    console.log("valid", this.formGroup.valid);
+    console.log("valid", this.createClusterForm.valid);
     console.log("index", index);
-    // this.formGroup.get(selected)?.setValue(index);
-    console.log("formGroup", this.formGroup.value);
-    console.log("formGroup", this.formGroup);
+    // this.createClusterForm.get(selected)?.setValue(index);
+    console.log("createClusterForm", this.createClusterForm.value);
+    console.log("createClusterForm", this.createClusterForm);
 
   }
 
   createCluster() {
-    console.log("formGroupFields", this.formGroupFields);
-    console.log("formGroup", this.formGroup);
+    console.log("createClusterFormFields", this.createClusterFormFields);
+    console.log("createClusterForm", this.createClusterForm);
 
-    if (this.formGroup.valid) {
+    if (this.createClusterForm.valid) {
       this.formIsValid = true;
       this.clusterModel.SapirClusterDetails.map((field: any) => {
         console.log("field", field);
         const values = field.Values.filter((value: any) => {
-          return value.NameCode === this.formGroup.controls[field.Field].value;
+          return value.NameCode === this.createClusterForm.controls[field.Field].value;
         });
         console.log("values", values);
 
@@ -189,9 +177,9 @@ export class CreateClusterComponent {
 
       });
       console.log("this.clusterModel", this.clusterModel);
-      console.log("comments", this.formGroup.value.comments);
-      this.clusterModel.Comments = this.formGroup.value.comments;
-      this.clusterService.createCluster(this.clusterModel).subscribe({
+      console.log("comments", this.createClusterForm.value.comments);
+      this.clusterModel.Comments = this.createClusterForm.value.comments;
+      this.#clusterService.createCluster(this.clusterModel).subscribe({
         next: (res) => {
           if (res) {
             console.log("Cluster created:", res);

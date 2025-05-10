@@ -1,4 +1,4 @@
-<div class="option-wrapper" [ngClass]="optionState">
+<div class="option-wrapper" >
     <div [ngClass]="optionType">
         @if(optionType === optionTypeMain.TEXT){
             <span class="icon-wrapper">
@@ -6,12 +6,13 @@
             </span>
         }
         @else if(optionType === optionTypeMain.STATUS){
-            <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge>
+            <yv-cluster-badge [property]="badgeStatus"></yv-cluster-badge>
         }
         @else{
-            <yv-cluster-assignee data="Ariela Zoppelmann"></yv-cluster-assignee>
+            <yv-cluster-assignee [data]="assigneeName"></yv-cluster-assignee>
         }
-        {{ (optionType === optionTypeMain.TEXT ) ? Text : '' }}
+        <!-- {{ (optionType === optionTypeMain.TEXT ) ? Text : '' }} -->
+          {{linkName}}
     </div>
 </div>
 

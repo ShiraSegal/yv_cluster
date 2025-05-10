@@ -13,8 +13,11 @@ import { BadgeComponent } from '../badge/badge.component';
   styleUrl: './native-option.component.scss'
 })
 export class NativeOptionComponent {
-  @Input() optionType! : NativeOptionType;
-  @Input() optionState! : NativeOptionState;
+  @Input() optionType : NativeOptionType;
+  @Input() badgeStatus : BadgeType;
+  @Input() assigneeName : string;
+  @Input() linkName : string;
+  
   optionTypeMain = NativeOptionType;
   optionStateMain = NativeOptionState;
   badgeType = BadgeType;

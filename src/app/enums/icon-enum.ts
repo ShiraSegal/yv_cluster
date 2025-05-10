@@ -28,4 +28,5 @@ export enum IconType {
     CLIPBOARD_LIST_LIGHT = "fa-light fa-clipboard-list clipboard-list-icon",
     ROBOT_SOLID = "fa-solid fa-robot",
     LINK_SIMPLE_SOLID = "fa-solid fa-link-simple",
+    SQUARE_ARROW_UP_RIGHT_REGULAR = "fa-regular fa-square-arrow-up-right custom-arrow",
 }

@@ -51,11 +51,11 @@ export enum DataCellType {
   PLACEOLDER = 'place-order',
 }
  
-// export enum ButtonIconProperty{
-// VARIANT1="variant1",
-// VARIANT2="variant2",
-// VARIANT3="variant3"
-// }
+export enum PopoverHeader{
+  STATUS = 'Status',
+  ASSIGN_RESPONSIBLE= 'Assign Responsible',
+  LINK_TO_CRM = 'Link to CRM',
+}
  
  
   export enum CheckType {
@@ -188,10 +188,23 @@ export enum NativeOptionType{
   STATUS = "status",
   TEXT = "text"
 }
+export enum SelectType{
+  ASSIGNEE = "assignee",
+  STATUS = "status",
+  TEXT = "text",
+  DEFAULT = "default"
+}
+
+export enum PopoverType{
+  ASSIGNEE = "assignee",
+  STATUS = "status",
+  LINK = "link"
+}
 export enum NativeOptionState{
   DEFAULT = "default",
   HOVER = "hover"
 }
+
 export enum ButtonIconProperty{
   VARIANT1="variant1",
   VARIANT2="variant2",

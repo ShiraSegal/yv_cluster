@@ -2,7 +2,7 @@
 import { SliderComponent } from "../basic-components/slider/slider.component";
 import { Component } from "@angular/core";
 import { CheckComponent } from "../basic-components/check/check.component";
-import { AutoClusterTabType, BadgeType, BasicTableRowPropertyVariants, BigCardSize, ButtonIconProperty, ButtonSize, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, RadioButtonListDirection, SliderNavigationTabTextType, StatusActiveOrNotActive, TextSize, TextWeight, ToastNotificationIcons } from 'src/app/enums/basic-enum';
+import { AutoClusterTabType, BadgeType, BasicTableRowPropertyVariants, BigCardSize, ButtonIconProperty, ButtonSize, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, PopoverHeader, PopoverType, RadioButtonListDirection, SliderNavigationTabTextType, StatusActiveOrNotActive, TextSize, TextWeight, ToastNotificationIcons } from 'src/app/enums/basic-enum';
 import { ButtonIcon, CheckStateType, IconButtonLargeType, SliderNavigationTabType, State, ButtonType, DataCellType, HeaderCellType } from 'src/app/enums/basic-enum';
 import { CardIcons } from 'src/app/enums/basic-enum';
 import { CommonModule } from '@angular/common';
@@ -41,6 +41,8 @@ import { HeadingComponent } from "../basic-components/heading/heading.component"
 import { BodyComponent } from "../basic-components/body/body.component";
 import { FieldComponent } from "../basic-components/field/field.component";
 import { CreateClusterComponent } from "../cluster-managment/create-cluster/create-cluster.component";
+import { PopoverComponent } from "../basic-components/popover/popover.component";
+import { NativeOptionComponent } from "../basic-components/native-option/native-option.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -82,6 +84,8 @@ import { CreateClusterComponent } from "../cluster-managment/create-cluster/crea
     BadgeComponent,
     AssigneeComponent,
     DataCellsComponent,
+    PopoverComponent,
+    NativeOptionComponent,
     HeaderCellsComponent,
     SliderNavigationTabComponent,
     SlidebarNavigationComponent,
@@ -154,6 +158,9 @@ export class TestComponent {
   optionType = NativeOptionType;
   ToastNotificationIcons = ToastNotificationIcons;
   RadioButtonListDirection=RadioButtonListDirection;
+  NativeOptionType=NativeOptionType;
+  NativeOptionState=NativeOptionState;
+  popoverType=PopoverType;
   //variables-----------------------------------------------------------------------
   // button component properties
   switchState: boolean = false;
@@ -199,6 +206,9 @@ export class TestComponent {
   DataCellType = DataCellType;
   // SliderNavigationTabIconType = SliderNavigationTabIconType;
   // SliderNavigationTabType = SliderNavigationTabType;
+
+  
+
   selectedOption: string = '';
   radioButtonArray: string[] = ["a", "b", "c", "d", "other"];
 
@@ -353,6 +363,9 @@ export class TestComponent {
   // iconp = "fa-solid fa-plus"
   // // txt1 = "Enter Book ID"
   // txt2 = "Enter Book ID"
+
+popoverOptionsAssignee: string[] = ["Assignee 1", "Assignee 2", "Assignee 3"];
+popoverOptionsLink: string[] = ["Link 1", "Link 2", "Link 3"];
 
 
   nativeOptions = [
