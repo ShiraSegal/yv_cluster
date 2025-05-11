@@ -19,6 +19,14 @@ export class ClusterApiService {
     return this.#http.get<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`);
   }
 
+  getSingleItemByBookId (bookId:{'bookId':string}){
+    return this.#http.post(`${this.apiUrl}/getByBookId.json`, bookId);
+  }
+
+  getClusterGroupByBookId(cluster:{'bookId':string}){
+    return this.#http.post(`${this.apiUrl}/getByBookId.json`, cluster);
+  }
+
   createCluster(SapirClusterModel: SapirClusterModel){
     return this.#http.post<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`, SapirClusterModel);
   }

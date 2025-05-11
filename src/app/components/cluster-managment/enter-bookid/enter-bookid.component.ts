@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonType, RadioButtonListDirection, State, TextColor, TextSize, TextWeight, ToastNotificationIcons } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../../basic-components/button/button.component';
@@ -7,6 +7,7 @@ import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-bu
 import { RadioButtonListComponent } from '../../basic-components/radio-button-list/radio-button-list.component';
 import { FieldComponent } from '../../basic-components/field/field.component';
 import { ToastNotificationComponent } from '../../basic-components/toast-notification/toast-notification.component';
+import { ClusterService } from 'src/app/services/cluster.service';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
@@ -17,6 +18,7 @@ import { ToastNotificationComponent } from '../../basic-components/toast-notific
 })
 export class EnterBookidComponent {
   
+    #clusterService = inject(ClusterService);
   //form
   formGroup:FormGroup = new FormGroup({
     selection: new FormControl('', Validators.required), 
@@ -56,17 +58,52 @@ export class EnterBookidComponent {
 
   checkedChange(selected: string) {
     this.selected = selected;
+    console.log("fffffffffff:",this.formGroup);
+    
   }
 
 
   add() {
     if (this.formGroup.valid) {
+      if(this.formGroup.value.selection=='Book ID'){
+      this.#clusterService.getSingleItemByBookId({bookId:this.formGroup.value.input}).subscribe({
+        next: (res) => {
+          console.log("**********************",{bookId:this.formGroup.value.input});
+          
+          if (res) {
+            console.log("bookId add:", res);
+          } else {
+            console.warn("add bookId failed.");
+          }
+        },
+        error: (err) => {
+          console.error("Error during cluster creation:", err);
+        }
+      });  
       this.formIsValid = true;
       this.close = true;
     }
-    else {
-      this.formIsValid = false;
+    else if(this.formGroup.value.selection=='Cluster'){
+      this.#clusterService.getClusterGroupByBookId({bookId:this.formGroup.value.input}).subscribe({
+        next: (res) => {
+          console.log("**********************",{bookId:this.formGroup.value.input});
+          if (res) {
+            console.log("Cluster add:", res);
+          } else {
+            console.warn("add cluster failed.");
+          }
+        },
+        error: (err) => {
+          console.error("Error during cluster creation:", err);
+        }
+      });  
     }
+  
   }
-
+  else {
+    this.formIsValid = false; 
+  }
+    console.log("formIsValid", this.formIsValid); 
+  
+  }
 }

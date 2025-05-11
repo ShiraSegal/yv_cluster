@@ -166,4 +166,37 @@ export class ClusterService {
       );
       return result;
   }
+
+  getSingleItemByBookId (bookId:{'bookId':string}){
+    const result = this.#clusterApiService.getSingleItemByBookId(bookId)
+      .pipe(
+        take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
+        tap(res => {
+          console.log("BookId added successfully:", res); // לוג לתוצאה
+          return true;
+        }),
+        catchError(err => {
+          console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
+          return of(false); // החזרת ערך ברירת מחדל במקרה של שגיאה
+        })
+      );
+      return result;
+  }
+
+  
+  getClusterGroupByBookId(cluster:{'bookId':string}){
+    const result = this.#clusterApiService.getClusterGroupByBookId(cluster)
+      .pipe(
+        take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
+        tap(res => {
+          console.log("Cluster added successfully:", res); // לוג לתוצאה
+          return true;
+        }),
+        catchError(err => {
+          console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
+          return of(false); // החזרת ערך ברירת מחדל במקרה של שגיאה
+        })
+      );
+      return result;
+  }
  }
