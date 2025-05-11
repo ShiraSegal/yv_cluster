@@ -17,6 +17,7 @@
 <yv-cluster-body [bodyText]="bodyText3" [size]="size3" [weight]="weight2"></yv-cluster-body>
 <hr>
 <yv-cluster-home-warp></yv-cluster-home-warp>
+<hr>
 <h3>basic table row</h3>
 <hr>
 <yv-cluster-basic-table-row [property]="basicTableRowPropertyVariants.VARIANT2" [showAction]="true" [cells]="[
@@ -105,10 +106,10 @@
 <hr>
 <h3>check</h3>
 <hr>
-<!-- <yv-cluster-check [_type]=checkType.UNCHECKED [state]=checkStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [_type]=checkType.CHECKED [state]=checkStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [_type]=checkType.UNCHECKED [state]=checkStateType.DISABLED></yv-cluster-check>
-<yv-cluster-check [_type]=checkType.CHECKED [state]=checkStateType.DISABLED></yv-cluster-check> -->
+<yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
+<yv-cluster-check [type]=checkType.CHECKED [state]=checkStateType.ENABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
+<yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.DISABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
+<yv-cluster-check [type]=checkType.CHECKED [state]=checkStateType.DISABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
 <hr>
 <h3>header cell</h3>
 <hr>
@@ -134,31 +135,7 @@
 <hr>
 <yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
 <hr>
-<h3>switch</h3>
-<hr>
-<yv-cluster-switch [text]="'switch'" [status]="StatusActiveOrNotActive.ACTIVE"
-  (switchChange)="handleSwitchChange($event)"></yv-cluster-switch>
-<hr>
-<h3>tab</h3>
-<hr>
-<yv-cluster-basic-tab [text]="'tab'" [status]="StatusActiveOrNotActive.ACTIVE"
-  (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
-<hr>
-<h3>card</h3>
-<hr>
-<yv-cluster-basic-card [iconName]="CardIcons.HOME" [text]="'30 New clusters pending'"></yv-cluster-basic-card>
-<br>
-<yv-cluster-basic-card [iconName]="CardIcons.HOURGLASS_CLOCK"
-  [text]="'30 New Suggestions pending'"></yv-cluster-basic-card>
-<br>
-<yv-cluster-basic-card [iconName]="CardIcons.EDIT"
-  [text]="'70 Clusters created manually this month'"></yv-cluster-basic-card>
-<br>
-<yv-cluster-basic-card [iconName]="CardIcons.CLOCK_FIVE"
-  [text]="'560 Old Suggestions  pending'"></yv-cluster-basic-card>
-<br>
-<yv-cluster-basic-card [iconName]="CardIcons.CIRCLE_CHECK"
-  [text]="'120 Suggestions processed this month'"></yv-cluster-basic-card>
+
 <hr>
 <h3>narrow-basic-table-row </h3>
 <yv-cluster-narrow-basic-table-row [property]="NarrowBasicTableRowInputState.HOVER" [cells]="exampleNarrowRow"></yv-cluster-narrow-basic-table-row>

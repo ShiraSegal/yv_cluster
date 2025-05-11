@@ -89,7 +89,6 @@ export class NarrowBasicTableComponent {
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
   ];
-
   trackByFn(index: number, item: any): any {
     return index;
   }

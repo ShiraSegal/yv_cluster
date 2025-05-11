@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 
 
@@ -16,6 +17,12 @@ export class ClusterApiService {
   }
   async getCreateClusterData() {
     return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`);
+  }
+  getStatisticData(): Observable<any> {
+    return this.#http.get('./assets/json-data/getStatisticData.json');
+  }
+  getClusterGroupDetails(): Observable<any> {
+    return this.#http.get('./assets/json-data/getClusterGroupDetails.json');
   }
   // getCreateClusterData(): Observable<any[]> {
   //   return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`).pipe(

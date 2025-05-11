@@ -1,14 +1,15 @@
-
-import {  ButtonSize, CheckStateType, } from 'src/app/enums/basic-enum';
-import { AutoClusterTabType, BasicTableRowPropertyVariants, TextSize, TextWeight} from 'src/app/enums/basic-enum';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormControl } from "@angular/forms";
+//import enums
+import {  ButtonSize, CheckStateType, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State , AutoClusterTabType,  BasicTableRowPropertyVariants, ButtonIconProperty, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, SliderNavigationTabTextType, TextSize, TextWeight, BadgeType, RadioButtonListDirection, BigCardSize } from 'src/app/enums/basic-enum';
+import { IconType } from 'src/app/enums/icon-enum';
+import { CheckType } from "src/app/enums/check-enum";
+//import components
 import { HeadingComponent } from '../basic-components/heading/heading.component';
 import { BodyComponent } from '../basic-components/body/body.component';
-import { CommonModule } from "@angular/common";
-import { CheckComponent } from "../basic-components/check/check.component";
-import { Component } from "@angular/core";
-import { BadgeType, ButtonType, CardIcons, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State, StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
 import { SliderComponent } from "../basic-components/slider/slider.component";
-import {  ButtonIconProperty, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, SliderNavigationTabTextType, ToastNotificationIcons } from 'src/app/enums/basic-enum';
+import { CheckComponent } from "../basic-components/check/check.component";
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
 import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
 import { HeaderCellsComponent } from '../basic-components/header-cells/header-cells.component';
@@ -18,11 +19,10 @@ import { FilterSectionComponent } from '../basic-components/filter-section/filte
 import { ToastNotificationComponent } from '../basic-components/toast-notification/toast-notification.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
 import { RadioButtonListComponent } from '../basic-components/radio-button-list/radio-button-list.component';
-import { CreateClusterComponent } from '../cluster-managment/create-cluster/create-cluster.component';
+//import { CreateClusterComponent } from '../cluster-managment/create-cluster/create-cluster.component';
 import { FieldComponent } from '../basic-components/field/field.component';
 import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
 import { BadgeComponent } from '../basic-components/badge/badge.component';
-import { IconType } from 'src/app/enums/icon-enum';
 import { ButtonComponent } from "../basic-components/button/button.component";
 import { SwitchComponent } from "../basic-components/switch/switch.component";
 import { BasicTabComponent } from "../basic-components/basic-tab/basic-tab.component";
@@ -32,14 +32,13 @@ import { BasicTableRowComponent } from "../basic-components/basic-table-row/basi
 import { ViewerComponent } from "../basic-components/viewer/viewer.component";
 import { SliderNavigationTabComponent } from "../basic-components/slider-navigation-tab/slider-navigation-tab.component";
 import { SlidebarNavigationComponent } from "../basic-components/slidebar-navigation/slidebar-navigation.component";
-import { FormControl } from "@angular/forms";
-import { CheckType } from "src/app/enums/check-enum";
 import { NarrowBasicTableRowComponent } from "../basic-components/narrow-basic-table-row/narrow-basic-table-row.component";
 import { NarrowBasicTableWarpComponent } from "../basic-components/narrow-basic-table-warp/narrow-basic-table-warp.component";
 import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
 import { HomeWarpComponent } from "../core-components/home-warp/home-warp.component";
 import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
 import { SelectComponent } from '../basic-components/select/select.component';
+import { CardColor } from "src/app/enums/card-colors.enum";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -49,14 +48,12 @@ import { SelectComponent } from '../basic-components/select/select.component';
     HeadingComponent,
     BodyComponent,
     AssigneeComponent,
-    BasicTableComponent,
     DataCellsComponent,
     HeaderCellsComponent,
     EnterBookidComponent,
     FieldComponent,
     CommonModule,
     IconButtonComponent,
-    FilterSectionComponent,
     ButtonComponent,
     BasicCardComponent,
     ToastNotificationComponent,
@@ -69,7 +66,7 @@ import { SelectComponent } from '../basic-components/select/select.component';
     SwitchComponent,
     FieldComponent,
     RadioButtonListComponent,
-    CreateClusterComponent,
+    //CreateClusterComponent,
     BadgeComponent,
     BasicTableRowComponent,
     IconButtonLargeComponent,
@@ -84,19 +81,19 @@ import { SelectComponent } from '../basic-components/select/select.component';
 })
 export class TestComponent {
   //enums-----------------------------------------------------------------------
-  iconType = IconType;//  types of icons.
+  iconType = IconType;//  types of icons. 
+  IconType = IconType; 
   badgeType = BadgeType;//types of badge
   checkStateType = CheckStateType;
   checkType = CheckType;
   headerCellType = HeaderCellType;//header cell types
-  dataCellType = DataCellType;//data cell types
+  dataCellType = DataCellType;//data cell types  
   sliderNavigationTabType = SliderNavigationTabType;//types of slider navigation tab
   stateEnum = State;//  types of input & select.
   iconButtonLargeType = IconButtonLargeType;
-  StatusActiveOrNotActive = StatusActiveOrNotActive;
-  CardIcons = CardIcons;
-  buttonType = ButtonType;
-  IconType = IconType;
+  ButtonType = ButtonType;
+  ButtonSize = ButtonSize;
+  BigCardSize=BigCardSize;
   basicTableRowPropertyVariants = BasicTableRowPropertyVariants;
   sliderNavigationTabTextType = SliderNavigationTabTextType
   AutoClusterTabType = AutoClusterTabType;
@@ -104,8 +101,9 @@ export class TestComponent {
   nativeOptionType = NativeOptionType;
   optionState = NativeOptionState;
   optionType = NativeOptionType;
-  ToastNotificationIcons = ToastNotificationIcons;
-
+  RadioButtonListDirection=RadioButtonListDirection;
+  cardColorEnum=CardColor;
+  buttonType = ButtonType;
   
 //variables-----------------------------------------------------------------------
   // button component properties
@@ -134,6 +132,9 @@ export class TestComponent {
 
 
 //heading
+
+  //variables-----------------------------------------------------------------------
+  //heading component properties
   title1 = "Heading Large"
   title2 = "Heading Medium-Bold"
   title3 = "Heading Small"
@@ -143,7 +144,7 @@ export class TestComponent {
   size3 = TextSize.SMALL
   weight1=TextWeight.BOLD
   weight2=TextWeight.NORMAL
-  //body
+
   bodyText1: string = 'Body Large Upon initial observation, it may appear that there are only two primary scenarios for ';
   bodyText2: string = 'Body Medium Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
   bodyText3: string = 'Body Small Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
@@ -152,17 +153,18 @@ export class TestComponent {
   btnType2 = ButtonType.SECONDARY;
   txt1 = "test btn1"
   txt2 = "Enter Book ID"
+  options: string[] = [];
+  variant1 = ButtonIconProperty.VARIANT1
+  variant2 = ButtonIconProperty.VARIANT2
+  variant3 = ButtonIconProperty.VARIANT3
   title = 'test';
   isError: boolean = false;
   isDisabled: boolean = false;
   isFocused: boolean = false;
   isPopulated: boolean = true;
 
-  options: string[] = [];
-  variant1 = ButtonIconProperty.VARIANT1
-  variant2 = ButtonIconProperty.VARIANT2
-  variant3 = ButtonIconProperty.VARIANT3
-
+  selectedOption: string = '';
+  radioButtonArray: string[] = ["a", "b", "c", "d", "other"];
   nativeOptions = [
     { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
     { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
@@ -192,7 +194,14 @@ export class TestComponent {
     alert('test on click');
     console.log('test on click');
   }
+  onRadioButtonListSelectionChange(selectedValue: string) {
+    this.selectedOption = selectedValue;
+    console.log("האפשרות שנבחרה:", this.selectedOption);
+  }
+  checkChange(checkStatus:CheckType) {
+    console.log("check status", checkStatus)
 
+  }
   //data-----------------------------------------------------------------------
   // table-header
   exampleTableHeader = [{ data: '', type: HeaderCellType.CHECK },
@@ -385,7 +394,7 @@ export class TestComponent {
     }
   ];
 
- 
+
+
 
 }
-

@@ -1,13 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
-import { BasicTablePropertyType, ButtonType, NarrowBasicTableRowInputState, StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
+import { BasicTablePropertyType, ButtonType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
 import { DataCellType, HeaderCellType, AutoClusterTabType } from 'src/app/enums/basic-enum';
-import { BasicTabComponent } from '../basic-tab/basic-tab.component';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 import { ClusterService } from 'src/app/services/cluster.service';
-import { SlidebarNavigationComponent } from '../slidebar-navigation/slidebar-navigation.component';
-import { FormGroup } from '@angular/forms';
-
+import { BasicTabComponent } from '../basic-tab/basic-tab.component';
 
 
 @Component({
@@ -23,7 +20,7 @@ export class NarrowBasicTableWarpComponent {
   DataCellType = DataCellType;
   BasicTablePropertyType = BasicTablePropertyType;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
-  StatusActiveOrNotActive = StatusActiveOrNotActive;
+
   data1: any;
   tabData: any;
 
@@ -73,13 +70,22 @@ export class NarrowBasicTableWarpComponent {
       }
     }
   currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
+  // tabs = [
+  //   { text: AutoClusterTabType.SAPIR_CLUSTERS, status: StatusActiveOrNotActive.ACTIVE },
+  //   { text: AutoClusterTabType.MISSING_FIELD, status: StatusActiveOrNotActive.NOT_ACTIVE },
+  //   { text: AutoClusterTabType.ERROR_MESSAGES, status:  StatusActiveOrNotActive.NOT_ACTIVE },
+  //   { text: AutoClusterTabType.DIFFERENT_CLUSTERS, status:  StatusActiveOrNotActive.NOT_ACTIVE },
+  //   { text: AutoClusterTabType.CHECKLIST_ITEMS, status:  StatusActiveOrNotActive.NOT_ACTIVE },
+  //   { text: AutoClusterTabType.APPROVAL_GROUPS, status:  StatusActiveOrNotActive.NOT_ACTIVE }
+
+  // ];
   tabs = [
-    { text: AutoClusterTabType.SAPIR_CLUSTERS, status: StatusActiveOrNotActive.ACTIVE },
-    { text: AutoClusterTabType.MISSING_FIELD, status: StatusActiveOrNotActive.NOT_ACTIVE },
-    { text: AutoClusterTabType.APPROVAL_GROUPS, status: StatusActiveOrNotActive.NOT_ACTIVE },
-    { text: AutoClusterTabType.CHECKLIST_ITEMS, status: StatusActiveOrNotActive.NOT_ACTIVE },
-    { text: AutoClusterTabType.DIFFERENT_CLUSTERS, status: StatusActiveOrNotActive.NOT_ACTIVE },
-    { text: AutoClusterTabType.ERROR_MESSAGES, status: StatusActiveOrNotActive.NOT_ACTIVE },
+    { text: AutoClusterTabType.SAPIR_CLUSTERS, status: true },
+    { text: AutoClusterTabType.MISSING_FIELD, status: false },
+    { text: AutoClusterTabType.ERROR_MESSAGES, status: false },
+    { text: AutoClusterTabType.DIFFERENT_CLUSTERS, status: false},
+    { text: AutoClusterTabType.CHECKLIST_ITEMS, status: false },
+    { text: AutoClusterTabType.APPROVAL_GROUPS, status: false }
 
    
   ];
@@ -106,7 +112,8 @@ export class NarrowBasicTableWarpComponent {
   setActiveTab(tabText: AutoClusterTabType) {
     this.tabs = this.tabs.map((tab) => ({
       ...tab,
-      status: tab.text === tabText ? StatusActiveOrNotActive.ACTIVE : StatusActiveOrNotActive.NOT_ACTIVE
+      status: tab.text === tabText ? true : false
+
     }));
     this.currentTab = tabText;
     this.loadDataForTab(); // טען מחדש את הנתונים לטאב הנוכחי

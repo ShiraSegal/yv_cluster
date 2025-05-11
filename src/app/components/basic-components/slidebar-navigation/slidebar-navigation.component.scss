@@ -1,4 +1,4 @@
-@import "src/styles.scss";
+@import "../../../../styles/colors.scss";
 
 .slider-navigation {
     display: flex;
@@ -62,5 +62,5 @@ align-self: stretch;
     align-items: center;
     gap: 0.1875rem;
     flex-shrink: 0;
-    border-bottom: 0.03125rem solid $c-3F4B5A;
+    border-bottom: 0.03125rem solid $c-B8C2EA;
 }

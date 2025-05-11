@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { CardIcons } from 'src/app/enums/basic-enum';
-
-
+import { Component, ElementRef, Input, Renderer2 } from '@angular/core';
+import { IconType } from 'src/app/enums/icon-enum';
 
 @Component({
   selector: 'yv-cluster-basic-card',
@@ -12,11 +10,10 @@ import { CardIcons } from 'src/app/enums/basic-enum';
   styleUrl: './basic-card.component.scss'
 })
 export class BasicCardComponent {
-  CardIcons = CardIcons;
-  @Input() text!: string;
-  @Input() iconName!: CardIcons;
-  iconNameTheSecondWord!: string;
-  ngOnInit(): void {
-    this.iconNameTheSecondWord = this.iconName.split(' ')[1];
-  }
+  iconType = IconType;
+  @Input() text: string;
+  @Input() iconName: IconType;
+  @Input() circleColor: string; 
+  @Input() iconColor: string;
+
 }
