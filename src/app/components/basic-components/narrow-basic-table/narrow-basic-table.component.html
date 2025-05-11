@@ -1,7 +1,10 @@
+
 <form [formGroup]="tableDataForm">
     <div class="table-frame">
         <div class="table-actions">
-            <yv-cluster-filter-section (toggleAssigneeClicked)="onToggleAssignee()"></yv-cluster-filter-section>
+            <yv-cluster-filter-section (onClickAddCluster)="onClickAddCluster()"
+       (onClicShowkAssineeOrStatus)="onClicShowkAssineeOrStatus()"
+       (onFilterValuesChange)="onFilterValuesChange($event)"></yv-cluster-filter-section>
         </div>
 
         <div class="data-container">

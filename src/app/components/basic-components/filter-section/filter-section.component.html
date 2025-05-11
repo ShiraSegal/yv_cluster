@@ -30,24 +30,26 @@
 
   <div class="right-buttons">
     <!-- כפתור ראשון: Assignee toggle -->
+    <!-- formControlName="toggleAssignee" -->
+
     <yv-cluster-icon-button-large
-      formControlName="toggleAssignee"
       [icon]="iconType.USER_LIGHT"
       [property]="iconButtonLargeType.DEFAULT"
-      (onClick)="onClick()"
+      (onClick)="onClickStatus()"
     ></yv-cluster-icon-button-large>
 
     <!-- כפתור שני: Status toggle -->
+    <!-- formControlName="toggleStatus" -->
     <yv-cluster-icon-button-large
-      formControlName="toggleStatus"
+      
       [icon]="iconType.CLIPBOARD_LIST_LIGHT"
       [property]="iconButtonLargeType.DEFAULT"
-      (onClick)="onClick()"
+      (onClick)="onClickAssinee()"
     ></yv-cluster-icon-button-large>
 
     <!-- כפתור רגיל -->
     <yv-cluster-button
-      (onClick)="onClick()"
+      (onClick)="onClickAddClusterFunc()"
       [text]="buttonText"
       [buttonType]="primary"
       [isBig]="true"

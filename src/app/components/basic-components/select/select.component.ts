@@ -1,4 +1,3 @@
-
 import {
   Component,
   forwardRef,
@@ -7,16 +6,23 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { State } from 'src/app/enums/basic-enum';
+import { State, BadgeType } from 'src/app/enums/basic-enum';
 import { NativeOptionState, NativeOptionType } from 'src/app/enums/native-option-enum';
 import { NativeOptionComponent } from '../native-option/native-option.component';
+
+type NativeSelectOption = {
+  optionType: NativeOptionType;
+  optionState: NativeOptionState;
+  displayText: string;
+  property?: BadgeType;
+};
 
 @Component({
   selector: 'yv-cluster-select',
   standalone: true,
   imports: [CommonModule, NativeOptionComponent],
   templateUrl: './select.component.html',
-  styleUrl: './select.component.scss',
+  styleUrls: ['./select.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -32,13 +38,15 @@ export class SelectComponent implements ControlValueAccessor {
   @Input() focused: boolean = false;
   @Input() populated: boolean = false;
   @Input() default: string = '';
-  @Input() options: { optionType: NativeOptionType; optionState: NativeOptionState }[] = [];
   @Input() dropdownType: NativeOptionType = NativeOptionType.ASSIGNEE;
+
+  @Input() options: NativeSelectOption[] = [];
+
+  selectedOption: NativeSelectOption | null = null;
 
   nativeOptionType = NativeOptionType;
   stateEnumMain = State;
   stateEnum: State = State.DEFAULT;
-  selectedOption: { optionType: NativeOptionType; optionState: NativeOptionState } | null = null;
   dropdownOpen = false;
 
   private onChange = (_: any) => {};
@@ -50,7 +58,7 @@ export class SelectComponent implements ControlValueAccessor {
     }
   }
 
-  selectOption(option: { optionType: NativeOptionType; optionState: NativeOptionState }): void {
+  selectOption(option: NativeSelectOption): void {
     this.selectedOption = option;
     this.dropdownOpen = false;
     this.stateEnum = State.POPULATED;
@@ -100,20 +108,6 @@ export class SelectComponent implements ControlValueAccessor {
       this.stateEnum = State.POPULATED;
     } else {
       this.stateEnum = State.DEFAULT;
-    }
-  }
-
-  setOptionsBasedOnSelect(dropdownType: NativeOptionType): void {
-    switch (dropdownType) {
-      case 'status':
-        this.dropdownType = this.nativeOptionType.STATUS;
-        break;
-      case 'assignee':
-        this.dropdownType = this.nativeOptionType.ASSIGNEE;
-        break;
-      default:
-        this.dropdownType = this.nativeOptionType.TEXT;
-        break;
     }
   }
 }

@@ -15,10 +15,9 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
   ],
 })
 export class AssigneeComponent implements ControlValueAccessor {
-  @Input() data: string | undefined = 'Racheli Liff'; // Default value
-  @Input() assigneeControl: FormControl; // Accept the FormControl
-  @Output() assigneeChange = new EventEmitter<string>(); // Declare the Output property
-
+  @Input() data: string | undefined = 'UnAssignee'; // Default value
+  @Output() assigneeChange = new EventEmitter<string>();
+  @Input() assigneeControl: FormControl;
   assigneeInitials: string = '';
   truncatedName: string = '';
 
@@ -26,13 +25,6 @@ export class AssigneeComponent implements ControlValueAccessor {
   onTouched: () => void = () => {};
 
   ngOnInit(): void {
-    // Listen to changes in the FormControl
-    if (this.assigneeControl) {
-      this.assigneeControl.valueChanges.subscribe((value) => {
-        this.data = value;
-        this.updateAssigneeProperties();
-      });
-    }
     this.updateAssigneeProperties();
   }
 
@@ -68,10 +60,6 @@ export class AssigneeComponent implements ControlValueAccessor {
     this.assigneeChange.emit(this.data);
     this.updateAssigneeProperties();
   
-    // Update the FormControl value if it exists
-    if (this.assigneeControl) {
-      this.assigneeControl.setValue(newValue);
-    }
   }
   onBlur(): void {
     this.onTouched();

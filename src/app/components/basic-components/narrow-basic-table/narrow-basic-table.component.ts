@@ -6,7 +6,7 @@ import { TableHeaderComponent } from '../table-header/table-header.component';
 import { ButtonIconProperty, NativeOptionState, NativeOptionType } from 'src/app/enums/native-option-enum';
 import { IconType } from 'src/app/enums/icon-enum';
 import { FilterSectionComponent } from "../filter-section/filter-section.component";
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ClusterService } from 'src/app/services/cluster.service';
 
 @Component({
@@ -47,7 +47,6 @@ export class NarrowBasicTableComponent {
   });
 
   ngOnInit() {
-    debugger
     this.tableDataForm.valueChanges.subscribe((value) => {
       console.log('Basic table Form Value:', value);
     }
@@ -98,23 +97,17 @@ export class NarrowBasicTableComponent {
     alert('test on click');
     console.log('test on click');
   }
-  onToggleAssignee(): void {
-    const firstGroup = this.rowsFormArray.at(0) as FormGroup; // קבלת השורה הראשונה
-    if (firstGroup) {
-      const assigneeControl = firstGroup.get('assignee');
-      if (assigneeControl) {
-        const newAssignee = 'Shai Barak';
-        assigneeControl.setValue(newAssignee); // עדכון הערך ב-FormControl
-  
-        // עדכון הנתונים ב-ClusterService
-        const updatedList = this.rowsFormArray.value.map((row: any, index: number) => {
-          if (index === 0) {
-            return { ...row, assignee: newAssignee }; // עדכון השורה הראשונה בלבד
-          }
-          return row; // שאר השורות נשארות ללא שינוי
-        });
-        this.clusterService.autoClusterListSubject$.next(updatedList); // עדכון ה-BehaviorSubject
-      }
-    }
+  onClickAddCluster(){
+    //open dialog create new cluster
   }
+  onClicShowkAssineeOrStatus(){
+
+  }
+  onFilterValuesChange(values: any[]){
+   console.log('filter values:', values);
+   //create filter arr 
+   // filter this.Rows based on the values
+
+  }
+
 }

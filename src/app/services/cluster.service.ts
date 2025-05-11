@@ -3,6 +3,7 @@ import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, of, tak
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
 import { map } from 'rxjs/operators';
+import { NativeOptionState, NativeOptionType } from '../enums/basic-enum';
 
 
 @Injectable({
@@ -90,6 +91,19 @@ export class ClusterService {
       
     return result; // מחזיר את המערך SapirClusterDetails
   }
- }
+  private assigneeList$ = new BehaviorSubject<string[]>([]);
 
-
+  get AssigneeList$(): Observable<string[]> {
+    if (!this.assigneeList$.value.length) {
+      this.#clusterApiService.getAssigneeList()
+        .pipe(
+          take(1),
+          map(data => data.map(item => item.name)),
+          tap(names => this.assigneeList$.next(names))
+        )
+        .subscribe();
+    }
+  
+    return this.assigneeList$.asObservable();
+  }
+}
