@@ -21,16 +21,16 @@ export class ClusterService {
       const res = (await this.#clusterApiService.getAutoClusterData())
         .pipe(
           take(1),
-          tap((data: any[]) => {
+          tap((data: any) => {
             console.log('Fetched data:', data); // בדיקה שהנתונים מגיעים
             this.autoClusterListSubject$.next(data); // שמירת הנתונים ב-BehaviorSubject
           }),
           catchError(err => {
             console.error('Error fetching auto cluster data:', err);
-            return of([]); // החזרת מערך ריק במקרה של שגיאה
+            return of([]);
           })
         );
-      return res.toPromise(); // ודא שהפונקציה מחזירה Promise
+      return res.toPromise();
     } catch (error) {
       console.error('Error in getAutoClusterData:', error);
       return [];

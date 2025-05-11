@@ -6,12 +6,13 @@
         'regular-cell': cell.type !== DataCellType.ICON && cell.type !== DataCellType.CHECK && cell.type !== DataCellType.MORE
       }"
     >
+    <!--  [control]="getControl(cell.type)" -->
       <div class="cell">
         <yv-cluster-data-cells 
           [data]="cell.data" 
           [type]="cell.type" 
           [moreData]="cell.moreData || {}"
-          [control]="getControl(cell.type)"
+          [control]="rowFormGroup.get(cell.type)"
         ></yv-cluster-data-cells>
       </div>
     </div>

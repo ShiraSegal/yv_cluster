@@ -99,19 +99,22 @@ export class NarrowBasicTableComponent {
     console.log('test on click');
   }
   onToggleAssignee(): void {
-    this.rowsFormArray.controls.forEach((group) => {
-      const assigneeControl = group.get('assignee');
+    const firstGroup = this.rowsFormArray.at(0) as FormGroup; // קבלת השורה הראשונה
+    if (firstGroup) {
+      const assigneeControl = firstGroup.get('assignee');
       if (assigneeControl) {
         const newAssignee = 'Shai Barak';
         assigneeControl.setValue(newAssignee); // עדכון הערך ב-FormControl
-
+  
         // עדכון הנתונים ב-ClusterService
-        const updatedList = this.rowsFormArray.value.map((row: any) => ({
-          ...row,
-          assignee: newAssignee,
-        }));
+        const updatedList = this.rowsFormArray.value.map((row: any, index: number) => {
+          if (index === 0) {
+            return { ...row, assignee: newAssignee }; // עדכון השורה הראשונה בלבד
+          }
+          return row; // שאר השורות נשארות ללא שינוי
+        });
         this.clusterService.autoClusterListSubject$.next(updatedList); // עדכון ה-BehaviorSubject
       }
-    });
+    }
   }
 }

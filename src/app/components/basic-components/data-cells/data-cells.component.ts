@@ -30,10 +30,10 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class DataCellsComponent<T extends DataCellType> {
   // variables
-  @Input() type!: T;
-  @Input() data!: DataCellValue<T>;
+  @Input() type: T;
+  @Input() data: DataCellValue<T>;
   @Input() moreData: { [key: string]: any }; // אובייקט לפרמטרים נוספים
-  @Input() control!: FormControl<any>; // Add this input
+  @Input() control:any; 
   //injecting ENUM
 
   badgeType = BadgeType;

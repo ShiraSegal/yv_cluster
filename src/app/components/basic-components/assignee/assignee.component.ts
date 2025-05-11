@@ -16,7 +16,7 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
 })
 export class AssigneeComponent implements ControlValueAccessor {
   @Input() data: string | undefined = 'Racheli Liff'; // Default value
-  @Input() assigneeControl!: FormControl; // Accept the FormControl
+  @Input() assigneeControl: FormControl; // Accept the FormControl
   @Output() assigneeChange = new EventEmitter<string>(); // Declare the Output property
 
   assigneeInitials: string = '';

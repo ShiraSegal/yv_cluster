@@ -112,9 +112,10 @@ export class NarrowBasicTableWarpComponent {
       status: tab.text === tabText ? StatusActiveOrNotActive.ACTIVE : StatusActiveOrNotActive.NOT_ACTIVE
     }));
     this.currentTab = tabText;
-
-    // טען מחדש את הנתונים מהשירות
-    this.loadDataForTab();
+  
+    console.log('Active Tab Updated:', this.currentTab); // בדיקה שהטאב הנוכחי מתעדכן
+    console.log('Tab Data Before Load:', this.tabData); // בדיקה של הנתונים לפני טעינת הטאב
+    this.loadDataForTab(); // טען מחדש את הנתונים לטאב הנוכחי
   }
   readonly DBKeyToHeaderMap: { [key: string]: string } = {
     clusterID: 'Cluster ID',
@@ -192,31 +193,31 @@ export class NarrowBasicTableWarpComponent {
 
   loadDataForTab() {
     const jsonKey = this.TabToJSONKeyMap[this.currentTab]; // מיפוי הטאב למפתח המתאים
+    console.log('Mapped JSON Key:', jsonKey); // בדיקה של המפתח הממופה
     const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
     console.log('Mapped Tab Data:', tabData); // בדיקה של הנתונים הממופים
     console.log('Current Tab:', this.currentTab);
-    console.log('Mapped JSON Key:', this.TabToJSONKeyMap[this.currentTab]);
     if (!tabData.length) {
       console.warn('No data available for the current tab'); // הודעה אם אין נתונים
       return;
     }
-
+  
     this.Headers = this.TabHeaders[this.currentTab];
-
+  
     const headerToKeyMap = Object.entries(this.DBKeyToHeaderMap).reduce((acc, [key, value]) => {
       acc[value] = key;
       return acc;
     }, {} as { [key: string]: string });
-
+  
     this.Rows = tabData.map((item: any) => ({
       property: item,
       showAction: true,
       cells: this.Headers.map(header => {
         const jsonKey = headerToKeyMap[header.data] || header.data;
         const cellData = item[jsonKey] || '';
-
+  
         const dataCellType = this.getDataCellTypeForHeader(header.data, header.type);
-
+  
         if (dataCellType === DataCellType.CHECK) {
           return { data: "", type: DataCellType.CHECK, moreData: {} };
         } else if (dataCellType === DataCellType.ASSIGNEE) {
@@ -230,18 +231,16 @@ export class NarrowBasicTableWarpComponent {
     }));
   }
 
-
   async ngOnInit() {
     console.log('Initializing component...');
     await this.clusterService.getAutoClusterData();
-
+  
     this.clusterService.autoClusterListSubject$.subscribe((data) => {
       console.log('Data received in component:', data); // בדיקה שהנתונים מגיעים
       this.tabData = data; // שמירת הנתונים ב-tabData
+      console.log('Tab Data After Fetch:', this.tabData); // בדיקה של הנתונים לאחר הטעינה
       this.loadDataForTab(); // טען את הנתונים לטבלה
     });
-
-    this.loadDataForTab();
   }
 
 

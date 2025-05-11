@@ -75,9 +75,4 @@ export class FilterSectionComponent {
     console.log('Submit clicked:', this.filterForm.value);
   }
 
-  @Output() toggleAssigneeClicked = new EventEmitter<void>(); // Output event
-  onClick2(): void {
-    debugger
-    this.toggleAssigneeClicked.emit(); // Emit the event
-  }
 }

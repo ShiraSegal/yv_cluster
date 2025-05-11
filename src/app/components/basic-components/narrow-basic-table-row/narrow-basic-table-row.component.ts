@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { CheckStateType, DataCellType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
-import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, FormArray, FormControl, FormGroup, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { CheckComponent } from '../check/check.component';
  
 @Component({
@@ -19,26 +19,16 @@ export class NarrowBasicTableRowComponent {
     type: DataCellType;
     moreData?: { [key: string]: any }; // Optional additional data
   }[] = [];
-  
-  @Input() rowFormGroup: FormGroup; // Pass the FormGroup for the row
+  @Input() rowFormArray: FormArray; // Pass the FormArray
+  @Input() rowIndex: number; // Pass the index of the row
+
+  get rowFormGroup(): FormGroup {
+    return this.rowFormArray.at(this.rowIndex) as FormGroup; // Retrieve the specific FormGroup
+  }
   DataCellType = DataCellType;
   CheckStateType = CheckStateType
 
-  getControl(cellType: DataCellType): FormControl {
-  return this.rowFormGroup.get(this.getFormControlName(cellType)) as FormControl;
-}
-  getFormControlName(cellType: DataCellType): string {
-    switch (cellType) {
-      case DataCellType.CHECK:
-        return 'checked';
-      case DataCellType.ASSIGNEE:
-        return 'assignee';
-      case DataCellType.STATUS:
-        return 'status';
-      default:
-        return ''; // Return an empty string for unsupported types
-    }
-  }
+ 
 
 }
 
