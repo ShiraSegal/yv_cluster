@@ -16,7 +16,7 @@ import { PieComponentDistributionModalComponent } from '../pie-component-distrib
 @Component({
   selector: 'yv-cluster-table-group-id-details',
   standalone: true,
-  imports: [CommonModule, NarrowBasicTableComponent, TableHeaderComponent, BasicTableRowComponent, NarrowBasicTableRowComponent,IconButtonLargeComponent],
+  imports: [CommonModule, TableHeaderComponent,NarrowBasicTableRowComponent],
   templateUrl: './table-group-id-details.component.html',
   styleUrl: './table-group-id-details.component.scss'
 })
@@ -26,11 +26,11 @@ export class TableGroupIdDetailsComponent {
   headerCheckStatus: CheckType = CheckType.UNCHECKED;
   Rows: any[];
 
-  ButtonType = ButtonType;
-  DataCellType = DataCellType;
+  buttonType = ButtonType;
+  dataCellType = DataCellType;
   iconType= IconType;
   iconButtonLargeType = IconButtonLargeType;
-  NarrowBasicTableRowInputState = NarrowBasicTableRowInputState;
+  narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
 
   Headers = [{ data: '', type: HeaderCellType.CHECK },
   { data: 'Book ID', type: HeaderCellType.TEXT },
@@ -70,7 +70,7 @@ export class TableGroupIdDetailsComponent {
             { data: row.PlaceOfBirth?.Value ?? '', type: DataCellType.TEXT },
             { data: row.PermanentPlace?.Value ?? '', type: DataCellType.TEXT },
             { data: row.Source?.Value ?? '', type: DataCellType.TEXT },
-            { data: IconType.AUTOCLUSRETLIGHT, type: DataCellType.ICON ,moreData:{icon: IconType.TRASH}}
+            { data: IconType.LIST_LIGHT, type: DataCellType.ICON ,moreData:{icon: IconType.TRASH}}
           ];
         });
 

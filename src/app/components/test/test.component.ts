@@ -82,7 +82,6 @@ import { CardColor } from "src/app/enums/card-colors.enum";
 export class TestComponent {
   //enums-----------------------------------------------------------------------
   iconType = IconType;//  types of icons. 
-  IconType = IconType; 
   badgeType = BadgeType;//types of badge
   checkStateType = CheckStateType;
   checkType = CheckType;
@@ -91,19 +90,19 @@ export class TestComponent {
   sliderNavigationTabType = SliderNavigationTabType;//types of slider navigation tab
   stateEnum = State;//  types of input & select.
   iconButtonLargeType = IconButtonLargeType;
-  ButtonType = ButtonType;
-  ButtonSize = ButtonSize;
-  BigCardSize=BigCardSize;
+  buttonType = ButtonType;
+  buttonSize = ButtonSize;
+  bigCardSize=BigCardSize;
   basicTableRowPropertyVariants = BasicTableRowPropertyVariants;
   sliderNavigationTabTextType = SliderNavigationTabTextType
-  AutoClusterTabType = AutoClusterTabType;
-  NarrowBasicTableRowInputState = NarrowBasicTableRowInputState;
+  autoClusterTabType = AutoClusterTabType;
+  narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   nativeOptionType = NativeOptionType;
   optionState = NativeOptionState;
   optionType = NativeOptionType;
-  RadioButtonListDirection=RadioButtonListDirection;
+  radioButtonListDirection=RadioButtonListDirection;
   cardColorEnum=CardColor;
-  buttonType = ButtonType;
+
   
 //variables-----------------------------------------------------------------------
   // button component properties

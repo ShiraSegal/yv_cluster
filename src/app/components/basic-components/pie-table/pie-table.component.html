@@ -14,7 +14,7 @@
         [ngClass]="{'table-row':item.rowName!='Last Name', 'table-first-row': item.rowName==='Last Name'}">
         <!-- <div class="table-row-name">{{item.rowName}}</div> -->
         <div class="table-row-name">{{item.rowName}}
-            <!-- <yv-cluster-header-cells [type]=HeaderCellType.TEXT header="{{item.rowName}}"></yv-cluster-header-cells> -->
+            <!-- <yv-cluster-header-cells [type]=headerCellType.TEXT header="{{item.rowName}}"></yv-cluster-header-cells> -->
         </div>
         <div class="table-row-right-side-all-column">
             <div class="table-row-one-side">
@@ -24,25 +24,25 @@
                 <!-- <div class="table-text">{{ getValue(subItem, item.objectKey) }}</div> -->
                 @if(item.rowName==='Last Name'){
                 <div class="table-text data-cell-color-{{i%4}}">
-                    <yv-cluster-data-cells [type]=DataCellType.TEXT
+                    <yv-cluster-data-cells [type]=dataCellType.TEXT
                         data="{{getValue(subItem, item.objectKey)}}"></yv-cluster-data-cells>
                 </div>
                 }
                 @else if(item.rowName==='percent'){
                 <div class="table-text ">
-                    <yv-cluster-data-cells [type]=DataCellType.TEXT
+                    <yv-cluster-data-cells [type]=dataCellType.TEXT
                         data="{{calculatePercentage(subItem.Count, thePlaceTotalValue.TotalCount)}}%"></yv-cluster-data-cells>
                 </div>
                 }
                 @else if(item.rowName==='Total name count'){
                     <div class="table-text ">
-                        <yv-cluster-data-cells [type]=DataCellType.TEXT
+                        <yv-cluster-data-cells [type]=dataCellType.TEXT
                             data="{{totalAllNamesInTheDatabase}}"></yv-cluster-data-cells>
                     </div>
                     }
                 @else{
                 <div class="table-text">
-                    <yv-cluster-data-cells [type]=DataCellType.TEXT
+                    <yv-cluster-data-cells [type]=dataCellType.TEXT
                         data="{{getValue(subItem, item.objectKey)}}"></yv-cluster-data-cells>
                 </div>
                 }
@@ -55,25 +55,25 @@
                 <!-- <div class="table-text ">{{ getValue(subItem, item.objectKey) }}</div> -->
                 @if(item.rowName==='Last Name'){
                 <div class="table-text data-cell-color-{{i%4}}">
-                    <yv-cluster-data-cells [type]=DataCellType.TEXT
+                    <yv-cluster-data-cells [type]=dataCellType.TEXT
                         data="{{ getValue(subItem, item.objectKey) }}"></yv-cluster-data-cells>
                 </div>
                 }
                 @else if(item.rowName==='percent'){
                 <div class="table-text ">
-                    <yv-cluster-data-cells [type]=DataCellType.TEXT
+                    <yv-cluster-data-cells [type]=dataCellType.TEXT
                         data="{{calculatePercentage(subItem.Count, allDatabaseTotalValue.TotalCount)}}%"></yv-cluster-data-cells>
                 </div>
                 }
                 @else if(item.rowName==='Total name count'){
                     <div class="table-text ">
-                        <yv-cluster-data-cells [type]=DataCellType.TEXT
+                        <yv-cluster-data-cells [type]=dataCellType.TEXT
                             data="{{totalAllNamesInTheDatabase}}"></yv-cluster-data-cells>
                     </div>
                     }
                 @else{
                 <div class="table-text">
-                    <yv-cluster-data-cells [type]=DataCellType.TEXT
+                    <yv-cluster-data-cells [type]=dataCellType.TEXT
                         data="{{getValue(subItem, item.objectKey)}}"></yv-cluster-data-cells>
                 </div>
                 }

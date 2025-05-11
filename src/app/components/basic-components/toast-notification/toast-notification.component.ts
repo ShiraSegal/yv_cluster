@@ -10,7 +10,7 @@ import { IconType } from 'src/app/enums/icon-enum';
   styleUrl: './toast-notification.component.scss'
 })
 export class ToastNotificationComponent {
-ToastNotificationIcons = IconType;
+toastNotificationIcons = IconType;
   @Input() iconName:IconType=IconType.SUCCESS;
   @Input() message!:string;
   @Input() text!:string;

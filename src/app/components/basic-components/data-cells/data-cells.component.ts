@@ -48,7 +48,7 @@ export class DataCellsComponent<T extends DataCellType> {
 
   //injecting ENUM
   badgeType = BadgeType;
-  IconType = IconType;
+  iconType = IconType;
   buttonType = ButtonType;
   iconButtonLargeType = IconButtonLargeType;
   dataCellType = DataCellType;

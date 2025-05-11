@@ -1,7 +1,7 @@
 <div class="check" [ngClass]="[type, state]" (click)="toggleCheckbox()">
     <input type="checkbox" 
-    [checked]="type ===CheckType.CHECKED"
-    [disabled]="state === CheckStateType.DISABLED"
+    [checked]="type ===checkType.CHECKED"
+    [disabled]="state === checkStateType.DISABLED"
     (blur)="onTouched()"
 >
 </div>

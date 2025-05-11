@@ -16,7 +16,7 @@ export class TableHeaderComponent {
 @Output() checkStatus= new EventEmitter<CheckType>();
 @Output() openDialog= new EventEmitter<boolean>();
 
-HeaderCellType =   HeaderCellType
+headerCellType =   HeaderCellType
 checkChange(checkStatus:CheckType) {
   this.checkStatus.emit(checkStatus);
   console.log(" table header check status", checkStatus)

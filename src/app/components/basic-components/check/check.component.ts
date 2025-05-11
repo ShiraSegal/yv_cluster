@@ -26,8 +26,8 @@ export class CheckComponent implements ControlValueAccessor {
   @Output() checkStatus= new EventEmitter<CheckType>();
 
 
-  CheckType=CheckType;
-  CheckStateType=CheckStateType;
+  checkType=CheckType;
+  checkStateType=CheckStateType;
 
    onChange: (value: CheckType) => void = () => {};
    onTouched: () => void = () => {};

@@ -25,8 +25,8 @@ export class NarrowBasicTableRowComponent {
   get rowFormGroup(): FormGroup {
     return this.rowFormArray.at(this.rowIndex) as FormGroup; // Retrieve the specific FormGroup
   }
-  DataCellType = DataCellType;
-  CheckStateType = CheckStateType
+  dataCellType = DataCellType;
+  checkStateType = CheckStateType
 
  
 

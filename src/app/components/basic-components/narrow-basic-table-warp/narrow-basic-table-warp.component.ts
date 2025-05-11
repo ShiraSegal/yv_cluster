@@ -15,10 +15,10 @@ import { BasicTabComponent } from '../basic-tab/basic-tab.component';
   styleUrl: './narrow-basic-table-warp.component.scss'
 })
 export class NarrowBasicTableWarpComponent {
-  AutoClusterTabType = AutoClusterTabType;
-  HeaderCellType = HeaderCellType;
-  DataCellType = DataCellType;
-  BasicTablePropertyType = BasicTablePropertyType;
+  autoClusterTabType = AutoClusterTabType;
+  headerCellType = HeaderCellType;
+  dataCellType = DataCellType;
+  basicTablePropertyType = BasicTablePropertyType;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
 
   data1: any;
@@ -70,22 +70,14 @@ export class NarrowBasicTableWarpComponent {
       }
     }
   currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
-  // tabs = [
-  //   { text: AutoClusterTabType.SAPIR_CLUSTERS, status: StatusActiveOrNotActive.ACTIVE },
-  //   { text: AutoClusterTabType.MISSING_FIELD, status: StatusActiveOrNotActive.NOT_ACTIVE },
-  //   { text: AutoClusterTabType.ERROR_MESSAGES, status:  StatusActiveOrNotActive.NOT_ACTIVE },
-  //   { text: AutoClusterTabType.DIFFERENT_CLUSTERS, status:  StatusActiveOrNotActive.NOT_ACTIVE },
-  //   { text: AutoClusterTabType.CHECKLIST_ITEMS, status:  StatusActiveOrNotActive.NOT_ACTIVE },
-  //   { text: AutoClusterTabType.APPROVAL_GROUPS, status:  StatusActiveOrNotActive.NOT_ACTIVE }
 
-  // ];
   tabs = [
     { text: AutoClusterTabType.SAPIR_CLUSTERS, status: true },
     { text: AutoClusterTabType.MISSING_FIELD, status: false },
-    { text: AutoClusterTabType.ERROR_MESSAGES, status: false },
+    { text: AutoClusterTabType.APPROVAL_GROUPS, status: false },
     { text: AutoClusterTabType.DIFFERENT_CLUSTERS, status: false},
     { text: AutoClusterTabType.CHECKLIST_ITEMS, status: false },
-    { text: AutoClusterTabType.APPROVAL_GROUPS, status: false }
+    { text: AutoClusterTabType.ERROR_MESSAGES, status: false },
 
    
   ];

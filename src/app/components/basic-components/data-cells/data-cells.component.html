@@ -34,7 +34,7 @@
   }
 
   @if(type === dataCellType.ICON) {
-  <yv-cluster-icon-button-large (onClick)="onClick()" [icon]="moreData['icon'] || IconType.CHEVRON_RIGHT_LIGHT"
+  <yv-cluster-icon-button-large (onClick)="onClick()" [icon]="moreData['icon'] || iconType.CHEVRON_RIGHT_LIGHT"
     [property]="moreData['property'] || iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
   }
 
@@ -45,6 +45,6 @@
   @if(type === dataCellType.BUTTON ) {
   <yv-cluster-button (onClick)="onClick()" [text]="moreData['text'] || 'button'"
     [buttonType]="moreData['buttonType'] || buttonType.PRIMARY" [disabled]="moreData['disabled']"
-    [isBig]="moreData['isBig'] || false" [iconType]="moreData['iconType'] || IconType.NOTHING"></yv-cluster-button>
+    [isBig]="moreData['isBig'] || false" [iconType]="moreData['iconType'] ||iconType.NOTHING"></yv-cluster-button>
   }
 </div>
