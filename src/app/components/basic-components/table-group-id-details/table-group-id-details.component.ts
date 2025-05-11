@@ -12,11 +12,12 @@ import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large
 import { CheckType } from 'src/app/enums/check-enum';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { PieComponentDistributionModalComponent } from '../pie-component-distribution-modal/pie-component-distribution-modal.component';
+import { FilterHandlingSuggestionsComponent } from '../filter-handling-suggestions/filter-handling-suggestions.component';
 
 @Component({
   selector: 'yv-cluster-table-group-id-details',
   standalone: true,
-  imports: [CommonModule, NarrowBasicTableComponent, TableHeaderComponent, BasicTableRowComponent, NarrowBasicTableRowComponent,IconButtonLargeComponent],
+  imports: [CommonModule, NarrowBasicTableComponent, TableHeaderComponent, BasicTableRowComponent, NarrowBasicTableRowComponent,IconButtonLargeComponent,FilterHandlingSuggestionsComponent],
   templateUrl: './table-group-id-details.component.html',
   styleUrl: './table-group-id-details.component.scss'
 })
@@ -97,7 +98,10 @@ export class TableGroupIdDetailsComponent {
     console.log(" TableGroupIdDetailsComponent check status", checkStatus)
 
   }
+  searchValue(value: string){
+console.log("searchValue", value);
 
+  }
 
   //////////////////////
   // #dialog = inject(MatDialog);

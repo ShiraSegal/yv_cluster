@@ -72,16 +72,15 @@
  <hr>
  <h3>field</h3>
 
- <yv-cluster-field [property]="stateEnum.ERROR" [placeholder]="'הכנס טקסט כאן'"></yv-cluster-field>
- 
- <yv-cluster-field [property]="stateEnum.DISABLED" [placeholder]="'DISABLED'"></yv-cluster-field>
- 
- <yv-cluster-field [property]="stateEnum.DEFAULT" [placeholder]="'הכנס טקסט כאן'"></yv-cluster-field>
- 
- <yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [placeholder]="'Focused'"></yv-cluster-field>
- 
- <yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [placeholder]="'Populated '"></yv-cluster-field>
- <hr>
+  <yv-cluster-field formControlName="search" [property]="stateEnum.ERROR" placeholder="Search" label="Search"></yv-cluster-field>
+
+  <yv-cluster-field formControlName="search" [property]="stateEnum.DISABLED" placeholder="Search" label="Search"></yv-cluster-field>
+
+  <yv-cluster-field formControlName="search" [property]="stateEnum.DEFAULT" placeholder="Search" label="Search"></yv-cluster-field>
+
+  <yv-cluster-field formControlName="search" [property]="stateEnum.FOCUSED" placeholder="Search" label="Search"></yv-cluster-field>
+
+  <yv-cluster-field formControlName="search" [property]="stateEnum.POPULATED" placeholder="Search" label="Search"></yv-cluster-field>
 
 
  <!-- <h3>textarea</h3>
@@ -191,9 +190,9 @@
  <h3>pie component distribution modal</h3>
  <yv-cluster-pie-component-distribution-modal [title]="'Data Distribution'"></yv-cluster-pie-component-distribution-modal> -->
  <hr>
- <h3>filter handling suggestions</h3>
+ <!-- <h3>filter handling suggestions</h3>
  <yv-cluster-filter-handling-suggestions></yv-cluster-filter-handling-suggestions>
- <hr>
+ <hr> -->
  <h3>table group id details</h3>
  <yv-cluster-table-group-id-details></yv-cluster-table-group-id-details>
  <br>
@@ -259,7 +258,7 @@
 <yv-cluster-table-header [headers]="exampleTableHeader"></yv-cluster-table-header>
 <hr>
 
-<h3>field</h3>
+<!-- <h3>field</h3>
 <hr>
 <yv-cluster-field [property]="stateEnum.ERROR" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
 <yv-cluster-field [property]="stateEnum.DISABLED" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
@@ -267,4 +266,4 @@
 <yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
 <yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
 <hr>  
-<hr>
+<hr> -->
