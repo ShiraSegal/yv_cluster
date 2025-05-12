@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'yv-cluster-assignee',
@@ -8,7 +8,8 @@ import { ControlValueAccessor } from '@angular/forms';
   styleUrls: ['./assignee.component.scss'],
 })
 export class AssigneeComponent implements ControlValueAccessor {
-  @Input() data: string;
+  @Input() data: string | undefined = 'UnAssignee'; // Default value
+  @Output() assigneeChange = new EventEmitter<string>();
 
   assigneeInitials: string = '';
   truncatedName: string = '';
@@ -33,7 +34,7 @@ export class AssigneeComponent implements ControlValueAccessor {
   }
 
   writeValue(value: string | undefined): void {
-    this.data = value || "Racheli Liff"; // Use default if no value is provided
+    this.data = value || 'Racheli Liff'; // Use default if no value is provided
     this.updateAssigneeProperties();
   }
 
@@ -48,6 +49,7 @@ export class AssigneeComponent implements ControlValueAccessor {
   editAssignee(newValue: string): void {
     this.data = newValue;
     this.onChange(this.data);
+    this.assigneeChange.emit(this.data); // Emit the change event
     this.updateAssigneeProperties();
   }
 }

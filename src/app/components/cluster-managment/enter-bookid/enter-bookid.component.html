@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="enterBookIdOrClusterForm">
     <div class="card">
         <div class="header-warp">
             <yv-cluster-heading [title]="header" [size]="size" [weight]="weight" [color]="color"></yv-cluster-heading>
@@ -14,7 +14,7 @@
                 <div class="buttons-warp">
                     <div class="buttons">
                         <yv-cluster-button [disabled]="false" [isBig]="btn_size" [buttonType]="buttomType1"
-                            [text]="button1" (onClick)="close = true">
+                            [text]="button1" (onClick)="this.dialogRef?.close()">
                         </yv-cluster-button>
 
                         <yv-cluster-button [disabled]="false" [isBig]="btn_size" [buttonType]="buttomType2"

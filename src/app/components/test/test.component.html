@@ -158,7 +158,7 @@
  <yv-cluster-radio-button-list  [radioButtonArray]="radioButtonArray" [disable]="false" [direction]="RadioButtonListDirection.COLUMN" (selectionChange)="onRadioButtonListSelectionChange($event)"></yv-cluster-radio-button-list>
  <hr>
  <h3>filter section</h3>
- <yv-cluster-filter-section [buttonText]="'New Cluster'" [icon]="ButtonIcon.PLUS"></yv-cluster-filter-section>
+ <yv-cluster-filter-section [buttonText]="'New Cluster'" [icon]="iconType.PLUS_LIGHT"></yv-cluster-filter-section>
  <hr>
  <h3>card</h3>
  <yv-cluster-basic-card [iconName]="iconType. HOUSE_LIGHT" [text]="'30 New clusters pending'" [circleColor]="'#B8C2EA'" [iconColor]="'#FFFFFF'" ></yv-cluster-basic-card>
@@ -225,7 +225,7 @@
 <yv-cluster-narrow-basic-table-warp [subTitle]="customSubtitle"></yv-cluster-narrow-basic-table-warp>
 <hr>
 <h3>popover</h3>
-<yv-cluster-popover  [type]="popoverType.STATUS"></yv-cluster-popover>
+<yv-cluster-popover  [type]="popoverType.STATUS" [popoverOptions]="popoverOptionsStatus"></yv-cluster-popover>
 <br>
 <br>
 <yv-cluster-popover  [type]="popoverType.ASSIGNEE" [popoverOptions]="popoverOptionsAssignee"></yv-cluster-popover>

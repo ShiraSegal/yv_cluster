@@ -1,4 +1,4 @@
-<div class="option-wrapper" >
+<!-- <div class="option-wrapper" [ngClass]="optionState">
     <div [ngClass]="optionType">
         @if(optionType === optionTypeMain.TEXT){
             <span class="icon-wrapper">
@@ -6,14 +6,41 @@
             </span>
         }
         @else if(optionType === optionTypeMain.STATUS){
-            <yv-cluster-badge [property]="badgeStatus"></yv-cluster-badge>
+            <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge>
         }
         @else{
-            <yv-cluster-assignee [data]="assigneeName"></yv-cluster-assignee>
+            <yv-cluster-assignee [data]="optionType"></yv-cluster-assignee>
+
         }
-        <!-- {{ (optionType === optionTypeMain.TEXT ) ? Text : '' }} -->
-          {{linkName}}
+        {{ (optionType === optionTypeMain.TEXT ) ? Text : '' }}
     </div>
 </div>
 
-
+ -->
+ <div class="option-wrapper" [ngClass]="optionState">
+    <div [ngClass]="optionType">
+      @switch(optionType) {
+        @case(optionTypeMain.TEXT) {
+          <span class="icon-wrapper">
+            <i class="fa-regular fa-square-arrow-up-right custom-arrow"></i>
+          </span>
+          {{ displayText }}
+        }
+  
+        @case(optionTypeMain.STATUS) {
+          @if (property) {
+            <yv-cluster-badge [property]="property"></yv-cluster-badge>
+          }
+        }
+  
+        @case(optionTypeMain.ASSIGNEE) {
+          <yv-cluster-assignee [data]="displayText"></yv-cluster-assignee>
+        }
+  
+        @default {
+          {{ displayText }}
+        }
+      }
+    </div>
+  </div>
+  

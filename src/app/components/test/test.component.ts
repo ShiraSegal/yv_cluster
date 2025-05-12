@@ -363,9 +363,31 @@ export class TestComponent {
   // iconp = "fa-solid fa-plus"
   // // txt1 = "Enter Book ID"
   // txt2 = "Enter Book ID"
+  popoverOptionsStatus:{
+    optionType: NativeOptionType.STATUS;
+    optionState: NativeOptionState;
+    property: BadgeType;
+  }[] = [{optionType: NativeOptionType.STATUS, optionState: NativeOptionState.DEFAULT,property: BadgeType.TODO},
+    {optionType: NativeOptionType.STATUS, optionState: NativeOptionState.DEFAULT,property: BadgeType.DONE},
+  ];
 
-popoverOptionsAssignee: string[] = ["Assignee 1", "Assignee 2", "Assignee 3"];
-popoverOptionsLink: string[] = ["Link 1", "Link 2", "Link 3"];
+popoverOptionsAssignee:{
+  optionType: NativeOptionType;
+  optionState: NativeOptionState;
+  displayText: string;
+}[] = [{optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 1'},
+  {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 2'},
+  {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 3'},
+];
+
+popoverOptionsLink:{
+  optionType: NativeOptionType.TEXT;
+  optionState: NativeOptionState;
+  displayText: string;
+}[] = [{optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 1'},
+  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
+  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
+];
 
 
   nativeOptions = [

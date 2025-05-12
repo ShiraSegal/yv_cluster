@@ -3,6 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SapirClusterModel } from '../models/sapir-cluster-model.model';
+import { RootObject } from '../models/root-object.model';
 
 
 @Injectable({
@@ -19,12 +20,12 @@ export class ClusterApiService {
     return this.#http.get<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`);
   }
 
-  getSingleItemByBookId (bookId:{'bookId':string}){
-    return this.#http.post(`${this.apiUrl}/getByBookId.json`, bookId);
+  getSingleItemByBookId (bookId:{'bookId':string}):Observable<RootObject>{
+    return this.#http.post<RootObject>(`${this.apiUrl}/getByBookId.json`, bookId);
   }
 
   getClusterGroupByBookId(cluster:{'bookId':string}){
-    return this.#http.post(`${this.apiUrl}/getByBookId.json`, cluster);
+    return this.#http.post<RootObject>(`${this.apiUrl}/getByBookId.json`, cluster);
   }
 
   createCluster(SapirClusterModel: SapirClusterModel){

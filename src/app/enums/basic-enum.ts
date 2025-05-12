@@ -188,12 +188,7 @@ export enum NativeOptionType{
   STATUS = "status",
   TEXT = "text"
 }
-export enum SelectType{
-  ASSIGNEE = "assignee",
-  STATUS = "status",
-  TEXT = "text",
-  DEFAULT = "default"
-}
+
 
 export enum PopoverType{
   ASSIGNEE = "assignee",

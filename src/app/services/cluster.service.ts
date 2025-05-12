@@ -8,6 +8,7 @@ import { LastNameInPlaces } from '../models/LastNameInPlaces';
 import { LastName } from '../models/LastName';
 import { StatisticDetail } from '../models/StatisticDetail';
 import { StatisticData } from '../models/StatisticData';
+import { RootObject } from '../models/root-object.model';
 
 
 @Injectable({
@@ -168,16 +169,17 @@ export class ClusterService {
   }
 
   getSingleItemByBookId (bookId:{'bookId':string}){
+    debugger
     const result = this.#clusterApiService.getSingleItemByBookId(bookId)
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
           console.log("BookId added successfully:", res); // לוג לתוצאה
-          return true;
+          return res;
         }),
         catchError(err => {
           console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
-          return of(false); // החזרת ערך ברירת מחדל במקרה של שגיאה
+          return of(null);
         })
       );
       return result;

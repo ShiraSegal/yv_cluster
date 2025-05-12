@@ -3,34 +3,33 @@
         <!-- <yv-cluster-header-cells class="header" [header]="header" [type]="headerCellType"></yv-cluster-header-cells> -->
         <yv-cluster-body class="header" [bodyText]="header" [size]="size" [weight]="weight" [color]="color"></yv-cluster-body>
     </div>
-    @if(type === 'status'){
-    <div class="native-option">
-        <!-- <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge> -->
+    <!-- @if(type === 'status'){
+    <div class="native-option" (click)="onSelectedOption(option)">
         <yv-cluster-native-option [optionType]="optionType.STATUS"
-            [badgeStatus]="badgeType.TODO"></yv-cluster-native-option>
-    </div>
-    <div class="native-option">
+            [property]="badgeType.TODO"></yv-cluster-native-option>
+    </div> -->
+    <!-- <div class="native-option" (click)="onSelectedOption(option)">
         <yv-cluster-native-option [optionType]="optionType.STATUS"
-            [badgeStatus]="badgeType.DONE"></yv-cluster-native-option>
+            [property]="badgeType.DONE"></yv-cluster-native-option>
+
+    </div> -->
+    <!-- } -->
+    <!-- @if(type != 'assignee'){ -->
+    @for(option of popoverOptions; track $index){
+    <div class="native-option" (click)="onSelectedOption(option)">
+        <yv-cluster-native-option [optionType]="option.optionType" [displayText]="option.displayText" [property]="option.property"></yv-cluster-native-option>
 
     </div>
     }
-    @else if(type === 'assignee'){
-    @for(option of popoverOptions; track $index){
-    <div class="native-option">
-        <yv-cluster-native-option [optionType]="optionType.ASSIGNEE" [assigneeName]="option"></yv-cluster-native-option>
 
-    </div>
-    }
-
-    }
-    @else{
+    <!-- } -->
+    <!-- @else{
     @for(option of popoverOptions; track $index){
-    <div class="native-option">
-        <yv-cluster-native-option [optionType]="optionType.TEXT" [linkName]="option"></yv-cluster-native-option>
+    <div class="native-option" (click)="onSelectedOption(option)">
+        <yv-cluster-native-option [optionType]="optionType.TEXT" [displayText]="option.displayText"></yv-cluster-native-option> -->
         <!-- {{option}} -->
-    </div>
+    <!-- </div>
     }
-    }
+    } -->
 
 </div>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NativeOptionState, NativeOptionType, SelectType, ToastNotificationIcons } from 'src/app/enums/basic-enum';
+import { BadgeType, NativeOptionState, NativeOptionType, ToastNotificationIcons } from 'src/app/enums/basic-enum';
 import { Component, forwardRef, inject, Inject } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../../basic-components/button/button.component';
@@ -18,6 +18,12 @@ import { SelectComponent } from '../../basic-components/select/select.component'
 import { SapirClusterModel } from 'src/app/models/sapir-cluster-model.model';
 import { SapirClusterDetail } from 'src/app/models/sapir-cluster-detail.model';
 
+type NativeSelectOption = {
+  optionType: NativeOptionType;
+  optionState: NativeOptionState;
+  displayText: string;
+  property?: BadgeType;
+};
 
 @Component({
   selector: 'yv-cluster-create-cluster',
@@ -62,8 +68,15 @@ export class CreateClusterComponent {
 
   //select
   selectLabel: string = 'Cluster Level';
-  selectType = SelectType;
-  options: string[] = ['Exact','Most Probable','Possible'];
+  // options: string[] = ['Exact','Most Probable','Possible'];
+  options: {
+    optionType: NativeOptionType;
+    optionState: NativeOptionState;
+    displayText: string;
+  }[] = [{optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Exact'},
+    {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Most Probable'},
+    {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Possible'}
+  ];
   // options = [
   //   { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
   //   { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },

@@ -8,6 +8,7 @@ import { RadioButtonListComponent } from '../../basic-components/radio-button-li
 import { FieldComponent } from '../../basic-components/field/field.component';
 import { ToastNotificationComponent } from '../../basic-components/toast-notification/toast-notification.component';
 import { ClusterService } from 'src/app/services/cluster.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
@@ -20,7 +21,8 @@ export class EnterBookidComponent {
   
     #clusterService = inject(ClusterService);
   //form
-  formGroup:FormGroup = new FormGroup({
+  dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
+  enterBookIdOrClusterForm:FormGroup = new FormGroup({
     selection: new FormControl('', Validators.required), 
     input: new FormControl('', Validators.required)
   });
@@ -58,17 +60,17 @@ export class EnterBookidComponent {
 
   checkedChange(selected: string) {
     this.selected = selected;
-    console.log("fffffffffff:",this.formGroup);
+    console.log("fffffffffff:",this.enterBookIdOrClusterForm);
     
   }
 
 
   add() {
-    if (this.formGroup.valid) {
-      if(this.formGroup.value.selection=='Book ID'){
-      this.#clusterService.getSingleItemByBookId({bookId:this.formGroup.value.input}).subscribe({
+    if (this.enterBookIdOrClusterForm.valid) {
+      if(this.enterBookIdOrClusterForm.value.selection=='Book ID'){
+      this.#clusterService.getSingleItemByBookId({bookId:this.enterBookIdOrClusterForm.value.input}).subscribe({
         next: (res) => {
-          console.log("**********************",{bookId:this.formGroup.value.input});
+          console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
           
           if (res) {
             console.log("bookId add:", res);
@@ -83,10 +85,12 @@ export class EnterBookidComponent {
       this.formIsValid = true;
       this.close = true;
     }
-    else if(this.formGroup.value.selection=='Cluster'){
-      this.#clusterService.getClusterGroupByBookId({bookId:this.formGroup.value.input}).subscribe({
+    else if(this.enterBookIdOrClusterForm.value.selection=='Cluster'){
+      this.#clusterService.getClusterGroupByBookId({bookId:this.enterBookIdOrClusterForm.value.input}).subscribe({
         next: (res) => {
-          console.log("**********************",{bookId:this.formGroup.value.input});
+          console.log("res", res);
+          
+          console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
           if (res) {
             console.log("Cluster add:", res);
           } else {
@@ -105,5 +109,6 @@ export class EnterBookidComponent {
   }
     console.log("formIsValid", this.formIsValid); 
   
+   
   }
 }
