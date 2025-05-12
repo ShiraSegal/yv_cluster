@@ -43,6 +43,7 @@ import { FieldComponent } from "../basic-components/field/field.component";
 import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id-details/table-group-id-details.component";
 import { CardColor } from "src/app/enums/card-colors.enum";
 import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-handling-suggestions/filter-handling-suggestions.component";
+import { HandlingSuggestionsPageComponent } from "../core-components/handling-suggestions-page/handling-suggestions-page.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -111,7 +112,8 @@ import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-h
     HeadingComponent,
     BodyComponent,
     TableGroupIdDetailsComponent,
-    FilterHandlingSuggestionsComponent
+    FilterHandlingSuggestionsComponent,
+    HandlingSuggestionsPageComponent
     
     // IconButtonComponent,
     // HomeWarpComponent,

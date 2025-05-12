@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FieldComponent } from '../field/field.component';
 import { ButtonType, DataCellType, State } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../button/button.component';
@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class FilterHandlingSuggestionsComponent {
   switchState: boolean = false;
+  @Output() fieldValue= new EventEmitter<string>();
 
   stateEnum = State;
   buttonType=ButtonType;
@@ -27,6 +28,12 @@ export class FilterHandlingSuggestionsComponent {
     searchField: '',
     prefCode: false
   };
+  onSearchFieldChange(newValue: string) {
+    this.fieldValue.emit(newValue);
+
+    console.log('value changed to:', newValue);
+    // כאן תוכלי לבצע כל פעולה שתרצי בעת שינוי הערך
+  }
   onPrefCodeChange(state: boolean) {
   this.formData.prefCode = state;
   console.log('Pref code switch:', state);

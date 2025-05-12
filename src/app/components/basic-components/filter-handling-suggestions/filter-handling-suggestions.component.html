@@ -13,13 +13,13 @@
 
 <form #filterForm="ngForm" (ngSubmit)="onSubmit()">        
     <div class="filter-container">        
-    <yv-cluster-field name="searchField" [(ngModel)]="formData.searchField" [property]="stateEnum.DEFAULT" [placeholder]="'Search'"></yv-cluster-field>
+    <yv-cluster-field name="searchField"  (ngModelChange)="onSearchFieldChange($event)" [(ngModel)]="formData.searchField" [property]="stateEnum.DEFAULT" [placeholder]="'Search'"></yv-cluster-field>
     <div class="buttons-container">
         <yv-cluster-switch name="prefCodeSwitch" [text]="'Pref Code'" [active]="formData.prefCode" (switchChange)="onPrefCodeChange($event)"></yv-cluster-switch>
         <yv-cluster-data-cells [type]="dataCellType.ICON" [moreData]="{icon:iconType.USER}" (iconClick)="onUserClick()"></yv-cluster-data-cells>
     <yv-cluster-data-cells [type]="dataCellType.ICON" [moreData]="{icon:iconType.COPY_LIGHT}" (iconClick)="onCopyClick()"></yv-cluster-data-cells>
     <yv-cluster-button type="button" (onClick)="onClick()" text="Create Cluster" [buttonType]="buttonType.SECONDARY" [isBig]=true [iconType]="iconType.LAYER_PLUS_LIGHT"></yv-cluster-button>
-    <yv-cluster-button type="submit" text="Add to cluster" [buttonType]="buttonType.PRIMARY" [isBig]=true [iconType]="iconType.FOLDER_PLUS_LIGHT"></yv-cluster-button>
+    <yv-cluster-button type="submit" (onClick)="onClick()"text="Add to cluster" [buttonType]="buttonType.PRIMARY" [isBig]=true [iconType]="iconType.FOLDER_PLUS_LIGHT"></yv-cluster-button>
     </div>
     </div>
     </form>

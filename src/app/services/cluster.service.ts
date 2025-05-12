@@ -2,14 +2,14 @@ import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, catchError, filter, lastValueFrom, map, Observable, of, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
-import { LastName } from '../models/LastName';
-import { LastNameInPlaces } from '../models/LastNameInPlaces';
-import { StatisticDetail } from '../models/StatisticDetail';
-import { StatisticData } from '../models/StatisticData';
-import { ValueCodeItem } from '../models/ValueCodeItem';
-import { ClusterGroupWithCrmLinks } from '../models/ClusterGroupWithCrmLinks';
-import { ClusteredNameRow } from '../models/ClusteredNameRow';
-import { RootObjectOfClusterGroupDetails } from '../models/RootObjectOfClusterGroupDetails';
+import { LastName } from '../models/last-name.model';
+import { LastNameInPlaces } from '../models/last-name-inplaces.model';
+import { StatisticDetail } from '../models/statistic-detail.model';
+import { StatisticData } from '../models/statistic-data.model';
+import { ValueCodeItem } from '../models/value-code-item.model';
+import { ClusterGroupWithCrmLinks } from '../models/cluster-group-with-crm-links.model';
+import { ClusteredNameRow } from '../models/clustered-name-row.model';
+import { RootObjectOfClusterGroupDetails } from '../models/root-object-of-cluster-group-details.model';
 // import { map } from 'rxjs/operators';
 
 
