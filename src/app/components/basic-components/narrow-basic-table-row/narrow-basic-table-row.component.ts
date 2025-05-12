@@ -1,29 +1,34 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { ButtonIcon, ButtonSize, ButtonType, DataCellType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
- 
+import { CheckStateType, DataCellType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
-import { IconType } from 'src/app/enums/icon-enum';
+import { ControlValueAccessor, FormArray, FormControl, FormGroup, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { CheckComponent } from '../check/check.component';
  
 @Component({
   selector: 'yv-cluster-narrow-basic-table-row',
   standalone: true,
-  imports: [CommonModule ,DataCellsComponent],
+  imports: [CommonModule ,DataCellsComponent,ReactiveFormsModule],
   templateUrl: './narrow-basic-table-row.component.html',
-  styleUrl: './narrow-basic-table-row.component.scss'
+  styleUrl: './narrow-basic-table-row.component.scss',
 })
 export class NarrowBasicTableRowComponent {
   @Input() property: NarrowBasicTableRowInputState  = NarrowBasicTableRowInputState.DEFAULT ;
-  @Input() cells: { 
-    data: string | { 
-      text?: string; 
-      buttonType?: ButtonType; 
-      disabled?: boolean; 
-      isBig?: boolean; // Changed from size
-      iconType?: IconType; // Changed from buttonIcon
-    }; 
-    type: DataCellType; 
+  @Input() cells: {
+    data: string; 
+    type: DataCellType;
+    moreData?: { [key: string]: any }; // Optional additional data
   }[] = [];
-  DataCellType = DataCellType;
+  @Input() rowFormArray: FormArray; // Pass the FormArray
+  @Input() rowIndex: number; // Pass the index of the row
+
+  get rowFormGroup(): FormGroup {
+    return this.rowFormArray.at(this.rowIndex) as FormGroup; // Retrieve the specific FormGroup
+  }
+  dataCellType = DataCellType;
+  checkStateType = CheckStateType
+
  
+
 }
+

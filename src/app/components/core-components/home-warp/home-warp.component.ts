@@ -13,11 +13,11 @@ export class HomeWarpComponent {
   clusterService = inject(ClusterService);
   async ngOnInit() {
     (await this.clusterService.getAutoClusterData()).subscribe({
-      next: (data) => {
+      next: (data: any) => {
         console.log('Received data:', data);
         this.tableData = data;     
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error('Error fetching data:', err);
       }
     });

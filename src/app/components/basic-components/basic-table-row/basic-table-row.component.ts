@@ -15,10 +15,14 @@ import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large
 export class BasicTableRowComponent {
   @Input() property: BasicTableRowPropertyVariants = BasicTableRowPropertyVariants.DEFAULT; 
   @Input() showAction: boolean = false; 
-  @Input() cells: { data: string; type: DataCellType }[] = [];
+  @Input() cells: { data: string; type: DataCellType; moreData?: { [key: string]: any } }[] = [];
    
   basicTableRowPropertyVariants= BasicTableRowPropertyVariants;
   dataCellType = DataCellType;
     iconButtonLargeType = IconButtonLargeType;
     iconType = IconType;
+
+    onClick() {
+      alert('icon button large on click');
+    }
 }

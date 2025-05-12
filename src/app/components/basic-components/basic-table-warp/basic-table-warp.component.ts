@@ -16,7 +16,7 @@ export class BasicTableWarpComponent {
 
       @Input() title: string  = '';
       @Input() showSelect: boolean = false;
-      @Input() data: { property : BasicTablePropertyType ; Headers: { data: string; type: HeaderCellType }[] ; Rows: { property: BasicTableRowPropertyVariants; showAction: boolean; cells: { data: string; type: DataCellType }[] }[]} = { property: BasicTablePropertyType.NEWֹֹֹֹֹֹ_SUGGESTIONS, Headers: [], Rows: [] };
+      @Input() data: { property : BasicTablePropertyType ; Headers: { data: string; type: HeaderCellType }[] ; Rows: { property: BasicTableRowPropertyVariants; showAction: boolean; cells:{ data: string; type: DataCellType ; moreData?: { [key: string]: any }}[] }[]} = { property: BasicTablePropertyType.NEWֹֹֹֹֹֹ_SUGGESTIONS, Headers: [], Rows: [] };
     //   homeTableData: {
     //     newSuggestion: any[];
     //     oldSuggestion: any[];
@@ -30,7 +30,7 @@ export class BasicTableWarpComponent {
       statusActiveOrNotActive=StatusActiveOrNotActive;
       
       currentHeaders: { data: string; type: HeaderCellType }[] = [];
-      currentRows: { property: BasicTableRowPropertyVariants; showAction: boolean; cells: { data: string; type: DataCellType }[] }[] = [];
+      currentRows: { property: BasicTableRowPropertyVariants; showAction: boolean; cells:{ data: string; type: DataCellType ; moreData?: { [key: string]: any }}[] }[] = [];
      currentTab = this.homeTableTabType.NEWֹֹֹֹֹֹ_SUGGESTIONS;
 
      tabs = [

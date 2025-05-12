@@ -1,11 +1,16 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, filter, lastValueFrom, map, Observable, of, take, tap } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, of, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
-import { LastNameInPlaces } from '../models/LastNameInPlaces';
 import { LastName } from '../models/LastName';
+import { LastNameInPlaces } from '../models/LastNameInPlaces';
 import { StatisticDetail } from '../models/StatisticDetail';
 import { StatisticData } from '../models/StatisticData';
+import { ValueCodeItem } from '../models/ValueCodeItem';
+import { ClusterGroupWithCrmLinks } from '../models/ClusterGroupWithCrmLinks';
+import { ClusteredNameRow } from '../models/ClusteredNameRow';
+import { RootObjectOfClusterGroupDetails } from '../models/RootObjectOfClusterGroupDetails';
+
 
 
 @Injectable({
@@ -15,59 +20,35 @@ export class ClusterService {
   #translateService = inject(TranslateService);
   #clusterApiService = inject(ClusterApiService)
 
-  private autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
+ autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
   private isDataFetched = false;
-   
-  // async getAutoClusterData(): Promise<string[]> {
-  //   if (this.isDataFetched) {
-  //     return this.autoClusterListSubject$.getValue(); // כבר הבאנו, נחזיר את הערך
-  //   }
-   
-  //   this.isDataFetched = true;
-   
-  //   // ממיר Observable ל-Promise
-  //   const data = await lastValueFrom((await this.#clusterApiService.getAutoClusterData()).pipe(take(1)));
-   
-  //   if (data) {
-  //     this.autoClusterListSubject$.next(data);
-  //   }
-   
-  //   return data;
-  // }
-  getAutoClusterData() {
-     return this.#clusterApiService.getAutoClusterData();
-    // .subscribe(data => {
-    //   console.log('Real data:', data);
-    //   // this.autoClusterListSubject$.next(data);
-    //   return data.ClustersWithMissingFields;
-    //   // now you can use data however you like
-    // });
-    //return this.autoClusterListSubject$.pipe(map(s=>{s.clusterID, s.comments})).asObservable();//filter only missingFileds
-  }
-
-  get checklistItem$() {
-    return this.autoClusterListSubject$.asObservable();//filter only missingFileds
+  
+  async getAutoClusterData() {
+    try {
+      const res = (await this.#clusterApiService.getAutoClusterData())
+        .pipe(
+          take(1),
+          tap((data: any) => {
+            console.log('Fetched data:', data); // בדיקה שהנתונים מגיעים
+            this.autoClusterListSubject$.next(data); // שמירת הנתונים ב-BehaviorSubject
+          }),
+          catchError(err => {
+            console.error('Error fetching auto cluster data:', err);
+            return of([]);
+          })
+        );
+      return res.toPromise();
+    } catch (error) {
+      console.error('Error in getAutoClusterData:', error);
+      return [];
+    }
   }
 
   get isLoading$() {
     return this.isLoadingBehaviorSubject$.asObservable();
   }
 
-  // getStatisticData() {
-  //   // let lang = this.#clusterApiService.getStatisticData === undefined ? Language.English : this.#translateService.currentLang;
-  //   var res = this.#clusterApiService.getStatisticData()
-  //     .pipe(
-  //       take(1),
-  //       tap(res => {
-  //       }),
-  //       catchError(err => {
-  //         return of(null);
-  //       })
-  //     );
-  //   return res;
-  // }
-  
   getStatisticData(): Observable<StatisticData | null> {
     return this.#clusterApiService.getStatisticData().pipe(
       take(1),
@@ -93,6 +74,67 @@ export class ClusterService {
     );
   }
 
+  getClusterGroupDetails(): Observable<RootObjectOfClusterGroupDetails | null> {
+    return this.#clusterApiService.getClusterGroupDetails().pipe(
+      take(1),
+      map((res: any) => {
+        const clusteredPeople: ClusteredNameRow[] = res.d.ClusteredNameRowList.map((row: any) => new ClusteredNameRow(
+          row.__type,
+          row.BookId,
+          new ValueCodeItem(row.FirstName.__type, row.FirstName.Code, row.FirstName.Value),
+          new ValueCodeItem(row.LastName.__type, row.LastName.Code, row.LastName.Value),
+          new ValueCodeItem(row.FatherFirstName.__type, row.FatherFirstName.Code, row.FatherFirstName.Value),
+          new ValueCodeItem(row.MotherFirstName.__type, row.MotherFirstName.Code, row.MotherFirstName.Value),
+          new ValueCodeItem(row.PlaceOfBirth.__type, row.PlaceOfBirth.Code, row.PlaceOfBirth.Value),
+          new ValueCodeItem(row.PermanentPlace.__type, row.PermanentPlace.Code, row.PermanentPlace.Value),
+          new ValueCodeItem(row.DateOfBirth.__type, row.DateOfBirth.Code, row.DateOfBirth.Value),
+          new ValueCodeItem(row.Source.__type, row.Source.Code, row.Source.Value),
+          new ValueCodeItem(row.SpouseFirstName.__type, row.SpouseFirstName.Code, row.SpouseFirstName.Value),
+          row.MaidenName,
+          row.IsClustered,
+          row.ExistsClusterId,
+          row.RelatedFnameGroupId,
+          row.IsHasRelatedFname,
+          row.Ind,
+          row.HasRelatedGroups,
+          row.Score,
+          row.NumberOfSuggestions,
+          row.RelatedFnameList
+        ));
+  
+        const clusterGroup = new ClusterGroupWithCrmLinks(
+          res.d.__type,
+          clusteredPeople,
+          res.d.CrmLinkList,
+          res.d.contact
+        );
+  
+        return new RootObjectOfClusterGroupDetails(clusterGroup);
+      }),
+      catchError(err => {
+        console.error('Error fetching cluster group details:', err);
+        return of(null);
+      })
+    );
+  }
+  deleteClusteredNameByBookId(list: any[], bookId: string): any[] {
+    return list.filter(item => item[1].data !== bookId);
+  }
+  private assigneeList$ = new BehaviorSubject<string[]>([]);
+
+  get AssigneeList$(): Observable<string[]> {
+    if (!this.assigneeList$.value.length) {
+      this.#clusterApiService.getAssigneeList()
+        .pipe(
+          take(1),
+          map(data => data.map(item => item.name)),
+          tap(names => this.assigneeList$.next(names))
+        )
+        .subscribe();
+    }
+  
+    return this.assigneeList$.asObservable();
+  }
 
 // =================================
 

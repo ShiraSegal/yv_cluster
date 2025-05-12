@@ -14,27 +14,27 @@
     border-radius: var(--Border-radius-small, 0.25rem);
   }
   fieldset.defualt {
-    border: 0.5px solid #3F4B5A;
+    border: 0.5px solid $c-3F4B5A;
   }
   
   fieldset.disabled{
-    border: 0.5px solid rgba(196, 199, 197, 0.50);
-    background: rgba(255, 255, 255, 0.50);
+    border: 0.5px solid $c-3F4B5A4D;
+    background: $c-c4c7c580;
   }
   span.disabled{
-    color: rgba(63, 75, 90, 0.30);
+    color:$c-3F4B5A4D;
   }
   fieldset.error{
     border-radius: var(--Border-radius-small, 0.25rem);
-    border: 0.5px solid var(--Color-4, #C00);
-    background: #FAEAEA;
+    border: 0.5px solid var(--Color-4, $c-C00);
+    background: $c-FAEAEA;
   }
   .wrapper {
     display: flex;
     padding: 1rem;
     align-items: flex-start;
     flex-direction: column;
-    background: #FFF;
+    background: $c-FFFFFF;
     gap: 0.1rem;
   }
   .custom-select {
@@ -45,7 +45,7 @@
   }
   
   .custom-arrow {
-    color: #3F4B5A;
+    color: $c-3F4B5A;
     font-family: "Font Awesome 6 Pro";
     font-size: 0.75rem;
     font-style: normal;
@@ -53,7 +53,7 @@
     line-height: normal;
   }
   .custom-arrow.disabled {
-    color: rgba(63, 75, 90, 0.30);
+    color:$c-3F4B5A4D;
     /* pointer-events: none;  */
   }
   .custom-options{
@@ -64,7 +64,7 @@
     top: 100%; 
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: var(--Border-radius-none, 0rem);
-    background: var(--main-neutral-main, #FFF);
+    background: $c-FFFFFF;
     z-index: 100;
   }
   .custom-options li {
@@ -97,7 +97,7 @@
     gap: 0.625rem;
   }
   .error-message {
-    color: var(--Additional-error-variant, #FF6665);
+    color:$c-FF6665;
     text-align: right;
     font-family: Rubik;
     font-size: 11px;
@@ -131,10 +131,10 @@
   
   
   legend.focused{
-    color: var(--Primery, #1334B9);
+    color: var(--Primery, $c-1334B9);
   }
   
   legend.populated{
-    color: var(--Color-2, #262C34);
+    color: var(--Color-2, $c-262C34);
   }
   

@@ -30,10 +30,10 @@ export class CreateClusterComponent {
   formBuilder = inject(FormBuilder);
   clusterService = inject(ClusterService);
 
-  //form validation
-  formGroup!: FormGroup;
-  formIsValid!: boolean;
-  formGroupFields: any = {};
+//   //form validation
+//   formGroup!: FormGroup;
+//   formIsValid!: boolean;
+//   formGroupFields: any = {};
 
   //form data
   dataCells: any = new Observable<string[]>;
@@ -80,6 +80,12 @@ export class CreateClusterComponent {
   ToastNotificationIcons = ToastNotificationIcons;
 
 
+//   //buttons
+//   button1: string = 'Cancel';
+//   button2: string = 'Set a cluster';
+//   btn_size:boolean = false;
+//   buttomType1: ButtonType = ButtonType.TERTIARY;
+//   buttomType2: ButtonType = ButtonType.PRIMARY;
 
   ngOnInit() {
     console.log("formIsValid", this.formIsValid);
@@ -140,4 +146,4 @@ export class CreateClusterComponent {
   }
 
 
-}
+// }

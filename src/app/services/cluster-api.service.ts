@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { SapirClusterModel } from '../models/sapir-cluster-model.model';
 
@@ -13,10 +14,16 @@ export class ClusterApiService {
   #http = inject(HttpClient);
   apiUrl = 'assets/json-data';
   async getAutoClusterData() {
-    return this.#http.get<string[]>('/assets/getAutoCluster.json');
+    return this.#http.get<string[]>(`${this.apiUrl}/getAutoCluster.json`);
   }
   getCreateClusterData() {
     return this.#http.get<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`);
+  }
+  getStatisticData(): Observable<any> {
+    return this.#http.get('./assets/json-data/getStatisticData.json');
+  }
+  getClusterGroupDetails(): Observable<any> {
+    return this.#http.get('./assets/json-data/getClusterGroupDetails.json');
   }
   // getCreateClusterData(): Observable<any[]> {
   //   return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`).pipe(
@@ -25,10 +32,9 @@ export class ClusterApiService {
   // }
 
   //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
-
-  getStatisticData(): Observable<any> {
-    return this.#http.get('./assets/json-data/getStatisticData.json');
+  getAssigneeList(): Observable<{ name: string }[]> {
+    return this.#http.get<{ name: string }[]>(`${this.apiUrl}/getAssignees.json`);
   }
-  }
-
-
+  
+  
+}
