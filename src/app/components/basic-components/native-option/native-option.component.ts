@@ -49,3 +49,4 @@ export class NativeOptionComponent {
   optionStateMain = NativeOptionState;
   badgeType = BadgeType;
 }
+

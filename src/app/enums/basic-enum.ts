@@ -1,4 +1,5 @@
 import * as e from "express";
+ 
 import { IconType } from "./icon-enum";
 
 export enum ButtonType {
@@ -95,19 +96,6 @@ export enum HomeTableTabType {
   OLD_SUGGESTIONS = 'old_suggestion',
   
 }
-
-export enum ButtonIcon {
-  FOLDER_PLUS = "fa-light fa-folder-plus",
-  LAYER_PLUS = "fa-light fa-layer-plus",
-  PLUS = "fa-light fa-plus",
-  FILE_ARROW_DOWN = "fa-light fa-file-arrow-down",
-  CHEVRON_LEFT = "fa-light fa-chevron-left",
-  EMPTY = ""
-}
-
-
-
-
   export enum TextColor {
     BLACK = "black",
     SLATE_BLUE = "slate-blue",
@@ -136,17 +124,6 @@ export enum HeaderCellType {
   ORDERDOWN = "order-down"
 }
 
-export enum CardIcons {
-  HOURGLASS_CLOCK = "fa-solid fa-hourglass-clock",
-  CLOCK_FIVE_SOLID = "fa-solid fa-clock-five",
-  EDIT = "fa-solid fa-pen-to-square",
-  CIRCLE_CHECK = "fa-solid fa-circle-check",
-   HOUSE_LIGHT = "fa-light fa-house"
-}
-export enum ToastNotificationIcons {
-  ERROR = "fa-solid fa-circle-xmark",
-  SUCCESS = "fa-solid fa-circle-check",
-}
 export enum BadgeType {
   TODO = "To-do",
   DONE = "Done"
@@ -159,6 +136,7 @@ export enum SliderNavigationTabType {
 export enum SliderNavigationTabTextType {
   HOME = "Home",
   LOGOUT = "Logout",
+  CRMCLUSTERS  = "CRM Clusters",
   AUTOCLUSRET = "Auto Cluster",
   REPORT = "Report",
   NEWCLUSTER = "New Cluster",
@@ -178,10 +156,6 @@ export enum IconButtonLargeType {
   HOVER = "hover",
 }
 
-export enum StatusActiveOrNotActive {
-  ACTIVE = "active",
-  NOT_ACTIVE = "not-active"
-}
 
 export enum NativeOptionType{
   ASSIGNEE = "assignee",
@@ -213,3 +187,5 @@ export enum ButtonIconProperty{
     SHORT = "short",
     LONG = "long"
   }
+
+  

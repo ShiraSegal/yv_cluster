@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { BadgeType, NativeOptionState, NativeOptionType, ToastNotificationIcons } from 'src/app/enums/basic-enum';
+import { BadgeType, NativeOptionState, NativeOptionType } from 'src/app/enums/basic-enum';
 import { Component, forwardRef, inject, Inject } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../../basic-components/button/button.component';
@@ -17,6 +17,7 @@ import { ToastNotificationComponent } from '../../basic-components/toast-notific
 import { SelectComponent } from '../../basic-components/select/select.component';
 import { SapirClusterModel } from 'src/app/models/sapir-cluster-model.model';
 import { SapirClusterDetail } from 'src/app/models/sapir-cluster-detail.model';
+import { IconType } from 'src/app/enums/icon-enum';
 
 type NativeSelectOption = {
   optionType: NativeOptionType;
@@ -40,6 +41,7 @@ export class CreateClusterComponent {
 
   //form validation
   createClusterForm: FormGroup= this.#formBuilder.group({
+    clusterLevel: ['', Validators.required],
     comments: ['']
   });
 
@@ -94,9 +96,15 @@ export class CreateClusterComponent {
   buttomType2: ButtonType = ButtonType.PRIMARY;
 
   //toast notification
-  ToastNotificationIcons = ToastNotificationIcons;
+iconType=IconType;
 
 
+//   //buttons
+//   button1: string = 'Cancel';
+//   button2: string = 'Set a cluster';
+//   btn_size:boolean = false;
+//   buttomType1: ButtonType = ButtonType.TERTIARY;
+//   buttomType2: ButtonType = ButtonType.PRIMARY;
 
   ngOnInit() {
     console.log("formIsValid", this.formIsValid);
@@ -106,13 +114,16 @@ export class CreateClusterComponent {
   createClusterFormData() {
     this.#clusterService.getCreateClusterData().subscribe({
       next: (res: SapirClusterModel | null) => {
+        debugger
         if (res) {
           console.log("getCreateClusterData", res);
 
-          this.clusterModel = res as SapirClusterModel;
+          this.clusterModel = res;
           console.log("this.clusterModel", this.clusterModel);
 
           this.dataCells = res.SapirClusterDetails; // Process the data if it's not null
+          console.log("check1",this.clusterModel.SapirClusterDetails);
+          
           this.dataCells.forEach((d: any) => {
             let values: any = [];
             d.Values.forEach((v: any) => {
@@ -123,12 +134,15 @@ export class CreateClusterComponent {
               values.push({ key: v.NameCode, value: v.Value });
 
             });
+
             if (d.HasOtherOption) {
               values.push({ key: "other", value: "other" });
             }
             d.RadioOptions = values;
+          console.log("check2",this.clusterModel.SapirClusterDetails);
    
           });
+          console.log("check13",this.clusterModel.SapirClusterDetails);
 
           console.log("222222222222222222", this.dataCells);
 
@@ -191,6 +205,7 @@ export class CreateClusterComponent {
       });
       console.log("this.clusterModel", this.clusterModel);
       console.log("comments", this.createClusterForm.value.comments);
+      this.clusterModel.Level= this.createClusterForm.value.clusterLevel;
       this.clusterModel.Comments = this.createClusterForm.value.comments;
       this.#clusterService.createCluster(this.clusterModel).subscribe({
         next: (res) => {

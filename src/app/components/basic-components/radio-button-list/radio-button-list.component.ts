@@ -69,10 +69,7 @@ export class RadioButtonListComponent implements ControlValueAccessor {
     this.radioControl.setValue(value); // עדכון הערך של FormControl
     this.selectionChange.emit(value); // פליטת האירוע
   }
-  // onOneRadioButtonChange(selectedOption: string) {
-  //   this.radioControl.setValue(selectedOption);
-  //   this.selectionChange.emit(selectedOption);
-  // }
+
 }
 
 

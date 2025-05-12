@@ -1,61 +1,61 @@
 <form [formGroup]="filterForm" class="filter-section-container">
-    <div class="selects-container">
-      <yv-cluster-field
-        formControlName="search"
-        [property]="stateEnum.DEFAULT"
-        placeholder="Search"
-        label="Search"
-      ></yv-cluster-field>
-  
-      <yv-cluster-select
-        formControlName="date"
-        [default]="'Select Date'"
-        [dropdownType]="nativeOptions.TEXT"
-      ></yv-cluster-select>
-  
-      <yv-cluster-select
-        formControlName="status"
-        [default]="'Filter By Status'"
-        [dropdownType]="nativeOptions.STATUS"
-        [options]="badgeOptions"
-      ></yv-cluster-select>
-  
-      <yv-cluster-select
-        formControlName="assignee"
-        [default]="'Filter By Assignee'"
-        [dropdownType]="nativeOptions.ASSIGNEE"
-        [options]="assigneeOptions"
-      ></yv-cluster-select>
-    </div>
-  
-    <div class="right-buttons">
-      <!-- כפתור ראשון: Assignee toggle -->
-      <!-- formControlName="toggleAssignee" -->
-  
-      <yv-cluster-icon-button-large
-        [icon]="iconType.USER_LIGHT"
-        [property]="iconButtonLargeType.DEFAULT"
-        (onClick)="onClickStatus()"
-      ></yv-cluster-icon-button-large>
-  
-      <!-- כפתור שני: Status toggle -->
-      <!-- formControlName="toggleStatus" -->
-      <yv-cluster-icon-button-large
-        
-        [icon]="iconType.CLIPBOARD_LIST_LIGHT"
-        [property]="iconButtonLargeType.DEFAULT"
-        (onClick)="onClickAssinee()"
-      ></yv-cluster-icon-button-large>
-  
-      <!-- כפתור רגיל -->
-      <yv-cluster-button
-        (onClick)="onClickAddClusterFunc()"
-        [text]="buttonText"
-        [buttonType]="primary"
-        [isBig]="true"
-        [iconType]="iconType.PLUS_LIGHT"
-      ></yv-cluster-button>
-  
+  <div class="selects-container">
+    <yv-cluster-field
+      formControlName="search"
+      [property]="stateEnum.DEFAULT"
+      placeholder="Search"
+      label="Search"
+    ></yv-cluster-field>
+
+    <yv-cluster-select
+      formControlName="date"
+      [default]="'Select Date'"
+      [dropdownType]="nativeOptions.TEXT"
+    ></yv-cluster-select>
+
+    <yv-cluster-select
+      formControlName="status"
+      [default]="'Filter By Status'"
+      [dropdownType]="nativeOptions.STATUS"
+      [options]="badgeOptions"
+    ></yv-cluster-select>
+
+    <yv-cluster-select
+      formControlName="assignee"
+      [default]="'Filter By Assignee'"
+      [dropdownType]="nativeOptions.ASSIGNEE"
+      [options]="assigneeOptions"
+    ></yv-cluster-select>
+  </div>
+
+  <div class="right-buttons">
+    <!-- כפתור ראשון: Assignee toggle -->
+    <!-- formControlName="toggleAssignee" -->
+
+    <yv-cluster-icon-button-large
+      [icon]="iconType.USER_LIGHT"
+      [property]="iconButtonLargeType.DEFAULT"
+      (onClick)="onClickStatus()"
+    ></yv-cluster-icon-button-large>
+
+    <!-- כפתור שני: Status toggle -->
+    <!-- formControlName="toggleStatus" -->
+    <yv-cluster-icon-button-large
       
-    </div>
-  </form>
+      [icon]="iconType.CLIPBOARD_LIST_LIGHT"
+      [property]="iconButtonLargeType.DEFAULT"
+      (onClick)="onClickAssinee()"
+    ></yv-cluster-icon-button-large>
+
+    <!-- כפתור רגיל -->
+    <yv-cluster-button
+      (onClick)="onClickAddClusterFunc()"
+      [text]="buttonText"
+      [buttonType]="primary"
+      [isBig]="true"
+      [iconType]="iconType.PLUS_LIGHT"
+    ></yv-cluster-button>
+
+    
+  </div>
+</form>

@@ -9,7 +9,7 @@ import { HeaderCellsComponent } from '../header-cells/header-cells.component';
 @Component({
   selector: 'yv-cluster-pie-table',
   standalone: true,
-  imports: [CommonModule, FormsModule,DataCellsComponent,HeaderCellsComponent],
+  imports: [CommonModule, FormsModule,DataCellsComponent],
   templateUrl: './pie-table.component.html',
   styleUrl: './pie-table.component.scss'
 })
@@ -22,8 +22,8 @@ export class PieTableComponent {
   tableRows:any= [{'rowName':'Last Name','objectKey':'Value'}, {'rowName':'Count','objectKey':'Count'}, {'rowName':'percent','objectKey':'Count'},{ 'rowName':'Total name count','objectKey':'Code'}];
   totalAllNamesInTheDatabase:number=180056
 //enums
-  DataCellType = DataCellType;
-  HeaderCellType=HeaderCellType
+  dataCellType = DataCellType;
+  headerCellType=HeaderCellType
   //functoins
 getValue(subItem: any, key: string): any {
   return subItem[key];

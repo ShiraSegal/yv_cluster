@@ -1,13 +1,17 @@
 @import "src/styles.scss";
 
 .Hover {
-    background: rgba(231, 235, 248, 0.2);
+    background: $c-E7EBF833;
 }
 
 .narrow-basic-table-row {
+    padding: 0.25rem 0rem;
+gap: 0.0625rem;
+align-self: stretch;
     border-bottom: 1px solid $c-D0D6F1;
     display: flex;
     align-items: center;
+    max-height: 2.8125rem;
 }
 
 .regular-cell {
@@ -24,7 +28,7 @@
 
 .cell {
     display: flex;
-    height: 3.125rem;
+    min-height: 3.125rem;
     padding: var(--layout-02, 0.5rem);
     align-items: center;
     gap: 0.625rem;

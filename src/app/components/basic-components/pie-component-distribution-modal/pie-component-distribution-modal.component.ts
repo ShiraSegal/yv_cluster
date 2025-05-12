@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, SimpleChanges } from '@angular/core';
+import { Component, Inject, inject, Input, Optional, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PieCircleComponent } from '../pie-circle/pie-circle.component';
 import { PieTableComponent } from '../pie-table/pie-table.component';
@@ -8,11 +8,12 @@ import { ButtonSize, ButtonType } from 'src/app/enums/basic-enum';
 import { from, Observable } from 'rxjs';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { StatisticData } from 'src/app/models/StatisticData';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'yv-cluster-pie-component-distribution-modal',
   standalone: true,
-  imports: [CommonModule, FormsModule, PieCircleComponent, PieTableComponent, ButtonComponent],
+  imports: [CommonModule, FormsModule, PieCircleComponent, PieTableComponent],
   templateUrl: './pie-component-distribution-modal.component.html',
   styleUrls: ['./pie-component-distribution-modal.component.scss']
 })
@@ -27,71 +28,22 @@ export class PieComponentDistributionModalComponent {
   lastNames: any[] = []; // מערך של LastName
   lastNamesInPlaces: any[] = []; // מערך של LastNameInPlaces
   totalCount: number = 0; // סך כל ה-countים
-  // data = {
-  //   "LastName": [{
-  //     "Count": 3000,
-  //     "Code": "T342541",
-  //     "Value": "Bilstein"
-  //   }, {
-  //     "Count": 1000,
-  //     "Code": "T342541",
-  //     "Value": "Goldstein"
-  //   }, {
-  //     "Count": 600,
-  //     "Code": "T342541",
-  //     "Value": "Frankens"
-  //   }, {
-  //     "Count": 1500,
-  //     "Code": "T342541",
-  //     "Value": "Blumen"
-  //   }
-  //     // , {
-  //     //   "Count": 200,
-  //     //   "Code": "T342541",
-  //     //   "Value": "Glukigen"
-  //     // }
-  //     // , {
-  //     //   "Count": 200,
-  //     //   "Code": "T342541",
-  //     //   "Value": "Glukigen"
-  //     // }
-  //     // , {
-  //     //   "Count": 200,
-  //     //   "Code": "T342541",
-  //     //   "Value": "Glukigen"
-  //     // }
-  //   ]
-  //   ,
-  //   "LastNameInPlaces": [
-  //     {
-  //       "TotalCount": 11816,
-  //       "Count": 2200,
-  //       "Code": "5430861",
-  //       "Value": "Loeln"
-
-  //     },
-  //     {
-  //       "TotalCount": 11816,
-  //       "Count": 3000,
-  //       "Code": "5430861",
-  //       "Value": "Koeln"
-
-  //     },
-  //     {
-  //       "TotalCount": 11816,
-  //       "Count": 1500,
-  //       "Code": "5430861",
-  //       "Value": "Rhine"
-
-  //     }
-  //   ]
-  // };
-
   subscription: Observable<any>[] = [];
-  constructor(private clusterService: ClusterService) { }
-  ngOnInit() {
-    this.#clusterService.getStatisticData().subscribe({
 
+  constructor(
+    private clusterService: ClusterService,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: { title: string },
+    @Optional() public dialogRef: MatDialogRef<PieComponentDistributionModalComponent>
+
+    
+    ) {}
+    onClose(): void {
+      this.dialogRef.close();  // סוגר את הדיאלוג
+    }
+  ngOnInit() {
+    this.title = this.data.title; 
+
+    this.#clusterService.getStatisticData().subscribe({
       next: (res: any) => {
         this.statisticData = res;
         console.log("this.bigData", this.statisticData);

@@ -1,11 +1,22 @@
-
+ <!-- <h3>narrow-basic-table-warp</h3>
+<hr>
+<yv-cluster-narrow-basic-table-warp [subTitle]="customSubtitle"></yv-cluster-narrow-basic-table-warp> -->
+<hr>
+<h3>heading</h3>
+<yv-cluster-heading [title]="title1" [size]="size1" [weight]="weight1"></yv-cluster-heading>
+<yv-cluster-heading [title]="title2" [size]="size2" [weight]="weight1"></yv-cluster-heading>
+<yv-cluster-heading [title]="title3" [size]="size3" [weight]="weight2"></yv-cluster-heading>
+<yv-cluster-heading [title]="title4" [size]="size3" [weight]="weight1"></yv-cluster-heading>
 <hr>
 
-<h3>data cell</h3>
-<yv-cluster-data-cells [type]="dataCellType.TEXT" [data]="'Hello World aaa'"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.LINK" [data]="'https://example.com'"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.SLIDER" [data]="80"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.MORE" ></yv-cluster-data-cells>
+<h3>body</h3>
+<yv-cluster-body [bodyText]="bodyText1" [size]="size1" [weight]="weight2"></yv-cluster-body>
+<yv-cluster-body [bodyText]="bodyText1" [size]="size1" [weight]="weight1"></yv-cluster-body>
+<yv-cluster-body [bodyText]="bodyText2" [size]="size2" [weight]="weight2"></yv-cluster-body>
+<yv-cluster-body [bodyText]="bodyText2" [size]="size2" [weight]="weight1"></yv-cluster-body>
+<yv-cluster-body [bodyText]="bodyText3" [size]="size3" [weight]="weight2"></yv-cluster-body>
+<hr>
+<yv-cluster-home-warp></yv-cluster-home-warp>
 <hr>
 <h3>basic table row</h3>
 <hr>
@@ -43,9 +54,9 @@
 <hr>
 <h3>icon-button-large</h3>
 <hr>
-<yv-cluster-icon-button-large [icon]="iconType.MAGNIFYING_GLASS_MINUS_LIGHT"
+<yv-cluster-icon-button-large (onClick)="onClick()" [icon]="iconType.MAGNIFYING_GLASS_PLUS_LIGHT"
     [property]="iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
-<yv-cluster-icon-button-large [icon]="iconType.MAGNIFYING_GLASS_MINUS_LIGHT"
+<yv-cluster-icon-button-large (onClick)="onClick()" [icon]="iconType.MAGNIFYING_GLASS_PLUS_LIGHT"
     [property]="iconButtonLargeType.HOVER"></yv-cluster-icon-button-large>
 <hr>
 <h3>viewer</h3>
@@ -53,60 +64,93 @@
 <yv-cluster-viewer pictureName="1"></yv-cluster-viewer>
 <yv-cluster-viewer pictureName="img1"></yv-cluster-viewer>
 <yv-cluster-viewer pictureName="00023"></yv-cluster-viewer>
-<hr>
-<h3>data cell</h3>
-<hr>
-<yv-cluster-data-cells [type]="dataCellType.TEXT" [data]="'this is a text'"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.LINK" [data]="'https://example.com'"></yv-cluster-data-cells>
+ <hr>
+<!-- <h3>data cell</h3>
+<hr><yv-cluster-data-cells 
+[type]="dataCellType.TEXT" 
+[data]="'This is a text'">
+</yv-cluster-data-cells>
+
+<yv-cluster-data-cells 
+[type]="dataCellType.LINK" 
+[data]="'https://example.com'">
+</yv-cluster-data-cells>
+
+<yv-cluster-data-cells 
+[type]="dataCellType.ICON" 
+[moreData]="{ icon: iconType.USER_LIGHT}">
+</yv-cluster-data-cells>
+
+<yv-cluster-data-cells 
+[type]="dataCellType.CHECK" 
+[moreData]="{ type: checkType.CHECKED, state: checkStateType.DISABLED }">
+</yv-cluster-data-cells>
+
+<yv-cluster-data-cells 
+[type]="dataCellType.BUTTON" 
+[data]="{ text: 'Click Me', buttonType: buttonType.PRIMARY, disabled: false }">
+</yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.SLIDER" [data]="80"></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.MORE"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.CHECK"></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.STATUS"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.ICON"></yv-cluster-data-cells>
 <yv-cluster-data-cells [type]="dataCellType.PLACEOLDER"></yv-cluster-data-cells>
-<!-- <yv-cluster-data-cells [type]="dataCellType.BUTTON" [data]="'Button'"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.ASSIGNEE" [data]="'Ariala Dror'"></yv-cluster-data-cells> -->
+<yv-cluster-data-cells [type]="dataCellType.ASSIGNEE" [data]="'Racheli Liff'"></yv-cluster-data-cells>
+<hr> -->
+<h3>SLIDER</h3>
 <hr>
- <yv-cluster-slider [value]=80></yv-cluster-slider>
- <hr>
- <h3>field</h3>
+<yv-cluster-slider [value]=80></yv-cluster-slider>
 
- <yv-cluster-field [property]="stateEnum.ERROR" [placeholder]="'הכנס טקסט כאן'"></yv-cluster-field>
- 
- <yv-cluster-field [property]="stateEnum.DISABLED" [placeholder]="'DISABLED'"></yv-cluster-field>
- 
- <yv-cluster-field [property]="stateEnum.DEFAULT" [placeholder]="'הכנס טקסט כאן'"></yv-cluster-field>
- 
- <yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [placeholder]="'Focused'"></yv-cluster-field>
- 
- <yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [placeholder]="'Populated '"></yv-cluster-field>
+<hr>
+<h3>check</h3>
+<hr>
+<yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
+<yv-cluster-check [type]=checkType.CHECKED [state]=checkStateType.ENABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
+<yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.DISABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
+<yv-cluster-check [type]=checkType.CHECKED [state]=checkStateType.DISABLED (checkStatus)="checkChange($event)"></yv-cluster-check>
+<hr>
+<h3>header cell</h3>
+<hr>
+<yv-cluster-header-cells [type]=headerCellType.TEXT header="text"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.ORDER header="order"
+  (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.ORDERDOWN header="order-down"
+  (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.CHECK></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.MORE></yv-cluster-header-cells>
+<yv-cluster-header-cells [type]=headerCellType.PLACEOLDER></yv-cluster-header-cells> -->
+<!-- <h3>button</h3>
+<yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]=buttonType.PRIMARY
+  [iconType]="icon"></yv-cluster-button>
+  <hr>
+ <h3>slider navigation tab</h3>
+<hr>
+<yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.VARIANT3" [icon]="iconType.HOUSE_LIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
+<yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.ACTIVE" [icon]="iconType.HOUSE_LIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
  <hr>
+<h3>slider navigation</h3>
+<hr>
+<yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
+<hr>
 
+ <hr> -->
+<!-- <h3>narrow-basic-table-row </h3>
+<yv-cluster-narrow-basic-table-row [property]="narrowBasicTableRowInputState.HOVER" [cells]="exampleNarrowRow"></yv-cluster-narrow-basic-table-row>
+<yv-cluster-narrow-basic-table-row [property]="narrowBasicTableRowInputState.DEFAULT" [cells]="exampleNarrowRow"></yv-cluster-narrow-basic-table-row>
+<hr> <h3>table-header</h3>
+<hr>
+<yv-cluster-table-header [headers]="exampleTableHeader"></yv-cluster-table-header>
+<hr>  -->
+ <!-- <h3>field</h3> -->
+<!-- <hr>
+<yv-cluster-field [property]="stateEnum.ERROR" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
+<yv-cluster-field [property]="stateEnum.DISABLED" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
+<yv-cluster-field [property]="stateEnum.DEFAULT" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
+<yv-cluster-field [property]="stateEnum.FOCUSED" [label]="'Focused Label'" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
+<yv-cluster-field [property]="stateEnum.POPULATED" [label]="'Populated Label'" [textControl]="searchControl" placeholder="search"></yv-cluster-field>
+<hr>  -->
 
- <h3>native option</h3>
- <yv-cluster-native-option [optionType]="NativeOptionType.TEXT"></yv-cluster-native-option>
- <yv-cluster-native-option [optionType]="NativeOptionType.STATUS"></yv-cluster-native-option>
- <yv-cluster-native-option [optionType]="NativeOptionType.ASSIGNEE"></yv-cluster-native-option>
-
-
- <hr>
- <h3>header cell</h3>
- <yv-cluster-header-cells [type]=HeaderCellType.TEXT header="text"></yv-cluster-header-cells>
- <yv-cluster-header-cells [type]=HeaderCellType.ORDER header="order" (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
- <yv-cluster-header-cells [type]=HeaderCellType.ORDERDOWN header="order-down" (sortEvent)="handleSort($event)"></yv-cluster-header-cells>
- <yv-cluster-header-cells [type]=HeaderCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
- <yv-cluster-header-cells [type]=HeaderCellType.CHECK></yv-cluster-header-cells>
- <yv-cluster-header-cells [type]=HeaderCellType.MORE></yv-cluster-header-cells>
- <yv-cluster-header-cells [type]=HeaderCellType.PLACEOLDER></yv-cluster-header-cells>
- <hr>
-<!-- <yv-cluster-table-header [headers]="[{ data: 'string'; type: DataCellType.TEXT}]"></yv-cluster-table-header> -->
- <h3>icon button</h3>
- <hr>
- <!-- <yv-cluster-icon-button (onClick)="onClick()" [icon]="iconp"  ></yv-cluster-icon-button> -->
- <h3>enter-bookid</h3>
- <yv-cluster-enter-bookid/>
- <hr>
- <h3>button</h3>
+<h3>button</h3>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [isBig]=true [iconType]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="primary" [iconType]="icon"></yv-cluster-button>
 
@@ -125,119 +169,16 @@
 
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true  [disabled]="true" [iconType]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false  [disabled]="true" [iconType]="icon" ></yv-cluster-button>
+<hr> 
+
+<h3>icon button</h3>
+<yv-cluster-icon-button (onClick)="onClick()"></yv-cluster-icon-button>
+<hr> 
+
+<h3>enter bookid</h3>
+<yv-cluster-enter-bookid></yv-cluster-enter-bookid>
 <hr>
- <hr>
- <h3>heading</h3>
- <yv-cluster-heading [title]="title1" [size]="size1" [weight]="weight1"></yv-cluster-heading>
- <yv-cluster-heading [title]="title2" [size]="size2" [weight]="weight1"></yv-cluster-heading>
- <yv-cluster-heading [title]="title3" [size]="size3" [weight]="weight2"></yv-cluster-heading>
- <yv-cluster-heading [title]="title4" [size]="size3" [weight]="weight1"></yv-cluster-heading>
- <hr>
- 
- <h3>body</h3>
- <yv-cluster-body [bodyText]="bodyText1" [size]="size1" [weight]="weight2"></yv-cluster-body>
- <yv-cluster-body [bodyText]="bodyText1" [size]="size1" [weight]="weight1"></yv-cluster-body>
- <yv-cluster-body [bodyText]="bodyText2" [size]="size2" [weight]="weight2"></yv-cluster-body>
- <yv-cluster-body [bodyText]="bodyText2" [size]="size2" [weight]="weight1"></yv-cluster-body>
- <yv-cluster-body [bodyText]="bodyText3" [size]="size3" [weight]="weight2"></yv-cluster-body>
- <hr>
- <h3>switch</h3>
- <yv-cluster-switch [text]="'switch'" [active]="true"   (switchChange)="handleSwitchChange($event)"></yv-cluster-switch>
- <hr>
- <h3>tab</h3>
- <yv-cluster-basic-tab  [text]="'tab'" [active]="true" (tabChange)="handleTabChange($event)"></yv-cluster-basic-tab>
- <hr>
- <h3>toggle</h3>
- <yv-cluster-basic-toggle [rightSelected]="true"  [rightText]="'English'" [leftText]="'עברית'" (toggleChange)="handleToggleChange($event)"></yv-cluster-basic-toggle>
- <hr>
- <h3>radio button</h3>
- <yv-cluster-basic-radio-button  [disable]="false"  [checked]="false" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)"></yv-cluster-basic-radio-button>
- <yv-cluster-basic-radio-button   [disable]="true"  [checked]="false" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-basic-radio-button>
- <yv-cluster-basic-radio-button   [disable]="false"  [checked]="true" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-basic-radio-button>
- <yv-cluster-basic-radio-button   [disable]="true"  [checked]="true" [text]="'Text'" (checkedChange)="handleRadioButtonChange($event)" ></yv-cluster-basic-radio-button>
- <yv-cluster-radio-button-list  [radioButtonArray]="radioButtonArray" [disable]="false" [direction]="RadioButtonListDirection.COLUMN" (selectionChange)="onRadioButtonListSelectionChange($event)"></yv-cluster-radio-button-list>
- <hr>
- <h3>filter section</h3>
- <yv-cluster-filter-section [buttonText]="'New Cluster'" [icon]="iconType.PLUS_LIGHT"></yv-cluster-filter-section>
- <hr>
- <h3>card</h3>
- <yv-cluster-basic-card [iconName]="iconType. HOUSE_LIGHT" [text]="'30 New clusters pending'" [circleColor]="'#B8C2EA'" [iconColor]="'#FFFFFF'" ></yv-cluster-basic-card>
- <br>
- <yv-cluster-basic-card [iconName]="iconType.HOURGLASS_CLOCK_SOLID" [text]="'30 New Suggestions pending'" [circleColor]="'#1334B9'" [iconColor]="'#D0D6F1'"></yv-cluster-basic-card>
- <br>
- <yv-cluster-basic-card [iconName]="iconType.EDIT_SOLID" [text]="'70 Clusters created manually this month'" [circleColor]="'#F6CDCD'" [iconColor]="'#E25F5F'"></yv-cluster-basic-card>
- <br>
- <yv-cluster-basic-card [iconName]="iconType.CLOCK_FIVE_SOLID" [text]="'560 Old Suggestions  pending'" [circleColor]="'#A5EBDD'" [iconColor]="'#1F8A74'"></yv-cluster-basic-card>
- <br>
- <yv-cluster-basic-card [iconName]="iconType.CIRCLE_CHECK_SOLID" [text]="'120 Suggestions processed this month'" [circleColor]="'#B8C2EA'" [iconColor]="'#5A71CE'"></yv-cluster-basic-card>
- <hr>
- <h3>big card</h3>
-<yv-cluster-big-card [text]="'Cluster creation from the automated list'" [number]="1.200" [iconName]="iconType.LIST_SOLID" [size]="BigCardSize.SHORT" [circleColor]="'#E7EBF8'" [iconColor]="'#5A71CE'"></yv-cluster-big-card>
-<br>
-<yv-cluster-big-card [text]="'Handling proposals from the CRM'" [number]="450" [iconName]="iconType.LINK_SIMPLE_SOLID" [size]="BigCardSize.SHORT" [circleColor]="'#F6CDCD80'" [iconColor]="'#E25F5F'"></yv-cluster-big-card>
- <br>
- <yv-cluster-big-card [text]="'Number of clusters generated automatically'" [number]="1.500" [iconName]="iconType.ROBOT_SOLID" [size]="BigCardSize.LONG" [circleColor]="'#A5EBDD80'" [iconColor]="'#1F8A74'"></yv-cluster-big-card>
- <br>
- <yv-cluster-big-card [text]="'Manual creation of clusters.'" [number]="350" [iconName]="iconType.EDIT_SOLID" [size]="BigCardSize.LONG" [circleColor]="'#425DC7'" [iconColor]="'#E7EBF8'"></yv-cluster-big-card>
- <br>
- <hr>
- <h3>satistic card</h3>
- <yv-cluster-satistic-card [text]="'Handling proposals from the automated lists'" [doneNumber]="1200" [toDoNumber]="355" ></yv-cluster-satistic-card>
- <br>
- <hr>
- <h3>toast</h3>
- <yv-cluster-toast-notification [iconName]="ToastNotificationIcons.ERROR"[message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
- <br>
- <yv-cluster-toast-notification [iconName]="ToastNotificationIcons.SUCCESS"[message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="90000"></yv-cluster-toast-notification>
- <hr>
- <h3>pie-component-distribution-modal</h3>
- <yv-cluster-pie-component-distribution-modal [title]="'Data Distribution'"></yv-cluster-pie-component-distribution-modal>
- <hr>
- <h3>slider navigation</h3>
- <yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
- <hr>
- 
-<!-- <yv-cluster-data-cells [type]="dataCellType.BUTTON" [data]="'press'"></yv-cluster-data-cells>
-<yv-cluster-data-cells [type]="dataCellType.ASSIGNEE" [data]="'Racheli Liff'"></yv-cluster-data-cells> -->
-<hr>
-<h3>SLIDER</h3>
-<hr>
-<yv-cluster-slider [value]=80></yv-cluster-slider>
-<hr>
-<h3>assignee</h3>
-<hr>
-<yv-cluster-assignee data="Ariela Zoppelmann"></yv-cluster-assignee>
-<hr>
-<h3>check</h3>
-<hr>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
-<yv-cluster-check [type]=CheckType.CHECKED [state]=CheckStateType.DISABLED></yv-cluster-check>
-<hr>
-<hr>
-<h3>narrow-basic-table-row </h3>
-<yv-cluster-narrow-basic-table-row [property]="NarrowBasicTableRowInputState.HOVER" [cells]="exampleNarrowRow"></yv-cluster-narrow-basic-table-row>
-<yv-cluster-narrow-basic-table-row [property]="NarrowBasicTableRowInputState.DEFAULT" [cells]="exampleNarrowRow"></yv-cluster-narrow-basic-table-row>
-<hr>
-<h3>narrow-basic-table-warp</h3>
-<hr>
-<yv-cluster-narrow-basic-table-warp [subTitle]="customSubtitle"></yv-cluster-narrow-basic-table-warp>
-<hr>
-<h3>popover</h3>
-<yv-cluster-popover  [type]="popoverType.STATUS" [popoverOptions]="popoverOptionsStatus"></yv-cluster-popover>
-<br>
-<br>
-<yv-cluster-popover  [type]="popoverType.ASSIGNEE" [popoverOptions]="popoverOptionsAssignee"></yv-cluster-popover>
-<br>
-<br>
-<yv-cluster-popover  [type]="popoverType.LINK" [popoverOptions]="popoverOptionsLink"></yv-cluster-popover>
-<hr>
-<h3>table-header</h3>
-<hr>
-<yv-cluster-table-header [headers]="exampleTableHeader"></yv-cluster-table-header>
-<hr>
-<h3>create cluster</h3>
+<br> 
+ <h3>create cluster</h3>
 <yv-cluster-create-cluster></yv-cluster-create-cluster>
-<br>
-<br>
+<hr> 

@@ -9,14 +9,12 @@
     line-height: normal;
     width: 1.3125rem;
     height: 1.0625rem;
-    flex-shrink: 0;
+    flex-shrink: 0; 
 }
 
-.header-cell {
+.header-cell { 
     display: flex;
-    width: 9.375rem;
-    height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
+    padding: var(--layout-02, 0.8rem);
     font-style: normal;
     font-weight: 600;
     line-height: 1.25rem;
@@ -30,7 +28,7 @@
 .text,
 .order,
 .order-down {
-    align-items: center;
+    align-items:center;
     justify-content: space-between;
     flex: 1 0 0;
 }
@@ -85,4 +83,14 @@
     width: 1.5625rem;
     justify-content: flex-end;
     align-items: center;
+}
+
+.chart-icon{
+    color:$c-1334B9;
+font-family: "Font Awesome 6 Pro";
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 900;
+line-height: 1.25rem; /* 142.857% */
+margin-right: 5px;
 }

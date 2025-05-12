@@ -3,8 +3,8 @@
 
 .table-frame {
     border-radius: 0.75rem;
-    background: #FFF;
-    box-shadow: 0px 10px 60px 0px #7573731a;
+    background: $c-FFFFFF;
+    box-shadow: 0px 10px 60px 0px $c-7573731A;
     padding: 1.25rem 1.25rem 0.625rem 1.25rem;
     table-layout: fixed;
     // display: flex;
@@ -12,15 +12,6 @@
     // align-items: flex-start;
     // gap: 1.5rem;
     // align-self: stretch;
-}
-
-.table-actions {
-    border-bottom: 1px solid #B8C2EA;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    padding-bottom: 1.25rem;
-    align-self: stretch;
 }
 
 

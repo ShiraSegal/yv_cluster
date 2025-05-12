@@ -31,7 +31,7 @@
 
             }
 
-             <yv-cluster-select class="select" [default]="selectLabel" [options]="options" formControlName="option"></yv-cluster-select>
+             <yv-cluster-select class="select" [default]="selectLabel" [options]="options" formControlName="clusterLevel"></yv-cluster-select>
             <textarea class="comments" placeholder="Comments" style="resize: none;" formControlName="comments"></textarea>
             <div class="outer-button-warp">
                 <div class="divider"></div>
@@ -52,10 +52,10 @@
     </div>
 </form>
 @if(formIsValid==true){
-<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.SUCCESS"[message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+<yv-cluster-toast-notification [iconName]="iconType.CIRCLE_CHECK_SOLID" [message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
 
 }
 @if(formIsValid==false){
-<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.ERROR" [message]="'Please fill all the fields'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+<yv-cluster-toast-notification [iconName]="iconType.XMARK_SOLID" [message]="'Please fill all the fields'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
 }
 

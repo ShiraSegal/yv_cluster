@@ -19,7 +19,7 @@
     display: flex;
     width: 8rem;
     height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
+    padding:  0.5rem;
     justify-content: flex-end;
     align-items: center;
     gap: 0.625rem;
@@ -35,7 +35,7 @@
 .the-specific-area {
     display: flex;
     height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
+    padding: 0.5rem;
     justify-content: center;
     align-items: center;
     gap: 0.625rem;
@@ -46,7 +46,7 @@
 .all-database-areas {
     display: flex;
     height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
+    padding:0.5rem;
     justify-content: center;
     align-items: center;
     gap: 0.625rem;
@@ -88,12 +88,11 @@
 .table-row-name {
     display: flex;
     width: 8rem;
-    padding: var(--layout-02, 0.5rem);
+    padding: 0.5rem;
     align-items: center;
     gap: 0.625rem;
     align-self: stretch;
-
-    color: var(--Color-2, #262C34);
+    color:$c-262C34;
     font-size: 1rem;
     font-weight: 500;
 }

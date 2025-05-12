@@ -11,15 +11,9 @@ import { IconType } from 'src/app/enums/icon-enum';
 })
 export class BasicCardComponent {
   iconType = IconType;
-  @Input() text!: string;
-  @Input() iconName!: IconType;
-  @Input() circleColor!: string; 
-  @Input() iconColor!: string;
+  @Input() text: string;
+  @Input() iconName: IconType;
+  @Input() circleColor: string; 
+  @Input() iconColor: string;
 
-  constructor(private el: ElementRef) {}
-  ngOnInit() {
-    const element = this.el.nativeElement;
-    element.style.setProperty('--circle-color', this.circleColor);
-    element.style.setProperty('--icon-color', this.iconColor);
-  }
 }

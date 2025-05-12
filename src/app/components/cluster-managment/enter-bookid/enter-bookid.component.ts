@@ -1,6 +1,6 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonType, RadioButtonListDirection, State, TextColor, TextSize, TextWeight, ToastNotificationIcons } from 'src/app/enums/basic-enum';
+import { ButtonType, RadioButtonListDirection, State, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
@@ -9,6 +9,7 @@ import { FieldComponent } from '../../basic-components/field/field.component';
 import { ToastNotificationComponent } from '../../basic-components/toast-notification/toast-notification.component';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { IconType } from 'src/app/enums/icon-enum';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
@@ -54,7 +55,7 @@ export class EnterBookidComponent {
 
   
   //toast notification
-  ToastNotificationIcons=ToastNotificationIcons
+  iconType=IconType
   message: string = `${this.selected} Submitted!`;
 
 

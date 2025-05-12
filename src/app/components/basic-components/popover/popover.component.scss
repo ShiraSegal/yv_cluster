@@ -7,14 +7,13 @@
     align-items: flex-start;
     border-radius: 0.375rem;
     background: $c-FFFFFF;
-    
-    /* popover */
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10), 0px -4px 5px 0px rgba(0, 0, 0, 0.05);
 }
 .header-warp{
     // width: 9.8125rem;
     display: flex;
-    padding:  0.5rem;
+    padding-top:  0.5rem;
+    // padding-left: 0.5rem;
     // padding-top: var(--Layout-medium, 0.5rem);
     flex-direction: column;
     align-items: flex-start;
@@ -31,6 +30,9 @@
     align-items: center;
     gap: 0.625rem;
     flex: 1 0 0;
+    white-space: nowrap; /* מונע שבירת שורה */
+    // overflow: hidden;    /* מסתיר תוכן שחורג */
+    text-overflow: ellipsis;
 }
 .native-option{
     display: flex;

@@ -62,7 +62,7 @@ export class SelectComponent implements ControlValueAccessor {
     this.selectedOption = option;
     this.dropdownOpen = false;
     this.stateEnum = State.POPULATED;
-    this.onChange(option);
+    this.onChange(option.displayText || option.property);
     this.onTouched();
   }
 

@@ -1,6 +1,10 @@
 <div class="pie-component-distribution-modal-container">
   <div class="component-tittle">
     <div class="component-tittle-text">{{title}}</div>
+
+    <button (click)="onClose()" class="close-button">
+      <i class="fa-regular fa-xmark-large"></i>
+      </button>
   </div>
   <div class="table-and-pie-container">
     <!-- //table -->
@@ -9,13 +13,13 @@
       [thePlaceTotalValue]="{'TotalCount':10000, 'Value': 'Minsk'}"></yv-cluster-pie-table>
     <div class="pie-circle-container">
       <div class="pie-buttons-container">
-        <div class="button-text" [ngClass]="{'button-with-a-backround':!showAllThaDatabasePie,'button-without-a-backround':showAllThaDatabasePie}" (click)="changeTheShowingPei()">Minsk</div>
-        <div class="button-text" [ngClass]="{'button-with-a-backround':showAllThaDatabasePie,'button-without-a-backround':!showAllThaDatabasePie}" (click)="changeTheShowingPei()">All Database</div>
+        <button class="button-text" [ngClass]="{'button-with-a-backround':!showAllThaDatabasePie,'button-without-a-backround':showAllThaDatabasePie}" (click)="changeTheShowingPei()">Minsk</button>
+        <button class="button-text" [ngClass]="{'button-with-a-backround':showAllThaDatabasePie,'button-without-a-backround':!showAllThaDatabasePie}" (click)="changeTheShowingPei()">All Database</button>
         
         <!-- //buttons -->
-        <!-- <yv-cluster-button (onClick)="changeTheShowingPei()" text="All Database" [buttonType]="tertiany" [size]="size"></yv-cluster-button>
+        <!-- <yv-cluster-button (onClick)="changeTheShowingPei()" text="All Database" [buttonType]="tertiany" [isBig]=false></yv-cluster-button>
        
-        <yv-cluster-button (onClick)="changeTheShowingPei()" text="Minsk" [buttonType]="tertiany" [size]="size"></yv-cluster-button> -->
+        <yv-cluster-button (onClick)="changeTheShowingPei()" text="Minsk" [buttonType]="tertiany" [isBig]=false></yv-cluster-button> -->
 
       </div>
 

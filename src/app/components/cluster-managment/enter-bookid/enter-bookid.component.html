@@ -27,8 +27,8 @@
     </div>
 </form>
 @if(formIsValid){
-<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.SUCCESS" [message]="message"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+<yv-cluster-toast-notification [iconName]="iconType.CIRCLE_CHECK_SOLID" [message]="message"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
 }
 @if(formIsValid==false){
-<yv-cluster-toast-notification [iconName]="ToastNotificationIcons.ERROR" [message]="'Please choose or fill before submitting.'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+<yv-cluster-toast-notification [iconName]="iconType.XMARK_SOLID" [message]="'Please choose or fill before submitting.'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
 }
