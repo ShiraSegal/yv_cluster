@@ -47,19 +47,13 @@ export class NarrowBasicTableComponent {
   });
 
   ngOnInit() {
-    this.tableDataForm.valueChanges.subscribe((value) => {
-      console.log('Basic table Form Value:', value);
-    }
-    );
-    this.rowsFormArray.valueChanges.subscribe((value) => {
-      console.log('table Rows value changes:', value)
-    }
-    );
+    this.initializeRowsFormArray();
+    this.initializeRowControlsArray();
   }
   // Initialize the FormArray with the rows data
   initializeRowsFormArray() {
     this.rowsFormArray.clear();
-    this.Rows?.forEach((row) => {
+    this.Rows?.forEach((row, index) => {
       const rowGroup = this.#fb.group({
         checked: new FormControl(row.cells.find(cell => cell.type === DataCellType.CHECK)?.data || false),
         assignee: new FormControl(row.cells.find(cell => cell.type === DataCellType.ASSIGNEE)?.data || ''),
@@ -67,11 +61,35 @@ export class NarrowBasicTableComponent {
       });
       this.rowsFormArray.push(rowGroup);
     });
+    console.log('All Rows FormArray:', this.rowsFormArray.getRawValue()); // לוג של כל ה-FormArray
+  }
+ 
+  rowControlsArray: FormControl[][] = []
+  
+  initializeRowControlsArray() {
+    const rowsFormArray = this.tableDataForm.get('rowsFormArray') as FormArray;
+    this.rowControlsArray = rowsFormArray.controls.map((rowFormGroup) => {
+      const group = rowFormGroup as FormGroup;
+      console.log('Row FormGroup Value:', group.getRawValue()); // לוג של הערכים של כל Row
+      return [
+        group.get('checked') as FormControl,
+        group.get('assignee') as FormControl,
+        group.get('status') as FormControl,
+      ];
+    });
+    console.log('All Row Controls:', this.rowControlsArray); // לוג של כל המערך של ה-Controls
+  }
+  getRowControls(rowIndex: number): FormControl[] {
+    const rowFormGroup = (this.tableDataForm.get('rowsFormArray') as FormArray).at(rowIndex) as FormGroup;
+    return [
+      rowFormGroup.get('checked') as FormControl,
+      rowFormGroup.get('assignee') as FormControl,
+      rowFormGroup.get('status') as FormControl,
+    ];
   }
   get rowsFormArray(): FormArray {
     return this.tableDataForm.get('rowsFormArray') as FormArray;
-  }
-  
+}
   get rowGroup(): FormGroup[] {
     return this.rowsFormArray.controls as FormGroup[]; // Explicitly cast to FormGroup[]
   }
