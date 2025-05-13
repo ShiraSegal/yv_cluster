@@ -1,10 +1,14 @@
 export class CompaereDetailsData {
-  title: string;
-  records: { [key: string]: string };
+  recordTitle: string; // לדוגמה: record1, record2 וכו'
+  values: { key: string; value: string }[]; // מערך של אובייקטים עם key ו-value
+  detailsOn:boolean
+  imageOn:boolean
 
-  constructor(title: string, records: { [key: string]: string }) {
-    this.title = title;
-    this.records = records;
+  constructor(recordTitle: string, values: { [key: string]: string }) {
+    this.recordTitle = recordTitle;
+    this.values = Object.entries(values).map(([key, value]) => ({ key, value }));
+    this.detailsOn = true;
+    this.imageOn = false;
   }
 }
 

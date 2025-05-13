@@ -8,15 +8,16 @@ import { Injectable, inject } from '@angular/core';
 export class ClusterApiService {
   basicParam: string = 'reservations';
   #http = inject(HttpClient);
+  apiUrl: any;
 
   async getAutoClusterData() {
     return this.#http.get<string[]>('/assets/getAutoCluster.json');
   }
 
   getCompareData() {
-    return this.#http.get<string[]>('/assets/getCompareData.json');
+    return this.#http.get<string[]>("/assets/json-data/getCompareData.json");
   }
 
-  //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
+  // environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
 
 }

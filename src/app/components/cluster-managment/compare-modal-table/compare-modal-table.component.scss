@@ -1,4 +1,5 @@
 @import "src/styles.scss";
+
 .save-place {
     display: flex;
     width: 11.375rem;
@@ -8,6 +9,7 @@
     align-items: center;
     gap: 0.625rem;
 }
+
 .row-header {
     display: flex;
     width: 11.375rem;
@@ -24,21 +26,28 @@
     font-weight: 600;
     line-height: 1.25rem;
     margin-right: 0.675rem;
+    position: sticky;
 }
-.container{
+
+.container {
     display: flex;
-    flex-direction: row;
-    overflow-y: auto;
-    max-height: 50.3125rem;
-    max-width: 111.5rem; 
 }
+
 .table-container {
     display: flex;
-    gap: 0.9375rem;
-    top:0;
-
+    // gap: 0.9375rem;
+    top: 0;
+    overflow-x: auto;
 }
 
+.outer-container {
+    flex-direction: row;
+    overflow-y: auto;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 50.3125rem;
+    // max-width: 111.5rem;
+}
 
 .space-between {
     display: flex;
@@ -47,12 +56,14 @@
     align-items: flex-start;
     align-self: stretch;
 }
+
 .compare-buttons-frame {
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
 }
-// .details-container{
+
+// .table-container{
 //     display: flex;
 //     overflow-x: auto ;
 //     // flex-direction: column;

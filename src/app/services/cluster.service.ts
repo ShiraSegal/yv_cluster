@@ -6,6 +6,7 @@ import { LastNameInPlaces } from '../models/LastNameInPlaces';
 import { LastName } from '../models/LastName';
 import { StatisticDetail } from '../models/StatisticDetail';
 import { StatisticData } from '../models/StatisticData';
+import { CompaereDetailsData } from '../models/compaereDetailsData';
 
 
 @Injectable({
@@ -18,7 +19,64 @@ export class ClusterService {
   private autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
   private isDataFetched = false;
-   
+  private compareData$=new BehaviorSubject<string[]>([]);
+  
+
+  
+  // getCompareData() {
+  //   const result = this.#clusterApiService.getCompareData()
+  //     .pipe(
+  //       take(1),
+  //       // map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
+  //       tap(res => {
+  //         console.log("getcompareClusterData", res);
+  //       }),
+  //       catchError(err => {
+  //         console.log("error", err);
+  //         return of(null);
+  //       })
+  //     );
+  //     console.log("result",result);
+
+  //   return result; // מחזיר את המערך SapirClusterDetails
+  // }
+  getCompareData() {
+    const result = this.#clusterApiService.getCompareData()
+      .pipe(
+        take(1),
+        map((res: any[]) => {
+          // יצירת מבנה שבו כל recordX הוא מפתח עם הערכים שלו
+          const recordsMap: { [key: string]: { [key: string]: string } } = {};
+  
+          res.forEach(item => {
+            Object.keys(item).forEach(key => {
+              if (key.startsWith('record')) {
+                if (!recordsMap[key]) {
+                  recordsMap[key] = {};
+                }
+                recordsMap[key][item.title] = item[key] || ''; // הוספת הערך למילון
+              }
+            });
+          });
+  
+          // המרת המילון למערך של RecordDetailsData
+          return Object.keys(recordsMap).map(recordKey => {
+            return new CompaereDetailsData(recordKey, recordsMap[recordKey]);
+          });
+        }),
+        tap(mappedRes => {
+          console.log("Mapped Compare Data", mappedRes);
+        }),
+        catchError(err => {
+          console.log("error", err);
+          return of([]); // החזר מערך ריק במקרה של שגיאה
+        })
+      );
+  
+    console.log("result", result);
+  
+    return result; // מחזיר את המערך בצורת המודל RecordDetailsData
+  }
   // async getAutoClusterData(): Promise<string[]> {
   //   if (this.isDataFetched) {
   //     return this.autoClusterListSubject$.getValue(); // כבר הבאנו, נחזיר את הערך

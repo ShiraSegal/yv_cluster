@@ -41,6 +41,7 @@ import { HeadingComponent } from "../basic-components/heading/heading.component"
 import { BodyComponent } from "../basic-components/body/body.component";
 import { FieldComponent } from "../basic-components/field/field.component";
 import { CompareModalTableComponent } from "../cluster-managment/compare-modal-table/compare-modal-table.component";
+import { CompareModalPageComponent } from "../cluster-managment/compare-modal-page/compare-modal-page.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -108,8 +109,8 @@ import { CompareModalTableComponent } from "../cluster-managment/compare-modal-t
     EnterBookidComponent,
     HeadingComponent,
     BodyComponent,
-    CompareModalTableComponent
-    
+    CompareModalTableComponent,
+    CompareModalPageComponent
   ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',

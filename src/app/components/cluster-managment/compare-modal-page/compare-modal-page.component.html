@@ -1,3 +1,6 @@
-  <div class="table-frame">
-    <yv-cluster-compare-modal-table></yv-cluster-compare-modal-table>
-  </div>
+<yv-cluster-button class="mark-button" (onClick)="markedMatches()" [text]="buttonText" [buttonType]="buttonType"
+  [isBig]=true [iconType]="matchIcon">
+</yv-cluster-button>
+<div class="table-frame">
+  <yv-cluster-compare-modal-table></yv-cluster-compare-modal-table>
+</div>

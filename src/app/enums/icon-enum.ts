@@ -48,5 +48,6 @@ export enum IconType {
     LINK_SIMPLE="fa-solid fa-link-simple",
     LIST="fa-solid fa-list",
     TRASH="fa-solid fa-trash",
-    IMAGE="fa-solid fa-image"
+    IMAGE="fa-solid fa-image",
+    REGULAR_CIRCLE_CHECK="fa-regular fa-circle-check"
 }
