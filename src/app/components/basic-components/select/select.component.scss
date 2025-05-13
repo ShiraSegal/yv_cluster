@@ -7,12 +7,18 @@
     min-width: 9.6875rem;
     max-width: 28.125rem;
     padding: var(--Layout-medium, 0.5rem);
-    align-items: center;
     justify-content: space-between;
     gap: var(--Layout-medium, 0.5rem);
     flex-shrink: 0;
     border-radius: var(--Border-radius-small, 0.25rem);
   }
+  fieldset.common-select-wrapper.populated {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
+
   fieldset.defualt {
     border: 0.5px solid $c-3F4B5A;
   }
@@ -32,16 +38,21 @@
   .wrapper {
     display: flex;
     padding: 1rem;
-    align-items: flex-start;
+    // align-items: flex-start;
     flex-direction: column;
     background: $c-FFFFFF;
     gap: 0.1rem;
   }
   .custom-select {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex: 1 0 0;
+    justify-content: space-between; 
+    height:1rem;
+    width: 100%;                  
+    padding: 0 0.5rem;              
+    box-sizing: border-box;
+    // background-color: aqua;
+  
   }
   
   .custom-arrow {
@@ -84,7 +95,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: 1.25rem;
-    display: flex;
+
+    
   }
   
   .icon-arrowbottom {
@@ -112,8 +124,13 @@
     border: 0.5px solid var(--Color-2, #262C34);
   }
   .select-fieldset {
-    padding: 0.5rem;
-    position: relative;
+    // padding: 0.5rem;
+    // position: relative;
+    padding: 0; // Neutralize fieldset spacing
+    margin: 0;
+    height: 2.5rem; // Match your .common-select-wrapper height
+    display: flex;
+    align-items: center;
   }
   .select-legend {
     font-family: Poppins;
@@ -125,7 +142,7 @@
     display: flex;
     align-items: center;
   }
-  legend.default ,legend.error, legend.disabled {
+  legend.default ,legend.error, legend.disabled, legend.focused, legend.populated{
     padding: 0%;
   }
   

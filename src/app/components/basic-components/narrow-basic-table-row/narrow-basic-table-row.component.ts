@@ -19,8 +19,8 @@ export class NarrowBasicTableRowComponent {
     type: DataCellType;
     moreData?: { [key: string]: any }; // Optional additional data
   }[] = [];
-  
-  @Input() rowFormGroup: FormGroup; // Pass the FormGroup for the row
+  @Input() rowFormGroup: FormGroup; 
+
   DataCellType = DataCellType;
   CheckStateType = CheckStateType
 

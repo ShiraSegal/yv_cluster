@@ -43,19 +43,22 @@ export class NarrowBasicTableComponent {
 
   //initializing the form
   tableDataForm: FormGroup = this.#fb.group({
+    headerCheckbox: new FormControl(false),
     rowsFormArray: this.#fb.array([])
   });
 
   ngOnInit() {
-    debugger
     this.tableDataForm.valueChanges.subscribe((value) => {
-      console.log('Basic table Form Value:', value);
+      // console.log('Basic table Form Value:', value);
     }
     );
     this.rowsFormArray.valueChanges.subscribe((value) => {
-      console.log('table Rows value changes:', value)
+      // console.log('table Rows value changes:', value)
     }
     );
+    this.headerCheckboxControl.valueChanges.subscribe((isChecked) => {      
+      this.onHeaderCheckboxToggle();
+    });
   }
   // Initialize the FormArray with the rows data
   initializeRowsFormArray() {
@@ -69,12 +72,19 @@ export class NarrowBasicTableComponent {
       this.rowsFormArray.push(rowGroup);
     });
   }
-  get rowsFormArray(): FormArray {
-    return this.tableDataForm.get('rowsFormArray') as FormArray;
-  }
+  onHeaderCheckboxToggle(): void {
+    debugger
+    const isChecked = this.tableDataForm.get('headerCheckbox')?.value;
   
-  get rowGroup(): FormGroup[] {
-    return this.rowsFormArray.controls as FormGroup[]; // Explicitly cast to FormGroup[]
+    // Update all row checkboxes
+    this.rowsFormArray.controls.forEach((group) => {
+      const checkedControl = group.get('checked');
+      if (checkedControl) {
+        checkedControl.setValue(isChecked, { emitEvent: true });
+      }
+    });
+    console.log('Updated rowsFormArray values:', this.rowsFormArray.value);
+
   }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['Rows'] && this.Rows) {
@@ -84,6 +94,17 @@ export class NarrowBasicTableComponent {
       }
     }
   }
+  get rowsFormArray(): FormArray {
+    return this.tableDataForm.get('rowsFormArray') as FormArray;
+  }
+  
+  get rowGroup(): FormGroup[] {
+    return this.rowsFormArray.controls as FormGroup[]; // Explicitly cast to FormGroup[]
+  }
+  get headerCheckboxControl(): FormControl {
+    return this.tableDataForm.get('headerCheckbox') as FormControl;
+  }
+
 
   nativeOptionswe = [
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },

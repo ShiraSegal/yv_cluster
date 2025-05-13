@@ -13,6 +13,10 @@
     </div>
     }
     @if(type === HeaderCellType.CHECK){
-    <yv-cluster-check [state]=CheckStateType.ENABLED></yv-cluster-check>
+    <yv-cluster-check
+     [state]=CheckStateType.ENABLED
+    [checkedControl]="headerCheckboxControl"
+    [type]="CheckType.UNCHECKED"
+    ></yv-cluster-check>
     }
 </div>

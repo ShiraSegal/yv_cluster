@@ -6,7 +6,10 @@
 
         <div class="data-container">
             <div class="headers-container">
-                <yv-cluster-table-header [headers]="Headers"></yv-cluster-table-header>
+
+                <yv-cluster-table-header 
+                [headers]="Headers" 
+                [headerCheckboxControl]="headerCheckboxControl"></yv-cluster-table-header>
             </div>
             <div class="rows-container" formArrayName="rowsFormArray">
                 @for (group of rowGroup; track $index) {

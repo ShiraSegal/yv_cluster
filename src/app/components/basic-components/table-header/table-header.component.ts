@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { HeaderCellType } from 'src/app/enums/basic-enum';
 import { HeaderCellsComponent } from "../header-cells/header-cells.component";
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'yv-cluster-table-header',
@@ -12,6 +13,8 @@ import { HeaderCellsComponent } from "../header-cells/header-cells.component";
 })
 export class TableHeaderComponent {
 @Input() headers: { data: string; type: HeaderCellType }[] = [];
+@Input() headerCheckboxControl: FormControl;
+
 HeaderCellType =   HeaderCellType
 
 }
