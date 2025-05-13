@@ -7,20 +7,20 @@ import { CheckType } from 'src/app/enums/check-enum';
 @Component({
   selector: 'yv-cluster-header-cells',
   standalone: true,
-  imports: [CheckComponent ,CommonModule],
+  imports: [CheckComponent, CommonModule],
   templateUrl: './header-cells.component.html',
   styleUrl: './header-cells.component.scss'
 })
 export class HeaderCellsComponent {
-  @Input() header: string | undefined;
-  @Input() type: HeaderCellType = HeaderCellType.TEXT;
+  @Input() header: string;
+  @Input() type: HeaderCellType;
   @Output() sortEvent = new EventEmitter<{ column: string, direction: string }>();
-  @Output() checkStatus= new EventEmitter<CheckType>();
-  @Output() openDialog= new EventEmitter<boolean>();
+  @Output() checkStatus = new EventEmitter<CheckType>();
+  @Output() openDialog = new EventEmitter<boolean>();
 
-  HeaderCellType = HeaderCellType;
-  CheckType = CheckType
-  CheckStateType = CheckStateType
+  headerCellType = HeaderCellType;
+  checkType = CheckType
+  checkStateType = CheckStateType
   sortBy(column: string) {
     if (this.type === 'order' || this.type === HeaderCellType.ORDERDOWN) {
       const direction = this.type === 'order' ? 'asc' : 'desc';
@@ -31,13 +31,13 @@ export class HeaderCellsComponent {
     }
   }
 
-  checkChange(checkStatus:CheckType) {
+  checkChange(checkStatus: CheckType) {
     console.log(" header cells check status", checkStatus)
     this.checkStatus.emit(checkStatus);
 
   }
-  openPeiComponent(){
-console.log("openPeiComponent");
-this.openDialog.emit(true);
+  openPeiComponent() {
+    console.log("openPeiComponent");
+    this.openDialog.emit(true);
   }
 }

@@ -1,10 +1,10 @@
 @if(isVisible){
 <div [ngClass]="{
-    'toast-notification-container-success': iconName === ToastNotificationIcons.SUCCESS,
-    'toast-notification-container-error': iconName === ToastNotificationIcons.ERROR}">
+    'toast-notification-container-success': iconName === toastNotificationIcons.SUCCESS_SOLID,
+    'toast-notification-container-error': iconName === toastNotificationIcons.ERROR_SOLID}">
     <div [class]="iconName" [ngClass]="{
-        'icon-success': iconName === ToastNotificationIcons.SUCCESS,
-        'icon-error': iconName === ToastNotificationIcons.ERROR}">
+        'icon-success': iconName === toastNotificationIcons.SUCCESS_SOLID,
+        'icon-error': iconName === toastNotificationIcons.ERROR_SOLID}">
     </div>
     <div class="message">{{message}}</div>
 

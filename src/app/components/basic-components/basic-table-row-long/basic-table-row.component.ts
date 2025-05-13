@@ -15,7 +15,7 @@ import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large
 export class BasicTableRowComponent {
   @Input() property: BasicTableRowPropertyVariants = BasicTableRowPropertyVariants.DEFAULT; 
   @Input() showAction: boolean = false; 
-  @Input() cells: { data: string; type: DataCellType; moreData?: { [key: string]: any } }[] = [];
+  @Input() cells: { data: string; type: DataCellType }[] = [];
    
   basicTableRowPropertyVariants= BasicTableRowPropertyVariants;
   dataCellType = DataCellType;

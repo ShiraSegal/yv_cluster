@@ -16,14 +16,15 @@ export class SlidebarNavigationComponent {
   sliderNavigationTabTextType = SliderNavigationTabTextType;
   iconType = IconType;
   sliderNavigationTabType = SliderNavigationTabType;
-  activeTabIndex: number | null = null;
+  activeTabIndex: number | null = 0;
 
   tabs = [
     { number: 0, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.HOUSE_LIGHT, activeIcon: IconType.HOUSE_SOLID, text: SliderNavigationTabTextType.HOME },
     { number: 1, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LIST_LIGHT, activeIcon: IconType.LIST_SOLID, text: SliderNavigationTabTextType.AUTOCLUSRET },
-    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.CHART_LINE_UP_LIGHT, activeIcon: IconType.CHART_LINE_UP_SOLID, text: SliderNavigationTabTextType.REPORT },
+    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.CHART_LINE_UP_LIGHT, activeIcon: IconType.CHART_LINE_UP_SOLID, text: SliderNavigationTabTextType.CRMCLUSTERS },
     { number: 3, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.PLUS_LIGHT, activeIcon: IconType.PLUS_SOLID, text: SliderNavigationTabTextType.NEWCLUSTER },
-    { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LEFT_FROM_BRACKET_LIGHT, activeIcon: IconType.LIST_SOLID, text: SliderNavigationTabTextType.LOGOUT },
+    { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.CHART_LINE_UP_LIGHT, activeIcon: IconType.CHART_LINE_UP_SOLID, text: SliderNavigationTabTextType.REPORT },
+    { number: 5, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LEFT_FROM_BRACKET_LIGHT, activeIcon: IconType.LEFT_FROM_BRACKET_SOLID, text: SliderNavigationTabTextType.LOGOUT },
   ];
 
   setActiveTab(tabIndex: number) {

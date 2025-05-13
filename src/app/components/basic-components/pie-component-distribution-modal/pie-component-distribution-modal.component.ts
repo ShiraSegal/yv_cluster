@@ -13,7 +13,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'yv-cluster-pie-component-distribution-modal',
   standalone: true,
-  imports: [CommonModule, FormsModule, PieCircleComponent, PieTableComponent, ButtonComponent],
+  imports: [CommonModule, FormsModule, PieCircleComponent, PieTableComponent],
   templateUrl: './pie-component-distribution-modal.component.html',
   styleUrls: ['./pie-component-distribution-modal.component.scss']
 })

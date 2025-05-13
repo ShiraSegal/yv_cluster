@@ -71,7 +71,7 @@ export class TableGroupIdDetailsComponent {
           { data: row.PlaceOfBirth?.Value ?? '', type: DataCellType.TEXT },
           { data: row.PermanentPlace?.Value ?? '', type: DataCellType.TEXT },
           { data: row.Source?.Value ?? '', type: DataCellType.TEXT },
-          { data: IconType.AUTOCLUSRETLIGHT, type: DataCellType.ICON ,moreData:{icon: IconType.TRASH}}
+          { data: IconType.AUTO_CLUSRE_TLIGHT, type: DataCellType.ICON ,moreData:{icon: IconType.TRASH_LIGHT}}
         ];
       });
 
