@@ -149,7 +149,7 @@ export class TestComponent {
   optionType = NativeOptionType;
   radioButtonListDirection=RadioButtonListDirection;
   cardColorEnum=CardColor;
-
+  RadioButtonListDirection=RadioButtonListDirection
   
 //variables-----------------------------------------------------------------------
   // button component properties

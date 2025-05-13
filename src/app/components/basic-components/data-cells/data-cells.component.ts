@@ -45,6 +45,7 @@ export class DataCellsComponent<T extends DataCellType> {
   @Output() checkStatus = new EventEmitter<CheckType>();
   @Output() iconClick = new EventEmitter<void>();
   bookId: string = "";
+  hRef: string = "";
 
   //injecting ENUM
   badgeType = BadgeType;
@@ -57,10 +58,8 @@ export class DataCellsComponent<T extends DataCellType> {
 
   //functions
   ngOnInit() {
-    if (typeof this.data === "string" && this.data.includes('collections.yadvashem.org/en/names/')) {
-      const parts = this.data.split('/');
-      this.bookId = parts[parts.length - 1];
-      console.log("bookId", this.bookId);
+    if (typeof this.moreData['linkHRef'] === "string" && this.moreData['linkHRef'].includes('collections.yadvashem.org/en/names/')) {
+      this.hRef=this.moreData['linkHRef']+ this.data;
     }
   }
 

@@ -59,7 +59,7 @@ export class TableGroupIdDetailsComponent {
       this.Rows = res.d.ClusteredNameRowList.map(row => {
         return [
           { data: '', type: DataCellType.CHECK,moreData:{checkStatus:CheckType.UNCHECKED} },
-          { data: 'https://collections.yadvashem.org/en/names/'+row.BookId, type: DataCellType.LINK },
+          { data: row.BookId, type: DataCellType.LINK, moreData:{linkHRef: 'https://collections.yadvashem.org/en/names/'} },
           { data: row.ExistsClusterId || 'New', type: DataCellType.TEXT },
           { data: row.Score, type: DataCellType.TEXT },
           { data: row.FirstName?.Value ?? '', type: DataCellType.TEXT },

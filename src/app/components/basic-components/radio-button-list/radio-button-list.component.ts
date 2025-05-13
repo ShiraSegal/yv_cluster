@@ -13,7 +13,7 @@ import { RadioButtonListDirection } from 'src/app/enums/basic-enum';
 })
 export class RadioButtonListComponent {
   @Input() radioButtonArray:string [] = ["a", "b", "c", "d","other"];
-  @Input() radioButtonValuesArray:{key:string,value:string} [] = [{key:"1",value:"a"},{key:"2",value:"b"},{key:"3",value:"c"},{key:"4",value:"d"},{key:"other",value:"other"}];
+  @Input() radioButtonValuesArray:{key:string,value:string} [] = [{key:"1",value:"a"},{key:"2",value:"b"},{key:"3",value:"c"},{key:"4",value:"d"},{key:"",value:"other"}];
   @Input() disable!: boolean;
   @Input() direction:RadioButtonListDirection = RadioButtonListDirection.COLUMN;
   @Output() selectionChange = new EventEmitter<string>();
@@ -22,6 +22,15 @@ export class RadioButtonListComponent {
   radioForm = new FormGroup({radioControl: this.radioControl});
 
   onOneRadioButtonChange(selectedOption: string) {
+    this.radioControl.setValue(selectedOption);
+    this.selectionChange.emit(selectedOption);
+  }
+  onOtherFieldChecked(selectedOption: string) {
+    this.radioButtonValuesArray.forEach((item) => {
+      if (item.value == 'other') {
+        item.key = selectedOption;
+      }
+    })
     this.radioControl.setValue(selectedOption);
     this.selectionChange.emit(selectedOption);
   }
