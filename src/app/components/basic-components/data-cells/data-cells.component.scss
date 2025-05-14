@@ -3,7 +3,7 @@
 
 .data-cell {
     display: flex;
-    align-items: start;
+    align-items:start;
     padding: var(--layout-02, 0.5rem);
     gap: 0.625rem;
     flex-grow: 1;
@@ -51,6 +51,11 @@
 }
 a {
     text-decoration: none;
+    color:$c-262C34;
+  
+  }
+  a:visited {
+   color:$c-262C34;
   }
 .link {
   
@@ -110,6 +115,3 @@ a {
     color: $c-3F4B5A;
     font-size: 0.875rem;
 }
-a:visited {
-    color: blue;
-  }

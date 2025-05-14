@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, SimpleChanges  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
@@ -33,4 +33,16 @@ getValue(subItem: any, key: string): any {
     return Math.round((part /totalValue) * 100);
   }
 
+  constructor(private cdr: ChangeDetectorRef) {}
+  ngOnChanges(changes: SimpleChanges): void {
+    // רואים כאן מתי כל Input מתעדכן
+    if (changes['allDatabaseData'] || changes['spsipicPlaceData']) {
+      // אם צריך לעדכן לוגיקה פנימית או לחשב דברים מחדש, תעשי זאת כאן
+      // ואז תכריחי את Angular לרנדר שוב:
+      console.log("ngOnChanges(changes: SimpleChanges): void");
+      
+      this.cdr.detectChanges();
+      this.cdr.markForCheck()
+    }
+}
 }

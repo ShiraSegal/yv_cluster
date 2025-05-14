@@ -16,9 +16,11 @@ import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter
 })
 export class HandlingSuggestionsPageComponent {
   @Input() groupIdNumber!: number;
+
+   #dialog = inject(MatDialog);
   iconType = IconType
    dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
-   #dialog = inject(MatDialog);
+  
    openDialog() {
     console.log("openDialog");
     
@@ -33,7 +35,6 @@ export class HandlingSuggestionsPageComponent {
   
   });
    }
-
   onClick() {
     // alert('test on click');
     // console.log('test on click');

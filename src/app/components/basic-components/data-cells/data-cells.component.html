@@ -1,6 +1,12 @@
 <div [ngClass]="['data-cell', type]">
   @if(type === dataCellType.TEXT) {
+    @if(prefCodeStatus===true){
+     {{ moreData['prefCode']}}
+    }
+    @else{
   {{ data }}
+    }
+
   }
 
   @if(type === dataCellType.MORE) {
@@ -30,7 +36,8 @@
   }
 
   @if(type === dataCellType.LINK) {
-  <a [href]="hRef">{{data}}</a>
+  <!-- <a [href]="hRef">{{data}}</a> -->
+    <a [href]="">{{data}}</a>
   }
 
   @if(type === dataCellType.ICON) {

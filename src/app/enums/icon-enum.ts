@@ -29,12 +29,13 @@ export enum IconType {
     ROBOT_SOLID = "fa-solid fa-robot",
     LINK_SIMPLE_SOLID = "fa-solid fa-link-simple",
     NOTHING = "",
-    LINK_SIMPLE="fa-solid fa-link-simple",
+    LINK_SIMPLE = "fa-solid fa-link-simple",
     ERROR_SOLID = "fa-solid fa-circle-xmark",
     SUCCESS_SOLID = "fa-solid fa-circle-check",
-    COPY_LIGHT="fa-light fa-copy",
+    COPY_LIGHT = "fa-light fa-copy",
     CLIPBPOARD = "fa-light fa-clipboard-list clipboard-list-icon",
-    TRASH_LIGHT="fa-light fa-trash",
+    TRASH_LIGHT = "fa-light fa-trash",
     AUTO_CLUSRE_TLIGHT = "fa-light fa-list ",
+    RIGHT_LEFT_LIGHT = "fa-light fa-right-left",
 
 }

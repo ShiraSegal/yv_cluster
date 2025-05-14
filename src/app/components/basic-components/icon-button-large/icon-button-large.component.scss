@@ -30,7 +30,12 @@ button.default {
     background: $c-E0E1E24D;
 }
 
-.icon {
+.icon.fa-solid.fa-plus  {
+   
     color:$c-1334B9;
+    font-size: 1.125rem;
+}
+.icon {
+    color:$c-262C34;
     font-size: 1.125rem;
 }

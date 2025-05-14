@@ -27,7 +27,7 @@ export class RadioButtonListComponent {
   }
   onOtherFieldChecked(selectedOption: string) {
     this.radioButtonValuesArray.forEach((item) => {
-      if (item.value == 'other') {
+      if (item.value === 'other') {
         item.key = selectedOption;
       }
     })

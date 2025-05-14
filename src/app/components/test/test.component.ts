@@ -118,7 +118,7 @@ import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id
     FilterHandlingSuggestionsComponent,
     HandlingSuggestionsPageComponent,
     // CreateClusterComponent,
-    HomeWarpComponent
+    HomeWarpComponent,
     
 
   ],
