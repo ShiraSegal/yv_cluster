@@ -13,7 +13,7 @@ export class ClusterApiService {
   #http = inject(HttpClient);
   apiUrl = 'assets/json-data';
   async getAutoClusterData() {
-    return this.#http.get<string[]>('/assets/getAutoCluster.json');
+    return this.#http.get<string[]>(`${this.apiUrl}/getAutoCluster.json`);
   }
   async getCreateClusterData() {
     return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`);
@@ -31,8 +31,9 @@ export class ClusterApiService {
   // }
 
   //environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
-
-
+  getAssigneeList(): Observable<{ name: string }[]> {
+    return this.#http.get<{ name: string }[]>(`${this.apiUrl}/getAssignees.json`);
   }
-
-
+  
+  
+}

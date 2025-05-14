@@ -25,10 +25,10 @@ export enum BasicTablePropertyType {
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
 
-// export enum ButtonSize{
-//   BIG="big",
-//   SMALL="small"
-// }
+export enum ButtonSize{
+  BIG="big",
+  SMALL="small"
+}
 export enum TextSize {
   LARGE = "large",
   MEDIUM = "medium",
@@ -96,19 +96,6 @@ export enum HomeTableTabType {
   OLD_SUGGESTIONS = 'old_suggestion',
   
 }
-
-export enum ButtonIcon {
-  FOLDER_PLUS = "fa-light fa-folder-plus",
-  LAYER_PLUS = "fa-light fa-layer-plus",
-  PLUS = "fa-light fa-plus",
-  FILE_ARROW_DOWN = "fa-light fa-file-arrow-down",
-  CHEVRON_LEFT = "fa-light fa-chevron-left",
-  EMPTY = ""
-}
-
-
-
-
   export enum TextColor {
     BLACK = "black",
     SLATE_BLUE = "slate-blue",
@@ -149,6 +136,7 @@ export enum SliderNavigationTabType {
 export enum SliderNavigationTabTextType {
   HOME = "Home",
   LOGOUT = "Logout",
+  CRMCLUSTERS  = "CRM Clusters",
   AUTOCLUSRET = "Auto Cluster",
   REPORT = "Report",
   NEWCLUSTER = "New Cluster",
@@ -168,10 +156,6 @@ export enum IconButtonLargeType {
   HOVER = "hover",
 }
 
-export enum StatusActiveOrNotActive {
-  ACTIVE = "active",
-  NOT_ACTIVE = "not-active"
-}
 
 export enum NativeOptionType{
   ASSIGNEE = "assignee",
@@ -195,8 +179,5 @@ export enum ButtonIconProperty{
     SHORT = "short",
     LONG = "long"
   }
-    export enum ButtonSize{
-      BIG="big",
-      SMALL="small"
-    }
+
   

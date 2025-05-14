@@ -1,36 +1,39 @@
-
 <div class="slider-navigation">
     <div class="logo"></div>
     <div class="tabs">
-        <div class="tabs-top">
-            @for(tab of tabs; track tab.number){
-            @if(tab.number < 3){ <div class="tab-top">
-                <yv-cluster-slider-navigation-tab [property]="tab.property.value!"
-                    [icon]="activeTabIndex === tab.number ? tab.activeIcon : tab.icon" [text]="tab.text"
-                    (click)="setActiveTab(tab.number)">
-                </yv-cluster-slider-navigation-tab>
-        </div>
-        }
-
-        @if(tab.number === 3){
-            <div class="tab-center">
-        <div class="line"></div>
-        <yv-cluster-slider-navigation-tab [property]="tab.property.value!"
-            [icon]="activeTabIndex === tab.number ? tab.activeIcon : tab.icon" [text]="tab.text"
-            (click)="setActiveTab(tab.number)">
-        </yv-cluster-slider-navigation-tab>
-    </div>
-        }
-        @if(tab.number === 4 ){
-        <div class="tab-bottom">
-            <div class="line"></div>
-            <yv-cluster-slider-navigation-tab [property]="tab.property.value!"
-                [icon]="activeTabIndex === tab.number ? tab.activeIcon : tab.icon" [text]="tab.text"
-                (click)="setActiveTab(tab.number)">
-            </yv-cluster-slider-navigation-tab>
-        </div>
-        }
+        <!-- לולאה על הטאבים -->
+        @for (tab of tabs; track tab.number) {
+            <!-- טאבים עליונים -->
+            @if (tab.number < 5) {
+                <div class="tab-top">
+                    @if (tab.number === 1) {
+                        <div class="line"></div>
+                    }
+                    <div class="tab">
+                        <yv-cluster-slider-navigation-tab 
+                            [property]="tab.property.value!"
+                            [icon]="activeTabIndex === tab.number ? tab.activeIcon : tab.icon" 
+                            [text]="tab.text"
+                            (click)="setActiveTab(tab.number)">
+                        </yv-cluster-slider-navigation-tab>
+                    </div>
+                    @if (tab.number === 3) {
+                        <div class="line"></div>
+                    }
+                </div>
+            }
+            <!-- טאבים תחתונים -->
+            @if (tab.number === 5) {
+                <div class="tab-bottom">
+                    <div class="line-button"></div>
+                    <yv-cluster-slider-navigation-tab 
+                        [property]="tab.property.value!"
+                        [icon]="activeTabIndex === tab.number ? tab.activeIcon : tab.icon" 
+                        [text]="tab.text"
+                        (click)="setActiveTab(tab.number)">
+                    </yv-cluster-slider-navigation-tab>
+                </div>
+            }
         }
     </div>
 </div>
- 

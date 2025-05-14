@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output ,EventEmitter} from '@angular/core';
-import { BadgeType, ButtonIcon, ButtonSize, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { BadgeType, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { BadgeComponent } from '../badge/badge.component';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
@@ -9,39 +9,60 @@ import { SliderComponent } from '../slider/slider.component';
 import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { CheckType } from 'src/app/enums/check-enum';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'yv-cluster-data-cells',
   standalone: true,
-  imports: [ButtonComponent, SliderComponent, CheckComponent, AssigneeComponent, BadgeComponent, IconButtonLargeComponent, CommonModule],
+
+  imports: [
+    ButtonComponent,
+    SliderComponent,
+    CheckComponent,
+    AssigneeComponent,
+    BadgeComponent,
+    CommonModule,
+    IconButtonLargeComponent
+    , ReactiveFormsModule,
+    SliderComponent,
+    CheckComponent,
+    AssigneeComponent,
+    BadgeComponent,
+    IconButtonLargeComponent,
+    CommonModule],
+
   templateUrl: './data-cells.component.html',
-  styleUrl: './data-cells.component.scss'
+  styleUrls: ['./data-cells.component.scss']
 })
-export class DataCellsComponent<T extends DataCellType>  {
-  //variables
-  @Input() type!: T;
+
+export class DataCellsComponent<T extends DataCellType> {
+  // variables
+  @Input() type: T;
   @Input() data: DataCellValue<T>;
-  @Input() moreData: { [key: string]: any } = {}; // אובייקט לפרמטרים נוספים
-  @Output() checkStatus= new EventEmitter<CheckType>();
+  @Input() moreData: { [key: string]: any }; // אובייקט לפרמטרים נוספים
+  @Input() control: any;
+
+  @Output() checkStatus = new EventEmitter<CheckType>();
   @Output() iconClick = new EventEmitter<void>();
-bookId:string ="";
+  bookId: string = "";
+  hRef: string = "";
+
   //injecting ENUM
   badgeType = BadgeType;
-  IconType = IconType;
+  iconType = IconType;
   buttonType = ButtonType;
-  buttonIcon = ButtonIcon;
   iconButtonLargeType = IconButtonLargeType;
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
   checkType = CheckType;
+
   //functions
-ngOnInit() {
-  if (typeof this.data==="string" &&this.data.includes('collections.yadvashem.org/en/names/')) {
-    const parts = this.data.split('/');
-    this.bookId= parts[parts.length - 1];
-    console.log("bookId", this.bookId);}
-}
+  ngOnInit() {
+    if (typeof this.moreData['linkHRef'] === "string" && this.moreData['linkHRef'].includes('collections.yadvashem.org/en/names/')) {
+      this.hRef=this.moreData['linkHRef']+ this.data;
+    }
+  }
+
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;
   }
@@ -49,29 +70,15 @@ ngOnInit() {
   isNumber(value: any): value is number {
     return typeof value === 'number';
   }
-  isButtonData(data: any): data is {
-    text?: string;
-    buttonType?: ButtonType;
-    disabled?: boolean;
-    isBig?: boolean; // Changed from size
-        iconType?: IconType; // Changed from buttonIcon
-  } {
-    return (
-      data &&
-      (typeof data.text === 'string' || typeof data.text === 'undefined') &&
-      (typeof data.buttonType === 'string' || typeof data.buttonType === 'undefined') &&
-      (typeof data.disabled === 'boolean' || typeof data.disabled === 'undefined') &&
-      (typeof data.size === 'string' || typeof data.size === 'undefined') &&
-      (typeof data.buttonIcon === 'string' || typeof data.buttonIcon === 'undefined')
-    );
-    }
-    checkChange(checkStatus:CheckType) {
-      this.checkStatus.emit(checkStatus);
-      console.log("data cells check status", checkStatus)
-    }
+
+  checkChange(checkStatus: CheckType) {
+    this.checkStatus.emit(checkStatus);
+    console.log("data cells check status", checkStatus)
+  }
   onClick() {
     // alert('click');
     this.iconClick.emit();
+
 
   }
 }

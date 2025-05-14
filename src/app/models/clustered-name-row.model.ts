@@ -1,4 +1,4 @@
-import { ValueCodeItem } from "./ValueCodeItem";
+import { ValueCodeItem } from "./value-code-item.model";
 
 export class ClusteredNameRow {
     __type: string;

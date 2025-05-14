@@ -12,20 +12,17 @@
     flex-shrink: 0; 
 }
 
-.header-cell {
-    
+.header-cell { 
     display: flex;
-    height: 3.125rem;
-    // padding: var(--layout-02, 0.8rem);
+    padding:  0.8rem;
     font-style: normal;
     font-weight: 600;
     line-height: 1.25rem;
     gap: 0.625rem;
     flex-shrink: 0;
-    color: $c-3F4B5A;
+    color:$c-3F4B5A;
     font-family: Poppins;
     font-size: 0.875rem;
-    // width: 8.5rem;
 }
 
 .text,
@@ -34,8 +31,8 @@
     align-items:center;
     justify-content: space-between;
     flex: 1 0 0;
-    
-    width: 7.3rem;
+
+    width: 6.25rem;
 }
 
 .header-search {

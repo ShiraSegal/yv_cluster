@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit, Optional } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonType, RadioButtonListDirection, State, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../../basic-components/button/button.component';
@@ -6,6 +6,7 @@ import { HeadingComponent } from '../../basic-components/heading/heading.compone
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
 import { RadioButtonListComponent } from '../../basic-components/radio-button-list/radio-button-list.component';
 import { FieldComponent } from '../../basic-components/field/field.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
@@ -35,7 +36,13 @@ export class EnterBookidComponent  {
   color:TextColor=TextColor.NEUTRAL_GRAY;
   stateEnum =  State ;
 
+constructor(
+      @Optional() @Inject(MAT_DIALOG_DATA) public data: { title: string },
+      @Optional() public dialogRef: MatDialogRef<EnterBookidComponent>
+  
+){
 
+}
   // יצירת טופס עם FormGroup ו-Control
   formGroup: FormGroup = new FormGroup({
     selection: new FormControl('bookid'), // ברירת מחדל
@@ -60,5 +67,6 @@ export class EnterBookidComponent  {
   }
   cancel() {
     this.close = true;
+      this.dialogRef.close();  // סוגר את הדיאלוג
   }
 }

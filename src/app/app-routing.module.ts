@@ -7,9 +7,6 @@ export const routes: Routes = [
   {
     path: ':lang', component: LayoutComponent, resolve: {lang: AppLangResolver},
       children: [
-        // {
-        //   path: 'home', loadComponent: () => import('./features/pages/yv-home/yv-home.component').then(x => x.HomeComponent)
-        // }
         {
           path: 'test', loadComponent: () => import('./components/test/test.component').then(x => x.TestComponent)
         },

@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 export class FilterHandlingSuggestionsComponent {
     @Output() fieldValue = new EventEmitter<string>();
   switchState: boolean = false;
+  // @Output() fieldValue= new EventEmitter<string>();
 
   stateEnum = State;
   buttonType=ButtonType;
@@ -28,12 +29,11 @@ export class FilterHandlingSuggestionsComponent {
     searchField: '',
     prefCode: false
   };
+  onSearchFieldChange(newValue: string) {
+    this.fieldValue.emit(newValue);
 
-  onSearchFieldChange(value: string): void {
-    this.fieldValue.emit(value);
-    console.log('Current searchField value:', value);
-    console.log('Form submitted:', this.formData);
-
+    console.log('value changed to:', newValue);
+    // כאן תוכלי לבצע כל פעולה שתרצי בעת שינוי הערך
   }
   onPrefCodeChange(state: boolean) {
   this.formData.prefCode = state;
