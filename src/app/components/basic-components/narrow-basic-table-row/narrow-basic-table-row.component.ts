@@ -4,31 +4,46 @@ import { CheckStateType, DataCellType, NarrowBasicTableRowInputState } from 'src
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { ControlValueAccessor, FormArray, FormControl, FormGroup, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { CheckComponent } from '../check/check.component';
- 
 @Component({
   selector: 'yv-cluster-narrow-basic-table-row',
   standalone: true,
-  imports: [CommonModule ,DataCellsComponent,ReactiveFormsModule],
+  imports: [CommonModule, DataCellsComponent, ReactiveFormsModule],
   templateUrl: './narrow-basic-table-row.component.html',
   styleUrl: './narrow-basic-table-row.component.scss',
 })
 export class NarrowBasicTableRowComponent {
-  @Input() property: NarrowBasicTableRowInputState  = NarrowBasicTableRowInputState.DEFAULT ;
+  @Input() property: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
   @Input() cells: {
-    data: string; 
+    data: string;
     type: DataCellType;
-    moreData?: { [key: string]: any }; // Optional additional data
+    moreData?: { [key: string]: any };
   }[] = [];
-  @Input() rowFormArray: FormArray; // Pass the FormArray
-  @Input() rowIndex: number; // Pass the index of the row
+  @Input() controls!: FormControl[];
 
-  get rowFormGroup(): FormGroup {
-    return this.rowFormArray.at(this.rowIndex) as FormGroup; // Retrieve the specific FormGroup
-  }
   dataCellType = DataCellType;
-  checkStateType = CheckStateType
+  checkStateType = CheckStateType;
 
- 
+  controlsMap: { [key: string]: FormControl } = {}; // Map to store precomputed controls
 
+  ngOnChanges() {
+    if (this.controls && this.controls.length >= 3) {
+      this.initializeControlsMap();
+    } else {
+      console.error('Controls array is not properly defined or has insufficient length.', this.controls);
+      this.controls = [
+        new FormControl(false), // Default for CHECK
+        new FormControl(''),    // Default for ASSIGNEE
+        new FormControl(''),    // Default for STATUS
+      ];
+      this.initializeControlsMap();
+    }
+  }
+  // Precompute the controls map
+  initializeControlsMap() {
+    this.controlsMap = {
+      [DataCellType.CHECK]: this.controls[0], // checkedControl
+      [DataCellType.ASSIGNEE]: this.controls[1], // assigneeControl
+      [DataCellType.STATUS]: this.controls[2], // statusControl
+    };
+  }
 }
-

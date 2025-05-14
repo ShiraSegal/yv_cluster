@@ -1,0 +1,15 @@
+.app-wrraper {
+    display: flex;
+    flex-direction: row; /* ניווט בצד ותוכן מימין */
+    background: linear-gradient(0deg, rgba(231, 235, 248, 0.30) 0%, rgba(231, 235, 248, 0.30) 100%), #FFF;
+}
+
+nav {
+    position: fixed; /* מיקום קבוע לניווט */
+    height: 80vh;
+}
+
+main {
+    margin-left: 13.94rem;
+    margin-top: 5.5rem;
+}

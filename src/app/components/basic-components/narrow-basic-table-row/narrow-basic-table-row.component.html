@@ -12,7 +12,7 @@
           [data]="cell.data" 
           [type]="cell.type" 
           [moreData]="cell.moreData || {}"
-          [control]="rowFormGroup.get(cell.type)"
+          [control]="controlsMap[cell.type]" 
         ></yv-cluster-data-cells>
       </div>
     </div>
