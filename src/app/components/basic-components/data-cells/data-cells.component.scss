@@ -3,7 +3,7 @@
 
 .data-cell {
     display: flex;
-    align-items: start;
+    align-items:flex-start;
     padding: var(--layout-02, 0.5rem);
     gap: 0.625rem;
     flex-grow: 1;
@@ -73,7 +73,6 @@ a {
     padding: 0.5rem;
     justify-content: center;
     align-items: center;
-    gap: 0.625rem;
     gap: 0.625rem;
     flex-shrink: 0;
 

@@ -8,7 +8,7 @@
     border-radius: 0.375rem;
     background: $c-FFFFFF;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10), 0px -4px 5px 0px rgba(0, 0, 0, 0.05);
-}
+
 .header-warp{
     display: flex;
     padding-top:  0.5rem;
@@ -17,13 +17,15 @@
     gap: 1rem;
     align-self: stretch;
     background: $c-FFFFFF;
+    
+    .header{
+        padding: 0rem  0.5rem;
+        margin-top: 0.5rem;
+        white-space: nowrap; /* מונע שבירת שורה */
+    }
 }
 
-.header{
-    padding: 0rem  0.5rem;
-    margin-top: 0.5rem;
-    white-space: nowrap; /* מונע שבירת שורה */
-}
+
 .native-option{
     // display: flex;
     // padding: var(--Layout-medium, 0.5rem);
@@ -32,4 +34,5 @@
     // gap: var(--Layout-x-large, 1rem);
     // align-self: stretch;
     // border-radius: var(--Border-radius-none, 0rem);
+}
 }
