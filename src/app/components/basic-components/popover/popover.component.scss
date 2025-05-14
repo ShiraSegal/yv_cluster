@@ -10,36 +10,26 @@
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10), 0px -4px 5px 0px rgba(0, 0, 0, 0.05);
 }
 .header-warp{
-    // width: 9.8125rem;
     display: flex;
     padding-top:  0.5rem;
-    // padding-left: 0.5rem;
-    // padding-top: var(--Layout-medium, 0.5rem);
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
     align-self: stretch;
-    // border-radius: var(--Border-radius-none, 0rem);
     background: $c-FFFFFF;
 }
 
 .header{
     padding: 0rem  0.5rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 0.625rem;
-    flex: 1 0 0;
+    margin-top: 0.5rem;
     white-space: nowrap; /* מונע שבירת שורה */
-    // overflow: hidden;    /* מסתיר תוכן שחורג */
-    text-overflow: ellipsis;
 }
 .native-option{
-    display: flex;
+    // display: flex;
     // padding: var(--Layout-medium, 0.5rem);
-    flex-direction: column;
-    align-items: flex-start;
+    // flex-direction: column;
+    // align-items: flex-start;
     // gap: var(--Layout-x-large, 1rem);
-    align-self: stretch;
+    // align-self: stretch;
     // border-radius: var(--Border-radius-none, 0rem);
 }

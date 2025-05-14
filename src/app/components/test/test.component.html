@@ -118,8 +118,8 @@
 <yv-cluster-header-cells [type]=headerCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
 <yv-cluster-header-cells [type]=headerCellType.CHECK></yv-cluster-header-cells>
 <yv-cluster-header-cells [type]=headerCellType.MORE></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.PLACEOLDER></yv-cluster-header-cells> -->
-<!-- <h3>button</h3>
+<yv-cluster-header-cells [type]=headerCellType.PLACEOLDER></yv-cluster-header-cells> 
+ <h3>button</h3>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]=buttonType.PRIMARY
   [iconType]="icon"></yv-cluster-button>
   <hr>
@@ -128,12 +128,12 @@
 <yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.VARIANT3" [icon]="iconType.HOUSE_LIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
 <yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.ACTIVE" [icon]="iconType.HOUSE_LIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
  <hr>
-<h3>slider navigation</h3>
+<!-- <h3>slider navigation</h3>
 <hr>
 <yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
-<hr>
+<hr> 
 
- <hr> -->
+ <hr>  -->
 <!-- <h3>narrow-basic-table-row </h3>
 <yv-cluster-narrow-basic-table-row [property]="narrowBasicTableRowInputState.HOVER" [cells]="exampleNarrowRow"></yv-cluster-narrow-basic-table-row>
 <yv-cluster-narrow-basic-table-row [property]="narrowBasicTableRowInputState.DEFAULT" [cells]="exampleNarrowRow"></yv-cluster-narrow-basic-table-row>
@@ -170,11 +170,21 @@
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true  [disabled]="true" [iconType]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false  [disabled]="true" [iconType]="icon" ></yv-cluster-button>
 <hr> 
+<br>
 
 <h3>icon button</h3>
 <yv-cluster-icon-button (onClick)="onClick()"></yv-cluster-icon-button>
 <hr> 
+<br>
 
+<h3>popover</h3>
+<yv-cluster-popover [popoverOptions]="popoverOptionsStatus" [type]="popoverType.STATUS"></yv-cluster-popover>
+<br>
+<yv-cluster-popover [popoverOptions]="popoverOptionsAssignee" [type]="popoverType.ASSIGNEE"></yv-cluster-popover>
+<br>
+<yv-cluster-popover [popoverOptions]="popoverOptionsLink" [type]="popoverType.LINK"></yv-cluster-popover>
+<br>
+<hr>
 <h3>enter bookid</h3>
 <yv-cluster-enter-bookid></yv-cluster-enter-bookid>
 <hr>

@@ -17,16 +17,17 @@ export class ClusterApiService {
   async getAutoClusterData() {
     return this.#http.get<string[]>(`${this.apiUrl}/getAutoCluster.json`);
   }
+  
   getCreateClusterData() {
     return this.#http.get<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`);
   }
 
-  getSingleItemByBookId (bookId:{'bookId':string}):Observable<RootObject>{
-    return this.#http.post<RootObject>(`${this.apiUrl}/getByBookId.json`, bookId);
+  getSingleItemByBookId (bookId:string){
+    return this.#http.post<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`, bookId);
   }
 
-  getClusterGroupByBookId(cluster:{'bookId':string}){
-    return this.#http.post<RootObject>(`${this.apiUrl}/getByBookId.json`, cluster);
+  getClusterGroupByBookId(cluster:string){
+    return this.#http.post<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`, cluster);
   }
 
   createCluster(SapirClusterModel: SapirClusterModel){

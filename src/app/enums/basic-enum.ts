@@ -134,12 +134,12 @@ export enum SliderNavigationTabType {
   ACTIVE = "active"
 }
 export enum SliderNavigationTabTextType {
-  HOME = "Home",
-  LOGOUT = "Logout",
-  CRMCLUSTERS  = "CRM Clusters",
-  AUTOCLUSRET = "Auto Cluster",
-  REPORT = "Report",
-  NEWCLUSTER = "New Cluster",
+  HOME = "home",
+  LOG_OUT = "logout",
+  CRM_CLUSTERS  = "CRM Clusters",
+  AUTO_CLUSTER = "auto cluster",
+  REPORT = "report",
+  NEW_CLUSTER = "new cluster",
 
 }
 

@@ -51,7 +51,7 @@ export class PopoverComponent implements ControlValueAccessor {
     if (this.type === 'status') {
       this.header = 'Status';
     } else if (this.type === 'assignee') {
-      this.header = 'Assignee Responsible';
+      this.header = 'Assign Responsible';
     } else {
       this.header = 'Link To CRM';
     }

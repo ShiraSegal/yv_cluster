@@ -194,54 +194,51 @@ export class ClusterService {
   }
 
 
-  createCluster(sapirClusterModel: SapirClusterModel){
-    const result = this.#clusterApiService.createCluster(sapirClusterModel)
+  createCluster(sapirClusterModel: SapirClusterModel) {
+   return this.#clusterApiService.createCluster(sapirClusterModel)
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
           debugger
           console.log("Cluster created successfully:", res); // לוג לתוצאה
-          return res;
+          // return res;
         }),
         catchError(err => {
           console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
           return of(false); // החזרת ערך ברירת מחדל במקרה של שגיאה
         })
       );
-      return result;
   }
 
-  getSingleItemByBookId (bookId:{'bookId':string}){
+  getSingleItemByBookId (bookId:string): Observable<RootObject | boolean> {
     debugger
-    const result = this.#clusterApiService.getSingleItemByBookId(bookId)
+     return this.#clusterApiService.getSingleItemByBookId(bookId)
       .pipe(
-        take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
+        take(1), 
         tap(res => {
-          console.log("BookId added successfully:", res); // לוג לתוצאה
-          return res;
+          console.log("BookId added successfully:", res); 
+          // return of(res as RootObject);
         }),
         catchError(err => {
           console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
-          return of(null);
+          return of(false);
         })
       );
-      return result;
   }
 
   
-  getClusterGroupByBookId(cluster:{'bookId':string}){
-    const result = this.#clusterApiService.getClusterGroupByBookId(cluster)
+  getClusterGroupByBookId(cluster:string): Observable<RootObject | boolean>{
+     return this.#clusterApiService.getClusterGroupByBookId(cluster)
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
           console.log("Cluster added successfully:", res); // לוג לתוצאה
-          return true;
+          // return res;
         }),
         catchError(err => {
           console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
-          return of(false); // החזרת ערך ברירת מחדל במקרה של שגיאה
+          return of(err); // החזרת ערך ברירת מחדל במקרה של שגיאה
         })
       );
-      return result;
   }
  }

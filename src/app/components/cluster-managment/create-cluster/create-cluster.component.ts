@@ -215,7 +215,7 @@ iconType=IconType;
             console.warn("Cluster creation failed.");
           }
         },
-        error: (err) => {
+        error: (err:any) => {
           console.error("Error during cluster creation:", err);
         }
       });

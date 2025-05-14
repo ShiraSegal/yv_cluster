@@ -10,6 +10,7 @@ import { ToastNotificationComponent } from '../../basic-components/toast-notific
 import { ClusterService } from 'src/app/services/cluster.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { IconType } from 'src/app/enums/icon-enum';
+import { RootObject } from 'src/app/models/root-object.model';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
@@ -69,8 +70,8 @@ export class EnterBookidComponent {
   add() {
     if (this.enterBookIdOrClusterForm.valid) {
       if(this.enterBookIdOrClusterForm.value.selection=='Book ID'){
-      this.#clusterService.getSingleItemByBookId({bookId:this.enterBookIdOrClusterForm.value.input}).subscribe({
-        next: (res) => {
+      this.#clusterService.getSingleItemByBookId(this.enterBookIdOrClusterForm.value.input).subscribe({
+        next: (res: RootObject | boolean) => {
           console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
           
           if (res) {
@@ -79,7 +80,7 @@ export class EnterBookidComponent {
             console.warn("add bookId failed.");
           }
         },
-        error: (err) => {
+        error: (err:any) => {
           console.error("Error during cluster creation:", err);
         }
       });  
@@ -87,8 +88,8 @@ export class EnterBookidComponent {
       this.close = true;
     }
     else if(this.enterBookIdOrClusterForm.value.selection=='Cluster'){
-      this.#clusterService.getClusterGroupByBookId({bookId:this.enterBookIdOrClusterForm.value.input}).subscribe({
-        next: (res) => {
+      this.#clusterService.getClusterGroupByBookId(this.enterBookIdOrClusterForm.value.input).subscribe({
+        next: (res:RootObject | boolean) => {
           console.log("res", res);
           
           console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
@@ -98,7 +99,7 @@ export class EnterBookidComponent {
             console.warn("add cluster failed.");
           }
         },
-        error: (err) => {
+        error: (err:any) => {
           console.error("Error during cluster creation:", err);
         }
       });  
