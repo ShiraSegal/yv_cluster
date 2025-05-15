@@ -1,5 +1,14 @@
 <h2>handling suggestions page</h2>
 <yv-cluster-handling-suggestions-page [groupIdNumber]="100361"></yv-cluster-handling-suggestions-page>
+ <!-- <h3>narrow-basic-table-warp</h3>
+<hr>
+<yv-cluster-narrow-basic-table-warp [subTitle]="customSubtitle"></yv-cluster-narrow-basic-table-warp> -->
+<hr>
+<h3>heading</h3>
+<yv-cluster-heading [title]="title1" [size]="size1" [weight]="weight1"></yv-cluster-heading>
+<yv-cluster-heading [title]="title2" [size]="size2" [weight]="weight1"></yv-cluster-heading>
+<yv-cluster-heading [title]="title3" [size]="size3" [weight]="weight2"></yv-cluster-heading>
+<yv-cluster-heading [title]="title4" [size]="size3" [weight]="weight1"></yv-cluster-heading>
 <hr>
 <!-- <yv-cluster-pie-component-distribution-modal></yv-cluster-pie-component-distribution-modal> -->
 <!-- <h3>narrow-basic-table-warp</h3>
@@ -96,8 +105,8 @@
 <yv-cluster-header-cells [type]=headerCellType.HEADERSEARCH header="header-search"></yv-cluster-header-cells>
 <yv-cluster-header-cells [type]=headerCellType.CHECK></yv-cluster-header-cells>
 <yv-cluster-header-cells [type]=headerCellType.MORE></yv-cluster-header-cells>
-<yv-cluster-header-cells [type]=headerCellType.PLACEOLDER></yv-cluster-header-cells>
-<h3>button</h3>
+<yv-cluster-header-cells [type]=headerCellType.PLACEOLDER></yv-cluster-header-cells> 
+ <h3>button</h3>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]=buttonType.PRIMARY
   [iconType]="icon"></yv-cluster-button>
   <hr>
@@ -106,7 +115,7 @@
 <yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.VARIANT3" [icon]="iconType.HOUSE_LIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
 <yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.ACTIVE" [icon]="iconType.HOUSE_LIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
  <hr>
-<h3>slider navigation</h3>
+ <h3>slider navigation</h3>
 <hr>
 <yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
 <hr>
@@ -149,15 +158,24 @@
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=true  [disabled]="true" [iconType]="icon"></yv-cluster-button>
 <yv-cluster-button (onClick)="onClick()" text="Text" [buttonType]="tertiany" [isBig]=false  [disabled]="true" [iconType]="icon" ></yv-cluster-button>
 <hr> 
+<br>
 
 <h3>icon button</h3>
 <yv-cluster-icon-button (onClick)="onClick()"></yv-cluster-icon-button>
 <hr> 
+<br>
 
+<h3>popover</h3>
+<yv-cluster-popover [popoverOptions]="popoverOptionsStatus" [type]="popoverType.STATUS"></yv-cluster-popover>
+<br>
+<yv-cluster-popover [popoverOptions]="popoverOptionsAssignee" [type]="popoverType.ASSIGNEE"></yv-cluster-popover>
+<br>
+<yv-cluster-popover [popoverOptions]="popoverOptionsLink" [type]="popoverType.LINK"></yv-cluster-popover>
+<br>
+<hr>
 <h3>enter bookid</h3>
 <yv-cluster-enter-bookid></yv-cluster-enter-bookid>
 <hr>
 <br> 
  <h3>create cluster</h3>
-<!-- <yv-cluster-create-cluster></yv-cluster-create-cluster> -->
-<hr> 
+<yv-cluster-create-cluster></yv-cluster-create-cluster>

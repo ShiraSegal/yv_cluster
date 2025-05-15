@@ -11,11 +11,11 @@ import { IconType } from 'src/app/enums/icon-enum';
   standalone: true,
 })
 export class ButtonComponent {
-  @Input() text: string |undefined= "";
-  @Input() buttonType: ButtonType |undefined = ButtonType.PRIMARY;
-  @Input() disabled: boolean  |undefined= false;
-  @Input() isBig: boolean |undefined = false;
-  @Input() iconType!: IconType |undefined;
+  @Input() text: string = "";
+  @Input() buttonType: ButtonType = ButtonType.PRIMARY;
+  @Input() disabled: boolean = false;
+  @Input() isBig: boolean = false;
+  @Input() iconType!: IconType;
 
   @Output() onClick = new EventEmitter<void>();
   ngOnInit() {

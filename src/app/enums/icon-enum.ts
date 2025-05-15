@@ -28,6 +28,7 @@ export enum IconType {
     CLIPBOARD_LIST_LIGHT = "fa-light fa-clipboard-list clipboard-list-icon",
     ROBOT_SOLID = "fa-solid fa-robot",
     LINK_SIMPLE_SOLID = "fa-solid fa-link-simple",
+    SQUARE_ARROW_UP_RIGHT_REGULAR = "fa-regular fa-square-arrow-up-right custom-arrow",
     NOTHING = "",
     LINK_SIMPLE = "fa-solid fa-link-simple",
     ERROR_SOLID = "fa-solid fa-circle-xmark",
@@ -37,5 +38,5 @@ export enum IconType {
     TRASH_LIGHT = "fa-light fa-trash",
     AUTO_CLUSRE_TLIGHT = "fa-light fa-list ",
     RIGHT_LEFT_LIGHT = "fa-light fa-right-left",
-
+    XMARK_SOLID = "fa-solid fa-circle-xmark",
 }

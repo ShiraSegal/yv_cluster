@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, map, Observable, of, take, tap } from 'rxjs';
+import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, of, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
 import { LastName } from '../models/last-name.model';
@@ -11,6 +11,11 @@ import { ClusterGroupWithCrmLinks } from '../models/cluster-group-with-crm-links
 import { ClusteredNameRow } from '../models/clustered-name-row.model';
 import { RootObjectOfClusterGroupDetails } from '../models/root-object-of-cluster-group-details.model';
 // import { map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { SapirClusterModel } from '../models/sapir-cluster-model.model';
+import { RootObject } from '../models/root-object.model';
+
+
 
 
 @Injectable({
@@ -152,40 +157,88 @@ export class ClusterService {
   //   })).subscribe();
   //   return res;
   // }
-
-
-  // async getCreateClusterData() {
-  //   const res = this.#clusterApiService.getCreateClusterData();
-  //   console.log("res",res);
-    
-  //   const result = (await res)
-  //     .pipe(
-  //       take(1),
-  //       map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
-  //       tap(details => {
-  //         if (details) {
-  //           this.createClusterData$.next(details); // עדכון ה-Subject עם המערך
-  //         }
-  //       })
-  //     )
-  //     .subscribe(); // המרה ל-Promise כדי לעבוד עם await
-  //     console.log("result",result);
-      
-  //   return result; // מחזיר את המערך SapirClusterDetails
-  // }
-  // private assigneeList$ = new BehaviorSubject<string[]>([]);
-
-  // get AssigneeList$(): Observable<string[]> {
-  //   if (!this.assigneeList$.value.length) {
-  //     this.#clusterApiService.getAssigneeList()
-  //       .pipe(
-  //         take(1),
-  //         map(data => data.map(item => item.name)),
-  //         tap(names => this.assigneeList$.next(names))
-  //       )
-  //       .subscribe();
+ 
+   
+  //  createClusterData$ = new BehaviorSubject<any[]>([]);
+   
+  // get ClusterData$()
+  //   {
+  //     if(!this.createClusterData$.value.length)
+  //     {
+  //       this.getCreateClusterData();
+  //     }
+  //     return this.createClusterData$.asObservable();
   //   }
+   
+
+
+   getCreateClusterData() {
+    
+    const result = this.#clusterApiService.getCreateClusterData()
+      .pipe(
+        take(1),
+        // map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
+       
+        tap(res => {
+          console.log("getCreateClusterData", res);
+          
+        }),
+        catchError(err => {
+          return of(null);
+        })
+      );
+
+      console.log("result",result);
+      
+    return result; // מחזיר את המערך SapirClusterDetails
+  }
+
+
+  createCluster(sapirClusterModel: SapirClusterModel) {
+   return this.#clusterApiService.createCluster(sapirClusterModel)
+      .pipe(
+        take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
+        tap(res => {
+          debugger
+          console.log("Cluster created successfully:", res); // לוג לתוצאה
+          // return res;
+        }),
+        catchError(err => {
+          console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
+          return of(false); // החזרת ערך ברירת מחדל במקרה של שגיאה
+        })
+      );
+  }
+
+  getSingleItemByBookId (bookId:string): Observable<RootObject | boolean> {
+    debugger
+     return this.#clusterApiService.getSingleItemByBookId(bookId)
+      .pipe(
+        take(1), 
+        tap(res => {
+          console.log("BookId added successfully:", res); 
+          // return of(res as RootObject);
+        }),
+        catchError(err => {
+          console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
+          return of(false);
+        })
+      );
+  }
+
   
-  //   return this.assigneeList$.asObservable();
-  // }
-}
+  getClusterGroupByBookId(cluster:string): Observable<RootObject | boolean>{
+     return this.#clusterApiService.getClusterGroupByBookId(cluster)
+      .pipe(
+        take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
+        tap(res => {
+          console.log("Cluster added successfully:", res); // לוג לתוצאה
+          // return res;
+        }),
+        catchError(err => {
+          console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
+          return of(err); // החזרת ערך ברירת מחדל במקרה של שגיאה
+        })
+      );
+  }
+ }

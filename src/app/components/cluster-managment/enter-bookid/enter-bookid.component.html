@@ -1,28 +1,20 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="enterBookIdOrClusterForm">
     <div class="card">
         <div class="header-warp">
             <yv-cluster-heading [title]="header" [size]="size" [weight]="weight" [color]="color"></yv-cluster-heading>
         </div>
 
         <div class="radio-buttons">
-            <yv-cluster-radio-button-list [radioButtonValuesArray]="radioButtonArray"  class="radio" [direction]="direction"></yv-cluster-radio-button-list>
-            <!-- <yv-cluster-basic-radio-button class="radio"  formControlName="selection" value="bookid" [disabled]=false [checked]=checked1 [text]="label1" (click)="checkedChange()"></yv-cluster-basic-radio-button> -->
-            <!-- <input type="radio" formControlName="selection" value="bookid" />
-            <label class="value">Book ID</label> -->
-            <!-- <yv-cluster-radio-button-list [radioButtonArray]="radioButtonArray" class="radio" [direction]="direction"></yv-cluster-radio-button-list> -->
-            <!-- <yv-cluster-basic-radio-button class="radio"  formControlName="selection" value="cluster" [disabled]=false [checked]=checked2 [text]="label2" (click)="checkedChange()"></yv-cluster-basic-radio-button> -->
-            <!-- <input type="radio" formControlName="selection" value="cluster" />
-            <label class="value">Cluster</label> -->
+            <yv-cluster-radio-button-list class="radio" [radioButtonValuesArray]="radioButtonArray" formControlName="selection"  [direction]="direction" (selectionChange)="checkedChange($event)"></yv-cluster-radio-button-list>
         </div>
 
-        <input class="input" type="text" formControlName="bookId"/>
-             <!-- <yv-cluster-field [property]="stateEnum.DEFAULT"></yv-cluster-field> -->
+        <input class="input" type="text" formControlName="input"/>
         <div class="outer-button-warp">
             <div class="divider"></div>
                 <div class="buttons-warp">
                     <div class="buttons">
                         <yv-cluster-button [disabled]="false" [isBig]="btn_size" [buttonType]="buttomType1"
-                            [text]="button1" (onClick)="cancel()">
+                            [text]="button1" (onClick)="this.dialogRef.close()">
                         </yv-cluster-button>
 
                         <yv-cluster-button [disabled]="false" [isBig]="btn_size" [buttonType]="buttomType2"
@@ -34,3 +26,9 @@
         </div>
     </div>
 </form>
+@if(formIsValid){
+<yv-cluster-toast-notification [iconName]="iconType.CIRCLE_CHECK_SOLID" [message]="message"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+}
+@if(formIsValid==false){
+<yv-cluster-toast-notification [iconName]="iconType.XMARK_SOLID" [message]="'Please choose or fill before submitting.'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
+}
