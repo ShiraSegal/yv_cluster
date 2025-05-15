@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, Input } from '@angular/core';
+import { Component, ElementRef, inject, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BigCardSize } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
@@ -11,6 +11,7 @@ import { IconType } from 'src/app/enums/icon-enum';
   styleUrl: './big-card.component.scss'
 })
 export class BigCardComponent {
+  #el=inject(ElementRef)
   @Input() text!: string;
   @Input() number!: number;
   @Input() iconName!: IconType;
@@ -21,9 +22,8 @@ export class BigCardComponent {
   iconType = IconType;
   bigCardSize=BigCardSize;
 
-  constructor(private el: ElementRef) {}
   ngOnInit() {
-    const element = this.el.nativeElement;
+    const element = this.#el.nativeElement;
     element.style.setProperty('--circle-color', this.circleColor);
     element.style.setProperty('--icon-color', this.iconColor);
   }

@@ -117,9 +117,7 @@ export class ClusterService {
       })
     );
   }
-  deleteClusteredNameByBookId(list: any[], bookId: string): any[] {
-    return list.filter(item => item[1].data !== bookId);
-  }
+
   private assigneeList$ = new BehaviorSubject<string[]>([]);
 
   get AssigneeList$(): Observable<string[]> {

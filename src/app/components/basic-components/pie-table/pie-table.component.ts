@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, Input, SimpleChanges  } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, Input, SimpleChanges  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
@@ -14,6 +14,8 @@ import { HeaderCellsComponent } from '../header-cells/header-cells.component';
   styleUrl: './pie-table.component.scss'
 })
 export class PieTableComponent {
+  #crd=inject(ChangeDetectorRef)
+
   @Input() allDatabaseData!: { Count: number, Code: string, Value: string }[];
   @Input() spsipicPlaceData!: {TotalCount:number, Count: number,Code: string, Value: string }[];
   @Input() tableColorsArray!: string[];
@@ -33,7 +35,6 @@ getValue(subItem: any, key: string): any {
     return Math.round((part /totalValue) * 100);
   }
 
-  constructor(private cdr: ChangeDetectorRef) {}
   ngOnChanges(changes: SimpleChanges): void {
     // רואים כאן מתי כל Input מתעדכן
     if (changes['allDatabaseData'] || changes['spsipicPlaceData']) {
@@ -41,8 +42,8 @@ getValue(subItem: any, key: string): any {
       // ואז תכריחי את Angular לרנדר שוב:
       console.log("ngOnChanges(changes: SimpleChanges): void");
       
-      this.cdr.detectChanges();
-      this.cdr.markForCheck()
+      this.#crd.detectChanges();
+      this.#crd.markForCheck()
     }
 }
 }
