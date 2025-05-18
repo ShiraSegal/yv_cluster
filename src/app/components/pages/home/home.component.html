@@ -1,6 +1,7 @@
 <div class="home">
     <div class="user-name">
-        <yv-cluster-heading [title]="'Hello Ariela'" [size]="textSize.LARGE" [weight]="textWeight.BOLD"></yv-cluster-heading>
+        <yv-cluster-heading [title]="'Hello Ariela'" [size]="textSize.LARGE"
+            [weight]="textWeight.BOLD"></yv-cluster-heading>
     </div>
     <div class="cards-table-pie">
         <div class="cards">
@@ -14,11 +15,10 @@
                 [circleColor]="'red'"></yv-cluster-basic-card>
         </div>
         <div class="table-pie">
-        <yv-cluster-basic-table-warp 
-        [title]="'Progress Review: Automated List Updates'" 
-        [data]="data">
-    </yv-cluster-basic-table-warp>
-    
-</div>
+            <yv-cluster-basic-table-warp [title]="'Progress Review: Automated List Updates'" [data]="data">
+            </yv-cluster-basic-table-warp>
+            <yv-cluster-suggestions-statistics [data]="statisticsData" [radius]="radius" [innerRadius]="innerRadius">
+            </yv-cluster-suggestions-statistics>
+        </div>
     </div>
 </div>

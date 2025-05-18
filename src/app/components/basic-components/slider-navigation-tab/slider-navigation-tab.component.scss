@@ -10,7 +10,10 @@
     flex-shrink: 0;
     width: 5.875rem;
     flex-direction: column;
+    width: 5.875rem;
+    flex-direction: column;
     gap: 0.1875rem;
+    padding: 0.40625rem 0rem;
     padding: 0.40625rem 0rem;
 }
 
@@ -33,7 +36,7 @@
 .fa-solid {
     color: $c-D0D6F1;
 }
-
+ 
 .text-icon {
     color:$c-FFFFFF;
     text-align: center;

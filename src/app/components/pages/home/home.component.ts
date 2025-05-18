@@ -5,12 +5,13 @@ import { IconType } from 'src/app/enums/icon-enum';
 import { BasicTableRowPropertyVariants, DataCellType, HeaderCellType, HomeTableTabType, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { BasicTableWarpComponent } from '../../basic-components/basic-table-warp/basic-table-warp.component';
+import { SuggestionsStatisticsComponent } from '../../basic-components/suggestions-statistics/suggestions-statistics.component';
 
 @Component({
   selector: 'yv-cluster-home',
   standalone: true,
   imports: [BasicCardComponent,HeadingComponent,
-  BasicTableWarpComponent
+  BasicTableWarpComponent,SuggestionsStatisticsComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -33,6 +34,15 @@ export class HomeComponent {
       }
     });
   }
+  statisticsData = [
+    { color: '#FF5733', value: 40 }, // Example segment 1
+    { color: '#33FF57', value: 30 }, // Example segment 2
+    { color: '#3357FF', value: 20 }, // Example segment 3
+    { color: '#F3FF33', value: 10 }  // Example segment 4
+  ];
+
+  radius = 120; // Outer radius
+  innerRadius = 60; // Inner radius
     data = {
       [HomeTableTabType.NEW_SUGGESTIONS]: {
         Headers: [
