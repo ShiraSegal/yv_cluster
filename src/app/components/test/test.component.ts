@@ -43,9 +43,6 @@ import { BigCardComponent } from "../basic-components/big-card/big-card.componen
 import { SatisticCardComponent } from "../basic-components/satistic-card/satistic-card.component";
 import { CreateClusterComponent } from "../cluster-managment/create-cluster/create-cluster.component";
 import { PopoverComponent } from "../basic-components/popover/popover.component";
-import { NativeOptionComponent } from "../basic-components/native-option/native-option.component";
-import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
-import { SelectComponent } from '../basic-components/select/select.component';
 import { CardColor } from "src/app/enums/card-colors.enum";
 import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-handling-suggestions/filter-handling-suggestions.component";
 import { HandlingSuggestionsPageComponent } from "../pages/handling-suggestions-page/handling-suggestions-page.component";
