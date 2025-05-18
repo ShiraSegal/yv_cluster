@@ -1,3 +1,4 @@
+
 import { CommonModule } from '@angular/common';
 import { Component, Input, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl } from '@angular/forms';
@@ -17,34 +18,22 @@ import { BadgeType } from 'src/app/enums/basic-enum';
     },
   ],
 })
-export class BadgeComponent implements ControlValueAccessor {
+export class BadgeComponent {
   @Input() property: BadgeType = BadgeType.TODO;
-  @Input() badgeControl: FormControl; // Accept the FormControl directly
-
-  switchState(): void {
-    const newState =
-      this.badgeControl.value === BadgeType.TODO ? BadgeType.DONE : BadgeType.TODO;
-    this.badgeControl.setValue(newState); // Update the FormControl value
-  }
-  // ControlValueAccessor methods
-  onChange: (value: BadgeType) => void = () => {};
-  onTouched: () => void = () => {};
-
-  // Called when the value is written to the component
-  writeValue(value: BadgeType): void {
-    if (value !== undefined) {
-      this.property = value;
+  @Input() badgeControl: FormControl;
+  get label(): string {
+    // החזרה של תצוגה בהתאם לסוג
+    switch (this.property) {
+      case BadgeType.TODO:
+        return 'To do';
+      case BadgeType.DONE:
+        return 'Done';
+      default:
+        return this.property;
     }
   }
 
-  // Registers a callback function to call when the value changes
-  registerOnChange(fn: (value: BadgeType) => void): void {
-    this.onChange = fn;
+  switchState() {
+    this.property = this.property === BadgeType.TODO ? BadgeType.DONE : BadgeType.TODO;
   }
-
-  // Registers a callback function to call when the component is touched
-  registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
-
 }

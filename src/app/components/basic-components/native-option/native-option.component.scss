@@ -1,70 +1,35 @@
 @import "src/styles.scss";
-.option-wrapper {
+
+.popover-warp{
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    width: 100%; 
-    box-sizing: border-box;
-}
-
-.option-wrapper:hover {
-    background: $c-E7EBF833;
-}
-
-.text {
-    display: flex;
-    height: 22px;
-    padding: 0px 8px;
-    align-items: center;
-    gap: var(--Layout-large, 12px);
-    align-self: stretch;
-}
-
-.assignee {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    color: $c-3F4B5A;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-
-.circle {
-    width: 1.507rem;
-    height: 1.507rem;
-    flex-shrink: 0;
-    fill: $c-8999DC;
-}
-.letters{
-    color: $c-FFFFFF;
-font-family: Rubik;
-font-size: 0.6rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;display: flex;
-width: 0.91119rem;
-height: 0.73594rem;
-flex-direction: column;
-justify-content: center;
-flex-shrink: 0;
-}
-.icon-wrapper {
-    color:$c-3B3B3B;
-    text-align: center;
-    font-family: "Font Awesome 6 Pro";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    display: flex;
-    width: 14px;
-    height: 14px;
+    width: 9.8125rem;
     flex-direction: column;
-    justify-content: flex-end;
-    flex-shrink: 0;
+    align-items: flex-start;
+    border-radius: 0.375rem;
+    background: $c-FFFFFF;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10), 0px -4px 5px 0px rgba(0, 0, 0, 0.05);
+}
+.header-warp{
+    display: flex;
+    padding-top:  0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    align-self: stretch;
+    background: $c-FFFFFF;
+}
+
+.header{
+    padding: 0rem  0.5rem;
+    margin-top: 0.5rem;
+    white-space: nowrap; /* מונע שבירת שורה */
+}
+.native-option{
+    // display: flex;
+    // padding: var(--Layout-medium, 0.5rem);
+    // flex-direction: column;
+    // align-items: flex-start;
+    // gap: var(--Layout-x-large, 1rem);
+    // align-self: stretch;
+    // border-radius: var(--Border-radius-none, 0rem);
 }

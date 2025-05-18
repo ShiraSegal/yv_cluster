@@ -10,7 +10,8 @@ import { FieldComponent } from '../../basic-components/field/field.component';
 @Component({
   selector: 'yv-cluster-enter-bookid',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, ButtonComponent,HeadingComponent,BasicRadioButtonComponent,RadioButtonListComponent,FieldComponent],
+  imports: [FormsModule, ReactiveFormsModule, ButtonComponent,HeadingComponent,BasicRadioButtonComponent,RadioButtonListComponent,
+    FieldComponent],
   templateUrl: './enter-bookid.component.html',
   styleUrl: './enter-bookid.component.scss'
 })

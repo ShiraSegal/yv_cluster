@@ -11,17 +11,17 @@ import { ClusterService } from 'src/app/services/cluster.service';
 export class HomeWarpComponent {
   tableData: any;
   clusterService = inject(ClusterService);
-  // async ngOnInit() {
-  //   (await this.clusterService.getAutoClusterData()).subscribe({
-  //     next: (data) => {
-  //       console.log('Received data:', data);
-  //       this.tableData = data;     
-  //     },
-  //     error: (err) => {
-  //       console.error('Error fetching data:', err);
-  //     }
-  //   });
-  // }
+  async ngOnInit() {
+    (await this.clusterService.getAutoClusterData()).subscribe({
+      next: (data: any) => {
+        console.log('Received data:', data);
+        this.tableData = data;     
+      },
+      error: (err: any) => {
+        console.error('Error fetching data:', err);
+      }
+    });
+  }
 
   
 }

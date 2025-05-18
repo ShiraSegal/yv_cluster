@@ -4,11 +4,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import {
-  ButtonSize,
+  BadgeType,
   ButtonType,
   IconButtonLargeType,
   NativeOptionState,
   NativeOptionType,
+  PopoverType,
   State
 } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
@@ -16,6 +17,9 @@ import { ButtonComponent } from '../button/button.component';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 import { SelectComponent } from '../select/select.component';
 import { FieldComponent } from '../field/field.component';
+import { ClusterService } from 'src/app/services/cluster.service';
+import { PopoverComponent } from '../popover/popover.component';
+import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 
 @Component({
   selector: 'yv-cluster-filter-section',
@@ -26,7 +30,8 @@ import { FieldComponent } from '../field/field.component';
     ButtonComponent,
     IconButtonLargeComponent,
     SelectComponent,
-    FieldComponent
+    FieldComponent,
+    PopoverComponent
   ],
   templateUrl: './filter-section.component.html',
   styleUrls: ['./filter-section.component.scss']
@@ -34,50 +39,95 @@ import { FieldComponent } from '../field/field.component';
 export class FilterSectionComponent {
   @Input() buttonText: string = 'New Cluster';
   @Input() icon: IconType = IconType.PLUS_LIGHT;
+  @Input() iconsVisible: boolean = false;
+  @Input() Filters :FilterNames[] = [];
+  @Output() onClickAddCluster = new EventEmitter<void>();
+  @Output() onFilterValuesChange = new EventEmitter<any[]>();
+
+  ngOnInit() {
+    console.log('Filters received in filter-section:', this.Filters); // Debugging log
+  }
 
   filterForm: FormGroup;
+  statusAssineeForm: FormGroup;
+  popOverTypeEnum = PopoverType;
+  filterNames = FilterNames;
+  popOverType : PopoverType = PopoverType.ASSIGNEE;
+  visiblePopover: PopoverType | null = null;
 
-  // enums
+
   stateEnum = State;
   nativeOptions = NativeOptionType;
   iconType = IconType;
   iconButtonLargeType = IconButtonLargeType;
   primary = ButtonType.PRIMARY;
-  ButtonType = ButtonType;
+  buttonType = ButtonType;
 
-  assigneeOptions = [
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
-  ];
+  assigneeOptions: {
+    optionType: NativeOptionType;
+    optionState: NativeOptionState;
+    displayText: string;
+  }[] = [];
 
   badgeOptions = [
-    { optionType: NativeOptionType.STATUS, optionState: NativeOptionState.DEFAULT },
-    { optionType: NativeOptionType.STATUS, optionState: NativeOptionState.DEFAULT }
+    {
+      optionType: NativeOptionType.STATUS,
+      optionState: NativeOptionState.DEFAULT,
+      displayText: 'To do',
+      property: BadgeType.TODO
+    },
+    {
+      optionType: NativeOptionType.STATUS,
+      optionState: NativeOptionState.DEFAULT,
+      displayText: 'Done',
+      property: BadgeType.DONE
+    }
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private clusterService: ClusterService) {
     this.filterForm = this.fb.group({
       search: [''],
       date: [null],
       status: [null],
       assignee: [null],
-      toggleAssignee: [false],
-      toggleStatus: [false]
     });
 
-    this.filterForm.valueChanges.subscribe(val => {
-      console.log('form value:', val);
+    this.statusAssineeForm = this.fb.group({
+      toggleAssignee: [],
+      toggleStatus: []
+    });
+
+    this.filterForm.valueChanges.subscribe(values => {
+      this.onFilterValuesChange.emit(values);
+    });
+
+    this.statusAssineeForm.valueChanges.subscribe(val => {
+      console.log('statusAssineeForm:', val);
+    });
+
+    this.clusterService.AssigneeList$.subscribe(names => {
+      this.assigneeOptions = names.map(name => ({
+        optionType: NativeOptionType.ASSIGNEE,
+        optionState: NativeOptionState.DEFAULT,
+        displayText: name
+      }));
     });
   }
+  showPopover(type: PopoverType): void {
+    this.visiblePopover = type;
+  }
 
+  hidePopover(): void {
+    this.visiblePopover = null;
+  }
   onClick() {
     console.log('Submit clicked:', this.filterForm.value);
   }
 
-  @Output() toggleAssigneeClicked = new EventEmitter<void>(); // Output event
-  onClick2(): void {
-    debugger
-    this.toggleAssigneeClicked.emit(); // Emit the event
+  onClickAddClusterFunc() {
+    this.onClickAddCluster.emit();
   }
+
+  onClickStatus() {}
+  onClickAssinee() {}
 }

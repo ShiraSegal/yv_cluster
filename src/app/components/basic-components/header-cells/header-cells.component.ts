@@ -8,19 +8,22 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'yv-cluster-header-cells',
   standalone: true,
-  imports: [CheckComponent ,CommonModule],
+  imports: [CheckComponent, CommonModule],
   templateUrl: './header-cells.component.html',
   styleUrl: './header-cells.component.scss'
 })
 export class HeaderCellsComponent {
-  @Input() header: string | undefined;
-  @Input() type: HeaderCellType = HeaderCellType.TEXT;
-  @Output() sortEvent = new EventEmitter<{ column: string, direction: string }>();
+  @Input() header: string;
+  @Input() type: HeaderCellType;
   @Input() headerCheckboxControl: FormControl;
 
-  HeaderCellType = HeaderCellType;
-  CheckType = CheckType
-  CheckStateType = CheckStateType
+  @Output() sortEvent = new EventEmitter<{ column: string, direction: string }>();
+  @Output() checkStatus = new EventEmitter<CheckType>();
+  @Output() openDialog = new EventEmitter<boolean>();
+
+  headerCellType = HeaderCellType;
+  checkType = CheckType
+  checkStateType = CheckStateType
   sortBy(column: string) {
     if (this.type === 'order' || this.type === HeaderCellType.ORDERDOWN) {
       const direction = this.type === 'order' ? 'asc' : 'desc';
@@ -29,5 +32,15 @@ export class HeaderCellsComponent {
       // Toggle the type between 'order' and 'order-down'
       this.type = this.type === HeaderCellType.ORDER ? HeaderCellType.ORDERDOWN : HeaderCellType.ORDER;
     }
+  }
+
+  checkChange(checkStatus: CheckType) {
+    console.log(" header cells check status", checkStatus)
+    this.checkStatus.emit(checkStatus);
+
+  }
+  openPeiComponent() {
+    console.log("openPeiComponent");
+    this.openDialog.emit(true);
   }
 }

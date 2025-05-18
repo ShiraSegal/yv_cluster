@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -6,33 +6,17 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
   standalone: true,
   templateUrl: './assignee.component.html',
   styleUrls: ['./assignee.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => AssigneeComponent),
-      multi: true,
-    },
-  ],
 })
 export class AssigneeComponent implements ControlValueAccessor {
-  @Input() data: string | undefined = 'Racheli Liff'; // Default value
-  @Input() assigneeControl!: FormControl; // Accept the FormControl
-  @Output() assigneeChange = new EventEmitter<string>(); // Declare the Output property
-
+  @Input() data: string | undefined = 'UnAssignee'; // Default value
+  @Output() assigneeChange = new EventEmitter<string>();
+  @Input() assigneeControl: FormControl;
   assigneeInitials: string = '';
   truncatedName: string = '';
-
   onChange: (value: string | undefined) => void = () => {};
   onTouched: () => void = () => {};
 
   ngOnInit(): void {
-    // Listen to changes in the FormControl
-    if (this.assigneeControl) {
-      this.assigneeControl.valueChanges.subscribe((value) => {
-        this.data = value;
-        this.updateAssigneeProperties();
-      });
-    }
     this.updateAssigneeProperties();
   }
 
@@ -50,7 +34,7 @@ export class AssigneeComponent implements ControlValueAccessor {
   }
 
   writeValue(value: string | undefined): void {
-    this.data = value || '';
+    this.data = value || 'UnAssignee'; // Use default if no value is provided
     this.updateAssigneeProperties();
   }
 
@@ -65,15 +49,7 @@ export class AssigneeComponent implements ControlValueAccessor {
   editAssignee(newValue: string): void {
     this.data = newValue;
     this.onChange(this.data);
-    this.assigneeChange.emit(this.data);
+    this.assigneeChange.emit(this.data); // Emit the change event
     this.updateAssigneeProperties();
-  
-    // Update the FormControl value if it exists
-    if (this.assigneeControl) {
-      this.assigneeControl.setValue(newValue);
-    }
-  }
-  onBlur(): void {
-    this.onTouched();
   }
 }

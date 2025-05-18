@@ -1,0 +1,37 @@
+<div class="pie-component-distribution-modal-container">
+  <div class="component-tittle">
+    <div class="component-tittle-text">{{title}}</div>
+
+    <button (click)="onClose()" class="close-button">
+      <i class="fa-regular fa-xmark-large"></i>
+      </button>
+  </div>
+  <div class="table-and-pie-container">
+    <!-- //table -->
+    <yv-cluster-pie-table [spsipicPlaceData]="lastNamesInPlaces" [allDatabaseData]="lastNames"
+      [tableColorsArray]="colorsArray" [allDatabaseTotalValue]="{'TotalCount': 10000, 'Value': 'All Database'}"
+      [thePlaceTotalValue]="{'TotalCount':10000, 'Value': 'Minsk'}"></yv-cluster-pie-table>
+    <div class="pie-circle-container">
+      <div class="pie-buttons-container">
+        <button class="button-text" [ngClass]="{'button-with-a-backround':!showAllThaDatabasePie,'button-without-a-backround':showAllThaDatabasePie}" (click)="changeTheShowingPei()">Minsk</button>
+        <button class="button-text" [ngClass]="{'button-with-a-backround':showAllThaDatabasePie,'button-without-a-backround':!showAllThaDatabasePie}" (click)="changeTheShowingPei()">All Database</button>
+        
+        <!-- //buttons -->
+        <!-- <yv-cluster-button (onClick)="changeTheShowingPei()" text="All Database" [buttonType]="tertiany" [isBig]=false></yv-cluster-button>
+       
+        <yv-cluster-button (onClick)="changeTheShowingPei()" text="Minsk" [buttonType]="tertiany" [isBig]=false></yv-cluster-button> -->
+
+      </div>
+
+      <!-- ///pie -->
+      @if(showAllThaDatabasePie){
+      <yv-cluster-pie-circle [data]="lastNames" [totalValue]="{'TotalCount': 10000, 'Value': 'All Database'}"
+        [pieColorsArray]="colorsArray"></yv-cluster-pie-circle>
+      }
+      @if(!showAllThaDatabasePie){
+      <yv-cluster-pie-circle [data]="lastNamesInPlaces" [totalValue]="{'TotalCount':10000, 'Value': 'Minsk'}"
+        [pieColorsArray]="colorsArray"></yv-cluster-pie-circle>
+      }
+    </div>
+  </div>
+</div>

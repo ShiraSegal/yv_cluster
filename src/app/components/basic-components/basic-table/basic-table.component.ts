@@ -15,7 +15,7 @@ export class BasicTableComponent {
   @Input() headers: { data: string; type: HeaderCellType }[] = [];
 
 
-  DataCellType = DataCellType;
-  HeaderCellType = HeaderCellType;
-  BasicTableRowPropertyVariants=BasicTableRowPropertyVariants;
+  dataCellType = DataCellType;
+  headerCellType = HeaderCellType;
+  basicTableRowPropertyVariants=BasicTableRowPropertyVariants;
 }

@@ -52,7 +52,6 @@ export class ViewerComponent {
     if (this.scaleIndex < 5) {
       this.scaleIndex++;
       this.updateTransform();
-      console.log('zoomIn:', this.zoomClass);
     }
   }
 
@@ -60,18 +59,16 @@ export class ViewerComponent {
     if (this.scaleIndex > 0) {
       this.scaleIndex--;
       this.updateTransform();
-      console.log('zoomOut:', this.zoomClass);
     }
   }
 
   rotateLeft() {
-    console.log('rotateLeft called');
     this.rotate -= 90;
     this.updateTransform();
   }
 
   rotateRight() {
-    console.log('rotateRight called');
+
     this.rotate += 90;
     this.updateTransform();
   }

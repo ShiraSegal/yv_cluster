@@ -2,16 +2,17 @@
   @for (cell of cells; track cell) {
     <div
       [ngClass]="{
-        'special-cell': cell.type === DataCellType.ICON || cell.type === DataCellType.CHECK || cell.type === DataCellType.MORE,
-        'regular-cell': cell.type !== DataCellType.ICON && cell.type !== DataCellType.CHECK && cell.type !== DataCellType.MORE
+        'special-cell': cell.type === dataCellType.ICON || cell.type === dataCellType.CHECK || cell.type === dataCellType.MORE,
+        'regular-cell': cell.type !== dataCellType.ICON && cell.type !== dataCellType.CHECK && cell.type !== dataCellType.MORE
       }"
     >
+    <!--  [control]="getControl(cell.type)" -->
       <div class="cell">
         <yv-cluster-data-cells 
           [data]="cell.data" 
           [type]="cell.type" 
           [moreData]="cell.moreData || {}"
-          [control]="getControl(cell.type)"
+          [control]="controlsMap[cell.type]" 
         ></yv-cluster-data-cells>
       </div>
     </div>

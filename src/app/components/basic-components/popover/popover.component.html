@@ -1,0 +1,13 @@
+<div class="popover-warp">
+    <div class="header-warp">
+        <yv-cluster-body class="header" [bodyText]="header" [size]="size" [weight]="weight" [color]="color"></yv-cluster-body>
+    </div>
+
+    @for(option of popoverOptions; track $index){
+    <div class="native-option" (click)="onSelectedOption(option)">
+        <yv-cluster-native-option [optionType]="option.optionType" [displayText]="option.displayText" [property]="option.property"></yv-cluster-native-option>
+
+    </div>
+    }
+
+</div>

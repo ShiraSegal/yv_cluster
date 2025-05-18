@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BadgeType, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { BadgeComponent } from '../badge/badge.component';
@@ -9,7 +9,7 @@ import { SliderComponent } from '../slider/slider.component';
 import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { CheckType } from 'src/app/enums/check-enum';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'yv-cluster-data-cells',
@@ -23,28 +23,47 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
     BadgeComponent,
     CommonModule,
     IconButtonLargeComponent
-    , ReactiveFormsModule, SliderComponent, CheckComponent, AssigneeComponent, BadgeComponent, IconButtonLargeComponent, CommonModule],
+    , ReactiveFormsModule,
+    SliderComponent,
+    CheckComponent,
+    AssigneeComponent,
+    BadgeComponent,
+    IconButtonLargeComponent,
+    CommonModule],
 
   templateUrl: './data-cells.component.html',
   styleUrls: ['./data-cells.component.scss']
 })
+
 export class DataCellsComponent<T extends DataCellType> {
   // variables
-  @Input() type!: T;
-  @Input() data!: DataCellValue<T>;
+  @Input() type: T;
+  @Input() data: DataCellValue<T>;
   @Input() moreData: { [key: string]: any }; // אובייקט לפרמטרים נוספים
-  @Input() control!: FormControl<any>; // Add this input
-  //injecting ENUM
+  @Input() control: any;
 
+  @Output() checkStatus = new EventEmitter<CheckType>();
+  @Output() iconClick = new EventEmitter<void>();
+  bookId: string = "";
+
+  //injecting ENUM
   badgeType = BadgeType;
-  IconType = IconType;
+  iconType = IconType;
   buttonType = ButtonType;
   iconButtonLargeType = IconButtonLargeType;
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
   checkType = CheckType;
 
-  // functions
+  //functions
+  ngOnInit() {
+    if (typeof this.data === "string" && this.data.includes('collections.yadvashem.org/en/names/')) {
+      const parts = this.data.split('/');
+      this.bookId = parts[parts.length - 1];
+      console.log("bookId", this.bookId);
+    }
+  }
+
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;
   }
@@ -53,9 +72,14 @@ export class DataCellsComponent<T extends DataCellType> {
     return typeof value === 'number';
   }
 
-
+  checkChange(checkStatus: CheckType) {
+    this.checkStatus.emit(checkStatus);
+    console.log("data cells check status", checkStatus)
+  }
   onClick() {
-    alert('Test on click');
-    console.log('Test on click');
+    // alert('click');
+    this.iconClick.emit();
+
+
   }
 }
