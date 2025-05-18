@@ -10,6 +10,7 @@ import { HeadingComponent } from '../basic-components/heading/heading.component'
 import { BodyComponent } from '../basic-components/body/body.component';
 import { SliderComponent } from "../basic-components/slider/slider.component";
 import { CheckComponent } from "../basic-components/check/check.component";
+import { PopoverHeader, PopoverType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
 import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
 import { HeaderCellsComponent } from '../basic-components/header-cells/header-cells.component';
@@ -35,46 +36,97 @@ import { SlidebarNavigationComponent } from "../basic-components/slidebar-naviga
 import { NarrowBasicTableRowComponent } from "../basic-components/narrow-basic-table-row/narrow-basic-table-row.component";
 import { NarrowBasicTableWarpComponent } from "../basic-components/narrow-basic-table-warp/narrow-basic-table-warp.component";
 import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
+import { PieCircleComponent } from "../basic-components/pie-circle/pie-circle.component";
+import { PieComponentDistributionModalComponent } from "../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component";
+import { PieTableComponent } from "../basic-components/pie-table/pie-table.component";
+import { BigCardComponent } from "../basic-components/big-card/big-card.component";
+import { SatisticCardComponent } from "../basic-components/satistic-card/satistic-card.component";
+import { CreateClusterComponent } from "../cluster-managment/create-cluster/create-cluster.component";
+import { PopoverComponent } from "../basic-components/popover/popover.component";
+import { NativeOptionComponent } from "../basic-components/native-option/native-option.component";
 import { HomeWarpComponent } from "../core-components/home-warp/home-warp.component";
 import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
 import { SelectComponent } from '../basic-components/select/select.component';
 import { CardColor } from "src/app/enums/card-colors.enum";
+import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-handling-suggestions/filter-handling-suggestions.component";
+import { HandlingSuggestionsPageComponent } from "../pages/handling-suggestions-page/handling-suggestions-page.component";
+
+import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id-details/table-group-id-details.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
   imports: [
-    //SlidebarNavigationComponent,
-    // SliderNavigationTabComponent,
-    // HeadingComponent,
-    // BodyComponent,
-    // AssigneeComponent,
-    // DataCellsComponent,
-    // HeaderCellsComponent,
-    // EnterBookidComponent,
-    // FieldComponent,
-     CommonModule,
-    // IconButtonComponent,
-    // ButtonComponent,
-    // BasicCardComponent,
-    // ToastNotificationComponent,
-    // BasicToggleComponent,
-    // BasicRadioButtonComponent,
-    // CheckComponent,
-    // SelectComponent,
-    // BasicTabComponent,
-    // SliderComponent,
-    // SwitchComponent,
-    // FieldComponent,
-    // RadioButtonListComponent,
-    //CreateClusterComponent,
-    // BadgeComponent,
-    // BasicTableRowComponent,
-    // IconButtonLargeComponent,
-    // ViewerComponent,
-    // NarrowBasicTableRowComponent,
-     NarrowBasicTableWarpComponent,
-    // TableHeaderComponent,
-    // HomeWarpComponent
+    IconButtonComponent,
+    SliderComponent,
+    CheckComponent,
+    AssigneeComponent,
+    DataCellsComponent,
+    HeaderCellsComponent,
+    BadgeComponent,
+    CommonModule,
+    ButtonComponent,
+    SwitchComponent,
+    BasicTabComponent,
+    IconButtonLargeComponent,
+    AssigneeComponent,
+    BasicTableRowComponent,
+    DataCellsComponent,
+    HeaderCellsComponent,
+    FieldComponent,
+    CommonModule,
+    SliderNavigationTabComponent,
+    ButtonComponent,
+    CheckComponent,
+    IconButtonLargeComponent,
+    BasicTabComponent,
+    SliderComponent,
+    SwitchComponent,
+    ViewerComponent,
+    SlidebarNavigationComponent,
+    BasicCardComponent,
+    NarrowBasicTableRowComponent,
+    NarrowBasicTableWarpComponent,
+    SliderComponent,
+    CheckComponent,
+    ViewerComponent,
+    BadgeComponent,
+    BadgeComponent,
+    AssigneeComponent,
+    DataCellsComponent,
+    HeaderCellsComponent,
+    SliderNavigationTabComponent,
+    SlidebarNavigationComponent,
+    FieldComponent,
+    CommonModule,
+    ButtonComponent,
+    SwitchComponent,
+    TableHeaderComponent,
+    BasicTabComponent,
+    BasicCardComponent,
+    IconButtonLargeComponent,
+    PieCircleComponent,
+    PieComponentDistributionModalComponent,
+    PieTableComponent,
+    BigCardComponent,
+    SatisticCardComponent,
+    ToastNotificationComponent,
+    FilterSectionComponent,
+    RadioButtonListComponent,
+    BasicRadioButtonComponent,
+    BasicToggleComponent,
+    BasicTabComponent,
+    HeaderCellsComponent,
+    EnterBookidComponent,
+    HeadingComponent,
+    BodyComponent,
+    TableGroupIdDetailsComponent,
+    FilterHandlingSuggestionsComponent,
+    HandlingSuggestionsPageComponent,
+    CreateClusterComponent,
+    HomeWarpComponent,
+    PopoverComponent
+    
+
   ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
@@ -96,13 +148,19 @@ export class TestComponent {
   basicTableRowPropertyVariants = BasicTableRowPropertyVariants;
   sliderNavigationTabTextType = SliderNavigationTabTextType
   autoClusterTabType = AutoClusterTabType;
+  NarrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   nativeOptionType = NativeOptionType;
   optionState = NativeOptionState;
   optionType = NativeOptionType;
+  // ToastNotificationIcons = ToastNotificationIcons;
+  RadioButtonListDirection=RadioButtonListDirection;
+  NativeOptionType=NativeOptionType;
+  NativeOptionState=NativeOptionState;
+  popoverType=PopoverType;
+  //variables-----------------------------------------------------------------------
   radioButtonListDirection=RadioButtonListDirection;
   cardColorEnum=CardColor;
-
   
 //variables-----------------------------------------------------------------------
   // button component properties
@@ -161,6 +219,14 @@ export class TestComponent {
   isDisabled: boolean = false;
   isFocused: boolean = false;
   isPopulated: boolean = true;
+
+  // title = 'yv-clusters';
+  HeaderCellType = HeaderCellType;
+  DataCellType = DataCellType;
+  // SliderNavigationTabIconType = SliderNavigationTabIconType;
+  // SliderNavigationTabType = SliderNavigationTabType;
+
+  
 
   selectedOption: string = '';
   radioButtonArray: string[] = ["a", "b", "c", "d", "other"];
@@ -309,6 +375,69 @@ export class TestComponent {
       ]
     }
   };
+
+  // customSubtitle = 'Custom Subtitle';
+  // nativeOptionswe = [
+  //   { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
+  //   { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
+  //   { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
+  // ];
+
+
+  
+
+  // handleSort(event: { column: string, direction: string }) {
+
+  //   console.log(`Sorting by ${event.column} in ${event.direction} order`);
+  // }
+
+  // onClick() {
+  //   alert('test on click');
+  //   console.log('test on click');
+  // }
+
+
+  // iconp = "fa-solid fa-plus"
+  // // txt1 = "Enter Book ID"
+  // txt2 = "Enter Book ID"
+  popoverOptionsStatus:{
+    optionType: NativeOptionType.STATUS;
+    optionState: NativeOptionState;
+    property: BadgeType;
+  }[] = [{optionType: NativeOptionType.STATUS, optionState: NativeOptionState.DEFAULT,property: BadgeType.TODO},
+    {optionType: NativeOptionType.STATUS, optionState: NativeOptionState.DEFAULT,property: BadgeType.DONE},
+  ];
+
+popoverOptionsAssignee:{
+  optionType: NativeOptionType;
+  optionState: NativeOptionState;
+  displayText: string;
+}[] = [{optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 1'},
+  {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 2'},
+  {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 3'},
+];
+
+popoverOptionsLink:{
+  optionType: NativeOptionType.TEXT;
+  optionState: NativeOptionState;
+  displayText: string;
+}[] = [{optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 1'},
+  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
+  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
+];
+
+
+
+  //functions-----------------------------------------------------------------------
+  //header-cell- sort function
+  // handleSort(event: { column: string, direction: string }) {
+  //   console.log(`Sorting by ${event.column} in ${event.direction} order`);
+  // }
+  // //button & icon button component function
+  // onClick() {
+  //   alert('test on click');
+  //   console.log('test on click');
+  // }
   headers: { data: string; type: HeaderCellType }[] = [
     { data: 'name list', type: HeaderCellType.TEXT },
     { data: 'to do', type: HeaderCellType.TEXT },
@@ -392,6 +521,19 @@ export class TestComponent {
       ]
     }
   ];
+
+
+
+  //basic-tab-component function
+
+  handleToggleChange(state: string) {
+    this.toggleState = state;
+    console.log('state:', state);
+  }
+  handleRadioButtonChange(state: boolean) {
+    this.radioButtonState = state;
+    console.log('radioButton:', state ? 'דלוק' : 'מכובה');
+  }
 
 
 

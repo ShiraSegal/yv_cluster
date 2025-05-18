@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { FieldComponent } from '../field/field.component';
 import { ButtonType, DataCellType, State } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../button/button.component';
@@ -16,7 +16,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './filter-handling-suggestions.component.scss'
 })
 export class FilterHandlingSuggestionsComponent {
+    @Output() prefCodeStatus = new EventEmitter<boolean>();
+    @Input() showTheButtons :boolean = false;
   switchState: boolean = false;
+  // @Output() fieldValue= new EventEmitter<string>();
 
   stateEnum = State;
   buttonType=ButtonType;
@@ -27,19 +30,37 @@ export class FilterHandlingSuggestionsComponent {
     searchField: '',
     prefCode: false
   };
+ ngOnChanges(changes: SimpleChanges) {
+    if (changes['showTheButtons']) {
+      const newValue = changes['showTheButtons'].currentValue;
+      this.onShowTheButtonsChange(newValue);
+    }
+  }
+
+  onShowTheButtonsChange(value: boolean) {
+    console.log('showTheButtons changed:', value);
+    // הפעולה שתרצי להריץ
+  }
+  // onSearchFieldChange(newValue: string) {
+  //   this.fieldValue.emit(newValue);
+
+  //   console.log('value changed to:', newValue);
+  //   // כאן תוכלי לבצע כל פעולה שתרצי בעת שינוי הערך
+  // }
   onPrefCodeChange(state: boolean) {
   this.formData.prefCode = state;
+  this.prefCodeStatus.emit(state);
   console.log('Pref code switch:', state);
 }
-  onSubmit() {
-    console.log('Form submitted:', this.formData);
-  }
+  // onSubmit() {
+  //   console.log('Form submitted:', this.formData);
+  // }
   handleSwitchChange(state: boolean) {
     this.switchState = state;
     console.log('Switch:', state ? 'דלוק' : 'מכובה');
   }
-  onCopyClick(){
-alert('Copy button clicked');
+  onRightLeftClick(){
+alert('right left button clicked');
 
   }
   onUserClick(){

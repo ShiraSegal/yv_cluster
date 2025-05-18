@@ -1,5 +1,5 @@
-import { LastName } from "./LastName";
-import { LastNameInPlaces } from "./LastNameInPlaces";
+import { LastName } from "./last-name.model";
+import { LastNameInPlaces } from "./last-name-inplaces.model";
 
 export class StatisticDetail {
     lastName: LastName;

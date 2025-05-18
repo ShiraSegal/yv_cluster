@@ -1,5 +1,5 @@
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -33,6 +33,8 @@ import { ClusterService } from 'src/app/services/cluster.service';
   styleUrls: ['./filter-section.component.scss']
 })
 export class FilterSectionComponent {
+  #fb=inject(FormBuilder)
+  #clusterService=inject(ClusterService)
   @Input() buttonText: string = 'New Cluster';
   @Input() icon: IconType = IconType.PLUS_LIGHT;
   @Output() onClickAddCluster = new EventEmitter<void>();
@@ -68,16 +70,16 @@ export class FilterSectionComponent {
       property: BadgeType.DONE
     }
   ];
+  constructor() {
 
-  constructor(private fb: FormBuilder, private clusterService: ClusterService) {
-    this.filterForm = this.fb.group({
+    this.filterForm = this.#fb.group({
       search: [''],
       date: [null],
       status: [null],
       assignee: [null],
     });
 
-    this.statusAssineeForm = this.fb.group({
+    this.statusAssineeForm = this.#fb.group({
       toggleAssignee: [],
       toggleStatus: []
     });
@@ -90,7 +92,7 @@ export class FilterSectionComponent {
       console.log('statusAssineeForm:', val);
     });
 
-    this.clusterService.AssigneeList$.subscribe(names => {
+    this.#clusterService.AssigneeList$.subscribe(names => {
       this.assigneeOptions = names.map(name => ({
         optionType: NativeOptionType.ASSIGNEE,
         optionState: NativeOptionState.DEFAULT,
