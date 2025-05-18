@@ -44,7 +44,6 @@ import { SatisticCardComponent } from "../basic-components/satistic-card/satisti
 import { CreateClusterComponent } from "../cluster-managment/create-cluster/create-cluster.component";
 import { PopoverComponent } from "../basic-components/popover/popover.component";
 import { NativeOptionComponent } from "../basic-components/native-option/native-option.component";
-import { HomeWarpComponent } from "../core-components/home-warp/home-warp.component";
 import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
 import { SelectComponent } from '../basic-components/select/select.component';
 import { CardColor } from "src/app/enums/card-colors.enum";
@@ -52,6 +51,7 @@ import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-h
 import { HandlingSuggestionsPageComponent } from "../pages/handling-suggestions-page/handling-suggestions-page.component";
 
 import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id-details/table-group-id-details.component";
+import { HomeComponent } from "../pages/home/home.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -123,9 +123,8 @@ import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id
     FilterHandlingSuggestionsComponent,
     HandlingSuggestionsPageComponent,
     CreateClusterComponent,
-    HomeWarpComponent,
-    PopoverComponent
-    
+    PopoverComponent,
+    HomeComponent
 
   ],
   templateUrl: './test.component.html',

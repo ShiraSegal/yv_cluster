@@ -1,16 +1,12 @@
-<!-- <div class="table-name-and-tabs">
 <div class="table-name-and-tabs">
-    <div class="table-name">{{title}}</div>
+    <yv-cluster-heading [title]="title" [size]="textSize.LARGE" [weight]="textWeight.BOLD"></yv-cluster-heading>
     <div class="tabs">
-        @for (item of data ; track item) {
-
-            <app-tab-element 
-                [active]="" 
-                text="item.property" 
-                (click)="setTab(item.property) ">
-            </app-tab-element>
+        @for (tab of tabs; track tab) {
+        <yv-cluster-basic-tab [text]="tab.text" [active]="tab.status" (tabChange)="setActiveTab(tab.text)">
+        </yv-cluster-basic-tab>
         }
-      </div>
     </div>
-</div>  -->
-
+</div>
+<div class="basic-table-container">
+    <yv-cluster-basic-table [headers]="headers" [rows]="rows"></yv-cluster-basic-table>
+</div>

@@ -92,7 +92,7 @@ export enum AutoClusterTabType {
 }
 
 export enum HomeTableTabType {
- NEWֹֹֹֹֹֹ_SUGGESTIONS = 'new-suggestion',
+ NEW_SUGGESTIONS = 'new-suggestion',
   OLD_SUGGESTIONS = 'old_suggestion',
   
 }
