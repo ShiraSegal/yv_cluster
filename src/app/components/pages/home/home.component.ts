@@ -48,11 +48,11 @@ export class HomeComponent {
         Headers: [
           { data: 'Name List', type: HeaderCellType.TEXT },
           { data: 'To Do', type: HeaderCellType.TEXT },
-          { data: '', type: HeaderCellType.CHECK },
+          { data: '', type: HeaderCellType.PLACEOLDER },
         ],
         Rows: [
           {
-            property: BasicTableRowPropertyVariants.VARIANT2,
+            property: BasicTableRowPropertyVariants.DEFAULT,
             showAction: true,
             cells: [
               { data: 'sapir cluster', type: DataCellType.TEXT },
@@ -61,10 +61,40 @@ export class HomeComponent {
             ],
           },
           {
-            property: BasicTableRowPropertyVariants.VARIANT2,
-            showAction: false,
+            property: BasicTableRowPropertyVariants.DEFAULT,
+            showAction: true,
             cells: [
               { data: 'sapir cluster', type: DataCellType.TEXT },
+              { data: 'In Progress', type: DataCellType.TEXT },
+              { data: '', type: DataCellType.ICON },
+            ],
+          },
+        ],
+      },
+      [HomeTableTabType.OLD_SUGGESTIONS]: {
+        Headers: [
+          { data: 'Name List', type: HeaderCellType.TEXT },
+          { data: 'Done', type: HeaderCellType.TEXT },
+          { data: 'To Do', type: HeaderCellType.TEXT },
+          { data: '', type: HeaderCellType.PLACEOLDER },
+        ],
+        Rows: [
+          {
+            property: BasicTableRowPropertyVariants.DEFAULT,
+            showAction: true,
+            cells: [
+              { data: 'sapir cluster', type: DataCellType.TEXT },
+              { data: 'In Progress', type: DataCellType.TEXT },
+              { data: 'In Progress', type: DataCellType.TEXT },
+              { data: '', type: DataCellType.ICON },
+            ],
+          },
+          {
+            property: BasicTableRowPropertyVariants.DEFAULT,
+            showAction: true,
+            cells: [
+              { data: 'sapir cluster', type: DataCellType.TEXT },
+              { data: 'In Progress', type: DataCellType.TEXT },
               { data: 'In Progress', type: DataCellType.TEXT },
               { data: '', type: DataCellType.ICON },
             ],

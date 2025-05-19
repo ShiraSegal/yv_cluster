@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormControl } from "@angular/forms";
 //import enums
-import {  ButtonSize, CheckStateType, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State , AutoClusterTabType,  BasicTableRowPropertyVariants, ButtonIconProperty, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, SliderNavigationTabTextType, TextSize, TextWeight, BadgeType, RadioButtonListDirection, BigCardSize } from 'src/app/enums/basic-enum';
+import {  ButtonSize, CheckStateType, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State , AutoClusterTabType,  BasicTableRowPropertyVariants, ButtonIconProperty, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, SliderNavigationTabTextType, TextSize, TextWeight, BadgeType, RadioButtonListDirection, BigCardSize, HomeTableTabType } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
 import { CheckType } from "src/app/enums/check-enum";
 //import components
@@ -49,9 +49,9 @@ import { SelectComponent } from '../basic-components/select/select.component';
 import { CardColor } from "src/app/enums/card-colors.enum";
 import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-handling-suggestions/filter-handling-suggestions.component";
 import { HandlingSuggestionsPageComponent } from "../pages/handling-suggestions-page/handling-suggestions-page.component";
-
 import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id-details/table-group-id-details.component";
 import { HomeComponent } from "../pages/home/home.component";
+import { BasicTableWarpComponent } from "../basic-components/basic-table-warp/basic-table-warp.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -75,6 +75,7 @@ import { HomeComponent } from "../pages/home/home.component";
     FieldComponent,
     CommonModule,
     SliderNavigationTabComponent,
+    BasicTableWarpComponent,
     ButtonComponent,
     CheckComponent,
     IconButtonLargeComponent,
