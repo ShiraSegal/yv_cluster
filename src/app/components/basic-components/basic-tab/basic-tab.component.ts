@@ -11,8 +11,8 @@ import { Component, Input, Output,EventEmitter } from '@angular/core';
 })
 export class BasicTabComponent {
   // @Input() status:StatusActiveOrNotActive=StatusActiveOrNotActive.ACTIVE;
-  @Input() active!: boolean;
-  @Input() text!: string;
+  @Input() active: boolean;
+  @Input() text: string;
   @Output() tabChange = new EventEmitter<boolean>();
 
   changeStatus(){

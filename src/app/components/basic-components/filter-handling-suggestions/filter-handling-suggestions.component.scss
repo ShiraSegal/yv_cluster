@@ -1,3 +1,5 @@
+@import "src/styles.scss";
+
 .filter-container{
     display: flex;
 padding-bottom: 1.25rem;
@@ -12,4 +14,37 @@ justify-content: flex-end;
 align-items: center;
 gap: 0.5rem;
 flex: 1 0 0;
+}
+.icon-with-badge {
+  position: relative;
+  display: inline-block; // חשוב שהעיגול יישב ביחס לאיקון
+}
+  .badge {
+    position: absolute;
+    top: 12.5px; // טיפה מעל האיקון
+    left: 12.5px; // תלוי בכיוון, אפשר גם `left` אם צריך
+    background-color:$c-425DC7; // כחול
+    color:$c-FFFFFF;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+  }
+
+.number{
+    font-weight: 900;
+    margin-top: 3px;
+       justify-content: center;
+    text-align: center;
+font-family: "Font Awesome 6 Pro";
+font-size: 0.6rem;
+font-style: normal;
+line-height: 120%; 
+}
+.icon-wrapper{
+     position: relative; // חשוב מאוד! כדי שהטולטיפ יוצג ביחס לאייקון
+// overflow:initial;
+}
+.tooltip{
+    width: auto;
+    max-width: 15.2rem;
 }

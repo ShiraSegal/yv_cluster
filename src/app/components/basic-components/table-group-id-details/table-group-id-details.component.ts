@@ -16,11 +16,12 @@ import { FilterHandlingSuggestionsComponent } from '../filter-handling-suggestio
 import { log } from 'util';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { group } from 'console';
+import { TooltipComponent } from '../tooltip/tooltip.component';
 
 @Component({
   selector: 'yv-cluster-table-group-id-details',
   standalone: true,
-  imports: [CommonModule, NarrowBasicTableComponent, TableHeaderComponent, BasicTableRowComponent, NarrowBasicTableRowComponent, IconButtonLargeComponent, FilterHandlingSuggestionsComponent, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, NarrowBasicTableComponent, TableHeaderComponent, BasicTableRowComponent, NarrowBasicTableRowComponent, IconButtonLargeComponent, FilterHandlingSuggestionsComponent, ReactiveFormsModule, FormsModule,TooltipComponent],
   templateUrl: './table-group-id-details.component.html',
   styleUrl: './table-group-id-details.component.scss'
 })
@@ -115,23 +116,24 @@ export class TableGroupIdDetailsComponent {
     }, error => {
       console.error("getClusterGroupDetails occurred:", error);
     });
-        //האזנה למשתנה twoChosen
+    //האזנה למשתנה twoChosen
     this.checkIfTwoChosen()
 
   }
-      //האזנה למשתנה twoChosen
+  //האזנה למשתנה twoChosen
 
-checkIfTwoChosen(): void {
-  this.rowsArray.valueChanges.subscribe((controls: any[]) => {
-    const checkedCount = controls.filter(control => control.checked).length;
-    const hasTwoOrMore = checkedCount >= 2;
+  checkIfTwoChosen(): void {
+    this.rowsArray.valueChanges.subscribe((controls: any[]) => {
+      const checkedCount = controls.filter(control => control.checked).length;
+      const hasTwoOrMore = checkedCount >= 2;
 
-    if (this.twoChosen !== hasTwoOrMore) {
-      this.twoChosen = hasTwoOrMore;
-      console.log('twoChosen updated to:', this.twoChosen);
-    }
-  });
-}
+      if (this.twoChosen !== hasTwoOrMore) {
+        this.twoChosen = hasTwoOrMore;
+        console.log('twoChosen updated to:', this.twoChosen);
+      }
+    });
+  }
+  //אתחול ה CHECKS
   initRowsArray() {
     this.Rows.forEach((row, index) => {
       const control = this.#fb.group({
@@ -151,25 +153,25 @@ checkIfTwoChosen(): void {
     })
   }
   //בחירת ה check  של ה header
- headerCheckChange(checkStatus: CheckType) {
-  this.headerCheckStatus = checkStatus;
-  // console.log("header table group id check status", this.headerCheckStatus);
+  headerCheckChange(checkStatus: CheckType) {
+    this.headerCheckStatus = checkStatus;
+    // console.log("header table group id check status", this.headerCheckStatus);
 
-  // עדכון checkStatus באובייקט הנתונים המקורי
-  this.Rows.forEach((row) => {
-    if (row && row[0]?.moreData) {
-      row[0].moreData.checkStatus = checkStatus;
-    }
-  });
+    // עדכון checkStatus באובייקט הנתונים המקורי
+    this.Rows.forEach((row) => {
+      if (row && row[0]?.moreData) {
+        row[0].moreData.checkStatus = checkStatus;
+      }
+    });
 
-  // עדכון שדה 'checked' בכל FormGroup בתוך rowsArray
-  this.rowsArray.controls.forEach((group: AbstractControl) => {
-    const checkedControl = group.get('checked');
-    if (checkedControl instanceof FormControl) {
-      checkedControl.setValue(checkStatus === CheckType.CHECKED);
-    }
-  });
-}
+    // עדכון שדה 'checked' בכל FormGroup בתוך rowsArray
+    this.rowsArray.controls.forEach((group: AbstractControl) => {
+      const checkedControl = group.get('checked');
+      if (checkedControl instanceof FormControl) {
+        checkedControl.setValue(checkStatus === CheckType.CHECKED);
+      }
+    });
+  }
 
   //מחיקת שורה
   deleteByBookId(bookId: string) {
@@ -178,6 +180,11 @@ checkIfTwoChosen(): void {
         this.rowsArray.removeAt(index)
     });
     this.Rows = this.Rows.filter(item => item[1].data !== bookId);
+// this.initRowsArray()
+this.checkedControls = [];
+ this.rowsArray.controls.forEach((c) => {
+        this.checkedControls.push(c.get('checked') as FormControl);
+      })
   }
 
 

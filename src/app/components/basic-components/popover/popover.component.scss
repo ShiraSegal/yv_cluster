@@ -8,6 +8,9 @@
     border-radius: 0.375rem;
     background: $c-FFFFFF;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10), 0px -4px 5px 0px rgba(0, 0, 0, 0.05);
+
+    position: absolute;
+    right: 30%;
 }
 .header-warp{
     display: flex;

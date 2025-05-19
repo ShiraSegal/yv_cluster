@@ -52,6 +52,7 @@ import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-h
 import { HandlingSuggestionsPageComponent } from "../pages/handling-suggestions-page/handling-suggestions-page.component";
 
 import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id-details/table-group-id-details.component";
+import { TooltipComponent } from "../basic-components/tooltip/tooltip.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -124,7 +125,8 @@ import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id
     HandlingSuggestionsPageComponent,
     CreateClusterComponent,
     HomeWarpComponent,
-    PopoverComponent
+    PopoverComponent,
+    TooltipComponent
     
 
   ],

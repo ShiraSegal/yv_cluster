@@ -6,6 +6,7 @@
   flex-shrink: 0;
   border:none;
   background-color:$c-E7EBF8;
+    cursor: pointer;
   filter: drop-shadow(0px 10px 30px $c-00000040);
   &:hover {
     background-color:$c-D0D6F1;
