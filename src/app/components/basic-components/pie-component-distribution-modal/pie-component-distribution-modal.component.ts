@@ -7,7 +7,7 @@ import { ButtonComponent } from '../button/button.component';
 import { ButtonSize, ButtonType } from 'src/app/enums/basic-enum';
 import { from, Observable } from 'rxjs';
 import { ClusterService } from 'src/app/services/cluster.service';
-import { StatisticData } from 'src/app/models/StatisticData';
+import { StatisticData } from 'src/app/models/statistic-data.model';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -34,8 +34,6 @@ export class PieComponentDistributionModalComponent {
     private clusterService: ClusterService,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: { title: string },
     @Optional() public dialogRef: MatDialogRef<PieComponentDistributionModalComponent>
-
-    
     ) {}
     onClose(): void {
       this.dialogRef.close();  // סוגר את הדיאלוג

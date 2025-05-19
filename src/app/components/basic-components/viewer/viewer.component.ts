@@ -26,6 +26,8 @@ export class ViewerComponent {
     }
   }
 
+
+
   async updatePictureUrl() {
     const baseUrl = `/assets/images/${this.pictureName}`;
     const extensions = ['jpg', 'jpeg', 'png', 'gif', 'JPG', 'JPEG', 'PNG', 'GIF'];
@@ -65,13 +67,17 @@ export class ViewerComponent {
   rotateLeft() {
     this.rotate -= 90;
     this.updateTransform();
+    this.updateTransform();
   }
+
 
   rotateRight() {
 
     this.rotate += 90;
     this.updateTransform();
   }
+
+
 
   updateTransform() {
     const imgElement = document.querySelector('.printable-image') as HTMLElement;
@@ -91,5 +97,6 @@ export class ViewerComponent {
     } else {
       console.error('Failed to find print content');
     }
+
   }
 }

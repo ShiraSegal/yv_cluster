@@ -20,7 +20,7 @@ export class NativeOptionComponent {
 
 
   // 💡 חדש: לשם התצוגה הדינאמית
-  @Input() displayText?: string = '';
+  @Input() displayText?: string;
 
   optionTypeMain = NativeOptionType;
   optionStateMain = NativeOptionState;

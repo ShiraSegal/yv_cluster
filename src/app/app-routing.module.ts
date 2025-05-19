@@ -8,7 +8,13 @@ export const routes: Routes = [
     path: ':lang', component: LayoutComponent, resolve: {lang: AppLangResolver},
       children: [
         {
-          path: 'test', loadComponent: () => import('./components/test/test.component').then(x => x.TestComponent)
+          path: 'home', loadComponent: () => import('./components/pages/home/home.component').then(x => x.HomeComponent)
+        },
+        {
+          path: 'auto cluster', loadComponent: () => import('./components/pages/auto-claster/auto-claster.component').then(x => x.AutoClasterComponent)
+        },
+        {
+          path: 'report', loadComponent: () => import('./components/test/test.component').then(x => x.TestComponent)
         },
      ],
   },

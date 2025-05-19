@@ -41,10 +41,12 @@ export class DataCellsComponent<T extends DataCellType> {
   @Input() data: DataCellValue<T>;
   @Input() moreData: { [key: string]: any }; // אובייקט לפרמטרים נוספים
   @Input() control: any;
+  @Input() prefCodeStatus: boolean=false;
 
   @Output() checkStatus = new EventEmitter<CheckType>();
   @Output() iconClick = new EventEmitter<void>();
   bookId: string = "";
+  hRef: string = "";
 
   //injecting ENUM
   badgeType = BadgeType;
@@ -55,15 +57,23 @@ export class DataCellsComponent<T extends DataCellType> {
   checkStateType = CheckStateType;
   checkType = CheckType;
 
-  //functions
-  ngOnInit() {
-    if (typeof this.data === "string" && this.data.includes('collections.yadvashem.org/en/names/')) {
-      const parts = this.data.split('/');
-      this.bookId = parts[parts.length - 1];
-      console.log("bookId", this.bookId);
+  // //functions
+  // ngOnInit() {
+  //   // console.log("control", this.control);
+    
+  //   if (this.moreData!==null &&typeof this.moreData['linkHRef'] === "string" && this.moreData['linkHRef'].includes('collections.yadvashem.org/en/names/')) {
+  //     this.hRef=this.moreData['linkHRef'] + this.data;
+  //   }
+  // }
+rihgtLink(){
+ if (this.moreData!==null &&typeof this.moreData['linkHRef'] === "string" && this.moreData['linkHRef'].includes('collections.yadvashem.org/en/names/')) {
+      this.hRef=this.moreData['linkHRef'] +this.data;
+      return this.hRef
     }
-  }
-
+    else
+    return this.data
+    
+}
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;
   }

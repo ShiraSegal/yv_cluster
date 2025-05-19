@@ -5,6 +5,7 @@ import { BasicTableRowPropertyVariants, DataCellType, IconButtonLargeType } from
 import { IconType } from 'src/app/enums/icon-enum';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 
+
 @Component({
   selector: 'yv-cluster-basic-table-row',
   standalone: true,
@@ -15,7 +16,11 @@ import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large
 export class BasicTableRowComponent {
   @Input() property: BasicTableRowPropertyVariants = BasicTableRowPropertyVariants.DEFAULT; 
   @Input() showAction: boolean = false; 
-  @Input() cells: { data: string; type: DataCellType; moreData?: { [key: string]: any } }[] = [];
+  @Input() cells: {
+    data: string;
+    type: DataCellType;
+    moreData?: { [key: string]: any };
+  }[];
    
   basicTableRowPropertyVariants= BasicTableRowPropertyVariants;
   dataCellType = DataCellType;
