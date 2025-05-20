@@ -24,6 +24,7 @@ export class FilterHandlingSuggestionsComponent {
     @Output() prefCodeStatus = new EventEmitter<boolean>();
     @Input() numberCRM :number =0;
     @Input() howManyChecked :number =0;
+    @Input() crmLinkList :string[]=[];
     dialogRef: MatDialogRef<CreateClusterComponent> | null = null;
 
   switchState: boolean = false;
@@ -46,7 +47,7 @@ popoverType=PopoverType;
   optionType: NativeOptionType.TEXT;
   optionState: NativeOptionState;
   displayText: string;
-}[] = [{optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 1'},
+}[] = [{optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: this.crmLinkList[0]},
   {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
   {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
 ];

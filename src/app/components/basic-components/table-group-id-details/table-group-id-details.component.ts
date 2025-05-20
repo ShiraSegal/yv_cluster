@@ -30,9 +30,10 @@ export class TableGroupIdDetailsComponent {
   #dialog = inject(MatDialog);
   #fb = inject(FormBuilder)
 
-  clusterGroupDetails: RootObjectOfClusterGroupDetails[] = [];
+  // clusterGroupDetails: RootObjectOfClusterGroupDetails[] = [];
   headerCheckStatus: CheckType = CheckType.UNCHECKED;
   Rows: any[];
+  crmLinkList: string[];
   howManyChecked: number = 0; // כמה צ'קים נבחרו
   dialogRef: MatDialogRef<PieComponentDistributionModalComponent> | null = null;
   prefCodeStatus: boolean = false;
@@ -91,7 +92,7 @@ export class TableGroupIdDetailsComponent {
           return [
             { data: '', type: DataCellType.CHECK, moreData: { checkStatus: CheckType.UNCHECKED } },
             { data: row.BookId, type: DataCellType.LINK, moreData: { linkHRef: 'https://collections.yadvashem.org/en/names/' } },
-            { data: row.ExistsClusterId || 'New', type: DataCellType.TEXT, moreData: { prefCode: row.Source?.Code ?? '' } },
+            { data: row.ExistsClusterId || 'New', type: DataCellType.TEXT, moreData: { prefCode: row.ExistsClusterId || 'New' } },
             { data: row.Score, type: DataCellType.TEXT, moreData: { prefCode: row.Score ?? '' } },
             { data: row.FirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.FirstName?.Code ?? '' } },
             { data: row.LastName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.LastName?.Code ?? '' } },
@@ -118,6 +119,12 @@ export class TableGroupIdDetailsComponent {
       } else {
         console.warn("Received null or invalid response from getClusterGroupDetails");
       }
+      if (res && res.d && res.d.CrmLinkList) {
+        this.crmLinkList = res.d.CrmLinkList.map((item: any) => {
+          return item;
+        });
+        console.log("this.crmLinkList", this.crmLinkList);
+      }
     }, error => {
       console.error("getClusterGroupDetails occurred:", error);
     });
@@ -130,8 +137,8 @@ export class TableGroupIdDetailsComponent {
   checkHowManyChecked(): void {
     this.rowsArray.valueChanges.subscribe((controls: any[]) => {
       const checkedCount = controls.filter(control => control.checked).length;
-      
-      if(this.howManyChecked!==checkedCount){
+
+      if (this.howManyChecked !== checkedCount) {
         this.howManyChecked = checkedCount; // עדכון משתנה howManyChecked
       }
     });
@@ -142,7 +149,7 @@ export class TableGroupIdDetailsComponent {
       const control = this.#fb.group({
         checked: [false],
         id: [row[1]?.data],
-        
+
       });
       this.rowsArray.push(control);
       this.checkedControls.push(control.get('checked') as FormControl);

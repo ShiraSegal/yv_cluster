@@ -4,41 +4,100 @@
         "ClusteredNameRowList": [
             {
                 "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
-                "BookId": "13890741",
+                "BookId": "15040243",
                 "FirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T96642",
-                    "Value": "Sándor"
+                    "Code": "T99981",
+                    "Value": "Yosef"
                 },
                 "LastName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T60363 ",
-                    "Value": "Adler"
+                    "Code": "T71100 ",
+                    "Value": "Weiss"
                 },
                 "FatherFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "",
-                    "Value": "aaa"
+                    "Code": "T99807",
+                    "Value": "Yehuda"
                 },
                 "MotherFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "",
-                    "Value": "bbb"
+                    "Code": "T99403",
+                    "Value": "Chana"
                 },
                 "PlaceOfBirth": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "",
-                    "Value": "ccc"
+                    "Code": "5706532",
+                    "Value": "\u003c\u003e,\u003c\u003e,\u003c\u003e,Czechoslovakia"
                 },
                 "PermanentPlace": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "5706507",
-                    "Value": "\u003c\u003e,\u003c\u003e,\u003c\u003e,Hungary"
+                    "Code": "5555232",
+                    "Value": "Vishna Vizniza,Mukacevo,Carpathian Ruthenia,Czechoslovakia"
                 },
                 "DateOfBirth": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "",
-                    "Value": "18/07/1892"
+                    "Value": ""
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T1196978",
+                    "Value": "Page of Testimony"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "MaidenName": "",
+                "IsClustered": 1,
+                "ExistsClusterId": "15276552",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 129381,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "15094470",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T99981",
+                    "Value": "Yosef"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T418203 ",
+                    "Value": "Prusakas Prusak"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T98031",
+                    "Value": "Dovydas"
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T98031 T104283 T99809 T97644",
+                    "Value": "Dovyd Sara Ita Gitel"
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5501619",
+                    "Value": "Keidan,Kedainiai,\u003c\u003e,Lithuania"
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
                 },
                 "Source": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
@@ -48,14 +107,14 @@
                 "SpouseFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "",
-                    "Value": "ccc"
+                    "Value": ""
                 },
                 "MaidenName": "",
                 "IsClustered": 0,
                 "ExistsClusterId": "",
                 "RelatedFnameGroupId": null,
                 "IsHasRelatedFname": false,
-                "Ind": 126295,
+                "Ind": 129381,
                 "HasRelatedGroups": false,
                 "Score": "0",
                 "NumberOfSuggestions": 1,
@@ -63,41 +122,41 @@
             },
             {
                 "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
-                "BookId": "15987383",
+                "BookId": "15099933",
                 "FirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T97467",
-                    "Value": "Bertha"
+                    "Code": "T99981",
+                    "Value": "Yosef"
                 },
                 "LastName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T60363",
-                    "Value": "Adler"
+                    "Code": "T64464 ",
+                    "Value": "Berger"
                 },
                 "FatherFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T101576",
-                    "Value": "Moses"
+                    "Code": "T96575 T100857",
+                    "Value": "Alter Meir"
                 },
                 "MotherFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T104283",
-                    "Value": "Sara"
+                    "Code": "T97644",
+                    "Value": "Gittel"
                 },
                 "PlaceOfBirth": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "5434071",
-                    "Value": "Niedenstein,Fritzlar Homberg (Kassel),Hesse-Nassau,Germany"
+                    "Code": "5561233",
+                    "Value": "Nowy Zmigrod,Jaslo,Krakow,Poland"
                 },
                 "PermanentPlace": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "5427846",
-                    "Value": "Kassel,Kassel (Kassel),Hesse-Nassau,Germany"
+                    "Code": "5518238",
+                    "Value": "Munich,München (München),Bavaria,Germany"
                 },
                 "DateOfBirth": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "",
-                    "Value": "28/08/1871"
+                    "Value": "30/08/1887"
                 },
                 "Source": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
@@ -106,15 +165,15 @@
                 },
                 "SpouseFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T93181",
-                    "Value": "Nathan"
+                    "Code": "T95470",
+                    "Value": "Yentl"
                 },
-                "MaidenName": "Adler",
-                "IsClustered": 0,
-                "ExistsClusterId": "",
+                "MaidenName": "",
+                "IsClustered": 1,
+                "ExistsClusterId": "15096313",
                 "RelatedFnameGroupId": null,
                 "IsHasRelatedFname": false,
-                "Ind": 126295,
+                "Ind": 129381,
                 "HasRelatedGroups": false,
                 "Score": "0",
                 "NumberOfSuggestions": 1,
@@ -122,41 +181,336 @@
             },
             {
                 "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
-                "BookId": "13890743",
+                "BookId": "11696332",
                 "FirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T97467",
-                    "Value": "Bertha"
+                    "Code": "T99981",
+                    "Value": "Joseph"
                 },
                 "LastName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T60363",
-                    "Value": "Adler"
+                    "Code": "T64464 ",
+                    "Value": "Berger"
                 },
                 "FatherFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T101576",
-                    "Value": "Moses"
+                    "Code": "T96575 T100857",
+                    "Value": "Alter Meir"
                 },
                 "MotherFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T104283",
-                    "Value": "Chana"
+                    "Code": "",
+                    "Value": ""
                 },
                 "PlaceOfBirth": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "5434071",
-                    "Value": "Fritzlar"
+                    "Code": "",
+                    "Value": ""
                 },
                 "PermanentPlace": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "5427846",
-                    "Value": "Hesse-Nassau,Germany"
+                    "Code": "",
+                    "Value": ""
                 },
                 "DateOfBirth": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "",
-                    "Value": "28/08/1871"
+                    "Value": ""
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T1098591",
+                    "Value": "Record of murdered persons"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T100214",
+                    "Value": "Ientil"
+                },
+                "MaidenName": "",
+                "IsClustered": 1,
+                "ExistsClusterId": "15096313",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 129381,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "11710964",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T99981",
+                    "Value": "Joseph"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T64464 ",
+                    "Value": "Berger"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T96575 T100857",
+                    "Value": "Alter Meir"
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T1098591",
+                    "Value": "Record of murdered persons"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T100214",
+                    "Value": "Ientil"
+                },
+                "MaidenName": "",
+                "IsClustered": 1,
+                "ExistsClusterId": "15096313",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 129381,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "7004269",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T96752",
+                    "Value": "Nusya"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T74825 ",
+                    "Value": "Yosef"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T98031",
+                    "Value": "David"
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5483438",
+                    "Value": "Chortkov,Czortkow,Tarnopol,Poland"
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T1175246",
+                    "Value": "List of persecuted persons"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "MaidenName": "",
+                "IsClustered": 0,
+                "ExistsClusterId": "",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 129381,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "7163382",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T101597",
+                    "Value": "Mati"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T74825 ",
+                    "Value": "Yosef"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T96989",
+                    "Value": "B"
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5688220",
+                    "Value": "\u003c\u003e,\u003c\u003e,\u003c\u003e,Bulgaria"
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T1175246",
+                    "Value": "List of persecuted persons"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "MaidenName": "",
+                "IsClustered": 0,
+                "ExistsClusterId": "",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 129381,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "11472230",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T99981",
+                    "Value": "Joseph"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T64464 ",
+                    "Value": "Berger"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5561233",
+                    "Value": "Nowy Zmigrod,Jaslo,Krakow,Poland"
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5436616",
+                    "Value": "Muenchen,München (München),Bavaria,Germany"
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": "30/08/1887"
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T1348151",
+                    "Value": "List of murdered Jews from Germany"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "MaidenName": "",
+                "IsClustered": 1,
+                "ExistsClusterId": "15096313",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 129381,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "15991838",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T99981",
+                    "Value": "Yosef"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T70955 ",
+                    "Value": "Wieder Vider"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T100226",
+                    "Value": "Yaakov"
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T103510",
+                    "Value": "Reizl"
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5555991",
+                    "Value": "Warsaw,Warszawa,Warszawa,Poland"
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
                 },
                 "Source": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
@@ -165,15 +519,15 @@
                 },
                 "SpouseFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T93181",
-                    "Value": "Nathan"
+                    "Code": "",
+                    "Value": ""
                 },
-                "MaidenName": "Adler",
-                "IsClustered": 0,
-                "ExistsClusterId": "",
+                "MaidenName": "",
+                "IsClustered": 1,
+                "ExistsClusterId": "16096704",
                 "RelatedFnameGroupId": null,
                 "IsHasRelatedFname": false,
-                "Ind": 126295,
+                "Ind": 129381,
                 "HasRelatedGroups": false,
                 "Score": "0",
                 "NumberOfSuggestions": 1,
@@ -181,41 +535,41 @@
             },
             {
                 "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
-                "BookId": "13890744",
+                "BookId": "15995023",
                 "FirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T97467",
-                    "Value": "Bertha"
+                    "Code": "T99981",
+                    "Value": "Yosef"
                 },
                 "LastName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T60363",
-                    "Value": "Adler"
+                    "Code": "T70955 ",
+                    "Value": "Vider"
                 },
                 "FatherFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T101576",
-                    "Value": "Moses"
+                    "Code": "T100226",
+                    "Value": "Yaakov"
                 },
                 "MotherFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T104283",
-                    "Value": "Ester"
+                    "Code": "T103510",
+                    "Value": "Roizel"
                 },
                 "PlaceOfBirth": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "5434071",
-                    "Value": "Niedenstein"
+                    "Code": "",
+                    "Value": ""
                 },
                 "PermanentPlace": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "5427846",
-                    "Value": "Kassel"
+                    "Code": "5685107",
+                    "Value": "Viseu,Maramures,Crisana-Maramures,Romania"
                 },
                 "DateOfBirth": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "",
-                    "Value": "28/08/1871"
+                    "Value": ""
                 },
                 "Source": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
@@ -224,15 +578,15 @@
                 },
                 "SpouseFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T93181",
-                    "Value": "Nathan"
+                    "Code": "",
+                    "Value": ""
                 },
-                "MaidenName": "Adler",
-                "IsClustered": 0,
-                "ExistsClusterId": "",
+                "MaidenName": "",
+                "IsClustered": 1,
+                "ExistsClusterId": "16096704",
                 "RelatedFnameGroupId": null,
                 "IsHasRelatedFname": false,
-                "Ind": 126295,
+                "Ind": 129381,
                 "HasRelatedGroups": false,
                 "Score": "0",
                 "NumberOfSuggestions": 1,
@@ -240,41 +594,41 @@
             },
             {
                 "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
-                "BookId": "13890747",
+                "BookId": "5574373",
                 "FirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T97467",
-                    "Value": "Bertha"
+                    "Code": "T99981",
+                    "Value": "Josef"
                 },
                 "LastName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T60363",
-                    "Value": "Adler"
+                    "Code": "T64464 ",
+                    "Value": "Berger"
                 },
                 "FatherFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T101576",
-                    "Value": "Moses"
+                    "Code": "",
+                    "Value": ""
                 },
                 "MotherFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T104283",
-                    "Value": "Shira"
+                    "Code": "",
+                    "Value": ""
                 },
                 "PlaceOfBirth": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "5434071",
-                    "Value": "Niedenstein"
+                    "Code": "5544563",
+                    "Value": "Stryzow,Rzeszow,Lwow,Poland"
                 },
                 "PermanentPlace": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "5427846",
-                    "Value": "Kassel"
+                    "Code": "5518232",
+                    "Value": "Munchen,München (München),Bavaria,Germany"
                 },
                 "DateOfBirth": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
                     "Code": "",
-                    "Value": "28/08/1871"
+                    "Value": ""
                 },
                 "Source": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
@@ -283,23 +637,261 @@
                 },
                 "SpouseFirstName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T93181",
-                    "Value": "Nathan"
+                    "Code": "T100155",
+                    "Value": "Yenta"
                 },
-                "MaidenName": "Adler",
+                "MaidenName": "",
+                "IsClustered": 1,
+                "ExistsClusterId": "15096313",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 129381,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "13214428",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T99981",
+                    "Value": "Yosef"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T64464 ",
+                    "Value": "Berger"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T96575 T100857",
+                    "Value": "Alter Meyer"
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T97644",
+                    "Value": "Gittel"
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5544565 5436616",
+                    "Value": "Strizov,Rzeszow,Lwow,Poland Muenchen,München (München),Bavaria,Germany"
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T1196978",
+                    "Value": "Page of Testimony"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T95466",
+                    "Value": "Yentel"
+                },
+                "MaidenName": "",
+                "IsClustered": 1,
+                "ExistsClusterId": "15096313",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 129381,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "9165038",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T99981",
+                    "Value": "Pepo"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T74825 ",
+                    "Value": "Yosef"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T100250",
+                    "Value": "Isak"
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5435273",
+                    "Value": "Thessaloniki,Thessaloniki,Macedonia,Greece"
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T3228",
+                    "Value": "List of murdered persons"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "MaidenName": "",
                 "IsClustered": 0,
                 "ExistsClusterId": "",
                 "RelatedFnameGroupId": null,
                 "IsHasRelatedFname": false,
-                "Ind": 126295,
+                "Ind": 129381,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "9232004",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T95989",
+                    "Value": "Abraham"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T74825 ",
+                    "Value": "Yosef"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5433220",
+                    "Value": "Roman,Roman,Moldavia,Romania"
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T1175246",
+                    "Value": "List of persecuted persons"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "MaidenName": "",
+                "IsClustered": 0,
+                "ExistsClusterId": "",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 129381,
+                "HasRelatedGroups": false,
+                "Score": "0",
+                "NumberOfSuggestions": 1,
+                "RelatedFnameList": null
+            },
+            {
+                "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+                "BookId": "9468729",
+                "FirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T99981",
+                    "Value": "Yosef"
+                },
+                "LastName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T64464 ",
+                    "Value": "Berger"
+                },
+                "FatherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "MotherFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PlaceOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "PermanentPlace": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "5703772",
+                    "Value": "Strzyzow,\u003c\u003e,\u003c\u003e,Poland"
+                },
+                "DateOfBirth": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "",
+                    "Value": ""
+                },
+                "Source": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T1348158",
+                    "Value": "List of murdered Jews from Yizkor books"
+                },
+                "SpouseFirstName": {
+                    "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                    "Code": "T100155",
+                    "Value": "Yenta"
+                },
+                "MaidenName": "",
+                "IsClustered": 1,
+                "ExistsClusterId": "15096313",
+                "RelatedFnameGroupId": null,
+                "IsHasRelatedFname": false,
+                "Ind": 129381,
                 "HasRelatedGroups": false,
                 "Score": "0",
                 "NumberOfSuggestions": 1,
                 "RelatedFnameList": null
             }
         ],
-        "CrmLinkList": [],
+        "CrmLinkList": [
+            "http://crm2016/yadvashem2016/main.aspx?etc=112\u0026extraqs=\u0026id=%7bc133f9e9-092c-f011-8142-00505691117e%7d\u0026newWindow=true\u0026pagetype=entityrecord#343512922"
+        ],
         "contact": null
     }
 }
- 
+
