@@ -2,13 +2,28 @@
 
 .popover-warp{
     display: flex;
-    width: 9.8125rem;
-    flex-direction: column;
-    align-items: flex-start;
-    border-radius: 0.375rem;
+    width: 11.9375rem;
+    padding: 0rem 0.5rem;
+    align-items: center;
     background: $c-FFFFFF;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10), 0px -4px 5px 0px rgba(0, 0, 0, 0.05);
 
+    .popover-internal-warp{
+        display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-start;
+flex: 1 0 0;
+    }
+
+    .popover-upper-warp{
+        display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-start;
+flex: 1 0 0;
+    }
+}
 .header-warp{
     display: flex;
     padding-top:  0.5rem;
@@ -17,15 +32,25 @@
     gap: 1rem;
     align-self: stretch;
     background: $c-FFFFFF;
-    
-    .header{
-        padding: 0rem  0.5rem;
-        margin-top: 0.5rem;
-        white-space: nowrap; /* מונע שבירת שורה */
-    }
 }
 
+.header{
+    padding: 0rem  0.5rem;
+    margin-top: 0.5rem;
+    white-space: nowrap; /* מונע שבירת שורה */
+}
 
+.nativ-options-warp{
+    display: flex;
+width: 10.875rem;
+justify-content: space-between;
+align-items: center;
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+flex: 1 0 0;
+align-self: stretch;
+}
 .native-option{
     // display: flex;
     // padding: var(--Layout-medium, 0.5rem);
@@ -34,5 +59,4 @@
     // gap: var(--Layout-x-large, 1rem);
     // align-self: stretch;
     // border-radius: var(--Border-radius-none, 0rem);
-}
 }

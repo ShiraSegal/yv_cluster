@@ -211,7 +211,6 @@ export class ClusterService {
   }
 
   getSingleItemByBookId (bookId:string): any{
-    debugger
       this.#clusterApiService.getSingleItemByBookId(bookId).subscribe({
       next: (res:any) => {
         console.log("BookId added successfully:", res); // לוג לתוצאה

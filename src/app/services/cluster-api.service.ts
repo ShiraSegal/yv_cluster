@@ -24,7 +24,6 @@ export class ClusterApiService {
 
   getSingleItemByBookId (bookId:string){
     let url= `${this.apiUrl}/getByBookId.json`;
-  debugger
     return this.#http.post<any>(url, bookId);
   }
 

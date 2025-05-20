@@ -13,6 +13,7 @@ export enum NarrowBasicTableRowInputState {
   DEFAULT = 'Default',
   HOVER = 'Hover'
 }
+
 export enum BasicTableRowPropertyVariants {
   DEFAULT = 'Default',
   VARIANT2 = 'Variant2',
@@ -146,7 +147,7 @@ export enum SliderNavigationTabTextType {
 export enum SliderNavigationTabUrl {
   HOME = "home",
   LOG_OUT = "logout",
-  CRM_CLUSTERS  = "CRMClusters",
+  CRM_CLUSTERS  = "crmClusters",
   AUTO_CLUSTER = "autoCluster",
   REPORT = "report",
   NEW_CLUSTER = "newCluster",

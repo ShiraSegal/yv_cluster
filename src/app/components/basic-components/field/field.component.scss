@@ -10,13 +10,14 @@
 
 .common-input-wrapper {
   display: flex;
-  flex-direction: column;
-  width: 16.75rem;
-  min-width: 9.6875rem;
-  max-width: 28.125rem;
-  padding: var(--Layout-medium, 0.5rem);
-  align-items: flex-start;
-  flex-shrink: 0;
+width: 16.75rem;
+height: 2.5rem;
+min-width: 9.6875rem;
+max-width: 28.125rem;
+padding: var(--Layout-medium, 0.5rem);
+align-items: center;
+gap: var(--Layout-medium, 0.5rem);
+flex-shrink: 0;
   border-radius: var(--Border-radius-small, 0.25rem);
 }
 
