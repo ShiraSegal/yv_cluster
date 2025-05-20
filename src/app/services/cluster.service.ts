@@ -210,20 +210,27 @@ export class ClusterService {
       );
   }
 
-  getSingleItemByBookId (bookId:string): Observable<RootObject | boolean> {
+  getSingleItemByBookId (bookId:string): any{
     debugger
-     return this.#clusterApiService.getSingleItemByBookId(bookId)
-      .pipe(
-        take(1), 
-        tap(res => {
-          console.log("BookId added successfully:", res); 
-          // return of(res as RootObject);
-        }),
-        catchError(err => {
-          console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
-          return of(false);
-        })
-      );
+      this.#clusterApiService.getSingleItemByBookId(bookId).subscribe({
+      next: (res:any) => {
+        console.log("BookId added successfully:", res); // לוג לתוצאה
+        return false;
+      }
+    
+     }
+    )
+  
+      // .pipe(
+      //   tap(res => {
+      //     console.log("BookId added successfully:", res); 
+      //     // return of(res as RootObject);
+      //   }),
+      //   catchError(err => {
+      //     console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
+      //     return of(false);
+      //   })
+      // );
   }
 
   

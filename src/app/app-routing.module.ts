@@ -11,7 +11,13 @@ export const routes: Routes = [
           path: 'home', loadComponent: () => import('./components/pages/home/home.component').then(x => x.HomeComponent)
         },
         {
-          path: 'auto cluster', loadComponent: () => import('./components/pages/auto-claster/auto-claster.component').then(x => x.AutoClasterComponent)
+          path: 'autoCluster', loadComponent: () => import('./components/pages/auto-claster/auto-claster.component').then(x => x.AutoClasterComponent)
+        },
+        {
+          path: 'crmClusters/:groupId', loadComponent: () => import('./components/pages/crm-clusters/crm-clusters.component').then(x => x.CrmClustersComponent)
+        },
+        {
+          path: 'newCluster', loadComponent: () => import('./components/pages/new-cluster/new-cluster.component').then(x => x.NewClusterComponent)
         },
         {
           path: 'test', loadComponent: () => import('./components/test/test.component').then(x => x.TestComponent)

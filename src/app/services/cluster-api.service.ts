@@ -23,7 +23,9 @@ export class ClusterApiService {
   }
 
   getSingleItemByBookId (bookId:string){
-    return this.#http.post<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`, bookId);
+    let url= `${this.apiUrl}/getByBookId.json`;
+  debugger
+    return this.#http.post<any>(url, bookId);
   }
 
   getClusterGroupByBookId(cluster:string){

@@ -18,7 +18,7 @@
                         </yv-cluster-button>
 
                         <yv-cluster-button [disabled]="false" [isBig]="btn_size" [buttonType]="buttomType2"
-                            [text]="button2" (onClick)="add()">
+                            [text]="button2" [disabled]="!enterBookIdOrClusterForm.valid" (onClick)="add()">
                         </yv-cluster-button>
                     </div>
                 </div>
