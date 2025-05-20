@@ -33,13 +33,20 @@ export class SlidebarNavigationComponent {
   ];
 
   setActiveTab(tabIndex: number) {
+    const groupId=1
     this.activeTabIndex = tabIndex;
     this.tabs.forEach((tab, index) => {
       if (index !== tabIndex) {
         tab.property.setValue(SliderNavigationTabType.VARIANT3);
       } else {
         tab.property.setValue(SliderNavigationTabType.ACTIVE);
+        if(tab.number===2){
+        this.#router.navigate([tab.text,1]);
+        }
+        else{
         this.#router.navigate([tab.text]);
+
+        }
 
       }
     });

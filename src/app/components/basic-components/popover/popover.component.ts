@@ -8,6 +8,7 @@ import { BadgeComponent } from '../badge/badge.component';
 import { AssigneeComponent } from '../assignee/assignee.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { BodyComponent } from '../body/body.component';
+import { FieldComponent } from '../field/field.component';
 
 type NativePopoverOption = {
   optionType: NativeOptionType;
@@ -19,7 +20,7 @@ type NativePopoverOption = {
 @Component({
   selector: 'yv-cluster-popover',
   standalone: true,
-  imports: [CommonModule, HeaderCellsComponent, BadgeComponent, AssigneeComponent, NativeOptionComponent, BodyComponent],
+  imports: [CommonModule, HeaderCellsComponent, BadgeComponent, AssigneeComponent, NativeOptionComponent, BodyComponent,FieldComponent],
   templateUrl: './popover.component.html',
   styleUrl: './popover.component.scss',
   providers: [
