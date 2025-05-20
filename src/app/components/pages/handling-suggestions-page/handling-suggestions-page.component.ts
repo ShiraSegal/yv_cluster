@@ -21,14 +21,11 @@ export class HandlingSuggestionsPageComponent {
   iconType = IconType
    dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
   
-   openDialog() {
-    console.log("openDialog");
-    
+   openDialog() {    
    this.dialogRef = this.#dialog.open(EnterBookidComponent, {
-    data: { title: 'Data Distribution' },
     disableClose: true, 
     hasBackdrop: true,
-    panelClass: 'custom-dialog',
+    panelClass: 'custom-dialog-container',
     autoFocus: false,
     width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
     height: 'auto',

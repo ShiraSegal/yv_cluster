@@ -71,7 +71,7 @@
                 },
                 "LastName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T60363 T60363",
+                    "Code": "T60363",
                     "Value": "Adler"
                 },
                 "FatherFirstName": {
@@ -130,7 +130,7 @@
                 },
                 "LastName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T60363 T60363",
+                    "Code": "T60363",
                     "Value": "Adler"
                 },
                 "FatherFirstName": {
@@ -189,7 +189,7 @@
                 },
                 "LastName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T60363 T60363",
+                    "Code": "T60363",
                     "Value": "Adler"
                 },
                 "FatherFirstName": {
@@ -248,7 +248,7 @@
                 },
                 "LastName": {
                     "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
-                    "Code": "T60363 T60363",
+                    "Code": "T60363",
                     "Value": "Adler"
                 },
                 "FatherFirstName": {

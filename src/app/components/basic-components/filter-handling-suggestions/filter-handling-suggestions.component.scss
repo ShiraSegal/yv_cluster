@@ -48,3 +48,8 @@ line-height: 120%;
     width: auto;
     max-width: 15.2rem;
 }
+.custom-dialog-container.mat-dialog-container {
+  max-height: 10vh !important;
+  // overflow-x: auto !important;
+  background-color: aqua !important;
+}

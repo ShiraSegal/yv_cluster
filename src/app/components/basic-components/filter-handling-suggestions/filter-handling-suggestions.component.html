@@ -24,13 +24,15 @@
                 }
             </div>
 
-            @if(showTheButtons===true){
+             @if(howManyChecked>0){
             <yv-cluster-button type="button" (onClick)="onClick()" text="Add to cluster"
                 [buttonType]="buttonType.SECONDARY" [isBig]=true
                 [iconType]="iconType.LAYER_PLUS_LIGHT"></yv-cluster-button>
+             }
+             @if(howManyChecked>1){
             <yv-cluster-button (onClick)="openDialog()" text="Create Cluster" [buttonType]="buttonType.PRIMARY"
                 [isBig]=true [iconType]="iconType.FOLDER_PLUS_LIGHT"></yv-cluster-button>
-            }
+             }
         </div>
     </div>
 </form>

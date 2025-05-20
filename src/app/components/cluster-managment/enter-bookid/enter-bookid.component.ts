@@ -114,8 +114,8 @@ constructor(
     this.formIsValid = false; 
   }
 }
-  cancel() {
-    this.close = true;
-      this.dialogRef.close();  // סוגר את הדיאלוג
-  }
+  // cancel() {
+  //   this.close = true;
+  //     this.dialogRef.close();  // סוגר את הדיאלוג
+  // }
 }

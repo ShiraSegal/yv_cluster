@@ -1,5 +1,6 @@
 <div class="container">
-    <yv-cluster-filter-handling-suggestions (prefCodeStatus)="prefCodeStatusChange($event)" [showTheButtons]="twoChosen" [numberCRM]="3"></yv-cluster-filter-handling-suggestions>
+    <yv-cluster-filter-handling-suggestions (prefCodeStatus)="prefCodeStatusChange($event)"
+        [numberCRM]="3" [howManyChecked]="howManyChecked"></yv-cluster-filter-handling-suggestions>
     <div>
         <!-- <div class="table-container"> -->
         <yv-cluster-table-header [headers]="Headers" (checkStatus)="headerCheckChange($event)"
@@ -9,18 +10,15 @@
         <!-- @for (row of originalRows; track row){
 <yv-cluster-narrow-basic-table-row [property]="NarrowBasicTableRowInputState.DEFAULT" [cells]="row" (bookIdToDelet)="deleteByBookId($event)"></yv-cluster-narrow-basic-table-row>
 } -->
-@if(rowsArray.controls.length>0){
+        @if(rowsArray.controls.length>0){
         @for (row of Rows; track row; let index=$index) {
-     <yv-cluster-narrow-basic-table-row
-      [property]="NarrowBasicTableRowInputState.DEFAULT"
-      [cells]="row"
-      [controls]="[checkedControls[index]]"
-      (bookIdToDelet)="deleteByBookId($event)"
-      [prefCodeStatus]="prefCodeStatus">
-</yv-cluster-narrow-basic-table-row>
+        <yv-cluster-narrow-basic-table-row [property]="NarrowBasicTableRowInputState.DEFAULT" [cells]="row"
+            [controls]="getFormControlsArray(index)" (bookIdToDelet)="deleteByBookId($event)"
+            [prefCodeStatus]="prefCodeStatus">
+        </yv-cluster-narrow-basic-table-row>
         <!-- <h1>{{rowsArray.controls.at(index)}}</h1> -->
         }
-    }
+        }
 
 
     </div>

@@ -22,8 +22,8 @@ import { PopoverComponent } from '../popover/popover.component';
 export class FilterHandlingSuggestionsComponent {
     #dialog = inject(MatDialog);
     @Output() prefCodeStatus = new EventEmitter<boolean>();
-    @Input() showTheButtons :boolean = false;
     @Input() numberCRM :number =0;
+    @Input() howManyChecked :number =0;
     dialogRef: MatDialogRef<CreateClusterComponent> | null = null;
 
   switchState: boolean = false;
@@ -56,10 +56,10 @@ popoverType=PopoverType;
      this.dialogRef = this.#dialog.open(CreateClusterComponent, {
       disableClose: false, 
       hasBackdrop: true,
-      panelClass: 'custom-dialog',
+      panelClass: 'custom-dialog-container',
       autoFocus: false,
       width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
-      height: 'auto',
+      height: '70rem',
     
     });
      }

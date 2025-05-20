@@ -21,7 +21,7 @@ import { TooltipComponent } from '../tooltip/tooltip.component';
 @Component({
   selector: 'yv-cluster-table-group-id-details',
   standalone: true,
-  imports: [CommonModule, NarrowBasicTableComponent, TableHeaderComponent, BasicTableRowComponent, NarrowBasicTableRowComponent, IconButtonLargeComponent, FilterHandlingSuggestionsComponent, ReactiveFormsModule, FormsModule,TooltipComponent],
+  imports: [CommonModule, NarrowBasicTableComponent, TableHeaderComponent, BasicTableRowComponent, NarrowBasicTableRowComponent, IconButtonLargeComponent, FilterHandlingSuggestionsComponent, ReactiveFormsModule, FormsModule, TooltipComponent],
   templateUrl: './table-group-id-details.component.html',
   styleUrl: './table-group-id-details.component.scss'
 })
@@ -33,7 +33,7 @@ export class TableGroupIdDetailsComponent {
   clusterGroupDetails: RootObjectOfClusterGroupDetails[] = [];
   headerCheckStatus: CheckType = CheckType.UNCHECKED;
   Rows: any[];
-  twoChosen: boolean = false;
+  howManyChecked: number = 0; // כמה צ'קים נבחרו
   dialogRef: MatDialogRef<PieComponentDistributionModalComponent> | null = null;
   prefCodeStatus: boolean = false;
   checkedControls: FormControl[] = []; // רק ה־checked של כל שורה
@@ -57,6 +57,11 @@ export class TableGroupIdDetailsComponent {
   getFormControl(index: number): FormControl {
     // console.log("getFormControl", this.rowsArray.at(index) as FormControl);
     return this.rowsArray.at(index) as FormControl;
+  }
+
+  getFormControlsArray(index: number): FormControl[] {
+    const formGroup = this.rowsArray.at(index) as FormGroup;
+    return Object.keys(formGroup.controls).map(key => formGroup.get(key) as FormControl);
   }
   //כותרות הטבלה
   Headers = [{ data: '', type: HeaderCellType.CHECK },
@@ -93,7 +98,7 @@ export class TableGroupIdDetailsComponent {
             { data: row.FatherFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.FatherFirstName?.Code ?? '' } },
             { data: row.MotherFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.MotherFirstName?.Code ?? '' } },
             { data: row.SpouseFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.SpouseFirstName?.Code ?? '' } },
-            { data: row.DateOfBirth?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.DateOfBirth?.Code ?? '' } },
+            { data: row.DateOfBirth?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.DateOfBirth?.Value ?? '' } },
             { data: row.PlaceOfBirth?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.PlaceOfBirth?.Code ?? '' } },
             { data: row.PermanentPlace?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.PermanentPlace?.Code ?? '' } },
             { data: row.Source?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.Source?.Code ?? '' } },
@@ -117,19 +122,17 @@ export class TableGroupIdDetailsComponent {
       console.error("getClusterGroupDetails occurred:", error);
     });
     //האזנה למשתנה twoChosen
-    this.checkIfTwoChosen()
+    this.checkHowManyChecked()
 
   }
   //האזנה למשתנה twoChosen
 
-  checkIfTwoChosen(): void {
+  checkHowManyChecked(): void {
     this.rowsArray.valueChanges.subscribe((controls: any[]) => {
       const checkedCount = controls.filter(control => control.checked).length;
-      const hasTwoOrMore = checkedCount >= 2;
-
-      if (this.twoChosen !== hasTwoOrMore) {
-        this.twoChosen = hasTwoOrMore;
-        console.log('twoChosen updated to:', this.twoChosen);
+      
+      if(this.howManyChecked!==checkedCount){
+        this.howManyChecked = checkedCount; // עדכון משתנה howManyChecked
       }
     });
   }
@@ -137,8 +140,9 @@ export class TableGroupIdDetailsComponent {
   initRowsArray() {
     this.Rows.forEach((row, index) => {
       const control = this.#fb.group({
-        id: [row[1]?.data],
         checked: [false],
+        id: [row[1]?.data],
+        
       });
       this.rowsArray.push(control);
       this.checkedControls.push(control.get('checked') as FormControl);
@@ -180,11 +184,11 @@ export class TableGroupIdDetailsComponent {
         this.rowsArray.removeAt(index)
     });
     this.Rows = this.Rows.filter(item => item[1].data !== bookId);
-// this.initRowsArray()
-this.checkedControls = [];
- this.rowsArray.controls.forEach((c) => {
-        this.checkedControls.push(c.get('checked') as FormControl);
-      })
+    // this.initRowsArray()
+    this.checkedControls = [];
+    this.rowsArray.controls.forEach((c) => {
+      this.checkedControls.push(c.get('checked') as FormControl);
+    })
   }
 
 
