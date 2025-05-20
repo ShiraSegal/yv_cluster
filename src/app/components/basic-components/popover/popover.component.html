@@ -1,9 +1,11 @@
 <div class="popover-warp">
+    <div class="popover-up-warp">
     <div class="header-warp">
         <!-- <yv-cluster-header-cells class="header" [header]="header" [type]="headerCellType"></yv-cluster-header-cells> -->
         <yv-cluster-body class="header" [bodyText]="header" [size]="size" [weight]="weight" [color]="color"></yv-cluster-body>
     </div>
     <yv-cluster-field ></yv-cluster-field>
+</div>
     @for(option of popoverOptions; track $index){
     <div class="native-option" (click)="onSelectedOption(option)">
         <yv-cluster-native-option [optionType]="option.optionType" [displayText]="option.displayText" [property]="option.property"></yv-cluster-native-option>
