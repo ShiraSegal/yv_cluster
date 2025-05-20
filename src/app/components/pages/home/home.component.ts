@@ -17,89 +17,40 @@ import { SuggestionsStatisticsComponent } from '../../basic-components/suggestio
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  //enums
   iconType = IconType;
   textSize = TextSize;
   textWeight = TextWeight;
-
-  tableData: any;
-  clusterService = inject(ClusterService);
-  async ngOnInit() {
-    (await this.clusterService.getAutoClusterData()).subscribe({
-      next: (data: any) => {
-        console.log('Received data:', data);
-        this.tableData = data;
+    // Injecting the ClusterService
+    #clusterService = inject(ClusterService);
+  //cards data
+  selectedUser: any;
+  //cards function
+  
+  ngOnInit() {
+    const userId = 4; // ID של המשתמש הרצוי
+//בעיקרון פה לוקחים את הID מהLOCALSTORAGE או משהו בסגנון
+    this.#clusterService.getDashboardDataById(userId).subscribe({
+      next: (user: any) => {
+        this.selectedUser = user;
+        console.log('Selected User:', this.selectedUser);
+       // הכנת הנתונים לגרף
+       this.statisticsData = [
+        { color: '#A5EBDD', value: user.newSuggestionPending || 0 }, // New Suggestions
+        { color: '#1334B9', value: user.oldSuggestionPending || 0 }, // Old Suggestions
+        { color: '#A1AEE3', value: user.suggestionProcessedLastMonth || 0 }, // Suggestions Processed
+        { color: '#F6CDCD', value: user.clustersCreatedManually || 0 }, // Clusters Created
+      ];
+    },
+      error: (err) => {
+        console.error('Error fetching user:', err);
       },
-      error: (err: any) => {
-        console.error('Error fetching data:', err);
-      }
     });
   }
-  statisticsData = [
-    { color: '#FF5733', value: 40 }, // Example segment 1
-    { color: '#33FF57', value: 30 }, // Example segment 2
-    { color: '#3357FF', value: 20 }, // Example segment 3
-    { color: '#F3FF33', value: 10 }  // Example segment 4
-  ];
+//table-data
 
-  radius = 120; // Outer radius
-  innerRadius = 60; // Inner radius
-    data = {
-      [HomeTableTabType.NEW_SUGGESTIONS]: {
-        Headers: [
-          { data: 'Name List', type: HeaderCellType.TEXT },
-          { data: 'To Do', type: HeaderCellType.TEXT },
-          { data: '', type: HeaderCellType.PLACEOLDER },
-        ],
-        Rows: [
-          {
-            property: BasicTableRowPropertyVariants.DEFAULT,
-            showAction: true,
-            cells: [
-              { data: 'sapir cluster', type: DataCellType.TEXT },
-              { data: 'In Progress', type: DataCellType.TEXT },
-              { data: '', type: DataCellType.ICON },
-            ],
-          },
-          {
-            property: BasicTableRowPropertyVariants.DEFAULT,
-            showAction: true,
-            cells: [
-              { data: 'sapir cluster', type: DataCellType.TEXT },
-              { data: 'In Progress', type: DataCellType.TEXT },
-              { data: '', type: DataCellType.ICON },
-            ],
-          },
-        ],
-      },
-      [HomeTableTabType.OLD_SUGGESTIONS]: {
-        Headers: [
-          { data: 'Name List', type: HeaderCellType.TEXT },
-          { data: 'Done', type: HeaderCellType.TEXT },
-          { data: 'To Do', type: HeaderCellType.TEXT },
-          { data: '', type: HeaderCellType.PLACEOLDER },
-        ],
-        Rows: [
-          {
-            property: BasicTableRowPropertyVariants.DEFAULT,
-            showAction: true,
-            cells: [
-              { data: 'sapir cluster', type: DataCellType.TEXT },
-              { data: 'In Progress', type: DataCellType.TEXT },
-              { data: 'In Progress', type: DataCellType.TEXT },
-              { data: '', type: DataCellType.ICON },
-            ],
-          },
-          {
-            property: BasicTableRowPropertyVariants.DEFAULT,
-            showAction: true,
-            cells: [
-              { data: 'sapir cluster', type: DataCellType.TEXT },
-              { data: 'In Progress', type: DataCellType.TEXT },
-              { data: 'In Progress', type: DataCellType.TEXT },
-              { data: '', type: DataCellType.ICON },
-            ],
-          },
-        ],
-      },
-    }
+ //statistics data
+ statisticsData: { color: string; value: number }[] = [];
+ radius = 100;
+ innerRadius = 50;
 }

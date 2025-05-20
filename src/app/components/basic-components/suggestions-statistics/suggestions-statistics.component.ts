@@ -13,7 +13,7 @@ export class SuggestionsStatisticsComponent implements OnChanges {
   @Input() radius: number = 100;
   @Input() innerRadius: number = 50;
 
-  segments: { color: string, startAngle: number, endAngle: number, className: string }[] = [];
+  segments: { color: string; startAngle: number; endAngle: number; className: string; percentage: string }[] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data']) {
@@ -22,13 +22,20 @@ export class SuggestionsStatisticsComponent implements OnChanges {
   }
 
   calculateSegments(): void {
-    const total = this.data.reduce((sum, item) => sum + item.value, 0);
+    const total = this.data.reduce((sum, item) => sum + item.value, 0); // סך כל הערכים
     let startAngle = 0;
-
+  
     this.segments = this.data.map((item, index) => {
-      const endAngle = startAngle + (item.value / total) * 360;
-      const segment = { color: item.color, startAngle, endAngle, className: `segment-${index}` };
-      startAngle = endAngle;
+      const valuePercentage = total > 0 ? (item.value / total) * 100 : 0; // חישוב האחוזים
+      const endAngle = startAngle + (item.value / total) * 360; // חישוב זווית הסיום
+      const segment = { 
+        color: item.color, 
+        startAngle, 
+        endAngle, 
+        className: `segment-${index}`, 
+        percentage: valuePercentage.toFixed(1) // שמירת האחוזים בפורמט עם ספרה אחת אחרי הנקודה
+      };
+      startAngle = endAngle; // עדכון זווית ההתחלה לסגמנט הבא
       return segment;
     });
   }

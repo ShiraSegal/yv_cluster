@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, of, take, tap } from 'rxjs';
+import { BehaviorSubject, catchError,Observable, of, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
 import { LastName } from '../models/last-name.model';
@@ -16,18 +16,30 @@ import { SapirClusterModel } from '../models/sapir-cluster-model.model';
 import { RootObject } from '../models/root-object.model';
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
-export class ClusterService {
+export class ClusterService
+ {
   #translateService = inject(TranslateService);
   #clusterApiService = inject(ClusterApiService)
 
  autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
   private isDataFetched = false;
+  
+  getDashboardDataById(id: number): Observable<any> {
+    return this.#clusterApiService.getDashboardDataById(id).pipe(
+      take(1),
+      tap((user) => {
+        console.log(`Fetched user with ID ${id}:`, user);
+      }),
+      catchError((err) => {
+        console.error(`Error fetching user with ID ${id}:`, err);
+        return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
+      })
+    );
+  }
   
   async getAutoClusterData() {
     try {
