@@ -32,11 +32,14 @@ ngOnInit() {
   
 }
   ngOnChanges() {
-    // console.log('Controls Input:', this.controls);
-    if (this.controls && this.controls.length >= 3) {
+    if (this.controls && this.controls?.length >= 3) {
       this.initializeControlsMap3();
-    } else {
-      console.error('Controls array is not properly defined or has insufficient length.', this.controls);
+    } 
+    else if (this.controls && this.controls?.length >=1) {
+      this.initializeControlsMap1();
+    } 
+    else {
+      // console.error('Controls array is not properly defined or has insufficient length.', this.controls);
       this.controls = [
         new FormControl(false), // Default for CHECK
         new FormControl(''),    // Default for ASSIGNEE

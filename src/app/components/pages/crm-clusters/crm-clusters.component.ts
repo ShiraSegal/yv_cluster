@@ -12,10 +12,10 @@ import { ToastNotificationComponent } from '../../basic-components/toast-notific
   selector: 'yv-cluster-handling-suggestions-page',
   standalone: true,
   imports: [CommonModule, TableGroupIdDetailsComponent, IconButtonComponent, SlidebarNavigationComponent, ToastNotificationComponent],
-  templateUrl: './handling-suggestions-page.component.html',
-  styleUrl: './handling-suggestions-page.component.scss'
+  templateUrl: './crm-clusters.component.html',
+  styleUrl: './crm-clusters.component.scss'
 })
-export class HandlingSuggestionsPageComponent {
+export class CrmClustersComponent {
   @Input() groupIdNumber!: number;
 
   showToastNotification: boolean;

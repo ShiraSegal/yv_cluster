@@ -45,14 +45,11 @@ import { CreateClusterComponent } from "../cluster-managment/create-cluster/crea
 import { PopoverComponent } from "../basic-components/popover/popover.component";
 import { CardColor } from "src/app/enums/card-colors.enum";
 import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-handling-suggestions/filter-handling-suggestions.component";
-import { HandlingSuggestionsPageComponent } from "../pages/handling-suggestions-page/handling-suggestions-page.component";
 
 import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id-details/table-group-id-details.component";
-<<<<<<< HEAD
 import { TooltipComponent } from "../basic-components/tooltip/tooltip.component";
-=======
 import { HomeComponent } from "../pages/home/home.component";
->>>>>>> origin/main
+import { CrmClustersComponent } from "../pages/crm-clusters/crm-clusters.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -122,17 +119,14 @@ import { HomeComponent } from "../pages/home/home.component";
     BodyComponent,
     TableGroupIdDetailsComponent,
     FilterHandlingSuggestionsComponent,
-    HandlingSuggestionsPageComponent,
+    CrmClustersComponent,
     CreateClusterComponent,
-<<<<<<< HEAD
-    HomeWarpComponent,
+    // HomeWarpComponent,
     PopoverComponent,
-    TooltipComponent
+    TooltipComponent,
     
-=======
     PopoverComponent,
     HomeComponent
->>>>>>> origin/main
 
   ],
   templateUrl: './test.component.html',
