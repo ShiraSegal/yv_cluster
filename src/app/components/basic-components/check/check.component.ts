@@ -47,7 +47,6 @@ export class CheckComponent implements ControlValueAccessor {
   
 
   toggleCheckbox() {
-    // console.log('Before Toggle:', this.Rows, this.rowsFormArray.value);
     if (this.state !== CheckStateType.DISABLED) {
       this.type = this.type === CheckType.CHECKED ? CheckType.UNCHECKED : CheckType.CHECKED;
       this.checkStatus.emit(this.type); // Emit the current check status
@@ -56,8 +55,9 @@ export class CheckComponent implements ControlValueAccessor {
                 this.checkedControl.setValue(!this.checkedControl?.value, { emitEvent: true });
 
       }
-      this.onChange(this.type); // Notify the form control about the change
-      this.onTouched(); // Notify the form control that the component was touched
+      this.checkStatus.emit(this.type); 
+      this.onChange(this.type); 
+      this.onTouched(); 
     }
   }
 }

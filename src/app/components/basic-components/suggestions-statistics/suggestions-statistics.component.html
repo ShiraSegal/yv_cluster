@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="title">Suggestions Statistics</div>
+  <svg class="circle-chart" [attr.viewBox]="'0 0 ' + (radius * 2) + ' ' + (radius * 2)">
+    <ng-container *ngFor="let segment of segments">
+      <path [attr.d]="describeArc(radius, radius, radius, innerRadius, segment.startAngle, segment.endAngle)" [attr.class]="segment.className"></path>
+    </ng-container>
+    <circle [attr.cx]="radius" [attr.cy]="radius" [attr.r]="innerRadius" class="inner-circle"></circle>
+  </svg>
+  <div class="rows">
+    <div class="row" *ngFor="let i of [0, 1, 2, 3]">
+      <div class="data">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26" fill="none">
+            <circle cx="12.5" cy="13" r="12.5" fill="#1334B9" />
+          </svg>
+        </div>
+        <div class="text">
+          <div class="label">New Suggestions pending</div>
+          <div class="percentage">14%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

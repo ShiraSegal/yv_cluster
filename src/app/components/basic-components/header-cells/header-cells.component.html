@@ -23,6 +23,8 @@
     }
     @if(type === headerCellType.CHECK){
     <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED
-        (checkStatus)="checkChange($event)"></yv-cluster-check>
+        (checkStatus)="checkChange($event)"
+        [checkedControl]="headerCheckboxControl"
+        ></yv-cluster-check>
     }
 </div>

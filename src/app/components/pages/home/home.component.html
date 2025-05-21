@@ -1,1 +1,24 @@
-<h1><mark><i>home works!</i></mark></h1>
+<div class="home">
+    <div class="user-name">
+        <yv-cluster-heading [title]="'Hello Ariela'" [size]="textSize.LARGE"
+            [weight]="textWeight.BOLD"></yv-cluster-heading>
+    </div>
+    <div class="cards-table-pie">
+        <div class="cards">
+            <yv-cluster-basic-card [iconName]="iconType.HOURGLASS_CLOCK_SOLID" [text]="'30 New clusters pending'"
+                [circleColor]="'blue'"></yv-cluster-basic-card>
+            <yv-cluster-basic-card [iconName]="iconType.CIRCLE_CHECK_SOLID" [text]="'560 Old Suggestions  pending'"
+                [circleColor]="'green'"></yv-cluster-basic-card>
+            <yv-cluster-basic-card [iconName]="iconType.SUCCESS_SOLID" [text]="'120 Suggestions processed this month'"
+                [circleColor]="'light-blue'"></yv-cluster-basic-card>
+            <yv-cluster-basic-card [iconName]="iconType.EDIT_SOLID" [text]="'70 Clusters created manually this month'"
+                [circleColor]="'red'"></yv-cluster-basic-card>
+        </div>
+        <div class="table-pie">
+            <yv-cluster-basic-table-warp [title]="'Progress Review: Automated List Updates'" [data]="data">
+            </yv-cluster-basic-table-warp>
+            <yv-cluster-suggestions-statistics [data]="statisticsData" [radius]="radius" [innerRadius]="innerRadius">
+            </yv-cluster-suggestions-statistics>
+        </div>
+    </div>
+</div>

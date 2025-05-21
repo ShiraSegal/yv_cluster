@@ -2,7 +2,7 @@
     <div class="logo"></div>
     <div class="tabs">
         <!-- לולאה על הטאבים -->
-        @for (tab of tabs; track tab.number) {
+        @for (tab of tabs; track tab.number; let index = $index;) {
             <!-- טאבים עליונים -->
             @if (tab.number < 5) {
                 <div class="tab-top">

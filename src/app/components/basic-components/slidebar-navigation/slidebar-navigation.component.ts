@@ -40,7 +40,6 @@ export class SlidebarNavigationComponent {
       } else {
         tab.property.setValue(SliderNavigationTabType.ACTIVE);
         this.#router.navigate([tab.text]);
-
       }
     });
   }
