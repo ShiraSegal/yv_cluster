@@ -118,7 +118,7 @@ export class TableGroupIdDetailsComponent {
 
         // ניתן להאזין לשינויים ב־FormArray אם צריך:
         this.rowsArray.valueChanges.subscribe(values => {
-          console.log('ערכי הצ׳קים:', values);
+          // console.log('ערכי הצ׳קים:', values);
         });
       } else {
         console.warn("Received null or invalid response from getClusterGroupDetails");
@@ -127,7 +127,7 @@ export class TableGroupIdDetailsComponent {
         this.crmLinkList = res.d.CrmLinkList.map((item: any) => {
           return item;
         });
-        console.log("this.crmLinkList", this.crmLinkList);
+        // console.log("this.crmLinkList", this.crmLinkList);
       }
     }, error => {
       console.error("getClusterGroupDetails occurred:", error);
@@ -159,11 +159,11 @@ export class TableGroupIdDetailsComponent {
       this.checkedControls.push(control.get('checked') as FormControl);
       console.log("this.rowsArray: " + this.rowsArray);
       this.rowsArray.controls.forEach((e) => {
-        console.log('id: ' + e.get('id')?.value);
-        console.log('checked: ' + e.get('checked')?.value);
+        // console.log('id: ' + e.get('id')?.value);
+        // console.log('checked: ' + e.get('checked')?.value);
 
       })
-      console.log("this.checkedControls: " + this.checkedControls);
+      // console.log("this.checkedControls: " + this.checkedControls);
 
     })
   }

@@ -15,61 +15,84 @@ import { PopoverComponent } from '../popover/popover.component';
 @Component({
   selector: 'yv-cluster-filter-handling-suggestions',
   standalone: true,
-  imports: [CommonModule,FieldComponent,ButtonComponent,DataCellsComponent,SwitchComponent,FormsModule,TooltipComponent,PopoverComponent],
+  imports: [CommonModule, FieldComponent, ButtonComponent, DataCellsComponent, SwitchComponent, FormsModule, TooltipComponent, PopoverComponent],
   templateUrl: './filter-handling-suggestions.component.html',
   styleUrl: './filter-handling-suggestions.component.scss'
 })
 export class FilterHandlingSuggestionsComponent {
-    #dialog = inject(MatDialog);
-    @Output() prefCodeStatus = new EventEmitter<boolean>();
-    @Output() showToastNotification = new EventEmitter<string>();
-    @Input() howManyChecked :number =0;
-    @Input() crmLinkList :string[]=[];
+  #dialog = inject(MatDialog);
+  @Output() prefCodeStatus = new EventEmitter<boolean>();
+  @Output() showToastNotification = new EventEmitter<string>();
+  @Input() howManyChecked: number = 0;
+  @Input() crmLinkList: string[] = [];
 
-   
-    dialogRef: MatDialogRef<CreateClusterComponent> | null = null;
-    numberCRM :number;
+
+  dialogRef: MatDialogRef<CreateClusterComponent> | null = null;
+  numberCRM: number;
   switchState: boolean = false;
-  showTooltip:boolean=false;
-showPopover:boolean=false;
+  showTooltip: boolean = false;
+  showPopover: boolean = false;
 
   stateEnum = State;
-  buttonType=ButtonType;
-  iconType=IconType;
-  dataCellType=DataCellType; 
-NativeOptionType=NativeOptionType;
-popoverType=PopoverType;
+  buttonType = ButtonType;
+  iconType = IconType;
+  dataCellType = DataCellType;
+  NativeOptionType = NativeOptionType;
+  popoverType = PopoverType;
 
   formData = {
     searchField: '',
     prefCode: false
-  };   
+  };
 
-    popoverOptionsLink:{
-  optionType: NativeOptionType.TEXT;
-  optionState: NativeOptionState;
-  displayText: string;
-}[] = [{optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: this.crmLinkList[0]},
-  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
-  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
-];
-ngOnInit(){
-  console.log('numberCRM: numberCRM numberCRM numberCRM', this.numberCRM);
-  this.numberCRM = (this.crmLinkList?.length ?? 0) + 1;
-  console.log('numberCRM: numberCRM numberCRM numberCRM', this.numberCRM);
-  
-}
-     openDialog() {
-      console.log("openDialog");
-      
-     this.dialogRef = this.#dialog.open(CreateClusterComponent, {
-      disableClose: false, 
+  //     popoverOptionsLink:{
+  //   optionType: NativeOptionType.TEXT;
+  //   optionState: NativeOptionState;
+  //   displayText: string;
+  // }[] = [{optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: this.crmLinkList[0]},
+  //   {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
+  //   {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
+  // ];
+  popoverOptionsLink: {
+    optionType: NativeOptionType;
+    optionState: NativeOptionState;
+    displayText: string;
+  }[] = [];
+  ngOnInit() {
+    this.numberCRM = this.crmLinkList?.length ?? 0;
+    this.initPopoverOptionsLink();
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    //במילוי שלו - שינוי ראשון
+    if (changes['crmLinkList'] && Array.isArray(this.crmLinkList)) {
+      this.initPopoverOptionsLink();
+
+      this.numberCRM = this.crmLinkList?.length ?? 0;
+
+    }
+  }
+
+
+  initPopoverOptionsLink(): void {
+    this.popoverOptionsLink = this.crmLinkList.map(link => ({
+      optionType: NativeOptionType.TEXT,
+      optionState: NativeOptionState.DEFAULT,
+      displayText: link
+
+    }));
+
+  }
+  openDialog() {
+    console.log("openDialog");
+
+    this.dialogRef = this.#dialog.open(CreateClusterComponent, {
+      disableClose: true,
       hasBackdrop: true,
       panelClass: 'custom-dialog-container',
       autoFocus: false,
       width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
-      height: '70rem',
-    
+      height: '100vh',
+
     });
 
     this.dialogRef.afterClosed().subscribe((result) => {
@@ -77,47 +100,30 @@ ngOnInit(){
         this.showToastNotification.emit(result.bookId);
         console.log('page Data received from dialog:', result);
 
-        if(result.bookId === "formIsNotValid") {
+        if (result.bookId === "formIsNotValid") {
           console.log('page Data received from dialog: no data');
         }
       }
-      });
-     }
- ngOnChanges(changes: SimpleChanges) {
-    if (changes['showTheButtons']) {
-      const newValue = changes['showTheButtons'].currentValue;
-      this.onShowTheButtonsChange(newValue);
-    }
+    });
   }
 
-  onShowTheButtonsChange(value: boolean) {
-    console.log('showTheButtons changed:', value);
-    // הפעולה שתרצי להריץ
-  }
-  // onSearchFieldChange(newValue: string) {
-  //   this.fieldValue.emit(newValue);
 
-  //   console.log('value changed to:', newValue);
-  //   // כאן תוכלי לבצע כל פעולה שתרצי בעת שינוי הערך
-  // }
   onPrefCodeChange(state: boolean) {
-  this.formData.prefCode = state;
-  this.prefCodeStatus.emit(state);
-  console.log('Pref code switch:', state);
-}
-  // onSubmit() {
-  //   console.log('Form submitted:', this.formData);
-  // }
+    this.formData.prefCode = state;
+    this.prefCodeStatus.emit(state);
+    console.log('Pref code switch:', state);
+  }
+
   handleSwitchChange(state: boolean) {
     this.switchState = state;
     console.log('Switch:', state ? 'דלוק' : 'מכובה');
   }
-  onRightLeftClick(){
-alert('right left button clicked');
+  onRightLeftClick() {
+    alert('right left button clicked');
 
   }
-  onUserClick(){
-alert('User button clicked');
+  onUserClick() {
+    alert('User button clicked');
 
   }
   onClick() {

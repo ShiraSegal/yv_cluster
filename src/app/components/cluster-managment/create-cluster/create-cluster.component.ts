@@ -112,7 +112,7 @@ constructor(
   
 ){}
   ngOnInit() {
-    console.log("formIsValid", this.formIsValid);
+    // console.log("formIsValid", this.formIsValid);
     this.createClusterFormData();
   }
 
@@ -120,19 +120,19 @@ constructor(
     this.#clusterService.getCreateClusterData().subscribe({
       next: (res: SapirClusterModel | null) => {
         if (res) {
-          console.log("getCreateClusterData", res);
+          // console.log("getCreateClusterData", res);
 
           this.clusterModel = res;
-          console.log("this.clusterModel", this.clusterModel);
+          // console.log("this.clusterModel", this.clusterModel);
 
           this.dataCells = res.SapirClusterDetails; // Process the data if it's not null
-          console.log("check1",this.clusterModel.SapirClusterDetails);
+          // console.log("check1",this.clusterModel.SapirClusterDetails);
           
           this.dataCells.forEach((d: any) => {
             let values: any = [];
             d.Values.forEach((v: any) => {
               if (v.NameCode === "") {
-                console.log(`Value "${v.Value}" has an empty NameCode.`);
+                // console.log(`Value "${v.Value}" has an empty NameCode.`);
                 v.NameCode = "unknown"; // או כל ערך ברירת מחדל אחר
               }
               values.push({ key: v.NameCode, value: v.Value });
@@ -143,12 +143,12 @@ constructor(
               values.push({ key: "other", value: "other" });
             }
             d.RadioOptions = values;
-          console.log("check2",this.clusterModel.SapirClusterDetails);
+          // console.log("check2",this.clusterModel.SapirClusterDetails);
    
           });
-          console.log("check13",this.clusterModel.SapirClusterDetails);
+          // console.log("check13",this.clusterModel.SapirClusterDetails);
 
-          console.log("222222222222222222", this.dataCells);
+          // console.log("222222222222222222", this.dataCells);
 
           this.initializeFormGroup();
 
@@ -184,14 +184,14 @@ constructor(
     console.log("valid", this.createClusterForm.valid);
     console.log("index", index);
     // this.createClusterForm.get(selected)?.setValue(index);
-    console.log("createClusterForm", this.createClusterForm.value);
-    console.log("createClusterForm", this.createClusterForm);
+    // console.log("createClusterForm", this.createClusterForm.value);
+    // console.log("createClusterForm", this.createClusterForm);
 
   }
 
   createCluster() {
-    console.log("createClusterFormFields", this.createClusterFormFields);
-    console.log("createClusterForm", this.createClusterForm);
+    // console.log("createClusterFormFields", this.createClusterFormFields);
+    // console.log("createClusterForm", this.createClusterForm);
 
     if (this.createClusterForm.valid) {
       this.formIsValid = true;
