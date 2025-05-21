@@ -22,11 +22,13 @@ import { PopoverComponent } from '../popover/popover.component';
 export class FilterHandlingSuggestionsComponent {
     #dialog = inject(MatDialog);
     @Output() prefCodeStatus = new EventEmitter<boolean>();
-    @Input() numberCRM :number =0;
+    @Output() showToastNotification = new EventEmitter<string>();
     @Input() howManyChecked :number =0;
     @Input() crmLinkList :string[]=[];
-    dialogRef: MatDialogRef<CreateClusterComponent> | null = null;
 
+   
+    dialogRef: MatDialogRef<CreateClusterComponent> | null = null;
+    numberCRM :number;
   switchState: boolean = false;
   showTooltip:boolean=false;
 showPopover:boolean=false;
@@ -51,6 +53,12 @@ popoverType=PopoverType;
   {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
   {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
 ];
+ngOnInit(){
+  console.log('numberCRM: numberCRM numberCRM numberCRM', this.numberCRM);
+  this.numberCRM = (this.crmLinkList?.length ?? 0) + 1;
+  console.log('numberCRM: numberCRM numberCRM numberCRM', this.numberCRM);
+  
+}
      openDialog() {
       console.log("openDialog");
       
@@ -63,6 +71,17 @@ popoverType=PopoverType;
       height: '70rem',
     
     });
+
+    this.dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.showToastNotification.emit(result.bookId);
+        console.log('page Data received from dialog:', result);
+
+        if(result.bookId === "formIsNotValid") {
+          console.log('page Data received from dialog: no data');
+        }
+      }
+      });
      }
  ngOnChanges(changes: SimpleChanges) {
     if (changes['showTheButtons']) {

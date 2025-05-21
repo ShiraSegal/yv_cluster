@@ -17,15 +17,19 @@ import { log } from 'util';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { group } from 'console';
 import { TooltipComponent } from '../tooltip/tooltip.component';
+import { ToastNotificationComponent } from '../toast-notification/toast-notification.component';
 
 @Component({
   selector: 'yv-cluster-table-group-id-details',
   standalone: true,
-  imports: [CommonModule, NarrowBasicTableComponent, TableHeaderComponent, BasicTableRowComponent, NarrowBasicTableRowComponent, IconButtonLargeComponent, FilterHandlingSuggestionsComponent, ReactiveFormsModule, FormsModule, TooltipComponent],
+  imports: [CommonModule, NarrowBasicTableComponent, TableHeaderComponent, BasicTableRowComponent, NarrowBasicTableRowComponent, IconButtonLargeComponent, FilterHandlingSuggestionsComponent, ReactiveFormsModule, FormsModule, TooltipComponent,ToastNotificationComponent],
   templateUrl: './table-group-id-details.component.html',
   styleUrl: './table-group-id-details.component.scss'
 })
 export class TableGroupIdDetailsComponent {
+
+  @Output() showToastNotification = new EventEmitter<string>();
+
   #clusterService = inject(ClusterService)
   #dialog = inject(MatDialog);
   #fb = inject(FormBuilder)
@@ -224,5 +228,8 @@ export class TableGroupIdDetailsComponent {
   prefCodeStatusChange(prefCodeStatus: boolean) {
     console.log("prefCodeStatus table", prefCodeStatus);
     this.prefCodeStatus = prefCodeStatus;
+  }
+  showToastNotificationFunction(result:string){
+this.showToastNotification.emit(result);
   }
 }

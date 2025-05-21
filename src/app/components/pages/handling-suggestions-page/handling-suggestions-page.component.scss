@@ -39,3 +39,10 @@ line-height: normal;
     bottom: -3.8rem;
     right: 4rem ;
 }
+.toast-notification {
+    position: fixed;
+    
+    bottom: 5vh; /* מרחק מהתחתית */
+    left: 12.9375rem; /* מרחק מהצד השמאלי */
+    z-index: 1000; /* כדי לוודא שהאלמנט יופיע מעל תוכן אחר */
+  }
