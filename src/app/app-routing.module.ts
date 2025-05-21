@@ -33,7 +33,7 @@ export const routes: Routes = [
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledNonBlocking',useHash: true,
+    initialNavigation: 'enabledNonBlocking',useHash: false,
 })],
   exports: [RouterModule],
 })

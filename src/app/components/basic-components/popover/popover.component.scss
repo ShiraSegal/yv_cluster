@@ -1,62 +1,128 @@
 @import "src/styles.scss";
 
-.popover-warp{
+.popover-warp {
     display: flex;
-    width: 11.9375rem;
-    padding: 0rem 0.5rem;
+    width: 191px;
+    padding: 0px 8px;
     align-items: center;
-    background: $c-FFFFFF;
+    border-radius: 6px;
+    background: #FFF;
+
+    /* popover */
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10), 0px -4px 5px 0px rgba(0, 0, 0, 0.05);
 
-    .popover-internal-warp{
+    .popover-internal-warp {
         display: flex;
-flex-direction: column;
-justify-content: flex-end;
-align-items: flex-start;
-flex: 1 0 0;
-    }
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        flex: 1 0 0;
 
-    .popover-upper-warp{
+
+    .popover-upper-warp {
         display: flex;
-flex-direction: column;
-justify-content: flex-end;
-align-items: flex-start;
-flex: 1 0 0;
-    }
-}
-.header-warp{
-    display: flex;
-    padding-top:  0.5rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    align-self: stretch;
-    background: $c-FFFFFF;
-}
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        align-self: stretch;
 
-.header{
-    padding: 0rem  0.5rem;
-    margin-top: 0.5rem;
-    white-space: nowrap; /* מונע שבירת שורה */
-}
+        .header-warp {
+            display: flex;
+            width: 9.125rem;
+            padding-top: 1rem;
+            padding-left: 0.5rem;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: var(--Layout-x-large, 1rem);
+            border-radius: var(--Border-radius-none, 0rem);
+            background: var(--main-neutral-main, #FFF);
 
-.nativ-options-warp{
-    display: flex;
-width: 10.875rem;
-justify-content: space-between;
+            .header{
+                display: flex;
+// padding: 0rem var(--Layout-medium, 0.5rem);
+// justify-content: flex-end;
 align-items: center;
-    display: flex;
+gap: var(--Layout-large, 0.75rem);
+align-self: stretch;
+// align-items: center;
+gap: 0.625rem;
+flex: 1 0 0;
+// overflow: hidden;
+// text-align: right;
+// text-overflow: ellipsis;
+// display: -webkit-box;
+// -webkit-box-orient: vertical;
+// -webkit-line-clamp: 1;
+            }
+        }
+    }
+
+
+    .field-warp {
+        display: flex;
+        padding: 0rem 0.5rem 0.25rem 0.5rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.625rem;
+        align-self: stretch;
+
+        .field {
+            display: flex;
+height: 1.5rem;
+padding: var(--Layout-medium, 0.5rem);
+align-items: center;
+gap: var(--Layout-medium, 0.5rem);
+align-self: stretch;
+border-radius: var(--Border-radius-small, 0.25rem);
+border: 0.5px solid #3F4B5A;
+//             display: flex;
+            // height: 1.8125rem;
+            // width: 7.5rem;
+//             padding: var(--Layout-medium, 0.5rem);
+//             align-items: center;
+//             gap: var(--Layout-medium, 0.5rem);
+//             align-self: stretch;
+//             border-radius: var(--Border-radius-small, 0.25rem);
+// border: 0.5px solid #3F4B5A;
+        }
+
+    }
+
+
+
+    .nativ-options-warp {
+        display: flex;
+        width: 10.875rem;
+        max-height: 10.875rem;
+        justify-content: space-between;
+        align-items: center;
+        overflow-y: auto; // מאפשר גלילה אנכית
+        overflow-x: hidden; // מונע גלילה אופקית
+        .nativ-options-internal-warp{
+            display: flex;
 flex-direction: column;
 align-items: flex-start;
 flex: 1 0 0;
 align-self: stretch;
+       
+
+    .native-option {
+        display: flex;
+padding: var(--Layout-medium, 0.5rem);
+flex-direction: column;
+align-items: flex-start;
+gap: var(--Layout-x-large, 1rem);
+align-self: stretch;
+        // display: flex;
+        // padding: var(--Layout-medium, 0.5rem);
+        // flex-direction: column;
+        // align-items: flex-start;
+        // gap: var(--Layout-x-large, 1rem);
+        // align-self: stretch;
+        // border-radius: var(--Border-radius-none, 0rem);
+    } 
+ }
 }
-.native-option{
-    // display: flex;
-    // padding: var(--Layout-medium, 0.5rem);
-    // flex-direction: column;
-    // align-items: flex-start;
-    // gap: var(--Layout-x-large, 1rem);
-    // align-self: stretch;
-    // border-radius: var(--Border-radius-none, 0rem);
+}    
 }
