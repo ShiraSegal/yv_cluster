@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output,EventEmitter } from '@angular/core';
-import { HeaderCellType } from 'src/app/enums/basic-enum';
+import { HeaderCellType, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
 import { HeaderCellsComponent } from "../header-cells/header-cells.component";
 import { CheckType } from 'src/app/enums/check-enum';
 
@@ -13,6 +13,7 @@ import { CheckType } from 'src/app/enums/check-enum';
 })
 export class TableHeaderComponent {
 @Input() headers: { data: string; type: HeaderCellType }[] = [];
+@Input() length : NarrowBasicTableRowLength;
 @Output() checkStatus= new EventEmitter<CheckType>();
 @Output() openDialog= new EventEmitter<boolean>();
 

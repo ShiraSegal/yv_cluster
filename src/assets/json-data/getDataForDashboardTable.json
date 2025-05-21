@@ -1,0 +1,250 @@
+[
+    {
+      "id": 1,
+      "name": "Ariela Cohen",
+      "newSuggestions": [
+        {
+          "nameList": "Sapir Clusters",
+          "toDo": 1500
+        },
+        {
+          "nameList": "Missing Field",
+          "toDo": 800
+        },
+        {
+          "nameList": "Approval Groups",
+          "toDo": 950
+        },
+        {
+          "nameList": "Checklist Items",
+          "toDo": 1200
+        },
+        {
+          "nameList": "Different Clusters",
+          "toDo": 700
+        },
+        {
+          "nameList": "Error Messages",
+          "toDo": 1100
+        }
+      ],
+      "oldSuggestions": [
+        {
+          "nameList": "Sapir Clusters",
+          "done": 100,
+          "toDo": 1500
+        },
+        {
+          "nameList": "Missing Field",
+          "done": 75,
+          "toDo": 800
+        },
+        {
+          "nameList": "Approval Groups",
+          "done": 90,
+          "toDo": 950
+        },
+        {
+          "nameList": "Checklist Items",
+          "done": 120,
+          "toDo": 1200
+        },
+        {
+          "nameList": "Different Clusters",
+          "done": 50,
+          "toDo": 700
+        },
+        {
+          "nameList": "Error Messages",
+          "done": 60,
+          "toDo": 1100
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Rachel Levi",
+      "newSuggestions": [
+        {
+          "nameList": "Sapir Clusters",
+          "toDo": 1400
+        },
+        {
+          "nameList": "Missing Field",
+          "toDo": 900
+        },
+        {
+          "nameList": "Approval Groups",
+          "toDo": 1000
+        },
+        {
+          "nameList": "Checklist Items",
+          "toDo": 1300
+        },
+        {
+          "nameList": "Different Clusters",
+          "toDo": 750
+        },
+        {
+          "nameList": "Error Messages",
+          "toDo": 1150
+        }
+      ],
+      "oldSuggestions": [
+        {
+          "nameList": "Sapir Clusters",
+          "done": 110,
+          "toDo": 1400
+        },
+        {
+          "nameList": "Missing Field",
+          "done": 85,
+          "toDo": 900
+        },
+        {
+          "nameList": "Approval Groups",
+          "done": 95,
+          "toDo": 1000
+        },
+        {
+          "nameList": "Checklist Items",
+          "done": 130,
+          "toDo": 1300
+        },
+        {
+          "nameList": "Different Clusters",
+          "done": 60,
+          "toDo": 750
+        },
+        {
+          "nameList": "Error Messages",
+          "done": 70,
+          "toDo": 1150
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "David Mizrahi",
+      "newSuggestions": [
+        {
+          "nameList": "Sapir Clusters",
+          "toDo": 1600
+        },
+        {
+          "nameList": "Missing Field",
+          "toDo": 850
+        },
+        {
+          "nameList": "Approval Groups",
+          "toDo": 1050
+        },
+        {
+          "nameList": "Checklist Items",
+          "toDo": 1250
+        },
+        {
+          "nameList": "Different Clusters",
+          "toDo": 800
+        },
+        {
+          "nameList": "Error Messages",
+          "toDo": 1000
+        }
+      ],
+      "oldSuggestions": [
+        {
+          "nameList": "Sapir Clusters",
+          "done": 120,
+          "toDo": 1600
+        },
+        {
+          "nameList": "Missing Field",
+          "done": 80,
+          "toDo": 850
+        },
+        {
+          "nameList": "Approval Groups",
+          "done": 100,
+          "toDo": 1050
+        },
+        {
+          "nameList": "Checklist Items",
+          "done": 125,
+          "toDo": 1250
+        },
+        {
+          "nameList": "Different Clusters",
+          "done": 70,
+          "toDo": 800
+        },
+        {
+          "nameList": "Error Messages",
+          "done": 65,
+          "toDo": 1000
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Sara Peretz",
+      "newSuggestions": [
+        {
+          "nameList": "Sapir Clusters",
+          "toDo": 1700
+        },
+        {
+          "nameList": "Missing Field",
+          "toDo": 950
+        },
+        {
+          "nameList": "Approval Groups",
+          "toDo": 1100
+        },
+        {
+          "nameList": "Checklist Items",
+          "toDo": 1350
+        },
+        {
+          "nameList": "Different Clusters",
+          "toDo": 850
+        },
+        {
+          "nameList": "Error Messages",
+          "toDo": 1200
+        }
+      ],
+      "oldSuggestions": [
+        {
+          "nameList": "Sapir Clusters",
+          "done": 130,
+          "toDo": 1700
+        },
+        {
+          "nameList": "Missing Field",
+          "done": 90,
+          "toDo": 950
+        },
+        {
+          "nameList": "Approval Groups",
+          "done": 110,
+          "toDo": 1100
+        },
+        {
+          "nameList": "Checklist Items",
+          "done": 140,
+          "toDo": 1350
+        },
+        {
+          "nameList": "Different Clusters",
+          "done": 80,
+          "toDo": 850
+        },
+        {
+          "nameList": "Error Messages",
+          "done": 75,
+          "toDo": 1200
+        }
+      ]
+    }
+  ]

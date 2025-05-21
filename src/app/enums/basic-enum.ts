@@ -17,7 +17,10 @@ export enum BasicTableRowPropertyVariants {
   DEFAULT = 'Default',
   VARIANT2 = 'Variant2',
 }
- 
+export enum NarrowBasicTableRowLength {
+  LONG = 'long',
+  SHORT = 'short'
+}
 
 
 export enum BasicTablePropertyType {

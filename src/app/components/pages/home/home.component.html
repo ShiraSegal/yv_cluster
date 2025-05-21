@@ -30,8 +30,12 @@
             </yv-cluster-basic-card>
         </div>
         <div class="table-pie">
-            <!-- <yv-cluster-basic-table-warp [title]="'Progress Review: Automated List Updates'" [data]="data">
-            </yv-cluster-basic-table-warp> -->
+            <div class="table">
+            <yv-cluster-basic-table-warp 
+            [title]="'Progress Review: Automated List Updates'" 
+            [data]="tableData">
+          </yv-cluster-basic-table-warp>
+        </div>
             <yv-cluster-suggestions-statistics 
         [data]="statisticsData" 
         [radius]="radius" 

@@ -22,25 +22,25 @@ export class SlidebarNavigationComponent {
   iconType = IconType;
   sliderNavigationTabType = SliderNavigationTabType;
   activeTabIndex: number | null = 0;
-
+  logoutText = SliderNavigationTabTextType.LOG_OUT
   tabs = [
-    { number: 0, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.HOUSE_LIGHT, activeIcon: IconType.HOUSE_SOLID, text: SliderNavigationTabTextType.HOME },
-    { number: 1, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LIST_LIGHT, activeIcon: IconType.LIST_SOLID, text: SliderNavigationTabTextType.AUTO_CLUSTER },
-    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.CHART_LINE_UP_LIGHT, activeIcon: IconType.CHART_LINE_UP_SOLID, text: SliderNavigationTabTextType.CRM_CLUSTERS },
-    { number: 3, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.PLUS_LIGHT, activeIcon: IconType.PLUS_SOLID, text: SliderNavigationTabTextType.NEW_CLUSTER },
-    { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.CHART_LINE_UP_LIGHT, activeIcon: IconType.CHART_LINE_UP_SOLID, text: SliderNavigationTabTextType.REPORT },
-    { number: 5, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LEFT_FROM_BRACKET_LIGHT, activeIcon: IconType.LEFT_FROM_BRACKET_SOLID, text: SliderNavigationTabTextType.LOG_OUT },
+    {  property: SliderNavigationTabType.VARIANT3, icon: IconType.HOUSE_LIGHT, activeIcon: IconType.HOUSE_SOLID, text: SliderNavigationTabTextType.HOME },
+    {  property: SliderNavigationTabType.VARIANT3, icon: IconType.LIST_LIGHT, activeIcon: IconType.LIST_SOLID, text: SliderNavigationTabTextType.AUTO_CLUSTER },
+    {  property: SliderNavigationTabType.VARIANT3, icon: IconType.CHART_LINE_UP_LIGHT, activeIcon: IconType.CHART_LINE_UP_SOLID, text: SliderNavigationTabTextType.CRM_CLUSTERS },
+    {  property: SliderNavigationTabType.VARIANT3, icon: IconType.PLUS_LIGHT, activeIcon: IconType.PLUS_SOLID, text: SliderNavigationTabTextType.NEW_CLUSTER },
+    {  property: SliderNavigationTabType.VARIANT3, icon: IconType.CHART_LINE_UP_LIGHT, activeIcon: IconType.CHART_LINE_UP_SOLID, text: SliderNavigationTabTextType.REPORT },
+    {  property: SliderNavigationTabType.VARIANT3, icon: IconType.LEFT_FROM_BRACKET_LIGHT, activeIcon: IconType.LEFT_FROM_BRACKET_SOLID, text: SliderNavigationTabTextType.LOG_OUT },
   ];
 
-  setActiveTab(tabIndex: number) {
-    this.activeTabIndex = tabIndex;
-    this.tabs.forEach((tab, index) => {
-      if (index !== tabIndex) {
-        tab.property.setValue(SliderNavigationTabType.VARIANT3);
+  setActiveTab(tabText: SliderNavigationTabTextType) {
+    this.tabs.forEach((tab) => {
+      if (tab.text !== tabText) {
+        tab.property = SliderNavigationTabType.VARIANT3; // טאב שאינו נבחר
       } else {
-        tab.property.setValue(SliderNavigationTabType.ACTIVE);
-        this.#router.navigate([tab.text]);
+        tab.property = SliderNavigationTabType.ACTIVE; // טאב נבחר
+        this.#router.navigate([tab.text]); // ניווט לטאב הנבחר
       }
     });
+    this.activeTabIndex = this.tabs.findIndex((tab) => tab.text === tabText);
   }
 }

@@ -2,13 +2,13 @@
 
 .slider-navigation {
     display: flex;
-    flex-direction: column; /* סידור הטאבים מלמעלה למטה */
-    justify-content: space-between; /* טאבים עליונים ותחתונים */
-    height: 100vh; /* גובה מלא של המסך */
-    width: 7.125rem; /* רוחב קבוע לניווט */
-    background: linear-gradient(180deg, $c-1334B9 0%, $c-425DC7 100%); /* מעבר צבעים */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* צל קל */
-    overflow: hidden; /* למנוע גלילה לא רצויה */
+    width: 7.125rem;
+    height: 100vh;
+    padding-top: 0.75rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.25rem;
+    background: var(--gradient-pr, linear-gradient(180deg, #1334B9 0%, #425DC7 100%));
 }
 
 .logo {
@@ -22,55 +22,25 @@
 
 .tabs {
     display: flex;
+    height: 57.5rem;
     flex-direction: column;
-    justify-content: flex-start; /* טאבים עליונים */
+    justify-content: space-between;
     align-items: center;
-    flex: 1; /* תופס את כל השטח הנותר */
-    padding: 1rem 0;
-    gap: 1.5rem; /* ריווח בין הטאבים */
+    flex-shrink: 0;
+    align-self: stretch;
 }
 
-.tab {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem; /* גודל קבוע לטאב */
-    height: 3rem;
-    background-color: transparent;
-    border-radius: 50%; /* עיגול לטאב */
-  
-
-}
-
-.tab svg {
-    width: 1.5rem; /* גודל אייקון */
-    height: 1.5rem;
-    fill: $c-FFFFFF; /* צבע אייקון */
-}
-
-.tab.active {
-    background-color: $c-5A71CE; /* רקע לטאב פעיל */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* צל לטאב פעיל */
-}
-
-
-.tab-bottom {
-    margin-top: auto; /* דוחף את הטאב התחתון לתחתית */
-    padding: 1rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.space{
+    margin-top: 20rem;
 }
 .line {
-    height: 2px; /* הגדלת גובה הפס */
-    width: 100%; /* מכסה את כל הרוחב */
+    display: flex;
+    width: 7.125rem;
+    height: 0.0625rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1875rem;
+    flex-shrink: 0;
     background-color: $c-E7EBF833; /* קו מפריד */
-    margin: 15px 0; /* ריווח גדול יותר */
 }
 
-.line-button {
-    height: 2px; /* הגדלת גובה הפס */
-    width: 100%; /* מכסה את כל הרוחב */
-    background-color: $c-E7EBF833; /* קו מפריד לטאב התחתון */
-    margin: 15px 0; /* ריווח גדול יותר */
-}

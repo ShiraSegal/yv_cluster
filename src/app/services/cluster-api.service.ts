@@ -44,6 +44,11 @@ export class ClusterApiService {
       map((data: any[]) => data.find((user: any) => user.id === id)) // סינון לפי ID
     );
   }
+  getDashboardTableDataById(id: number): Observable<any> {
+    return this.#http.get<any[]>('./assets/json-data/getDataForDashboardTable.json').pipe(
+      map((data: any[]) => data.find((user: any) => user.id === id)) // סינון לפי ID
+    );
+  }
   // getCreateClusterData(): Observable<any[]> {
   //   return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`).pipe(
   //     map(response => response?.SapirClusterDetails || []) // מיפוי התוצאה להחזרת SapirClusterDetails בלבד

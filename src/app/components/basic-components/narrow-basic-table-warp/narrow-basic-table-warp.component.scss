@@ -1,22 +1,27 @@
 @import "src/styles.scss";
 
-.warp-table-container {
+.table-warp{
     display: flex;
-    width: 102.0625rem;
+    width: 130rem;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 1.8125rem;
 }
 
-.text-container {
+.table-name-tabs{
     display: flex;
-    width: 57.25rem;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.25rem;
-    background: linear-gradient(0deg, rgba(231, 235, 248, 0.30) 0%, rgba(231, 235, 248, 0.30) 100%), #FFF;
+    gap: 1rem;
+    align-self: stretch;
 }
-
+.table-name{
+    display: flex;
+width: 57.25rem;
+flex-direction: column;
+align-items: flex-start;
+gap: 0.25rem;
+}
 .title {
     width: 57.25rem;
     color: $c-3F4B5A;
@@ -38,21 +43,11 @@
     line-height: normal;
     width: 57.25rem;
 }
-
-.tabs-container {
-    border-bottom: 0.5px solid $c-C4C7C5;
+.tabs{
+    width: 130rem;
     display: flex;
-    align-items: center;
-    align-self: stretch;
-}
+align-items: center;
+align-self:stretch;
+border-bottom: 0.5px solid $c-C4C7C5;
 
-.basic-table-container {
-    border-radius: 0.75rem;
-    background: $c-FFFFFF;
-    display: flex;
-    padding-top:1.25rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-    align-self: stretch;
 }

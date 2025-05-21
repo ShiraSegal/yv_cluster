@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
-import { BasicTablePropertyType, ButtonType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
+import { BasicTablePropertyType, ButtonType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
 import { DataCellType, HeaderCellType, AutoClusterTabType } from 'src/app/enums/basic-enum';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 import { ClusterService } from 'src/app/services/cluster.service';
@@ -34,13 +34,13 @@ export class NarrowBasicTableWarpComponent {
     [AutoClusterTabType.CHECKLIST_ITEMS]: 'ItemsForCheckList',
   };
 
-
   @Input() subTitle: string = '';
   @Input() data: Partial<Record<AutoClusterTabType, {
     Headers: { data: string; type: HeaderCellType }[];
     Rows: {
       property: NarrowBasicTableRowInputState;
       showAction: boolean;
+      length:NarrowBasicTableRowLength
       cells: {
         data: string;
         type: DataCellType;
@@ -127,6 +127,7 @@ export class NarrowBasicTableWarpComponent {
   Rows: {
     property: any;
     showAction: boolean;
+    length:NarrowBasicTableRowLength
     cells: {
       data: string;
       type: DataCellType;
@@ -203,6 +204,7 @@ export class NarrowBasicTableWarpComponent {
     this.Rows = tabData.map((item: any) => ({
       property: item,
       showAction: true,
+      length:NarrowBasicTableRowLength.LONG,
       cells: this.Headers.map(header => {
         const jsonKey = headerToKeyMap[header.data] || header.data;
         const cellData = item[jsonKey] || '';

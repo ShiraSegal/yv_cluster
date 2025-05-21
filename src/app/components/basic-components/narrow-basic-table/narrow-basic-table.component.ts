@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input, SimpleChanges } from '@angular/core';
-import { ButtonType, DataCellType, HeaderCellType, NarrowBasicTableRowInputState, State } from 'src/app/enums/basic-enum';
+import { ButtonType, DataCellType, HeaderCellType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength, State } from 'src/app/enums/basic-enum';
 import { NarrowBasicTableRowComponent } from '../narrow-basic-table-row/narrow-basic-table-row.component';
 import { TableHeaderComponent } from '../table-header/table-header.component';
 import { ButtonIconProperty, NativeOptionState, NativeOptionType } from 'src/app/enums/native-option-enum';
@@ -22,13 +22,14 @@ export class NarrowBasicTableComponent {
   @Input() Rows: {
     property: NarrowBasicTableRowInputState;
     showAction: boolean;
+    length:NarrowBasicTableRowLength
     cells: {
       data: string;
       type: DataCellType;
       moreData?: { [key: string]: any };
     }[];
   }[] = [];
-
+  narrowBasicTableRowLength = NarrowBasicTableRowLength;
   label: string = 'Select Label';
   primary = ButtonType.PRIMARY
   variant3 = ButtonIconProperty.VARIANT3

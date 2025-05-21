@@ -14,6 +14,7 @@ export class SuggestionsStatisticsComponent implements OnChanges {
   @Input() innerRadius: number = 50;
 
   segments: { color: string; startAngle: number; endAngle: number; className: string; percentage: string }[] = [];
+ 
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data']) {

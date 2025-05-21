@@ -57,58 +57,12 @@ export class BasicTableWarpComponent {
     }[];
   }[] = [];
 
-  readonly TabHeaders: { [key in HomeTableTabType]: { data: string, type: HeaderCellType }[] } = {
-    [HomeTableTabType.NEW_SUGGESTIONS]: [
-      { data: 'Name List', type: HeaderCellType.TEXT },
-      { data: 'To Do', type: HeaderCellType.TEXT },
-      { data: '', type: HeaderCellType.PLACEOLDER },
-    ],
-    [HomeTableTabType.OLD_SUGGESTIONS]: [
-      { data: 'Name List', type: HeaderCellType.TEXT },
-      { data: 'Done', type: HeaderCellType.TEXT },
-      { data: 'To Do', type: HeaderCellType.TEXT },
-      { data: '', type: HeaderCellType.PLACEOLDER },
-    ],
-  };
-
-  loadDataForTab() {
-    const tabData = this.data?.[this.currentTab]; // קבלת הנתונים עבור הטאב הנוכחי
-    console.log('Data for current tab:', tabData);
-
-    this.headers = tabData?.Headers || [];
-    console.log('Headers for current tab:', this.headers);
-
-    this.rows = tabData?.Rows.map((item: any) => ({
-      property: item.property,
-      showAction: item.showAction,
-      cells: this.headers.map(header => {
-        const jsonKey = header.data;
-        const cellData = item.cells.find((cell: any) => cell.data === jsonKey)?.data || '';
-        const cellType = item.cells.find((cell: any) => cell.data === jsonKey)?.type || DataCellType.TEXT;
-        return { data: cellData, type: cellType, moreData: {} };
-      }),
-    })) || [];
-
-    console.log('Rows for current tab:', this.rows);
-  }
-
-  setActiveTab(tabText: HomeTableTabType) {
-    console.log('Switching to tab:', tabText);
-
+  setActiveTab(tabText: HomeTableTabType) { 
     this.tabs = this.tabs.map((tab) => ({
       ...tab,
       status: tab.text === tabText ? true : false
     }));
-
     this.currentTab = tabText;
-    console.log('Updated current tab:', this.currentTab);
-
-    this.loadDataForTab(); // טען מחדש את הנתונים לטאב הנוכחי
-  }
-
-  ngOnInit() {
-    console.log('Initializing BasicTableWarpComponent...');
-    this.loadDataForTab(); // טען את הנתונים לטאב הנוכחי
   }
 
 

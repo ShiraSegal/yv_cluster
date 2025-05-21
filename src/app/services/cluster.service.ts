@@ -40,6 +40,19 @@ export class ClusterService
       })
     );
   }
+
+  getDashboardTableDataById(id: number): Observable<any> {
+    return this.#clusterApiService.getDashboardTableDataById(id).pipe(
+      take(1),
+      tap((user) => {
+        console.log(`Fetched user with ID ${id}:`, user);
+      }),
+      catchError((err) => {
+        console.error(`Error fetching user with ID ${id}:`, err);
+        return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
+      })
+    );
+  }
   
   async getAutoClusterData() {
     try {
