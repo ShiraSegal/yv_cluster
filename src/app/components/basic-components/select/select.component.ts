@@ -13,7 +13,7 @@ import { NativeOptionComponent } from '../native-option/native-option.component'
 type NativeSelectOption = {
   optionType: NativeOptionType;
   optionState: NativeOptionState;
-  displayText: string;
+  displayText?: string;
   property?: BadgeType;
 };
 
