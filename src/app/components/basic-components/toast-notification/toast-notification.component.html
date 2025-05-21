@@ -1,10 +1,10 @@
 @if(isVisible){
 <div [ngClass]="{
-    'toast-notification-container-success': iconName === toastNotificationIcons.CIRCLE_CHECK_SOLID,
-    'toast-notification-container-error': iconName === toastNotificationIcons.XMARK_SOLID}">
+    'toast-notification-container-success': iconName === toastNotificationIcons.SUCCESS_SOLID,
+    'toast-notification-container-error': iconName === toastNotificationIcons.ERROR_SOLID}">
     <div [class]="iconName" [ngClass]="{
-        'icon-success': iconName === toastNotificationIcons.CIRCLE_CHECK_SOLID,
-        'icon-error': iconName === toastNotificationIcons.XMARK_SOLID}">
+        'icon-success': iconName === toastNotificationIcons.SUCCESS_SOLID,
+        'icon-error': iconName === toastNotificationIcons.ERROR_SOLID}">
     </div>
     <div class="message">{{message}}</div>
 

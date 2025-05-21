@@ -1,61 +1,56 @@
 <form [formGroup]="filterForm" class="filter-section-container">
   <div class="selects-container">
-    <yv-cluster-field
-      formControlName="search"
-      [property]="stateEnum.DEFAULT"
-      placeholder="Search"
-      label="Search"
-    ></yv-cluster-field>
+    <yv-cluster-field formControlName="search" [property]="stateEnum.DEFAULT" placeholder="Search"
+     ></yv-cluster-field>
 
-    <yv-cluster-select
-      formControlName="date"
-      [default]="'Select Date'"
-      [dropdownType]="nativeOptions.TEXT"
-    ></yv-cluster-select>
+    @if (Filters.includes(filterNames.DATEOFREPORT)) {
+    <yv-cluster-select formControlName="date" [default]="'Select Date Of Report'"
+      [dropdownType]="nativeOptions.TEXT"></yv-cluster-select>
+    }
+    @if (Filters.includes(filterNames.DATEOFASSIGNEE)) {
+      <yv-cluster-select formControlName="assigneeDate" [default]="'Select Date Of Assignee '"
+        [dropdownType]="nativeOptions.TEXT" [options]="assigneeOptions"></yv-cluster-select>
+    }
+    @if (Filters.includes(filterNames.FILTERBYSTATUS)) {
+    <yv-cluster-select formControlName="status" [default]="'Filter By Status'" [dropdownType]="nativeOptions.STATUS"
+      [options]="badgeOptions"></yv-cluster-select>
+    }
+    @if (Filters.includes(filterNames.FILTERBYASSIGNEE)) {
+    <yv-cluster-select formControlName="assignee" [default]="'Filter By Assignee'"
+      [dropdownType]="nativeOptions.ASSIGNEE" [options]="assigneeOptions"></yv-cluster-select>
+    }
 
-    <yv-cluster-select
-      formControlName="status"
-      [default]="'Filter By Status'"
-      [dropdownType]="nativeOptions.STATUS"
-      [options]="badgeOptions"
-    ></yv-cluster-select>
-
-    <yv-cluster-select
-      formControlName="assignee"
-      [default]="'Filter By Assignee'"
-      [dropdownType]="nativeOptions.ASSIGNEE"
-      [options]="assigneeOptions"
-    ></yv-cluster-select>
   </div>
 
+  @if (iconsVisible) {
   <div class="right-buttons">
-    <!-- כפתור ראשון: Assignee toggle -->
-    <!-- formControlName="toggleAssignee" -->
 
-    <yv-cluster-icon-button-large
-      [icon]="iconType.USER_LIGHT"
-      [property]="iconButtonLargeType.DEFAULT"
-      (onClick)="onClickStatus()"
-    ></yv-cluster-icon-button-large>
+
+    <div class="icon-container" (mouseenter)="showPopover(popOverTypeEnum.ASSIGNEE)" (mouseleave)="hidePopover()">
+      <yv-cluster-icon-button-large [icon]="iconType.USER_LIGHT" [property]="iconButtonLargeType.DEFAULT"
+        (onClick)="onClickStatus()"></yv-cluster-icon-button-large>
+      @if(visiblePopover === popOverTypeEnum.ASSIGNEE){
+      <div class="popover">
+        <yv-cluster-popover [type]="popOverTypeEnum.ASSIGNEE" [popoverOptions]="assigneeOptions"></yv-cluster-popover>
+      </div>
+      }
+    </div> 
 
     <!-- כפתור שני: Status toggle -->
     <!-- formControlName="toggleStatus" -->
-    <yv-cluster-icon-button-large
-      
-      [icon]="iconType.CLIPBOARD_LIST_LIGHT"
-      [property]="iconButtonLargeType.DEFAULT"
-      (onClick)="onClickAssinee()"
-    ></yv-cluster-icon-button-large>
+    <div class="icon-container" (mouseenter)="showPopover(popOverTypeEnum.STATUS)" (mouseleave)="hidePopover()">
+      <yv-cluster-icon-button-large [icon]="iconType.CLIPBOARD_LIST_LIGHT" [property]="iconButtonLargeType.DEFAULT"
+        (onClick)="onClickAssinee()"></yv-cluster-icon-button-large>
+      @if(visiblePopover === popOverTypeEnum.STATUS){
+      <div class="popover">
+        <yv-cluster-popover [type]="popOverTypeEnum.STATUS" [popoverOptions]="badgeOptions"></yv-cluster-popover>
+      </div>
+      }
 
-    <!-- כפתור רגיל -->
-    <yv-cluster-button
-      (onClick)="onClickAddClusterFunc()"
-      [text]="buttonText"
-      [buttonType]="primary"
-      [isBig]="true"
-      [iconType]="iconType.PLUS_LIGHT"
-    ></yv-cluster-button>
-
-    
+      <!-- כפתור רגיל -->
+      <!-- <yv-cluster-button (onClick)="onClickAddClusterFunc()" [text]="buttonText" [buttonType]="primary" [isBig]="true"
+        [iconType]="iconType.PLUS_LIGHT"></yv-cluster-button> -->
+    </div>
   </div>
+  }
 </form>

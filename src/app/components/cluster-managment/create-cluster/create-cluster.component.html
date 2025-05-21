@@ -38,7 +38,7 @@
                     <div class="buttons-warp">
                         <div class="buttons">
                             <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType1"
-                                [text]="button1" (onClick)="close=true">
+                                [text]="button1" (onClick)="this.closeDialogWithData(null)">
                             </yv-cluster-button>
                             <yv-cluster-button  [isBig]="btn_size" [buttonType]="buttomType2" [disabled]="!createClusterForm.valid"
                                 [text]="button2" (onClick)="createCluster()">
@@ -51,11 +51,11 @@
         </div>
     </div>
 </form>
-@if(formIsValid==true){
+<!-- @if(formIsValid==true){
 <yv-cluster-toast-notification [iconName]="iconType.CIRCLE_CHECK_SOLID" [message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
 
 }
 @if(formIsValid==false){
 <yv-cluster-toast-notification [iconName]="iconType.XMARK_SOLID" [message]="'Please fill all the fields'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
-}
+} -->
 

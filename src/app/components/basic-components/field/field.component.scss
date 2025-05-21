@@ -1,11 +1,11 @@
-@import "src/styles.scss";
+@import "../../../../styles/colors.scss";
+
 .warpper {
   display: flex;
-  // padding: -1rem;
   align-items: flex-start;
   flex-direction: column;
-  // gap: 0.1rem;
-  // margin-top: -1rem;
+  background:$c-FFFFFF;
+  gap: 0.1rem;
 }
 
 .common-input-wrapper {
@@ -40,7 +40,7 @@ flex-shrink: 0;
 }
 
 .common-input-wrapper.focused {
-  border: 0.0625rem solid $c-1334B9;
+  border: 0.0625rem solid  $c-1334B9;
 }
 
 legend.default, legend.error, legend.disabled {
@@ -71,7 +71,7 @@ legend.focused, legend.populated {
 }
 
 .input-label.disabled {
-  color:$c-D0D6F1;
+  color:$c-8999DC;
 }
 
 .input-label.populated {

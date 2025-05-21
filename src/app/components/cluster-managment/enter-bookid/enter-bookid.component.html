@@ -14,7 +14,7 @@
                 <div class="buttons-warp">
                     <div class="buttons">
                         <yv-cluster-button [disabled]="false" [isBig]="btn_size" [buttonType]="buttomType1"
-                            [text]="button1" (onClick)="this.dialogRef?.close()">
+                            [text]="button1" (onClick)="closeDialogWithData(null)">
                         </yv-cluster-button>
 
                         <yv-cluster-button [disabled]="false" [isBig]="btn_size" [buttonType]="buttomType2"
@@ -26,9 +26,9 @@
         </div>
     </div>
 </form>
-@if(formIsValid){
+<!-- @if(formIsValid){
 <yv-cluster-toast-notification [iconName]="iconType.CIRCLE_CHECK_SOLID" [message]="message"  [text]="'Cancel'" [duration]="80000"></yv-cluster-toast-notification>
 }
 @if(formIsValid==false){
 <yv-cluster-toast-notification [iconName]="iconType.XMARK_SOLID" [message]="'Please choose or fill before submitting.'"  [text]="'Cancel'" [duration]="80000"></yv-cluster-toast-notification>
-}
+} -->

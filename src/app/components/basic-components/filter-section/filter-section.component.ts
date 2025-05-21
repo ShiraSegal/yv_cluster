@@ -1,5 +1,5 @@
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -9,6 +9,7 @@ import {
   IconButtonLargeType,
   NativeOptionState,
   NativeOptionType,
+  PopoverType,
   State
 } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
@@ -17,6 +18,8 @@ import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large
 import { SelectComponent } from '../select/select.component';
 import { FieldComponent } from '../field/field.component';
 import { ClusterService } from 'src/app/services/cluster.service';
+import { PopoverComponent } from '../popover/popover.component';
+import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 
 @Component({
   selector: 'yv-cluster-filter-section',
@@ -27,19 +30,33 @@ import { ClusterService } from 'src/app/services/cluster.service';
     ButtonComponent,
     IconButtonLargeComponent,
     SelectComponent,
-    FieldComponent
+    FieldComponent,
+    PopoverComponent
   ],
   templateUrl: './filter-section.component.html',
   styleUrls: ['./filter-section.component.scss']
 })
 export class FilterSectionComponent {
+  #fb=inject(FormBuilder)
+  #clusterService=inject(ClusterService)
   @Input() buttonText: string = 'New Cluster';
   @Input() icon: IconType = IconType.PLUS_LIGHT;
+  @Input() iconsVisible: boolean = false;
+  @Input() Filters :FilterNames[] = [];
   @Output() onClickAddCluster = new EventEmitter<void>();
   @Output() onFilterValuesChange = new EventEmitter<any[]>();
 
+  ngOnInit() {
+    console.log('Filters received in filter-section:', this.Filters); // Debugging log
+  }
+
   filterForm: FormGroup;
   statusAssineeForm: FormGroup;
+  popOverTypeEnum = PopoverType;
+  filterNames = FilterNames;
+  popOverType : PopoverType = PopoverType.ASSIGNEE;
+  visiblePopover: PopoverType | null = null;
+
 
   stateEnum = State;
   nativeOptions = NativeOptionType;
@@ -68,16 +85,16 @@ export class FilterSectionComponent {
       property: BadgeType.DONE
     }
   ];
+  constructor() {
 
-  constructor(private fb: FormBuilder, private clusterService: ClusterService) {
-    this.filterForm = this.fb.group({
+    this.filterForm = this.#fb.group({
       search: [''],
       date: [null],
       status: [null],
       assignee: [null],
     });
 
-    this.statusAssineeForm = this.fb.group({
+    this.statusAssineeForm = this.#fb.group({
       toggleAssignee: [],
       toggleStatus: []
     });
@@ -90,7 +107,7 @@ export class FilterSectionComponent {
       console.log('statusAssineeForm:', val);
     });
 
-    this.clusterService.AssigneeList$.subscribe(names => {
+    this.#clusterService.AssigneeList$.subscribe(names => {
       this.assigneeOptions = names.map(name => ({
         optionType: NativeOptionType.ASSIGNEE,
         optionState: NativeOptionState.DEFAULT,
@@ -98,7 +115,13 @@ export class FilterSectionComponent {
       }));
     });
   }
+  showPopover(type: PopoverType): void {
+    this.visiblePopover = type;
+  }
 
+  hidePopover(): void {
+    this.visiblePopover = null;
+  }
   onClick() {
     console.log('Submit clicked:', this.filterForm.value);
   }

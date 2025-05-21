@@ -43,27 +43,85 @@ import { BigCardComponent } from "../basic-components/big-card/big-card.componen
 import { SatisticCardComponent } from "../basic-components/satistic-card/satistic-card.component";
 import { CreateClusterComponent } from "../cluster-managment/create-cluster/create-cluster.component";
 import { PopoverComponent } from "../basic-components/popover/popover.component";
-import { NativeOptionComponent } from "../basic-components/native-option/native-option.component";
-import { HomeWarpComponent } from "../core-components/home-warp/home-warp.component";
-import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
-import { SelectComponent } from '../basic-components/select/select.component';
 import { CardColor } from "src/app/enums/card-colors.enum";
+import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-handling-suggestions/filter-handling-suggestions.component";
+
+import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id-details/table-group-id-details.component";
+import { TooltipComponent } from "../basic-components/tooltip/tooltip.component";
+import { HomeComponent } from "../pages/home/home.component";
+import { CrmClustersComponent } from "../pages/crm-clusters/crm-clusters.component";
+import { SelectComponent } from "../basic-components/select/select.component";
+import { NativeOptionComponent } from "../basic-components/native-option/native-option.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
   imports: [
-    SlidebarNavigationComponent,
-    SliderNavigationTabComponent,
-    HeadingComponent,
-    BodyComponent,
+    IconButtonComponent,
+    SliderComponent,
+    CheckComponent,
     AssigneeComponent,
     DataCellsComponent,
-    PopoverComponent,
-    NativeOptionComponent,
+    HeaderCellsComponent,
+    BadgeComponent,
+    CommonModule,
+    ButtonComponent,
+    SwitchComponent,
+    BasicTabComponent,
+    IconButtonLargeComponent,
+    AssigneeComponent,
+    BasicTableRowComponent,
+    DataCellsComponent,
+    HeaderCellsComponent,
+    FieldComponent,
+    CommonModule,
+    SliderNavigationTabComponent,
+    ButtonComponent,
+    CheckComponent,
+    IconButtonLargeComponent,
+    BasicTabComponent,
+    SliderComponent,
+    SwitchComponent,
+    ViewerComponent,
+    SlidebarNavigationComponent,
+    BasicCardComponent,
+    NarrowBasicTableRowComponent,
+    NarrowBasicTableWarpComponent,
+    SliderComponent,
+    CheckComponent,
+    ViewerComponent,
+    BadgeComponent,
+    BadgeComponent,
+    AssigneeComponent,
+    DataCellsComponent,
+    HeaderCellsComponent,
+    SliderNavigationTabComponent,
+    SlidebarNavigationComponent,
+    FieldComponent,
+    CommonModule,
+    ButtonComponent,
+    SwitchComponent,
+    TableHeaderComponent,
+    BasicTabComponent,
+    BasicCardComponent,
+    IconButtonLargeComponent,
+    PieCircleComponent,
+    PieComponentDistributionModalComponent,
+    PieTableComponent,
+    BigCardComponent,
+    SatisticCardComponent,
+    ToastNotificationComponent,
+    FilterSectionComponent,
+    RadioButtonListComponent,
+    BasicRadioButtonComponent,
+    BasicToggleComponent,
+    BasicTabComponent,
     HeaderCellsComponent,
     EnterBookidComponent,
     HeadingComponent,
     BodyComponent,
+    TableGroupIdDetailsComponent,
+    FilterHandlingSuggestionsComponent,
+    CrmClustersComponent,
     CreateClusterComponent,
     CommonModule,
     IconButtonComponent,
@@ -86,8 +144,15 @@ import { CardColor } from "src/app/enums/card-colors.enum";
      NarrowBasicTableRowComponent,
      NarrowBasicTableWarpComponent,
      TableHeaderComponent,
-      HomeWarpComponent,
-      NativeOptionComponent
+      // HomeWarpComponent,
+      NativeOptionComponent,
+    // HomeWarpComponent,
+    PopoverComponent,
+    TooltipComponent,
+    
+    PopoverComponent,
+    HomeComponent
+
   ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
@@ -109,6 +174,7 @@ export class TestComponent {
   basicTableRowPropertyVariants = BasicTableRowPropertyVariants;
   sliderNavigationTabTextType = SliderNavigationTabTextType
   autoClusterTabType = AutoClusterTabType;
+  NarrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   nativeOptionType = NativeOptionType;
   optionState = NativeOptionState;
@@ -121,7 +187,6 @@ export class TestComponent {
   //variables-----------------------------------------------------------------------
   radioButtonListDirection=RadioButtonListDirection;
   cardColorEnum=CardColor;
-
   
 //variables-----------------------------------------------------------------------
   // button component properties
@@ -196,7 +261,7 @@ export class TestComponent {
     { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
     { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT }
   ];
-  customSubtitle = 'Custom Subtitle';
+  customSubtitle = 'Suggestions generated by the automated system running overnight.';
   nativeOptionswe = [
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },

@@ -1,4 +1,3 @@
-
 <div class="table-container">
   <div class="warp-table-container">
     <div class="text-container">
@@ -8,14 +7,14 @@
 
     <div class="tabs-container">
       @for (tab of tabs; track tab) {
-      <yv-cluster-basic-tab [text]="tab.text" 
-      
-      [active]="tab.status" (tabChange)="setActiveTab(tab.text)">
+      <yv-cluster-basic-tab [text]="tab.text" [active]="tab.status" (tabChange)="setActiveTab(tab.text)">
       </yv-cluster-basic-tab>
       }
     </div>
   </div>
 <div class="basic-table-container">
-  <yv-cluster-narrow-basic-table [Headers]="Headers" [Rows]="Rows"></yv-cluster-narrow-basic-table>
+  @if(Rows.length>0 && Headers.length>0){ 
+  <yv-cluster-narrow-basic-table [Headers]="Headers" [Rows]="Rows" [Filters]="getFiltersForTab(currentTab)"></yv-cluster-narrow-basic-table>
+  }
 </div>
 </div>

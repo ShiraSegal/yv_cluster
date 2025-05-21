@@ -1,4 +1,4 @@
-import { ClusteredNameRow } from "./ClusteredNameRow";
+import { ClusteredNameRow } from "./clustered-name-row.model";
 
 export class ClusterGroupWithCrmLinks {
     __type: string;

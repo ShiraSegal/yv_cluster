@@ -2,17 +2,19 @@ import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, of, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
+import { LastName } from '../models/last-name.model';
+import { LastNameInPlaces } from '../models/last-name-inplaces.model';
+import { StatisticDetail } from '../models/statistic-detail.model';
+import { StatisticData } from '../models/statistic-data.model';
+import { ValueCodeItem } from '../models/value-code-item.model';
+import { ClusterGroupWithCrmLinks } from '../models/cluster-group-with-crm-links.model';
+import { ClusteredNameRow } from '../models/clustered-name-row.model';
+import { RootObjectOfClusterGroupDetails } from '../models/root-object-of-cluster-group-details.model';
+// import { map } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { SapirClusterModel } from '../models/sapir-cluster-model.model';
-import { LastNameInPlaces } from '../models/LastNameInPlaces';
-import { LastName } from '../models/LastName';
-import { StatisticDetail } from '../models/StatisticDetail';
-import { StatisticData } from '../models/StatisticData';
 import { RootObject } from '../models/root-object.model';
-import { ValueCodeItem } from '../models/ValueCodeItem';
-import { ClusterGroupWithCrmLinks } from '../models/ClusterGroupWithCrmLinks';
-import { ClusteredNameRow } from '../models/ClusteredNameRow';
-import { RootObjectOfClusterGroupDetails } from '../models/RootObjectOfClusterGroupDetails';
+
 
 
 
@@ -120,9 +122,7 @@ export class ClusterService {
       })
     );
   }
-  deleteClusteredNameByBookId(list: any[], bookId: string): any[] {
-    return list.filter(item => item[1].data !== bookId);
-  }
+
   private assigneeList$ = new BehaviorSubject<string[]>([]);
 
   get AssigneeList$(): Observable<string[]> {
@@ -199,7 +199,6 @@ export class ClusterService {
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
-          debugger
           console.log("Cluster created successfully:", res); // לוג לתוצאה
           // return res;
         }),

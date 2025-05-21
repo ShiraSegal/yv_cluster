@@ -17,7 +17,7 @@
     @if (text !== "other") {
     <div class="text-radio-button">{{ text }}</div>
     } @else {
-    <yv-cluster-field class="field" [property]="stateEnum.DEFAULT" [placeholder]="'other'"></yv-cluster-field>
+    <yv-cluster-field class="field" name="field" [(ngModel)]="formData.field" (ngModelChange)="onfieldChange($event)"[property]="stateEnum.DEFAULT" [placeholder]="'other'"></yv-cluster-field>
     }
 
 </div>

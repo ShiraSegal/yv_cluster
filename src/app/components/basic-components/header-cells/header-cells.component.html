@@ -1,8 +1,9 @@
 <div [ngClass]="[type,'header-cell']">
 
     @if(header === 'Last Name'){
-    <div>
-        <i class="fa-solid fa-chart-simple chart-icon"  (click)="openPeiComponent()"></i>{{ header }}
+    <div class="pie-icon">
+        <i class="fa-solid fa-chart-simple chart-icon"  (click)="openPeiComponent()"></i>
+        {{ header }}
     </div>
     }
     @else{
@@ -22,6 +23,8 @@
     }
     @if(type === headerCellType.CHECK){
     <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED
-        (checkStatus)="checkChange($event)"></yv-cluster-check>
+        (checkStatus)="checkChange($event)"
+        [checkedControl]="headerCheckboxControl"
+        ></yv-cluster-check>
     }
 </div>

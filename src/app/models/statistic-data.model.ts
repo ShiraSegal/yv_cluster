@@ -1,4 +1,4 @@
-import { StatisticDetail } from "./StatisticDetail";
+import { StatisticDetail } from "./statistic-detail.model";
 
 export class StatisticData {
     totalCount: number;

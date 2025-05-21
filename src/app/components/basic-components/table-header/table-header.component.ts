@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output,EventEmitter } from '@angular/core';
 import { HeaderCellType } from 'src/app/enums/basic-enum';
 import { HeaderCellsComponent } from "../header-cells/header-cells.component";
+import { FormControl } from '@angular/forms';
 import { CheckType } from 'src/app/enums/check-enum';
 
 @Component({
@@ -13,10 +14,15 @@ import { CheckType } from 'src/app/enums/check-enum';
 })
 export class TableHeaderComponent {
 @Input() headers: { data: string; type: HeaderCellType }[] = [];
+@Input() headerCheckboxControl: FormControl;
+
 @Output() checkStatus= new EventEmitter<CheckType>();
 @Output() openDialog= new EventEmitter<boolean>();
 
+//injections
 headerCellType =   HeaderCellType
+
+//functions
 checkChange(checkStatus:CheckType) {
   this.checkStatus.emit(checkStatus);
   console.log(" table header check status", checkStatus)

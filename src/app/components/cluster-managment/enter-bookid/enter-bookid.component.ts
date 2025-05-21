@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, inject, Input, OnInit, Optional } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonType, RadioButtonListDirection, State, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../../basic-components/button/button.component';
@@ -6,9 +6,9 @@ import { HeadingComponent } from '../../basic-components/heading/heading.compone
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
 import { RadioButtonListComponent } from '../../basic-components/radio-button-list/radio-button-list.component';
 import { FieldComponent } from '../../basic-components/field/field.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ToastNotificationComponent } from '../../basic-components/toast-notification/toast-notification.component';
 import { ClusterService } from 'src/app/services/cluster.service';
-import { MatDialogRef } from '@angular/material/dialog';
 import { IconType } from 'src/app/enums/icon-enum';
 import { RootObject } from 'src/app/models/root-object.model';
 
@@ -26,7 +26,7 @@ export class EnterBookidComponent {
     @Input() showRadioButtons: boolean;
 
   //form
-  dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
+  // dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
   enterBookIdOrClusterForm:FormGroup = new FormGroup({
     selection: new FormControl('', Validators.required), 
     input: new FormControl('', Validators.required)
@@ -62,7 +62,11 @@ export class EnterBookidComponent {
   iconType=IconType
   message: string = `${this.selected} Submitted!`;
 
-
+constructor(
+      @Optional() @Inject(MAT_DIALOG_DATA) public data: { title: string },
+      @Optional() public dialogRef: MatDialogRef<EnterBookidComponent>
+  
+){}
   checkedChange(selected: string) {
     this.selected = selected;
     console.log("fffffffffff:",this.enterBookIdOrClusterForm);
@@ -71,14 +75,16 @@ export class EnterBookidComponent {
 
 
   add() {
+    // this.closeDialogWithData({ bookId: '12345' })
     if (this.enterBookIdOrClusterForm.valid) {
       if(this.enterBookIdOrClusterForm.value.selection=='Book ID'){
       this.#clusterService.getSingleItemByBookId(this.enterBookIdOrClusterForm.value.input).subscribe({
         next: (res: RootObject | boolean) => {
           console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
-          
+          this.closeDialogWithData({ bookId:this.enterBookIdOrClusterForm.value.input })
           if (res) {
             console.log("bookId add:", res);
+           
           } else {
             console.warn("add bookId failed.");
           }
@@ -96,6 +102,7 @@ export class EnterBookidComponent {
           console.log("res", res);
           
           console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
+          this.closeDialogWithData({ bookId:this.enterBookIdOrClusterForm.value.input })
           if (res) {
             console.log("Cluster add:", res);
           } else {
@@ -111,9 +118,15 @@ export class EnterBookidComponent {
   }
   else {
     this.formIsValid = false; 
+    this.closeDialogWithData({ bookId:"formIsNotValid" })
   }
-    console.log("formIsValid", this.formIsValid); 
-  
-   
+}
+  // cancel() {
+  //   this.close = true;
+  //     this.dialogRef.close();  // סוגר את הדיאלוג
+  // }
+
+  closeDialogWithData(data: any): void {
+    this.dialogRef.close(data); // מעבירה את הנתונים לקומפוננטת האבא
   }
 }

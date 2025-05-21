@@ -24,7 +24,12 @@
           <span class="icon-wrapper">
             <i class="fa-regular fa-square-arrow-up-right custom-arrow"></i>
           </span>
-          {{ displayText }}
+          @if(displayText && displayText.includes('crm')){
+         <a href="{{displayText}}">  {{ displayText.split('#').pop() }}</a>
+          }
+            @else{
+         <a href="{{displayText}}">  {{ displayText}}</a>
+          }
         }
   
         @case(optionTypeMain.STATUS) {

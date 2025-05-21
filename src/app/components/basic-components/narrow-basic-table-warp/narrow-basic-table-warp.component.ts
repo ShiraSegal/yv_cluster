@@ -5,6 +5,7 @@ import { DataCellType, HeaderCellType, AutoClusterTabType } from 'src/app/enums/
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { BasicTabComponent } from '../basic-tab/basic-tab.component';
+import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 
 
 @Component({
@@ -36,40 +37,33 @@ export class NarrowBasicTableWarpComponent {
 
 
   @Input() subTitle: string = '';
-  @Input() data: Partial<Record<AutoClusterTabType, {
-    Headers: { data: string; type: HeaderCellType }[];
-    Rows: {
-      property: NarrowBasicTableRowInputState;
-      showAction: boolean;
-      cells: {
-        data: string;
-        type: DataCellType;
-        moreData?: { [key: string]: any };
-      }[];
-    }[]
-  }>> =
-    {
-      [AutoClusterTabType.SAPIR_CLUSTERS]: {
-        Headers: [{ data: '', type: HeaderCellType.CHECK },
-        ],
-        Rows: []
-      },
-      [AutoClusterTabType.MISSING_FIELD]: {
-        Headers: [{ data: '', type: HeaderCellType.CHECK },
-        { data: 'CNT ', type: HeaderCellType.TEXT },
-        { data: 'Cluster ID ', type: HeaderCellType.TEXT },
-        { data: 'Missing field ', type: HeaderCellType.TEXT },
-        { data: 'Comments ', type: HeaderCellType.TEXT },
-        { data: 'Status ', type: HeaderCellType.TEXT },
-        { data: 'Assignee ', type: HeaderCellType.TEXT },
-        { data: 'Date of report ', type: HeaderCellType.TEXT },
-        { data: 'Assinee date ', type: HeaderCellType.TEXT }
 
-        ],
-        Rows: []
-      }
-    }
+
   currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
+  
+
+  filters : FilterNames[] = [
+    FilterNames.DATEOFREPORT,
+    FilterNames.DATEOFASSIGNEE,
+    FilterNames.FILTERBYSTATUS,
+    FilterNames.FILTERBYASSIGNEE
+  ];
+  getFiltersForTab(tabName: AutoClusterTabType): FilterNames[] {
+    if (tabName === this.autoClusterTabType.SAPIR_CLUSTERS) {
+      return [FilterNames.DATEOFREPORT];
+    } else if (tabName === this.autoClusterTabType.MISSING_FIELD) {
+      return [FilterNames.DATEOFREPORT,FilterNames.DATEOFASSIGNEE, FilterNames.FILTERBYASSIGNEE,FilterNames.FILTERBYSTATUS];
+    } else if (tabName === this.autoClusterTabType.APPROVAL_GROUPS) {
+      return [FilterNames.DATEOFREPORT,FilterNames.DATEOFASSIGNEE, FilterNames.FILTERBYASSIGNEE,FilterNames.FILTERBYSTATUS];
+    } else if (tabName === this.autoClusterTabType.CHECKLIST_ITEMS) {
+      return [FilterNames.DATEOFREPORT,FilterNames.DATEOFASSIGNEE, FilterNames.FILTERBYASSIGNEE,FilterNames.FILTERBYSTATUS];
+    } else if (tabName === this.autoClusterTabType.DIFFERENT_CLUSTERS) {
+      return [FilterNames.DATEOFREPORT,FilterNames.DATEOFASSIGNEE, FilterNames.FILTERBYASSIGNEE,FilterNames.FILTERBYSTATUS];
+    } else if (tabName === this.autoClusterTabType.ERROR_MESSAGES) {
+      return [FilterNames.DATEOFREPORT,FilterNames.DATEOFASSIGNEE, FilterNames.FILTERBYASSIGNEE,FilterNames.FILTERBYSTATUS];
+    }
+    return this.filters;
+  }
 
   tabs = [
     { text: AutoClusterTabType.SAPIR_CLUSTERS, status: true },
@@ -223,8 +217,8 @@ export class NarrowBasicTableWarpComponent {
     }));
   }
 
-  async ngOnInit() {
-    await this.clusterService.getAutoClusterData();
+   ngOnInit() {
+     this.clusterService.getAutoClusterData();
     this.clusterService.autoClusterListSubject$.subscribe((data) => {
       this.tabData = data; // שמירת הנתונים ב-tabData
       this.loadDataForTab(); // טען את הנתונים לטבלה

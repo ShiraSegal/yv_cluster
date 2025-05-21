@@ -23,8 +23,11 @@ export const routes: Routes = [
         {
           path: 'newCluster/:id', loadComponent: () => import('./components/pages/new-cluster/new-cluster.component').then(x => x.NewClusterComponent)
         },
+         {
+          path: 'CRM Clusters', loadComponent: () => import('./components/pages/crm-clusters/crm-clusters.component').then(x => x.CrmClustersComponent)
+        },
         {
-          path: 'test', loadComponent: () => import('./components/test/test.component').then(x => x.TestComponent)
+          path: 'report', loadComponent: () => import('./components/test/test.component').then(x => x.TestComponent)
         },
         
      ],

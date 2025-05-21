@@ -1,13 +1,15 @@
 <div [ngClass]="['data-cell', type]">
   @if(type === dataCellType.TEXT) {
+    @if(prefCodeStatus===true){
+     {{ moreData['prefCode']}}
+    }
+    @else{
   {{ data }}
+    }
   }
-
   @if(type === dataCellType.MORE) {
   <i class="fas fa-ellipsis-v more-icon"></i>
   }
-
-
   @if (type === dataCellType.CHECK) {
     <yv-cluster-check 
     [checkedControl]="control" 
@@ -30,7 +32,8 @@
   }
 
   @if(type === dataCellType.LINK) {
-  <a [href]="data">{{ data }}</a>
+  <!-- <a [href]="hRef">{{data}}</a> -->
+    <a [href]="'https://collections.yadvashem.org/en/names/' + data">{{data}}</a>
   }
 
   @if(type === dataCellType.ICON) {

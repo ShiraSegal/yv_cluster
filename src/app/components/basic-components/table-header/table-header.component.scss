@@ -33,7 +33,8 @@
 
 .table-header {
   height: 5.125rem;
-  // justify-content: space-between;
+
+  justify-content: space-between;
   align-self: stretch;
   border-bottom: 1px solid $c-D0D6F1;
   display: flex;
@@ -41,7 +42,7 @@ padding: 0.25rem 0rem;
 align-items: center;
 align-self: stretch;
  border-bottom: 1px solid $c-D0D6F1;
-//  width: 100rem;
+ margin-left: -0.5rem;
 }
 
 .regular-cell {
@@ -52,6 +53,7 @@ align-self: stretch;
 .special-cell {
   flex-grow: 0;
   flex-basis: 0;
-  margin-right: 2.5rem;
+  margin-right: 2.6rem;
   width: 1.5625rem;
+  
 }
