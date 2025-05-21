@@ -22,6 +22,9 @@ import { RootObject } from 'src/app/models/root-object.model';
 export class EnterBookidComponent {
   
     #clusterService = inject(ClusterService);
+
+    @Input() showRadioButtons: boolean;
+
   //form
   dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
   enterBookIdOrClusterForm:FormGroup = new FormGroup({

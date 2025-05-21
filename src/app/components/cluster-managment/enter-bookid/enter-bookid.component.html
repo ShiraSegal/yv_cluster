@@ -3,11 +3,11 @@
         <div class="header-warp">
             <yv-cluster-heading [title]="header" [size]="size" [weight]="weight" [color]="color"></yv-cluster-heading>
         </div>
-
+        @if(showRadioButtons){
         <div class="radio-buttons">
             <yv-cluster-radio-button-list class="radio" [radioButtonValuesArray]="radioButtonArray" formControlName="selection"  [direction]="direction" (selectionChange)="checkedChange($event)"></yv-cluster-radio-button-list>
         </div>
-
+    }
         <input class="input" type="text" formControlName="input"/>
         <div class="outer-button-warp">
             <div class="divider"></div>
@@ -18,7 +18,7 @@
                         </yv-cluster-button>
 
                         <yv-cluster-button [disabled]="false" [isBig]="btn_size" [buttonType]="buttomType2"
-                            [text]="button2" [disabled]="!enterBookIdOrClusterForm.valid" (onClick)="add()">
+                            [text]="button2" [disabled]="enterBookIdOrClusterForm.invalid" (onClick)="add()">
                         </yv-cluster-button>
                     </div>
                 </div>

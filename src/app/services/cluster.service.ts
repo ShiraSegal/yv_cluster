@@ -210,26 +210,16 @@ export class ClusterService {
       );
   }
 
-  getSingleItemByBookId (bookId:string): any{
-      this.#clusterApiService.getSingleItemByBookId(bookId).subscribe({
-      next: (res:any) => {
-        console.log("BookId added successfully:", res); // לוג לתוצאה
-        return false;
-      }
-    
-     }
-    )
-  
-      // .pipe(
-      //   tap(res => {
-      //     console.log("BookId added successfully:", res); 
-      //     // return of(res as RootObject);
-      //   }),
-      //   catchError(err => {
-      //     console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
-      //     return of(false);
-      //   })
-      // );
+  getSingleItemByBookId (bookId:string): Observable<any> {
+      return this.#clusterApiService.getSingleItemByBookId(bookId).pipe(
+        tap((res) => {
+          console.log("BookId fetched successfully:", res);
+        }),
+        catchError((err) => {
+          console.error("Error occurred while fetching BookId:", err);
+          return of(false); // מחזיר false במקרה של שגיאה
+        })
+      );
   }
 
   

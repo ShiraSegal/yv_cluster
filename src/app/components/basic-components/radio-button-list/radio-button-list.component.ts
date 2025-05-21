@@ -65,6 +65,9 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   
   onRadioChange(value: string): void {
     console.log("onRadioChange", value);
+    if(this.radioControl.value === value){
+      value='';
+    }
     this.onChange(value); // עדכון הערך
     this.radioControl.setValue(value); // עדכון הערך של FormControl
     this.selectionChange.emit(value); // פליטת האירוע

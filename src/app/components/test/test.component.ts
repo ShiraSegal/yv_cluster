@@ -86,7 +86,8 @@ import { CardColor } from "src/app/enums/card-colors.enum";
      NarrowBasicTableRowComponent,
      NarrowBasicTableWarpComponent,
      TableHeaderComponent,
-      HomeWarpComponent
+      HomeWarpComponent,
+      NativeOptionComponent
   ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
