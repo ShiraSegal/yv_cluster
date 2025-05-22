@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, SimpleChange, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -44,6 +44,12 @@ export class AssigneeComponent implements ControlValueAccessor {
 
   registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
+  }
+
+  ngOnChanges(changes:SimpleChanges): void {
+    if(changes["data"]){
+      this.updateAssigneeProperties()
+    }
   }
 
   editAssignee(newValue: string): void {

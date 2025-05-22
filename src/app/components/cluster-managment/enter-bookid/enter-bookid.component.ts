@@ -21,6 +21,13 @@ import { RootObject } from 'src/app/models/root-object.model';
 })
 export class EnterBookidComponent {
   
+//   constructor(
+//     @Optional() @Inject(MAT_DIALOG_DATA) public data: { title: string },
+//     @Optional() public dialogRef: MatDialogRef<EnterBookidComponent>
+
+// ){}
+data: { title: string } = inject(MAT_DIALOG_DATA, { optional: true });
+dialogRef: MatDialogRef<EnterBookidComponent> = inject(MatDialogRef, { optional: true })!;
     #clusterService = inject(ClusterService);
 
     @Input() showRadioButtons: boolean;
@@ -28,7 +35,6 @@ export class EnterBookidComponent {
   //form
   // dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
   enterBookIdOrClusterForm:FormGroup = new FormGroup({
-    selection: new FormControl('', Validators.required), 
     input: new FormControl('', Validators.required)
   });
 
@@ -62,15 +68,15 @@ export class EnterBookidComponent {
   iconType=IconType
   message: string = `${this.selected} Submitted!`;
 
-constructor(
-      @Optional() @Inject(MAT_DIALOG_DATA) public data: { title: string },
-      @Optional() public dialogRef: MatDialogRef<EnterBookidComponent>
-  
-){}
+ngOnInit() {
+  if(this.showRadioButtons)
+  {
+    this.enterBookIdOrClusterForm.addControl('selection', new FormControl('', Validators.required));
+  }
+}
+
   checkedChange(selected: string) {
     this.selected = selected;
-    console.log("fffffffffff:",this.enterBookIdOrClusterForm);
-    
   }
 
 

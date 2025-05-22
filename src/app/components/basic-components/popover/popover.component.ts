@@ -33,9 +33,9 @@ type NativePopoverOption = {
 })
 export class PopoverComponent implements ControlValueAccessor {
   @Input() type: PopoverType;
-  @Input() popoverOptions: NativePopoverOption[];
+  @Input() popoverOptions: NativePopoverOption[]=[];
 
-  popoverList: NativePopoverOption[];
+  filterdList: NativePopoverOption[];
   header: string;
   size: TextSize = TextSize.MEDIUM;
   weight: TextWeight = TextWeight.BOLD;
@@ -51,7 +51,10 @@ export class PopoverComponent implements ControlValueAccessor {
   private onTouched: () => void = () => {};
 
   ngOnInit() {
-    this.popoverList=this.popoverOptions;
+    console.log("ffffffffffff",this.filterdList);
+    console.log("ppppppppppppppppp",this.popoverOptions);
+    
+     this.filterdList=this.popoverOptions;
     if (this.type === 'status') {
       this.header = 'Status';
     } else if (this.type === 'assignee') {
@@ -83,16 +86,15 @@ export class PopoverComponent implements ControlValueAccessor {
   }
 
   filterPopoverList(event: Event): void {
-    debugger
   const inputValue = (event.target as HTMLInputElement).value;  
   console.log(inputValue); // כאן תוכלי להשתמש בערך
   // if(inputValue!=''){
- this.popoverOptions=this.popoverList.filter((option) => {
+ this.filterdList=this.popoverOptions.filter((option) => {
     const displayText = option.displayText || '';
     console.log(displayText.toLowerCase().includes(inputValue.toLowerCase()));
     return displayText.toLowerCase().includes(inputValue.toLowerCase());
   })
-  console.log("ppppppppppppppppp",this.popoverOptions);
+  console.log("ppppppppppppppppp",this.filterdList);
 // }
 
 // else{

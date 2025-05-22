@@ -26,7 +26,7 @@ export class SlidebarNavigationComponent {
   tabs = [
     { number: 0, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.HOUSE_LIGHT, activeIcon: IconType.HOUSE_SOLID, text: SliderNavigationTabTextType.HOME,url:SliderNavigationTabUrl.HOME },
     { number: 1, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LIST_LIGHT, activeIcon: IconType.LIST_SOLID, text: SliderNavigationTabTextType.AUTO_CLUSTER,url:SliderNavigationTabUrl.AUTO_CLUSTER },
-    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.CHART_LINE_UP_LIGHT, activeIcon: IconType.CHART_LINE_UP_SOLID, text: SliderNavigationTabTextType.CRM_CLUSTERS,url:SliderNavigationTabUrl.CRM_CLUSTERS},
+    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.ENVELOPE_OPEN_TEXT_LIGHT, activeIcon: IconType.ENVELOPE_OPEN_TEXT_LIGHT, text: SliderNavigationTabTextType.CRM_CLUSTERS,url:SliderNavigationTabUrl.CRM_CLUSTERS},
     { number: 3, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.PLUS_LIGHT, activeIcon: IconType.PLUS_SOLID, text: SliderNavigationTabTextType.NEW_CLUSTER,url:SliderNavigationTabUrl.NEW_CLUSTER },
     { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.CHART_LINE_UP_LIGHT, activeIcon: IconType.CHART_LINE_UP_SOLID, text: SliderNavigationTabTextType.REPORT,url:SliderNavigationTabUrl.REPORT },
     { number: 5, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LEFT_FROM_BRACKET_LIGHT, activeIcon: IconType.LEFT_FROM_BRACKET_SOLID, text: SliderNavigationTabTextType.LOG_OUT,url:SliderNavigationTabUrl.LOG_OUT },

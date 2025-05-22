@@ -209,20 +209,21 @@ export class ClusterService {
       );
   }
 
-  getSingleItemByBookId (bookId:string): Observable<any> {
-      return this.#clusterApiService.getSingleItemByBookId(bookId).pipe(
+  getSingleItemByBookId (bookId:string): Observable<RootObject |any> {
+      return this.#clusterApiService.getSingleItemByBookId(bookId)
+      .pipe(
         tap((res) => {
           console.log("BookId fetched successfully:", res);
         }),
         catchError((err) => {
           console.error("Error occurred while fetching BookId:", err);
-          return of(false); // מחזיר false במקרה של שגיאה
+          return of(err); // מחזיר false במקרה של שגיאה
         })
       );
   }
 
   
-  getClusterGroupByBookId(cluster:string): Observable<RootObject | boolean>{
+  getClusterGroupByBookId(cluster:string): Observable<RootObject | any>{
      return this.#clusterApiService.getClusterGroupByBookId(cluster)
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד

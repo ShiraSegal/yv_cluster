@@ -15,16 +15,10 @@ export const routes: Routes = [
           path: 'autoCluster', loadComponent: () => import('./components/pages/auto-claster/auto-claster.component').then(x => x.AutoClasterComponent)
         },
         {
-          path: 'newCluster', loadComponent: () => import('./components/pages/new-cluster/new-cluster.component').then(x => x.NewClusterComponent)
-        },
-        {
           path: 'crmClusters/:id', loadComponent: () => import('./components/pages/crm-clusters/crm-clusters.component').then(x => x.CrmClustersComponent)
         },
         {
           path: 'newCluster/:id', loadComponent: () => import('./components/pages/new-cluster/new-cluster.component').then(x => x.NewClusterComponent)
-        },
-         {
-          path: 'CRM Clusters', loadComponent: () => import('./components/pages/crm-clusters/crm-clusters.component').then(x => x.CrmClustersComponent)
         },
         {
           path: 'report', loadComponent: () => import('./components/test/test.component').then(x => x.TestComponent)
@@ -36,9 +30,7 @@ export const routes: Routes = [
 
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledNonBlocking',useHash: false,
-})],
+  imports: [ RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }

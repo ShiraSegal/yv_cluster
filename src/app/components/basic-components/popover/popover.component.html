@@ -27,8 +27,8 @@
     </div>
     @if(type!='status'){
     <div class="field-warp">
-<input class="field" placeholder="Search By name" (input)="filterPopoverList($event)"/>
-     <!-- <yv-cluster-field class="field"></yv-cluster-field> -->
+<!-- <input class="field" placeholder="Search By name" (input)="filterPopoverList($event)"/> -->
+     <yv-cluster-field class="field" [placeholder]="'Search By name'"  (input)="filterPopoverList($event)"></yv-cluster-field>
 
     <!-- <yv-cluster-field class="field" [property]="stateEnum.DEFAULT" [placeholder]="'Search By name'"  (input)="filterPopoverList($event)"></yv-cluster-field> -->
 
@@ -37,12 +37,14 @@
     </div>
 <div class="nativ-options-warp">
     <div class="nativ-options-internal-warp">
-    @for(option of popoverOptions; track $index){
+    @for(option of filterdList; track $index){
         <div class="native-option" (click)="onSelectedOption(option)">
             <yv-cluster-native-option [optionType]="option.optionType" [displayText]="option.displayText" [property]="option.property"></yv-cluster-native-option>
     
         </div>
         }
+        <div class="openDropDown"></div>
+        <!-- [ngStyle]="{'height': (filteredcountries.length * 3) + 'rem'}" -->
 </div>
 </div>
 </div>
