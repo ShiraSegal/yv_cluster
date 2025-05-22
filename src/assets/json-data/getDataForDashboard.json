@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "name": "Ariela Cohen",
+      "name": "Yehudit Leibowitz",
       "newSuggestionPending": 30,
       "oldSuggestionPending": 560,
       "suggestionProcessedLastMonth": 120,
@@ -9,7 +9,7 @@
     },
     {
       "id": 2,
-      "name": "Rachel Levi",
+      "name": "Batya Halperin",
       "newSuggestionPending": 45,
       "oldSuggestionPending": 600,
       "suggestionProcessedLastMonth": 150,
@@ -17,7 +17,7 @@
     },
     {
       "id": 3,
-      "name": "David Mizrahi",
+      "name": "Racheli Liff",
       "newSuggestionPending": 20,
       "oldSuggestionPending": 400,
       "suggestionProcessedLastMonth": 100,
@@ -25,7 +25,7 @@
     },
     {
       "id": 4,
-      "name": "Sara Peretz",
+      "name": "Elisheva Katzburg",
       "newSuggestionPending": 50,
       "oldSuggestionPending": 700,
       "suggestionProcessedLastMonth": 200,

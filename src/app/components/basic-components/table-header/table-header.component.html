@@ -1,4 +1,4 @@
-<div [ngClass]="['table-header', length]">
+<div class="table-header" [ngClass]="length">
     @for (header of headers ; track header)
       {
         <div [ngClass]="{'special-cell': header.type === headerCellType.CHECK || header.type === headerCellType.MORE || header.type === headerCellType.PLACEOLDER, 'regular-cell': header.type !== headerCellType.CHECK && header.type !== headerCellType.MORE && header.type !== headerCellType.PLACEOLDER}">

@@ -6,6 +6,7 @@ import { SliderNavigationTabTextType, SliderNavigationTabType } from 'src/app/en
 import { IconType } from 'src/app/enums/icon-enum';
 // import { Router } from 'express';
 import { ActivatedRoute,Router } from '@angular/router';
+import { ClusterService } from 'src/app/services/cluster.service';
 
 @Component({
   selector: 'yv-cluster-slidebar-navigation',
@@ -17,7 +18,6 @@ import { ActivatedRoute,Router } from '@angular/router';
 export class SlidebarNavigationComponent {
    #router = inject(Router);
    #route = inject(ActivatedRoute);
-  
   sliderNavigationTabTextType = SliderNavigationTabTextType;
   iconType = IconType;
   sliderNavigationTabType = SliderNavigationTabType;

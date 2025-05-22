@@ -27,6 +27,11 @@ export class ClusterService
  autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
   private isDataFetched = false;
+  currentUser: { id:number,name:string,role:string} = {
+    "id": 1,
+    "name": "Yehudit Leibowitz",
+     "role": "manager"
+};
   
   getDashboardDataById(id: number): Observable<any> {
     return this.#clusterApiService.getDashboardDataById(id).pipe(
@@ -35,7 +40,6 @@ export class ClusterService
         console.log(`Fetched user with ID ${id}:`, user);
       }),
       catchError((err) => {
-        console.error(`Error fetching user with ID ${id}:`, err);
         return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
       })
     );
@@ -45,15 +49,24 @@ export class ClusterService
     return this.#clusterApiService.getDashboardTableDataById(id).pipe(
       take(1),
       tap((user) => {
-        console.log(`Fetched user with ID ${id}:`, user);
       }),
       catchError((err) => {
-        console.error(`Error fetching user with ID ${id}:`, err);
         return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
       })
     );
   }
-  
+  login(id: number): Observable<any> {
+    return this.#clusterApiService.login(id).pipe(
+      take(1),
+      tap((user) => {
+        this.currentUser = user
+      }),
+      catchError((err) => {
+        return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
+      })
+    );
+  }
+
   async getAutoClusterData() {
     try {
       const res = (await this.#clusterApiService.getAutoClusterData())

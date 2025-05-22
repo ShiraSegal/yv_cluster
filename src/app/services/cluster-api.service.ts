@@ -40,12 +40,12 @@ export class ClusterApiService {
     return this.#http.get('./assets/json-data/getClusterGroupDetails.json');
   }
   getDashboardDataById(id: number): Observable<any> {
-    return this.#http.get<any[]>('./assets/json-data/getDataForDashboard.json').pipe(
+    return this.#http.get<any[]>(`${this.apiUrl}/getDataForDashboard.json`).pipe(
       map((data: any[]) => data.find((user: any) => user.id === id)) // סינון לפי ID
     );
   }
   getDashboardTableDataById(id: number): Observable<any> {
-    return this.#http.get<any[]>('./assets/json-data/getDataForDashboardTable.json').pipe(
+    return this.#http.get<any[]>(`${this.apiUrl}/getDataForDashboardTable.json`).pipe(
       map((data: any[]) => data.find((user: any) => user.id === id)) // סינון לפי ID
     );
   }
@@ -59,6 +59,11 @@ export class ClusterApiService {
   getAssigneeList(): Observable<{ name: string }[]> {
     return this.#http.get<{ name: string }[]>(`${this.apiUrl}/getAssignees.json`);
   }
-  
+
+  login(id: number): Observable<any> {
+    return this.#http.get<any[]>(`${this.apiUrl}/getAssignees.json`).pipe(
+      map((data: any[]) => data.find((user: any) => user.id === id)) // סינון לפי ID
+    );
+  }
   
 }
