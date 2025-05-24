@@ -28,7 +28,7 @@
     @if(type!='status'){
     <div class="field-warp">
 <!-- <input class="field" placeholder="Search By name" (input)="filterPopoverList($event)"/> -->
-     <yv-cluster-field class="field" [placeholder]="'Search By name'"  (input)="filterPopoverList($event)"></yv-cluster-field>
+     <yv-cluster-field [placeholder]="'Search By name'"  (input)="filterPopoverList($event)"></yv-cluster-field>
 
     <!-- <yv-cluster-field class="field" [property]="stateEnum.DEFAULT" [placeholder]="'Search By name'"  (input)="filterPopoverList($event)"></yv-cluster-field> -->
 
@@ -43,7 +43,7 @@
     
         </div>
         }
-        <div class="openDropDown"></div>
+        <!-- <div class="openDropDown"></div> -->
         <!-- [ngStyle]="{'height': (filteredcountries.length * 3) + 'rem'}" -->
 </div>
 </div>

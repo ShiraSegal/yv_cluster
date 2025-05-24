@@ -2,12 +2,12 @@
 
 .popover-warp {
     display: flex;
-    width: 191px;
-    padding: 0px 8px;
+    width: 11.9375rem;
+    padding: 0rem 0.5rem;
     align-items: center;
-    border-radius: 6px;
+    border-radius: 0.375rem;
     background: #FFF;
-
+    
     /* popover */
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10), 0px -4px 5px 0px rgba(0, 0, 0, 0.05);
 
@@ -68,10 +68,13 @@ flex: 1 0 0;
         align-self: stretch;
 
         
- ::ng-deep yv-cluster-field .field{
+ ::ng-deep yv-cluster-field .common-input-wrapper{
             display: flex; 
-height: 1.5rem !important;
-padding: var(--Layout-medium, 0.5rem) !important;
+            width: 1.8125rem !important;
+height:1.8152rem !important;
+// padding: var(--Layout-medium, 0.5rem) !important;
+padding-top: 0rem;
+padding-bottom: 1rem;
 align-items: center;
 gap: var(--Layout-medium, 0.5rem);
 align-self: stretch;
@@ -92,35 +95,90 @@ border: 0.5px solid #3F4B5A;
         align-items: center;
         // overflow-y: auto; // מאפשר גלילה אנכית
         overflow-x: hidden; // מונע גלילה אופקית
-        .nativ-options-internal-warp{
+//         .nativ-options-internal-warp{
+//             display: flex;
+// flex-direction: column;
+// align-items: flex-start;
+// flex: 1 0 0;
+// align-self: stretch;
+// scrollbar-width: none !important;
+// overflow-y: auto;
+
+
+// .openDropDown{
+//     display: flex;
+// height: 11.6875rem;
+// padding: 0rem 0.375rem 0.75rem 0.25rem;
+// align-items: flex-start;
+// width: 0.375rem;
+// height: 4rem;
+// // width: var(--Radius-radius-sm, 0.375rem);
+// // height: 14.9375rem;
+// // max-height: 14.9375rem;
+// position: absolute;
+// right: 0.375rem;
+// bottom: 0.3125rem;
+// border-radius: 0.5rem;
+// background: var(--Neutral-Neutral-800, #C3CBD5);
+// }
+.nativ-options-internal-warp {
             display: flex;
 flex-direction: column;
 align-items: flex-start;
 flex: 1 0 0;
 align-self: stretch;
-scrollbar-width: none !important;
+// scrollbar-width: none !important;
 overflow-y: auto;
+     overflow-x:hidden;
+    scrollbar-width: thin; // עבור Firefox
+    scrollbar-color: $c-C3CBD5 transparent;
+    border-radius: 0.5rem;
+  
+    &::-webkit-scrollbar {
+        width: 0.375rem;
+        height: 4rem;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+        display: flex;
+        height: 11.6875rem;
+        padding: 0rem 0.375rem 0.75rem 0.25rem;
+        align-items: flex-start;
+    }
+  
+    // &::-webkit-scrollbar-thumb:hover {
+    //   background-color: $c-C3CBD5;
+    // }
 
-.openDropDown{
-    display: flex;
-height: 11.6875rem;
-padding: 0rem 0.375rem 0.75rem 0.25rem;
-align-items: flex-start;
-width: 0.375rem;
-height: 4rem;
-// width: var(--Radius-radius-sm, 0.375rem);
-// height: 14.9375rem;
-// max-height: 14.9375rem;
-position: absolute;
-right: 0.375rem;
-bottom: 0.3125rem;
-border-radius: 0.5rem;
-background: var(--Neutral-Neutral-800, #C3CBD5);
-}
+    /* Chrome, Edge, Safari */
+::ng-deep .nativ-options-internal-warp::-webkit-scrollbar-button {
+    display: none !important;
+    height: 0 !important;
+  }
+
+//   ::ng-deep .nativ-options-internal-warp {
+//     max-height: calc(4rem * 5); // עד 5 פריטים לדוגמה
+//     overflow-y: auto;
+//   }
+  
+  
+//   /* Firefox */
+//   ::ng-deep .nativ-options-internal-warp {
+//     scrollbar-width: thin;
+//     scrollbar-color: #C3CBD5 transparent;
+//   }
+  
+      
+  
 
     .native-option {
         display: flex;
 padding: var(--Layout-medium, 0.5rem);
+padding-top: 0rem;
 flex-direction: column;
 align-items: flex-start;
 gap: var(--Layout-x-large, 1rem);
@@ -135,5 +193,7 @@ align-self: stretch;
     } 
  }
 }
-}    
+}  
+
+
 }
