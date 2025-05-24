@@ -7,10 +7,11 @@ import { IconType } from 'src/app/enums/icon-enum';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { SwitchComponent } from '../switch/switch.component';
 import { FormsModule } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CreateClusterComponent } from '../../cluster-managment/create-cluster/create-cluster.component';
 import { TooltipComponent } from '../tooltip/tooltip.component';
 import { PopoverComponent } from '../popover/popover.component';
+import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter-bookid.component';
 
 @Component({
   selector: 'yv-cluster-filter-handling-suggestions',
@@ -21,6 +22,7 @@ import { PopoverComponent } from '../popover/popover.component';
 })
 export class FilterHandlingSuggestionsComponent {
   #dialog = inject(MatDialog);
+
   @Output() prefCodeStatus = new EventEmitter<boolean>();
   @Output() showToastNotification = new EventEmitter<string>();
   @Input() howManyChecked: number = 0;
@@ -28,6 +30,8 @@ export class FilterHandlingSuggestionsComponent {
 
 
   dialogRef: MatDialogRef<CreateClusterComponent> | null = null;
+    dialogRefEnterBookid: MatDialogRef<EnterBookidComponent> | null = null;
+
   numberCRM: number;
   switchState: boolean = false;
   showTooltip: boolean = false;
@@ -106,18 +110,36 @@ export class FilterHandlingSuggestionsComponent {
       }
     });
   }
+  openEnterBookidDialog() {
+    // this.showToastNotification = false;
+    this.dialogRefEnterBookid = this.#dialog.open(EnterBookidComponent, {
+        data:false,
+      disableClose: true,
+      hasBackdrop: true,
+      panelClass: 'custom-dialog-container',
+      autoFocus: false,
+      width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
+      height: 'auto',
 
+    });
 
+    this.dialogRefEnterBookid.afterClosed().subscribe((result) => {
+      if (result) {
+        console.log('page Data received from dialog:', result);
+        this.showToastNotification.emit(result.bookId);
+        
+        if(result.bookId === "formIsNotValid") {
+        }
+      }
+
+    });
+}
   onPrefCodeChange(state: boolean) {
     this.formData.prefCode = state;
     this.prefCodeStatus.emit(state);
     console.log('Pref code switch:', state);
   }
 
-  handleSwitchChange(state: boolean) {
-    this.switchState = state;
-    console.log('Switch:', state ? 'דלוק' : 'מכובה');
-  }
   onRightLeftClick() {
     alert('right left button clicked');
 
@@ -125,9 +147,5 @@ export class FilterHandlingSuggestionsComponent {
   onUserClick() {
     alert('User button clicked');
 
-  }
-  onClick() {
-    alert('test on click');
-    console.log('test on click');
   }
 }

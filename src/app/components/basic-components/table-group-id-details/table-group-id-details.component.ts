@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
-import { ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
+import { ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
 import { TableHeaderComponent } from '../table-header/table-header.component';
 import { BasicTableRowComponent } from '../basic-table-row/basic-table-row.component';
@@ -49,6 +49,7 @@ export class TableGroupIdDetailsComponent {
   iconType = IconType;
   iconButtonLargeType = IconButtonLargeType;
   NarrowBasicTableRowInputState = NarrowBasicTableRowInputState;
+  narrowBasicTableRowLength=NarrowBasicTableRowLength;
 
 
   formGroup: FormGroup = this.#fb.group({
@@ -230,6 +231,8 @@ export class TableGroupIdDetailsComponent {
     this.prefCodeStatus = prefCodeStatus;
   }
   showToastNotificationFunction(result:string){
+    console.log("showToastNotificationFunction", result);
+    
 this.showToastNotification.emit(result);
   }
 }

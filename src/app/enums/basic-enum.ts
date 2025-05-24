@@ -13,6 +13,12 @@ export enum NarrowBasicTableRowInputState {
   DEFAULT = 'Default',
   HOVER = 'Hover'
 }
+
+export enum NarrowBasicTableRowLength {
+  LONG = 'long',
+  SHORT = 'short'
+}
+
 export enum BasicTableRowPropertyVariants {
   DEFAULT = 'Default',
   VARIANT2 = 'Variant2',
