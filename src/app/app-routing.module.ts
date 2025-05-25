@@ -13,6 +13,9 @@ export const routes: Routes = [
         {
           path: 'auto cluster', loadComponent: () => import('./components/pages/auto-claster/auto-claster.component').then(x => x.AutoClasterComponent)
         },
+         {
+          path: 'CRM Clusters', loadComponent: () => import('./components/pages/crm-clusters/crm-clusters.component').then(x => x.CrmClustersComponent)
+        },
         {
           path: 'report', loadComponent: () => import('./components/test/test.component').then(x => x.TestComponent)
         },

@@ -6,14 +6,10 @@
     @else{
   {{ data }}
     }
-
   }
-
   @if(type === dataCellType.MORE) {
   <i class="fas fa-ellipsis-v more-icon"></i>
   }
-
-
   @if (type === dataCellType.CHECK) {
     <yv-cluster-check 
     [checkedControl]="control" 
@@ -37,7 +33,7 @@
 
   @if(type === dataCellType.LINK) {
   <!-- <a [href]="hRef">{{data}}</a> -->
-    <a [href]="">{{data}}</a>
+    <a [href]="'https://collections.yadvashem.org/en/names/' + data">{{data}}</a>
   }
 
   @if(type === dataCellType.ICON) {
