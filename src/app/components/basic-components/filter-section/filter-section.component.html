@@ -3,19 +3,19 @@
     <yv-cluster-field formControlName="search" [property]="stateEnum.DEFAULT" placeholder="Search"
      ></yv-cluster-field>
 
-    @if (Filters.includes(filterNames.DATEOFREPORT)) {
+    @if (Filters.includes(filterNames.DATE_OF_REPORT)) {
     <yv-cluster-select formControlName="date" [default]="'Select Date Of Report'"
       [dropdownType]="nativeOptions.TEXT"></yv-cluster-select>
     }
-    @if (Filters.includes(filterNames.DATEOFASSIGNEE)) {
+    @if (Filters.includes(filterNames.DATE_OF_ASSIGNEE)) {
       <yv-cluster-select formControlName="assigneeDate" [default]="'Select Date Of Assignee '"
         [dropdownType]="nativeOptions.TEXT" [options]="assigneeOptions"></yv-cluster-select>
     }
-    @if (Filters.includes(filterNames.FILTERBYSTATUS)) {
+    @if (Filters.includes(filterNames.FILTER_BY_STATUS)) {
     <yv-cluster-select formControlName="status" [default]="'Filter By Status'" [dropdownType]="nativeOptions.STATUS"
       [options]="badgeOptions"></yv-cluster-select>
     }
-    @if (Filters.includes(filterNames.FILTERBYASSIGNEE)) {
+    @if (Filters.includes(filterNames.FILTER_BY_ASSIGNEE)) {
     <yv-cluster-select formControlName="assignee" [default]="'Filter By Assignee'"
       [dropdownType]="nativeOptions.ASSIGNEE" [options]="assigneeOptions"></yv-cluster-select>
     }
@@ -24,8 +24,6 @@
 
   @if (iconsVisible) {
   <div class="right-buttons">
-
-
     <div class="icon-container" (mouseenter)="showPopover(popOverTypeEnum.ASSIGNEE)" (mouseleave)="hidePopover()">
       <yv-cluster-icon-button-large [icon]="iconType.USER_LIGHT" [property]="iconButtonLargeType.DEFAULT"
         (onClick)="onClickStatus()"></yv-cluster-icon-button-large>

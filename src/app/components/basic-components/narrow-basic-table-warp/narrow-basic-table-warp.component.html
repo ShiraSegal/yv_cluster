@@ -14,7 +14,8 @@
   </div>
 <div class="basic-table-container">
   @if(Rows.length>0 && Headers.length>0){ 
-  <yv-cluster-narrow-basic-table [Headers]="Headers" [Rows]="Rows" [Filters]="getFiltersForTab(currentTab)"></yv-cluster-narrow-basic-table>
+  <yv-cluster-narrow-basic-table [Headers]="Headers" [Rows]="Rows" [Filters]="filtersDictionary[currentTab]"
+  ></yv-cluster-narrow-basic-table>
   }
 </div>
 </div>

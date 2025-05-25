@@ -35,36 +35,73 @@ export class NarrowBasicTableWarpComponent {
     [AutoClusterTabType.CHECKLIST_ITEMS]: 'ItemsForCheckList',
   };
 
-
   @Input() subTitle: string = '';
-
 
   currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
   
-
   filters : FilterNames[] = [
-    FilterNames.DATEOFREPORT,
-    FilterNames.DATEOFASSIGNEE,
-    FilterNames.FILTERBYSTATUS,
-    FilterNames.FILTERBYASSIGNEE
+    FilterNames.DATE_OF_REPORT,
+    FilterNames.DATE_OF_ASSIGNEE,
+    FilterNames.FILTER_BY_STATUS,
+    FilterNames.FILTER_BY_ASSIGNEE
   ];
-  getFiltersForTab(tabName: AutoClusterTabType): FilterNames[] {
-    if (tabName === this.autoClusterTabType.SAPIR_CLUSTERS) {
-      return [FilterNames.DATEOFREPORT];
-    } else if (tabName === this.autoClusterTabType.MISSING_FIELD) {
-      return [FilterNames.DATEOFREPORT,FilterNames.DATEOFASSIGNEE, FilterNames.FILTERBYASSIGNEE,FilterNames.FILTERBYSTATUS];
-    } else if (tabName === this.autoClusterTabType.APPROVAL_GROUPS) {
-      return [FilterNames.DATEOFREPORT,FilterNames.DATEOFASSIGNEE, FilterNames.FILTERBYASSIGNEE,FilterNames.FILTERBYSTATUS];
-    } else if (tabName === this.autoClusterTabType.CHECKLIST_ITEMS) {
-      return [FilterNames.DATEOFREPORT,FilterNames.DATEOFASSIGNEE, FilterNames.FILTERBYASSIGNEE,FilterNames.FILTERBYSTATUS];
-    } else if (tabName === this.autoClusterTabType.DIFFERENT_CLUSTERS) {
-      return [FilterNames.DATEOFREPORT,FilterNames.DATEOFASSIGNEE, FilterNames.FILTERBYASSIGNEE,FilterNames.FILTERBYSTATUS];
-    } else if (tabName === this.autoClusterTabType.ERROR_MESSAGES) {
-      return [FilterNames.DATEOFREPORT,FilterNames.DATEOFASSIGNEE, FilterNames.FILTERBYASSIGNEE,FilterNames.FILTERBYSTATUS];
-    }
-    return this.filters;
-  }
+ 
+  filtersDictionary: { [key in AutoClusterTabType]: FilterNames[] } = {
+    [this.autoClusterTabType.SAPIR_CLUSTERS]: [FilterNames.DATE_OF_REPORT],
+    [this.autoClusterTabType.MISSING_FIELD]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+    [this.autoClusterTabType.APPROVAL_GROUPS]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+    [this.autoClusterTabType.CHECKLIST_ITEMS]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+    [this.autoClusterTabType.DIFFERENT_CLUSTERS]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+    [this.autoClusterTabType.ERROR_MESSAGES]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+  };
 
+  // initializeFiltersForTab() {
+  //   const newFilters: FilterNames[] = [];
+  
+  //   // Add filters based on conditions
+  //   newFilters.push(FilterNames.DATE_OF_REPORT); // Always include this filter
+  
+  //   if (this.currentTab === this.autoClusterTabType.MISSING_FIELD) {
+  //     newFilters.push(FilterNames.DATE_OF_ASSIGNEE);
+  //     newFilters.push(FilterNames.FILTER_BY_ASSIGNEE);
+  //   }
+  
+  //   if (this.currentTab === this.autoClusterTabType.APPROVAL_GROUPS) {
+  //     newFilters.push(FilterNames.FILTER_BY_STATUS);
+  //   }
+  
+  //   if (this.currentTab === this.autoClusterTabType.ERROR_MESSAGES) {
+  //     newFilters.push(FilterNames.FILTER_BY_ASSIGNEE);
+  //   }
+  
+  //   // Update the filters array for the current tab
+  //   this.filtersDictionary[this.currentTab] = newFilters;
+  // }
   tabs = [
     { text: AutoClusterTabType.SAPIR_CLUSTERS, status: true },
     { text: AutoClusterTabType.MISSING_FIELD, status: false },
@@ -102,7 +139,8 @@ export class NarrowBasicTableWarpComponent {
 
     }));
     this.currentTab = tabText;
-    this.loadDataForTab(); // טען מחדש את הנתונים לטאב הנוכחי
+    // this.initializeFiltersForTab();
+    this.loadDataForTab(); 
   }
   readonly DBKeyToHeaderMap: { [key: string]: string } = {
     clusterID: 'Cluster ID',
