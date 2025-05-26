@@ -35,17 +35,23 @@
     </div>
 }
     </div>
-<div class="nativ-options-warp">
-    <div class="nativ-options-internal-warp">
-    @for(option of filterdList; track $index){
-        <div class="native-option" (click)="onSelectedOption(option)">
-            <yv-cluster-native-option [optionType]="option.optionType" [displayText]="option.displayText" [property]="option.property"></yv-cluster-native-option>
-    
+    <div class="nativ-options-warp"  (wheel)="onMouseScroll($event)">
+        <div class="nativ-options-internal-warp" #scrollable>
+          @for(option of filterdList; track $index){
+            <div class="native-option" #nativeOption (click)="onSelectedOption(option)">
+              <yv-cluster-native-option
+                [optionType]="option.optionType"
+                [displayText]="option.displayText"
+                [property]="option.property">
+              </yv-cluster-native-option>
+            </div>
+          }
         </div>
-        }
-        <!-- <div class="openDropDown"></div> -->
-        <!-- [ngStyle]="{'height': (filteredcountries.length * 3) + 'rem'}" -->
-</div>
-</div>
+        @if(showScrollbar){
+        <div class="custom-scrollbar">
+          <div class="custom-thumb" #customThumb></div>
+        </div>
+    }
+      </div>      
 </div>
 </div>
