@@ -1,37 +1,37 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
-import { BasicTablePropertyType, BasicTableRowPropertyVariants, ButtonType, NarrowBasicTableRowInputState, StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
+import { BasicTablePropertyType, ButtonType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
 import { DataCellType, HeaderCellType, AutoClusterTabType } from 'src/app/enums/basic-enum';
-import { BasicTabComponent } from '../basic-tab/basic-tab.component';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 import { ClusterService } from 'src/app/services/cluster.service';
-import { SlidebarNavigationComponent } from '../slidebar-navigation/slidebar-navigation.component';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { IconType } from 'src/app/enums/icon-enum';
+import { BasicTabComponent } from '../basic-tab/basic-tab.component';
+import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
+import { log } from 'console';
 
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table-warp',
   standalone: true,
-  imports: [CommonModule, BasicTabComponent ,NarrowBasicTableComponent,SlidebarNavigationComponent],
+  imports: [CommonModule, BasicTabComponent, NarrowBasicTableComponent],
   templateUrl: './narrow-basic-table-warp.component.html',
   styleUrl: './narrow-basic-table-warp.component.scss'
 })
 export class NarrowBasicTableWarpComponent {
-  AutoClusterTabType = AutoClusterTabType;
-  HeaderCellType = HeaderCellType;
-  DataCellType = DataCellType;
-  BasicTablePropertyType = BasicTablePropertyType;
+  autoClusterTabType = AutoClusterTabType;
+  headerCellType = HeaderCellType;
+  dataCellType = DataCellType;
+  basicTablePropertyType = BasicTablePropertyType;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
-  StatusActiveOrNotActive=StatusActiveOrNotActive;
-  // missingFieldData: any[] = [];
-  data1: any ;
-  tabData: any; 
+
+  pageSize: number = 20;
+  currentPage: number = 1;
+  totalRows: number = 0; 
+
+  data1: any;
+  tabData: any;
 
   clusterService = inject(ClusterService);
-  form!: FormGroup;
-
- readonly TabToJSONKeyMap: { [key in AutoClusterTabType]: string } = {
+  readonly TabToJSONKeyMap: { [key in AutoClusterTabType]: string } = {
     [AutoClusterTabType.SAPIR_CLUSTERS]: 'ClustersForSapir',
     [AutoClusterTabType.MISSING_FIELD]: 'ClustersWithMissingFields',
     [AutoClusterTabType.ERROR_MESSAGES]: 'ErrorMessages',
@@ -40,50 +40,82 @@ export class NarrowBasicTableWarpComponent {
     [AutoClusterTabType.CHECKLIST_ITEMS]: 'ItemsForCheckList',
   };
 
-
   @Input() subTitle: string = '';
-  @Input() data: Partial<Record<AutoClusterTabType, {
-    Headers: { data: string; type: HeaderCellType }[];
-    Rows: {
-      property: NarrowBasicTableRowInputState;
-      showAction: boolean;
-      cells: { data: string; type: DataCellType }[]
-    }[]
-  }>> =
-    {
-      [AutoClusterTabType.SAPIR_CLUSTERS]: {
-        Headers: [{ data: '', type: HeaderCellType.CHECK },
-          // { data: 'ClusterID ', type: HeaderCellType.TEXT },
-          // { data: 'comment ', type: HeaderCellType.TEXT },
-          // { data: 'Date of report ', type: HeaderCellType.TEXT }
-          ],
-        Rows: [] 
-      },
-      [AutoClusterTabType.MISSING_FIELD]: {
-        Headers: [{ data: '', type: HeaderCellType.CHECK },
-          { data: 'CNT ', type: HeaderCellType.TEXT },
-          { data: 'Cluster ID ', type: HeaderCellType.TEXT },
-          { data: 'Missing field ', type: HeaderCellType.TEXT },
-          { data: 'Comments ', type: HeaderCellType.TEXT },
-          { data: 'Status ', type: HeaderCellType.TEXT },
-          { data: 'Assignee ', type: HeaderCellType.TEXT },
-          { data: 'Date of report ', type: HeaderCellType.TEXT },
-          { data: 'Assinee date ', type: HeaderCellType.TEXT }
 
-          ],
-        Rows:  [] 
-      }
-    }
-    
   currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
-  tabs = [
-    { text: AutoClusterTabType.SAPIR_CLUSTERS, status: StatusActiveOrNotActive.ACTIVE },
-    { text: AutoClusterTabType.MISSING_FIELD, status: StatusActiveOrNotActive.NOT_ACTIVE },
-    { text: AutoClusterTabType.ERROR_MESSAGES, status:  StatusActiveOrNotActive.NOT_ACTIVE },
-    { text: AutoClusterTabType.DIFFERENT_CLUSTERS, status:  StatusActiveOrNotActive.NOT_ACTIVE },
-    { text: AutoClusterTabType.CHECKLIST_ITEMS, status:  StatusActiveOrNotActive.NOT_ACTIVE },
-    { text: AutoClusterTabType.APPROVAL_GROUPS, status:  StatusActiveOrNotActive.NOT_ACTIVE }
+  
+  filters : FilterNames[] = [
+    FilterNames.DATE_OF_REPORT,
+    FilterNames.DATE_OF_ASSIGNEE,
+    FilterNames.FILTER_BY_STATUS,
+    FilterNames.FILTER_BY_ASSIGNEE
+  ];
+ 
+  filtersDictionary: { [key in AutoClusterTabType]: FilterNames[] } = {
+    [this.autoClusterTabType.SAPIR_CLUSTERS]: [FilterNames.DATE_OF_REPORT],
+    [this.autoClusterTabType.MISSING_FIELD]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+    [this.autoClusterTabType.APPROVAL_GROUPS]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+    [this.autoClusterTabType.CHECKLIST_ITEMS]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+    [this.autoClusterTabType.DIFFERENT_CLUSTERS]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+    [this.autoClusterTabType.ERROR_MESSAGES]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+  };
 
+  // initializeFiltersForTab() {
+  //   const newFilters: FilterNames[] = [];
+  
+  //   // Add filters based on conditions
+  //   newFilters.push(FilterNames.DATE_OF_REPORT); // Always include this filter
+  
+  //   if (this.currentTab === this.autoClusterTabType.MISSING_FIELD) {
+  //     newFilters.push(FilterNames.DATE_OF_ASSIGNEE);
+  //     newFilters.push(FilterNames.FILTER_BY_ASSIGNEE);
+  //   }
+  
+  //   if (this.currentTab === this.autoClusterTabType.APPROVAL_GROUPS) {
+  //     newFilters.push(FilterNames.FILTER_BY_STATUS);
+  //   }
+  
+  //   if (this.currentTab === this.autoClusterTabType.ERROR_MESSAGES) {
+  //     newFilters.push(FilterNames.FILTER_BY_ASSIGNEE);
+  //   }
+  
+  //   // Update the filters array for the current tab
+  //   this.filtersDictionary[this.currentTab] = newFilters;
+  // }
+  tabs = [
+    { text: AutoClusterTabType.SAPIR_CLUSTERS, status: true },
+    { text: AutoClusterTabType.MISSING_FIELD, status: false },
+    { text: AutoClusterTabType.APPROVAL_GROUPS, status: false },
+    { text: AutoClusterTabType.DIFFERENT_CLUSTERS, status: false},
+    { text: AutoClusterTabType.CHECKLIST_ITEMS, status: false },
+    { text: AutoClusterTabType.ERROR_MESSAGES, status: false },
+
+   
   ];
   HeaderToDataCellTypeMap: { [key in HeaderCellType]?: DataCellType } = {
     [HeaderCellType.TEXT]: DataCellType.TEXT, // Default: Text-to-Text
@@ -102,63 +134,70 @@ export class NarrowBasicTableWarpComponent {
   }
   getDataForCurrentTab(): any[] {
     const jsonKey = this.TabToJSONKeyMap[this.currentTab];
-    return this.tabData?.[jsonKey] || []; 
+    return this.tabData?.[jsonKey] || [];
   }
 
   setActiveTab(tabText: AutoClusterTabType) {
-    this.tabs = this.tabs.map((tab, index) => ({
+    this.tabs = this.tabs.map((tab) => ({
       ...tab,
-      status: tab.text === tabText ? StatusActiveOrNotActive.ACTIVE : StatusActiveOrNotActive.NOT_ACTIVE
+      status: tab.text === tabText ? true : false
 
     }));
     this.currentTab = tabText;
-    this.loadDataForTab();
+    // this.initializeFiltersForTab();
+    this.loadDataForTab(); 
   }
   readonly DBKeyToHeaderMap: { [key: string]: string } = {
     clusterID: 'Cluster ID',
-    // comment: 'Comments',
-    missingField: 'Missing field',
+    MissingField: 'Missing field',
     status: 'Status',
     assignee: 'Assignee',
     dateOfReport: 'Date of report',
     assigneeData: 'Assignee data',
+    book_id: 'Book ID',
+    clustersIDs: 'Clusters ID',
+    errorMessage: 'Error message',
+    groupID: 'Group ID',
   };
-  
+
   Headers: { data: string; type: HeaderCellType }[] = [];
   Rows: {
     property: any;
     showAction: boolean;
-    cells: { data: string ; type: DataCellType }[];
+    cells: {
+      data: string;
+      type: DataCellType;
+      moreData?: { [key: string]: any };
+    }[];
+
   }[] = [];
   readonly TabHeaders: { [key in AutoClusterTabType]: { data: string, type: HeaderCellType }[] } = {
     [AutoClusterTabType.SAPIR_CLUSTERS]: [
       { data: '', type: HeaderCellType.CHECK },
       { data: this.DBKeyToHeaderMap['clusterID'], type: HeaderCellType.TEXT },
-      { data: this.DBKeyToHeaderMap['comment'], type: HeaderCellType.TEXT },
+      { data: 'comment', type: HeaderCellType.TEXT },
       { data: this.DBKeyToHeaderMap['dateOfReport'], type: HeaderCellType.TEXT }
     ],
     [AutoClusterTabType.MISSING_FIELD]: [
       { data: '', type: HeaderCellType.CHECK },
       { data: 'CNT', type: HeaderCellType.TEXT },
       { data: this.DBKeyToHeaderMap['clusterID'], type: HeaderCellType.TEXT },
-      { data: this.DBKeyToHeaderMap['missingField'], type: HeaderCellType.TEXT },
+      { data: this.DBKeyToHeaderMap['MissingField'], type: HeaderCellType.TEXT },
       { data: 'Comments', type: HeaderCellType.TEXT },
       { data: 'Status', type: HeaderCellType.TEXT },
       { data: 'Assignee', type: HeaderCellType.TEXT },
       { data: 'Date of report', type: HeaderCellType.TEXT },
       { data: 'Assignee data', type: HeaderCellType.TEXT }
-
     ],
     [AutoClusterTabType.APPROVAL_GROUPS]: [
       { data: '', type: HeaderCellType.CHECK },
-      { data: 'groupID', type: HeaderCellType.TEXT },
+      { data: this.DBKeyToHeaderMap['groupID'], type: HeaderCellType.TEXT },
       { data: 'score', type: HeaderCellType.TEXT },
-      { data: 'link', type: HeaderCellType.TEXT },
+      { data: 'Status', type: HeaderCellType.TEXT },
       { data: 'Assignee', type: HeaderCellType.TEXT },
       { data: 'Date of report', type: HeaderCellType.TEXT },
       { data: 'Assignee data', type: HeaderCellType.TEXT },
       { data: '', type: HeaderCellType.TEXT }
-
     ],
     [AutoClusterTabType.CHECKLIST_ITEMS]: [
       { data: '', type: HeaderCellType.CHECK },
@@ -170,118 +209,86 @@ export class NarrowBasicTableWarpComponent {
       { data: 'Assignee data', type: HeaderCellType.TEXT },
       { data: '', type: HeaderCellType.TEXT }
     ],
- 
     [AutoClusterTabType.DIFFERENT_CLUSTERS]: [
       { data: '', type: HeaderCellType.CHECK },
-      { data: 'Cluster ID', type: HeaderCellType.TEXT },
-      { data: 'Difference Details', type: HeaderCellType.TEXT }
+      { data: this.DBKeyToHeaderMap['book_id'], type: HeaderCellType.TEXT },
+      { data: this.DBKeyToHeaderMap['clustersIDs'], type: HeaderCellType.TEXT },
+      { data: 'Status', type: HeaderCellType.TEXT },
+      { data: 'Assignee', type: HeaderCellType.TEXT },
+      { data: 'Date of report', type: HeaderCellType.TEXT },
+      { data: 'Assignee data', type: HeaderCellType.TEXT },
     ],
     [AutoClusterTabType.ERROR_MESSAGES]: [
       { data: '', type: HeaderCellType.CHECK },
-      { data: 'Error Message', type: HeaderCellType.TEXT },
+      { data: this.DBKeyToHeaderMap['errorMessage'], type: HeaderCellType.TEXT },
       { data: 'Status', type: HeaderCellType.TEXT },
       { data: 'Assignee', type: HeaderCellType.TEXT },
       { data: 'Date of report', type: HeaderCellType.TEXT },
       { data: 'Assignee data', type: HeaderCellType.TEXT }
-
     ],
-    
   };
+
   loadDataForTab() {
-    const tabData = this.getDataForCurrentTab();
+    const jsonKey = this.TabToJSONKeyMap[this.currentTab]; // מיפוי הטאב למפתח המתאים
+    const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
     this.Headers = this.TabHeaders[this.currentTab];
-  
     const headerToKeyMap = Object.entries(this.DBKeyToHeaderMap).reduce((acc, [key, value]) => {
       acc[value] = key;
       return acc;
     }, {} as { [key: string]: string });
-  
+
     this.Rows = tabData.map((item: any) => ({
       property: item,
       showAction: true,
       cells: this.Headers.map(header => {
-        const jsonKey = headerToKeyMap[header.data] || header.data; // Map header name to JSON key
-        const cellData = item[jsonKey] || ''; // Get the cell data, default to an empty string
-  
-        // Get DataCellType dynamically
+        const jsonKey = headerToKeyMap[header.data] || header.data;
+        const cellData = item[jsonKey] || '';
         const dataCellType = this.getDataCellTypeForHeader(header.data, header.type);
-  
-        if (dataCellType === DataCellType.CHECK) {
-          return {
-            data:'',
-            type: DataCellType.CHECK,
-          };
-        } else if (dataCellType === DataCellType.ASSIGNEE) {
-          return {
-            data: 'Racheli Liff',
-            type: DataCellType.ASSIGNEE,
-          };
-         } else if (dataCellType === DataCellType.BUTTON) {
-            return {
-              data: 'Button', // Convert button data to a string
-              type: DataCellType.BUTTON,
-            };
-        } else {
-          return {
-            data: String(cellData),
-            type: dataCellType,
-          };
-        }
+
+        const cellTemplates: { [key in DataCellType]?: () => any } = {
+          [DataCellType.CHECK]: () => ({ data: "", type: DataCellType.CHECK, moreData: {} }),
+          [DataCellType.ASSIGNEE]: () => ({ data: "unAssignne", type: DataCellType.ASSIGNEE, moreData: {} }),
+          [DataCellType.BUTTON]: () => ({
+            data: "",
+            type: DataCellType.BUTTON,
+            moreData: { buttonType: ButtonType.SECONDARY, text: 'open', isBig: false },
+          }),
+        };
+
+        return cellTemplates[dataCellType]?.() || { data: cellData, type: dataCellType, moreData: {} };
       }),
     }));
   }
-  //   debugger;
-  // const tabData = this.getDataForCurrentTab(); 
 
-  //   this.Headers = this.TabHeaders[this.currentTab];
-
-  //   this.Rows = tabData.map((item: any) => ({
-  //     property: item,
-  //     showAction: true,
-  //     cells: this.Headers.map(header => ({
-  //       data: item[header.data] || '', 
-  //       type: DataCellType.TEXT
-  //     }))
-  //   }));
-  // const tabData = this.getDataForCurrentTab(); 
-
-  // this.Headers = this.TabHeaders[this.currentTab];
-  // const headerToKeyMap = Object.entries(this.DBKeyToHeaderMap).reduce((acc, [key, value]) => {
-  //   acc[value] = key;
-  //   return acc;
-  // }, {} as { [key: string]: string });
-  
-  // this.Rows = tabData.map((item: any) => ({
-  //   property: item,
-  //   showAction: true,
-  //   cells: this.Headers.map(header => {
-  //     const jsonKey = headerToKeyMap[header.data] || header.data; // Map header name to JSON key
-  //     return {
-  //       data: item[jsonKey] || '', // Use the mapped JSON key to fetch data
-  //       type: DataCellType.TEXT
-  //     };
-  //   })
-  // }));
-
-  
   ngOnInit() {
-    // console.log('data', this.Rows);
+    const currentTabKey = this.TabToJSONKeyMap[this.currentTab];
+    // Subscribe to the BehaviorSubject to reactively handle data updates
+    this.clusterService.autoClusterListSubject$.subscribe((data) => {
+      this.tabData = data; // Save the data in tabData
+      this.loadDataForTab(); // Process and display the data for the current tab
+    });
+    this.clusterService.totalRows$.subscribe((totalRows) => {
+      this.totalRows = totalRows; // Update the component's totalRows
+      console.log('Updated totalRows in component:', this.totalRows);
+    });
+    // Fetch the initial data for the first page
+    console.log(`Total rows for ${currentTabKey}:`, this.totalRows); // בדיקה של מספר השורות
     
-    this.data1 = this.clusterService.getAutoClusterData().subscribe({
-      next: (data) => {
-        this.tabData = data
-      },
-      error: (error) => {
-        console.error("error getAutoClusterData occurred:", error);
-      }});
-    this.loadDataForTab();
+    this.clusterService.getAutoClusterData(currentTabKey,{ _page: this.currentPage, _limit: this.pageSize }).catch((err) => {
+      console.error('Error fetching data in ngOnInit:', err);
+    });
   }
+  loadMoreRows() {
+    const currentTabKey = this.TabToJSONKeyMap[this.currentTab];
+    this.currentPage++; // Increment the page number
+    this.clusterService.getAutoClusterData(currentTabKey,{ _page: this.currentPage, _limit: this.pageSize }).catch((err) => {
+      console.error('Error loading more rows:', err);
+    });
+    const newRows = this.getDataForCurrentTab(); // Get the new rows for the current tab
+    this.Rows = [...this.Rows, ...newRows]; // Append the new rows to the existing rows
 
-
+  }
+  
 }
 
-
-function ngOnInit() {
-  throw new Error('Function not implemented.');
-}
 
