@@ -15,9 +15,6 @@ import { map } from 'rxjs/operators';
 import { SapirClusterModel } from '../models/sapir-cluster-model.model';
 import { RootObject } from '../models/root-object.model';
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
