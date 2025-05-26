@@ -3,8 +3,8 @@ export enum HeadersNames{
 }
 
 export enum FilterNames{
-    DATEOFREPORT = 'dateOfReport',
-    DATEOFASSIGNEE = 'dateOfAssignee',
-    FILTERBYSTATUS = 'filterByStatus',
-    FILTERBYASSIGNEE = 'filterByAssignee',
+    DATE_OF_REPORT = 'dateOfReport',
+    DATE_OF_ASSIGNEE = 'dateOfAssignee',
+    FILTER_BY_STATUS = 'filterByStatus',
+    FILTER_BY_ASSIGNEE = 'filterByAssignee',
 }
