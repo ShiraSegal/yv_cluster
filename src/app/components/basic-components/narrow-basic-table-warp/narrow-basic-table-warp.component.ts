@@ -288,7 +288,6 @@ export class NarrowBasicTableWarpComponent {
     this.Rows = [...this.Rows, ...newRows]; // Append the new rows to the existing rows
 
   }
-  
 }
 
 
