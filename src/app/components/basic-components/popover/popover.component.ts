@@ -1,12 +1,14 @@
+import {
+  Component, Input, ViewChild, ElementRef, forwardRef,
+  HostListener
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, Input, ViewChild, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BadgeType, HeaderCellType, NativeOptionState, NativeOptionType, PopoverHeader, PopoverType, State, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
-import { HeaderCellsComponent } from '../header-cells/header-cells.component';
+import {
+  BadgeType, NativeOptionType, NativeOptionState,
+  PopoverType, State, TextColor, TextSize, TextWeight
+} from 'src/app/enums/basic-enum';
 import { NativeOptionComponent } from '../native-option/native-option.component';
-import { BadgeComponent } from '../badge/badge.component';
-import { AssigneeComponent } from '../assignee/assignee.component';
-import { IconType } from 'src/app/enums/icon-enum';
 import { BodyComponent } from '../body/body.component';
 import { FieldComponent } from '../field/field.component';
 
@@ -20,164 +22,134 @@ type NativePopoverOption = {
 @Component({
   selector: 'yv-cluster-popover',
   standalone: true,
-  imports: [CommonModule, NativeOptionComponent, BodyComponent,FieldComponent],
+  imports: [CommonModule, NativeOptionComponent, BodyComponent, FieldComponent],
   templateUrl: './popover.component.html',
   styleUrl: './popover.component.scss',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PopoverComponent),
-      multi: true,
-    },
-  ],
+      multi: true
+    }
+  ]
 })
 export class PopoverComponent implements ControlValueAccessor {
   @Input() type: PopoverType;
-  @Input() options: NativePopoverOption[]=[];
+  @Input() options: NativePopoverOption[] = [];
 
   @ViewChild('scrollable') scrollableRef: ElementRef;
   @ViewChild('customThumb') thumbRef: ElementRef;
   @ViewChild('nativeOption') nativeOption!: ElementRef;
-  
-  showScrollbar:boolean = false;
 
+  showScrollbar = false;
+  isDragging = false;
+  startY = 0;
+  startScrollTop = 0;
 
-
-  filterdList: NativePopoverOption[];
-  header: string;
-  size: TextSize = TextSize.MEDIUM;
-  weight: TextWeight = TextWeight.BOLD;
-  color: TextColor = TextColor.SLATE_BLUE;
-
-  // headerCellType = HeaderCellType.TEXT;
-  optionType = NativeOptionType;
-  optionState = NativeOptionState;
-  badgeType = BadgeType;
-  stateEnum=State;
+  filterdList: NativePopoverOption[] = [];
+  header = '';
+  size = TextSize.MEDIUM;
+  weight = TextWeight.BOLD;
+  color = TextColor.SLATE_BLUE;
 
   private onChange: (value: any) => void = () => {};
   private onTouched: () => void = () => {};
 
+  ngOnInit() {
+    this.filterdList = this.options;
+    this.header = this.type === 'status' ? 'Status' :
+                  this.type === 'assignee' ? 'Assign Responsible' :
+                  'Link To CRM';
+  }
+
   ngAfterViewInit() {
-    // console.log("this.wrapperRef.nativeElement",this.wrapperRef.nativeElement);
-    
+    setTimeout(() => {
+      this.updateThumbHeight();
+      this.updateThumbPosition();
+    });
     const height = this.nativeOption.nativeElement.offsetHeight * this.options.length;
-    console.log("Height of the wrapper:", height);
-    console.log("showScrollbar:", this.showScrollbar);
-    
-    this.showScrollbar = height > 200; // 12.5rem = 200px
-    console.log("showScrollbar:", this.showScrollbar);
-    
+    this.showScrollbar = height > 200;
     this.updateThumbHeight();
   }
 
-  
-  ngOnInit() {
-    console.log("ffffffffffff",this.filterdList);
-    console.log("ppppppppppppppppp",this.options);
-    
-     this.filterdList=this.options;
-    if (this.type === 'status') {
-      this.header = 'Status';
-    } else if (this.type === 'assignee') {
-      this.header = 'Assign Responsible';
-    } else {
-      this.header = 'Link To CRM';
-    }
-  }
-
-
-  writeValue(value: any): void {
-    // Implement logic to update the component's value
-  }
-
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: any): void {
-    this.onTouched = fn;
-  }
-
-  setDisabledState?(isDisabled: boolean): void {
-    // Implement logic to handle disabled state
-  }
+  writeValue(value: any): void {}
+  registerOnChange(fn: any): void { this.onChange = fn; }
+  registerOnTouched(fn: any): void { this.onTouched = fn; }
+  setDisabledState?(isDisabled: boolean): void {}
 
   onSelectedOption(option: NativePopoverOption): void {
-    console.log('Selected option:', option.displayText || option.property);
-    this.onChange(option.displayText || option.property); // עדכון הערך שנבחר
+    this.onChange(option.displayText || option.property);
   }
 
   filterPopoverList(event: Event): void {
-  const inputValue = (event.target as HTMLInputElement).value;  
-  console.log(inputValue); // כאן תוכלי להשתמש בערך
-  // if(inputValue!=''){
- this.filterdList=this.options.filter((option) => {
-    const displayText = option.displayText || '';
-    console.log(displayText.toLowerCase().includes(inputValue.toLowerCase()));
-    return displayText.toLowerCase().includes(inputValue.toLowerCase());
-  })
-  console.log("ppppppppppppppppp",this.filterdList);
-// }
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.filterdList = this.options.filter(option =>
+      (option.displayText || '').toLowerCase().includes(inputValue.toLowerCase())
+    );
 
-// else{
-//   this.popoverOptions=this.popoverList;
-// }
-}
-onMouseScroll(event: WheelEvent) {
-  event.preventDefault();
-  const scrollable = this.scrollableRef.nativeElement;
-  scrollable.scrollTop += event.deltaY;
-  this.updateThumbPosition();
-}
+    setTimeout(() => {
+      this.updateThumbHeight();
+      this.updateThumbPosition();
+    });
+  }
 
-updateThumbHeight() {
-  if (!this.scrollableRef || !this.thumbRef) return;
-  const scrollable = this.scrollableRef.nativeElement;
-  const thumb = this.thumbRef.nativeElement;
-  const visibleRatio = scrollable.clientHeight / scrollable.scrollHeight;
-  thumb.style.height = `${visibleRatio * scrollable.clientHeight}px`;
-}
-
-updateThumbPosition() {
-  const scrollable = this.scrollableRef.nativeElement;
-  const thumb = this.thumbRef.nativeElement;
-  const scrollRatio = scrollable.scrollTop / scrollable.scrollHeight;
-  const thumbTop = scrollRatio * scrollable.clientHeight;
-  thumb.style.top = `${thumbTop}px`;
-}
-
-// גם כשמגללים עם פס המובנה (אם לא מבטלים overflow)
-@HostListener('window:mouseup')
-onMouseUp() {
-  this.updateThumbPosition();
-}
-
-@HostListener('window:mousemove', ['$event'])
-onMouseMove(event: MouseEvent) {
-  if (this.isDragging) {
-    const scrollbar = this.scrollableRef.nativeElement;
-    const thumb = this.thumbRef.nativeElement;
-    const scrollHeight = scrollbar.scrollHeight - scrollbar.clientHeight;
-    const delta = event.clientY - this.startY;
-    const scrollRatio = scrollHeight / (scrollbar.clientHeight - thumb.offsetHeight);
-    scrollbar.scrollTop = this.startScrollTop + delta * scrollRatio;
+  onMouseScroll(event: WheelEvent) {
+    event.preventDefault();
+    this.scrollableRef.nativeElement.scrollTop += event.deltaY;
     this.updateThumbPosition();
   }
-}
 
-isDragging = false;
-startY = 0;
-startScrollTop = 0;
-
-@HostListener('mousedown', ['$event'])
-onThumbMouseDown(event: MouseEvent) {
-  const thumb = this.thumbRef.nativeElement;
-  if (event.target === thumb) {
-    this.isDragging = true;
-    this.startY = event.clientY;
-    this.startScrollTop = this.scrollableRef.nativeElement.scrollTop;
-    event.preventDefault();
+  updateThumbHeight() {
+    const scrollable = this.scrollableRef.nativeElement;
+    const thumb = this.thumbRef.nativeElement;
+  
+    const visibleRatio = scrollable.clientHeight / scrollable.scrollHeight;
+    const thumbHeight = Math.max(visibleRatio * scrollable.clientHeight, 20); // מינימום גובה
+  
+    thumb.style.height = `${thumbHeight}px`;
   }
-}
+  
+
+  updateThumbPosition() {
+    const scrollable = this.scrollableRef.nativeElement;
+    const thumb = this.thumbRef.nativeElement;
+  
+    const scrollableHeight = scrollable.scrollHeight - scrollable.clientHeight;
+    const thumbHeight = thumb.offsetHeight;
+    const maxThumbTop = scrollable.clientHeight - thumbHeight;
+  
+    const scrollRatio = scrollable.scrollTop / scrollableHeight;
+    const thumbTop = scrollRatio * maxThumbTop;
+  
+    thumb.style.top = `${thumbTop}px`;
+  }
+  
+
+  @HostListener('window:mouseup')
+  onMouseUp() {
+    this.isDragging = false;
+  }
+
+  @HostListener('window:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    if (this.isDragging) {
+      const scrollbar = this.scrollableRef.nativeElement;
+      const thumb = this.thumbRef.nativeElement;
+      const scrollHeight = scrollbar.scrollHeight - scrollbar.clientHeight;
+      const delta = event.clientY - this.startY;
+      const scrollRatio = scrollHeight / (scrollbar.clientHeight - thumb.offsetHeight);
+      scrollbar.scrollTop = this.startScrollTop + delta * scrollRatio;
+      this.updateThumbPosition();
+    }
+  }
+
+  @HostListener('mousedown', ['$event'])
+  onThumbMouseDown(event: MouseEvent) {
+    if (event.target === this.thumbRef.nativeElement) {
+      this.isDragging = true;
+      this.startY = event.clientY;
+      this.startScrollTop = this.scrollableRef.nativeElement.scrollTop;
+      event.preventDefault();
+    }
+  }
 }
