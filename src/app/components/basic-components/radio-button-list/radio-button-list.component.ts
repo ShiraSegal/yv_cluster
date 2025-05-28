@@ -65,6 +65,17 @@ export class RadioButtonListComponent implements ControlValueAccessor {
     }
   }
 
+  
+  onOneRadioButtonChange(value: string): void {
+    console.log("onRadioChange", value);
+    if(this.radioControl.value === value){
+      value='';
+    }
+    this.onChange(value); // עדכון הערך
+    this.radioControl.setValue(value); // עדכון הערך של FormControl
+    this.selectionChange.emit(value); // פליטת האירוע
+  }
+  
   onOtherFieldChecked(selectedOption: string) {
     this.radioButtonValuesArray.forEach((item) => {
       if (item.value === 'other') {
@@ -74,10 +85,6 @@ export class RadioButtonListComponent implements ControlValueAccessor {
     this.radioControl.setValue(selectedOption);
     this.selectionChange.emit(selectedOption);
   }
-
-  onOneRadioButtonChange(key: string): void {
-   // console.log('Selected key:', key);
-    this.radioControl.setValue(key);
-    this.selectionChange.emit(key);
-  }
 }
+
+

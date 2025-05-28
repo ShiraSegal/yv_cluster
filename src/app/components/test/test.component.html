@@ -93,9 +93,9 @@
 <yv-cluster-slider-navigation-tab [property]="sliderNavigationTabType.ACTIVE" [icon]="iconType.HOUSE_LIGHT" [text]="sliderNavigationTabTextType.HOME"></yv-cluster-slider-navigation-tab>
  <hr>
 <hr>
-<h3>basic-table-row </h3>
+<!-- <h3>basic-table-row </h3>
 <yv-cluster-basic-table-row [cells]="exampleNarrowRow"></yv-cluster-basic-table-row>
-<hr>
+<hr> -->
 <hr> <h3>table-header</h3>
 <yv-cluster-table-header [headers]="exampleTableHeader"></yv-cluster-table-header>
 <hr> 
@@ -137,15 +137,15 @@
 <br>
 
 <h3>popover</h3>
-<yv-cluster-popover [popoverOptions]="popoverOptionsStatus" [type]="popoverType.STATUS"></yv-cluster-popover>
+<yv-cluster-popover [options]="popoverOptionsStatus" [type]="popoverType.STATUS"></yv-cluster-popover>
 <br>
-<yv-cluster-popover [popoverOptions]="popoverOptionsAssignee" [type]="popoverType.ASSIGNEE"></yv-cluster-popover>
+<yv-cluster-popover [options]="popoverOptionsAssignee" [type]="popoverType.ASSIGNEE"></yv-cluster-popover>
 <br>
-<yv-cluster-popover [popoverOptions]="popoverOptionsLink" [type]="popoverType.LINK"></yv-cluster-popover>
+<yv-cluster-popover [options]="popoverOptionsLink" [type]="popoverType.LINK"></yv-cluster-popover>
 <br>
 <hr>
 <h3>enter bookid</h3>
-<yv-cluster-enter-bookid></yv-cluster-enter-bookid>
+<yv-cluster-enter-bookid [showRadioButtons]=true></yv-cluster-enter-bookid>
 <hr>
 <br> 
  <h3>create cluster</h3>

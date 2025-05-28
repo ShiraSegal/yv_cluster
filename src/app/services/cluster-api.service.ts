@@ -24,11 +24,12 @@ export class ClusterApiService {
   }
 
   getSingleItemByBookId (bookId:string){
-    return this.#http.post<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`, bookId);
+    // let url= `${this.apiUrl}/getByBookId.json`;
+    return this.#http.get<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`);
   }
 
   getClusterGroupByBookId(cluster:string){
-    return this.#http.post<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`, cluster);
+    return this.#http.get<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`);
   }
 
   createCluster(SapirClusterModel: SapirClusterModel){

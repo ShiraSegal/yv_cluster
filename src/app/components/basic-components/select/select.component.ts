@@ -34,7 +34,7 @@ type NativeSelectOption = {
 export class SelectComponent implements ControlValueAccessor {
   @Input() error: boolean = false;
   @Input() disabled: boolean = false;
-  @Input() label: string = '';
+  @Input() label: string;
   @Input() focused: boolean = false;
   @Input() populated: boolean = false;
   @Input() default: string = '';

@@ -35,8 +35,8 @@ type NativeSelectOption = {
   styleUrl: './create-cluster.component.scss'
 })
 export class CreateClusterComponent {
-  // constructor(private clusterData: ClusterApiService) { }
-
+    data: { title: string } = inject(MAT_DIALOG_DATA, { optional: true });
+  dialogRef: MatDialogRef<CreateClusterComponent> = inject(MatDialogRef, { optional: true })!;
   #formBuilder = inject(FormBuilder);
   #clusterService = inject(ClusterService);
 
@@ -63,6 +63,7 @@ export class CreateClusterComponent {
   color: TextColor = TextColor.NEUTRAL_GRAY;
 
   //table header
+  headerCellType= HeaderCellType;
   tableHeader1: string = 'Field';
   size1: TextSize = TextSize.MEDIUM;
   weight1: TextWeight = TextWeight.BOLD;
@@ -105,12 +106,7 @@ iconType=IconType;
 //   button2: string = 'Set a cluster';
 //   btn_size:boolean = false;
 //   buttomType1: ButtonType = ButtonType.TERTIARY;
-//   buttomType2: ButtonType = ButtonType.PRIMARY;
-constructor(
-      @Optional() @Inject(MAT_DIALOG_DATA) public data: { title: string },
-      @Optional() public dialogRef: MatDialogRef<CreateClusterComponent>
-  
-){}
+
   ngOnInit() {
     // console.log("formIsValid", this.formIsValid);
     this.createClusterFormData();

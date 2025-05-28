@@ -56,7 +56,7 @@ export class CrmClustersComponent {
     // if(result !== "null"){
   if(result === "formIsNotValid"){
     this.toastMessage = `Please choose or fill before submitting.`;
-    this.toastIcon = IconType.XMARK_SOLID;
+    this.toastIcon = IconType.CIRCLE_XMARK_SOLID;
     this.showToastNotification = true;
   }
   else{
