@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, of, take, tap } from 'rxjs';
+import { BehaviorSubject, catchError,Observable, of, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
 import { LastName } from '../models/last-name.model';
@@ -16,26 +16,66 @@ import { SapirClusterModel } from '../models/sapir-cluster-model.model';
 import { RootObject } from '../models/root-object.model';
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
-export class ClusterService {
+export class ClusterService
+ {
   #translateService = inject(TranslateService);
   #clusterApiService = inject(ClusterApiService)
 
  autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
+
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
   private isDataFetched = false;
-  
+  currentUser: { id:number,name:string,role:string} = {
+    "id": 1,
+    "name": "Yehudit Leibowitz",
+     //"role": "manager"
+     "role": "worker"
+};
+
+  getDashboardDataById(id: number): Observable<any> {
+    return this.#clusterApiService.getDashboardDataById(id).pipe(
+      take(1),
+      tap((user) => {
+       // console.log(`Fetched user with ID ${id}:`, user);
+      }),
+      catchError((err) => {
+        return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
+      })
+    );
+  }
+
+  getDashboardTableDataById(id: number): Observable<any> {
+    return this.#clusterApiService.getDashboardTableDataById(id).pipe(
+      take(1),
+      tap((user) => {
+      }),
+      catchError((err) => {
+        return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
+      })
+    );
+  }
+  login(id: number): Observable<any> {
+    return this.#clusterApiService.login(id).pipe(
+      take(1),
+      tap((user) => {
+        this.currentUser = user
+      }),
+      catchError((err) => {
+        return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
+      })
+    );
+  }
+
   async getAutoClusterData() {
     try {
       const res = (await this.#clusterApiService.getAutoClusterData())
         .pipe(
           take(1),
           tap((data: any) => {
-            console.log('Fetched data:', data); // בדיקה שהנתונים מגיעים
+           // console.log('Fetched data:', data); // בדיקה שהנתונים מגיעים
             this.autoClusterListSubject$.next(data); // שמירת הנתונים ב-BehaviorSubject
           }),
           catchError(err => {
@@ -106,14 +146,14 @@ export class ClusterService {
           row.NumberOfSuggestions,
           row.RelatedFnameList
         ));
-  
+
         const clusterGroup = new ClusterGroupWithCrmLinks(
           res.d.__type,
           clusteredPeople,
           res.d.CrmLinkList,
           res.d.contact
         );
-  
+
         return new RootObjectOfClusterGroupDetails(clusterGroup);
       }),
       catchError(err => {
@@ -135,7 +175,7 @@ export class ClusterService {
         )
         .subscribe();
     }
-  
+
     return this.assigneeList$.asObservable();
   }
 
@@ -157,10 +197,10 @@ export class ClusterService {
   //   })).subscribe();
   //   return res;
   // }
- 
-   
+
+
   //  createClusterData$ = new BehaviorSubject<any[]>([]);
-   
+
   // get ClusterData$()
   //   {
   //     if(!this.createClusterData$.value.length)
@@ -169,27 +209,27 @@ export class ClusterService {
   //     }
   //     return this.createClusterData$.asObservable();
   //   }
-   
+
 
 
    getCreateClusterData() {
-    
+
     const result = this.#clusterApiService.getCreateClusterData()
       .pipe(
         take(1),
         // map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
-       
+
         tap(res => {
-          console.log("getCreateClusterData", res);
-          
+         // console.log("getCreateClusterData", res);
+
         }),
         catchError(err => {
           return of(null);
         })
       );
 
-      console.log("result",result);
-      
+     // console.log("result",result);
+
     return result; // מחזיר את המערך SapirClusterDetails
   }
 
@@ -228,7 +268,7 @@ export class ClusterService {
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
-          console.log("Cluster added successfully:", res); // לוג לתוצאה
+         // console.log("Cluster added successfully:", res); // לוג לתוצאה
           // return res;
         }),
         catchError(err => {

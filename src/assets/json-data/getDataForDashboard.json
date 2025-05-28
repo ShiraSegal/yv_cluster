@@ -1,0 +1,34 @@
+[
+    {
+      "id": 1,
+      "name": "Yehudit Leibowitz",
+      "newSuggestionPending": 30,
+      "oldSuggestionPending": 560,
+      "suggestionProcessedLastMonth": 120,
+      "clustersCreatedManually": 70
+    },
+    {
+      "id": 2,
+      "name": "Batya Halperin",
+      "newSuggestionPending": 45,
+      "oldSuggestionPending": 600,
+      "suggestionProcessedLastMonth": 150,
+      "clustersCreatedManually": 80
+    },
+    {
+      "id": 3,
+      "name": "Racheli Liff",
+      "newSuggestionPending": 20,
+      "oldSuggestionPending": 400,
+      "suggestionProcessedLastMonth": 100,
+      "clustersCreatedManually": 50
+    },
+    {
+      "id": 4,
+      "name": "Elisheva Katzburg",
+      "newSuggestionPending": 50,
+      "oldSuggestionPending": 700,
+      "suggestionProcessedLastMonth": 200,
+      "clustersCreatedManually": 90
+    }
+]

@@ -14,6 +14,7 @@ export class ClusterApiService {
   basicParam: string = 'reservations';
   #http = inject(HttpClient);
   apiUrl = 'assets/json-data';
+  
   async getAutoClusterData() {
     return this.#http.get<string[]>(`${this.apiUrl}/getAutoCluster.json`);
   }
@@ -40,6 +41,16 @@ export class ClusterApiService {
   getClusterGroupDetails(): Observable<any> {
     return this.#http.get('./assets/json-data/getClusterGroupDetails.json');
   }
+  getDashboardDataById(id: number): Observable<any> {
+    return this.#http.get<any[]>(`${this.apiUrl}/getDataForDashboard.json`).pipe(
+      map((data: any[]) => data.find((user: any) => user.id === id)) // סינון לפי ID
+    );
+  }
+  getDashboardTableDataById(id: number): Observable<any> {
+    return this.#http.get<any[]>(`${this.apiUrl}/getDataForDashboardTable.json`).pipe(
+      map((data: any[]) => data.find((user: any) => user.id === id)) // סינון לפי ID
+    );
+  }
   // getCreateClusterData(): Observable<any[]> {
   //   return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`).pipe(
   //     map(response => response?.SapirClusterDetails || []) // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
@@ -50,6 +61,11 @@ export class ClusterApiService {
   getAssigneeList(): Observable<{ name: string }[]> {
     return this.#http.get<{ name: string }[]>(`${this.apiUrl}/getAssignees.json`);
   }
-  
+
+  login(id: number): Observable<any> {
+    return this.#http.get<any[]>(`${this.apiUrl}/getAssignees.json`).pipe(
+      map((data: any[]) => data.find((user: any) => user.id === id)) // סינון לפי ID
+    );
+  }
   
 }

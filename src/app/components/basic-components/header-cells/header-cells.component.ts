@@ -35,12 +35,12 @@ export class HeaderCellsComponent {
   }
 
   checkChange(checkStatus: CheckType) {
-    console.log(" header cells check status", checkStatus)
+   // console.log(" header cells check status", checkStatus)
     this.checkStatus.emit(checkStatus);
 
   }
   openPeiComponent() {
-    console.log("openPeiComponent");
+   // console.log("openPeiComponent");
     this.openDialog.emit(true);
   }
 }

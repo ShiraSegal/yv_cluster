@@ -167,18 +167,18 @@ iconType=IconType;
     // this.createClusterForm.controls['comments'] = new FormControl('');
     // this.createClusterFormFields=
 
-    console.log("this.createClusterForm", this.createClusterForm);
+   // console.log("this.createClusterForm", this.createClusterForm);
 
 
     // this.createClusterForm = this.#formBuilder.group(this.createClusterFormFields);
-    // console.log("this.createClusterForm", this.createClusterForm);
+    //// console.log("this.createClusterForm", this.createClusterForm);
 
 
   }
 
   checkChange(index: string) {
-    console.log("valid", this.createClusterForm.valid);
-    console.log("index", index);
+   // console.log("valid", this.createClusterForm.valid);
+   // console.log("index", index);
     // this.createClusterForm.get(selected)?.setValue(index);
     // console.log("createClusterForm", this.createClusterForm.value);
     // console.log("createClusterForm", this.createClusterForm);
@@ -194,19 +194,19 @@ iconType=IconType;
       this.closeDialogWithData({ bookId:"creat cluster succesfully😍❤"});
       console.log("this.clusterModel", "creat cluster succesfully😍❤");
       this.clusterModel.SapirClusterDetails.map((field: any) => {
-        console.log("field", field);
+       // console.log("field", field);
         const values = field.Values.filter((value: any) => {
           return value.NameCode === this.createClusterForm.controls[field.Field].value;
         });
-        console.log("values", values);
+       // console.log("values", values);
 
         field.Values = values;
 
-        console.log("field.Values", field.Values);
+       // console.log("field.Values", field.Values);
 
       });
-      console.log("this.clusterModel", this.clusterModel);
-      console.log("comments", this.createClusterForm.value.comments);
+     // console.log("this.clusterModel", this.clusterModel);
+     // console.log("comments", this.createClusterForm.value.comments);
       this.clusterModel.Level= this.createClusterForm.value.clusterLevel;
       this.clusterModel.Comments = this.createClusterForm.value.comments;
       this.#clusterService.createCluster(this.clusterModel).subscribe({
@@ -227,7 +227,7 @@ iconType=IconType;
       this.formIsValid = false;
       this.closeDialogWithData({ bookId: "formIsNotValid" });
     }
-    console.log("formIsValid", this.formIsValid);
+   // console.log("formIsValid", this.formIsValid);
   }
 
   closeDialogWithData(data: any): void {

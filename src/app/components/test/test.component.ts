@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormControl } from "@angular/forms";
 //import enums
-import {  ButtonSize, CheckStateType, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State , AutoClusterTabType,  BasicTableRowPropertyVariants, ButtonIconProperty, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, SliderNavigationTabTextType, TextSize, TextWeight, BadgeType, RadioButtonListDirection, BigCardSize } from 'src/app/enums/basic-enum';
+import {  ButtonSize, CheckStateType, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State , AutoClusterTabType,  BasicTableRowPropertyVariants, ButtonIconProperty, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, SliderNavigationTabTextType, TextSize, TextWeight, BadgeType, RadioButtonListDirection, BigCardSize, HomeTableTabType } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
 import { CheckType } from "src/app/enums/check-enum";
 //import components
@@ -45,7 +45,6 @@ import { CreateClusterComponent } from "../cluster-managment/create-cluster/crea
 import { PopoverComponent } from "../basic-components/popover/popover.component";
 import { CardColor } from "src/app/enums/card-colors.enum";
 import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-handling-suggestions/filter-handling-suggestions.component";
-
 import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id-details/table-group-id-details.component";
 import { TooltipComponent } from "../basic-components/tooltip/tooltip.component";
 import { HomeComponent } from "../pages/home/home.component";
@@ -59,16 +58,12 @@ import { NativeOptionComponent } from "../basic-components/native-option/native-
     IconButtonComponent,
     SliderComponent,
     CheckComponent,
-    AssigneeComponent,
     DataCellsComponent,
     HeaderCellsComponent,
     BadgeComponent,
     CommonModule,
     ButtonComponent,
-    SwitchComponent,
-    BasicTabComponent,
     IconButtonLargeComponent,
-    AssigneeComponent,
     BasicTableRowComponent,
     DataCellsComponent,
     HeaderCellsComponent,
@@ -78,80 +73,41 @@ import { NativeOptionComponent } from "../basic-components/native-option/native-
     ButtonComponent,
     CheckComponent,
     IconButtonLargeComponent,
-    BasicTabComponent,
     SliderComponent,
-    SwitchComponent,
-    ViewerComponent,
-    SlidebarNavigationComponent,
-    BasicCardComponent,
-    NarrowBasicTableRowComponent,
-    NarrowBasicTableWarpComponent,
     SliderComponent,
     CheckComponent,
-    ViewerComponent,
     BadgeComponent,
     BadgeComponent,
-    AssigneeComponent,
     DataCellsComponent,
     HeaderCellsComponent,
     SliderNavigationTabComponent,
-    SlidebarNavigationComponent,
     FieldComponent,
     CommonModule,
     ButtonComponent,
-    SwitchComponent,
     TableHeaderComponent,
-    BasicTabComponent,
-    BasicCardComponent,
     IconButtonLargeComponent,
-    PieCircleComponent,
-    PieComponentDistributionModalComponent,
-    PieTableComponent,
-    BigCardComponent,
-    SatisticCardComponent,
-    ToastNotificationComponent,
-    FilterSectionComponent,
     RadioButtonListComponent,
-    BasicRadioButtonComponent,
-    BasicToggleComponent,
-    BasicTabComponent,
     HeaderCellsComponent,
     EnterBookidComponent,
     HeadingComponent,
     BodyComponent,
-    TableGroupIdDetailsComponent,
-    FilterHandlingSuggestionsComponent,
     CrmClustersComponent,
     CreateClusterComponent,
     CommonModule,
     IconButtonComponent,
     ButtonComponent,
-    BasicCardComponent,
-    ToastNotificationComponent,
-    BasicToggleComponent,
-    BasicRadioButtonComponent,
     CheckComponent,
-    SelectComponent,
-    BasicTabComponent,
     SliderComponent,
-    SwitchComponent,
     FieldComponent,
     RadioButtonListComponent,
     BadgeComponent,
      BasicTableRowComponent,
     IconButtonLargeComponent,
-     ViewerComponent,
-     NarrowBasicTableRowComponent,
-     NarrowBasicTableWarpComponent,
      TableHeaderComponent,
       // HomeWarpComponent,
-      NativeOptionComponent,
     // HomeWarpComponent,
     PopoverComponent,
-    TooltipComponent,
-    
     PopoverComponent,
-    HomeComponent
 
   ],
   templateUrl: './test.component.html',
@@ -159,12 +115,12 @@ import { NativeOptionComponent } from "../basic-components/native-option/native-
 })
 export class TestComponent {
   //enums-----------------------------------------------------------------------
-  iconType = IconType;//  types of icons. 
+  iconType = IconType;//  types of icons.
   badgeType = BadgeType;//types of badge
   checkStateType = CheckStateType;
   checkType = CheckType;
   headerCellType = HeaderCellType;//header cell types
-  dataCellType = DataCellType;//data cell types  
+  dataCellType = DataCellType;//data cell types
   sliderNavigationTabType = SliderNavigationTabType;//types of slider navigation tab
   stateEnum = State;//  types of input & select.
   iconButtonLargeType = IconButtonLargeType;
@@ -187,7 +143,7 @@ export class TestComponent {
   //variables-----------------------------------------------------------------------
   radioButtonListDirection=RadioButtonListDirection;
   cardColorEnum=CardColor;
-  
+
 //variables-----------------------------------------------------------------------
   // button component properties
   label: string = 'Lable';//button label
@@ -206,7 +162,7 @@ export class TestComponent {
   //enum ButtonSize
   big = ButtonSize.BIG//button size
   small = ButtonSize.SMALL//button size;
-//toggle 
+//toggle
   toggleState!: string;
   //radio
   radioButtonState: boolean = false;
@@ -252,7 +208,7 @@ export class TestComponent {
   // SliderNavigationTabIconType = SliderNavigationTabIconType;
   // SliderNavigationTabType = SliderNavigationTabType;
 
-  
+
 
   selectedOption: string = '';
   radioButtonArray: string[] = ["a", "b", "c", "d", "other"];
@@ -270,7 +226,7 @@ export class TestComponent {
   //functions-----------------------------------------------------------------------
   //header-cell- sort function
   handleSort(event: { column: string, direction: string }) {
-    console.log(`Sorting by ${event.column} in ${event.direction} order`);
+   // console.log(`Sorting by ${event.column} in ${event.direction} order`);
   }
   //switch-component function
   handleSwitchChange(state: boolean) {
@@ -283,14 +239,14 @@ export class TestComponent {
   //button & icon button component function
   onClick() {
     alert('test on click');
-    console.log('test on click');
+   // console.log('test on click');
   }
   onRadioButtonListSelectionChange(selectedValue: string) {
     this.selectedOption = selectedValue;
-    console.log("האפשרות שנבחרה:", this.selectedOption);
+   // console.log("האפשרות שנבחרה:", this.selectedOption);
   }
   checkChange(checkStatus:CheckType) {
-    console.log("check status", checkStatus)
+   // console.log("check status", checkStatus)
 
   }
   //data-----------------------------------------------------------------------
@@ -410,16 +366,16 @@ export class TestComponent {
   // ];
 
 
-  
+
 
   // handleSort(event: { column: string, direction: string }) {
 
-  //   console.log(`Sorting by ${event.column} in ${event.direction} order`);
+  //  // console.log(`Sorting by ${event.column} in ${event.direction} order`);
   // }
 
   // onClick() {
   //   alert('test on click');
-  //   console.log('test on click');
+  //  // console.log('test on click');
   // }
 
 
@@ -463,12 +419,12 @@ popoverOptionsLink:{
   //functions-----------------------------------------------------------------------
   //header-cell- sort function
   // handleSort(event: { column: string, direction: string }) {
-  //   console.log(`Sorting by ${event.column} in ${event.direction} order`);
+  //  // console.log(`Sorting by ${event.column} in ${event.direction} order`);
   // }
   // //button & icon button component function
   // onClick() {
   //   alert('test on click');
-  //   console.log('test on click');
+  //  // console.log('test on click');
   // }
   headers: { data: string; type: HeaderCellType }[] = [
     { data: 'name list', type: HeaderCellType.TEXT },
@@ -560,11 +516,11 @@ popoverOptionsLink:{
 
   handleToggleChange(state: string) {
     this.toggleState = state;
-    console.log('state:', state);
+   // console.log('state:', state);
   }
   handleRadioButtonChange(state: boolean) {
     this.radioButtonState = state;
-    console.log('radioButton:', state ? 'דלוק' : 'מכובה');
+   // console.log('radioButton:', state ? 'דלוק' : 'מכובה');
   }
 
 

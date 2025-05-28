@@ -18,7 +18,10 @@ export enum BasicTableRowPropertyVariants {
   DEFAULT = 'Default',
   VARIANT2 = 'Variant2',
 }
- 
+export enum NarrowBasicTableRowLength {
+  LONG = 'long',
+  SHORT = 'short'
+}
 
 
 export enum BasicTablePropertyType {
@@ -91,6 +94,8 @@ export enum AutoClusterTabType {
   DIFFERENT_CLUSTERS = 'Different Clusters',
   ERROR_MESSAGES = 'Error Messages'
 }
+
+
 
 export enum HomeTableTabType {
  NEW_SUGGESTIONS = 'new-suggestion',

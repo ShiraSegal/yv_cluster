@@ -116,7 +116,7 @@ export class FilterHandlingSuggestionsComponent {
 
   handleSwitchChange(state: boolean) {
     this.switchState = state;
-    console.log('Switch:', state ? 'דלוק' : 'מכובה');
+   // console.log('Switch:', state ? 'דלוק' : 'מכובה');
   }
   onRightLeftClick() {
     alert('right left button clicked');
@@ -128,6 +128,6 @@ export class FilterHandlingSuggestionsComponent {
   }
   onClick() {
     alert('test on click');
-    console.log('test on click');
+   // console.log('test on click');
   }
 }

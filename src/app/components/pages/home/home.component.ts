@@ -6,70 +6,106 @@ import { BasicTableRowPropertyVariants, DataCellType, HeaderCellType, HomeTableT
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { BasicTableWarpComponent } from '../../basic-components/basic-table-warp/basic-table-warp.component';
 import { SuggestionsStatisticsComponent } from '../../basic-components/suggestions-statistics/suggestions-statistics.component';
+import { log } from 'node:console';
 
 @Component({
   selector: 'yv-cluster-home',
   standalone: true,
-  imports: [BasicCardComponent,HeadingComponent,
-  BasicTableWarpComponent,SuggestionsStatisticsComponent
+  imports: [BasicCardComponent, HeadingComponent,
+    BasicTableWarpComponent, SuggestionsStatisticsComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  //enums
   iconType = IconType;
   textSize = TextSize;
   textWeight = TextWeight;
-
-  tableData: any;
-  clusterService = inject(ClusterService);
-  async ngOnInit() {
-    (await this.clusterService.getAutoClusterData()).subscribe({
-      next: (data: any) => {
-        console.log('Received data:', data);
-        this.tableData = data;
+  // Injecting the ClusterService
+  #clusterService = inject(ClusterService);
+  //cards data
+  selectedUser: any;
+   //table-data
+   tableData: Partial<Record<HomeTableTabType, {
+    Headers: { data: string; type: HeaderCellType }[];
+    Rows: {
+      property: BasicTableRowPropertyVariants;
+      showAction: boolean;
+      cells: {
+        data: string;
+        type: DataCellType;
+        moreData?: { [key: string]: any };
+      }[];
+    }[];
+  }>> = {};
+  //statistics data
+  statisticsData: { color: string; value: number }[] = [];
+  radius = 100;
+  innerRadius = 50;
+  //cards function
+  ngOnInit() {
+    const userId = 4; // ID של המשתמש הרצוי
+    //בעיקרון פה לוקחים את הID מהLOCALSTORAGE או משהו בסגנון
+    this.#clusterService.getDashboardDataById(userId).subscribe({
+      next: (user: any) => {
+        this.selectedUser = user;
+       // console.log('Selected User:', this.selectedUser);
+        // הכנת הנתונים לגרף
+        this.statisticsData = [
+          { color: '#1334B9', value: user.newSuggestionPending || 0 }, // New Suggestions
+          { color: '#A5EBDD', value: user.oldSuggestionPending || 0 }, // Old Suggestions
+          { color: '#A1AEE3', value: user.suggestionProcessedLastMonth || 0 }, // Suggestions Processed
+          { color: '#F6CDCD', value: user.clustersCreatedManually || 0 }, // Clusters Created
+        ];
       },
-      error: (err: any) => {
-        console.error('Error fetching data:', err);
-      }
+      error: (err) => {
+        console.error('Error fetching user:', err);
+      },
+    });
+    this.#clusterService.getDashboardTableDataById(userId).subscribe({
+      next: (user: any) => {
+        this.processTableData(user);
+      },
+      error: (err) => {
+        console.error('Error fetching user:', err);
+      },
     });
   }
-  statisticsData = [
-    { color: '#FF5733', value: 40 }, // Example segment 1
-    { color: '#33FF57', value: 30 }, // Example segment 2
-    { color: '#3357FF', value: 20 }, // Example segment 3
-    { color: '#F3FF33', value: 10 }  // Example segment 4
-  ];
-
-  radius = 120; // Outer radius
-  innerRadius = 60; // Inner radius
-    data = {
+  processTableData(user: any): void {
+    this.tableData = {
       [HomeTableTabType.NEW_SUGGESTIONS]: {
         Headers: [
           { data: 'Name List', type: HeaderCellType.TEXT },
-          { data: 'To Do', type: HeaderCellType.TEXT },
-          { data: '', type: HeaderCellType.CHECK },
+          { data: 'To Do', type: HeaderCellType.TEXT }
         ],
-        Rows: [
-          {
-            property: BasicTableRowPropertyVariants.VARIANT2,
-            showAction: true,
-            cells: [
-              { data: 'sapir cluster', type: DataCellType.TEXT },
-              { data: 'In Progress', type: DataCellType.TEXT },
-              { data: '', type: DataCellType.ICON },
-            ],
-          },
-          {
-            property: BasicTableRowPropertyVariants.VARIANT2,
-            showAction: false,
-            cells: [
-              { data: 'sapir cluster', type: DataCellType.TEXT },
-              { data: 'In Progress', type: DataCellType.TEXT },
-              { data: '', type: DataCellType.ICON },
-            ],
-          },
-        ],
+        Rows: user.newSuggestions.map((suggestion: any) => ({
+          property: BasicTableRowPropertyVariants.DEFAULT,
+          showAction: true,
+          cells: [
+            { data: suggestion.nameList, type: DataCellType.TEXT },
+            { data: suggestion.toDo, type: DataCellType.TEXT }
+          ]
+        }))
       },
-    }
+      [HomeTableTabType.OLD_SUGGESTIONS]: {
+        Headers: [
+          { data: 'Name List', type: HeaderCellType.TEXT },
+          { data: 'Done', type: HeaderCellType.TEXT },
+          { data: 'To Do', type: HeaderCellType.TEXT }
+        ],
+        Rows: user.oldSuggestions.map((suggestion: any) => ({
+          property: BasicTableRowPropertyVariants.DEFAULT,
+          showAction: true,
+          cells: [
+            { data: suggestion.nameList, type: DataCellType.TEXT },
+            { data: suggestion.done, type: DataCellType.SLIDER },
+            { data: suggestion.toDo, type: DataCellType.TEXT }
+          ]
+        }))
+      }
+    };
+   // console.log("tableData", this.tableData);
+
+  }
 }

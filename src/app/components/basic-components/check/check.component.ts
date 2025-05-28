@@ -21,7 +21,7 @@ import { Component, Input,EventEmitter, Output } from '@angular/core';
 })
 export class CheckComponent implements ControlValueAccessor {
   @Input() type: CheckType =CheckType.UNCHECKED ;
-  @Input() state: CheckStateType = CheckStateType.ENABLED;  
+  @Input() state: CheckStateType = CheckStateType.ENABLED;
   @Input() checkedControl: FormControl;
   @Output() checkStatus= new EventEmitter<CheckType>();
 
@@ -44,7 +44,7 @@ export class CheckComponent implements ControlValueAccessor {
   setDisabledState?(isDisabled: boolean): void {
     this.state = isDisabled ? CheckStateType.DISABLED : CheckStateType.ENABLED;
   }
-  
+
 
   toggleCheckbox() {
     if (this.state !== CheckStateType.DISABLED) {

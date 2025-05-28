@@ -45,6 +45,7 @@ export class FilterSectionComponent {
   @Input() Filters :FilterNames[] = [];
   @Output() onClickAddCluster = new EventEmitter<void>();
   @Output() onFilterValuesChange = new EventEmitter<any[]>();
+currentUserRole = this.#clusterService.currentUser.role;
 
   ngOnInit() {
     console.log('Filters received in filter-section:', this.Filters); // Debugging log
@@ -85,9 +86,9 @@ export class FilterSectionComponent {
       property: BadgeType.DONE
     }
   ];
-  constructor() {
-
-    this.filterForm = this.#fb.group({
+// #fb= inject( FormBuilder)
+  constructor(private fb: FormBuilder, private clusterService: ClusterService) {
+    this.filterForm = this.fb.group({
       search: [''],
       date: [null],
       status: [null],
@@ -104,10 +105,11 @@ export class FilterSectionComponent {
     });
 
     this.statusAssineeForm.valueChanges.subscribe(val => {
-      console.log('statusAssineeForm:', val);
+     // console.log('statusAssineeForm:', val);
     });
 
-    this.#clusterService.AssigneeList$.subscribe(names => {
+    // קבלת AssigneeList מהשאיבה מהגיסון
+    this.clusterService.AssigneeList$.subscribe(names => {
       this.assigneeOptions = names.map(name => ({
         optionType: NativeOptionType.ASSIGNEE,
         optionState: NativeOptionState.DEFAULT,
@@ -123,7 +125,7 @@ export class FilterSectionComponent {
     this.visiblePopover = null;
   }
   onClick() {
-    console.log('Submit clicked:', this.filterForm.value);
+   // console.log('Submit clicked:', this.filterForm.value);
   }
 
   onClickAddClusterFunc() {

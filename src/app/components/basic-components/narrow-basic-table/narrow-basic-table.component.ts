@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input, SimpleChanges } from '@angular/core';
-import { ButtonType, DataCellType, HeaderCellType, NarrowBasicTableRowInputState, State } from 'src/app/enums/basic-enum';
+import { ButtonType, DataCellType, HeaderCellType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength, State } from 'src/app/enums/basic-enum';
 import { NarrowBasicTableRowComponent } from '../narrow-basic-table-row/narrow-basic-table-row.component';
 import { TableHeaderComponent } from '../table-header/table-header.component';
 import { ButtonIconProperty, NativeOptionState, NativeOptionType } from 'src/app/enums/native-option-enum';
@@ -15,17 +15,18 @@ import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 @Component({
   selector: 'yv-cluster-narrow-basic-table',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NarrowBasicTableRowComponent, TableHeaderComponent, FilterSectionComponent,PopoverComponent],
+  imports: [CommonModule, ReactiveFormsModule, NarrowBasicTableRowComponent, TableHeaderComponent, FilterSectionComponent, PopoverComponent],
   templateUrl: './narrow-basic-table.component.html',
   styleUrl: './narrow-basic-table.component.scss'
 })
 export class NarrowBasicTableComponent {
 
-  @Input() Filters : FilterNames[] = [];
+  @Input() Filters: FilterNames[] = [];
   @Input() Headers: { data: string; type: HeaderCellType }[] = [];
   @Input() Rows: {
     property: NarrowBasicTableRowInputState;
     showAction: boolean;
+    length: NarrowBasicTableRowLength
     cells: {
       data: string;
       type: DataCellType;
@@ -33,6 +34,7 @@ export class NarrowBasicTableComponent {
     }[];
   }[] = [];
 
+  narrowBasicTableRowLength = NarrowBasicTableRowLength;
   label: string = 'Select Label';
   primary = ButtonType.PRIMARY
   variant3 = ButtonIconProperty.VARIANT3
@@ -57,55 +59,25 @@ export class NarrowBasicTableComponent {
 
   iconsVisible: boolean = false;
 
-
-  get rowsFormArray(): FormArray {
-    return this.tableDataForm.get('rowsFormArray') as FormArray;
-  }
-    get headerCheckboxControl(): FormControl {
-    return this.tableDataForm.get('headerCheckbox') as FormControl;
-  }
-
   ngOnInit() {
-    console.log( "ngoninit rows:",this.Rows);
-    console.log( "ngoninit filters:",this.Filters);
     this.initializeRowsFormArray();
-    this.initializeRowControlsArray();
-
-    // this.subscription.add(this.#managementService.stepTwoMarkErrors$.subscribe(
-    //   (val) => {
-    //     this.showError=val;
-    //   }
-    // ))
 
     this.tableDataForm.valueChanges.subscribe((value) => {
       // console.log('Basic table Form Value:', value);
     });
     this.rowsFormArray.valueChanges.subscribe((value) => {
-          this.updateIconsVisibility();
+      this.updateIconsVisibility();
       // console.log('table Rows value changes:', value)
     });
-    this.headerCheckboxControl.valueChanges.subscribe((isChecked) => {      
+    this.headerCheckboxControl.valueChanges.subscribe((isChecked) => {
       this.onHeaderCheckboxToggle();
     });
-      }
-      ngOnDestroy(): void {
-        this.subscription.unsubscribe()
-     
-      }
-  initializeRowsFormArray() {    
-    console.log('initializeRowsFormArray called');
-    this.rowsFormArray.clear();
-    this.Rows?.forEach((row, index) => {
-      const rowGroup = this.#fb.group({
-        checked: new FormControl(row.cells.find(cell => cell.type === DataCellType.CHECK)?.data || false),
-        assignee: new FormControl(row.cells.find(cell => cell.type === DataCellType.ASSIGNEE)?.data || ''),
-        status: new FormControl(row.cells.find(cell => cell.type === DataCellType.STATUS)?.data || ''),
-      });
-      
-      this.rowsFormArray.push(rowGroup);
-    });
-    console.log('All Rows FormArray:', this.rowsFormArray.getRawValue()); // לוג של כל ה-FormArray
   }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+
+  }
+
   updateIconsVisibility() {
     console.log('updateIconsVisibility called');
     this.iconsVisible = this.rowsFormArray.controls.some((group) => {
@@ -113,42 +85,12 @@ export class NarrowBasicTableComponent {
     });
     console.log('Icons visibility:', this.iconsVisible);
     console.log(this.rowsFormArray);
-    
-  }
-  
-  get rowGroup(): FormGroup[] {
-    return this.rowsFormArray.controls as FormGroup[]; 
-  }
- 
-  rowControlsArray: FormControl[][] = []
-  
-  initializeRowControlsArray() {
-    console.log('initializeRowControlsArray called');
-    const rowsFormArray = this.tableDataForm.get('rowsFormArray') as FormArray;
-    this.rowControlsArray = rowsFormArray.controls.map((rowFormGroup,index) => {
-      const group = rowFormGroup as FormGroup;
-      // console.log(`Row ${index} FormGroup Value:`, group.getRawValue());      
-      return [
-        group.get('checked') as FormControl,
-        group.get('assignee') as FormControl,
-        group.get('status') as FormControl,
-      ];
-    });
-    console.log('All Row Controls:', this.rowControlsArray); // לוג של כל המערך של ה-Controls
-  }
-  getRowControls(rowIndex: number): FormControl[] {
-    const rowFormGroup = (this.tableDataForm.get('rowsFormArray') as FormArray).at(rowIndex) as FormGroup;
-    
-    return [
-      rowFormGroup.get('checked') as FormControl,
-      rowFormGroup.get('assignee') as FormControl,
-      rowFormGroup.get('status') as FormControl,
-    ];
+
   }
   onHeaderCheckboxToggle(): void {
     debugger
     const isChecked = this.tableDataForm.get('headerCheckbox')?.value;
-  
+
     // Update all row checkboxes
     this.rowsFormArray.controls.forEach((group) => {
       const checkedControl = group.get('checked');
@@ -171,37 +113,68 @@ export class NarrowBasicTableComponent {
       console.log('Rows (ngOnChanges):', this.Rows);
       if (changes['Rows'] && this.Rows?.length) {
         this.initializeRowsFormArray();
-        this.initializeRowControlsArray(); 
-           }
+
+      }
     }
   }
+
+  // Initialize the FormArray with the rows data
+  initializeRowsFormArray() {
+    this.rowsFormArray.clear(); // איפוס ה-FormArray
+
+    this.Rows.forEach((row) => {
+      const rowGroup = this.#fb.group({}); // יצירת FormGroup עבור השורה
+
+      row.cells.forEach((cell, index) => {
+        const headerName = this.Headers[index]?.data || `header_${index}`; // שם ההידר או שם ברירת מחדל
+        const control = new FormControl({
+          data: cell.data,
+          type: cell.type,
+          moreData: cell.moreData,
+        });
+        rowGroup.addControl(headerName, control); // הוספת השדה ל-FormGroup עם שם ההידר
+      });
+
+      this.rowsFormArray.push(rowGroup); // הוספת ה-FormGroup ל-FormArray
+    });
+
+    // console.log('All Rows FormArray:', this.rowsFormArray.getRawValue()); // לוג של כל ה-FormArray
+  }
+  get rowsFormArray(): FormArray<FormGroup> {
+    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
+  }
+  get rowGroup(): FormGroup[] {
+    return this.rowsFormArray.controls as FormGroup[]; // Explicitly cast to FormGroup[]
+  }
+
+  get headerCheckboxControl(): FormControl {
+    return this.tableDataForm.get('headerCheckbox') as FormControl;
+  }
+
 
   nativeOptionswe = [
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
   ];
+
   trackByFn(index: number, item: any): any {
     return index;
   }
   onClick() {
     alert('test on click');
-    console.log('test on click');
+    // console.log('test on click');
   }
-  onClickAddCluster(){
+  onClickAddCluster() {
     //open dialog create new cluster
   }
-   onClicShowkAssineeOrStatus(){
-   }
-
-  onFilterValuesChange(values: any[]){
-   console.log('filter values:', values);
-   //create filter arr 
-   // filter this.Rows based on the values
+  onClicShowkAssineeOrStatus() {
   }
 
-//   }
-
-// }
+  onFilterValuesChange(values: any[]) {
+    // console.log('filter values:', values);
+    //create filter arr
+    // filter this.Rows based on the values
+  }
 
 }

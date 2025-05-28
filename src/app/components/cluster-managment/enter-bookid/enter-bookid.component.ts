@@ -15,7 +15,7 @@ import { RootObject } from 'src/app/models/root-object.model';
 @Component({
   selector: 'yv-cluster-enter-bookid',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent, RadioButtonListComponent, FieldComponent,ToastNotificationComponent],
+  imports: [FormsModule, ReactiveFormsModule, ButtonComponent, HeadingComponent, RadioButtonListComponent],
   templateUrl: './enter-bookid.component.html',
   styleUrl: './enter-bookid.component.scss'
 })
@@ -63,7 +63,7 @@ dialogRef: MatDialogRef<EnterBookidComponent> = inject(MatDialogRef, { optional:
   selected: string = 'Book Id';
 
 
-  
+
   //toast notification
   iconType=IconType
   message: string = `${this.selected} Submitted!`;
@@ -98,7 +98,7 @@ ngOnInit() {
         error: (err:any) => {
           console.error("Error during cluster creation:", err);
         }
-      });  
+      });
       this.formIsValid = true;
       this.close = true;
     }
@@ -110,7 +110,7 @@ ngOnInit() {
           console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
           this.closeDialogWithData({ bookId:this.enterBookIdOrClusterForm.value.input })
           if (res) {
-            console.log("Cluster add:", res);
+           // console.log("Cluster add:", res);
           } else {
             console.warn("add cluster failed.");
           }
@@ -118,9 +118,9 @@ ngOnInit() {
         error: (err:any) => {
           console.error("Error during cluster creation:", err);
         }
-      });  
+      });
     }
-  
+
   }
   else {
     this.formIsValid = false; 

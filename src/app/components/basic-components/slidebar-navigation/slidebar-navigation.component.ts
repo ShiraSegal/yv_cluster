@@ -6,6 +6,7 @@ import { SliderNavigationTabTextType, SliderNavigationTabType, SliderNavigationT
 import { IconType } from 'src/app/enums/icon-enum';
 // import { Router } from 'express';
 import { ActivatedRoute,Router } from '@angular/router';
+import { ClusterService } from 'src/app/services/cluster.service';
 
 @Component({
   selector: 'yv-cluster-slidebar-navigation',
@@ -17,42 +18,40 @@ import { ActivatedRoute,Router } from '@angular/router';
 export class SlidebarNavigationComponent {
    #router = inject(Router);
    #route = inject(ActivatedRoute);
-  
   sliderNavigationTabTextType = SliderNavigationTabTextType;
   iconType = IconType;
   sliderNavigationTabType = SliderNavigationTabType;
   activeTabIndex: number | null = 0;
-
+  logoutText = SliderNavigationTabTextType.LOG_OUT
   tabs = [
-    { number: 0, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.HOUSE_LIGHT, activeIcon: IconType.HOUSE_SOLID, text: SliderNavigationTabTextType.HOME,url:SliderNavigationTabUrl.HOME },
-    { number: 1, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LIST_LIGHT, activeIcon: IconType.LIST_SOLID, text: SliderNavigationTabTextType.AUTO_CLUSTER,url:SliderNavigationTabUrl.AUTO_CLUSTER },
-    { number: 2, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.ENVELOPE_OPEN_TEXT_LIGHT, activeIcon: IconType.ENVELOPE_OPEN_TEXT_LIGHT, text: SliderNavigationTabTextType.CRM_CLUSTERS,url:SliderNavigationTabUrl.CRM_CLUSTERS},
-    { number: 3, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.PLUS_LIGHT, activeIcon: IconType.PLUS_SOLID, text: SliderNavigationTabTextType.NEW_CLUSTER,url:SliderNavigationTabUrl.NEW_CLUSTER },
-    { number: 4, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.CHART_LINE_UP_LIGHT, activeIcon: IconType.CHART_LINE_UP_SOLID, text: SliderNavigationTabTextType.REPORT,url:SliderNavigationTabUrl.REPORT },
-    { number: 5, property: new FormControl(SliderNavigationTabType.VARIANT3), icon: IconType.LEFT_FROM_BRACKET_LIGHT, activeIcon: IconType.LEFT_FROM_BRACKET_SOLID, text: SliderNavigationTabTextType.LOG_OUT,url:SliderNavigationTabUrl.LOG_OUT },
+    { property: SliderNavigationTabType.VARIANT3, icon: IconType.HOUSE_LIGHT, activeIcon: IconType.HOUSE_SOLID, text: SliderNavigationTabTextType.HOME,url:SliderNavigationTabUrl.HOME },
+    {  property: SliderNavigationTabType.VARIANT3, icon: IconType.LIST_LIGHT, activeIcon: IconType.LIST_SOLID, text: SliderNavigationTabTextType.AUTO_CLUSTER,url:SliderNavigationTabUrl.AUTO_CLUSTER },
+    {  property: SliderNavigationTabType.VARIANT3, icon: IconType.ENVELOPE_OPEN_TEXT_LIGHT, activeIcon: IconType.ENVELOPE_OPEN_TEXT_LIGHT, text: SliderNavigationTabTextType.CRM_CLUSTERS,url:SliderNavigationTabUrl.CRM_CLUSTERS},
+    {  property: SliderNavigationTabType.VARIANT3, icon: IconType.PLUS_LIGHT, activeIcon: IconType.PLUS_SOLID, text: SliderNavigationTabTextType.NEW_CLUSTER,url:SliderNavigationTabUrl.NEW_CLUSTER },
+    {  property: SliderNavigationTabType.VARIANT3, icon: IconType.CHART_LINE_UP_LIGHT, activeIcon: IconType.CHART_LINE_UP_SOLID, text: SliderNavigationTabTextType.REPORT,url:SliderNavigationTabUrl.REPORT },
+    {  property: SliderNavigationTabType.VARIANT3,icon: IconType.LEFT_FROM_BRACKET_LIGHT, activeIcon: IconType.LEFT_FROM_BRACKET_SOLID, text: SliderNavigationTabTextType.LOG_OUT,url:SliderNavigationTabUrl.LOG_OUT },
   ];
 
-  setActiveTab(tabIndex: number) {
+  setActiveTab(tabText: SliderNavigationTabTextType) {
     const groupId=1
-    this.activeTabIndex = tabIndex;
-    this.tabs.forEach((tab, index) => {
-      if (index !== tabIndex) {
-        tab.property.setValue(SliderNavigationTabType.VARIANT3);
+    // this.activeTabIndex = tabText;
+    this.tabs.forEach((tab) => {
+      if (tab.text !== tabText) {
+        tab.property = SliderNavigationTabType.VARIANT3; // טאב שאינו נבחר
       } else {
-        tab.property.setValue(SliderNavigationTabType.ACTIVE);
-        switch(tab.number){
-          case 2:
+       tab.property = SliderNavigationTabType.ACTIVE; // טאב נבחר
+        switch(tab.url){
+          case 'crmClusters':
         this.#router.navigate([tab.url,groupId]);
         break;
-        case 3:
+        case 'newCluster':
         this.#router.navigate([tab.url,'new']);
         break;
        default:
         this.#router.navigate([tab.url]);
 
         }
-
-      }
-    });
+   }} );
+    this.activeTabIndex = this.tabs.findIndex((tab) => tab.text === tabText);
   }
 }

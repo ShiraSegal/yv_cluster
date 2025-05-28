@@ -1,8 +1,8 @@
 
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconType } from 'src/app/enums/icon-enum';
 import { IconButtonLargeType } from 'src/app/enums/basic-enum';
+import { IconType } from 'src/app/enums/icon-enum';
 
 @Component({
   selector: 'yv-cluster-icon-button-large',
