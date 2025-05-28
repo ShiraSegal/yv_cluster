@@ -22,25 +22,25 @@ export class HandlingSuggestionsPageComponent {
    #dialog = inject(MatDialog);
   iconType = IconType
    dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
-  
+
    openDialog() {
-    console.log("openDialog");
-    
+   // console.log("openDialog");
+
    this.dialogRef = this.#dialog.open(EnterBookidComponent, {
     data: { title: 'Data Distribution' },
-    disableClose: true, 
+    disableClose: true,
     hasBackdrop: true,
     panelClass: 'custom-dialog',
     autoFocus: false,
     width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
     height: 'auto',
-  
+
   });
    }
   onClick() {
     // alert('test on click');
-    // console.log('test on click');
-    console.log("openPeiComponent");
+    //// console.log('test on click');
+   // console.log("openPeiComponent");
     this.openDialog()
   }
 }

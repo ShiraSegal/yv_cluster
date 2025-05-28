@@ -17,7 +17,7 @@ export class AppComponent {
   // ngOnInit() {
   //   this.#clusterService.login(1).subscribe({
   //     next: (user: any) => {
-  //       console.log(' fetching user:', user);
+  //      // console.log(' fetching user:', user);
   //     },
   //     error: (err) => {
   //       console.error('Error fetching user:', err);

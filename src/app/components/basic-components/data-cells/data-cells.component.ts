@@ -64,7 +64,7 @@ rihgtLink(){
     }
     else
     return this.data
-    
+
 }
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;
@@ -76,7 +76,7 @@ rihgtLink(){
 
   checkChange(checkStatus: CheckType) {
     this.checkStatus.emit(checkStatus);
-    console.log("data cells check status", checkStatus)
+   // console.log("data cells check status", checkStatus)
   }
   onClick() {
     // alert('click');

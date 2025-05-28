@@ -92,15 +92,15 @@ export class PieCircleComponent {
       this.data.forEach(item => {
         totalPercentage += this.calculatePercentage(item.Count);
       });
-    
+
       // בדוק את הערך של totalPercentage
-      // console.log("Total Percentage:", totalPercentage);
-    
+      //// console.log("Total Percentage:", totalPercentage);
+
       // חישוב השארית
       this.remainingPercentage = 100 - totalPercentage;
-    
+
       // בדוק אם השארית מחושבת נכון
-      // console.log("Remaining Percentage:", this.remainingPercentage);
+      //// console.log("Remaining Percentage:", this.remainingPercentage);
     }
 
 

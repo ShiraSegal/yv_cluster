@@ -54,7 +54,7 @@ export class TableGroupIdDetailsComponent {
   }
 
   getFormControl(index: number): FormControl {
-    // console.log("getFormControl", this.rowsArray.at(index) as FormControl);
+    //// console.log("getFormControl", this.rowsArray.at(index) as FormControl);
     return this.rowsArray.at(index) as FormControl;
   }
   //כותרות הטבלה
@@ -103,11 +103,11 @@ export class TableGroupIdDetailsComponent {
         this.rowsArray.clear();
         this.initRowsArray();
 
-        // console.log("this.rowsArray", this.rowsArray);
+        //// console.log("this.rowsArray", this.rowsArray);
 
         // ניתן להאזין לשינויים ב־FormArray אם צריך:
         this.rowsArray.valueChanges.subscribe(values => {
-          console.log('ערכי הצ׳קים:', values);
+         // console.log('ערכי הצ׳קים:', values);
         });
       } else {
         console.warn("Received null or invalid response from getClusterGroupDetails");
@@ -128,7 +128,7 @@ checkIfTwoChosen(): void {
 
     if (this.twoChosen !== hasTwoOrMore) {
       this.twoChosen = hasTwoOrMore;
-      console.log('twoChosen updated to:', this.twoChosen);
+     // console.log('twoChosen updated to:', this.twoChosen);
     }
   });
 }
@@ -140,20 +140,20 @@ checkIfTwoChosen(): void {
       });
       this.rowsArray.push(control);
       this.checkedControls.push(control.get('checked') as FormControl);
-      console.log("this.rowsArray: " + this.rowsArray);
+     // console.log("this.rowsArray: " + this.rowsArray);
       this.rowsArray.controls.forEach((e) => {
-        console.log('id: ' + e.get('id')?.value);
-        console.log('checked: ' + e.get('checked')?.value);
+       // console.log('id: ' + e.get('id')?.value);
+       // console.log('checked: ' + e.get('checked')?.value);
 
       })
-      console.log("this.checkedControls: " + this.checkedControls);
+     // console.log("this.checkedControls: " + this.checkedControls);
 
     })
   }
   //בחירת ה check  של ה header
  headerCheckChange(checkStatus: CheckType) {
   this.headerCheckStatus = checkStatus;
-  // console.log("header table group id check status", this.headerCheckStatus);
+  //// console.log("header table group id check status", this.headerCheckStatus);
 
   // עדכון checkStatus באובייקט הנתונים המקורי
   this.Rows.forEach((row) => {
@@ -183,7 +183,7 @@ checkIfTwoChosen(): void {
 
   //בחירת check
   checkChange(checkStatus: CheckType) {
-    console.log(" TableGroupIdDetailsComponent check status", checkStatus)
+   // console.log(" TableGroupIdDetailsComponent check status", checkStatus)
 
   }
   openDialog() {
@@ -199,12 +199,12 @@ checkIfTwoChosen(): void {
     });
   }
   openPeiComponent() {
-    console.log("openPeiComponent");
+   // console.log("openPeiComponent");
     this.openDialog()
   }
 
   prefCodeStatusChange(prefCodeStatus: boolean) {
-    console.log("prefCodeStatus table", prefCodeStatus);
+   // console.log("prefCodeStatus table", prefCodeStatus);
     this.prefCodeStatus = prefCodeStatus;
   }
 }

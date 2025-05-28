@@ -20,12 +20,12 @@ import { RootObject } from 'src/app/models/root-object.model';
   styleUrl: './enter-bookid.component.scss'
 })
 export class EnterBookidComponent {
-  
+
     #clusterService = inject(ClusterService);
   //form
   // dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
   enterBookIdOrClusterForm:FormGroup = new FormGroup({
-    selection: new FormControl('', Validators.required), 
+    selection: new FormControl('', Validators.required),
     input: new FormControl('', Validators.required)
   });
 
@@ -54,7 +54,7 @@ export class EnterBookidComponent {
   selected: string = 'Book Id';
 
 
-  
+
   //toast notification
   iconType=IconType
   message: string = `${this.selected} Submitted!`;
@@ -62,12 +62,12 @@ export class EnterBookidComponent {
 constructor(
       @Optional() @Inject(MAT_DIALOG_DATA) public data: { title: string },
       @Optional() public dialogRef: MatDialogRef<EnterBookidComponent>
-  
+
 ){}
   checkedChange(selected: string) {
     this.selected = selected;
-    console.log("fffffffffff:",this.enterBookIdOrClusterForm);
-    
+   // console.log("fffffffffff:",this.enterBookIdOrClusterForm);
+
   }
 
 
@@ -76,10 +76,10 @@ constructor(
       if(this.enterBookIdOrClusterForm.value.selection=='Book ID'){
       this.#clusterService.getSingleItemByBookId(this.enterBookIdOrClusterForm.value.input).subscribe({
         next: (res: RootObject | boolean) => {
-          console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
-          
+         // console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
+
           if (res) {
-            console.log("bookId add:", res);
+           // console.log("bookId add:", res);
           } else {
             console.warn("add bookId failed.");
           }
@@ -87,18 +87,18 @@ constructor(
         error: (err:any) => {
           console.error("Error during cluster creation:", err);
         }
-      });  
+      });
       this.formIsValid = true;
       this.close = true;
     }
     else if(this.enterBookIdOrClusterForm.value.selection=='Cluster'){
       this.#clusterService.getClusterGroupByBookId(this.enterBookIdOrClusterForm.value.input).subscribe({
         next: (res:RootObject | boolean) => {
-          console.log("res", res);
-          
-          console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
+         // console.log("res", res);
+
+         // console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
           if (res) {
-            console.log("Cluster add:", res);
+           // console.log("Cluster add:", res);
           } else {
             console.warn("add cluster failed.");
           }
@@ -106,12 +106,12 @@ constructor(
         error: (err:any) => {
           console.error("Error during cluster creation:", err);
         }
-      });  
+      });
     }
-  
+
   }
   else {
-    this.formIsValid = false; 
+    this.formIsValid = false;
   }
 }
   cancel() {

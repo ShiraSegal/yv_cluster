@@ -89,10 +89,10 @@ currentUserRole = this.#clusterService.currentUser.role;
     });
 
     this.statusAssineeForm.valueChanges.subscribe(val => {
-      console.log('statusAssineeForm:', val);
+     // console.log('statusAssineeForm:', val);
     });
 
-    // קבלת AssigneeList מהשאיבה מהגיסון 
+    // קבלת AssigneeList מהשאיבה מהגיסון
     this.clusterService.AssigneeList$.subscribe(names => {
       this.assigneeOptions = names.map(name => ({
         optionType: NativeOptionType.ASSIGNEE,
@@ -103,7 +103,7 @@ currentUserRole = this.#clusterService.currentUser.role;
   }
 
   onClick() {
-    console.log('Submit clicked:', this.filterForm.value);
+   // console.log('Submit clicked:', this.filterForm.value);
   }
 
   onClickAddClusterFunc() {

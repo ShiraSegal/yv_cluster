@@ -30,32 +30,47 @@ export class NarrowBasicTableWarpComponent {
   data1: any;
   tabData: any;
   @Input() subTitle: string = '';
-  @Input() data: Partial<Record<AutoClusterTabType, {
-    Headers: { data: string; type: HeaderCellType }[];
-    Rows: {
-      property: NarrowBasicTableRowInputState;
+  // @Input() data: Partial<Record<AutoClusterTabType, {
+  //   Headers: { data: string; type: HeaderCellType }[];
+  //   Rows: {
+  //     property: NarrowBasicTableRowInputState;
+  //     showAction: boolean;
+  //     length: NarrowBasicTableRowLength
+  //     cells: {
+  //       data: string;
+  //       type: DataCellType;
+  //       moreData?: { [key: string]: any };
+  //     }[];
+  //   }[]
+  // }>>
+  currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
+  Headers: { [key in AutoClusterTabType]?: { data: string; type: HeaderCellType }[] } = {};
+  Rows: {
+    [key in AutoClusterTabType]?: {
+      property: any;
       showAction: boolean;
-      length: NarrowBasicTableRowLength
+      length: NarrowBasicTableRowLength;
       cells: {
         data: string;
         type: DataCellType;
         moreData?: { [key: string]: any };
       }[];
-    }[]
-  }>>
-  currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
-  Headers: { data: string; type: HeaderCellType }[] = [];
-  Rows: {
-    property: any;
-    showAction: boolean;
-    length: NarrowBasicTableRowLength
-    cells: {
-      data: string;
-      type: DataCellType;
-      moreData?: { [key: string]: any };
     }[];
+  } = {};
 
-  }[] = [];
+
+  // // Headers: { data: string; type: HeaderCellType }[] = [];
+  // Rows: {
+  //   property: any;
+  //   showAction: boolean;
+  //   length: NarrowBasicTableRowLength
+  //   cells: {
+  //     data: string;
+  //     type: DataCellType;
+  //     moreData?: { [key: string]: any };
+  //   }[];
+
+  // }[] = [];
 
   readonly TabToJSONKeyMap: { [key in AutoClusterTabType]: string } = {
     [AutoClusterTabType.SAPIR_CLUSTERS]: 'ClustersForSapir',
@@ -150,6 +165,14 @@ export class NarrowBasicTableWarpComponent {
       { data: 'Assignee date', type: HeaderCellType.TEXT }
     ],
   };
+    ngOnInit() {
+    this.clusterService.getAutoClusterData();
+    this.clusterService.autoClusterListSubject$.subscribe((data) => {
+      this.tabData = data; // שמירת הנתונים ב-tabData
+      console.log("tabData",this.tabData);
+      this.loadDataForTab(); // טען את הנתונים לטבלה
+    });
+  }
   getDataCellTypeForHeader(header: string, headerType: HeaderCellType): DataCellType {
     if (headerType === HeaderCellType.CHECK) return DataCellType.CHECK; // זיהוי על פי סוג
     if (header === 'Status') return DataCellType.STATUS;
@@ -170,23 +193,25 @@ export class NarrowBasicTableWarpComponent {
 
     }));
     this.currentTab = tabText;
-    this.loadDataForTab(); // טען מחדש את הנתונים לטאב הנוכחי
+    //this.loadDataForTab(); // טען מחדש את הנתונים לטאב הנוכחי
   }
 
   loadDataForTab() {
-    const jsonKey = this.TabToJSONKeyMap[this.currentTab]; // מיפוי הטאב למפתח המתאים
-    const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
-    this.Headers = this.TabHeaders[this.currentTab];
-    const headerToKeyMap = Object.entries(this.DBKeyToHeaderMap).reduce((acc, [key, value]) => {
+    this.tabs?.forEach((tab) => {
+
+      const jsonKey = this.TabToJSONKeyMap[tab.text]; // מיפוי הטאב למפתח המתאים
+      const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
+    console.log("tabData ❌",jsonKey, tab);
+     this.Headers[tab.text] = this.TabHeaders[tab.text];
+        const headerToKeyMap = Object.entries(this.DBKeyToHeaderMap).reduce((acc, [key, value]) => {
       acc[value] = key;
       return acc;
     }, {} as { [key: string]: string });
-
-    this.Rows = tabData.map((item: any) => ({
+    this.Rows[tab.text] = tabData.map((item: any) => ({
       property: item.property,
       showAction: true,
       length: NarrowBasicTableRowLength.LONG,
-      cells: this.Headers.map(header => {
+      cells: this.Headers[tab.text].map(header => {
         const jsonKey = headerToKeyMap[header.data] || header.data;
         const cellData = item[jsonKey] || '';
         const dataCellType = this.getDataCellTypeForHeader(header.data, header.type);
@@ -202,16 +227,39 @@ export class NarrowBasicTableWarpComponent {
         };
         return cellTemplates[dataCellType]?.() || { data: cellData, type: dataCellType, moreData: {} };
       }),
-    }));
+     }));
+    });
+
+    // this.Headers[this.tabData.text] = this.TabHeaders[this.currentTab];
+    // const headerToKeyMap = Object.entries(this.DBKeyToHeaderMap).reduce((acc, [key, value]) => {
+    //   acc[value] = key;
+    //   return acc;
+    // }, {} as { [key: string]: string });
+
+    // this.Rows = tabData.map((item: any) => ({
+    //   property: item.property,
+    //   showAction: true,
+    //   length: NarrowBasicTableRowLength.LONG,
+    //   cells: this.Headers.map(header => {
+    //     const jsonKey = headerToKeyMap[header.data] || header.data;
+    //     const cellData = item[jsonKey] || '';
+    //     const dataCellType = this.getDataCellTypeForHeader(header.data, header.type);
+
+    //     const cellTemplates: { [key in DataCellType]?: () => any } = {
+    //       [DataCellType.CHECK]: () => ({ data: "check", type: DataCellType.CHECK, moreData: { type: this.checkType.UNCHECKED, state: this.checkStateType.ENABLED } }),
+    //       [DataCellType.ASSIGNEE]: () => ({ data: "unAssignne", type: DataCellType.ASSIGNEE, moreData: {} }),
+    //       [DataCellType.BUTTON]: () => ({
+    //         data: "Button",
+    //         type: DataCellType.BUTTON,
+    //         moreData: { buttonType: ButtonType.SECONDARY, text: 'open', isBig: false },
+    //       }),
+    //     };
+    //     return cellTemplates[dataCellType]?.() || { data: cellData, type: dataCellType, moreData: {} };
+    //   }),
+    //  }));
   }
 
-  ngOnInit() {
-    this.clusterService.getAutoClusterData();
-    this.clusterService.autoClusterListSubject$.subscribe((data) => {
-      this.tabData = data; // שמירת הנתונים ב-tabData
-      this.loadDataForTab(); // טען את הנתונים לטבלה
-    });
-  }
+
 }
 
 

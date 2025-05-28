@@ -74,7 +74,7 @@ export class PopoverComponent implements ControlValueAccessor {
   }
 
   onSelectedOption(option: NativePopoverOption): void {
-    console.log('Selected option:', option.displayText || option.property);
+   // console.log('Selected option:', option.displayText || option.property);
     this.onChange(option.displayText || option.property); // עדכון הערך שנבחר
   }
 }

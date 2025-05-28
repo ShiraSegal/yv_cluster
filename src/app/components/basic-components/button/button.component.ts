@@ -19,10 +19,10 @@ export class ButtonComponent {
 
   @Output() onClick = new EventEmitter<void>();
   ngOnInit() {
-  // console.log(this.buttonType);
-  // console.log(this.isBig);
-  
-  
+  //// console.log(this.buttonType);
+  //// console.log(this.isBig);
+
+
 }
   handleClick() {
     if (!this.disabled) {

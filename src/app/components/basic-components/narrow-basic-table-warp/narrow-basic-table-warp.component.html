@@ -12,6 +12,10 @@
     </div>
   </div>
   <div class="table">
-    <yv-cluster-narrow-basic-table [Headers]="Headers" [Rows]="Rows"></yv-cluster-narrow-basic-table>
+    @if(Headers[currentTab]?.length>0){
+      <yv-cluster-narrow-basic-table [Headers]="Headers[currentTab]" [Rows]="Rows[currentTab]"></yv-cluster-narrow-basic-table>
+    }
+    <!-- <yv-cluster-narrow-basic-table [Headers]="Headers" [Rows]="Rows"></yv-cluster-narrow-basic-table> -->
+
   </div>
 </div>

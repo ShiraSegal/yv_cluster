@@ -23,12 +23,12 @@ export class NarrowBasicTableRowComponent {
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
 ngOnInit() {
-  console.log('formgroups:', this.formgroup);
+ // console.log('formgroups:', this.formgroup);
 }
   onIconDeletClick() {
     const cellControl = this.formgroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי
     const cellData = cellControl?.value?.data;
-  
+
     if (typeof cellData === 'string') {
       this.bookIdToDelet.emit(cellData);
     } else {

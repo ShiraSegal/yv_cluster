@@ -52,7 +52,7 @@ export class NarrowBasicTableComponent {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['Rows'] && this.Rows?.length) {
-      console.log('Rows (ngOnChanges):', this.Rows);
+     // console.log('Rows (ngOnChanges):', this.Rows);
       this.initializeRowsFormArray();
     }
   }
@@ -60,10 +60,10 @@ export class NarrowBasicTableComponent {
   // Initialize the FormArray with the rows data
   initializeRowsFormArray() {
     this.rowsFormArray.clear(); // איפוס ה-FormArray
-  
+
     this.Rows.forEach((row) => {
       const rowGroup = this.#fb.group({}); // יצירת FormGroup עבור השורה
-  
+
       row.cells.forEach((cell, index) => {
         const headerName = this.Headers[index]?.data || `header_${index}`; // שם ההידר או שם ברירת מחדל
         const control = new FormControl({
@@ -73,11 +73,11 @@ export class NarrowBasicTableComponent {
         });
         rowGroup.addControl(headerName, control); // הוספת השדה ל-FormGroup עם שם ההידר
       });
-  
+
       this.rowsFormArray.push(rowGroup); // הוספת ה-FormGroup ל-FormArray
     });
-  
-    console.log('All Rows FormArray:', this.rowsFormArray.getRawValue()); // לוג של כל ה-FormArray
+
+   // console.log('All Rows FormArray:', this.rowsFormArray.getRawValue()); // לוג של כל ה-FormArray
   }
   get rowsFormArray(): FormArray<FormGroup> {
     return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
@@ -97,7 +97,7 @@ export class NarrowBasicTableComponent {
   }
   onClick() {
     alert('test on click');
-    console.log('test on click');
+   // console.log('test on click');
   }
   onClickAddCluster(){
     //open dialog create new cluster
@@ -106,8 +106,8 @@ export class NarrowBasicTableComponent {
 
   }
   onFilterValuesChange(values: any[]){
-   console.log('filter values:', values);
-   //create filter arr 
+  // console.log('filter values:', values);
+   //create filter arr
    // filter this.Rows based on the values
 
   }

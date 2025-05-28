@@ -24,7 +24,7 @@ export class FilterHandlingSuggestionsComponent {
   stateEnum = State;
   buttonType=ButtonType;
   iconType=IconType;
-  dataCellType=DataCellType; 
+  dataCellType=DataCellType;
 
   formData = {
     searchField: '',
@@ -38,26 +38,26 @@ export class FilterHandlingSuggestionsComponent {
   }
 
   onShowTheButtonsChange(value: boolean) {
-    console.log('showTheButtons changed:', value);
+   // console.log('showTheButtons changed:', value);
     // הפעולה שתרצי להריץ
   }
   // onSearchFieldChange(newValue: string) {
   //   this.fieldValue.emit(newValue);
 
-  //   console.log('value changed to:', newValue);
+  //  // console.log('value changed to:', newValue);
   //   // כאן תוכלי לבצע כל פעולה שתרצי בעת שינוי הערך
   // }
   onPrefCodeChange(state: boolean) {
   this.formData.prefCode = state;
   this.prefCodeStatus.emit(state);
-  console.log('Pref code switch:', state);
+ // console.log('Pref code switch:', state);
 }
   // onSubmit() {
-  //   console.log('Form submitted:', this.formData);
+  //  // console.log('Form submitted:', this.formData);
   // }
   handleSwitchChange(state: boolean) {
     this.switchState = state;
-    console.log('Switch:', state ? 'דלוק' : 'מכובה');
+   // console.log('Switch:', state ? 'דלוק' : 'מכובה');
   }
   onRightLeftClick(){
 alert('right left button clicked');
@@ -69,6 +69,6 @@ alert('User button clicked');
   }
   onClick() {
     alert('test on click');
-    console.log('test on click');
+   // console.log('test on click');
   }
 }

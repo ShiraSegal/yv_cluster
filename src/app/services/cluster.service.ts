@@ -25,7 +25,7 @@ export class ClusterService
   #clusterApiService = inject(ClusterApiService)
 
  autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
- 
+
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
   private isDataFetched = false;
   currentUser: { id:number,name:string,role:string} = {
@@ -34,12 +34,12 @@ export class ClusterService
      //"role": "manager"
      "role": "worker"
 };
-  
+
   getDashboardDataById(id: number): Observable<any> {
     return this.#clusterApiService.getDashboardDataById(id).pipe(
       take(1),
       tap((user) => {
-        console.log(`Fetched user with ID ${id}:`, user);
+       // console.log(`Fetched user with ID ${id}:`, user);
       }),
       catchError((err) => {
         return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
@@ -75,7 +75,7 @@ export class ClusterService
         .pipe(
           take(1),
           tap((data: any) => {
-            console.log('Fetched data:', data); // בדיקה שהנתונים מגיעים
+           // console.log('Fetched data:', data); // בדיקה שהנתונים מגיעים
             this.autoClusterListSubject$.next(data); // שמירת הנתונים ב-BehaviorSubject
           }),
           catchError(err => {
@@ -146,14 +146,14 @@ export class ClusterService
           row.NumberOfSuggestions,
           row.RelatedFnameList
         ));
-  
+
         const clusterGroup = new ClusterGroupWithCrmLinks(
           res.d.__type,
           clusteredPeople,
           res.d.CrmLinkList,
           res.d.contact
         );
-  
+
         return new RootObjectOfClusterGroupDetails(clusterGroup);
       }),
       catchError(err => {
@@ -175,7 +175,7 @@ export class ClusterService
         )
         .subscribe();
     }
-  
+
     return this.assigneeList$.asObservable();
   }
 
@@ -197,10 +197,10 @@ export class ClusterService
   //   })).subscribe();
   //   return res;
   // }
- 
-   
+
+
   //  createClusterData$ = new BehaviorSubject<any[]>([]);
-   
+
   // get ClusterData$()
   //   {
   //     if(!this.createClusterData$.value.length)
@@ -209,27 +209,27 @@ export class ClusterService
   //     }
   //     return this.createClusterData$.asObservable();
   //   }
-   
+
 
 
    getCreateClusterData() {
-    
+
     const result = this.#clusterApiService.getCreateClusterData()
       .pipe(
         take(1),
         // map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
-       
+
         tap(res => {
-          console.log("getCreateClusterData", res);
-          
+         // console.log("getCreateClusterData", res);
+
         }),
         catchError(err => {
           return of(null);
         })
       );
 
-      console.log("result",result);
-      
+     // console.log("result",result);
+
     return result; // מחזיר את המערך SapirClusterDetails
   }
 
@@ -240,7 +240,7 @@ export class ClusterService
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
           debugger
-          console.log("Cluster created successfully:", res); // לוג לתוצאה
+         // console.log("Cluster created successfully:", res); // לוג לתוצאה
           // return res;
         }),
         catchError(err => {
@@ -254,9 +254,9 @@ export class ClusterService
     debugger
      return this.#clusterApiService.getSingleItemByBookId(bookId)
       .pipe(
-        take(1), 
+        take(1),
         tap(res => {
-          console.log("BookId added successfully:", res); 
+         // console.log("BookId added successfully:", res);
           // return of(res as RootObject);
         }),
         catchError(err => {
@@ -266,13 +266,13 @@ export class ClusterService
       );
   }
 
-  
+
   getClusterGroupByBookId(cluster:string): Observable<RootObject | boolean>{
      return this.#clusterApiService.getClusterGroupByBookId(cluster)
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
-          console.log("Cluster added successfully:", res); // לוג לתוצאה
+         // console.log("Cluster added successfully:", res); // לוג לתוצאה
           // return res;
         }),
         catchError(err => {

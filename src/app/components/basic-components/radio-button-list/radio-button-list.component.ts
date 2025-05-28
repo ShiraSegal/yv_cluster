@@ -45,7 +45,7 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   }
 
   writeValue(value: string | null): void {
-    console.log("writeValue", value);
+   // console.log("writeValue", value);
     this.radioControl.setValue(value);
   }
 
@@ -76,7 +76,7 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   }
 
   onOneRadioButtonChange(key: string): void {
-    console.log('Selected key:', key);
+   // console.log('Selected key:', key);
     this.radioControl.setValue(key);
     this.selectionChange.emit(key);
   }
