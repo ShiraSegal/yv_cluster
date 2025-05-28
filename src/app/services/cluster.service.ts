@@ -31,8 +31,8 @@ export class ClusterService
   currentUser: { id:number,name:string,role:string} = {
     "id": 1,
     "name": "Yehudit Leibowitz",
-     //"role": "manager"
-     "role": "worker"
+     "role": "manager"
+    // "role": "worker"
 };
 
   getDashboardDataById(id: number): Observable<any> {

@@ -49,6 +49,7 @@ import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id
 import { TooltipComponent } from "../basic-components/tooltip/tooltip.component";
 import { HomeComponent } from "../pages/home/home.component";
 import { CrmClustersComponent } from "../pages/crm-clusters/crm-clusters.component";
+
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,

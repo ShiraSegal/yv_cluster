@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 import { PopoverComponent } from '../popover/popover.component';
 import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 
+
 @Component({
   selector: 'yv-cluster-narrow-basic-table',
   standalone: true,
@@ -79,12 +80,12 @@ export class NarrowBasicTableComponent {
   }
 
   updateIconsVisibility() {
-    console.log('updateIconsVisibility called');
+   // console.log('updateIconsVisibility called');
     this.iconsVisible = this.rowsFormArray.controls.some((group) => {
       return group.get('checked')?.value;
     });
-    console.log('Icons visibility:', this.iconsVisible);
-    console.log(this.rowsFormArray);
+   // console.log('Icons visibility:', this.iconsVisible);
+   // console.log(this.rowsFormArray);
 
   }
   onHeaderCheckboxToggle(): void {
@@ -98,7 +99,7 @@ export class NarrowBasicTableComponent {
         checkedControl.setValue(isChecked, { emitEvent: true });
       }
     });
-    console.log('Updated rowsFormArray values:', this.rowsFormArray.value);
+   // console.log('Updated rowsFormArray values:', this.rowsFormArray.value);
   }
 
   showPopover(type: string, index: number): void {
@@ -110,7 +111,7 @@ export class NarrowBasicTableComponent {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['Rows'] && this.Rows) {
-      console.log('Rows (ngOnChanges):', this.Rows);
+      //console.log('Rows (ngOnChanges):', this.Rows);
       if (changes['Rows'] && this.Rows?.length) {
         this.initializeRowsFormArray();
 

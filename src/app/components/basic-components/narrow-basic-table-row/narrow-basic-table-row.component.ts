@@ -39,4 +39,7 @@ ngOnInit() {
   get controls(): { [key: string]: FormControl } {
     return this.formgroup.controls as { [key: string]: FormControl };
   }
+  getFormControls(formgroup: FormGroup): { key: string; value: AbstractControl }[] {
+    return Object.entries(formgroup.controls).map(([key, value]) => ({ key, value }));
+  }
 }

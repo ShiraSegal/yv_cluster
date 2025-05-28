@@ -48,7 +48,7 @@ export class FilterSectionComponent {
 currentUserRole = this.#clusterService.currentUser.role;
 
   ngOnInit() {
-    console.log('Filters received in filter-section:', this.Filters); // Debugging log
+   // console.log('Filters received in filter-section:', this.Filters); // Debugging log
   }
 
   filterForm: FormGroup;
