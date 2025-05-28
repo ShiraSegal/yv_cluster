@@ -94,6 +94,8 @@ export enum AutoClusterTabType {
   ERROR_MESSAGES = 'Error Messages'
 }
 
+
+
 export enum HomeTableTabType {
  NEW_SUGGESTIONS = 'new-suggestion',
   OLD_SUGGESTIONS = 'old_suggestion',

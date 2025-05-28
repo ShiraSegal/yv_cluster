@@ -14,6 +14,7 @@ export class ClusterApiService {
   basicParam: string = 'reservations';
   #http = inject(HttpClient);
   apiUrl = 'assets/json-data';
+  
   async getAutoClusterData() {
     return this.#http.get<string[]>(`${this.apiUrl}/getAutoCluster.json`);
   }

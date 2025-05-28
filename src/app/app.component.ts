@@ -14,14 +14,14 @@ import { ClusterService } from './services/cluster.service';
 export class AppComponent {
   #clusterService = inject(ClusterService);
   currentUser: { id:number,name:string,role:string} = this.#clusterService.currentUser;
-  ngOnInit() {
-    this.#clusterService.login(1).subscribe({
-      next: (user: any) => {
-        console.log(' fetching user:', user);
-      },
-      error: (err) => {
-        console.error('Error fetching user:', err);
-      },
-    });
-  }
+  // ngOnInit() {
+  //   this.#clusterService.login(1).subscribe({
+  //     next: (user: any) => {
+  //       console.log(' fetching user:', user);
+  //     },
+  //     error: (err) => {
+  //       console.error('Error fetching user:', err);
+  //     },
+  //   });
+  // }
 }

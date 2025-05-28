@@ -1,13 +1,12 @@
 <div [ngClass]="[type,'header-cell']">
-
     @if(header === 'Last Name'){
     <div>
         <i class="fa-solid fa-chart-simple chart-icon"  (click)="openPeiComponent()"></i>{{ header }}
     </div>
     }
-    @else{
-    {{header}}
-    }
+    @if(header === 'Button'){
+       
+        }
     @if(type === headerCellType.ORDER){
     <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>
     }
@@ -24,4 +23,7 @@
     <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED
         (checkStatus)="checkChange($event)"></yv-cluster-check>
     }
+    @else{
+        {{header}}
+        }
 </div>

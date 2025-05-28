@@ -1,56 +1,61 @@
 <div [ngClass]="['data-cell', type]">
   @if(type === dataCellType.TEXT) {
-    @if(prefCodeStatus===true){
-     {{ moreData['prefCode']}}
+    @if(prefCodeStatus === true && moreData?.['prefCode']) {
+      {{ moreData['prefCode'] }}
     }
-    @else{
-  {{ data }}
+    @else {
+      {{ data }}
     }
-
   }
-
   @if(type === dataCellType.MORE) {
-  <i class="fas fa-ellipsis-v more-icon"></i>
+    <i class="fas fa-ellipsis-v more-icon"></i>
   }
-
-
-  @if (type === dataCellType.CHECK) {
+  @if(type === dataCellType.CHECK ) {
     <yv-cluster-check 
-    [checkedControl]="control" 
-      [type]="moreData['type'] || checkType.UNCHECKED"
-      [state]="moreData['state'] || checkStateType.ENABLED"
-    ></yv-cluster-check>
+      [checkedControl]="control.value" 
+      [type]="moreData?.['type'] || checkType.UNCHECKED"
+      [state]="moreData?.['state'] || checkStateType.ENABLED">
+    </yv-cluster-check>
   }
 
-  @if (type === dataCellType.STATUS) {
+  @if(type === dataCellType.STATUS ) {
     <yv-cluster-badge 
-    [badgeControl]="control"
-      [property]="moreData['property'] || badgeType.TODO"
-    ></yv-cluster-badge>
+      [badgeControl]="control.value"
+      [property]="moreData?.['property'] || badgeType.TODO">
+    </yv-cluster-badge>
   }
 
   @if(type === dataCellType.ASSIGNEE && isString(data)) {
-  <yv-cluster-assignee 
-  [assigneeControl]="control"
-   [data]="data"></yv-cluster-assignee>
+    <yv-cluster-assignee 
+      [assigneeControl]="control.value"
+      [data]="data">
+    </yv-cluster-assignee>
   }
 
   @if(type === dataCellType.LINK) {
-    <a [href]="">{{data}}</a>
+    <a [href]="">{{ data }}</a>
   }
 
   @if(type === dataCellType.ICON) {
-  <yv-cluster-icon-button-large (onClick)="onClick()" [icon]="moreData['icon'] || iconType.CHEVRON_RIGHT_LIGHT"
-    [property]="moreData['property'] || iconButtonLargeType.DEFAULT"></yv-cluster-icon-button-large>
+    <yv-cluster-icon-button-large 
+      (onClick)="onClick()" 
+      [icon]="moreData?.['icon'] || iconType.CHEVRON_RIGHT_LIGHT"
+      [property]="moreData?.['property'] || iconButtonLargeType.DEFAULT">
+    </yv-cluster-icon-button-large>
   }
 
   @if(type === dataCellType.SLIDER && isNumber(data)) {
-  <yv-cluster-slider [value]="data"></yv-cluster-slider>
+    <yv-cluster-slider [value]="data"></yv-cluster-slider>
   }
 
-  @if(type === dataCellType.BUTTON ) {
-  <yv-cluster-button (onClick)="onClick()" [text]="moreData['text'] || 'button'"
-    [buttonType]="moreData['buttonType'] || buttonType.PRIMARY" [disabled]="moreData['disabled']"
-    [isBig]="moreData['isBig'] || false" [iconType]="moreData['iconType'] ||iconType.NOTHING"></yv-cluster-button>
+  @if(type === dataCellType.BUTTON) {
+    <yv-cluster-button 
+      (onClick)="onClick()" 
+      [text]="moreData?.['text'] || 'button'"
+      [buttonType]="moreData?.['buttonType'] || buttonType.PRIMARY" 
+      [disabled]="moreData?.['disabled']"
+      [isBig]="moreData?.['isBig'] || false" 
+      [iconType]="moreData?.['iconType'] || iconType.NOTHING">
+    </yv-cluster-button>
   }
 </div>

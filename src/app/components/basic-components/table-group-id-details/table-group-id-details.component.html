@@ -11,14 +11,14 @@
 } -->
 @if(rowsArray.controls.length>0){
         @for (row of Rows; track row; let index=$index) {
-     <yv-cluster-narrow-basic-table-row
+     <!-- <yv-cluster-narrow-basic-table-row
       [property]="NarrowBasicTableRowInputState.DEFAULT"
       [cells]="row"
       [length]="narrowBasicTableRowLength.SHORT"
       [controls]="[checkedControls[index]]"
       (bookIdToDelet)="deleteByBookId($event)"
       [prefCodeStatus]="prefCodeStatus">
-</yv-cluster-narrow-basic-table-row>
+</yv-cluster-narrow-basic-table-row> -->
         <!-- <h1>{{rowsArray.controls.at(index)}}</h1> -->
         }
     }

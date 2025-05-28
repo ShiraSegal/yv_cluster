@@ -120,7 +120,7 @@ import { BasicTableWarpComponent } from "../basic-components/basic-table-warp/ba
     EnterBookidComponent,
     HeadingComponent,
     BodyComponent,
-    TableGroupIdDetailsComponent,
+    //TableGroupIdDetailsComponent,
     FilterHandlingSuggestionsComponent,
     HandlingSuggestionsPageComponent,
     CreateClusterComponent,

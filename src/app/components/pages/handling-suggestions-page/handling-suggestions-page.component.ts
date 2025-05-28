@@ -10,7 +10,9 @@ import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter
 @Component({
   selector: 'yv-cluster-handling-suggestions-page',
   standalone: true,
-  imports: [CommonModule,TableGroupIdDetailsComponent,IconButtonComponent,SlidebarNavigationComponent],
+  imports: [CommonModule,
+    TableGroupIdDetailsComponent,
+    IconButtonComponent,SlidebarNavigationComponent],
   templateUrl: './handling-suggestions-page.component.html',
   styleUrl: './handling-suggestions-page.component.scss'
 })

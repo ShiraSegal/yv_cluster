@@ -9,7 +9,7 @@ import { SliderComponent } from '../slider/slider.component';
 import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { CheckType } from 'src/app/enums/check-enum';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'yv-cluster-data-cells',
@@ -40,7 +40,7 @@ export class DataCellsComponent<T extends DataCellType> {
   @Input() type: T;
   @Input() data: DataCellValue<T>;
   @Input() moreData: { [key: string]: any }; // אובייקט לפרמטרים נוספים
-  @Input() control: any;
+  @Input() control: FormControl;
   @Input() prefCodeStatus: boolean=false;
 
   @Output() checkStatus = new EventEmitter<CheckType>();
@@ -57,14 +57,6 @@ export class DataCellsComponent<T extends DataCellType> {
   checkStateType = CheckStateType;
   checkType = CheckType;
 
-  // //functions
-  // ngOnInit() {
-  //   // console.log("control", this.control);
-    
-  //   if (this.moreData!==null &&typeof this.moreData['linkHRef'] === "string" && this.moreData['linkHRef'].includes('collections.yadvashem.org/en/names/')) {
-  //     this.hRef=this.moreData['linkHRef'] + this.data;
-  //   }
-  // }
 rihgtLink(){
  if (this.moreData!==null &&typeof this.moreData['linkHRef'] === "string" && this.moreData['linkHRef'].includes('collections.yadvashem.org/en/names/')) {
       this.hRef=this.moreData['linkHRef'] +this.data;

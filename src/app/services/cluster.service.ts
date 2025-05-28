@@ -25,12 +25,14 @@ export class ClusterService
   #clusterApiService = inject(ClusterApiService)
 
  autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
+ 
   private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
   private isDataFetched = false;
   currentUser: { id:number,name:string,role:string} = {
     "id": 1,
     "name": "Yehudit Leibowitz",
-     "role": "manager"
+     //"role": "manager"
+     "role": "worker"
 };
   
   getDashboardDataById(id: number): Observable<any> {
