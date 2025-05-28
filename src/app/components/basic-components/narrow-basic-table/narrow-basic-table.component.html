@@ -1,17 +1,18 @@
 <form [formGroup]="tableDataForm">
     <div class="table-frame">
         <div class="table-actions">
-            <yv-cluster-filter-section 
-                (onClickAddCluster)="onClickAddCluster()"
-                (onClicShowkAssineeOrStatus)="onClicShowkAssineeOrStatus()"
-                (onFilterValuesChange)="onFilterValuesChange($event)">
-            </yv-cluster-filter-section>
+            <yv-cluster-filter-section
+            [iconsVisible]="iconsVisible" 
+            [Filters]="Filters"
+            (onClickAddCluster)="onClickAddCluster()"
+            (onClicShowkAssineeOrStatus)="onClicShowkAssineeOrStatus()"
+            (onFilterValuesChange)="onFilterValuesChange($event)"></yv-cluster-filter-section>
         </div>
-
         <div class="data-container">
             <yv-cluster-table-header 
                 [headers]="Headers"
-                [length]="narrowBasicTableRowLength.LONG">
+                [length]="narrowBasicTableRowLength.LONG"
+                [headerCheckboxControl]="headerCheckboxControl">
             </yv-cluster-table-header>
             <div class="rows-container" formArrayName="rowsFormArray">
                 <div *ngFor="let rowGroup of rowsFormArray.controls; let i = index" [formGroupName]="i">

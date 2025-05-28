@@ -1,0 +1,33 @@
+@import "src/styles.scss";
+
+.containet {
+    // display: inline-block;
+    width: max-content;
+    max-width: 30rem;
+    padding: 0.25rem;
+    align-items: center;
+    gap: 0.25rem;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 0.25rem;
+    background: $c-404040;
+
+    position: absolute;
+    bottom: -1.8rem; // מרחק מהאייקון (מותאם לצורך)
+    left: 50%;
+    /* בדיוק באמצע ההורה */
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.text {
+    color: $c-FFFFFF;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Rubik;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1rem;
+    /* 133.333% */
+}

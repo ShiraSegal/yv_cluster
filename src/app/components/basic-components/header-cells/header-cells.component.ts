@@ -3,6 +3,7 @@ import { CheckComponent } from "../check/check.component";
 import { CommonModule } from '@angular/common';
 import { CheckStateType, HeaderCellType } from 'src/app/enums/basic-enum';
 import { CheckType } from 'src/app/enums/check-enum';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'yv-cluster-header-cells',
@@ -14,6 +15,8 @@ import { CheckType } from 'src/app/enums/check-enum';
 export class HeaderCellsComponent {
   @Input() header: string;
   @Input() type: HeaderCellType;
+  @Input() headerCheckboxControl: FormControl;
+
   @Output() sortEvent = new EventEmitter<{ column: string, direction: string }>();
   @Output() checkStatus = new EventEmitter<CheckType>();
   @Output() openDialog = new EventEmitter<boolean>();

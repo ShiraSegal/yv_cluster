@@ -8,21 +8,25 @@ import { IconType } from 'src/app/enums/icon-enum';
 import { FilterSectionComponent } from "../filter-section/filter-section.component";
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ClusterService } from 'src/app/services/cluster.service';
+import { Subscription } from 'rxjs';
+import { PopoverComponent } from '../popover/popover.component';
+import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NarrowBasicTableRowComponent, TableHeaderComponent, FilterSectionComponent],
+  imports: [CommonModule, ReactiveFormsModule, NarrowBasicTableRowComponent, TableHeaderComponent, FilterSectionComponent, PopoverComponent],
   templateUrl: './narrow-basic-table.component.html',
   styleUrl: './narrow-basic-table.component.scss'
 })
 export class NarrowBasicTableComponent {
 
+  @Input() Filters: FilterNames[] = [];
   @Input() Headers: { data: string; type: HeaderCellType }[] = [];
   @Input() Rows: {
     property: NarrowBasicTableRowInputState;
     showAction: boolean;
-    length:NarrowBasicTableRowLength
+    length: NarrowBasicTableRowLength
     cells: {
       data: string;
       type: DataCellType;
@@ -39,21 +43,78 @@ export class NarrowBasicTableComponent {
   nativeOptions = NativeOptionType;
   rowProperty: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
 
+  hoveredPopover: { type: string; index: number } | null = null;
+
   //injects
+  #clusterService = inject(ClusterService);
   #fb = inject(FormBuilder)
+
+  subscription: Subscription = new Subscription();
 
   //initializing the form
   tableDataForm: FormGroup = this.#fb.group({
+    headerCheckbox: new FormControl(false),
     rowsFormArray: this.#fb.array([])
   });
 
+  iconsVisible: boolean = false;
+
   ngOnInit() {
     this.initializeRowsFormArray();
+
+    this.tableDataForm.valueChanges.subscribe((value) => {
+      // console.log('Basic table Form Value:', value);
+    });
+    this.rowsFormArray.valueChanges.subscribe((value) => {
+      this.updateIconsVisibility();
+      // console.log('table Rows value changes:', value)
+    });
+    this.headerCheckboxControl.valueChanges.subscribe((isChecked) => {
+      this.onHeaderCheckboxToggle();
+    });
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+
+  }
+
+  updateIconsVisibility() {
+    console.log('updateIconsVisibility called');
+    this.iconsVisible = this.rowsFormArray.controls.some((group) => {
+      return group.get('checked')?.value;
+    });
+    console.log('Icons visibility:', this.iconsVisible);
+    console.log(this.rowsFormArray);
+
+  }
+  onHeaderCheckboxToggle(): void {
+    debugger
+    const isChecked = this.tableDataForm.get('headerCheckbox')?.value;
+
+    // Update all row checkboxes
+    this.rowsFormArray.controls.forEach((group) => {
+      const checkedControl = group.get('checked');
+      if (checkedControl) {
+        checkedControl.setValue(isChecked, { emitEvent: true });
+      }
+    });
+    console.log('Updated rowsFormArray values:', this.rowsFormArray.value);
+  }
+
+  showPopover(type: string, index: number): void {
+    this.hoveredPopover = { type, index };
+  }
+
+  hidePopover(): void {
+    this.hoveredPopover = null;
   }
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['Rows'] && this.Rows?.length) {
-     // console.log('Rows (ngOnChanges):', this.Rows);
-      this.initializeRowsFormArray();
+    if (changes['Rows'] && this.Rows) {
+      console.log('Rows (ngOnChanges):', this.Rows);
+      if (changes['Rows'] && this.Rows?.length) {
+        this.initializeRowsFormArray();
+
+      }
     }
   }
 
@@ -77,7 +138,7 @@ export class NarrowBasicTableComponent {
       this.rowsFormArray.push(rowGroup); // הוספת ה-FormGroup ל-FormArray
     });
 
-   // console.log('All Rows FormArray:', this.rowsFormArray.getRawValue()); // לוג של כל ה-FormArray
+    // console.log('All Rows FormArray:', this.rowsFormArray.getRawValue()); // לוג של כל ה-FormArray
   }
   get rowsFormArray(): FormArray<FormGroup> {
     return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
@@ -85,6 +146,11 @@ export class NarrowBasicTableComponent {
   get rowGroup(): FormGroup[] {
     return this.rowsFormArray.controls as FormGroup[]; // Explicitly cast to FormGroup[]
   }
+
+  get headerCheckboxControl(): FormControl {
+    return this.tableDataForm.get('headerCheckbox') as FormControl;
+  }
+
 
   nativeOptionswe = [
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
@@ -97,19 +163,18 @@ export class NarrowBasicTableComponent {
   }
   onClick() {
     alert('test on click');
-   // console.log('test on click');
+    // console.log('test on click');
   }
-  onClickAddCluster(){
+  onClickAddCluster() {
     //open dialog create new cluster
   }
-  onClicShowkAssineeOrStatus(){
-
+  onClicShowkAssineeOrStatus() {
   }
-  onFilterValuesChange(values: any[]){
-  // console.log('filter values:', values);
-   //create filter arr
-   // filter this.Rows based on the values
 
+  onFilterValuesChange(values: any[]) {
+    // console.log('filter values:', values);
+    //create filter arr
+    // filter this.Rows based on the values
   }
 
 }

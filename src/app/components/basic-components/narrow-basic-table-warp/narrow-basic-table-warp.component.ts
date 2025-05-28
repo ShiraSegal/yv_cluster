@@ -5,6 +5,7 @@ import { DataCellType, HeaderCellType, AutoClusterTabType } from 'src/app/enums/
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { BasicTabComponent } from '../basic-tab/basic-tab.component';
+import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 
 
 @Component({
@@ -81,6 +82,69 @@ export class NarrowBasicTableWarpComponent {
     [AutoClusterTabType.CHECKLIST_ITEMS]: 'ItemsForCheckList',
   };
 
+  filters : FilterNames[] = [
+    FilterNames.DATE_OF_REPORT,
+    FilterNames.DATE_OF_ASSIGNEE,
+    FilterNames.FILTER_BY_STATUS,
+    FilterNames.FILTER_BY_ASSIGNEE
+  ];
+ 
+  filtersDictionary: { [key in AutoClusterTabType]: FilterNames[] } = {
+    [this.autoClusterTabType.SAPIR_CLUSTERS]: [FilterNames.DATE_OF_REPORT],
+    [this.autoClusterTabType.MISSING_FIELD]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+    [this.autoClusterTabType.APPROVAL_GROUPS]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+    [this.autoClusterTabType.CHECKLIST_ITEMS]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+    [this.autoClusterTabType.DIFFERENT_CLUSTERS]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+    [this.autoClusterTabType.ERROR_MESSAGES]: [
+      FilterNames.DATE_OF_REPORT,
+      FilterNames.DATE_OF_ASSIGNEE,
+      FilterNames.FILTER_BY_ASSIGNEE,
+      FilterNames.FILTER_BY_STATUS,
+    ],
+  };
+
+  // initializeFiltersForTab() {
+  //   const newFilters: FilterNames[] = [];
+  
+  //   // Add filters based on conditions
+  //   newFilters.push(FilterNames.DATE_OF_REPORT); // Always include this filter
+  
+  //   if (this.currentTab === this.autoClusterTabType.MISSING_FIELD) {
+  //     newFilters.push(FilterNames.DATE_OF_ASSIGNEE);
+  //     newFilters.push(FilterNames.FILTER_BY_ASSIGNEE);
+  //   }
+  
+  //   if (this.currentTab === this.autoClusterTabType.APPROVAL_GROUPS) {
+  //     newFilters.push(FilterNames.FILTER_BY_STATUS);
+  //   }
+  
+  //   if (this.currentTab === this.autoClusterTabType.ERROR_MESSAGES) {
+  //     newFilters.push(FilterNames.FILTER_BY_ASSIGNEE);
+  //   }
+  
+  //   // Update the filters array for the current tab
+  //   this.filtersDictionary[this.currentTab] = newFilters;
+  // }
   tabs = [
     { text: AutoClusterTabType.SAPIR_CLUSTERS, status: true },
     { text: AutoClusterTabType.MISSING_FIELD, status: false },
@@ -258,8 +322,6 @@ export class NarrowBasicTableWarpComponent {
     //   }),
     //  }));
   }
-
-
 }
 
 

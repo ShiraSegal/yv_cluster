@@ -43,15 +43,12 @@ import { BigCardComponent } from "../basic-components/big-card/big-card.componen
 import { SatisticCardComponent } from "../basic-components/satistic-card/satistic-card.component";
 import { CreateClusterComponent } from "../cluster-managment/create-cluster/create-cluster.component";
 import { PopoverComponent } from "../basic-components/popover/popover.component";
-import { NativeOptionComponent } from "../basic-components/native-option/native-option.component";
-import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
-import { SelectComponent } from '../basic-components/select/select.component';
 import { CardColor } from "src/app/enums/card-colors.enum";
 import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-handling-suggestions/filter-handling-suggestions.component";
-import { HandlingSuggestionsPageComponent } from "../pages/handling-suggestions-page/handling-suggestions-page.component";
 import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id-details/table-group-id-details.component";
+import { TooltipComponent } from "../basic-components/tooltip/tooltip.component";
 import { HomeComponent } from "../pages/home/home.component";
-import { BasicTableWarpComponent } from "../basic-components/basic-table-warp/basic-table-warp.component";
+import { CrmClustersComponent } from "../pages/crm-clusters/crm-clusters.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -75,7 +72,6 @@ import { BasicTableWarpComponent } from "../basic-components/basic-table-warp/ba
     FieldComponent,
     CommonModule,
     SliderNavigationTabComponent,
-    BasicTableWarpComponent,
     ButtonComponent,
     CheckComponent,
     IconButtonLargeComponent,
@@ -120,10 +116,12 @@ import { BasicTableWarpComponent } from "../basic-components/basic-table-warp/ba
     EnterBookidComponent,
     HeadingComponent,
     BodyComponent,
-    //TableGroupIdDetailsComponent,
+    TableGroupIdDetailsComponent,
     FilterHandlingSuggestionsComponent,
-    HandlingSuggestionsPageComponent,
+    CrmClustersComponent,
     CreateClusterComponent,
+    PopoverComponent,
+    TooltipComponent,
     PopoverComponent,
     HomeComponent
 

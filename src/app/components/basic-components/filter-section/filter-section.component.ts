@@ -9,6 +9,7 @@ import {
   IconButtonLargeType,
   NativeOptionState,
   NativeOptionType,
+  PopoverType,
   State
 } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
@@ -17,6 +18,8 @@ import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large
 import { SelectComponent } from '../select/select.component';
 import { FieldComponent } from '../field/field.component';
 import { ClusterService } from 'src/app/services/cluster.service';
+import { PopoverComponent } from '../popover/popover.component';
+import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 
 @Component({
   selector: 'yv-cluster-filter-section',
@@ -27,7 +30,8 @@ import { ClusterService } from 'src/app/services/cluster.service';
     ButtonComponent,
     IconButtonLargeComponent,
     SelectComponent,
-    FieldComponent
+    FieldComponent,
+    PopoverComponent
   ],
   templateUrl: './filter-section.component.html',
   styleUrls: ['./filter-section.component.scss']
@@ -37,11 +41,23 @@ export class FilterSectionComponent {
   #clusterService=inject(ClusterService)
   @Input() buttonText: string = 'New Cluster';
   @Input() icon: IconType = IconType.PLUS_LIGHT;
+  @Input() iconsVisible: boolean = false;
+  @Input() Filters :FilterNames[] = [];
   @Output() onClickAddCluster = new EventEmitter<void>();
   @Output() onFilterValuesChange = new EventEmitter<any[]>();
 currentUserRole = this.#clusterService.currentUser.role;
+
+  ngOnInit() {
+    console.log('Filters received in filter-section:', this.Filters); // Debugging log
+  }
+
   filterForm: FormGroup;
   statusAssineeForm: FormGroup;
+  popOverTypeEnum = PopoverType;
+  filterNames = FilterNames;
+  popOverType : PopoverType = PopoverType.ASSIGNEE;
+  visiblePopover: PopoverType | null = null;
+
 
   stateEnum = State;
   nativeOptions = NativeOptionType;
@@ -101,7 +117,13 @@ currentUserRole = this.#clusterService.currentUser.role;
       }));
     });
   }
+  showPopover(type: PopoverType): void {
+    this.visiblePopover = type;
+  }
 
+  hidePopover(): void {
+    this.visiblePopover = null;
+  }
   onClick() {
    // console.log('Submit clicked:', this.filterForm.value);
   }

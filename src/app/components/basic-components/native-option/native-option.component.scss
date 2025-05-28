@@ -10,7 +10,8 @@
 }
 
 .option-wrapper:hover {
-    background: $c-E7EBF833;
+    // background: $c-E7EBF833;
+       background: $c-E7EBF833;
 }
 
 .text {
@@ -21,7 +22,12 @@
     gap: var(--Layout-large, 12px);
     align-self: stretch;
 }
-
+a{
+      all: unset;
+  cursor: pointer;
+    text-decoration: none;
+  color: inherit;
+}
 .assignee {
     display: flex;
     align-items: center;

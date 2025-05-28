@@ -72,14 +72,16 @@ constructor(
 
 
   add() {
+    // this.closeDialogWithData({ bookId: '12345' })
     if (this.enterBookIdOrClusterForm.valid) {
       if(this.enterBookIdOrClusterForm.value.selection=='Book ID'){
       this.#clusterService.getSingleItemByBookId(this.enterBookIdOrClusterForm.value.input).subscribe({
         next: (res: RootObject | boolean) => {
-         // console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
-
+          console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
+          this.closeDialogWithData({ bookId:this.enterBookIdOrClusterForm.value.input })
           if (res) {
-           // console.log("bookId add:", res);
+            console.log("bookId add:", res);
+           
           } else {
             console.warn("add bookId failed.");
           }
@@ -94,9 +96,10 @@ constructor(
     else if(this.enterBookIdOrClusterForm.value.selection=='Cluster'){
       this.#clusterService.getClusterGroupByBookId(this.enterBookIdOrClusterForm.value.input).subscribe({
         next: (res:RootObject | boolean) => {
-         // console.log("res", res);
-
-         // console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
+          console.log("res", res);
+          
+          console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
+          this.closeDialogWithData({ bookId:this.enterBookIdOrClusterForm.value.input })
           if (res) {
            // console.log("Cluster add:", res);
           } else {
@@ -111,11 +114,16 @@ constructor(
 
   }
   else {
-    this.formIsValid = false;
+    this.formIsValid = false; 
+    this.closeDialogWithData({ bookId:"formIsNotValid" })
   }
 }
-  cancel() {
-    this.close = true;
-      this.dialogRef.close();  // סוגר את הדיאלוג
+  // cancel() {
+  //   this.close = true;
+  //     this.dialogRef.close();  // סוגר את הדיאלוג
+  // }
+
+  closeDialogWithData(data: any): void {
+    this.dialogRef.close(data); // מעבירה את הנתונים לקומפוננטת האבא
   }
 }

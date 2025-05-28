@@ -239,8 +239,7 @@ export class ClusterService
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
-          debugger
-         // console.log("Cluster created successfully:", res); // לוג לתוצאה
+          console.log("Cluster created successfully:", res); // לוג לתוצאה
           // return res;
         }),
         catchError(err => {
@@ -251,7 +250,6 @@ export class ClusterService
   }
 
   getSingleItemByBookId (bookId:string): Observable<RootObject | boolean> {
-    debugger
      return this.#clusterApiService.getSingleItemByBookId(bookId)
       .pipe(
         take(1),

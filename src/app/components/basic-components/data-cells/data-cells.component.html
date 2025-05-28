@@ -33,7 +33,8 @@
   }
 
   @if(type === dataCellType.LINK) {
-    <a [href]="">{{ data }}</a>
+  <!-- <a [href]="hRef">{{data}}</a> -->
+    <a [href]="'https://collections.yadvashem.org/en/names/' + data">{{data}}</a>
   }
 
   @if(type === dataCellType.ICON) {
