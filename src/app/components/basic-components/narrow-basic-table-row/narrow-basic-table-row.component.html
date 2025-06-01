@@ -1,7 +1,7 @@
 <div class="narrow-basic-table-row" [ngClass]="property" [ngClass]="length" [formGroup]="formgroup">
   @for (cell of getFormControls(formgroup);  let i = $index ;track i) {
   @if(currentUserRole === "manager" && cell.value.value.type === dataCellType.ASSIGNEE){
-    <div class="regular-cell">
+    <div class="cell" [ngClass]="cell.value.value.type">
       <yv-cluster-data-cells      
       [data]="cell.value.value.data"
       [type]="cell.value.value.type"
@@ -11,10 +11,7 @@
   </div>
   }
   @if(cell.value.value.type !== dataCellType.ASSIGNEE){
-    <div [ngClass]="{
-          'special-cell': cell.value.value.type === dataCellType.ICON || cell.value.value.type === dataCellType.CHECK || cell.value.value.type === dataCellType.MORE,
-          'regular-cell': cell.value.value.type !== dataCellType.ICON && cell.value.value.type !== dataCellType.CHECK && cell.value.value.type !== dataCellType.MORE
-        }">
+    <div class="cell" [ngClass]="cell.value.value.type">
         <yv-cluster-data-cells 
         [data]="cell.value.value.data"
         [type]="cell.value.value.type"

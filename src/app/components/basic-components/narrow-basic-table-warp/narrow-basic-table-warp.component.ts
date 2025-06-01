@@ -26,7 +26,7 @@ export class NarrowBasicTableWarpComponent {
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   checkStateType = CheckStateType;
   checkType = CheckType;
-
+  buttonType = ButtonType;
   //data
 
   tabData: any;
@@ -140,7 +140,7 @@ export class NarrowBasicTableWarpComponent {
     bookId: 'Book ID',
     score: 'Score',
     comments: 'Comments',
-    comment:'Comment',
+    comment: 'Comment',
   };
   readonly HeaderToDBKeyMap: { [key: string]: string } = {
     'Cluster ID': 'clusterID',
@@ -167,7 +167,9 @@ export class NarrowBasicTableWarpComponent {
   }
   getDataCellTypeForHeader(header: string, headerType: HeaderCellType): DataCellType {
     if (header === 'Status') return DataCellType.STATUS;
-    if (header === 'Assignee') return DataCellType.ASSIGNEE;
+    if (header === 'Status') return DataCellType.STATUS;
+    if (headerType === HeaderCellType.CHECK) return DataCellType.CHECK;
+    if (headerType === HeaderCellType.PLACEOLDER) return DataCellType.BUTTON;
     return DataCellType.TEXT; // ברירת מחדל
   }
 
@@ -183,17 +185,18 @@ export class NarrowBasicTableWarpComponent {
 
     }));
     this.currentTab = tabText;
-    //this.loadDataForTab(); // טען מחדש את הנתונים לטאב הנוכחי
+    this.loadDataForTab();
+    // טען מחדש את הנתונים לטאב הנוכחי
   }
 
   loadDataForTab() {
     this.tabs?.forEach((tab) => {
       const jsonKey = this.TabToJSONKeyMap[tab.text]; // מיפוי הטאב למפתח המתאים
       const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
-  
+
       // יצירת Headers דינמיים
       this.Headers[tab.text] = this.generateHeadersFromData(tabData, tab.text);
-  
+
       // יצירת Rows דינמיים
       this.Rows[tab.text] = tabData.map((item: any) => ({
         property: item.property || null,
@@ -205,24 +208,24 @@ export class NarrowBasicTableWarpComponent {
   }
   generateHeadersFromData(data: any[], tabType: AutoClusterTabType): { data: string; type: HeaderCellType }[] {
     if (!data.length) return []; // אם אין נתונים, החזר מערך ריק
-  
+
     const keys = Object.keys(data[0]); // קבלת המפתחות מהאובייקט הראשון
-    let headers :{ data: string; type: HeaderCellType }[] = keys.map((key) => {
-     
+    let headers: { data: string; type: HeaderCellType }[] = keys.map((key) => {
+
       let headerType = HeaderCellType.TEXT; // ברירת מחדל
-  
+
       // שימוש במפה DBKeyToHeaderMap אם המפתח קיים, אחרת השארת המפתח המקורי
       const headerName = this.DBKeyToHeaderMap[key] || key;
-  
+
       return { data: headerName, type: headerType };
     });
 
     headers = [{ data: 'Check', type: HeaderCellType.CHECK }, ...headers];
-  
+
     if (tabType === AutoClusterTabType.APPROVAL_GROUPS || tabType === AutoClusterTabType.CHECKLIST_ITEMS) {
-      headers.push({ data: 'Button', type: HeaderCellType.PLACEOLDER });
+      headers.push({ data: '', type: HeaderCellType.PLACEOLDER });
     }
-  
+
     return headers;
   }
   generateCellsFromRow(row: any, headers: { data: string; type: HeaderCellType }[], tabType: AutoClusterTabType): { data: string; type: DataCellType; moreData?: { [key: string]: any } }[] {
@@ -230,21 +233,14 @@ export class NarrowBasicTableWarpComponent {
       const headerName = this.HeaderToDBKeyMap[header.data.toString()] || header.data; // קבלת שם העמודה מהמפה או השארת השם המקורי
       const cellData = row[headerName] || ''; // קבלת הנתונים מהשורה
       const dataCellType = this.getDataCellTypeForHeader(header.data, header.type); // קביעת סוג התא
-  
+
       // יצירת מידע נוסף (moreData) לפי סוג התא
+    
+
       const moreData = this.getMoreDataForCell(dataCellType, cellData);
-  
+      console.log(moreData);
       return { data: cellData, type: dataCellType, moreData };
     });
-  
-    // הוספת Check בתחילת השורה עם סוג CHECK
-    cells = [{ data: 'Check', type: DataCellType.CHECK, moreData: { type: this.checkType.UNCHECKED, state: this.checkStateType.ENABLED } }, ...cells];
-  
-    // הוספת Button בסוף השורה עבור טאבים מסוימים
-    if (tabType === AutoClusterTabType.APPROVAL_GROUPS || tabType === AutoClusterTabType.CHECKLIST_ITEMS) {
-      cells.push({ data: 'Button', type: DataCellType.BUTTON, moreData: { buttonType: ButtonType.SECONDARY, text: 'Open', isBig: false } });
-    }
-  
     return cells;
   }
 
@@ -252,10 +248,19 @@ export class NarrowBasicTableWarpComponent {
     switch (dataCellType) {
       case DataCellType.STATUS:
         return { property: BadgeType.TODO };
+      case DataCellType.CHECK:
+        return { type: this.checkType.UNCHECKED, state: this.checkStateType.ENABLED };
       case DataCellType.ICON:
         return {
           icon: IconType.CHEVRON_RIGHT_LIGHT,
           property: IconButtonLargeType.DEFAULT
+        };
+      case DataCellType.BUTTON:
+        return {
+          text: 'open',
+          buttonType: ButtonType.SECONDARY,
+          isBig: false,
+          iconType: IconType.NOTHING
         };
       default:
         return {};

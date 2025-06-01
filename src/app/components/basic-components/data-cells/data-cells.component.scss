@@ -3,48 +3,42 @@
 
 .data-cell {
     display: flex;
-    align-items:flex-start;
-    padding: var(--layout-02, 0.5rem);
+    padding:0.5rem;
     gap: 0.625rem;
-    flex-grow: 1;
-    flex-basis: 0;
-    text-align:left;
-    justify-content: center;
-     
-}
-.string {
-
-    align-items: center;
-    justify-content: center;
-    color: $c-3F4B5A;
-    // font-family: Poppins;
+    align-items:center;
+    font-family: Poppins;
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.25rem;
-    flex: 1 0 0;
-
-  word-break: normal;
-  overflow-wrap: anywhere; /* מאפשר שבירה גם אחרי תווים מיוחדים */
-  white-space: normal;    // מאפשר ירידת שורה
-// border: 1px solid $c-3F4B5A;
-
-//     overflow-wrap: anywhere;
-//   word-break: break-word;
-//   word-wrap: break-word; /* לגיבוי */
+    line-height: 1.25rem; 
 }
+.string {
+    color: $c-3F4B5A;
 
-.more {
-    width: 2.375rem;
-    height: 2.8125rem;
+}
+.link {
+    justify-content: flex-end;
+    gap: 0.625rem;
+    color:$c-006AE5;
+
+}
+.button{
+width: 9.1875rem;
+justify-content: flex-end;
+align-items: center;
+}
+.more .check .place-order {
+    display: flex;
+    width: 2.75rem;
+    padding: var(--layout-02, 0.5rem);
     justify-content: center;
-    flex-shrink: 0;
+    align-items: center;
+    gap: 0.625rem;
 }
 
 
 .more-icon {
     color: $c-3F4B5A;
-    text-align: center;
     font-family: "Font Awesome 6 Pro";
     font-size: 0.875rem;
     font-size: 0.875rem;
@@ -66,32 +60,16 @@ a {
   a:visited {
    color:$c-262C34;
   }
-.link {
-  
-    justify-content: flex-start;
-    flex-shrink: 0;
-    flex: 1 0 0;
-    font-family: Poppins;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.25rem;
-    flex: 1 0 0;
-    align-items: center;
-}
 
 .icon {
     display: flex;
     width: 2.375rem;
     height: 2.8125rem;
     padding: 0.5rem;
-    justify-content: center;
-    align-items: center;
     gap: 0.625rem;
     flex-shrink: 0;
 
 }
-
 .clipboard-list-icon {
     color: $c-1334B9;
     font-family: "Font Awesome 6 Pro";
@@ -99,26 +77,7 @@ a {
     font-style: normal;
     font-weight: 300;
     line-height: normal;
-
-
 }
-
-.status {
-    flex-shrink: 0;
-}
-
-.check {
-    justify-content: center;
-    align-self: stretch;
-    width: 1.5625rem;
-}
-
-.more-icon,
-.clipboard-list-icon,
-.fa-chevron-right {
-    justify-content: flex-end;
-}
-
 .fa-solid {
     color: $c-3F4B5A;
     font-size: 0.875rem;

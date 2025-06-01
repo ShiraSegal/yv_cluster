@@ -1,4 +1,51 @@
-@import "src/styles.scss";;
+@import "src/styles.scss";
+
+.header-cell {
+    display: flex;
+    height: 3.4375rem;
+    padding: 0.5rem;
+    align-items: center;
+    gap: 0.625rem;
+    background: $c-F1F1F1;
+    color: $c-3F4B5A;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.check .more {
+    width: 2.375rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.place-order {
+    width: 9.1875rem;
+    justify-content: flex-end;
+    align-items: center;
+    }
+
+.chart-icon {
+    color: $c-1334B9;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1.25rem;
+    margin-right: 5px;
+}
+
+.pie-icon {
+    cursor: pointer;
+}
+
+.header-search {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-self: stretch;
+}
 
 .sort-icon {
     text-align: center;
@@ -9,37 +56,7 @@
     line-height: normal;
     width: 1.3125rem;
     height: 1.0625rem;
-    flex-shrink: 0; 
-}
-
-.header-cell { 
-    display: flex;
-    padding:  0.8rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.25rem;
-    gap: 0.625rem;
     flex-shrink: 0;
-    color: $c-3F4B5A;
-    font-family: Poppins;
-    font-size: 0.875rem;
-}
-
-.text,
-.order,
-.order-down {
-    align-items:center;
-    justify-content: space-between;
-    flex: 1 0 0;
-
-    width: 6.25rem;
-}
-
-.header-search {
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    align-self: stretch;
 }
 
 .header-search-search {
@@ -64,38 +81,9 @@
 
 .header-search-cancle {
     color: $c-3F4B5A;
-
     font-family: "Font Awesome 6 Pro";
     font-size: 0.625rem;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
-}
-
-.more {
-    width: 1.5625rem;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: center;
-    font-weight: 900;
-    flex-shrink: 0;
-}
-
-.place-order {
-    width: 1.5625rem;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.chart-icon{
-    color:$c-1334B9;
-font-family: "Font Awesome 6 Pro";
-font-size: 0.875rem;
-font-style: normal;
-font-weight: 900;
-line-height: 1.25rem; /* 142.857% */
-margin-right: 5px;
-}
-.pie-icon{
-    cursor: pointer;
 }

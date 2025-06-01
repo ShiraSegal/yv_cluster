@@ -5,28 +5,26 @@
 }
 
 .narrow-basic-table-row {
-    border-bottom: 1px solid $c-D0D6F1;
     display: flex;
-    padding: 0.25rem 0rem;
     align-items: center;
-    align-self: stretch;
+    align-self:stretch;
+    border-bottom: 1px solid $c-D0D6F1;
+    padding: 0.25rem 0rem;
+    height: 4rem;
 }
 .long{
     width: 130rem;
 }
-
-.regular-cell {
-    flex-grow: 1;
-    flex-basis: 0;
-    min-width: 0;
-  }
-  
-  .special-cell {
-    flex-grow: 0;
-    flex-basis: 0;
-    width: 1.5625rem;
-  }
-
 .cell {
-    min-height: 3.125rem;
+
+  flex: 1; /* כל תא יקבל רוחב שווה */
 }
+.check{
+
+  flex: 0; /* כל תא יקבל רוחב שווה */
+}
+.button{
+
+  flex: 0; /* כל תא יקבל רוחב שווה */
+}
+
