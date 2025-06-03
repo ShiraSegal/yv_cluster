@@ -1,26 +1,22 @@
+
+
+  <form [formGroup]="formgroup">
+
 <div class="narrow-basic-table-row" [ngClass]="property" [ngClass]="length" [formGroup]="formgroup">
-  @for (cell of getFormControls(formgroup);  let i = $index ;track i) {
-  @if(currentUserRole === "manager" && cell.value.value.type === dataCellType.ASSIGNEE){
-    <div class="cell" [ngClass]="cell.value.value.type">
-      <yv-cluster-data-cells      
-      [data]="cell.value.value.data"
-      [type]="cell.value.value.type"
-      [moreData]="cell.value.value.moreData"
-      [control]="controls[cell.key]"
-      [prefCodeStatus]="prefCodeStatus"
+  @for (cell of getFormControls(formgroup); let i = $index ;track i) {
+  @if(cell.value.value.type === dataCellType.ASSIGNEE && currentUserRole !== "manager"){}
+  @else {
+  <div class="cell" [ngClass]="cell.value.value.type">
+    <yv-cluster-data-cells [data]="cell.value.value.data" [type]="cell.value.value.type"
+      [moreData]="cell.value.value.moreData" [control]="formgroup[cell.key]" [prefCodeStatus]="prefCodeStatus"
       (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
   </div>
   }
-  @if(cell.value.value.type !== dataCellType.ASSIGNEE){
-    <div class="cell" [ngClass]="cell.value.value.type">
-        <yv-cluster-data-cells 
-        [data]="cell.value.value.data"
-        [type]="cell.value.value.type"
-        [moreData]="cell.value.value.moreData"
-        [control]="controls[cell.key]"
-        [prefCodeStatus]="prefCodeStatus"
-        (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
-    </div>
-    }
-  }
+ @if(currentTab===autoClusterTabType.APPROVAL_GROUPS||currentTab===autoClusterTabType.CHECKLIST_ITEMS){
+  <h1>i need to button </h1>
+  <!-- <button ></button> -->
+ }
+}
 </div>
+  </form>
+

@@ -6,7 +6,7 @@
     </div>
     }
     @if(type === headerCellType.PLACEOLDER){
-      
+
         }
     @if(type === headerCellType.ORDER){
     <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>
@@ -21,10 +21,10 @@
     </div>
     }
     @if(type === headerCellType.CHECK){
-    <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED
+    <!-- <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED
         (checkStatus)="checkChange($event)"
         [checkedControl]="headerCheckboxControl"
-        ></yv-cluster-check>
+        ></yv-cluster-check> -->
     }
     @else{
         {{header}}

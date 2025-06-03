@@ -7,11 +7,13 @@ import { HeadingComponent } from '../../basic-components/heading/heading.compone
 import { BasicTableWarpComponent } from '../../basic-components/basic-table-warp/basic-table-warp.component';
 import { SuggestionsStatisticsComponent } from '../../basic-components/suggestions-statistics/suggestions-statistics.component';
 import { log } from 'node:console';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CheckComponent } from '../../basic-components/check/check.component';
 
 @Component({
   selector: 'yv-cluster-home',
   standalone: true,
-  imports: [BasicCardComponent, HeadingComponent,
+  imports: [BasicCardComponent, HeadingComponent,CheckComponent,ReactiveFormsModule,
     BasicTableWarpComponent, SuggestionsStatisticsComponent
   ],
   templateUrl: './home.component.html',
@@ -44,7 +46,15 @@ export class HomeComponent {
   radius = 100;
   innerRadius = 50;
   //cards function
+  form = new FormGroup({
+  myCheckbox: new FormControl(true) // התחלה ב-false
+});
+
   ngOnInit() {
+    this.form.valueChanges.subscribe(value => {
+      console.log('Checkbox value changed:', value.myCheckbox);
+
+    })
     const userId = 4; // ID של המשתמש הרצוי
     //בעיקרון פה לוקחים את הID מהLOCALSTORAGE או משהו בסגנון
     this.#clusterService.getDashboardDataById(userId).subscribe({

@@ -1,63 +1,70 @@
 import { CommonModule } from '@angular/common';
-import { forwardRef } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import {
+  Component,
+  EventEmitter,
+  forwardRef,
+  Input,
+  Output
+} from '@angular/core';
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  ReactiveFormsModule
+} from '@angular/forms';
 import { CheckStateType, CheckType } from 'src/app/enums/check-enum';
-import { FieldComponent } from '../field/field.component';
-import { Component, Input,EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'yv-cluster-check',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './check.component.html',
   styleUrl: './check.component.scss',
-   providers: [
-        {
-          provide: NG_VALUE_ACCESSOR,
-          useExisting: forwardRef(() => CheckComponent),
-          multi: true
-        }
-      ]
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => CheckComponent),
+      multi: true
+    }
+  ]
 })
 export class CheckComponent implements ControlValueAccessor {
-  @Input() type: CheckType =CheckType.UNCHECKED ;
   @Input() state: CheckStateType = CheckStateType.ENABLED;
-  @Input() checkedControl: FormControl;
-  @Output() checkStatus= new EventEmitter<CheckType>();
+  @Output() checkStatus = new EventEmitter<boolean>();
 
+  checkType = CheckType;
+  checkStateType = CheckStateType;
 
-  checkType=CheckType;
-  checkStateType=CheckStateType;
+  isChecked = false; // this will be our model
 
-   onChange: (value: CheckType) => void = () => {};
-   onTouched: () => void = () => {};
+  onChange: (value: boolean) => void = () => {};
+  onTouched: () => void = () => {};
 
-  writeValue(value: CheckType): void {
-    this.type = value || CheckType.UNCHECKED;
+  writeValue(value: boolean): void {
+    this.isChecked = !!value;
   }
-  registerOnChange(fn: (value: CheckType) => void): void {
+
+  registerOnChange(fn: (value: boolean) => void): void {
     this.onChange = fn;
   }
+
   registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
-  setDisabledState?(isDisabled: boolean): void {
+
+  setDisabledState(isDisabled: boolean): void {
     this.state = isDisabled ? CheckStateType.DISABLED : CheckStateType.ENABLED;
   }
-
-
-  toggleCheckbox() {
+onCheckboxChange(event: Event) {
+  const inputElement = event.target as HTMLInputElement;
+  this.isChecked = inputElement.checked;
+  this.toggleCheckbox(this.isChecked);
+}
+  toggleCheckbox(checked: boolean): void {
     if (this.state !== CheckStateType.DISABLED) {
-      this.type = this.type === CheckType.CHECKED ? CheckType.UNCHECKED : CheckType.CHECKED;
-      this.checkStatus.emit(this.type); // Emit the current check status
-      if (this.checkedControl) {
-        // this.checkedControl.setValue(this.type === CheckType.CHECKED, { emitEvent: true });
-                this.checkedControl.setValue(!this.checkedControl?.value, { emitEvent: true });
-
-      }
-      this.checkStatus.emit(this.type); 
-      this.onChange(this.type); 
-      this.onTouched(); 
+      this.isChecked = checked;
+      this.checkStatus.emit(checked);
+      this.onChange(checked);
+      this.onTouched();
     }
   }
 }

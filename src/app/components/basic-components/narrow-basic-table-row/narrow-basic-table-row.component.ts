@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { CheckStateType, DataCellType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
+import { AutoClusterTabType, CheckStateType, DataCellType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ClusterService } from 'src/app/services/cluster.service';
@@ -14,6 +14,7 @@ import { ClusterService } from 'src/app/services/cluster.service';
 export class NarrowBasicTableRowComponent {
   @Input() property: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
   @Input() length : NarrowBasicTableRowLength;
+  @Input()  currentTab : AutoClusterTabType;
   @Input() formgroup: FormGroup;
   @Input() prefCodeStatus: boolean=false;
   @Output() bookIdToDelet= new EventEmitter<string>();
@@ -22,7 +23,15 @@ export class NarrowBasicTableRowComponent {
   currentUserRole = this.#clusterService.currentUser.role;
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
-
+autoClusterTabType=AutoClusterTabType
+ngOnInit(): void {
+  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //Add 'implements OnInit' to the class.
+this.formgroup.valueChanges.subscribe((value) => {
+  console.log('Form value changed:', value);
+  
+})
+}
   onIconDeletClick() {
     const cellControl = this.formgroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי
     const cellData = cellControl?.value?.data;

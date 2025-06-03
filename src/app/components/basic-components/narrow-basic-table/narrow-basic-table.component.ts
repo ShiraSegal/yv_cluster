@@ -6,22 +6,23 @@ import { TableHeaderComponent } from '../table-header/table-header.component';
 import { ButtonIconProperty, NativeOptionState, NativeOptionType } from 'src/app/enums/native-option-enum';
 import { IconType } from 'src/app/enums/icon-enum';
 import { FilterSectionComponent } from "../filter-section/filter-section.component";
-import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormControlState, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { Subscription } from 'rxjs';
 import { PopoverComponent } from '../popover/popover.component';
 import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 import { ExpandableComponent } from '../expandable/expandable.component';
+import { log } from 'console';
 
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table',
   standalone: true,
-  imports: [CommonModule, 
-    ReactiveFormsModule, 
-    NarrowBasicTableRowComponent, 
-    TableHeaderComponent, 
-    FilterSectionComponent, 
+  imports: [CommonModule,
+    ReactiveFormsModule,
+    NarrowBasicTableRowComponent,
+    TableHeaderComponent,
+    FilterSectionComponent,
     ExpandableComponent],
   templateUrl: './narrow-basic-table.component.html',
   styleUrl: './narrow-basic-table.component.scss'
@@ -40,7 +41,14 @@ export class NarrowBasicTableComponent {
       moreData?: { [key: string]: any };
     }[];
   }[] = [];
-
+ initialStateString: FormControlState<string> = {
+  value: '',
+  disabled: true
+};
+ initialStateBoolean: FormControlState<boolean> = {
+  value: false,
+  disabled: false
+};
   narrowBasicTableRowLength = NarrowBasicTableRowLength;
   label: string = 'Select Label';
   primary = ButtonType.PRIMARY
@@ -128,22 +136,52 @@ export class NarrowBasicTableComponent {
   // Initialize the FormArray with the rows data
   initializeRowsFormArray() {
     console.log(this.Headers);
-    
+
     this.rowsFormArray.clear(); // איפוס ה-FormArray
 
     this.Rows.forEach((row) => {
       const rowGroup = this.#fb.group({}); // יצירת FormGroup עבור השורה
 
       row.cells.forEach((cell, index) => {
-        const headerName = this.Headers[index]?.data || `header_${index}`; // שם ההידר או שם ברירת מחדל
-        const control = new FormControl({
-          data: cell.data,
-          type: cell.type,
-          moreData: cell.moreData,
-        });
-        rowGroup.addControl(headerName, control); // הוספת השדה ל-FormGroup עם שם ההידר
-      });
+         let control = new FormControl(this.initialStateString); // יצירת FormControl עם ערך התחלתי
+         control.setValue(cell.data || '');
+         (control as any).type = cell.type;
+        switch (cell.type) {
+          case DataCellType.CHECK:
+            console.log('CHECK!!!!!!!!!:', cell);
+            const controlBoolean = new FormControl(this.initialStateBoolean);
+            rowGroup.addControl(cell.type, controlBoolean);
+            break;
+          case DataCellType.ASSIGNEE:
+            control.enable();
+            rowGroup.addControl(cell.type, control);
+            break;
+          case DataCellType.STATUS:
+            control.enable();
+            rowGroup.addControl(cell.type, control);
+            break;
+          default:
+            rowGroup.addControl(cell.type, control);
+        }
+        //console.log('cell data:', cell.data, cell.type,control);
+        // if(cell.type=== DataCellType.CHECK) {
+        //   (control as any).type = cell.type;
+        //   control.enable();
+        //   control.setValue(this.initialStateBoolean);
+        //   rowGroup.addControl('checked', checkedControl);
+        // }
+        // if( cell.type === DataCellType.ASSIGNEE) {
 
+        // }
+        // const headerName = this.Headers[index]?.data || `header_${index}`; // שם ההידר או שם ברירת מחדל
+        // const control = new FormControl({
+        //   data: cell.data,
+        //   type: cell.type,
+        //   moreData: cell.moreData,
+        // });
+        // rowGroup.addControl(headerName, control); // הוספת השדה ל-FormGroup עם שם ההידר
+      });
+      console.log('rowGroup:', rowGroup);
       this.rowsFormArray.push(rowGroup); // הוספת ה-FormGroup ל-FormArray
     });
 
