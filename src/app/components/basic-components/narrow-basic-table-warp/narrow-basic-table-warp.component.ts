@@ -165,11 +165,12 @@ export class NarrowBasicTableWarpComponent {
       this.loadDataForTab(); // טען את הנתונים לטבלה
     });
   }
+
   getDataCellTypeForHeader(header: string, headerType: HeaderCellType): DataCellType {
     if (header === 'Status') return DataCellType.STATUS;
-    if (header === 'Status') return DataCellType.STATUS;
     if (headerType === HeaderCellType.CHECK) return DataCellType.CHECK;
-    if (headerType === HeaderCellType.PLACEOLDER) return DataCellType.BUTTON;
+    if (header === 'Button') return DataCellType.BUTTON;
+    if (header === 'Icon') return DataCellType.ICON;
     return DataCellType.TEXT; // ברירת מחדל
   }
 
@@ -214,16 +215,21 @@ export class NarrowBasicTableWarpComponent {
 
       let headerType = HeaderCellType.TEXT; // ברירת מחדל
 
-      // שימוש במפה DBKeyToHeaderMap אם המפתח קיים, אחרת השארת המפתח המקורי
       const headerName = this.DBKeyToHeaderMap[key] || key;
 
       return { data: headerName, type: headerType };
     });
-
-    headers = [{ data: 'Check', type: HeaderCellType.CHECK }, ...headers];
-
-    if (tabType === AutoClusterTabType.APPROVAL_GROUPS || tabType === AutoClusterTabType.CHECKLIST_ITEMS) {
-      headers.push({ data: '', type: HeaderCellType.PLACEOLDER });
+    headers = [
+      { data: 'Check', type: HeaderCellType.CHECK }, // הוספת CHECK בתחילת המערך
+      ...headers, // שאר ההידרים
+    ];
+    // הוספת PLACEOLDER אחרי CHECK עבור ERRORMESSAGES
+    if (tabType === AutoClusterTabType.ERROR_MESSAGES) {
+      const placeHolderHeader = { data: 'Icon', type: HeaderCellType.PLACEOLDER };
+      headers = [headers[0], placeHolderHeader, ...headers.slice(1)];
+      // שמירה על האלמנט הראשון, הוספת PLACEOLDER, ושאר האלמנטים
+    } else if (tabType === AutoClusterTabType.APPROVAL_GROUPS || tabType === AutoClusterTabType.CHECKLIST_ITEMS) {
+      headers.push({ data: 'Button', type: HeaderCellType.PLACEOLDER });
     }
 
     return headers;
@@ -233,13 +239,10 @@ export class NarrowBasicTableWarpComponent {
       const headerName = this.HeaderToDBKeyMap[header.data.toString()] || header.data; // קבלת שם העמודה מהמפה או השארת השם המקורי
       const cellData = row[headerName] || ''; // קבלת הנתונים מהשורה
       const dataCellType = this.getDataCellTypeForHeader(header.data, header.type); // קביעת סוג התא
-
-      // יצירת מידע נוסף (moreData) לפי סוג התא
-    
-
       const moreData = this.getMoreDataForCell(dataCellType, cellData);
-      console.log(moreData);
+
       return { data: cellData, type: dataCellType, moreData };
+
     });
     return cells;
   }
@@ -252,7 +255,7 @@ export class NarrowBasicTableWarpComponent {
         return { type: this.checkType.UNCHECKED, state: this.checkStateType.ENABLED };
       case DataCellType.ICON:
         return {
-          icon: IconType.CHEVRON_RIGHT_LIGHT,
+          icon: IconType.CHEVRON_DOWN,
           property: IconButtonLargeType.DEFAULT
         };
       case DataCellType.BUTTON:

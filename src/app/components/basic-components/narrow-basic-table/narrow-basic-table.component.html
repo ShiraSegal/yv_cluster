@@ -11,9 +11,16 @@
             </yv-cluster-table-header>
             <div class="rows-container" formArrayName="rowsFormArray">
                 @for(rowGroup of rowsFormArray.controls; let i = $index ;track i;){
-                <yv-cluster-narrow-basic-table-row [formGroupName]="i" [property]="Rows[i].property"
-                    [formgroup]="rowGroup" [length]="narrowBasicTableRowLength.LONG">
-                </yv-cluster-narrow-basic-table-row>
+                    @if (currentTab === autoClusterTabType.ERROR_MESSAGES) {
+                        <yv-cluster-expandable [formGroupName]="i" [property]="NarrowBasicTableRowExpandState.CLOSE"
+                        [formgroup]="rowGroup" [length]="narrowBasicTableRowLength.LONG">
+                    </yv-cluster-expandable>
+                    }
+                   @else {
+                        <yv-cluster-narrow-basic-table-row [formGroupName]="i" [property]="Rows[i].property"
+                        [formgroup]="rowGroup" [length]="narrowBasicTableRowLength.LONG">
+                    </yv-cluster-narrow-basic-table-row>
+                    }
             }
             </div>
             

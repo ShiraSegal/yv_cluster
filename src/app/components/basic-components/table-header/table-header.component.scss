@@ -9,14 +9,14 @@
   width: 130rem;
 }
 .cell {
-
   flex: 1; /* כל תא יקבל רוחב שווה */
 }
 .check{
   flex: 0; /* כל תא יקבל רוחב שווה */
 }
 .place-order{
- max-width: 9.1875rem;
+  flex: 0;
+ max-width:2.75rem;
 }
 
 

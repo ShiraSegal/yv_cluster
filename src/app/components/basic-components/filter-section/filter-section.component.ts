@@ -27,7 +27,6 @@ import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ButtonComponent,
     IconButtonLargeComponent,
     SelectComponent,
     FieldComponent,

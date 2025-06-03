@@ -56,7 +56,6 @@ export class DataCellsComponent<T extends DataCellType> {
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
   checkType = CheckType;
-
 rihgtLink(){
  if (this.moreData!==null &&typeof this.moreData['linkHRef'] === "string" && this.moreData['linkHRef'].includes('collections.yadvashem.org/en/names/')) {
       this.hRef=this.moreData['linkHRef'] +this.data;

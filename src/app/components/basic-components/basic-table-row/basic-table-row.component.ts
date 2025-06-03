@@ -9,7 +9,7 @@ import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large
 @Component({
   selector: 'yv-cluster-basic-table-row',
   standalone: true,
-  imports: [CommonModule , DataCellsComponent,IconButtonLargeComponent],
+  imports: [CommonModule , DataCellsComponent],
   templateUrl: './basic-table-row.component.html',
   styleUrl: './basic-table-row.component.scss'
 })
@@ -21,7 +21,7 @@ export class BasicTableRowComponent {
     type: DataCellType;
     moreData?: { [key: string]: any };
   }[];
-   
+ 
   basicTableRowPropertyVariants= BasicTableRowPropertyVariants;
   dataCellType = DataCellType;
     iconButtonLargeType = IconButtonLargeType;

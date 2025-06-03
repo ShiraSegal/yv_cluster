@@ -14,6 +14,11 @@ export enum NarrowBasicTableRowInputState {
   HOVER = 'Hover'
 }
 
+export enum NarrowBasicTableRowExpandState {
+  OPEN = 'open',
+  CLOSE = 'close'
+}
+
 export enum BasicTableRowPropertyVariants {
   DEFAULT = 'Default',
   VARIANT2 = 'Variant2',

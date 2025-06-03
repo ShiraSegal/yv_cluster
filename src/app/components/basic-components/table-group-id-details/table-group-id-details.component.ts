@@ -22,7 +22,7 @@ import { ToastNotificationComponent } from '../toast-notification/toast-notifica
 @Component({
   selector: 'yv-cluster-table-group-id-details',
   standalone: true,
-  imports: [CommonModule, NarrowBasicTableComponent, TableHeaderComponent, BasicTableRowComponent, NarrowBasicTableRowComponent, IconButtonLargeComponent, FilterHandlingSuggestionsComponent, ReactiveFormsModule, FormsModule, TooltipComponent,ToastNotificationComponent],
+  imports: [CommonModule,  TableHeaderComponent, FilterHandlingSuggestionsComponent, ReactiveFormsModule, FormsModule],
   templateUrl: './table-group-id-details.component.html',
   styleUrl: './table-group-id-details.component.scss'
 })

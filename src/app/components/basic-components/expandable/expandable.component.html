@@ -1,0 +1,29 @@
+<div class="expandable">
+    <div class="narrow-basic-table-row-expandable" [ngClass]="property" [formGroup]="formgroup" [ngClass]="length">
+        @for (cell of getFormControls(formgroup); let i = $index ;track i) {
+        @if(currentUserRole === "manager" && cell.value.value.type === dataCellType.ASSIGNEE){
+        <div class="cell" [ngClass]="cell.value.value.type">
+            <yv-cluster-data-cells [data]="cell.value.value.data" [type]="cell.value.value.type"
+                [moreData]="cell.value.value.moreData" [control]="controls[cell.key]"
+                (iconClick)="openExpand()"></yv-cluster-data-cells>
+        </div>
+        }
+        @if(cell.value.value.type !== dataCellType.ASSIGNEE){
+        <div class="cell" [ngClass]="cell.value.value.type">
+            <yv-cluster-data-cells [data]="cell.value.value.data" [type]="cell.value.value.type"
+                [moreData]="cell.value.value.moreData" [control]="controls[cell.key]"
+                (iconClick)="openExpand()"></yv-cluster-data-cells>
+        </div>
+        }
+        }
+    </div>
+    @if(showExpand){
+    <div class="expandable-row">ERROR: can't care 15875015 Mandatory data is missing in the item 15875015, please check
+        can't care 15875015 Mandatory data is missing in the item 15875015, please check. can't care 15875015 Mandatory
+        data is missing in the item 15875015, please check.</div>
+    }
+</div>
+<!-- ERROR: can't care 15875015 Mandatory data is missing in the item 15875015, please check
+        can't care 15875015 Mandatory data is missing in the item 15875015, please check. can't care 15875015 Mandatory
+        data is missing in the item 15875015, please check.
+ERROR: can't care 15875015 Mandatory data is missing in the item 15875015, please check. -->

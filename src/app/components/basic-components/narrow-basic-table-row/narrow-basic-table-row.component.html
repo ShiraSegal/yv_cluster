@@ -5,6 +5,7 @@
       <yv-cluster-data-cells      
       [data]="cell.value.value.data"
       [type]="cell.value.value.type"
+      [moreData]="cell.value.value.moreData"
       [control]="controls[cell.key]"
       [prefCodeStatus]="prefCodeStatus"
       (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
@@ -15,6 +16,7 @@
         <yv-cluster-data-cells 
         [data]="cell.value.value.data"
         [type]="cell.value.value.type"
+        [moreData]="cell.value.value.moreData"
         [control]="controls[cell.key]"
         [prefCodeStatus]="prefCodeStatus"
         (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>

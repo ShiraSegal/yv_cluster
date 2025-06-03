@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input, SimpleChanges } from '@angular/core';
-import { ButtonType, DataCellType, HeaderCellType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength, State } from 'src/app/enums/basic-enum';
+import { AutoClusterTabType, ButtonType, DataCellType, HeaderCellType, NarrowBasicTableRowExpandState, NarrowBasicTableRowInputState, NarrowBasicTableRowLength, State } from 'src/app/enums/basic-enum';
 import { NarrowBasicTableRowComponent } from '../narrow-basic-table-row/narrow-basic-table-row.component';
 import { TableHeaderComponent } from '../table-header/table-header.component';
 import { ButtonIconProperty, NativeOptionState, NativeOptionType } from 'src/app/enums/native-option-enum';
@@ -11,17 +11,23 @@ import { ClusterService } from 'src/app/services/cluster.service';
 import { Subscription } from 'rxjs';
 import { PopoverComponent } from '../popover/popover.component';
 import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
+import { ExpandableComponent } from '../expandable/expandable.component';
 
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NarrowBasicTableRowComponent, TableHeaderComponent, FilterSectionComponent, PopoverComponent],
+  imports: [CommonModule, 
+    ReactiveFormsModule, 
+    NarrowBasicTableRowComponent, 
+    TableHeaderComponent, 
+    FilterSectionComponent, 
+    ExpandableComponent],
   templateUrl: './narrow-basic-table.component.html',
   styleUrl: './narrow-basic-table.component.scss'
 })
 export class NarrowBasicTableComponent {
-
+  @Input()  currentTab : AutoClusterTabType;
   @Input() Filters: FilterNames[] = [];
   @Input() Headers: { data: string; type: HeaderCellType }[] = [];
   @Input() Rows: {
@@ -41,9 +47,9 @@ export class NarrowBasicTableComponent {
   variant3 = ButtonIconProperty.VARIANT3
   iconType = IconType
   stateEnum = State
-  nativeOptions = NativeOptionType;
-  rowProperty: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
-
+  nativeOptions = NativeOptionType
+  autoClusterTabType = AutoClusterTabType
+  NarrowBasicTableRowExpandState = NarrowBasicTableRowExpandState
   hoveredPopover: { type: string; index: number } | null = null;
 
   //injects
@@ -89,7 +95,6 @@ export class NarrowBasicTableComponent {
 
   }
   onHeaderCheckboxToggle(): void {
-    debugger
     const isChecked = this.tableDataForm.get('headerCheckbox')?.value;
 
     // Update all row checkboxes
@@ -111,16 +116,19 @@ export class NarrowBasicTableComponent {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['Rows'] && this.Rows) {
-      //console.log('Rows (ngOnChanges):', this.Rows);
+    //  console.log('Rows (ngOnChanges):', this.Rows);
       if (changes['Rows'] && this.Rows?.length) {
         this.initializeRowsFormArray();
 
       }
     }
+   // console.log('headers (ngOnChanges):', this.Headers);
   }
 
   // Initialize the FormArray with the rows data
   initializeRowsFormArray() {
+    console.log(this.Headers);
+    
     this.rowsFormArray.clear(); // איפוס ה-FormArray
 
     this.Rows.forEach((row) => {
