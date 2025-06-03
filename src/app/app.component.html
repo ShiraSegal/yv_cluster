@@ -1,6 +1,9 @@
 <div class="app-wrraper">
-
-
-<yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
-<router-outlet></router-outlet>
+    <nav>
+        <div>{{currentUser.name}} {{currentUser.role}}</div>
+        <yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
+    </nav>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
 </div>

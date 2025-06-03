@@ -183,7 +183,6 @@ export class TestComponent {
   size3 = TextSize.SMALL
   weight1=TextWeight.BOLD
   weight2=TextWeight.NORMAL
-
   bodyText1: string = 'Body Large Upon initial observation, it may appear that there are only two primary scenarios for ';
   bodyText2: string = 'Body Medium Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
   bodyText3: string = 'Body Small Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
@@ -399,7 +398,7 @@ popoverOptionsAssignee:{
   {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 3'},
     {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 2'},
   {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 3'},
-  
+
 ];
 
 popoverOptionsLink:{

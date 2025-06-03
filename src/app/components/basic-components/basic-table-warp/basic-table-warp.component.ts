@@ -57,7 +57,7 @@ export class BasicTableWarpComponent {
     }[];
   }[] = [];
 
-  setActiveTab(tabText: HomeTableTabType) { 
+  setActiveTab(tabText: HomeTableTabType) {
     this.tabs = this.tabs.map((tab) => ({
       ...tab,
       status: tab.text === tabText ? true : false

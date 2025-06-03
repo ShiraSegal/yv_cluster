@@ -13,7 +13,7 @@ import { NativeOptionComponent } from '../native-option/native-option.component'
 type NativeSelectOption = {
   optionType: NativeOptionType;
   optionState: NativeOptionState;
-  displayText: string;
+  displayText?: string;
   property?: BadgeType;
 };
 
@@ -34,7 +34,7 @@ type NativeSelectOption = {
 export class SelectComponent implements ControlValueAccessor {
   @Input() error: boolean = false;
   @Input() disabled: boolean = false;
-  @Input() label: string = '';
+  @Input() label: string;
   @Input() focused: boolean = false;
   @Input() populated: boolean = false;
   @Input() default: string = '';
@@ -62,7 +62,7 @@ export class SelectComponent implements ControlValueAccessor {
     this.selectedOption = option;
     this.dropdownOpen = false;
     this.stateEnum = State.POPULATED;
-    this.onChange(option);
+    this.onChange(option.displayText || option.property);
     this.onTouched();
   }
 
@@ -78,22 +78,12 @@ export class SelectComponent implements ControlValueAccessor {
       this.stateEnum = this.selectedOption ? State.POPULATED : State.DEFAULT;
     }
   }
+
   writeValue(obj: any): void {
-    if (typeof obj === 'string' || obj instanceof Date) {
-      // אם הערך הוא מחרוזת או תאריך, נעדכן את הטקסט המוצג
-      this.default = obj instanceof Date ? obj.toLocaleDateString('en-GB') : obj;
-      this.selectedOption = null; // אין אפשרות נבחרת מתוך הרשימה
-    } else if (obj) {
-      // אם הערך הוא אובייקט, נניח שהוא אפשרות מתוך הרשימה
-      this.selectedOption = obj;
-      this.default = obj.displayText;
-    } else {
-      // ערך ריק - נשמור על הפלייסהולדר
-      this.selectedOption = null;
-      this.default = this.default || 'Select Date'; // שמירה על הפלייסהולדר המקורי
-    }
+    this.selectedOption = obj;
     this.stateEnum = obj ? State.POPULATED : State.DEFAULT;
   }
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }

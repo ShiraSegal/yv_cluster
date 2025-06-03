@@ -13,7 +13,6 @@ export enum NarrowBasicTableRowInputState {
   DEFAULT = 'Default',
   HOVER = 'Hover'
 }
-
 export enum BasicTableRowPropertyVariants {
   DEFAULT = 'Default',
   VARIANT2 = 'Variant2',
@@ -171,7 +170,38 @@ export enum IconButtonLargeType {
   DEFAULT = "default",
   HOVER = "hover",
 }
-export enum StatusActiveOrNotActive {
-  ACTIVE = "active",
-  NOT_ACTIVE = "not-active"
+
+
+export enum NativeOptionType{
+  ASSIGNEE = "assignee",
+  STATUS = "status",
+  TEXT = "text"
 }
+
+
+export enum PopoverType{
+  ASSIGNEE = "assignee",
+  STATUS = "status",
+  LINK = "link"
+}
+export enum NativeOptionState{
+  DEFAULT = "default",
+  HOVER = "hover"
+}
+
+export enum ButtonIconProperty{
+  VARIANT1="variant1",
+  VARIANT2="variant2",
+  VARIANT3="variant3"
+  }
+  export enum RadioButtonListDirection{
+    ROW="row",
+    COLUMN="column"
+  }
+  export enum BigCardSize{
+    SHORT = "short",
+    LONG = "long"
+  }
+
+
+

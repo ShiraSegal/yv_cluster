@@ -38,7 +38,7 @@ align-items: center;
     z-index: 1000; /* Ensure the popover appears above other elements */
     white-space: nowrap; /* Prevent text wrapping in the popover */
   }
-  
+
   .popover::before {
     content: '';
     position: absolute;
