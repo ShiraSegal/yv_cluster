@@ -26,11 +26,40 @@ import { State } from 'src/app/enums/basic-enum';
     }
   ]
 })
-export class FieldComponent {
-  @Input() property!: State;
-  @Input() label!: string ;
-  @Input() textControl:FormControl = new FormControl<string>('');
+export class FieldComponent implements ControlValueAccessor {
+  @Input() property: State = State.DEFAULT;
+  @Input() label: string = '';
   @Input() placeholder: string = '';
-  stateEnum =  State ;
 
+  stateEnum = State;
+  value: string = '';
+
+  private onChange = (_: any) => {};
+  private onTouched = () => {};
+
+  writeValue(value: string): void {
+    this.value = value || '';
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.property = isDisabled ? State.DISABLED : State.DEFAULT;
+  }
+
+  onInputChange(event: Event): void {
+    const val = (event.target as HTMLInputElement).value;
+    this.value = val;
+    this.onChange(val);
+  }
+
+  onBlur(): void {
+    this.onTouched();
+  }
 }
