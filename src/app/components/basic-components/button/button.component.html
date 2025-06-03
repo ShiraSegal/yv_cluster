@@ -1,0 +1,12 @@
+<button 
+  class="btn" 
+  [class]="buttonType" 
+  [ngClass]="{'big': isBig}" 
+  [disabled]="disabled || !buttonControl.value"
+  (click)="handleClick()"
+>
+  @if(iconType){
+    <i [class]="iconType"></i>
+  }
+  {{ text }}
+</button>

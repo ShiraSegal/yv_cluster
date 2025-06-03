@@ -1,0 +1,18 @@
+<div  [ngClass]="[type,'header-cell']">
+    {{header}}
+    @if(type === HeaderCellType.ORDER){
+    <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>
+    }
+    @if(type === HeaderCellType.ORDERDOWN){
+    <i class="fas fa-arrow-down sort-icon" (click)="sortBy('column')"></i>
+    }
+    @if(type === HeaderCellType.HEADERSEARCH){
+    <div class="header-search-search">
+        <div class="header-search-line"></div>
+        <span class="header-search-cancle"><i class="fas fa-close"></i></span>
+    </div>
+    }
+    @if(type === HeaderCellType.CHECK){
+    <yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
+    }
+</div>

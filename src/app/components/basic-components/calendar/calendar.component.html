@@ -1,0 +1,51 @@
+<div class="calendar-wrapper">
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <button (click)="prevMonth()" class="nav-button">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <span>{{ months[currentMonth.getMonth()] }} {{ currentMonth.getFullYear() }}</span>
+    </div>
+    <div class="calendar-content">
+      <div class="calendar-grid">
+        @for (day of daysOfWeek; track day) {
+          <div class="day-name">{{ day }}</div>
+        }
+        @for (day of currentCalendarDays; track day) {
+          <div
+            class="calendar-day"
+            [ngClass]="{ 'empty-day': !day, 'selected': isSelected(day) }"
+            (click)="day && selectDate(day)"
+          >
+            {{ day ? day.getDate() : '' }}
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <span>{{ months[nextMonthDate.getMonth()] }} {{ nextMonthDate.getFullYear() }}</span>
+      <button (click)="nextMonth()" class="nav-button">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+    <div class="calendar-content">
+      <div class="calendar-grid">
+        @for (day of daysOfWeek; track day) {
+          <div class="day-name">{{ day }}</div>
+        }
+        @for (day of nextCalendarDays; track day) {
+          <div
+            class="calendar-day"
+            [ngClass]="{ 'empty-day': !day, 'selected': isSelected(day) }"
+            (click)="day && selectDate(day)"
+          >
+            {{ day ? day.getDate() : '' }}
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

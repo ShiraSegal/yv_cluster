@@ -1,0 +1,46 @@
+@import "src/styles.scss";
+
+
+.tab {
+    display: flex;
+    width: 5.875rem;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 5.875rem;
+    flex-direction: column;
+    gap: 0.1875rem;
+    padding: 0.40625rem 0rem;
+}
+
+
+.active {
+    border-radius: 0.3125rem;
+    background: $c-425DC7;
+}
+
+.icon {
+    
+    font-size: 1.875rem;
+}
+
+.fa-light {
+    color: $c-FFFFFF;
+}
+
+
+.fa-solid {
+    color: $c-D0D6F1;
+}
+
+.text-icon {
+    color:$c-FFFFFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    align-self: stretch;
+}

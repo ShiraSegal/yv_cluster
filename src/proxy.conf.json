@@ -1,0 +1,11 @@
+{
+    "/linkedin-api": {
+      "target": "https://px.ads.linkedin.com",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/linkedin-api": ""
+      }
+    }
+  }
+  
