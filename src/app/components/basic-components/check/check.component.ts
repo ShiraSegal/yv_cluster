@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { CheckStateType, CheckType } from 'src/app/enums/check-enum';
+import { CheckStateType, CheckType } from 'src/app/enums/basic-enum';
 
 @Component({
   selector: 'yv-cluster-check',
@@ -17,7 +17,7 @@ export class CheckComponent {
   CheckType=CheckType;
   CheckStateType=CheckStateType;
 
-  toggleCheckbox() { 
+  toggleCheckbox() {
     if (this.state !== CheckStateType.DISABLED) {
       this.type = this.type === CheckType.CHECKED ?CheckType.UNCHECKED : CheckType.CHECKED;
     }

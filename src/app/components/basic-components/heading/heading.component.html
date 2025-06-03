@@ -1,1 +1,4 @@
-<header [class]="size+' '+weight+' '+color" >{{title}}</header>
+<header  [ngClass]="{'large': size === 'large','medium': size === 'medium',
+'small': size === 'small',
+  'bold': isBold,
+}">{{title}}</header>

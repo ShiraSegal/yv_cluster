@@ -1,5 +1,4 @@
 import * as e from "express";
-import { IconType } from "./icon-enum";
 
 export enum ButtonType {
   PRIMARY = "primary",
@@ -16,20 +15,18 @@ export enum BasicTableRowPropertyVariants {
   VARIANT2 = 'Variant2',
 }
 
-
 export enum BasicTablePropertyType {
   OLD_SUGGESTIONS = 'Old Suggestions',
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
-
-export enum ButtonSize{
-  BIG="big",
-  SMALL="small"
-}
-export enum TextSize {
-  LARGE = "large",
-  MEDIUM = "medium",
+export enum ButtonSize {
+  BIG = "big",
   SMALL = "small"
+}
+
+export enum CheckType {
+  UNCHECKED = 'unchecked',
+  CHECKED = 'checked'
 }
 export enum CheckStateType {
   ENABLED = 'enabled',
@@ -48,21 +45,13 @@ export enum DataCellType {
   SLIDER = 'slider',
   PLACEOLDER = 'place-order',
 }
-
-
-export type DataCellValue<T extends DataCellType> =
+export type DataCellValue<T extends DataCellType> = 
   T extends DataCellType.TEXT ? string :
   T extends DataCellType.LINK ? string | number :
   T extends DataCellType.ASSIGNEE ? string :
-  T extends DataCellType.BUTTON ? { 
-    text?: string; 
-    buttonType?: ButtonType; 
-    disabled?: boolean; 
-    isBig?: boolean; // Changed from size
-    iconType?: IconType; // Changed from buttonIcon
-  } : // אובייקט מורכב עבור BUTTON
-  T extends DataCellType.SLIDER ? number | null :
-  never;
+  T extends DataCellType.BUTTON ? string :
+  T extends DataCellType.SLIDER ? number | null:
+  never; 
 
 
 
@@ -74,35 +63,30 @@ export enum AutoClusterTabType {
   DIFFERENT_CLUSTERS = 'Different Clusters',
   ERROR_MESSAGES = 'Error Messages'
 }
-
-export enum HomeTableTabType {
- NEWֹֹֹֹֹֹ_SUGGESTIONS = 'new-suggestion',
-  OLD_SUGGESTIONS = 'old_suggestion',
-  
+export enum ButtonIcon {
+  FOLDER_PLUS = "fa-light fa-folder-plus",
+  LAYER_PLUS = "fa-light fa-layer-plus",
+  PLUS = "fa-light fa-plus",
+  FILE_ARROW_DOWN = "fa-light fa-file-arrow-down",
+  CHEVRON_LEFT = "fa-light fa-chevron-left"
 }
 
+export enum TextSize {
+  LARGE = "large",
+  MEDIUM = "medium",
+  SMALL = "small"
+}
 
+export enum TextColor {
+  BLACK = "black",
+  SLATE_BLUE = "slate-blue",
+  NEUTRAL_GRAY = "neutral-gray",
+}
 
-
-
-
-  export enum TextColor {
-    BLACK = "black",
-    SLATE_BLUE = "slate-blue",
-    NEUTRAL_GRAY = "neutral-gray",
-    DARK_GRAY = "dark-gray",
-    COOl_BLUE="cool-blue",
-    PRIMARY_BTN= "primary_btn",
-    MEDIUM_GRAY="medium_gray",
-    VIBRANT_GREEN="vibrant_green",
-    DEEP_BLACK="deep_black",
-    WHITE="white"
-  }
-
-  export enum TextWeight {
-    BOLD = "bold",
-    NORMAL = "normal"
-    }
+export enum TextWeight {
+  BOLD = "bold",
+  NORMAL = "normal"
+}
 
 export enum HeaderCellType {
   TEXT = "text",
@@ -137,7 +121,6 @@ export enum SliderNavigationTabType {
 export enum SliderNavigationTabTextType {
   HOME = "Home",
   LOGOUT = "Logout",
-  CRMCLUSTERS  = "CRM Clusters",
   AUTOCLUSRET = "Auto Cluster",
   REPORT = "Report",
   NEWCLUSTER = "New Cluster",
@@ -151,34 +134,11 @@ export enum State {
   DISABLED = "disabled",
   ERROR = "error"
 }
-
 export enum IconButtonLargeType {
   DEFAULT = "default",
   HOVER = "hover",
 }
-
-
-export enum NativeOptionType{
-  ASSIGNEE = "assignee",
-  STATUS = "status",
-  TEXT = "text"
-}
-export enum NativeOptionState{
-  DEFAULT = "default",
-  HOVER = "hover"
-}
-export enum ButtonIconProperty {
-  VARIANT1 = "variant1",
-  VARIANT2 = "variant2",
-  VARIANT3 = "variant3"
-}
-
 export enum StatusActiveOrNotActive {
   ACTIVE = "active",
   NOT_ACTIVE = "not-active"
-}
-
-export enum RadioButtonListDirection{
-  ROW="row",
-  COLUMN="column"
 }

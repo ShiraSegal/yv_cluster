@@ -1,5 +1,4 @@
-@import "src/styles.scss";;
-
+@import "../../../../styles/colors.scss";
 
 .sort-icon {
     text-align: center;
@@ -23,8 +22,7 @@
     line-height: 1.25rem;
     gap: 0.625rem;
     flex-shrink: 0;
-    color:$c-3F4B5A;
-    color: $c-3F4B5A;
+    color: $slate_blue;
     font-family: Poppins;
     font-size: 0.875rem;
 }
@@ -40,16 +38,16 @@
 .header-search {
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start;   
     align-self: stretch;
 }
 
 .header-search-search {
     display: flex;
-    height: 0.9375rem;
+    height: 15px;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 0.625rem;
+    gap: 10px;
     flex-shrink: 0;
     align-self: stretch;
 }
@@ -61,12 +59,11 @@
     align-items: center;
     gap: 0.625rem;
     align-self: stretch;
-    border-bottom: 0.0625rem solid $c-3F4B5A;
+    border-bottom: 1px solid $slate_blue;
 }
 
 .header-search-cancle {
-    color: $c-3F4B5A;
-
+    color: $slate_blue;
     font-family: "Font Awesome 6 Pro";
     font-size: 0.625rem;
     font-style: normal;

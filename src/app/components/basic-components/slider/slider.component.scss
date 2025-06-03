@@ -1,4 +1,4 @@
-@import "src/styles.scss";
+@import "../../../../styles/colors.scss";
 .slider-container {
     display: flex;
     align-items: center;
@@ -9,7 +9,7 @@
   
   .slider-wrapper {
     border-radius: 2.63938rem;
-    background: $c-E7EBF8;
+    background: $pastel_blue;
     display: flex;
     width: 8.5rem;
     height: 0.625rem;
@@ -23,13 +23,13 @@
     height: 0.625rem;
     flex-shrink: 0;
     border-radius: 2.63938rem;
-    background-color: $c-425DC7;
+    background-color: $secondary_blue;
   
   
   }
   
   .slider-value {
-    color: $c-425466;
+    color: $table_body_strong;
     font-family: Poppins;
     font-size: 0.5625rem;
     font-style: normal;

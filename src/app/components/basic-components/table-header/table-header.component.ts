@@ -13,5 +13,4 @@ import { HeaderCellsComponent } from "../header-cells/header-cells.component";
 export class TableHeaderComponent {
 @Input() headers: { data: string; type: HeaderCellType }[] = [];
 HeaderCellType =   HeaderCellType
-
 }

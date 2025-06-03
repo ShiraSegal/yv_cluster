@@ -1,4 +1,4 @@
-@import "src/styles.scss";
+@import "../../../../styles/colors.scss";
 .basic-table-row {
   display: flex;
   flex-direction: row;
@@ -8,7 +8,7 @@
   align-items: center;
   gap: 0.0625rem;
   flex-shrink: 0;
-  border-bottom:0.0625rem solid $c-D0D6F1;;
+  border-bottom: 1px solid $lavender_blue;
   justify-content: space-between;
 }
 
@@ -24,6 +24,6 @@
 }
 
 .Variant2 {
-  background: $c-E7EBF8;
+  background: $lavender_blue_transparent;
 }
 

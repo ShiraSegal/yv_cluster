@@ -1,10 +1,10 @@
-@import "src/styles.scss";
 header{
     align-self: stretch;
-    color: rgba(0, 0, 0, 0.88);
+    color: var(--Palette-Black-88, rgba(0, 0, 0, 0.88));
     font-family: Poppins;
     font-style: normal;
     line-height: normal;
+    font-weight: 400;
 }
 .large{
     font-size: 1.625rem;
@@ -17,37 +17,4 @@ header{
 }
 .bold{
     font-weight: 500;
-}
-.normal{
-    font-weight: 400;
-}
-.neutral-gray{
-    color: $c-2A323C;
-}
-.slate-blue{
-    color: $c-3F4B5A;
-}
-.black{
-    color: $c-000;
-}
-.dark-gray{
-    color: $c-262C34;
-}
-.cool-blue{
-    color: $c-2449D8;
-}
-.deep_black{
-    color: $c-040405;
-}
-.vibrant_green{
-    color: $c-0C803E;
-}
-.white{
-    color: $c-FFFFFF;
-}
-.medium-gray{
-    color: $c-797979;
-}
-.primary_btn{
-    color: $c-1334B9;
 }

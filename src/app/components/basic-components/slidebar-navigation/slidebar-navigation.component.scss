@@ -1,14 +1,14 @@
-@import "src/styles.scss";
+@import "../../../../styles/colors.scss";
 
 .slider-navigation {
     display: flex;
     width: 7.125rem;
-    height: 67.5rem;
+    height: 100%;
     padding-top: 0.75rem;
     flex-direction: column;
     align-items: center;
     gap: 4.25rem;
-    background: var(--gradient-pr, linear-gradient(180deg,$c-1334B9 0%, $c-425DC7 100%));
+    background: var(--gradient-pr, linear-gradient(180deg, $primary_btn 0%, $secondary_blue 100%));
 }
 
 .logo {
@@ -33,34 +33,36 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
     align-self: stretch;
+    gap: 1.5rem;
 }
 
-.tab-bottom {    
-    padding-top: 21.125rem;
+.tabs-bottom {
     display: flex;
+    width: 7.125rem;
+    padding: 0rem; 
     flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    align-self: stretch;
-}
-.tab-center{
-    display: flex;
-flex-direction: column;
-align-items: center;
-gap: 1.5rem;
-align-self: stretch;
+    justify-content: flex-end;
+    align-items:flex-end;
+    gap: 0rem;
+   
 }
 
 .line {
     display: flex;
     width: 7.125rem;
     height: 0.0625rem;
-    padding: 0.75rem 0rem;
+    padding: 0rem; 
     flex-direction: column;
     align-items: center;
-    gap: 0.1875rem;
+    gap: 0rem;
     flex-shrink: 0;
-    border-bottom: 0.03125rem solid $c-3F4B5A;
+    border-bottom: 0.5px solid #A1AEE3;
+    margin-bottom: 0rem; 
+}
+
+.line-bottom {
+
+ padding-top: 25rem; 
+
 }

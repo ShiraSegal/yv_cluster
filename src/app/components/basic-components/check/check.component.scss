@@ -1,16 +1,15 @@
-@import "src/styles.scss";
-
+@import "../../../../styles/colors.scss";
 .check {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5625rem; 
-    width: 3.125rem;
-    height: 3.125rem; 
-}
+    gap: 9px;
+    width: 50px;
+    height: 50px;
+  }
 
-  .check.enabled.checked {
-color: $c-1334B9;
+  .check.enabled.selected {
+color: $primary_btn;
 font-family: "Font Awesome 6 Pro";
 font-size: 14px;
 font-style: normal;
@@ -19,8 +18,8 @@ line-height: normal;
   }
   
 
-  .check.enabled.unchecked {
-    color: $c-3F4B5A;
+  .check.enabled.unselected {
+    color: $slate_blue;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
     font-style: normal;
@@ -29,8 +28,8 @@ line-height: normal;
   }
   
 
-  .check.disabled.checked {
-    color: $c-A5B1C0;
+  .check.desabled.selected {
+    color: $silver_gray;
     font-family: "Font Awesome 6 Pro";
     font-size: 14px;
     font-style: normal;
@@ -39,29 +38,11 @@ line-height: normal;
   }
   
   
-  .check.disabled.unchecked {
-    color: $c-A5B1C0;
+  .check.desabled.unselected {
+    color: $silver_gray;
     font-family: "Font Awesome 6 Pro";
-    font-size: 0.875rem;
+    font-size: 14px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
-}
-
-.check.desabled.selected {
-    color: $c-A5B1C0;
-    font-family: "Font Awesome 6 Pro";
-    font-size: 0.875rem; 
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-}
-
-.check.desabled.unselected {
-    color: $c-A5B1C0;
-    font-family: "Font Awesome 6 Pro";
-    font-size: 0.875rem; 
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-}
+  }

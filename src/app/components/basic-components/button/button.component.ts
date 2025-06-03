@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { ButtonType } from '../../../enums/basic-enum';
-import { IconType } from 'src/app/enums/icon-enum';
+import { ButtonType} from '../../../enums/basic-enum';
+import { ButtonIcon } from 'src/app/enums/basic-enum';
 
 @Component({
   selector: 'yv-cluster-button',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
   standalone: true,
@@ -14,19 +13,16 @@ import { IconType } from 'src/app/enums/icon-enum';
 export class ButtonComponent {
   @Input() text: string = "";
   @Input() buttonType: ButtonType = ButtonType.PRIMARY;
-  @Input() isBig: boolean = false;
-  @Input() iconType!: IconType;
-
-  // Add disabled as an @Input to allow external binding
   @Input() disabled: boolean = false;
-
-  // FormControl for managing the button state
-  @Input() buttonControl = new FormControl<boolean>(true); // Default enabled
+  @Input() isBig: boolean = false;
+  @Input() showIcon: boolean = true;
+  // @Input() iconProperty: ButtonIconProperty = ButtonIconProperty.VARIANT1;
+  @Input() buttonIcon!: ButtonIcon;
 
   @Output() onClick = new EventEmitter<void>();
 
   handleClick() {
-    if (!this.disabled && this.buttonControl.value) {
+    if (!this.disabled) {
       this.onClick.emit();
     }
   }

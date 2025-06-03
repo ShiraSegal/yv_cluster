@@ -1,32 +1,25 @@
-@import "src/styles.scss";
+@import "../../../../styles.scss";
 
-.Hover {
-    background: $c-E7EBF833;
+.row-container {
+    background: $white;
+    display: inline-flex;
+    padding: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+
+.narrow-basic-table-row.Hover {
+    background: rgba(231, 235, 248, 0.20);
 }
 
 .narrow-basic-table-row {
-    border-bottom: 1px solid $c-D0D6F1;
-    display: flex;
+    border-bottom: 1px solid;
+    border-color: $lavender_blue ;
+    display: inline-flex;
+    padding: 4px 0px;
     align-items: center;
-}
+    gap: 1px;
 
-.regular-cell {
-    flex-grow: 1;
-    flex-basis: 0;
-    min-width: 0;
-}
-.special-cell {
-    flex-grow: 0;
-    flex-basis: auto;
-    margin-left: auto;
-    width: auto;
-}
-
-.cell {
-    display: flex;
-    height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
-    align-items: center;
-    gap: 0.625rem;
-    flex: 1 0 0;
 }

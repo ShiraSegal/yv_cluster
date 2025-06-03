@@ -1,4 +1,4 @@
-@import "src/styles.scss";
+@import "../../../../styles/colors.scss";
 
 .icon-warpper {
     display: flex;
@@ -27,10 +27,10 @@ button.default {
 }
 
 .hover {
-    background: $c-E0E1E24D;
+    background: $light_gray_opacity;
 }
 
 .icon {
-    color:$c-1334B9;
+    color: $primary_btn;
     font-size: 1.125rem;
 }

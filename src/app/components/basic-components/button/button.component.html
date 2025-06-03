@@ -1,12 +1,12 @@
-<button 
-  class="btn" 
-  [class]="buttonType" 
-  [ngClass]="{'big': isBig}" 
-  [disabled]="disabled || !buttonControl.value"
-  (click)="handleClick()"
+<button [ngClass]="{'btn': true,'primary': buttonType === 'primary','secondary': buttonType === 'secondary',
+'tertiary': buttonType === 'tertiary',
+  'big-btn': isBig,
+  'small-btn': !isBig,
+}" [disabled]="disabled"
+(click)="onClick.emit()"
 >
-  @if(iconType){
-    <i [class]="iconType"></i>
-  }
+  <i *ngIf="buttonIcon"
+    [class]="buttonIcon">
+  </i>
   {{ text }}
 </button>

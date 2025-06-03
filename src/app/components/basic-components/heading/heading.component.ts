@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
+import { TextColor, TextSize } from 'src/app/enums/basic-enum';
 
 @Component({
   selector: 'yv-cluster-heading',
@@ -11,7 +11,7 @@ import { TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 })
 export class HeadingComponent {
   @Input() title: string = '';
-  @Input() weight: TextWeight = TextWeight.NORMAL;
+  @Input() isBold: boolean = true;
   @Input() size:TextSize = TextSize.LARGE;
-  @Input() color:TextColor = TextColor.SLATE_BLUE;
+  // @Input() color:TextColor = TextColor.SLATE_BLUE;
 }

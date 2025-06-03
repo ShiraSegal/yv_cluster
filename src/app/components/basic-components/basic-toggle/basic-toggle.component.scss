@@ -6,8 +6,8 @@
     padding: 0.0625rem;
     align-items: center;
     border-radius: 1.875rem;
-    border: 0.5px solid $c-8999DC;
-    background: $c-FFFFFF;
+    border: 0.5px solid var(--8999DC, #8999DC);
+    background: $white;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
     cursor: pointer;
 }
@@ -21,7 +21,7 @@
     align-items: center;
     gap: 0.625rem;
     border-radius: 6.25rem;
-    background:$c-D0D6F1;
+    background:$lavender_blue;
 }
 
 .circle-not-selected {
@@ -36,7 +36,7 @@
 }
 
 .text-selected {
-    color: $c-5A71CE;
+    color: $royal_blue;
     text-align: center;
     font-family: Poppins;
     font-size: 0.75rem;
@@ -46,7 +46,7 @@
 }
 
 .text-not-selected {
-    color:$c-3F4B5A;
+    color:$slate_blue;
     text-align: center;
     font-family: Poppins;
     font-size: 0.75rem;

@@ -3,19 +3,19 @@
     display: flex;
     min-width: 18.75rem;
     max-width: 24.25rem;
-    padding:1rem;
+    padding: var(--Layout-x-large, 1rem);
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
-    border-radius: 0.625rem;
-    background:$c-FFFFFF;
+    gap: var(--Layout-x-large, 1rem);
+    border-radius: var(--Border-radius-x-large, 0.625rem);
+    background:$white;
     box-shadow: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.30);
 
     .header-warp {
         display: flex;
         width: 24.25rem;
         align-items: center;
-        gap:0.5rem;
+        gap: var(--Layout-medium, 0.5rem);
     }
 
     .radio-buttons {
@@ -25,7 +25,7 @@
         gap: 1rem;
 
         .radio {
-            color:$c-3F4B5A;
+            color:$slate_blue;
             text-align: right;
             font-family: "Font Awesome 6 Pro";
             font-size: 0.875rem;
@@ -36,7 +36,7 @@
         }
 
         .value {
-            color:$c-3F4B5A;
+            color:$slate_blue;
             font-family: Poppins;
             font-size: 0.875rem;
             font-style: normal;
@@ -50,12 +50,11 @@
         height: 2.0625rem;
         min-width: 9.6875rem;
         max-width: 28.125rem;
-        padding: 0.5rem;
+        padding: var(--Layout-medium, 0.5rem);
         align-items: center;
-        gap: 0.5rem;
-        align-self: stretch;
+        gap: var(--Layout-medium, 0.5rem);
         overflow: hidden;
-        color: $c-3F4B5A;
+        color: $light_gray;
         text-overflow: ellipsis;
         font-family: Poppins;
         font-size: 0.875rem;
@@ -63,8 +62,8 @@
         font-weight: 400;
         line-height: 1.25rem;
         align-self: stretch;
-        border-radius: 0.25rem;
-        border: 0.5px solid $c-3F4B5A;
+        border-radius: var(--Border-radius-small, 0.25rem);
+        border: 0.5px solid $slate_blue;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
@@ -75,12 +74,12 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        gap: 0.5rem;
+        gap: var(--Layout-medium, 0.5rem);
         align-self: stretch;
         .divider {
             height: 0.4375rem;
             align-self: stretch;
-            border-top: 1px solid $c-E1E5EA;
+            border-top: 1px solid $light_gray_blue;
         
         }
 
@@ -95,8 +94,15 @@
             .buttons {
                 display: flex;
                 align-items: flex-start;
-                gap: 0.5rem;
+                gap: var(--Layout-medium, 0.5rem);
 
+                .button {
+                    display: flex;
+                    height: var(--Layout-09, 2.25rem);
+                    justify-content: center;
+                    align-items: center;
+                    gap: var(--Layout-medium, 0.5rem);
+                }
             }
         }
     }

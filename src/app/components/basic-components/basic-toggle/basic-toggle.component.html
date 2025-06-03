@@ -1,4 +1,3 @@
-
 <div class="basic-toggle" (click)="changStatus()">
     <div [ngClass]="{'circle-selected': !rightSelected, 'circle-not-selected': rightSelected}">
         <div [ngClass]="{'text-selected': !rightSelected, 'text-not-selected': rightSelected}">{{ leftText }}</div>
@@ -7,4 +6,3 @@
         <div [ngClass]="{'text-selected': rightSelected, 'text-not-selected': !rightSelected}">{{ rightText }}</div>
     </div>
 </div>
-

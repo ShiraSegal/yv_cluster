@@ -7,8 +7,8 @@
     align-items: center;
     gap: var(--Layout-medium, 0.5rem);
     border-radius: var(--Border-radius-small, 0.25rem);
-    border: 1px solid $c-E1E5EA;
-    background: $c-FFFFFF;
+    border: 1px solid $light_gray_blue;
+    background: $white;
     box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);
 
 animation: slide-up 1s ease-out forwards;
@@ -22,8 +22,8 @@ animation: slide-up 1s ease-out forwards;
     align-items: center;
     gap: var(--Layout-medium, 0.5rem);
     border-radius: var(--Border-radius-small, 0.25rem);
-    border: 1px solid $c-C00;
-    background: $c-FFEDED;
+    border: 1px solid $red;
+    background: $light_red;
     box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);
 
     animation: slide-up 1s ease-out forwards;
@@ -39,7 +39,7 @@ animation: slide-up 1s ease-out forwards;
     }
   }
 .icon-success{
-    color: $c-1334B9;
+    color: $primary_btn;
     text-align: center;
     font-family: "Font Awesome 6 Pro";
     font-size: 1.5625rem;
@@ -48,7 +48,7 @@ animation: slide-up 1s ease-out forwards;
     line-height: normal;
 }
 .icon-error{
-    color: $c-C00;
+    color: $red;
     text-align: center;
     font-family: "Font Awesome 6 Pro";
     font-size: 1.5625rem;
@@ -58,7 +58,7 @@ animation: slide-up 1s ease-out forwards;
 }
 .message{
     align-self: stretch;
-    color:$c-000;
+    color:$black;
     font-family: Poppins;
     font-size: 1rem;
     font-style: normal;
@@ -69,7 +69,7 @@ animation: slide-up 1s ease-out forwards;
 }
 
 .text{
-    color: $c-1334B9;
+    color: $primary_btn;
     text-align: center;
     font-family: Poppins;
     font-size: 0.875rem;
@@ -91,7 +91,7 @@ animation: slide-up 1s ease-out forwards;
     border: none;
 }
 .x-icon{
-    color: $c-3F4B5A;
+    color: $slate_blue;
     text-align: right;
     font-family: "Font Awesome 6 Pro";
     font-size: 0.875rem;
