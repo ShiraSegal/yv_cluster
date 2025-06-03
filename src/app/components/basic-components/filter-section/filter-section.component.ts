@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { CalendarComponent } from '../calendar/calendar.component';
 
 import {
   BadgeType,
@@ -9,15 +9,17 @@ import {
   IconButtonLargeType,
   NativeOptionState,
   NativeOptionType,
+  PopoverType,
   State
 } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
-
 import { ButtonComponent } from '../button/button.component';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 import { SelectComponent } from '../select/select.component';
 import { FieldComponent } from '../field/field.component';
 import { ClusterService } from 'src/app/services/cluster.service';
+import { PopoverComponent } from '../popover/popover.component';
+import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 
 @Component({
   selector: 'yv-cluster-filter-section',
@@ -29,31 +31,40 @@ import { ClusterService } from 'src/app/services/cluster.service';
     IconButtonLargeComponent,
     SelectComponent,
     FieldComponent,
-    CalendarComponent
+    PopoverComponent
   ],
   templateUrl: './filter-section.component.html',
   styleUrls: ['./filter-section.component.scss']
 })
 export class FilterSectionComponent {
+  #fb=inject(FormBuilder)
+  #clusterService=inject(ClusterService)
   @Input() buttonText: string = 'New Cluster';
   @Input() icon: IconType = IconType.PLUS_LIGHT;
+  @Input() iconsVisible: boolean = false;
+  @Input() Filters :FilterNames[] = [];
   @Output() onClickAddCluster = new EventEmitter<void>();
   @Output() onFilterValuesChange = new EventEmitter<any[]>();
+currentUserRole = this.#clusterService.currentUser.role;
 
-  @ViewChild('calendarRef') calendarComponent!: CalendarComponent;
+  ngOnInit() {
+   // console.log('Filters received in filter-section:', this.Filters); // Debugging log
+  }
 
   filterForm: FormGroup;
   statusAssineeForm: FormGroup;
-  isCalendarOpen: boolean = false;
-  selectedDateText: string | null = null;
-  temporaryDate: Date = new Date();
+  popOverTypeEnum = PopoverType;
+  filterNames = FilterNames;
+  popOverType : PopoverType = PopoverType.ASSIGNEE;
+  visiblePopover: PopoverType | null = null;
+
 
   stateEnum = State;
   nativeOptions = NativeOptionType;
   iconType = IconType;
   iconButtonLargeType = IconButtonLargeType;
   primary = ButtonType.PRIMARY;
-  ButtonType = ButtonType;
+  buttonType = ButtonType;
 
   assigneeOptions: {
     optionType: NativeOptionType;
@@ -75,7 +86,7 @@ export class FilterSectionComponent {
       property: BadgeType.DONE
     }
   ];
-
+// #fb= inject( FormBuilder)
   constructor(private fb: FormBuilder, private clusterService: ClusterService) {
     this.filterForm = this.fb.group({
       search: [''],
@@ -84,7 +95,7 @@ export class FilterSectionComponent {
       assignee: [null],
     });
 
-    this.statusAssineeForm = this.fb.group({
+    this.statusAssineeForm = this.#fb.group({
       toggleAssignee: [],
       toggleStatus: []
     });
@@ -93,6 +104,11 @@ export class FilterSectionComponent {
       this.onFilterValuesChange.emit(values);
     });
 
+    this.statusAssineeForm.valueChanges.subscribe(val => {
+     // console.log('statusAssineeForm:', val);
+    });
+
+    // קבלת AssigneeList מהשאיבה מהגיסון
     this.clusterService.AssigneeList$.subscribe(names => {
       this.assigneeOptions = names.map(name => ({
         optionType: NativeOptionType.ASSIGNEE,
@@ -101,24 +117,15 @@ export class FilterSectionComponent {
       }));
     });
   }
-
-  toggleCalendar() {
-    this.isCalendarOpen = !this.isCalendarOpen;
-
-    if (this.isCalendarOpen) {
-      const date = this.filterForm.get('date')?.value || new Date();
-      this.temporaryDate = date;
-
-      setTimeout(() => {
-        this.calendarComponent?.setMonthByDate(date);
-      });
-    }
+  showPopover(type: PopoverType): void {
+    this.visiblePopover = type;
   }
 
-  onDateSelected(date: Date) {
-    this.filterForm.get('date')?.setValue(date);
-    this.selectedDateText = date.toLocaleDateString('en-GB');
-    this.isCalendarOpen = false;
+  hidePopover(): void {
+    this.visiblePopover = null;
+  }
+  onClick() {
+   // console.log('Submit clicked:', this.filterForm.value);
   }
 
   onClickAddClusterFunc() {

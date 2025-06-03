@@ -1,11 +1,10 @@
 @import "src/styles.scss";
 header{
     align-self: stretch;
-    color: rgba(0, 0, 0, 0.88);
+    color: $c-000000e0;
     font-family: Poppins;
     font-style: normal;
-    line-height: normal;
-}
+    line-height: normal;}
 .large{
     font-size: 1.625rem;
 }

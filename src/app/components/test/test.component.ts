@@ -1,14 +1,16 @@
-
-import {  ButtonSize, CheckStateType, } from 'src/app/enums/basic-enum';
-import { AutoClusterTabType, BasicTableRowPropertyVariants, TextSize, TextWeight} from 'src/app/enums/basic-enum';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormControl } from "@angular/forms";
+//import enums
+import {  ButtonSize, CheckStateType, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State , AutoClusterTabType,  BasicTableRowPropertyVariants, ButtonIconProperty, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, SliderNavigationTabTextType, TextSize, TextWeight, BadgeType, RadioButtonListDirection, BigCardSize, HomeTableTabType } from 'src/app/enums/basic-enum';
+import { IconType } from 'src/app/enums/icon-enum';
+import { CheckType } from "src/app/enums/check-enum";
+//import components
 import { HeadingComponent } from '../basic-components/heading/heading.component';
 import { BodyComponent } from '../basic-components/body/body.component';
-import { CommonModule } from "@angular/common";
-import { CheckComponent } from "../basic-components/check/check.component";
-import { Component } from "@angular/core";
-import { BadgeType, ButtonType, CardIcons, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State, StatusActiveOrNotActive } from 'src/app/enums/basic-enum';
 import { SliderComponent } from "../basic-components/slider/slider.component";
-import {  ButtonIconProperty, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, SliderNavigationTabTextType, ToastNotificationIcons } from 'src/app/enums/basic-enum';
+import { CheckComponent } from "../basic-components/check/check.component";
+import { PopoverHeader, PopoverType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from '../basic-components/assignee/assignee.component';
 import { DataCellsComponent } from '../basic-components/data-cells/data-cells.component';
 import { HeaderCellsComponent } from '../basic-components/header-cells/header-cells.component';
@@ -18,11 +20,10 @@ import { FilterSectionComponent } from '../basic-components/filter-section/filte
 import { ToastNotificationComponent } from '../basic-components/toast-notification/toast-notification.component';
 import { EnterBookidComponent } from '../cluster-managment/enter-bookid/enter-bookid.component';
 import { RadioButtonListComponent } from '../basic-components/radio-button-list/radio-button-list.component';
-import { CreateClusterComponent } from '../cluster-managment/create-cluster/create-cluster.component';
+//import { CreateClusterComponent } from '../cluster-managment/create-cluster/create-cluster.component';
 import { FieldComponent } from '../basic-components/field/field.component';
 import { IconButtonLargeComponent } from '../basic-components/icon-button-large/icon-button-large.component';
 import { BadgeComponent } from '../basic-components/badge/badge.component';
-import { IconType } from 'src/app/enums/icon-enum';
 import { ButtonComponent } from "../basic-components/button/button.component";
 import { SwitchComponent } from "../basic-components/switch/switch.component";
 import { BasicTabComponent } from "../basic-components/basic-tab/basic-tab.component";
@@ -32,53 +33,82 @@ import { BasicTableRowComponent } from "../basic-components/basic-table-row/basi
 import { ViewerComponent } from "../basic-components/viewer/viewer.component";
 import { SliderNavigationTabComponent } from "../basic-components/slider-navigation-tab/slider-navigation-tab.component";
 import { SlidebarNavigationComponent } from "../basic-components/slidebar-navigation/slidebar-navigation.component";
-import { FormControl } from "@angular/forms";
-import { CheckType } from "src/app/enums/check-enum";
 import { NarrowBasicTableRowComponent } from "../basic-components/narrow-basic-table-row/narrow-basic-table-row.component";
 import { NarrowBasicTableWarpComponent } from "../basic-components/narrow-basic-table-warp/narrow-basic-table-warp.component";
 import { TableHeaderComponent } from "../basic-components/table-header/table-header.component";
-import { HomeWarpComponent } from "../core-components/home-warp/home-warp.component";
-import { BasicTableComponent } from '../basic-components/basic-table/basic-table.component';
-import { SelectComponent } from '../basic-components/select/select.component';
+import { PieCircleComponent } from "../basic-components/pie-circle/pie-circle.component";
+import { PieComponentDistributionModalComponent } from "../basic-components/pie-component-distribution-modal/pie-component-distribution-modal.component";
+import { PieTableComponent } from "../basic-components/pie-table/pie-table.component";
+import { BigCardComponent } from "../basic-components/big-card/big-card.component";
+import { SatisticCardComponent } from "../basic-components/satistic-card/satistic-card.component";
+import { CreateClusterComponent } from "../cluster-managment/create-cluster/create-cluster.component";
+import { PopoverComponent } from "../basic-components/popover/popover.component";
+import { CardColor } from "src/app/enums/card-colors.enum";
+import { FilterHandlingSuggestionsComponent } from "../basic-components/filter-handling-suggestions/filter-handling-suggestions.component";
+import { TableGroupIdDetailsComponent } from "../basic-components/table-group-id-details/table-group-id-details.component";
+import { TooltipComponent } from "../basic-components/tooltip/tooltip.component";
+import { HomeComponent } from "../pages/home/home.component";
+import { CrmClustersComponent } from "../pages/crm-clusters/crm-clusters.component";
+import { SelectComponent } from "../basic-components/select/select.component";
+import { NativeOptionComponent } from "../basic-components/native-option/native-option.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
   imports: [
-    
-    SlidebarNavigationComponent,
-    SliderNavigationTabComponent,
-    HeadingComponent,
-    BodyComponent,
-    AssigneeComponent,
-    BasicTableComponent,
+    IconButtonComponent,
+    SliderComponent,
+    CheckComponent,
     DataCellsComponent,
     HeaderCellsComponent,
-    EnterBookidComponent,
+    BadgeComponent,
+    CommonModule,
+    ButtonComponent,
+    IconButtonLargeComponent,
+    BasicTableRowComponent,
+    DataCellsComponent,
+    HeaderCellsComponent,
     FieldComponent,
     CommonModule,
-    IconButtonComponent,
-    FilterSectionComponent,
+    SliderNavigationTabComponent,
     ButtonComponent,
-    BasicCardComponent,
-    ToastNotificationComponent,
-    BasicToggleComponent,
-    BasicRadioButtonComponent,
     CheckComponent,
-    SelectComponent,
-    BasicTabComponent,
+    IconButtonLargeComponent,
     SliderComponent,
-    SwitchComponent,
+    SliderComponent,
+    CheckComponent,
+    BadgeComponent,
+    BadgeComponent,
+    DataCellsComponent,
+    HeaderCellsComponent,
+    SliderNavigationTabComponent,
+    FieldComponent,
+    CommonModule,
+    ButtonComponent,
+    TableHeaderComponent,
+    IconButtonLargeComponent,
+    RadioButtonListComponent,
+    HeaderCellsComponent,
+    EnterBookidComponent,
+    HeadingComponent,
+    BodyComponent,
+    CrmClustersComponent,
+    CreateClusterComponent,
+    CommonModule,
+    IconButtonComponent,
+    ButtonComponent,
+    CheckComponent,
+    SliderComponent,
     FieldComponent,
     RadioButtonListComponent,
-    CreateClusterComponent,
     BadgeComponent,
-    BasicTableRowComponent,
+     BasicTableRowComponent,
     IconButtonLargeComponent,
-    ViewerComponent,
-    NarrowBasicTableRowComponent,
-    NarrowBasicTableWarpComponent,
-    TableHeaderComponent,
-    HomeWarpComponent
+     TableHeaderComponent,
+      // HomeWarpComponent,
+    // HomeWarpComponent,
+    PopoverComponent,
+    PopoverComponent,
+
   ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
@@ -94,19 +124,26 @@ export class TestComponent {
   sliderNavigationTabType = SliderNavigationTabType;//types of slider navigation tab
   stateEnum = State;//  types of input & select.
   iconButtonLargeType = IconButtonLargeType;
-  StatusActiveOrNotActive = StatusActiveOrNotActive;
-  CardIcons = CardIcons;
   buttonType = ButtonType;
-  IconType = IconType;
+  buttonSize = ButtonSize;
+  bigCardSize=BigCardSize;
   basicTableRowPropertyVariants = BasicTableRowPropertyVariants;
   sliderNavigationTabTextType = SliderNavigationTabTextType
-  AutoClusterTabType = AutoClusterTabType;
+  autoClusterTabType = AutoClusterTabType;
   NarrowBasicTableRowInputState = NarrowBasicTableRowInputState;
+  narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   nativeOptionType = NativeOptionType;
   optionState = NativeOptionState;
   optionType = NativeOptionType;
-  ToastNotificationIcons = ToastNotificationIcons;
-  
+  // ToastNotificationIcons = ToastNotificationIcons;
+  RadioButtonListDirection=RadioButtonListDirection;
+  NativeOptionType=NativeOptionType;
+  NativeOptionState=NativeOptionState;
+  popoverType=PopoverType;
+  //variables-----------------------------------------------------------------------
+  radioButtonListDirection=RadioButtonListDirection;
+  cardColorEnum=CardColor;
+
 //variables-----------------------------------------------------------------------
   // button component properties
   label: string = 'Lable';//button label
@@ -125,7 +162,7 @@ export class TestComponent {
   //enum ButtonSize
   big = ButtonSize.BIG//button size
   small = ButtonSize.SMALL//button size;
-//toggle 
+//toggle
   toggleState!: string;
   //radio
   radioButtonState: boolean = false;
@@ -134,6 +171,9 @@ export class TestComponent {
 
 
 //heading
+
+  //variables-----------------------------------------------------------------------
+  //heading component properties
   title1 = "Heading Large"
   title2 = "Heading Medium-Bold"
   title3 = "Heading Small"
@@ -143,7 +183,6 @@ export class TestComponent {
   size3 = TextSize.SMALL
   weight1=TextWeight.BOLD
   weight2=TextWeight.NORMAL
-  //body
   bodyText1: string = 'Body Large Upon initial observation, it may appear that there are only two primary scenarios for ';
   bodyText2: string = 'Body Medium Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
   bodyText3: string = 'Body Small Upon initial observation, it may appear that there are only two primary scenarios for users:  ';
@@ -152,23 +191,32 @@ export class TestComponent {
   btnType2 = ButtonType.SECONDARY;
   txt1 = "test btn1"
   txt2 = "Enter Book ID"
+  options: string[] = [];
+  variant1 = ButtonIconProperty.VARIANT1
+  variant2 = ButtonIconProperty.VARIANT2
+  variant3 = ButtonIconProperty.VARIANT3
   title = 'test';
   isError: boolean = false;
   isDisabled: boolean = false;
   isFocused: boolean = false;
   isPopulated: boolean = true;
 
-  options: string[] = [];
-  variant1 = ButtonIconProperty.VARIANT1
-  variant2 = ButtonIconProperty.VARIANT2
-  variant3 = ButtonIconProperty.VARIANT3
+  // title = 'yv-clusters';
+  HeaderCellType = HeaderCellType;
+  DataCellType = DataCellType;
+  // SliderNavigationTabIconType = SliderNavigationTabIconType;
+  // SliderNavigationTabType = SliderNavigationTabType;
 
+
+
+  selectedOption: string = '';
+  radioButtonArray: string[] = ["a", "b", "c", "d", "other"];
   nativeOptions = [
     { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
     { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
     { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT }
   ];
-  customSubtitle = 'Custom Subtitle';
+  customSubtitle = 'Suggestions generated by the automated system running overnight.';
   nativeOptionswe = [
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
@@ -177,7 +225,7 @@ export class TestComponent {
   //functions-----------------------------------------------------------------------
   //header-cell- sort function
   handleSort(event: { column: string, direction: string }) {
-    console.log(`Sorting by ${event.column} in ${event.direction} order`);
+   // console.log(`Sorting by ${event.column} in ${event.direction} order`);
   }
   //switch-component function
   handleSwitchChange(state: boolean) {
@@ -190,9 +238,16 @@ export class TestComponent {
   //button & icon button component function
   onClick() {
     alert('test on click');
-    console.log('test on click');
+   // console.log('test on click');
   }
+  onRadioButtonListSelectionChange(selectedValue: string) {
+    this.selectedOption = selectedValue;
+   // console.log("האפשרות שנבחרה:", this.selectedOption);
+  }
+  checkChange(checkStatus:CheckType) {
+   // console.log("check status", checkStatus)
 
+  }
   //data-----------------------------------------------------------------------
   // table-header
   exampleTableHeader = [{ data: '', type: HeaderCellType.CHECK },
@@ -301,6 +356,75 @@ export class TestComponent {
       ]
     }
   };
+
+  // customSubtitle = 'Custom Subtitle';
+  // nativeOptionswe = [
+  //   { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
+  //   { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
+  //   { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
+  // ];
+
+
+
+
+  // handleSort(event: { column: string, direction: string }) {
+
+  //  // console.log(`Sorting by ${event.column} in ${event.direction} order`);
+  // }
+
+  // onClick() {
+  //   alert('test on click');
+  //  // console.log('test on click');
+  // }
+
+
+  // iconp = "fa-solid fa-plus"
+  // // txt1 = "Enter Book ID"
+  // txt2 = "Enter Book ID"
+  popoverOptionsStatus:{
+    optionType: NativeOptionType.STATUS;
+    optionState: NativeOptionState;
+    property: BadgeType;
+  }[] = [{optionType: NativeOptionType.STATUS, optionState: NativeOptionState.DEFAULT,property: BadgeType.TODO},
+    {optionType: NativeOptionType.STATUS, optionState: NativeOptionState.DEFAULT,property: BadgeType.DONE},
+  ];
+
+popoverOptionsAssignee:{
+  optionType: NativeOptionType;
+  optionState: NativeOptionState;
+  displayText: string;
+}[] = [{optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 1'},
+  {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 2'},
+  {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 3'},
+    {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 2'},
+  {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 3'},
+  
+];
+
+popoverOptionsLink:{
+  optionType: NativeOptionType.TEXT;
+  optionState: NativeOptionState;
+  displayText: string;
+}[] = [{optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 1'},
+  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
+  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
+  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
+  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
+  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 1'},
+];
+
+
+
+  //functions-----------------------------------------------------------------------
+  //header-cell- sort function
+  // handleSort(event: { column: string, direction: string }) {
+  //  // console.log(`Sorting by ${event.column} in ${event.direction} order`);
+  // }
+  // //button & icon button component function
+  // onClick() {
+  //   alert('test on click');
+  //  // console.log('test on click');
+  // }
   headers: { data: string; type: HeaderCellType }[] = [
     { data: 'name list', type: HeaderCellType.TEXT },
     { data: 'to do', type: HeaderCellType.TEXT },
@@ -386,5 +510,19 @@ export class TestComponent {
   ];
 
 
-}
 
+  //basic-tab-component function
+
+  handleToggleChange(state: string) {
+    this.toggleState = state;
+   // console.log('state:', state);
+  }
+  handleRadioButtonChange(state: boolean) {
+    this.radioButtonState = state;
+   // console.log('radioButton:', state ? 'דלוק' : 'מכובה');
+  }
+
+
+
+
+}

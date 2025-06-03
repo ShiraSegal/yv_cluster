@@ -1,0 +1,26 @@
+<div class="container">
+    <yv-cluster-filter-handling-suggestions (prefCodeStatus)="prefCodeStatusChange($event)"
+        [howManyChecked]="howManyChecked" [crmLinkList]="crmLinkList"
+        (showToastNotification)="showToastNotificationFunction($event)"></yv-cluster-filter-handling-suggestions>
+    <div>
+        <!-- <div class="table-container"> -->
+        <yv-cluster-table-header [headers]="Headers" [length]="narrowBasicTableRowLength.SHORT" (checkStatus)="headerCheckChange($event)"
+            (openDialog)="openPeiComponent()"></yv-cluster-table-header>
+
+
+        @if(rowsArray.controls.length>0){
+        @for (row of Rows; track row; let index=$index) {
+     <!-- <yv-cluster-narrow-basic-table-row
+      [property]="NarrowBasicTableRowInputState.DEFAULT"
+      [cells]="row"
+      [length]="narrowBasicTableRowLength.SHORT"
+      [controls]="[checkedControls[index]]"
+      (bookIdToDelet)="deleteByBookId($event)"
+      [prefCodeStatus]="prefCodeStatus">
+</yv-cluster-narrow-basic-table-row> -->
+        <!-- <h1>{{rowsArray.controls.at(index)}}</h1> -->
+        }
+
+        }
+    </div>
+</div>

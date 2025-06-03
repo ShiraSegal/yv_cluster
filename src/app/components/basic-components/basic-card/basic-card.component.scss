@@ -23,16 +23,15 @@
     border-radius: 6.25rem;
     background: $c-B8C2EA;
 }
-
-.circle-background-fa-hourglass-clock {
-    background:$c-1334B9;
+.icon-circle.red{
+    background: $c-F6CDCD;
+    color: $c-E25F5F;
 }
-
-.circle-background-fa-clock-five {
-    background: $c-A5EBDD;
+.icon-circle.blue{
+    background:$c-1334B9CC;
+        color: $c-D0D6F1;
 }
-
-.circle-background-fa-circle-check {
+.icon-circle.light-blue{
     background:$c-B8C2EA;
 }
 
@@ -49,19 +48,26 @@
 }
 
 .icon-fa-clock-five {
-    color: $c-1F8A7;
+    color: $c-1F8A74;
 }
-
+ 
+.icon-fa-pen-to-square {
+    color:$c-E25F5F;
+}
 .icon-fa-circle-check {
     color: $c-5A71CE;
 }
-
-.icon-fa-pen-to-square {
-    color:$c-E25F5;
+.icon-circle.green{
+    background: $c-A5EBDD;
+    color: $c-1F8A74;
 }
 
 .icon-fa-house {
     color:$c-FFFFFF;
+}
+.icon-circle.orange{
+    background:$c-F6CDCD;
+        color:$c-E25F5F;
 }
 
 i {

@@ -1,63 +1,54 @@
 <form [formGroup]="filterForm" class="filter-section-container">
   <div class="selects-container">
-    <yv-cluster-field
-      formControlName="search"
-      [property]="stateEnum.DEFAULT"
-      placeholder="Search"
-      label="Search"
-    ></yv-cluster-field>
+    <yv-cluster-field formControlName="search" [property]="stateEnum.DEFAULT" placeholder="Search"
+     ></yv-cluster-field>
 
-    <yv-cluster-select
-    class="date-select"
-      formControlName="date"
-      [default]="selectedDateText || 'Select Date'"
-      [dropdownType]="nativeOptions.TEXT"
-      (click)="toggleCalendar()"
-    ></yv-cluster-select>
+    @if (Filters.includes(filterNames.DATE_OF_REPORT)) {
+    <yv-cluster-select formControlName="date" [default]="'Select Date Of Report'"
+      [dropdownType]="nativeOptions.TEXT"></yv-cluster-select>
+    }
+    @if (Filters.includes(filterNames.DATE_OF_ASSIGNEE)) {
+      <yv-cluster-select formControlName="assigneeDate" [default]="'Select Date Of Assignee '"
+        [dropdownType]="nativeOptions.TEXT" [options]="assigneeOptions"></yv-cluster-select>
+    }
+    @if (Filters.includes(filterNames.FILTER_BY_STATUS)) {
+    <yv-cluster-select formControlName="status" [default]="'Filter By Status'" [dropdownType]="nativeOptions.STATUS"
+      [options]="badgeOptions"></yv-cluster-select>
+    }
+    @if (Filters.includes(filterNames.FILTER_BY_ASSIGNEE)) {
+    <yv-cluster-select formControlName="assignee" [default]="'Filter By Assignee'"
+      [dropdownType]="nativeOptions.ASSIGNEE" [options]="assigneeOptions"></yv-cluster-select>
+    }
 
-    <yv-cluster-select
-      formControlName="status"
-      [default]="'Filter By Status'"
-      [dropdownType]="nativeOptions.STATUS"
-      [options]="badgeOptions"
-    ></yv-cluster-select>
-
-    <yv-cluster-select
-      formControlName="assignee"
-      [default]="'Filter By Assignee'"
-      [dropdownType]="nativeOptions.ASSIGNEE"
-      [options]="assigneeOptions"
-    ></yv-cluster-select>
   </div>
 
-  <!-- Calendar container -->
-  <div *ngIf="isCalendarOpen" class="calendar-wrapper">
-    <calendar
-      #calendarRef
-      [selectedDate]="temporaryDate"
-      (selectedDateChange)="onDateSelected($event)"
-    ></calendar>
-  </div>
-
+  @if (iconsVisible) {
   <div class="right-buttons">
-    <yv-cluster-icon-button-large
-      [icon]="iconType.USER"
-      [property]="iconButtonLargeType.DEFAULT"
-      (onClick)="onClickStatus()"
-    ></yv-cluster-icon-button-large>
+    <div class="icon-container" (mouseenter)="showPopover(popOverTypeEnum.ASSIGNEE)" (mouseleave)="hidePopover()">
+      <yv-cluster-icon-button-large [icon]="iconType.USER_LIGHT" [property]="iconButtonLargeType.DEFAULT"
+        (onClick)="onClickStatus()"></yv-cluster-icon-button-large>
+      @if(visiblePopover === popOverTypeEnum.ASSIGNEE){
+      <div class="popover">
+        <yv-cluster-popover [type]="popOverTypeEnum.ASSIGNEE" [options]="assigneeOptions"></yv-cluster-popover>
+      </div>
+      }
+    </div> 
 
-    <yv-cluster-icon-button-large
-      [icon]="iconType.CLIPBPOARD"
-      [property]="iconButtonLargeType.DEFAULT"
-      (onClick)="onClickAssinee()"
-    ></yv-cluster-icon-button-large>
+    <!-- כפתור שני: Status toggle -->
+    <!-- formControlName="toggleStatus" -->
+    <div class="icon-container" (mouseenter)="showPopover(popOverTypeEnum.STATUS)" (mouseleave)="hidePopover()">
+      <yv-cluster-icon-button-large [icon]="iconType.CLIPBOARD_LIST_LIGHT" [property]="iconButtonLargeType.DEFAULT"
+        (onClick)="onClickAssinee()"></yv-cluster-icon-button-large>
+      @if(visiblePopover === popOverTypeEnum.STATUS){
+      <div class="popover">
+        <yv-cluster-popover [type]="popOverTypeEnum.STATUS" [options]="badgeOptions"></yv-cluster-popover>
+      </div>
+      }
 
-    <yv-cluster-button
-      (onClick)="onClickAddClusterFunc()"
-      [text]="buttonText"
-      [buttonType]="primary"
-      [isBig]="true"
-      [iconType]="iconType.PLUS_LIGHT"
-    ></yv-cluster-button>
+      <!-- כפתור רגיל -->
+      <!-- <yv-cluster-button (onClick)="onClickAddClusterFunc()" [text]="buttonText" [buttonType]="primary" [isBig]="true"
+        [iconType]="iconType.PLUS_LIGHT"></yv-cluster-button> -->
+    </div>
   </div>
+  }
 </form>

@@ -1,16 +1,21 @@
 @import "src/styles.scss";
 .option-wrapper {
     display: flex;
-    width: 10rem;
+    min-width: 8.875rem;
     padding: 0.5rem;
     flex-direction: column;
     align-items: flex-start;
     gap:  1rem;
     border-radius:  0rem;
+    cursor: pointer;
 }
 
+
+
 .option-wrapper:hover {
-    background: $c-E7EBF833;
+    //    background: $c-E7EBF833;
+       background:$c-e7ebf880;
+
 }
 
 .text {
@@ -21,7 +26,12 @@
     gap: var(--Layout-large, 12px);
     align-self: stretch;
 }
-
+a{
+      all: unset;
+  cursor: pointer;
+    text-decoration: none;
+  color: inherit;
+}
 .assignee {
     display: flex;
     align-items: center;

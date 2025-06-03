@@ -1,0 +1,116 @@
+:host {
+  display: block;
+}
+
+.circle-chart {
+  width: 300px; /* Set a fixed width */
+  height: 300px; /* Set a fixed height */
+}
+
+.inner-circle {
+  fill: white;
+}
+
+.segment-0 {
+  fill: #1334B9;
+}
+
+.segment-1 {
+  fill: #A5EBDD;
+}
+
+.segment-2 {
+  fill: #A1AEE3;
+}
+
+.segment-3 {
+  fill: #F6CDCD;
+}
+
+
+.wrapper {
+  border-radius: 0.5rem;
+  background: #FFF;
+
+  /* דיב */
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  width: 35.6875rem;
+  height: 47rem;
+  padding: 1.875rem;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    align-self: stretch;
+    color: #3F4B5A;
+font-family: Poppins;
+font-size: 1.375rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+  }
+
+
+
+  .rows {
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 1rem;
+align-self: stretch;
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      align-self: stretch;
+      .data {
+        display: flex;
+        align-items: flex-end;
+        gap: 0.5rem;
+
+        .icon {
+          flex-shrink: 0;
+
+          svg {
+            width: 25px;
+            height: 25px;
+            fill: #1334B9;
+          }
+        }
+
+        .text {
+          display: flex;
+          flex-direction: row; /* מסדר את הטקסטים בשורה אחת */
+          align-items: center;
+          gap: 5px;
+
+          .label {
+            color: var(--Color-2, #262C34);
+            text-align: center;
+            
+            /* Heading/Small bold */
+            font-family: Poppins;
+            font-size: 1.125rem;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          }
+
+          .percentage {
+            color: var(--Color-2, #262C34);
+            text-align: center;
+            
+            /* Heading/Small bold */
+            font-family: Poppins;
+            font-size: 1.125rem;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          }
+        }
+      }
+    }
+  }
+}

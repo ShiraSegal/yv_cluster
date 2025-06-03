@@ -1,18 +1,32 @@
-<div  [ngClass]="[type,'header-cell']">
-    {{header}}
-    @if(type === HeaderCellType.ORDER){
+<div [ngClass]="[type,'header-cell']">
+    @if(header === 'Last Name'){
+    <div class="pie-icon">
+        <i class="fa-solid fa-chart-simple chart-icon"  (click)="openPeiComponent()"></i>
+        {{ header }}
+    </div>
+    }
+    @if(header === 'Button'){
+       
+        }
+    @if(type === headerCellType.ORDER){
     <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>
     }
-    @if(type === HeaderCellType.ORDERDOWN){
+    @if(type === headerCellType.ORDERDOWN){
     <i class="fas fa-arrow-down sort-icon" (click)="sortBy('column')"></i>
     }
-    @if(type === HeaderCellType.HEADERSEARCH){
+    @if(type === headerCellType.HEADERSEARCH){
     <div class="header-search-search">
         <div class="header-search-line"></div>
         <span class="header-search-cancle"><i class="fas fa-close"></i></span>
     </div>
     }
-    @if(type === HeaderCellType.CHECK){
-    <yv-cluster-check [type]=CheckType.UNCHECKED [state]=CheckStateType.ENABLED></yv-cluster-check>
+    @if(type === headerCellType.CHECK){
+    <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED
+        (checkStatus)="checkChange($event)"
+        [checkedControl]="headerCheckboxControl"
+        ></yv-cluster-check>
     }
+    @else{
+        {{header}}
+        }
 </div>

@@ -19,8 +19,7 @@ import { environment } from 'src/environments/environment';
   exports: [TranslateModule]
 })
 export class YvTranslateModule {
-  constructor(translate: TranslateService
-    ) {
+  constructor(translate: TranslateService) {
     translate.addLangs(environment.optionsLangs);
     translate.setDefaultLang(environment.defaultLang);
   }

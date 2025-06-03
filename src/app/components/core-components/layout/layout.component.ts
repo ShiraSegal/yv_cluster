@@ -5,13 +5,14 @@ import { environment } from 'src/environments/environment';
 import { ColorsAccessibilityService } from 'src/app/services/colors-accessibility-service';
 import { HeaderComponent } from '../yv-header/yv-header.component';
 import { FooterComponent } from '../yv-footer/yv-footer.component';
+import { SlidebarNavigationComponent } from '../../basic-components/slidebar-navigation/slidebar-navigation.component';
 
 @Component({
   standalone:true,
   selector: 'yv-cluster-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
-  imports:[RouterOutlet,HeaderComponent,FooterComponent]
+  imports:[RouterOutlet,HeaderComponent,SlidebarNavigationComponent,FooterComponent]
 })
 export class LayoutComponent {
   dir: string = 'rtl';

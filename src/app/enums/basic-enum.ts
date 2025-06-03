@@ -1,4 +1,5 @@
 import * as e from "express";
+ 
 import { IconType } from "./icon-enum";
 
 export enum ButtonType {
@@ -6,6 +7,7 @@ export enum ButtonType {
   SECONDARY = "secondary",
   TERTIARY = "tertiary"
 }
+ 
 
 export enum NarrowBasicTableRowInputState {
   DEFAULT = 'Default',
@@ -14,6 +16,10 @@ export enum NarrowBasicTableRowInputState {
 export enum BasicTableRowPropertyVariants {
   DEFAULT = 'Default',
   VARIANT2 = 'Variant2',
+}
+export enum NarrowBasicTableRowLength {
+  LONG = 'long',
+  SHORT = 'short'
 }
 
 
@@ -45,9 +51,22 @@ export enum DataCellType {
   ICON = 'icon',
   ASSIGNEE = 'assignee',
   BUTTON = 'button',
-  SLIDER = 'slider',
+  SLIDER='slider',
   PLACEOLDER = 'place-order',
 }
+ 
+export enum PopoverHeader{
+  STATUS = 'Status',
+  ASSIGN_RESPONSIBLE= 'Assign Responsible',
+  LINK_TO_CRM = 'Link to CRM',
+}
+ 
+ 
+  export enum CheckType {
+    UNCHECKED = 'unchecked',
+    CHECKED = 'checked'
+  }
+  
 
 
 export type DataCellValue<T extends DataCellType> =
@@ -75,17 +94,13 @@ export enum AutoClusterTabType {
   ERROR_MESSAGES = 'Error Messages'
 }
 
+
+
 export enum HomeTableTabType {
- NEWֹֹֹֹֹֹ_SUGGESTIONS = 'new-suggestion',
+ NEW_SUGGESTIONS = 'new-suggestion',
   OLD_SUGGESTIONS = 'old_suggestion',
   
 }
-
-
-
-
-
-
   export enum TextColor {
     BLACK = "black",
     SLATE_BLUE = "slate-blue",
@@ -114,17 +129,6 @@ export enum HeaderCellType {
   ORDERDOWN = "order-down"
 }
 
-export enum CardIcons {
-  HOURGLASS_CLOCK = "fa-solid fa-hourglass-clock",
-  CLOCK_FIVE = "fa-solid fa-clock-five",
-  EDIT = "fa-solid fa-pen-to-square",
-  CIRCLE_CHECK = "fa-solid fa-circle-check",
-  HOME = "fa-light fa-house"
-}
-export enum ToastNotificationIcons {
-  ERROR = "fa-solid fa-circle-xmark",
-  SUCCESS = "fa-solid fa-circle-check",
-}
 export enum BadgeType {
   TODO = "To-do",
   DONE = "Done"
@@ -136,11 +140,21 @@ export enum SliderNavigationTabType {
 }
 export enum SliderNavigationTabTextType {
   HOME = "Home",
-  LOGOUT = "Logout",
-  CRMCLUSTERS  = "CRM Clusters",
-  AUTOCLUSRET = "Auto Cluster",
+  LOG_OUT = "Logout",
+  CRM_CLUSTERS  = "CRM Clusters",
+  AUTO_CLUSTER = "Auto Cluster",
   REPORT = "Report",
-  NEWCLUSTER = "New Cluster",
+  NEW_CLUSTER = "New Cluster",
+
+}
+
+export enum SliderNavigationTabUrl {
+  HOME = "home",
+  LOG_OUT = "logout",
+  CRM_CLUSTERS  = "crmClusters",
+  AUTO_CLUSTER = "autoCluster",
+  REPORT = "report",
+  NEW_CLUSTER = "newCluster",
 
 }
 
@@ -163,22 +177,31 @@ export enum NativeOptionType{
   STATUS = "status",
   TEXT = "text"
 }
+
+
+export enum PopoverType{
+  ASSIGNEE = "assignee",
+  STATUS = "status",
+  LINK = "link"
+}
 export enum NativeOptionState{
   DEFAULT = "default",
   HOVER = "hover"
 }
-export enum ButtonIconProperty {
-  VARIANT1 = "variant1",
-  VARIANT2 = "variant2",
-  VARIANT3 = "variant3"
-}
 
-export enum StatusActiveOrNotActive {
-  ACTIVE = "active",
-  NOT_ACTIVE = "not-active"
-}
+export enum ButtonIconProperty{
+  VARIANT1="variant1",
+  VARIANT2="variant2",
+  VARIANT3="variant3"
+  }
+  export enum RadioButtonListDirection{
+    ROW="row",
+    COLUMN="column"
+  }
+  export enum BigCardSize{
+    SHORT = "short",
+    LONG = "long"
+  }
 
-export enum RadioButtonListDirection{
-  ROW="row",
-  COLUMN="column"
-}
+
+  
