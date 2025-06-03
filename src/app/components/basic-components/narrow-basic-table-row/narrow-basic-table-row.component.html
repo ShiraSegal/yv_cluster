@@ -2,26 +2,11 @@
   @for (cell of getFormControls(formgroup);  let i = $index ;track i) {
   @if(currentUserRole === "manager" && cell.value.value.type === dataCellType.ASSIGNEE){
     <div class="regular-cell">
-      <yv-cluster-data-cells      
+      <yv-cluster-data-cells
       [data]="cell.value.value.data"
       [type]="cell.value.value.type"
       [control]="controls[cell.key]"
       [prefCodeStatus]="prefCodeStatus"
       (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
   </div>
-  }
-  @if(cell.value.value.type !== dataCellType.ASSIGNEE){
-    <div [ngClass]="{
-          'special-cell': cell.value.value.type === dataCellType.ICON || cell.value.value.type === dataCellType.CHECK || cell.value.value.type === dataCellType.MORE,
-          'regular-cell': cell.value.value.type !== dataCellType.ICON && cell.value.value.type !== dataCellType.CHECK && cell.value.value.type !== dataCellType.MORE
-        }">
-        <yv-cluster-data-cells 
-        [data]="cell.value.value.data"
-        [type]="cell.value.value.type"
-        [control]="controls[cell.key]"
-        [prefCodeStatus]="prefCodeStatus"
-        (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
-    </div>
-    }
-  }
-</div>
+</div> -->

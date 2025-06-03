@@ -2,8 +2,7 @@
   [formGroup]="radioForm">
   @for (obj of radioButtonValuesArray ; track obj.key ){
   <yv-cluster-basic-radio-button [disable]="disable" [checked]="radioControl.value === obj.key" [text]="obj.value"
-    (checkedChange)="onOneRadioButtonChange(obj.key)"
-    (fieldValue)="onOtherFieldChecked($event)">
+    (checkedChange)="onOneRadioButtonChange(obj.key)">
   </yv-cluster-basic-radio-button>
   }
 </div>

@@ -8,8 +8,6 @@ import { CheckComponent } from '../check/check.component';
 import { SliderComponent } from '../slider/slider.component';
 import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
-import { CheckType } from 'src/app/enums/check-enum';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'yv-cluster-data-cells',
