@@ -1,11 +1,11 @@
-import { LastName } from "./last-name.model";
-import { LastNameInPlaces } from "./last-name-inplaces.model";
+import { lastName } from "./last-name.model";
+import { lastNameInPlaces } from "./last-name-inplaces.model";
 
-export class StatisticDetail {
-    lastName: LastName;
-    lastNameInPlaces: LastNameInPlaces;
+export class statisticDetail {
+    lastName: lastName;
+    lastNameInPlaces: lastNameInPlaces;
 
-    constructor(lastName: LastName, lastNameInPlaces: LastNameInPlaces) {
+    constructor(lastName: lastName, lastNameInPlaces: lastNameInPlaces) {
         this.lastName = lastName;
         this.lastNameInPlaces = lastNameInPlaces;
     }

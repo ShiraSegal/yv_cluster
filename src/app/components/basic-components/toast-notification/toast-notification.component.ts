@@ -12,8 +12,8 @@ import { IconType } from 'src/app/enums/icon-enum';
 export class ToastNotificationComponent {
 toastNotificationIcons = IconType;
   @Input() iconName:IconType=IconType.SUCCESS_SOLID;
+  @Input() title!:string;
   @Input() message!:string;
-  @Input() text!:string;
   @Input() duration!: number;
 
   isVisible: boolean = true;

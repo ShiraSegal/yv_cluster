@@ -1,8 +1,8 @@
-import { SapirClusterDetail } from "./sapir-cluster-detail.model";
+import { sapirClusterDetail } from "./sapir-cluster-detail.model";
 
-export class SapirClusterModel {
+export class sapirClusterModel {
     BookIdList: string[];
-    SapirClusterDetails: SapirClusterDetail[];
+    sapirClusterDetails: sapirClusterDetail[];
     Comments: string | null;
     Level: string | null;
     GroupHasMultimedia: boolean;

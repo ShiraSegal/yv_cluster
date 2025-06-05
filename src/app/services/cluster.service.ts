@@ -2,18 +2,19 @@ import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, catchError, filter, lastValueFrom, Observable, of, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ClusterApiService } from './cluster-api.service';
-import { LastName } from '../models/last-name.model';
-import { LastNameInPlaces } from '../models/last-name-inplaces.model';
-import { StatisticDetail } from '../models/statistic-detail.model';
-import { StatisticData } from '../models/statistic-data.model';
-import { ValueCodeItem } from '../models/value-code-item.model';
-import { ClusterGroupWithCrmLinks } from '../models/cluster-group-with-crm-links.model';
-import { ClusteredNameRow } from '../models/clustered-name-row.model';
-import { RootObjectOfClusterGroupDetails } from '../models/root-object-of-cluster-group-details.model';
+import { lastName } from '../models/last-name.model';
+import { lastNameInPlaces } from '../models/last-name-inplaces.model';
+import { statisticDetail } from '../models/statistic-detail.model';
+import { statisticData } from '../models/statistic-data.model';
+import { valueCodeItem } from '../models/value-code-item.model';
+import { clusterGroupWithCrmLinks } from '../models/cluster-group-with-crm-links.model';
+import { clusteredNameRow } from '../models/clustered-name-row.model';
+import { rootObjectOfClusterGroupDetails } from '../models/root-object-of-cluster-group-details.model';
 // import { map } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
-import { SapirClusterModel } from '../models/sapir-cluster-model.model';
-import { RootObject } from '../models/root-object.model';
+import { sapirClusterModel } from '../models/sapir-cluster-model.model';
+import { rootObject } from '../models/root-object.model';
+import { LoadingService } from './loading.service';
 
 
 
@@ -24,11 +25,12 @@ import { RootObject } from '../models/root-object.model';
 export class ClusterService {
   #translateService = inject(TranslateService);
   #clusterApiService = inject(ClusterApiService)
+  #loadingService = inject(LoadingService)
 
- autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
-  private isLoadingBehaviorSubject$= new BehaviorSubject<boolean>(false);
+  autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
+  private isLoadingBehaviorSubject$ = new BehaviorSubject<boolean>(false);
   private isDataFetched = false;
-  
+
   async getAutoClusterData() {
     try {
       const res = (await this.#clusterApiService.getAutoClusterData())
@@ -54,20 +56,20 @@ export class ClusterService {
     return this.isLoadingBehaviorSubject$.asObservable();
   }
 
-  getStatisticData(): Observable<StatisticData | null> {
-    return this.#clusterApiService.getStatisticData().pipe(
+  getstatisticData(): Observable<statisticData | null> {
+    return this.#clusterApiService.getstatisticData().pipe(
       take(1),
       map((res: any) => {
-        // Map the raw data to the defined StatisticData structure
-        return new StatisticData(
+        // Map the raw data to the defined statisticData structure
+        return new statisticData(
           res.totalCount,
-          res.details.map((detail: any) => new StatisticDetail(
-            new LastName(detail.LastName.Count, detail.LastName.Code, detail.LastName.Value),
-            new LastNameInPlaces(
-              detail.LastNameInPlaces.TotalCount,
-              detail.LastNameInPlaces.Count,
-              detail.LastNameInPlaces.Code,
-              detail.LastNameInPlaces.Value
+          res.details.map((detail: any) => new statisticDetail(
+            new lastName(detail.lastName.count, detail.lastName.code, detail.lastName.value),
+            new lastNameInPlaces(
+              detail.lastNameInPlaces.totalCount,
+              detail.lastNameInPlaces.count,
+              detail.lastNameInPlaces.code,
+              detail.lastNameInPlaces.value
             )
           ))
         );
@@ -79,44 +81,51 @@ export class ClusterService {
     );
   }
 
-  getClusterGroupDetails(): Observable<RootObjectOfClusterGroupDetails | null> {
+  getClusterGroupDetails(): Observable<rootObjectOfClusterGroupDetails | null> {
+    //  this.#loadingService.show();
     return this.#clusterApiService.getClusterGroupDetails().pipe(
-      take(1),
+      take(2),
       map((res: any) => {
-        const clusteredPeople: ClusteredNameRow[] = res.d.ClusteredNameRowList.map((row: any) => new ClusteredNameRow(
+        if (!res) {
+          return null
+        }
+        const clusteredPeople: clusteredNameRow[] = res.d.clusteredNameRowList.map((row: any) => new clusteredNameRow(
           row.__type,
-          row.BookId,
-          new ValueCodeItem(row.FirstName.__type, row.FirstName.Code, row.FirstName.Value),
-          new ValueCodeItem(row.LastName.__type, row.LastName.Code, row.LastName.Value),
-          new ValueCodeItem(row.FatherFirstName.__type, row.FatherFirstName.Code, row.FatherFirstName.Value),
-          new ValueCodeItem(row.MotherFirstName.__type, row.MotherFirstName.Code, row.MotherFirstName.Value),
-          new ValueCodeItem(row.PlaceOfBirth.__type, row.PlaceOfBirth.Code, row.PlaceOfBirth.Value),
-          new ValueCodeItem(row.PermanentPlace.__type, row.PermanentPlace.Code, row.PermanentPlace.Value),
-          new ValueCodeItem(row.DateOfBirth.__type, row.DateOfBirth.Code, row.DateOfBirth.Value),
-          new ValueCodeItem(row.Source.__type, row.Source.Code, row.Source.Value),
-          new ValueCodeItem(row.SpouseFirstName.__type, row.SpouseFirstName.Code, row.SpouseFirstName.Value),
-          row.MaidenName,
-          row.IsClustered,
-          row.ExistsClusterId,
-          row.RelatedFnameGroupId,
-          row.IsHasRelatedFname,
-          row.Ind,
-          row.HasRelatedGroups,
-          row.Score,
-          row.NumberOfSuggestions,
-          row.RelatedFnameList
+          row.bookId,
+          new valueCodeItem(row.firstName.__type, row.firstName.code, row.firstName.value),
+          new valueCodeItem(row.lastName.__type, row.lastName.code, row.lastName.value),
+          new valueCodeItem(row.fatherFirstName.__type, row.fatherFirstName.code, row.fatherFirstName.value),
+          new valueCodeItem(row.motherFirstName.__type, row.motherFirstName.code, row.motherFirstName.value),
+          new valueCodeItem(row.placeOfBirth.__type, row.placeOfBirth.code, row.placeOfBirth.value),
+          new valueCodeItem(row.permanentPlace.__type, row.permanentPlace.code, row.permanentPlace.value),
+          new valueCodeItem(row.dateOfBirth.__type, row.dateOfBirth.code, row.dateOfBirth.value),
+          new valueCodeItem(row.source.__type, row.source.code, row.source.value),
+          new valueCodeItem(row.spouseFirstName.__type, row.spouseFirstName.code, row.spouseFirstName.value),
+          row.maidenName,
+          row.isClustered,
+          row.existsClusterId,
+          row.relatedFnameGroupId,
+          row.isHasRelatedFname,
+          row.ind,
+          row.hasRelatedGroups,
+          row.score,
+          row.numberOfSuggestions,
+          row.relatedFnameList
         ));
-  
-        const clusterGroup = new ClusterGroupWithCrmLinks(
+
+        const clusterGroup = new clusterGroupWithCrmLinks(
           res.d.__type,
           clusteredPeople,
-          res.d.CrmLinkList,
+          res.d.crmLinkList,
           res.d.contact
         );
-  
-        return new RootObjectOfClusterGroupDetails(clusterGroup);
+        console.log("new rootObjectOfClusterGroupDetails(clusterGroup):" + new rootObjectOfClusterGroupDetails(clusterGroup));
+        //  this.#loadingService.hide();
+        return new rootObjectOfClusterGroupDetails(clusterGroup);
+
       }),
       catchError(err => {
+        this.#loadingService.hide();
         console.error('Error fetching cluster group details:', err);
         return of(null);
       })
@@ -135,11 +144,11 @@ export class ClusterService {
         )
         .subscribe();
     }
-  
+
     return this.assigneeList$.asObservable();
   }
 
-// =================================
+  // =================================
 
 
   // createReservation() {
@@ -157,10 +166,10 @@ export class ClusterService {
   //   })).subscribe();
   //   return res;
   // }
- 
-   
+
+
   //  createClusterData$ = new BehaviorSubject<any[]>([]);
-   
+
   // get ClusterData$()
   //   {
   //     if(!this.createClusterData$.value.length)
@@ -169,33 +178,33 @@ export class ClusterService {
   //     }
   //     return this.createClusterData$.asObservable();
   //   }
-   
 
 
-   getCreateClusterData() {
-    
+
+  getCreateClusterData() {
+
     const result = this.#clusterApiService.getCreateClusterData()
       .pipe(
         take(1),
-        // map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
-       
+        // map(res => res?.sapirClusterDetails || []), // מיפוי התוצאה להחזרת sapirClusterDetails בלבד
+
         tap(res => {
           console.log("getCreateClusterData", res);
-          
+
         }),
         catchError(err => {
           return of(null);
         })
       );
 
-      console.log("result",result);
-      
-    return result; // מחזיר את המערך SapirClusterDetails
+    console.log("result", result);
+
+    return result; // מחזיר את המערך sapirClusterDetails
   }
 
 
-  createCluster(sapirClusterModel: SapirClusterModel) {
-   return this.#clusterApiService.createCluster(sapirClusterModel)
+  createCluster(sapirClusterModel: sapirClusterModel) {
+    return this.#clusterApiService.createCluster(sapirClusterModel)
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
@@ -209,13 +218,13 @@ export class ClusterService {
       );
   }
 
-  getSingleItemByBookId (bookId:string): Observable<RootObject | boolean> {
-     return this.#clusterApiService.getSingleItemByBookId(bookId)
+  getSingleItemByBookId(bookId: string): Observable<rootObject | boolean> {
+    return this.#clusterApiService.getSingleItemByBookId(bookId)
       .pipe(
-        take(1), 
+        take(1),
         tap(res => {
-          console.log("BookId added successfully:", res); 
-          // return of(res as RootObject);
+          console.log("BookId added successfully:", res);
+          // return of(res as rootObject);
         }),
         catchError(err => {
           console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
@@ -224,9 +233,9 @@ export class ClusterService {
       );
   }
 
-  
-  getClusterGroupByBookId(cluster:string): Observable<RootObject | boolean>{
-     return this.#clusterApiService.getClusterGroupByBookId(cluster)
+
+  getClusterGroupByBookId(cluster: string): Observable<rootObject | boolean> {
+    return this.#clusterApiService.getClusterGroupByBookId(cluster)
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
@@ -239,4 +248,4 @@ export class ClusterService {
         })
       );
   }
- }
+}

@@ -26,62 +26,62 @@ export class CrmClustersComponent {
   iconType = IconType
   dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
 
-  openDialog() {
-    this.showToastNotification = false;
-    this.dialogRef = this.#dialog.open(EnterBookidComponent, {
-        data:true,
-      disableClose: true,
-      hasBackdrop: true,
-      panelClass: 'custom-dialog-container',
-      autoFocus: false,
-      width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
-      height: 'auto',
+  // openDialog() {
+  //   this.showToastNotification = false;
+  //   this.dialogRef = this.#dialog.open(EnterBookidComponent, {
+  //     data: true,
+  //     disableClose: true,
+  //     hasBackdrop: true,
+  //     panelClass: 'custom-dialog-container',
+  //     autoFocus: false,
+  //     width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
+  //     height: 'auto',
 
-    });
+  //   });
 
-    this.dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        console.log('page Data received from dialog:', result);
-        // בצע פעולה עם הנתונים שהתקבלו  
-        this.showToastNotificationFanction(result.bookId+"  added to the cluster successfully!");
-        if(result.bookId === "formIsNotValid") {
-          console.log('page Data received from dialog: no data');
-          this.showToastNotificationFanction(result.bookId);
-        }
-      }
-    
-    });
+  //   this.dialogRef.afterClosed().subscribe((result) => {
+  //     if (result) {
+  //       console.log('page Data received from dialog:', result);
+  //       // בצע פעולה עם הנתונים שהתקבלו  
+  //       this.showToastNotificationFanction(result.bookId + "  added to the cluster successfully!");
+  //       if (result.bookId === "formIsNotValid") {
+  //         console.log('page Data received from dialog: no data');
+  //         this.showToastNotificationFanction(result.bookId);
+  //       }
+  //     }
 
-  }
+  //   });
 
-  showToastNotificationFanction(result:string){
+  // }
+
+  showToastNotificationFunction(result: string) {
     // if(result !== "null"){
     this.showToastNotification = false;
     console.log("crm showToastNotificationFanction", result);
-    
-  if(result === "formIsNotValid"){
-    this.toastMessage = `Please choose or fill before submitting.`;
-    this.toastIcon = IconType.XMARK_SOLID;
-    this.showToastNotification = true;
-  }
-  else{
-    this.showToastNotification = false;
-    console.log("crm else showToastNotificationFanction", result);
-    
-    this.toastMessage = `${result}`;
-    this.toastIcon = IconType.CIRCLE_CHECK_SOLID;
-    this.showToastNotification = false;
-    this.showToastNotification = true;
-    console.log("crm else showToastNotificationFanction after true", this.showToastNotification);
-    
-  }
+
+    if (result === "formIsNotValid") {
+      this.toastMessage = `Please choose or fill before submitting.`;
+      this.toastIcon = IconType.XMARK_SOLID;
+      this.showToastNotification = true;
+    }
+    else {
+      this.showToastNotification = false;
+      console.log("crm else showToastNotificationFanction", result);
+
+      this.toastMessage = `${result}`;
+      this.toastIcon = IconType.CIRCLE_CHECK_SOLID;
+      this.showToastNotification = false;
+      this.showToastNotification = true;
+      console.log("crm else showToastNotificationFanction after true", this.showToastNotification);
+
+    }
     // }
   }
 
-  onClick() {
-    console.log("openPeiComponent");
-    this.openDialog()
-  }
+  // onClick() {
+  //   console.log("openPeiComponent");
+  //   this.openDialog()
+  // }
 
 }
 

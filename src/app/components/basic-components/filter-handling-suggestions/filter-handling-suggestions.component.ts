@@ -64,7 +64,9 @@ export class FilterHandlingSuggestionsComponent {
   }[] = [];
   ngOnInit() {
     this.numberCRM = this.crmLinkList?.length ?? 0;
+    if(this.crmLinkList){
     this.initPopoverOptionsLink();
+    }
   }
   ngOnChanges(changes: SimpleChanges): void {
     //במילוי שלו - שינוי ראשון

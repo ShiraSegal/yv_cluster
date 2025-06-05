@@ -146,7 +146,6 @@ export class NarrowBasicTableComponent {
     ];
   }
   onHeaderCheckboxToggle(): void {
-    debugger
     const isChecked = this.tableDataForm.get('headerCheckbox')?.value;
   
     // Update all row checkboxes

@@ -1,50 +1,50 @@
 {
     "d": [
         {
-            "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+            "__type": "ClusteredNamesSystem.classes.clusteredNameRow",
             "BookId": "1000000",
             "FirstName": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "T101216",
                 "Value": "Mintza"
             },
-            "LastName": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+            "lastName": {
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "T77688 ",
                 "Value": "Mamiof"
             },
             "FatherFirstName": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "",
                 "Value": ""
             },
             "MotherFirstName": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "",
                 "Value": ""
             },
             "PlaceOfBirth": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "5533200",
                 "Value": "Resekne,Rezeknes,Latgale,Latvia"
             },
             "PermanentPlace": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "5533200",
                 "Value": "Resekne,Rezeknes,Latgale,Latvia"
             },
             "DateOfBirth": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "",
                 "Value": ""
             },
             "Source": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "T1196978",
                 "Value": "Page of Testimony"
             },
             "SpouseFirstName": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "",
                 "Value": ""
             },

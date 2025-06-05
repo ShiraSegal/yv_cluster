@@ -1,8 +1,8 @@
-import { ValueDetail } from "./value-detail.model";
+import { valueDetail } from "./value-detail.model";
 
-export class SapirClusterDetail {
+export class sapirClusterDetail {
     Field: string;
-    Values: ValueDetail[];
+    Values: valueDetail[];
     HasOtherOption: boolean;
   }
   

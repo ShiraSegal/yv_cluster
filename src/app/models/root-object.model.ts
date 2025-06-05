@@ -1,5 +1,5 @@
-import { ClusteredNameRow } from "./clustered-name-row.model";
+import { clusteredNameRow } from "./clustered-name-row.model";
 
-export class RootObject {
-    d: ClusteredNameRow[];
+export class rootObject {
+    d: clusteredNameRow[];
   }

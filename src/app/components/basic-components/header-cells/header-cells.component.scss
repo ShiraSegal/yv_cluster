@@ -9,7 +9,9 @@
     line-height: normal;
     width: 1.3125rem;
     height: 1.0625rem;
-    flex-shrink: 0; 
+    flex-shrink: 0;
+    
+
 }
 
 .header-cell { 
@@ -23,6 +25,10 @@
     color: $c-3F4B5A;
     font-family: Poppins;
     font-size: 0.875rem;
+
+    background-color: $c-F1F1F1; 
+   width: 9.375rem;
+height: 3.4375rem;
 }
 
 .text,
