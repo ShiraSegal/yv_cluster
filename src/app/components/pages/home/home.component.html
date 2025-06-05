@@ -1,44 +1,47 @@
 <div class="home">
+
+
     <div class="user-name">
-        <yv-cluster-heading 
-        [title]="'Hello ' + (selectedUser?.name?.split(' ')[0] || 'Guest')" 
+      <
+        <yv-cluster-heading
+        [title]="'Hello ' + (selectedUser?.name?.split(' ')[0] || 'Guest')"
             [size]="textSize.LARGE"
             [weight]="textWeight.BOLD">
         </yv-cluster-heading>
     </div>
     <div class="cards-table-pie">
         <div class="cards">
-            <yv-cluster-basic-card 
-                [iconName]="iconType.HOURGLASS_CLOCK_SOLID" 
+            <yv-cluster-basic-card
+                [iconName]="iconType.HOURGLASS_CLOCK_SOLID"
                 [text]="(selectedUser?.newSuggestionPending || 0) + ' New Suggestions pending'"
                 [circleColor]="'blue'">
             </yv-cluster-basic-card>
-            <yv-cluster-basic-card 
-                [iconName]="iconType.CLOCK_FIVE_SOLID" 
+            <yv-cluster-basic-card
+                [iconName]="iconType.CLOCK_FIVE_SOLID"
                 [text]="(selectedUser?.oldSuggestionPending || 0) + ' Old Suggestions pending'"
                 [circleColor]="'green'">
             </yv-cluster-basic-card>
-            <yv-cluster-basic-card 
-                [iconName]="iconType.SUCCESS_SOLID" 
+            <yv-cluster-basic-card
+                [iconName]="iconType.SUCCESS_SOLID"
                 [text]="(selectedUser?.suggestionProcessedLastMonth || 0) + ' Suggestions processed this month'"
                 [circleColor]="'light-blue'">
             </yv-cluster-basic-card>
-            <yv-cluster-basic-card 
-                [iconName]="iconType.EDIT_SOLID" 
+            <yv-cluster-basic-card
+                [iconName]="iconType.EDIT_SOLID"
                 [text]="(selectedUser?.clustersCreatedManually || 0) + ' Clusters created manually this month'"
                 [circleColor]="'red'">
             </yv-cluster-basic-card>
         </div>
         <div class="table-pie">
             <div class="table">
-            <yv-cluster-basic-table-warp 
-            [title]="'Progress Review: Automated List Updates'" 
+            <yv-cluster-basic-table-warp
+            [title]="'Progress Review: Automated List Updates'"
             [data]="tableData">
           </yv-cluster-basic-table-warp>
         </div>
-            <yv-cluster-suggestions-statistics 
-        [data]="statisticsData" 
-        [radius]="radius" 
+            <yv-cluster-suggestions-statistics
+        [data]="statisticsData"
+        [radius]="radius"
         [innerRadius]="innerRadius">
       </yv-cluster-suggestions-statistics>
         </div>

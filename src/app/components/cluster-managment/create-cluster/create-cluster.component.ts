@@ -9,7 +9,7 @@ import { ButtonType, HeaderCellType, State, TextColor, TextSize, TextWeight } fr
 import { BodyComponent } from '../../basic-components/body/body.component';
 import { RadioButtonListComponent } from '../../basic-components/radio-button-list/radio-button-list.component';
 import { ClusterApiService } from 'src/app/services/cluster-api.service';
-import { elementAt, Observable } from 'rxjs';
+import { elementAt, Observable, Subscription } from 'rxjs';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { HeaderCellsComponent } from '../../basic-components/header-cells/header-cells.component';
 import { FieldComponent } from '../../basic-components/field/field.component';
@@ -19,6 +19,7 @@ import { SapirClusterModel } from 'src/app/models/sapir-cluster-model.model';
 import { SapirClusterDetail } from 'src/app/models/sapir-cluster-detail.model';
 import { IconType } from 'src/app/enums/icon-enum';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { RadioButtonComponent } from '../../basic-components/radio-button/radio-button.component';
 
 type NativeSelectOption = {
   optionType: NativeOptionType;
@@ -30,7 +31,7 @@ type NativeSelectOption = {
 @Component({
   selector: 'yv-cluster-create-cluster',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent, RadioButtonListComponent, BodyComponent, ButtonComponent, HeaderCellsComponent, FieldComponent, ToastNotificationComponent, SelectComponent],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, ButtonComponent, HeadingComponent,RadioButtonComponent, BasicRadioButtonComponent, RadioButtonListComponent, BodyComponent, ButtonComponent, HeaderCellsComponent, FieldComponent, ToastNotificationComponent, SelectComponent],
   templateUrl: './create-cluster.component.html',
   styleUrl: './create-cluster.component.scss'
 })
@@ -96,6 +97,7 @@ export class CreateClusterComponent {
   btn_size: boolean = false;
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
+  subscription:Subscription=new Subscription()
 
   //toast notification
 iconType=IconType;
@@ -110,8 +112,17 @@ iconType=IconType;
   ngOnInit() {
     // console.log("formIsValid", this.formIsValid);
     this.createClusterFormData();
-  }
+    this.subscription.add(this.createClusterForm.valueChanges.subscribe((value) => {
+      console.log('Form value changed: 💜💜💜💜💜', value);
 
+    }))
+
+  }
+ngOnDestroy(): void {
+  //Called once, before the instance is destroyed.
+  //Add 'implements OnDestroy' to the class.
+  this.subscription.unsubscribe();
+}
   createClusterFormData() {
     this.#clusterService.getCreateClusterData().subscribe({
       next: (res: SapirClusterModel | null) => {
@@ -123,7 +134,7 @@ iconType=IconType;
 
           this.dataCells = res.SapirClusterDetails; // Process the data if it's not null
           // console.log("check1",this.clusterModel.SapirClusterDetails);
-          
+
           this.dataCells.forEach((d: any) => {
             let values: any = [];
             d.Values.forEach((v: any) => {
@@ -132,7 +143,6 @@ iconType=IconType;
                 v.NameCode = "unknown"; // או כל ערך ברירת מחדל אחר
               }
               values.push({ key: v.NameCode, value: v.Value });
-
             });
 
             if (d.HasOtherOption) {
@@ -140,7 +150,7 @@ iconType=IconType;
             }
             d.RadioOptions = values;
           // console.log("check2",this.clusterModel.SapirClusterDetails);
-   
+
           });
           // console.log("check13",this.clusterModel.SapirClusterDetails);
 
