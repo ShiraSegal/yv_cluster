@@ -12,6 +12,7 @@ import { CreateClusterComponent } from '../../cluster-managment/create-cluster/c
 import { TooltipComponent } from '../tooltip/tooltip.component';
 import { PopoverComponent } from '../popover/popover.component';
 import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter-bookid.component';
+import { NotifictionService } from 'src/app/services/notifiction.service';
 
 @Component({
   selector: 'yv-cluster-filter-handling-suggestions',
@@ -22,15 +23,16 @@ import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter
 })
 export class FilterHandlingSuggestionsComponent {
   #dialog = inject(MatDialog);
+  #notifictionService = inject(NotifictionService)
+
 
   @Output() prefCodeStatus = new EventEmitter<boolean>();
-  @Output() showToastNotification = new EventEmitter<string>();
   @Input() howManyChecked: number = 0;
   @Input() crmLinkList: string[] = [];
 
 
   dialogRef: MatDialogRef<CreateClusterComponent> | null = null;
-    dialogRefEnterBookid: MatDialogRef<EnterBookidComponent> | null = null;
+  dialogRefEnterBookid: MatDialogRef<EnterBookidComponent> | null = null;
 
   numberCRM: number;
   switchState: boolean = false;
@@ -64,8 +66,8 @@ export class FilterHandlingSuggestionsComponent {
   }[] = [];
   ngOnInit() {
     this.numberCRM = this.crmLinkList?.length ?? 0;
-    if(this.crmLinkList){
-    this.initPopoverOptionsLink();
+    if (this.crmLinkList) {
+      this.initPopoverOptionsLink();
     }
   }
   ngOnChanges(changes: SimpleChanges): void {
@@ -103,7 +105,12 @@ export class FilterHandlingSuggestionsComponent {
 
     this.dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.showToastNotification.emit(result.bookId);
+        this.#notifictionService.showToastNotification({
+          iconName: this.iconType.SUCCESS_SOLID,
+          title: 'Successfull',
+          message: result.bookId + "  added to the cluster successfully!",
+          duration: 3000
+        });
         console.log('page Data received from dialog:', result);
 
         if (result.bookId === "formIsNotValid") {
@@ -115,7 +122,7 @@ export class FilterHandlingSuggestionsComponent {
   openEnterBookidDialog() {
     // this.showToastNotification = false;
     this.dialogRefEnterBookid = this.#dialog.open(EnterBookidComponent, {
-        data:false,
+      data: false,
       disableClose: true,
       hasBackdrop: true,
       panelClass: 'custom-dialog-container',
@@ -128,14 +135,19 @@ export class FilterHandlingSuggestionsComponent {
     this.dialogRefEnterBookid.afterClosed().subscribe((result) => {
       if (result) {
         console.log('page Data received from dialog:', result);
-        this.showToastNotification.emit(result.bookId);
-        
-        if(result.bookId === "formIsNotValid") {
+        this.#notifictionService.showToastNotification({
+          iconName: this.iconType.SUCCESS_SOLID,
+          title: 'Successfull',
+          message: result.bookId + "  added to the cluster successfully!",
+          duration: 3000
+        });
+
+        if (result.bookId === "formIsNotValid") {
         }
       }
 
     });
-}
+  }
   onPrefCodeChange(state: boolean) {
     this.formData.prefCode = state;
     this.prefCodeStatus.emit(state);

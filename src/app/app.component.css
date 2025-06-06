@@ -25,3 +25,11 @@ main {
      /* Add a margin to account for the nav's width */
     /* padding: 1rem; */
 }
+
+
+.toast-notification {
+    position: fixed;
+    bottom: 5vh; /* מרחק מהתחתית */
+    left: 12.9375rem; /* מרחק מהצד השמאלי */
+    z-index: 1000; /* כדי לוודא שהאלמנט יופיע מעל תוכן אחר */
+  }

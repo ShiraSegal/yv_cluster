@@ -21,6 +21,7 @@ import { ToastNotificationComponent } from '../toast-notification/toast-notifica
 import { LoadingService } from 'src/app/services/loading.service';
 import { ButtonComponent } from '../button/button.component';
 import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter-bookid.component';
+import { NotifictionService } from 'src/app/services/notifiction.service';
 
 @Component({
   selector: 'yv-cluster-table-group-id-details',
@@ -31,13 +32,15 @@ import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter
 })
 export class TableGroupIdDetailsComponent {
 
-  @Output() showToastNotification = new EventEmitter<string>();
+  // @Output() showToastNotification = new EventEmitter<string>();
 
   #clusterService = inject(ClusterService)
   #loadingService = inject(LoadingService)
+  #notifictionService = inject(NotifictionService)
+
   #dialog = inject(MatDialog);
   #fb = inject(FormBuilder)
- dialogEnterBookidRef: MatDialogRef<EnterBookidComponent> | null = null;
+  dialogEnterBookidRef: MatDialogRef<EnterBookidComponent> | null = null;
 
   // clusterGroupDetails: rootObjectOfClusterGroupDetails[] = [];
   headerCheckStatus: CheckType = CheckType.UNCHECKED;
@@ -238,14 +241,7 @@ export class TableGroupIdDetailsComponent {
     console.log("prefCodeStatus table", prefCodeStatus);
     this.prefCodeStatus = prefCodeStatus;
   }
-  showToastNotificationFunction(result: string) {
-    console.log("showToastNotificationFunction", result);
-this.showToastNotification.emit(result);
-    // this.showToastNotificationFanction(result);
-  }
-
-    openEnterBookIdDialog() {
-    // this.showToastNotification = false;
+  openEnterBookIdDialog() {
     this.dialogEnterBookidRef = this.#dialog.open(EnterBookidComponent, {
       data: true,
       disableClose: true,
@@ -260,38 +256,18 @@ this.showToastNotification.emit(result);
     this.dialogEnterBookidRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log('page Data received from dialog:', result);
-        // בצע פעולה עם הנתונים שהתקבלו  
-        this.showToastNotificationFunction(result.bookId + "  added to the cluster successfully!");
+        this.#notifictionService.showToastNotification({
+          iconName: this.iconType.SUCCESS_SOLID,
+          title: 'Successfull',
+          message: result.bookId + "  added to the cluster successfully!",
+          duration: 3000
+        });
         if (result.bookId === "formIsNotValid") {
           console.log('page Data received from dialog: no data');
-          this.showToastNotificationFunction(result.bookId);
         }
       }
 
     });
 
   }
-  //  showToastNotificationFanction(result: string) {
-  //   // if(result !== "null"){
-  //   this.showToastNotification = false;
-  //   console.log("crm showToastNotificationFanction", result);
-
-  //   if (result === "formIsNotValid") {
-  //     this.toastMessage = `Please choose or fill before submitting.`;
-  //     this.toastIcon = IconType.XMARK_SOLID;
-  //     this.showToastNotification = true;
-  //   }
-  //   else {
-  //     this.showToastNotification = false;
-  //     console.log("crm else showToastNotificationFanction", result);
-
-  //     this.toastMessage = `${result}`;
-  //     this.toastIcon = IconType.CIRCLE_CHECK_SOLID;
-  //     this.showToastNotification = false;
-  //     this.showToastNotification = true;
-  //     console.log("crm else showToastNotificationFanction after true", this.showToastNotification);
-
-  //   }
-  //   // }
-  // }
-}
+ }

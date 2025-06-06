@@ -26,6 +26,7 @@
     align-items: center;
     gap: var(--Layout-medium, 0.5rem);
     flex-shrink: 0;
+    cursor: pointer;
 }
 
 .tab-text-active {
