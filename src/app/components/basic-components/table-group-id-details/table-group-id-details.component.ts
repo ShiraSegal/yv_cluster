@@ -95,18 +95,18 @@ export class TableGroupIdDetailsComponent {
         this.Rows = res.d.ClusteredNameRowList.map(row => {
           return [
             { data: '', type: DataCellType.CHECK, moreData: { checkStatus: CheckType.UNCHECKED } },
-            { data: row.BookId, type: DataCellType.LINK, moreData: { linkHRef: 'https://collections.yadvashem.org/en/names/' } },
-            { data: row.ExistsClusterId || 'New', type: DataCellType.TEXT, moreData: { prefCode: row.ExistsClusterId || 'New' } },
-            { data: row.Score, type: DataCellType.TEXT, moreData: { prefCode: row.Score ?? '' } },
-            { data: row.FirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.FirstName?.Code ?? '' } },
-            { data: row.LastName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.LastName?.Code ?? '' } },
-            { data: row.FatherFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.FatherFirstName?.Code ?? '' } },
-            { data: row.MotherFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.MotherFirstName?.Code ?? '' } },
-            { data: row.SpouseFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.SpouseFirstName?.Code ?? '' } },
-            { data: row.DateOfBirth?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.DateOfBirth?.Value ?? '' } },
-            { data: row.PlaceOfBirth?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.PlaceOfBirth?.Code ?? '' } },
-            { data: row.PermanentPlace?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.PermanentPlace?.Code ?? '' } },
-            { data: row.Source?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.Source?.Code ?? '' } },
+            { data: row.bookid, type: DataCellType.LINK, moreData: { linkHRef: 'https://collections.yadvashem.org/en/names/' } },
+            { data: row.existsclusterid || 'New', type: DataCellType.TEXT, moreData: { prefCode: row.existsclusterid || 'New' } },
+            { data: row.score, type: DataCellType.TEXT, moreData: { prefCode: row.score ?? '' } },
+            { data: row.firstname?.value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.firstname?.code ?? '' } },
+            { data: row.lastname?.value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.lastname?.code ?? '' } },
+            { data: row.fatherfirstname?.value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.fatherfirstname?.code ?? '' } },
+            { data: row.motherfirstname?.value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.motherfirstname?.code ?? '' } },
+            { data: row.spousefirstname?.value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.spousefirstname?.code ?? '' } },
+            { data: row.dateofbirth?.value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.dateofbirth?.value ?? '' } },
+            { data: row.placeofbirth?.value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.placeofbirth?.code ?? '' } },
+            { data: row.permanentplace?.value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.permanentplace?.code ?? '' } },
+            { data: row.source?.value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.source?.code ?? '' } },
             { data: IconType.AUTO_CLUSRE_TLIGHT, type: DataCellType.ICON, moreData: { icon: IconType.TRASH_LIGHT } }
           ];
         });

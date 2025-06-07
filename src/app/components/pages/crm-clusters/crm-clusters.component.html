@@ -1,15 +1,34 @@
 <div class="table-and-title-container">
-    <div class="title-container">
-        <div class="group-id-title">Group Id: {{groupIdNumber}}</div>
-    </div>
-<div>
-<yv-cluster-table-group-id-details (showToastNotification)="showToastNotificationFanction($event)"></yv-cluster-table-group-id-details>
+  @if (show) {
+    <yv-cluster-toast-message
+    [type]="type"
+    [heading]="heading"
+    [content]="content"
+    (close)="closeToastNotification()"
+  >
+  </yv-cluster-toast-message>
+}
+  <div class="title-container">
+    <div class="group-id-title">Group Id: {{ groupIdNumber }}</div>
+  </div>
+  <div>
+    <yv-cluster-table-group-id-details
+      (showToastNotification)="showToastNotificationFanction($event)"
+    ></yv-cluster-table-group-id-details>
+  </div>
+  <yv-cluster-icon-button
+    class="button-plus"
+    (onClick)="onClick()"
+    [icon]="iconType.PLUS_REGULAR"
+  ></yv-cluster-icon-button>
+
+  @if(showToastNotification){
+  <yv-cluster-toast-notification
+    class="toast-notification"
+    [iconName]="toastIcon"
+    [message]="toastMessage"
+    [text]="'Cancel'"
+    [duration]="2500"
+  ></yv-cluster-toast-notification>
+  }
 </div>
-<yv-cluster-icon-button class="button-plus" (onClick)="onClick()" [icon]="iconType.PLUS_REGULAR"  ></yv-cluster-icon-button>
-
-       @if(showToastNotification){
-       <yv-cluster-toast-notification  class="toast-notification" [iconName]="toastIcon" [message]="toastMessage"  [text]="'Cancel'" [duration]="2500"></yv-cluster-toast-notification>
-       }
-</div>
-
-

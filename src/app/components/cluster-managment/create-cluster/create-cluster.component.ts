@@ -121,24 +121,24 @@ iconType=IconType;
           this.clusterModel = res;
           // console.log("this.clusterModel", this.clusterModel);
 
-          this.dataCells = res.SapirClusterDetails; // Process the data if it's not null
+          this.dataCells = res.sapirClusterDetails; // Process the data if it's not null
           // console.log("check1",this.clusterModel.SapirClusterDetails);
           
           this.dataCells.forEach((d: any) => {
             let values: any = [];
-            d.Values.forEach((v: any) => {
-              if (v.NameCode === "") {
+            d.values.forEach((v: any) => {
+              if (v.nameCode === "") {
                 // console.log(`Value "${v.Value}" has an empty NameCode.`);
-                v.NameCode = "unknown"; // או כל ערך ברירת מחדל אחר
+                v.nameCode = "unknown"; // או כל ערך ברירת מחדל אחר
               }
-              values.push({ key: v.NameCode, value: v.Value });
+              values.push({ key: v.nameCode, value: v.value });
 
             });
 
-            if (d.HasOtherOption) {
+            if (d.hasOtherOption) {
               values.push({ key: "other", value: "other" });
             }
-            d.RadioOptions = values;
+            d.radioOptions = values;
           // console.log("check2",this.clusterModel.SapirClusterDetails);
    
           });
@@ -161,7 +161,7 @@ iconType=IconType;
 
   initializeFormGroup() {
     this.dataCells.forEach((field: any) => {
-      this.createClusterForm.addControl(field.Field, new FormControl('', Validators.required));
+      this.createClusterForm.addControl(field.field, new FormControl('', Validators.required));
     });
     // this.createClusterFormFields['comments'] = [''];
     // this.createClusterForm.controls['comments'] = new FormControl('');
@@ -193,10 +193,10 @@ iconType=IconType;
       this.formIsValid = true;
       this.closeDialogWithData({ bookId:"creat cluster succesfully😍❤"});
       console.log("this.clusterModel", "creat cluster succesfully😍❤");
-      this.clusterModel.SapirClusterDetails.map((field: any) => {
+      this.clusterModel.sapirClusterDetails.map((field: any) => {
        // console.log("field", field);
-        const values = field.Values.filter((value: any) => {
-          return value.NameCode === this.createClusterForm.controls[field.Field].value;
+        const values = field.values.filter((value: any) => {
+          return value.nameCode === this.createClusterForm.controls[field.field].value;
         });
        // console.log("values", values);
 
@@ -207,8 +207,8 @@ iconType=IconType;
       });
      // console.log("this.clusterModel", this.clusterModel);
      // console.log("comments", this.createClusterForm.value.comments);
-      this.clusterModel.Level= this.createClusterForm.value.clusterLevel;
-      this.clusterModel.Comments = this.createClusterForm.value.comments;
+      this.clusterModel.level= this.createClusterForm.value.clusterLevel;
+      this.clusterModel.comments = this.createClusterForm.value.comments;
       this.#clusterService.createCluster(this.clusterModel).subscribe({
         next: (res) => {
           if (res) {

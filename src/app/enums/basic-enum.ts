@@ -179,6 +179,12 @@ export enum NativeOptionType{
   TEXT = "text"
 }
 
+export enum SelectType{
+  ASSIGNEE = "assignee",
+  STATUS = "status",
+  TEXT = "text"
+}
+
 
 export enum PopoverType{
   ASSIGNEE = "assignee",
@@ -203,6 +209,14 @@ export enum ButtonIconProperty{
     SHORT = "short",
     LONG = "long"
   }
+
+  export enum MessageType{
+    SUCCESS = "success",
+    INFORRMATIVE = "inforrmative",
+    ERROR="error",
+    ATTENTION="attention"
+  }
+
 
 
   

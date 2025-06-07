@@ -14,6 +14,7 @@ import { RootObjectOfClusterGroupDetails } from '../models/root-object-of-cluste
 import { map } from 'rxjs/operators';
 import { SapirClusterModel } from '../models/sapir-cluster-model.model';
 import { RootObject } from '../models/root-object.model';
+import {  MessageService } from './message.service';
 
 
 @Injectable({
@@ -23,6 +24,8 @@ export class ClusterService
  {
   #translateService = inject(TranslateService);
   #clusterApiService = inject(ClusterApiService)
+  #messageService = inject(MessageService)
+
 
  autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
 
@@ -243,21 +246,23 @@ export class ClusterService
           // return res;
         }),
         catchError(err => {
-          console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
-          return of(false); // החזרת ערך ברירת מחדל במקרה של שגיאה
+           console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
+          //  return of(err); // החזרת ערך ברירת מחדל במקרה של שגיאה
+          return of(this.#messageService.sendMessageByStatus(err));
         })
       );
   }
 
-  getSingleItemByBookId (bookId:string): Observable<RootObject |any> {
+  getSingleItemByBookId (bookId:string): Observable<RootObject | any> {
       return this.#clusterApiService.getSingleItemByBookId(bookId)
       .pipe(
         tap((res) => {
           console.log("BookId fetched successfully:", res);
         }),
         catchError((err) => {
-          console.error("Error occurred while fetching BookId:", err);
-          return of(err); // מחזיר false במקרה של שגיאה
+           this.#messageService.sendMessageByStatus(err);
+           return of(null);
+
         })
       );
   }

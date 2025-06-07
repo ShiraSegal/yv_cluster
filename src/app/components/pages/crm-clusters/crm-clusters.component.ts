@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input } from '@angular/core';
+import { Component, Inject, inject, Input } from '@angular/core';
 import { TableGroupIdDetailsComponent } from '../../basic-components/table-group-id-details/table-group-id-details.component';
 import { IconButtonComponent } from '../../basic-components/icon-button/icon-button.component';
 import { IconType } from 'src/app/enums/icon-enum';
@@ -7,15 +7,20 @@ import { SlidebarNavigationComponent } from '../../basic-components/slidebar-nav
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter-bookid.component';
 import { ToastNotificationComponent } from '../../basic-components/toast-notification/toast-notification.component';
+import { ToastMessageComponent } from '../../basic-components/toast-message/toast-message.component';
+import { MessageType } from 'src/app/enums/basic-enum';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'yv-cluster-handling-suggestions-page',
   standalone: true,
-  imports: [CommonModule, TableGroupIdDetailsComponent, IconButtonComponent, SlidebarNavigationComponent, ToastNotificationComponent],
+  imports: [CommonModule, TableGroupIdDetailsComponent, IconButtonComponent, ToastMessageComponent, ToastNotificationComponent],
   templateUrl: './crm-clusters.component.html',
   styleUrl: './crm-clusters.component.scss'
 })
 export class CrmClustersComponent {
+  #messageService=Inject(MessageService)
+
   @Input() groupIdNumber!: number;
 
   showToastNotification: boolean;
@@ -25,6 +30,28 @@ export class CrmClustersComponent {
   #dialog = inject(MatDialog);
   iconType = IconType
   dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
+
+  type: MessageType;
+heading: string;
+content: string;
+show = false;
+
+ngOnInit() {
+  console.log("CrmClustersComponent initialized with groupIdNumber:", this.groupIdNumber);
+
+  // this.#messageService.showMessage$.subscribe(data => {
+  //   console.log("Received message data:", data);
+    
+  //   this.type = data.type;
+  //   this.heading = data.heading;
+  //   this.content = data.content;
+  //   this.show = true;
+  // });
+}
+
+closeToastNotification() {
+  // this.show = false;
+}
 
   openDialog() {
     this.showToastNotification = false;
@@ -39,13 +66,23 @@ export class CrmClustersComponent {
     });
 
     this.dialogRef.afterClosed().subscribe((result) => {
+      
+
       if (result) {
         console.log('page Data received from dialog:', result);
+        this.#messageService.showMessage$.subscribe(data => {
+          console.log("Received message data:", data);
+          
+          this.type = data.type;
+          this.heading = data.heading;
+          this.content = data.content;
+          this.show = true;
+        });
         // בצע פעולה עם הנתונים שהתקבלו  
         this.showToastNotificationFanction(result.bookId+"added to the cluster successfully!");
         if(result.bookId === "formIsNotValid") {
           console.log('page Data received from dialog: no data');
-          this.showToastNotificationFanction(result.bookId);
+          // this.showToastNotificationFanction(result.bookId);
         }
       }
     

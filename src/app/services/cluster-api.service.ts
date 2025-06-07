@@ -14,18 +14,26 @@ export class ClusterApiService {
   basicParam: string = 'reservations';
   #http = inject(HttpClient);
   apiUrl = 'assets/json-data';
+  url = 'https://localhost:7059/api';
+
   
   async getAutoClusterData() {
     return this.#http.get<string[]>(`${this.apiUrl}/getAutoCluster.json`);
   }
   
   getCreateClusterData() {
-    return this.#http.get<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`);
+    return this.#http.get<SapirClusterModel>(`${this.url}/CreateCluster/GetCreateClusterData`);
   }
 
   getSingleItemByBookId (bookId:string){
     // let url= `${this.apiUrl}/getByBookId.json`;
-    return this.#http.get<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`);
+    return this.#http.post<RootObject | boolean>(`${this.url}/AddBookIdOrCluster/AddBookId`,
+      {bookId},
+      {
+      headers: 
+       {'Content-Type': 'application/json' }
+      },
+    )
   }
 
   getClusterGroupByBookId(cluster:string){
@@ -33,7 +41,7 @@ export class ClusterApiService {
   }
 
   createCluster(SapirClusterModel: SapirClusterModel){
-    return this.#http.post<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`, SapirClusterModel);
+    return this.#http.post<SapirClusterModel>(`${this.url}/CreateCluster/CreateNewCluster`, SapirClusterModel);
   }
     getStatisticData(): Observable<any> {
     return this.#http.get('./assets/json-data/getStatisticData.json');

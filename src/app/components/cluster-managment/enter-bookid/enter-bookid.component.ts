@@ -83,7 +83,7 @@ ngOnInit() {
   add() {
     // this.closeDialogWithData({ bookId: '12345' })
     if (this.enterBookIdOrClusterForm.valid) {
-      if(this.enterBookIdOrClusterForm.value.selection=='Book ID'){
+      if(this.enterBookIdOrClusterForm.value.selection=='Book ID'|| !this.showRadioButtons){
       this.#clusterService.getSingleItemByBookId(this.enterBookIdOrClusterForm.value.input).subscribe({
         next: (res: RootObject | boolean) => {
           console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
