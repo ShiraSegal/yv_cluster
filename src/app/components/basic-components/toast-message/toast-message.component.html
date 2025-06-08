@@ -1,4 +1,5 @@
 
+@if (isVisible) {
 <div class="message-warp" [ngClass]="type">
   <div class="inner-warp">
     <i [ngClass]="['icon', icon]"></i>
@@ -29,5 +30,6 @@
     </div>
   </button>
 </div>
+}
 
 

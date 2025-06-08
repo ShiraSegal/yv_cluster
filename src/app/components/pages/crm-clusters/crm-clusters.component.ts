@@ -31,10 +31,10 @@ export class CrmClustersComponent {
   iconType = IconType
   dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
 
-  type: MessageType;
-heading: string;
-content: string;
-show = false;
+//   type: MessageType;
+// heading: string;
+// content: string;
+// show = false;
 
 ngOnInit() {
   console.log("CrmClustersComponent initialized with groupIdNumber:", this.groupIdNumber);
@@ -70,16 +70,8 @@ closeToastNotification() {
 
       if (result) {
         console.log('page Data received from dialog:', result);
-        this.#messageService.showMessage$.subscribe(data => {
-          console.log("Received message data:", data);
-          
-          this.type = data.type;
-          this.heading = data.heading;
-          this.content = data.content;
-          this.show = true;
-        });
         // בצע פעולה עם הנתונים שהתקבלו  
-        this.showToastNotificationFanction(result.bookId+"added to the cluster successfully!");
+        // this.showToastNotificationFanction(result.bookId+"added to the cluster successfully!");
         if(result.bookId === "formIsNotValid") {
           console.log('page Data received from dialog: no data');
           // this.showToastNotificationFanction(result.bookId);

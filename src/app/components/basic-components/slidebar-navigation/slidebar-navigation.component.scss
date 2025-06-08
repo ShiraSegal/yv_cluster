@@ -1,15 +1,19 @@
 @import 'src/styles/colors';
 
 .slider-navigation {
-    display: flex;
+    position: fixed; // קובע שהאלמנט לא זז עם הגלילה
+    top: 0;
+    left: 0; // אם העיצוב בעברית – ייתכן שתרצה right: 0;
+    height: 100vh; // גובה מלא של המסך
     width: 13.875rem;
-    height: 67.5rem;
-    padding-top: 0.75rem;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4.25rem;
     background: $c-081548;
-}
+    z-index: 1000; // לוודא שהוא מעל תוכן אחר
+  }
+  
 
 .logo {
     background: url('/assets/images/logo.png') no-repeat center center ;
@@ -39,7 +43,7 @@ fill: url('/assets/images/logo.png') lightgray 0px 1.835px / 100% 122.237% no-re
     display: flex;
 width: 13.875rem;
 height: 0.0625rem;
-padding: 0.75rem 0rem;
+// padding: 0.75rem 0rem;
 flex-direction: column;
 align-items: center;
 gap: 0.1875rem;

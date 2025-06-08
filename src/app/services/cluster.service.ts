@@ -15,6 +15,7 @@ import { map } from 'rxjs/operators';
 import { SapirClusterModel } from '../models/sapir-cluster-model.model';
 import { RootObject } from '../models/root-object.model';
 import {  MessageService } from './message.service';
+import { MessageType } from '../enums/basic-enum';
 
 
 @Injectable({
@@ -248,7 +249,7 @@ export class ClusterService
         catchError(err => {
            console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
           //  return of(err); // החזרת ערך ברירת מחדל במקרה של שגיאה
-          return of(this.#messageService.sendMessageByStatus(err));
+          return of(this.#messageService.showToastMessage(err));
         })
       );
   }
@@ -260,7 +261,13 @@ export class ClusterService
           console.log("BookId fetched successfully:", res);
         }),
         catchError((err) => {
-           this.#messageService.sendMessageByStatus(err);
+           this.#messageService.showToastMessage(
+           {
+            type: MessageType.ERROR,
+            heading: 'Error',
+            content: err.message
+           }
+           );
            return of(null);
 
         })

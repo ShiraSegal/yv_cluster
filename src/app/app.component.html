@@ -4,6 +4,14 @@
         <yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
     </nav>
     <main>
+        <!-- @if (show) { -->
+            <yv-cluster-toast-message *ngIf="messageService.message$ | async as message"
+            [type]="message.type"
+            [heading]="message.heading"
+            [content]="message.content"
+          >
+          </yv-cluster-toast-message>
+        <!-- } -->
         <router-outlet></router-outlet>
     </main>
 </div>

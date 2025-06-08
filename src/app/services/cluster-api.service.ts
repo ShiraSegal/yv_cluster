@@ -28,7 +28,7 @@ export class ClusterApiService {
   getSingleItemByBookId (bookId:string){
     // let url= `${this.apiUrl}/getByBookId.json`;
     return this.#http.post<RootObject | boolean>(`${this.url}/AddBookIdOrCluster/AddBookId`,
-      {bookId},
+      JSON.stringify(bookId),
       {
       headers: 
        {'Content-Type': 'application/json' }
@@ -36,8 +36,15 @@ export class ClusterApiService {
     )
   }
 
-  getClusterGroupByBookId(cluster:string){
-    return this.#http.get<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`);
+  getClusterGroupByBookId(clusterId:string){
+    // let url= `${this.apiUrl}/getByBookId.json`;
+    return this.#http.post<RootObject | boolean>(`${this.url}/AddBookIdOrCluster/AddBookIdsByClusterId`,
+      JSON.stringify(clusterId),
+      {
+      headers: 
+       {'Content-Type': 'application/json' }
+      },
+    )
   }
 
   createCluster(SapirClusterModel: SapirClusterModel){

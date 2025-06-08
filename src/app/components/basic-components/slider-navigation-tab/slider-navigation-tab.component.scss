@@ -9,12 +9,19 @@
     gap: 0.625rem;
     align-self: stretch;
     &.active {
-    display: inline-flex;
+    // display: inline-flex;
+// padding: 0rem 0.75rem 0rem 1.5rem;
+// align-items: center;
+// gap: 0.625rem;
+//     border-radius: 0.3125rem;
+//     background: $c-1334b966;
+// display: flex;
+width: 9.5625rem;
 padding: 0rem 0.75rem 0rem 1.5rem;
 align-items: center;
 gap: 0.625rem;
-    border-radius: 0.3125rem;
-    background: $c-1334b966;
+border-radius: 0.3125rem;
+background: rgba(19, 52, 185, 0.40);
 }
 }
 

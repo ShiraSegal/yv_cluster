@@ -30,7 +30,7 @@ type NativeSelectOption = {
 @Component({
   selector: 'yv-cluster-create-cluster',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent, RadioButtonListComponent, BodyComponent, ButtonComponent, HeaderCellsComponent, FieldComponent, ToastNotificationComponent, SelectComponent],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, ButtonComponent, HeadingComponent, RadioButtonListComponent, ButtonComponent, HeaderCellsComponent, SelectComponent],
   templateUrl: './create-cluster.component.html',
   styleUrl: './create-cluster.component.scss'
 })
@@ -81,13 +81,8 @@ export class CreateClusterComponent {
     {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Most Probable'},
     {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Possible'}
   ];
-  // options = [
-  //   { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
-  //   { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT },
-  //   { optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT }
-  // ];
 
-  //text field
+  //comment field
   comments: string = '';
 
   //buttons
@@ -101,14 +96,7 @@ export class CreateClusterComponent {
 iconType=IconType;
 
 
-//   //buttons
-//   button1: string = 'Cancel';
-//   button2: string = 'Set a cluster';
-//   btn_size:boolean = false;
-//   buttomType1: ButtonType = ButtonType.TERTIARY;
-
   ngOnInit() {
-    // console.log("formIsValid", this.formIsValid);
     this.createClusterFormData();
   }
 
@@ -139,12 +127,8 @@ iconType=IconType;
               values.push({ key: "other", value: "other" });
             }
             d.radioOptions = values;
-          // console.log("check2",this.clusterModel.SapirClusterDetails);
    
           });
-          // console.log("check13",this.clusterModel.SapirClusterDetails);
-
-          // console.log("222222222222222222", this.dataCells);
 
           this.initializeFormGroup();
 
@@ -163,57 +147,39 @@ iconType=IconType;
     this.dataCells.forEach((field: any) => {
       this.createClusterForm.addControl(field.field, new FormControl('', Validators.required));
     });
-    // this.createClusterFormFields['comments'] = [''];
-    // this.createClusterForm.controls['comments'] = new FormControl('');
-    // this.createClusterFormFields=
-
-   // console.log("this.createClusterForm", this.createClusterForm);
-
-
-    // this.createClusterForm = this.#formBuilder.group(this.createClusterFormFields);
-    //// console.log("this.createClusterForm", this.createClusterForm);
-
 
   }
 
-  checkChange(index: string) {
-   // console.log("valid", this.createClusterForm.valid);
-   // console.log("index", index);
-    // this.createClusterForm.get(selected)?.setValue(index);
-    // console.log("createClusterForm", this.createClusterForm.value);
-    // console.log("createClusterForm", this.createClusterForm);
+  // checkChange(index: string) {
+  //  // console.log("valid", this.createClusterForm.valid);
+  //  // console.log("index", index);
+  //   // this.createClusterForm.get(selected)?.setValue(index);
+  //   // console.log("createClusterForm", this.createClusterForm.value);
+  //   // console.log("createClusterForm", this.createClusterForm);
 
-  }
+  // }
 
   createCluster() {
-    // console.log("createClusterFormFields", this.createClusterFormFields);
-    // console.log("createClusterForm", this.createClusterForm);
+    console.log("createClusterForm", this.createClusterForm.value)
 
     if (this.createClusterForm.valid) {
       this.formIsValid = true;
       this.closeDialogWithData({ bookId:"creat cluster succesfully😍❤"});
       console.log("this.clusterModel", "creat cluster succesfully😍❤");
       this.clusterModel.sapirClusterDetails.map((field: any) => {
-       // console.log("field", field);
         const values = field.values.filter((value: any) => {
           return value.nameCode === this.createClusterForm.controls[field.field].value;
         });
-       // console.log("values", values);
 
         field.Values = values;
 
-       // console.log("field.Values", field.Values);
-
       });
-     // console.log("this.clusterModel", this.clusterModel);
-     // console.log("comments", this.createClusterForm.value.comments);
       this.clusterModel.level= this.createClusterForm.value.clusterLevel;
       this.clusterModel.comments = this.createClusterForm.value.comments;
       this.#clusterService.createCluster(this.clusterModel).subscribe({
         next: (res) => {
           if (res) {
             console.log("Cluster created:", res);
-            // this.closeDialogWithData({ bookId: res });
           } else {
             console.warn("Cluster creation failed.");
           }
@@ -227,10 +193,9 @@ iconType=IconType;
       this.formIsValid = false;
       this.closeDialogWithData({ bookId: "formIsNotValid" });
     }
-   // console.log("formIsValid", this.formIsValid);
   }
 
   closeDialogWithData(data: any): void {
-    this.dialogRef.close(data); // מעבירה את הנתונים לקומפוננטת האבא
+    this.dialogRef.close(data);
   }
 }

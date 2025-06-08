@@ -23,11 +23,12 @@ color=TextColor;
 size=TextSize;
 buttonType=ButtonType;
 isVisible:boolean=true;
-show:boolean=false; // תנאי להצגה ב־HTML
+// show:boolean=false; // תנאי להצגה ב־HTML
 
 
 
 ngOnInit(){
+  console.log('ToastMessageComponent initialized with:', { type: this.type, heading: this.heading, content: this.content });
   
   switch(this.type){
     case 'success':
@@ -43,6 +44,7 @@ ngOnInit(){
       this.icon=IconType.TRIANGLE_EXCLAMATION_SOLID
       break;
   }
+  console.log('toast init:', { type: this.type, heading: this.heading, content: this.content });
 
   // this.#messageService.showMessage$.subscribe(data => {
   //   this.type = data.type;
