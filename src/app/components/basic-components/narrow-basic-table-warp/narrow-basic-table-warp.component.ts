@@ -32,19 +32,8 @@ export class NarrowBasicTableWarpComponent {
   tabData: any;
   @Input() subTitle: string = '';
   currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
-  Headers: { [key in AutoClusterTabType]?: { data: string; type: HeaderCellType }[] } = {};
-  Rows: {
-    [key in AutoClusterTabType]?: {
-      property: any;
-      showAction: boolean;
-      length: NarrowBasicTableRowLength;
-      cells: {
-        data: string;
-        type: DataCellType;
-        moreData?: { [key: string]: any };
-      }[];
-    }[];
-  } = {};
+  Headers: { [key in AutoClusterTabType]?: { data: string }[] } = {};
+  Rows: { [key in AutoClusterTabType]?: any[][] } = {};
 
   readonly TabToJSONKeyMap: { [key in AutoClusterTabType]: string } = {
     [AutoClusterTabType.SAPIR_CLUSTERS]: 'ClustersForSapir',
@@ -95,29 +84,6 @@ export class NarrowBasicTableWarpComponent {
       FilterNames.FILTER_BY_STATUS,
     ],
   };
-
-  // initializeFiltersForTab() {
-  //   const newFilters: FilterNames[] = [];
-
-  //   // Add filters based on conditions
-  //   newFilters.push(FilterNames.DATE_OF_REPORT); // Always include this filter
-
-  //   if (this.currentTab === this.autoClusterTabType.MISSING_FIELD) {
-  //     newFilters.push(FilterNames.DATE_OF_ASSIGNEE);
-  //     newFilters.push(FilterNames.FILTER_BY_ASSIGNEE);
-  //   }
-
-  //   if (this.currentTab === this.autoClusterTabType.APPROVAL_GROUPS) {
-  //     newFilters.push(FilterNames.FILTER_BY_STATUS);
-  //   }
-
-  //   if (this.currentTab === this.autoClusterTabType.ERROR_MESSAGES) {
-  //     newFilters.push(FilterNames.FILTER_BY_ASSIGNEE);
-  //   }
-
-  //   // Update the filters array for the current tab
-  //   this.filtersDictionary[this.currentTab] = newFilters;
-  // }
   tabs = [
     { text: AutoClusterTabType.SAPIR_CLUSTERS, status: true },
     { text: AutoClusterTabType.MISSING_FIELD, status: false },
@@ -127,56 +93,12 @@ export class NarrowBasicTableWarpComponent {
     { text: AutoClusterTabType.ERROR_MESSAGES, status: false },
   ];
 
-  readonly DBKeyToHeaderMap: { [key: string]: string } = {
-    clusterID: 'Cluster ID',
-    MissingField: 'Missing field',
-    dateOfReport: 'Date of report',
-    clustersIDs: 'Clusters ID',
-    errorMessage: 'Error message',
-    groupID: 'Group ID',
-    assigneeDate: 'Assignee date',
-    assignee: 'Assignee',
-    status: 'Status',
-    bookId: 'Book ID',
-    score: 'Score',
-    comments: 'Comments',
-    comment: 'Comment',
-  };
-  readonly HeaderToDBKeyMap: { [key: string]: string } = {
-    'Cluster ID': 'clusterID',
-    'Missing field': 'MissingField',
-    'Date of report': 'dateOfReport',
-    'Clusters ID': 'clustersIDs',
-    'Error message': 'errorMessage',
-    'Group ID': 'groupID',
-    'Assignee date': 'assigneeDate',
-    'Assignee': 'assignee',
-    'Status': 'status',
-    'Book ID': 'bookId',
-    'Score': 'score',
-    'Comments': 'comments',
-    'Comment': 'comment',
-  };
-
   ngOnInit() {
     this.clusterService.getAutoClusterData();
-    this.clusterService.autoClusterListSubject$.subscribe((data) => {
+    this.clusterService.getAutoClusterData().subscribe((data) => {
       this.tabData = data; // שמירת הנתונים ב-tabData
       this.loadDataForTab(); // טען את הנתונים לטבלה
     });
-  }
-
-  getDataCellTypeForHeader(header: string, headerType: HeaderCellType): DataCellType {
-    if (header === 'Status') return DataCellType.STATUS;
-    if (headerType === HeaderCellType.CHECK) return DataCellType.CHECK;
-    if (header === 'Button') return DataCellType.BUTTON;
-    if (header === 'Icon') return DataCellType.ICON;
-    return DataCellType.TEXT; // ברירת מחדל
-  }
-
-  getDataForCurrentTab(): any[] {
-    const jsonKey = this.TabToJSONKeyMap[this.currentTab];
-    return this.tabData?.[jsonKey] || [];
   }
 
   setActiveTab(tabText: AutoClusterTabType) {
@@ -187,88 +109,43 @@ export class NarrowBasicTableWarpComponent {
     }));
     this.currentTab = tabText;
     this.loadDataForTab();
-    // טען מחדש את הנתונים לטאב הנוכחי
   }
-
   loadDataForTab() {
     this.tabs?.forEach((tab) => {
       const jsonKey = this.TabToJSONKeyMap[tab.text]; // מיפוי הטאב למפתח המתאים
       const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
-
+  
       // יצירת Headers דינמיים
-      this.Headers[tab.text] = this.generateHeadersFromData(tabData, tab.text);
-
+      this.Headers[tab.text] = this.generateHeadersFromData(tabData);
+  
       // יצירת Rows דינמיים
-      this.Rows[tab.text] = tabData.map((item: any) => ({
-        property: item.property || null,
-        showAction: true,
-        length: NarrowBasicTableRowLength.LONG,
-        cells: this.generateCellsFromRow(item, this.Headers[tab.text], tab.text)
-      }));
+      this.Rows[tab.text] = this.generateCellsFromRow(tabData, this.Headers[tab.text]);
     });
   }
-  generateHeadersFromData(data: any[], tabType: AutoClusterTabType): { data: string; type: HeaderCellType }[] {
-    if (!data.length) return []; // אם אין נתונים, החזר מערך ריק
-
+  
+  generateHeadersFromData(data: any[]): { data: string }[] {
+    if (!data.length) return [{ data: 'CHECK' }]; // אם אין נתונים, החזר אובייקט עם 'CHECK'
+    
     const keys = Object.keys(data[0]); // קבלת המפתחות מהאובייקט הראשון
-    let headers: { data: string; type: HeaderCellType }[] = keys.map((key) => {
-
-      let headerType = HeaderCellType.TEXT; // ברירת מחדל
-
-      const headerName = this.DBKeyToHeaderMap[key] || key;
-
-      return { data: headerName, type: headerType };
+    let headers: { data: string }[] = keys.map((key) => {
+      return { data: key }; // החזר את המפתח ככותרת
     });
-    headers = [
-      { data: 'Check', type: HeaderCellType.CHECK }, // הוספת CHECK בתחילת המערך
-      ...headers, // שאר ההידרים
-    ];
-    // הוספת PLACEOLDER אחרי CHECK עבור ERRORMESSAGES
-    if (tabType === AutoClusterTabType.ERROR_MESSAGES) {
-      const placeHolderHeader = { data: 'Icon', type: HeaderCellType.PLACEOLDER };
-      headers = [headers[0], placeHolderHeader, ...headers.slice(1)];
-      // שמירה על האלמנט הראשון, הוספת PLACEOLDER, ושאר האלמנטים
-    } else if (tabType === AutoClusterTabType.APPROVAL_GROUPS || tabType === AutoClusterTabType.CHECKLIST_ITEMS) {
-      headers.push({ data: 'Button', type: HeaderCellType.PLACEOLDER });
-    }
-
+  
+    // הוסף אובייקט 'CHECK' בתחילת המערך
+    headers.unshift({ data: 'check' });
     return headers;
   }
-  generateCellsFromRow(row: any, headers: { data: string; type: HeaderCellType }[], tabType: AutoClusterTabType): { data: string; type: DataCellType; moreData?: { [key: string]: any } }[] {
-    let cells = headers.map((header) => {
-      const headerName = this.HeaderToDBKeyMap[header.data.toString()] || header.data; // קבלת שם העמודה מהמפה או השארת השם המקורי
-      const cellData = row[headerName] || ''; // קבלת הנתונים מהשורה
-      const dataCellType = this.getDataCellTypeForHeader(header.data, header.type); // קביעת סוג התא
-      const moreData = this.getMoreDataForCell(dataCellType, cellData);
-
-      return { data: cellData, type: dataCellType, moreData };
-
+  
+  generateCellsFromRow(data: any[], headers: { data: string }[]): any[][] {
+    return data.map((row) => {
+      return headers.map((header) => {
+        return row[header.data] || ''; // קבלת הנתון מהשורה לפי הכותרת
+      });
     });
-    return cells;
   }
+  
+  
 
-  getMoreDataForCell(dataCellType: DataCellType, cellData: any): { [key: string]: any } {
-    switch (dataCellType) {
-      case DataCellType.STATUS:
-        return { property: BadgeType.TODO };
-      case DataCellType.CHECK:
-        return { type: this.checkType.UNCHECKED, state: this.checkStateType.ENABLED };
-      case DataCellType.ICON:
-        return {
-          icon: IconType.CHEVRON_DOWN,
-          property: IconButtonLargeType.DEFAULT
-        };
-      case DataCellType.BUTTON:
-        return {
-          text: 'open',
-          buttonType: ButtonType.SECONDARY,
-          isBig: false,
-          iconType: IconType.NOTHING
-        };
-      default:
-        return {};
-    }
-  }
 }
 
 

@@ -14,8 +14,8 @@ import { ClusterService } from 'src/app/services/cluster.service';
 export class NarrowBasicTableRowComponent {
   @Input() property: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
   @Input() length : NarrowBasicTableRowLength;
-  @Input()  currentTab : AutoClusterTabType;
-  @Input() formgroup: FormGroup;
+  @Input() currentTab : AutoClusterTabType;
+  @Input() rowGroup: FormGroup;
   @Input() prefCodeStatus: boolean=false;
   @Output() bookIdToDelet= new EventEmitter<string>();
 
@@ -24,16 +24,21 @@ export class NarrowBasicTableRowComponent {
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
 autoClusterTabType=AutoClusterTabType
-ngOnInit(): void {
-  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //Add 'implements OnInit' to the class.
-this.formgroup.valueChanges.subscribe((value) => {
-  console.log('Form value changed:', value);
-  
-})
+
+rowGroupControls: { name: string; control: FormControl }[] = [];
+
+ngOnInit() {
+  this.rowGroupControls = Object.entries(this.rowGroup.controls).map(([name, control]) => {
+    return { name, control: control as FormControl }; // שמירת השם והקונטרול
+});
+  this.rowGroup.valueChanges.subscribe((value) => {
+    console.log('Form value changed:', value);
+  })
 }
+
+
   onIconDeletClick() {
-    const cellControl = this.formgroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי
+    const cellControl = this.rowGroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי
     const cellData = cellControl?.value?.data;
 
     if (typeof cellData === 'string') {
@@ -43,10 +48,6 @@ this.formgroup.valueChanges.subscribe((value) => {
     }
   }
 
-  get controls(): { [key: string]: FormControl } {
-    return this.formgroup.controls as { [key: string]: FormControl };
-  }
-  getFormControls(formgroup: FormGroup): { key: string; value: AbstractControl }[] {
-    return Object.entries(formgroup.controls).map(([key, value]) => ({ key, value }));
-  }
+
+
 }

@@ -14,7 +14,7 @@ import { ClusterService } from 'src/app/services/cluster.service';
 })
 export class ExpandableComponent {
  @Input() property: NarrowBasicTableRowExpandState = NarrowBasicTableRowExpandState.CLOSE
-  @Input() formgroup: FormGroup;
+  @Input() rowGroup: FormGroup;
   @Input() length : NarrowBasicTableRowLength;
   #clusterService=inject(ClusterService)
   currentUserRole = this.#clusterService.currentUser.role;
@@ -24,13 +24,13 @@ export class ExpandableComponent {
   openExpand(){
     this.showExpand = !this.showExpand;
     this.property = NarrowBasicTableRowExpandState.OPEN
-   console.log(this.formgroup);
+   console.log(this.rowGroup);
    
   }
   get controls(): { [key: string]: FormControl } {
-    return this.formgroup.controls as { [key: string]: FormControl };
+    return this.rowGroup.controls as { [key: string]: FormControl };
   }
-  getFormControls(formgroup: FormGroup): { key: string; value: AbstractControl }[] {
-    return Object.entries(formgroup.controls).map(([key, value]) => ({ key, value }));
+  getFormControls(rowGroup: FormGroup): { key: string; value: AbstractControl }[] {
+    return Object.entries(rowGroup.controls).map(([key, value]) => ({ key, value }));
   }
 }

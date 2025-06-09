@@ -1,8 +1,8 @@
 <div [ngClass]="[type,'header-cell']">
-    @if(header === 'Last Name'){
+    @if(data === 'Last Name'){
     <div class="pie-icon">
         <i class="fa-solid fa-chart-simple chart-icon"  (click)="openPeiComponent()"></i>
-        {{ header }}
+        {{ data }}
     </div>
     }
     @if(type === headerCellType.PLACEOLDER){
@@ -21,12 +21,9 @@
     </div>
     }
     @if(type === headerCellType.CHECK){
-    <!-- <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED
-        (checkStatus)="checkChange($event)"
-        [checkedControl]="headerCheckboxControl"
-        ></yv-cluster-check> -->
+    <yv-cluster-check></yv-cluster-check>
     }
     @else{
-        {{header}}
+        {{data}}
         }
 </div>

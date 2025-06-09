@@ -1,6 +1,4 @@
 <input
   type="checkbox"
-  [checked]="isChecked"
-  [disabled]="state === checkStateType.DISABLED"
-  (change)="onCheckboxChange($event)"
+  [checked]="value"
   (blur)="onTouched()" />

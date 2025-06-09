@@ -13,7 +13,7 @@ import { FormControl } from '@angular/forms';
   styleUrl: './header-cells.component.scss'
 })
 export class HeaderCellsComponent {
-  @Input() header: string;
+  @Input() data: string;
   @Input() type: HeaderCellType;
   @Input() headerCheckboxControl: FormControl;
 
@@ -24,6 +24,20 @@ export class HeaderCellsComponent {
   headerCellType = HeaderCellType;
   checkType = CheckType
   checkStateType = CheckStateType
+
+  ngOnInit() {
+    switch(this.data){
+      case 'check':
+        this.type = HeaderCellType.CHECK;
+        break;
+      case '':
+        this.type = HeaderCellType.PLACEOLDER;
+        break;
+      default:
+        this.type = HeaderCellType.TEXT;
+    }
+
+  }
   sortBy(column: string) {
     if (this.type === 'order' || this.type === HeaderCellType.ORDERDOWN) {
       const direction = this.type === 'order' ? 'asc' : 'desc';

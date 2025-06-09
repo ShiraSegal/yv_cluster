@@ -2524,889 +2524,1016 @@
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "25/03/2023",
-      "assigneeDate": "18/08/2020"
+      "assigneeDate": "18/08/2020",
+      "score": 4
     },
     {
       "groupID": 103453,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "1/06/2020",
-      "assigneeDate": "18/06/2021"
+      "assigneeDate": "18/06/2021",
+      "score": 4
     },
     {
       "groupID": 103456,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "2/07/2023",
-      "assigneeDate": "29/03/2022"
+      "assigneeDate": "29/03/2022",
+      "score": 5
     },
     {
       "groupID": 103458,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "25/05/2023",
-      "assigneeDate": "21/07/2022"
+      "assigneeDate": "21/07/2022",
+      "score": 2
     },
     {
       "groupID": 103459,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "15/05/2024",
-      "assigneeDate": "24/04/2025"
+      "assigneeDate": "24/04/2025",
+      "score": 5
     },
     {
       "groupID": 103462,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "24/08/2022",
-      "assigneeDate": "31/01/2022"
+      "assigneeDate": "31/01/2022",
+      "score": 4
     },
     {
       "groupID": 103466,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "24/04/2023",
-      "assigneeDate": "3/01/2023"
+      "assigneeDate": "3/01/2023",
+      "score": 2
     },
     {
       "groupID": 103467,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "16/09/2021",
-      "assigneeDate": "14/08/2021"
+      "assigneeDate": "14/08/2021",
+      "score": 2
     },
     {
       "groupID": 103469,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "13/04/2021",
-      "assigneeDate": "30/01/2021"
+      "assigneeDate": "30/01/2021",
+      "score": 2
     },
     {
       "groupID": 103473,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "2/06/2024",
-      "assigneeDate": "29/03/2023"
+      "assigneeDate": "29/03/2023",
+      "score": 3
     },
     {
       "groupID": 103474,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "26/03/2025",
-      "assigneeDate": "14/01/2025"
+      "assigneeDate": "14/01/2025",
+      "score": 5
     },
     {
       "groupID": 103477,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "11/02/2025",
-      "assigneeDate": "30/12/2020"
+      "assigneeDate": "30/12/2020",
+      "score": 2
     },
     {
       "groupID": 103478,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "11/11/2023",
-      "assigneeDate": "14/09/2021"
+      "assigneeDate": "14/09/2021",
+      "score": 3
     },
     {
       "groupID": 103480,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "8/07/2020",
-      "assigneeDate": "26/08/2020"
+      "assigneeDate": "26/08/2020",
+      "score": 4
     },
     {
       "groupID": 103483,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "20/05/2025",
-      "assigneeDate": "15/12/2024"
+      "assigneeDate": "15/12/2024",
+      "score": 1
     },
     {
       "groupID": 103423,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "2/07/2023",
-      "assigneeDate": "30/08/2020"
+      "assigneeDate": "30/08/2020",
+      "score": 2
     },
     {
       "groupID": 103486,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "16/01/2024",
-      "assigneeDate": "5/06/2021"
+      "assigneeDate": "5/06/2021",
+      "score": 5
     },
     {
       "groupID": 103491,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "23/10/2020",
-      "assigneeDate": "23/08/2022"
+      "assigneeDate": "23/08/2022",
+      "score": 3
     },
     {
       "groupID": 103494,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "18/08/2020",
-      "assigneeDate": "3/03/2025"
+      "assigneeDate": "3/03/2025",
+      "score": 5
     },
     {
       "groupID": 103495,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "28/12/2023",
-      "assigneeDate": "21/12/2024"
+      "assigneeDate": "21/12/2024",
+      "score": 2
     },
     {
       "groupID": 103501,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "15/07/2022",
-      "assigneeDate": "10/02/2025"
+      "assigneeDate": "10/02/2025",
+      "score": 1
     },
     {
       "groupID": 103503,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "25/07/2020",
-      "assigneeDate": "29/04/2023"
+      "assigneeDate": "29/04/2023",
+      "score": 1
     },
     {
       "groupID": 103506,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "2/04/2023",
-      "assigneeDate": "15/11/2023"
+      "assigneeDate": "15/11/2023",
+      "score": 4
     },
     {
       "groupID": 103508,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "7/04/2025",
-      "assigneeDate": "23/06/2021"
+      "assigneeDate": "23/06/2021",
+      "score": 3
     },
     {
       "groupID": 103511,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "26/04/2025",
-      "assigneeDate": "20/07/2021"
+      "assigneeDate": "20/07/2021",
+      "score": 2
     },
     {
       "groupID": 103515,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "25/12/2023",
-      "assigneeDate": "8/08/2020"
+      "assigneeDate": "8/08/2020",
+      "score": 1
     },
     {
       "groupID": 103516,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "18/02/2023",
-      "assigneeDate": "13/01/2024"
+      "assigneeDate": "13/01/2024",
+      "score": 1
     },
     {
       "groupID": 103519,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "24/06/2023",
-      "assigneeDate": "14/03/2024"
+      "assigneeDate": "14/03/2024",
+      "score": 2
     },
     {
       "groupID": 103521,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "22/05/2023",
-      "assigneeDate": "18/04/2020"
+      "assigneeDate": "18/04/2020",
+      "score": 5
     },
     {
       "groupID": 103523,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "30/06/2022",
-      "assigneeDate": "17/04/2025"
+      "assigneeDate": "17/04/2025",
+      "score": 2
     },
     {
       "groupID": 103526,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "8/08/2021",
-      "assigneeDate": "31/10/2021"
+      "assigneeDate": "31/10/2021",
+      "score": 2
     },
     {
       "groupID": 103528,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "4/05/2025",
-      "assigneeDate": "10/06/2024"
+      "assigneeDate": "10/06/2024",
+      "score": 3
     },
     {
       "groupID": 103531,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "26/09/2020",
-      "assigneeDate": "18/12/2020"
+      "assigneeDate": "18/12/2020",
+      "score": 4
     },
     {
       "groupID": 103534,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "31/10/2023",
-      "assigneeDate": "17/07/2023"
+      "assigneeDate": "17/07/2023",
+      "score": 5
     },
     {
       "groupID": 103536,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "23/01/2020",
-      "assigneeDate": "22/06/2022"
+      "assigneeDate": "22/06/2022",
+      "score": 1
     },
     {
       "groupID": 103537,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "19/05/2022",
-      "assigneeDate": "16/12/2022"
+      "assigneeDate": "16/12/2022",
+      "score": 3
     },
     {
       "groupID": 103539,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "5/01/2023",
-      "assigneeDate": "22/08/2020"
+      "assigneeDate": "22/08/2020",
+      "score": 1
     },
     {
       "groupID": 103540,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "6/02/2025",
-      "assigneeDate": "2/02/2023"
+      "assigneeDate": "2/02/2023",
+      "score": 2
     },
     {
       "groupID": 103541,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "2/07/2023",
-      "assigneeDate": "12/07/2020"
+      "assigneeDate": "12/07/2020",
+      "score": 2
     },
     {
       "groupID": 103543,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "1/10/2023",
-      "assigneeDate": "29/06/2021"
+      "assigneeDate": "29/06/2021",
+      "score": 4
     },
     {
       "groupID": 103545,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "25/01/2023",
-      "assigneeDate": "12/09/2021"
+      "assigneeDate": "12/09/2021",
+      "score": 5
     },
     {
       "groupID": 103546,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "20/08/2022",
-      "assigneeDate": "21/03/2023"
+      "assigneeDate": "21/03/2023",
+      "score": 1
     },
     {
       "groupID": 103547,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "12/07/2021",
-      "assigneeDate": "3/05/2020"
+      "assigneeDate": "3/05/2020",
+      "score": 2
     },
     {
       "groupID": 100595,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "24/12/2023",
-      "assigneeDate": "10/01/2024"
+      "assigneeDate": "10/01/2024",
+      "score": 2
     },
     {
       "groupID": 103551,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "4/06/2020",
-      "assigneeDate": "14/12/2021"
+      "assigneeDate": "14/12/2021",
+      "score": 1
     },
     {
       "groupID": 103553,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "11/11/2022",
-      "assigneeDate": "11/07/2023"
+      "assigneeDate": "11/07/2023",
+      "score": 5
     },
     {
       "groupID": 103556,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "5/05/2020",
-      "assigneeDate": "17/11/2023"
+      "assigneeDate": "17/11/2023",
+      "score": 3
     },
     {
       "groupID": 103557,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "20/06/2024",
-      "assigneeDate": "22/01/2023"
+      "assigneeDate": "22/01/2023",
+      "score": 3
     },
     {
       "groupID": 103558,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "30/04/2022",
-      "assigneeDate": "13/01/2025"
+      "assigneeDate": "13/01/2025",
+      "score": 2
     },
     {
       "groupID": 103559,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "17/07/2020",
-      "assigneeDate": "19/11/2022"
+      "assigneeDate": "19/11/2022",
+      "score": 3
     },
     {
       "groupID": 103561,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "8/07/2022",
-      "assigneeDate": "26/02/2024"
+      "assigneeDate": "26/02/2024",
+      "score": 2
     },
     {
       "groupID": 103563,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "31/08/2022",
-      "assigneeDate": "10/07/2020"
+      "assigneeDate": "10/07/2020",
+      "score": 1
     },
     {
       "groupID": 103566,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "10/04/2022",
-      "assigneeDate": "11/06/2021"
+      "assigneeDate": "11/06/2021",
+      "score": 1
     },
     {
       "groupID": 103567,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "15/12/2024",
-      "assigneeDate": "6/12/2020"
+      "assigneeDate": "6/12/2020",
+      "score": 3
     },
     {
       "groupID": 101719,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "15/06/2024",
-      "assigneeDate": "27/03/2025"
+      "assigneeDate": "27/03/2025",
+      "score": 3
     },
     {
       "groupID": 103571,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "30/12/2021",
-      "assigneeDate": "11/12/2021"
+      "assigneeDate": "11/12/2021",
+      "score": 5
     },
     {
       "groupID": 103572,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "15/05/2023",
-      "assigneeDate": "10/01/2025"
+      "assigneeDate": "10/01/2025",
+      "score": 4
     },
     {
       "groupID": 103573,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "22/05/2023",
-      "assigneeDate": "11/03/2022"
+      "assigneeDate": "11/03/2022",
+      "score": 5
     },
     {
       "groupID": 103579,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "26/09/2022",
-      "assigneeDate": "14/08/2024"
+      "assigneeDate": "14/08/2024",
+      "score": 5
     },
     {
       "groupID": 103582,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "15/12/2022",
-      "assigneeDate": "13/02/2024"
+      "assigneeDate": "13/02/2024",
+      "score": 5
     },
     {
       "groupID": 103588,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "14/05/2025",
-      "assigneeDate": "7/08/2023"
+      "assigneeDate": "7/08/2023",
+      "score": 1
     },
     {
       "groupID": 103591,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "25/06/2024",
-      "assigneeDate": "22/10/2021"
+      "assigneeDate": "22/10/2021",
+      "score": 3
     },
     {
       "groupID": 103593,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "11/03/2023",
-      "assigneeDate": "29/10/2022"
+      "assigneeDate": "29/10/2022",
+      "score": 4
     },
     {
       "groupID": 103598,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "18/11/2023",
-      "assigneeDate": "5/09/2022"
+      "assigneeDate": "5/09/2022",
+      "score": 2
     },
     {
       "groupID": 103599,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "16/12/2020",
-      "assigneeDate": "22/06/2023"
+      "assigneeDate": "22/06/2023",
+      "score": 5
     },
     {
       "groupID": 103600,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "21/10/2022",
-      "assigneeDate": "22/11/2024"
+      "assigneeDate": "22/11/2024",
+      "score": 1
     },
     {
       "groupID": 103603,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "29/06/2021",
-      "assigneeDate": "24/10/2023"
+      "assigneeDate": "24/10/2023",
+      "score": 4
     },
     {
       "groupID": 103608,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "25/05/2021",
-      "assigneeDate": "25/03/2025"
+      "assigneeDate": "25/03/2025",
+      "score": 4
     },
     {
       "groupID": 103610,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "22/11/2023",
-      "assigneeDate": "7/02/2023"
+      "assigneeDate": "7/02/2023",
+      "score": 3
     },
     {
       "groupID": 103611,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "6/06/2022",
-      "assigneeDate": "8/02/2025"
+      "assigneeDate": "8/02/2025",
+      "score": 5
     },
     {
       "groupID": 103612,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "24/09/2023",
-      "assigneeDate": "30/10/2020"
+      "assigneeDate": "30/10/2020",
+      "score": 3
     },
     {
       "groupID": 102491,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "25/07/2023",
-      "assigneeDate": "12/11/2021"
+      "assigneeDate": "12/11/2021",
+      "score": 3
     },
     {
       "groupID": 103615,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "5/08/2022",
-      "assigneeDate": "7/12/2021"
+      "assigneeDate": "7/12/2021",
+      "score": 4
     },
     {
       "groupID": 103616,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "16/07/2024",
-      "assigneeDate": "8/04/2020"
+      "assigneeDate": "8/04/2020",
+      "score": 5
     },
     {
       "groupID": 103618,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "28/11/2021",
-      "assigneeDate": "2/07/2022"
+      "assigneeDate": "2/07/2022",
+      "score": 3
     },
     {
       "groupID": 103621,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "2/05/2023",
-      "assigneeDate": "9/11/2022"
+      "assigneeDate": "9/11/2022",
+      "score": 3
     },
     {
       "groupID": 103623,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "30/07/2022",
-      "assigneeDate": "14/08/2021"
+      "assigneeDate": "14/08/2021",
+      "score": 3
     },
     {
       "groupID": 103627,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "3/01/2022",
-      "assigneeDate": "17/11/2020"
+      "assigneeDate": "17/11/2020",
+      "score": 1
     },
     {
       "groupID": 103628,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "24/08/2020",
-      "assigneeDate": "7/01/2023"
+      "assigneeDate": "7/01/2023",
+      "score": 2
     },
     {
       "groupID": 103630,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "10/05/2023",
-      "assigneeDate": "23/01/2024"
+      "assigneeDate": "23/01/2024",
+      "score": 5
     },
     {
       "groupID": 103631,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "6/10/2021",
-      "assigneeDate": "26/06/2024"
+      "assigneeDate": "26/06/2024",
+      "score": 2
     },
     {
       "groupID": 103632,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "10/06/2021",
-      "assigneeDate": "6/10/2021"
+      "assigneeDate": "6/10/2021",
+      "score": 3
     },
     {
       "groupID": 103635,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "23/12/2023",
-      "assigneeDate": "1/07/2021"
+      "assigneeDate": "1/07/2021",
+      "score": 1
     },
     {
       "groupID": 103636,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "24/10/2021",
-      "assigneeDate": "23/04/2024"
+      "assigneeDate": "23/04/2024",
+      "score": 2
     },
     {
       "groupID": 103639,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "22/03/2024",
-      "assigneeDate": "24/08/2020"
+      "assigneeDate": "24/08/2020",
+      "score": 4
     },
     {
       "groupID": 103640,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "30/04/2024",
-      "assigneeDate": "3/11/2022"
+      "assigneeDate": "3/11/2022",
+      "score": 2
     },
     {
       "groupID": 103642,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "21/02/2025",
-      "assigneeDate": "1/06/2023"
+      "assigneeDate": "1/06/2023",
+      "score": 2
     },
     {
       "groupID": 103645,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "24/12/2022",
-      "assigneeDate": "11/03/2020"
+      "assigneeDate": "11/03/2020",
+      "score": 5
     },
     {
       "groupID": 103646,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "24/12/2022",
-      "assigneeDate": "18/05/2021"
+      "assigneeDate": "18/05/2021",
+      "score": 5
     },
     {
       "groupID": 103648,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "20/05/2023",
-      "assigneeDate": "26/11/2023"
+      "assigneeDate": "26/11/2023",
+      "score": 4
     },
     {
       "groupID": 103650,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "20/08/2021",
-      "assigneeDate": "26/04/2020"
+      "assigneeDate": "26/04/2020",
+      "score": 1
     },
     {
       "groupID": 103651,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "5/04/2024",
-      "assigneeDate": "12/02/2024"
+      "assigneeDate": "12/02/2024",
+      "score": 2
     },
     {
       "groupID": 103654,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "19/11/2022",
-      "assigneeDate": "25/06/2024"
+      "assigneeDate": "25/06/2024",
+      "score": 2
     },
     {
       "groupID": 103658,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "12/04/2022",
-      "assigneeDate": "4/02/2024"
+      "assigneeDate": "4/02/2024",
+      "score": 4
     },
     {
       "groupID": 103660,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "18/04/2023",
-      "assigneeDate": "8/04/2020"
+      "assigneeDate": "8/04/2020",
+      "score": 4
     },
     {
       "groupID": 103662,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "21/06/2021",
-      "assigneeDate": "7/08/2021"
+      "assigneeDate": "7/08/2021",
+      "score": 2
     },
     {
       "groupID": 103663,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "2/11/2023",
-      "assigneeDate": "5/01/2021"
+      "assigneeDate": "5/01/2021",
+      "score": 4
     },
     {
       "groupID": 103664,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "4/06/2024",
-      "assigneeDate": "28/07/2020"
+      "assigneeDate": "28/07/2020",
+      "score": 4
     },
     {
       "groupID": 103666,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "1/10/2023",
-      "assigneeDate": "25/12/2022"
+      "assigneeDate": "25/12/2022",
+      "score": 1
     },
     {
       "groupID": 103669,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "3/01/2023",
-      "assigneeDate": "30/01/2020"
+      "assigneeDate": "30/01/2020",
+      "score": 4
     },
     {
       "groupID": 103670,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "11/03/2023",
-      "assigneeDate": "25/09/2020"
+      "assigneeDate": "25/09/2020",
+      "score": 3
     },
     {
       "groupID": 103671,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "18/12/2020",
-      "assigneeDate": "2/04/2020"
+      "assigneeDate": "2/04/2020",
+      "score": 1
     },
     {
       "groupID": 103672,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "16/10/2023",
-      "assigneeDate": "21/06/2020"
+      "assigneeDate": "21/06/2020",
+      "score": 2
     },
     {
       "groupID": 103673,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "5/08/2021",
-      "assigneeDate": "14/12/2021"
+      "assigneeDate": "14/12/2021",
+      "score": 2
     },
     {
       "groupID": 103674,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "23/02/2024",
-      "assigneeDate": "19/12/2023"
+      "assigneeDate": "19/12/2023",
+      "score": 2
     },
     {
       "groupID": 103676,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "10/07/2024",
-      "assigneeDate": "18/09/2023"
+      "assigneeDate": "18/09/2023",
+      "score": 2
     },
     {
       "groupID": 103679,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "5/04/2024",
-      "assigneeDate": "21/12/2022"
+      "assigneeDate": "21/12/2022",
+      "score": 5
     },
     {
       "groupID": 103680,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "19/09/2020",
-      "assigneeDate": "12/09/2020"
+      "assigneeDate": "12/09/2020",
+      "score": 4
     },
     {
       "groupID": 103686,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "18/06/2024",
-      "assigneeDate": "18/01/2022"
+      "assigneeDate": "18/01/2022",
+      "score": 3
     },
     {
       "groupID": 103690,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "21/11/2021",
-      "assigneeDate": "14/10/2023"
+      "assigneeDate": "14/10/2023",
+      "score": 5
     },
     {
       "groupID": 103691,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "3/05/2021",
-      "assigneeDate": "14/03/2022"
+      "assigneeDate": "14/03/2022",
+      "score": 4
     },
     {
       "groupID": 103693,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "29/06/2020",
-      "assigneeDate": "21/09/2021"
+      "assigneeDate": "21/09/2021",
+      "score": 3
     },
     {
       "groupID": 103694,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "30/09/2021",
-      "assigneeDate": "26/06/2021"
+      "assigneeDate": "26/06/2021",
+      "score": 5
     },
     {
       "groupID": 103696,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "18/07/2022",
-      "assigneeDate": "21/07/2020"
+      "assigneeDate": "21/07/2020",
+      "score": 4
     },
     {
       "groupID": 103698,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "1/10/2022",
-      "assigneeDate": "14/11/2024"
+      "assigneeDate": "14/11/2024",
+      "score": 3
     },
     {
       "groupID": 103699,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "13/08/2021",
-      "assigneeDate": "5/05/2022"
+      "assigneeDate": "5/05/2022",
+      "score": 5
     },
     {
       "groupID": 103701,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "4/07/2023",
-      "assigneeDate": "21/05/2020"
+      "assigneeDate": "21/05/2020",
+      "score": 1
     },
     {
       "groupID": 103704,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "7/06/2021",
-      "assigneeDate": "3/04/2020"
+      "assigneeDate": "3/04/2020",
+      "score": 4
     },
     {
       "groupID": 103706,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "28/07/2024",
-      "assigneeDate": "25/11/2022"
+      "assigneeDate": "25/11/2022",
+      "score": 4
     },
     {
       "groupID": 103714,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "2/04/2024",
-      "assigneeDate": "1/01/2022"
+      "assigneeDate": "1/01/2022",
+      "score": 5
     },
     {
       "groupID": 103716,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "17/01/2025",
-      "assigneeDate": "21/05/2022"
+      "assigneeDate": "21/05/2022",
+      "score": 2
     },
     {
       "groupID": 103719,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "15/04/2025",
-      "assigneeDate": "17/06/2022"
+      "assigneeDate": "17/06/2022",
+      "score": 3
     },
     {
       "groupID": 103720,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "30/01/2022",
-      "assigneeDate": "15/05/2021"
+      "assigneeDate": "15/05/2021",
+      "score": 2
     },
     {
       "groupID": 103722,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "24/06/2021",
-      "assigneeDate": "21/02/2022"
+      "assigneeDate": "21/02/2022",
+      "score": 3
     },
     {
       "groupID": 103725,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "30/07/2022",
-      "assigneeDate": "25/05/2024"
+      "assigneeDate": "25/05/2024",
+      "score": 5
     },
     {
       "groupID": 103119,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "30/07/2020",
-      "assigneeDate": "24/12/2023"
+      "assigneeDate": "24/12/2023",
+      "score": 1
     },
     {
       "groupID": 103726,
       "status": "To Do",
       "assignee": "Unassigned",
       "dateOfReport": "11/02/2021",
-      "assigneeDate": "28/01/2023"
+      "assigneeDate": "28/01/2023",
+      "score": 1
     }
   ],
   "GroupsWithDifferentClusters": [

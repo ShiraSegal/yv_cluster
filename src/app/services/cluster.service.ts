@@ -69,26 +69,19 @@ export class ClusterService
     );
   }
 
-  async getAutoClusterData() {
-    try {
-      const res = (await this.#clusterApiService.getAutoClusterData())
-        .pipe(
-          take(1),
-          tap((data: any) => {
-           // console.log('Fetched data:', data); // בדיקה שהנתונים מגיעים
-            this.autoClusterListSubject$.next(data); // שמירת הנתונים ב-BehaviorSubject
-          }),
-          catchError(err => {
-            console.error('Error fetching auto cluster data:', err);
-            return of([]);
-          })
-        );
-      return res.toPromise();
-    } catch (error) {
-      console.error('Error in getAutoClusterData:', error);
-      return [];
-    }
+  getAutoClusterData(): Observable<string[]> {
+    return this.#clusterApiService.getAutoClusterData().pipe(
+      take(1),
+      catchError(err => {
+        console.error('Error fetching auto cluster data:', err);
+        return of([]); // החזר מערך ריק במקרה של שגיאה
+      })
+    );
   }
+  
+  
+  
+  
 
   get isLoading$() {
     return this.isLoadingBehaviorSubject$.asObservable();

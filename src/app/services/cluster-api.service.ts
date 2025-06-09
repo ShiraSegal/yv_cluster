@@ -15,10 +15,10 @@ export class ClusterApiService {
   #http = inject(HttpClient);
   apiUrl = 'assets/json-data';
   
-  async getAutoClusterData() {
-    return this.#http.get<string[]>(`${this.apiUrl}/getAutoCluster.json`);
+  getAutoClusterData() : Observable<any> {
+    return this.#http.get(`${this.apiUrl}/getAutoCluster.json`);
   }
-  
+
   getCreateClusterData() {
     return this.#http.get<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`);
   }

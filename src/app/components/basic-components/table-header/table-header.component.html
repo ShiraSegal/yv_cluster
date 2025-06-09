@@ -1,35 +1,13 @@
 <div [ngClass]="['table-header', length]">
     @for (header of headers ; track header)
       {
-        @if(currentUserRole === "manager" && header.data === "Assignee"){
-        <div class="cell" [ngClass]="header.type">
-          <yv-cluster-header-cells [header]="header.data" [type]="header.type" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"></yv-cluster-header-cells>
-      </div>
-      }
-      @if(header.data !== "Assignee"){
-        <div class="cell" [ngClass]="header.type">
-          <yv-cluster-header-cells [header]="header.data" [type]="header.type" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
-          [headerCheckboxControl]="headerCheckboxControl"
-          ></yv-cluster-header-cells>
-      </div>
-      }
+        @if(currentUserRole === "manager" && header.data === "assignee"){} 
+        @else { 
+          <div class="cell" [ngClass]="header.data">
+            <yv-cluster-header-cells [data]="header.data" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
+            [headerCheckboxControl]="headerCheckboxControl"
+            ></yv-cluster-header-cells>
+        </div>
+        } 
     }
 </div>
-<!-- 
-<div class="table-header" [ngClass]="length">
-  @for (header of headers ; track header)
-    {
-      @if(currentUserRole === "manager" && header.data === "Assignee"){
-      <div class="regular-cell">
-        <yv-cluster-header-cells [header]="header.data" [type]="header.type" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"></yv-cluster-header-cells>
-    </div>
-    }
-    @if(header.data !== "Assignee"){
-      <div [ngClass]="{'special-cell': header.type === headerCellType.CHECK || header.type === headerCellType.MORE || header.type === headerCellType.PLACEOLDER, 'regular-cell': header.type !== headerCellType.CHECK && header.type !== headerCellType.MORE && header.type !== headerCellType.PLACEOLDER}">
-        <yv-cluster-header-cells [header]="header.data" [type]="header.type" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
-        [headerCheckboxControl]="headerCheckboxControl"
-        ></yv-cluster-header-cells>
-    </div>
-    }
-  }
-</div>  -->

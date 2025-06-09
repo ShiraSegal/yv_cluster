@@ -1,6 +1,6 @@
 <div class="expandable">
-    <div class="narrow-basic-table-row-expandable" [ngClass]="property" [formGroup]="formgroup" [ngClass]="length">
-        @for (cell of getFormControls(formgroup); let i = $index ;track i) {
+    <div class="narrow-basic-table-row-expandable" [ngClass]="property" [formGroup]="rowGroup" [ngClass]="length">
+        @for (cell of getFormControls(rowGroup); let i = $index ;track i) {
         @if(currentUserRole === "manager" && cell.value.value.type === dataCellType.ASSIGNEE){
         <div class="cell" [ngClass]="cell.value.value.type">
             <yv-cluster-data-cells [data]="cell.value.value.data" [type]="cell.value.value.type"

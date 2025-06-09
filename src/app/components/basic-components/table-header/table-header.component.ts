@@ -14,7 +14,7 @@ import { ClusterService } from 'src/app/services/cluster.service';
   styleUrl: './table-header.component.scss'
 })
 export class TableHeaderComponent {
-@Input() headers: { data: string; type: HeaderCellType }[] = [];
+@Input() headers: { data: string }[] = [];
 @Input() length : NarrowBasicTableRowLength;
 @Output() checkStatus= new EventEmitter<CheckType>();
 @Output() openDialog= new EventEmitter<boolean>();
@@ -23,17 +23,14 @@ export class TableHeaderComponent {
  #clusterService=inject(ClusterService)
 currentUserRole = this.#clusterService.currentUser.role;
 
-
-
-
 //injections
 headerCellType =   HeaderCellType
 
 //functions
+
 checkChange(checkStatus:CheckType) {
   this.checkStatus.emit(checkStatus);
  // console.log(" table header check status", checkStatus)
-
 }
 openPeiComponent(){
  // console.log("openPeiComponent");

@@ -1,3 +1,35 @@
- <yv-cluster-check
-      formControlName="control">
-    </yv-cluster-check>
+<form [formGroup]="formGroup">
+    @switch (type) {
+        @case (dataCellType.CHECK) {
+          Case A.
+        }
+        @case (dataCellType.ASSIGNEE) {
+          Case B.
+        }
+        @case (dataCellType.STATUS) {
+            Case A.
+          }
+          @case (dataCellType.SLIDER) {
+            Case B.
+          }
+          @case (dataCellType.BUTTON) {
+            Case A.
+          }
+          @case (dataCellType.SLIDER) {
+            Case B.
+          }
+          @case (dataCellType.MORE) {
+            Case A.
+          }
+          @case (dataCellType.LINK) {
+            Case B.
+          }
+          @case (dataCellType.PLACEOLDER) {
+            Case B.
+          }
+        @default {
+          Default case.
+        }
+      }
+
+</form>

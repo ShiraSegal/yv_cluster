@@ -9,7 +9,7 @@ import { SliderComponent } from '../slider/slider.component';
 import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { CheckType } from 'src/app/enums/check-enum';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'yv-cluster-data-cells',
@@ -37,11 +37,13 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 export class DataCellsComponent<T extends DataCellType> {
   // variables
-  @Input() type: T;
+  @Input() type: any;
+  @Input() typeText:string
   @Input() data: DataCellValue<T>;
   @Input() moreData: { [key: string]: any }; // אובייקט לפרמטרים נוספים
   @Input() control: FormControl;
-  @Input() prefCodeStatus: boolean=false;
+  @Input() prefCodeStatus: boolean = false;
+  @Input() formGroup: FormGroup;
 
   @Output() checkStatus = new EventEmitter<CheckType>();
   @Output() iconClick = new EventEmitter<void>();
@@ -56,15 +58,41 @@ export class DataCellsComponent<T extends DataCellType> {
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
   checkType = CheckType;
-rihgtLink(){
- if (this.moreData!==null &&typeof this.moreData['linkHRef'] === "string" && this.moreData['linkHRef'].includes('collections.yadvashem.org/en/names/')) {
-      this.hRef=this.moreData['linkHRef'] +this.data;
+  ngOnInit() {
+    switch (this.typeText) {
+      case 'check':
+        this.type = DataCellType.CHECK;
+        break;
+      case 'buttom':
+        this.type = DataCellType.BUTTON;
+        break;
+      case 'assignee':
+        this.type = DataCellType.ASSIGNEE;
+        break;
+      case 'status':
+        this.type = DataCellType.STATUS;
+        break;
+      case '':
+        this.type = DataCellType.PLACEOLDER;
+        break;
+      case 'icon':
+        this.type = DataCellType.ICON;
+        break;
+      default:
+        this.type = DataCellType.TEXT;
+    }
+  }
+
+
+  rihgtLink() {
+    if (this.moreData !== null && typeof this.moreData['linkHRef'] === "string" && this.moreData['linkHRef'].includes('collections.yadvashem.org/en/names/')) {
+      this.hRef = this.moreData['linkHRef'] + this.data;
       return this.hRef
     }
     else
-    return this.data
+      return this.data
 
-}
+  }
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;
   }
@@ -75,7 +103,7 @@ rihgtLink(){
 
   checkChange(checkStatus: CheckType) {
     this.checkStatus.emit(checkStatus);
-   // console.log("data cells check status", checkStatus)
+    // console.log("data cells check status", checkStatus)
   }
   onClick() {
     // alert('click');

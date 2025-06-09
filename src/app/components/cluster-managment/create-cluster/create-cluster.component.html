@@ -6,10 +6,10 @@
         <div class="form-warp">
             <div class="form-header-warp">
                 <div class="table-header">
-                        <yv-cluster-header-cells [type]=headerCellType.TEXT [header]="tableHeader1"></yv-cluster-header-cells>
+                        <yv-cluster-header-cells [type]=headerCellType.TEXT [data]="tableHeader1"></yv-cluster-header-cells>
                 </div>
                 <div class="header-cell">
-                    <yv-cluster-header-cells [type]=headerCellType.TEXT [header]="tableHeader2"></yv-cluster-header-cells>
+                    <yv-cluster-header-cells [type]=headerCellType.TEXT [data]="tableHeader2"></yv-cluster-header-cells>
                 </div>
             </div>
             @for(data of dataCells; track $index){
