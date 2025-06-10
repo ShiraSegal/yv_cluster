@@ -225,9 +225,22 @@ export class ClusterService
 
         tap(res => {
          // console.log("getCreateClusterData", res);
-
+         this.#messageService.showToastMessage(
+          {
+           type: MessageType.SUCCESS,
+           heading: 'SuccessB',
+           content: "Cluster reated successfully!"
+          }
+          );
         }),
         catchError(err => {
+          this.#messageService.showToastMessage(
+            {
+             type: MessageType.ERROR,
+             heading: 'Error',
+             content: err.message
+            }
+            );
           return of(null);
         })
       );
@@ -249,7 +262,14 @@ export class ClusterService
         catchError(err => {
            console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
           //  return of(err); // החזרת ערך ברירת מחדל במקרה של שגיאה
-          return of(this.#messageService.showToastMessage(err));
+          this.#messageService.showToastMessage(
+            {
+             type: MessageType.ERROR,
+             heading: 'Error',
+             content: err.message
+            }
+            );
+           return of(null);
         })
       );
   }
@@ -259,6 +279,13 @@ export class ClusterService
       .pipe(
         tap((res) => {
           console.log("BookId fetched successfully:", res);
+          this.#messageService.showToastMessage(
+            {
+             type: MessageType.SUCCESS,
+             heading: 'Success',
+             content: "Cluster reated successfully!"
+            }
+            );
         }),
         catchError((err) => {
            this.#messageService.showToastMessage(

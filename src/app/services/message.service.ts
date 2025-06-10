@@ -9,14 +9,16 @@ export class MessageService {
   private messageSubject$ = new BehaviorSubject<any>(null);
   message$ = this.messageSubject$.asObservable();
  
-  showToastMessage(err: any) {
-    this.messageSubject$.next(err);
+  showToastMessage(message: any) {
+    console.log("MessageService: showToastMessage called with error:", message);
+    
+    this.messageSubject$.next(message);
     // setTimeout(() => {
-      this.hideToastNMessage();
+      // this.hideToastNMessage();
     // }, data.duration || 3000); // ברירת מחדל אם אין duration
   }
  
-  hideToastNMessage() {
-    this.messageSubject$.next(null);
-  }
+  // hideToastNMessage() {
+  //   this.messageSubject$.next(null);
+  // }
 }
