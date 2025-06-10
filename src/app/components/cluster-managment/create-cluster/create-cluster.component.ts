@@ -1,22 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { BadgeType, NativeOptionState, NativeOptionType } from 'src/app/enums/basic-enum';
-import { Component, forwardRef, inject, Inject, Optional } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject} from '@angular/core';
+import {  FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
-import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
 import { ButtonType, HeaderCellType, State, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
-import { BodyComponent } from '../../basic-components/body/body.component';
 import { RadioButtonListComponent } from '../../basic-components/radio-button-list/radio-button-list.component';
-import { ClusterApiService } from 'src/app/services/cluster-api.service';
-import { elementAt, Observable } from 'rxjs';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { HeaderCellsComponent } from '../../basic-components/header-cells/header-cells.component';
 import { FieldComponent } from '../../basic-components/field/field.component';
 import { ToastNotificationComponent } from '../../basic-components/toast-notification/toast-notification.component';
 import { SelectComponent } from '../../basic-components/select/select.component';
 import { SapirClusterModel } from 'src/app/models/sapir-cluster-model.model';
-import { SapirClusterDetail } from 'src/app/models/sapir-cluster-detail.model';
 import { IconType } from 'src/app/enums/icon-enum';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
@@ -30,13 +25,14 @@ type NativeSelectOption = {
 @Component({
   selector: 'yv-cluster-create-cluster',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, ButtonComponent, HeadingComponent, BasicRadioButtonComponent, RadioButtonListComponent, BodyComponent, ButtonComponent, HeaderCellsComponent, FieldComponent, ToastNotificationComponent, SelectComponent],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, ButtonComponent, HeadingComponent, RadioButtonListComponent, ButtonComponent, HeaderCellsComponent, FieldComponent, ToastNotificationComponent, SelectComponent],
   templateUrl: './create-cluster.component.html',
   styleUrl: './create-cluster.component.scss'
 })
 export class CreateClusterComponent {
-    data: { title: string } = inject(MAT_DIALOG_DATA, { optional: true });
-  dialogRef: MatDialogRef<CreateClusterComponent> = inject(MatDialogRef, { optional: true })!;
+  #dialogRef= inject(MatDialogRef<CreateClusterComponent>);
+  #data= inject(MAT_DIALOG_DATA);
+//{ optional: true }- האם צריך את זה?
   #formBuilder = inject(FormBuilder);
   #clusterService = inject(ClusterService);
 
@@ -123,7 +119,7 @@ iconType=IconType;
 
           this.dataCells = res.SapirClusterDetails; // Process the data if it's not null
           // console.log("check1",this.clusterModel.SapirClusterDetails);
-          
+
           this.dataCells.forEach((d: any) => {
             let values: any = [];
             d.Values.forEach((v: any) => {
@@ -140,7 +136,7 @@ iconType=IconType;
             }
             d.RadioOptions = values;
           // console.log("check2",this.clusterModel.SapirClusterDetails);
-   
+
           });
           // console.log("check13",this.clusterModel.SapirClusterDetails);
 
@@ -231,6 +227,6 @@ iconType=IconType;
   }
 
   closeDialogWithData(data: any): void {
-    this.dialogRef.close(data); // מעבירה את הנתונים לקומפוננטת האבא
+    this.#dialogRef.close(data); // מעבירה את הנתונים לקומפוננטת האבא
   }
 }
