@@ -1,49 +1,80 @@
 @import "src/styles.scss";
 
-
 .tab {
-    display: flex;
-    width: 5.875rem;
-    height: 4rem;
-    justify-content: center;
+  display: flex;
+  height: 4rem;
+  padding: 0.4375rem 0.75rem 0.4375rem 1.5rem;
+  align-items: center;
+  gap: 0.625rem;
+  align-self: stretch;
+  &.hover {
+    // display: inline-flex;
+    // padding: 0rem 0.75rem 0rem 1.5rem;
+    // align-items: center;
+    // gap: 0.625rem;
+    //     border-radius: 0.3125rem;
+    //     background: $c-1334b966;
+    // display: flex;
+    width: 9.5625rem;
+    padding: 0rem 0.75rem 0rem 1.5rem;
     align-items: center;
-    flex-shrink: 0;
-    width: 5.875rem;
-    flex-direction: column;
-    width: 5.875rem;
-    flex-direction: column;
-    gap: 0.1875rem;
-    padding: 0.40625rem 0rem;
-    padding: 0.40625rem 0rem;
-}
-
-
-.active {
+    gap: 0.625rem;
     border-radius: 0.3125rem;
-    background: $c-425DC7;
+    background: rgba(19, 52, 185, 0.4);
+  }
+  &.active {
+    // display: inline-flex;
+    // padding: 0rem 0.75rem 0rem 1.5rem;
+    // align-items: center;
+    // gap: 0.625rem;
+    //     border-radius: 0.3125rem;
+    //     background: $c-1334b966;
+    // display: flex;
+    width: 9.5625rem;
+    padding: 0rem 0.75rem 0rem 1.5rem;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.3125rem;
+    background: rgba(19, 52, 185, 0.4);
+  }
 }
 
 .icon {
-    
-    font-size: 1.875rem;
+  font-size: 1rem;
 }
 
 .fa-light {
-    color: $c-FFFFFF;
+  color: $c-FFFFFF;
 }
-
 
 .fa-solid {
-    color: $c-D0D6F1;
+  color: $c-D0D6F1;
 }
- 
+
 .text-icon {
-    color:$c-FFFFFF;
+  color: $c-FFFFFF;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 149.558%; /* 1.49556rem */
+  &.active {
+    color: $c-D0D6F1;
     text-align: center;
     font-family: Poppins;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    align-self: stretch;
+  }
+  &.hover {
+    color: $c-D0D6F1;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 }

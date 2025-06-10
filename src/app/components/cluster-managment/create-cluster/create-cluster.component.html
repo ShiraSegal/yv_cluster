@@ -15,13 +15,13 @@
             @for(data of dataCells; track $index){
             <div class="table">
                 <div class="data-cells">
-                        <label class="label">{{data.Field}}</label>
+                        <label class="label">{{data.field}}</label>
                 </div>
                 <div class="options-cells">
                     <div class="radiobuttons">
           
 
-                        <yv-cluster-radio-button-list [radioButtonValuesArray]="data.RadioOptions"  [formControlName]="data.Field" (selectionChange)="checkChange($event)"></yv-cluster-radio-button-list>
+                        <yv-cluster-radio-button-list [radioButtonValuesArray]="data.radioOptions"  [formControlName]="data.field"></yv-cluster-radio-button-list>
                     </div>
                 </div>
 

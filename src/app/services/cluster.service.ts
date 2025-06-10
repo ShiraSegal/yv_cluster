@@ -14,6 +14,8 @@ import { RootObjectOfClusterGroupDetails } from '../models/root-object-of-cluste
 import { map } from 'rxjs/operators';
 import { SapirClusterModel } from '../models/sapir-cluster-model.model';
 import { RootObject } from '../models/root-object.model';
+import {  MessageService } from './message.service';
+import { MessageType } from '../enums/basic-enum';
 
 
 @Injectable({
@@ -23,6 +25,8 @@ export class ClusterService
  {
   #translateService = inject(TranslateService);
   #clusterApiService = inject(ClusterApiService)
+  #messageService = inject(MessageService)
+
 
  autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
 
@@ -221,9 +225,22 @@ export class ClusterService
 
         tap(res => {
          // console.log("getCreateClusterData", res);
-
+         this.#messageService.showToastMessage(
+          {
+           type: MessageType.SUCCESS,
+           heading: 'SuccessB',
+           content: "Cluster reated successfully!"
+          }
+          );
         }),
         catchError(err => {
+          this.#messageService.showToastMessage(
+            {
+             type: MessageType.ERROR,
+             heading: 'Error',
+             content: err.message
+            }
+            );
           return of(null);
         })
       );
@@ -243,21 +260,43 @@ export class ClusterService
           // return res;
         }),
         catchError(err => {
-          console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
-          return of(false); // החזרת ערך ברירת מחדל במקרה של שגיאה
+           console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
+          //  return of(err); // החזרת ערך ברירת מחדל במקרה של שגיאה
+          this.#messageService.showToastMessage(
+            {
+             type: MessageType.ERROR,
+             heading: 'Error',
+             content: err.message
+            }
+            );
+           return of(null);
         })
       );
   }
 
-  getSingleItemByBookId (bookId:string): Observable<RootObject |any> {
+  getSingleItemByBookId (bookId:string): Observable<RootObject | any> {
       return this.#clusterApiService.getSingleItemByBookId(bookId)
       .pipe(
         tap((res) => {
           console.log("BookId fetched successfully:", res);
+          this.#messageService.showToastMessage(
+            {
+             type: MessageType.SUCCESS,
+             heading: 'Success',
+             content: "Cluster reated successfully!"
+            }
+            );
         }),
         catchError((err) => {
-          console.error("Error occurred while fetching BookId:", err);
-          return of(err); // מחזיר false במקרה של שגיאה
+           this.#messageService.showToastMessage(
+           {
+            type: MessageType.ERROR,
+            heading: 'Error',
+            content: err.message
+           }
+           );
+           return of(null);
+
         })
       );
   }
