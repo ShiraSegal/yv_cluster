@@ -1,35 +1,51 @@
 <form [formGroup]="formGroup">
-    @switch (type) {
-        @case (dataCellType.CHECK) {
-          Case A.
-        }
-        @case (dataCellType.ASSIGNEE) {
-          Case B.
-        }
-        @case (dataCellType.STATUS) {
-            Case A.
-          }
-          @case (dataCellType.SLIDER) {
-            Case B.
-          }
-          @case (dataCellType.BUTTON) {
-            Case A.
-          }
-          @case (dataCellType.SLIDER) {
-            Case B.
-          }
-          @case (dataCellType.MORE) {
-            Case A.
-          }
-          @case (dataCellType.LINK) {
-            Case B.
-          }
-          @case (dataCellType.PLACEOLDER) {
-            Case B.
-          }
-        @default {
-          Default case.
-        }
-      }
+  @switch (type) {
+  @case (dataCellType.CHECK) {
+  <yv-cluster-check [formControlName]="typeText">
+  </yv-cluster-check>
+  
+  }
+  @case (dataCellType.ASSIGNEE) {
+  <yv-cluster-assignee [formControlName]="typeText">
+  </yv-cluster-assignee>
+  }
+  @case (dataCellType.STATUS) {
+  <yv-cluster-badge [formControlName]="typeText" [property]="badgeType.TODO">
+  </yv-cluster-badge>
+  }
+  @case (dataCellType.SLIDER) {
+  <!-- <yv-cluster-slider [value]="data"></yv-cluster-slider> -->
+  }
+  @case (dataCellType.ICON) {
+  <yv-cluster-icon-button-large (onClick)="onClick()" [icon]="moreData?.['iconType'] || iconType.NOTHING"
+    [property]="iconButtonLargeType.DEFAULT">
+  </yv-cluster-icon-button-large>
+  }
+
+  @case (dataCellType.MORE) {
+  <i class="fas fa-ellipsis-v more-icon"></i>
+  }
+  @case (dataCellType.LINK) {
+  <a [href]="'https://collections.yadvashem.org/en/names/' + data">{{data}}</a>
+  }
+  @case (dataCellType.BUTTON) {
+  <yv-cluster-button (onClick)="onClick()" [text]="moreData?.['text'] || 'button'"
+    [buttonType]="moreData?.['buttonType'] || buttonType.PRIMARY" [isBig]="moreData?.['isBig'] || false"
+    [iconType]="moreData?.['iconType'] || iconType.NOTHING">
+  </yv-cluster-button>
+  }
+  @default {
+  {{ data }}
+  }
+  }
 
 </form>
+
+<!-- @if(type === dataCellType.TEXT) {
+      @if(prefCodeStatus === true && moreData?.['prefCode']) {
+        {{ moreData['prefCode'] }}
+      }
+      @else {
+        {{ data }}
+      }
+    } -->

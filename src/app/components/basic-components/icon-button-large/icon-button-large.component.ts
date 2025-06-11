@@ -12,8 +12,8 @@ import { IconType } from 'src/app/enums/icon-enum';
   styleUrls: ['./icon-button-large.component.scss']
 })
 export class IconButtonLargeComponent {
-  @Input() icon!: IconType;
-  @Input() property!: IconButtonLargeType;
+  @Input() icon: IconType;
+  @Input() property: IconButtonLargeType;
   @Input() isSelected: boolean = false;
   @Output() onClick = new EventEmitter<void>();
 

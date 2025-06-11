@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { BadgeType, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
+import { AutoClusterTabType, BadgeType, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { BadgeComponent } from '../badge/badge.component';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
@@ -44,11 +44,12 @@ export class DataCellsComponent<T extends DataCellType> {
   @Input() control: FormControl;
   @Input() prefCodeStatus: boolean = false;
   @Input() formGroup: FormGroup;
-
+  @Input() currentTab : AutoClusterTabType;
   @Output() checkStatus = new EventEmitter<CheckType>();
   @Output() iconClick = new EventEmitter<void>();
   bookId: string = "";
   hRef: string = "";
+  
 
   //injecting ENUM
   badgeType = BadgeType;
@@ -58,28 +59,20 @@ export class DataCellsComponent<T extends DataCellType> {
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
   checkType = CheckType;
+  autoClusterTabType=AutoClusterTabType
   ngOnInit() {
-    switch (this.typeText) {
-      case 'check':
-        this.type = DataCellType.CHECK;
-        break;
-      case 'buttom':
-        this.type = DataCellType.BUTTON;
-        break;
-      case 'assignee':
-        this.type = DataCellType.ASSIGNEE;
-        break;
-      case 'status':
-        this.type = DataCellType.STATUS;
-        break;
-      case '':
-        this.type = DataCellType.PLACEOLDER;
-        break;
-      case 'icon':
-        this.type = DataCellType.ICON;
-        break;
-      default:
-        this.type = DataCellType.TEXT;
+    this.type = this.mapType(this.typeText);
+   //console.log('Parent FormGroup:', this.formGroup);
+  }
+
+  private mapType(typeText: string): DataCellType {
+    switch (typeText) {
+      case 'check': return DataCellType.CHECK;
+      case 'button': return DataCellType.BUTTON;
+      case 'assignee': return DataCellType.ASSIGNEE;
+      case 'status': return DataCellType.STATUS;
+      case 'icon': return DataCellType.ICON;
+      default: return DataCellType.TEXT;
     }
   }
 

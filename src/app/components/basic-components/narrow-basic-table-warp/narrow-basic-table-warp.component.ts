@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, Input } from '@angular/core';
 import { BadgeType, BasicTablePropertyType, ButtonType, CheckStateType, CheckType, IconButtonLargeType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
 import { DataCellType, HeaderCellType, AutoClusterTabType } from 'src/app/enums/basic-enum';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
@@ -13,7 +13,7 @@ import { IconType } from 'src/app/enums/icon-enum';
   standalone: true,
   imports: [CommonModule, BasicTabComponent, NarrowBasicTableComponent],
   templateUrl: './narrow-basic-table-warp.component.html',
-  styleUrl: './narrow-basic-table-warp.component.scss'
+  styleUrl: './narrow-basic-table-warp.component.scss',
 })
 export class NarrowBasicTableWarpComponent {
 
@@ -105,10 +105,8 @@ export class NarrowBasicTableWarpComponent {
     this.tabs = this.tabs.map((tab) => ({
       ...tab,
       status: tab.text === tabText ? true : false
-
     }));
     this.currentTab = tabText;
-    this.loadDataForTab();
   }
   loadDataForTab() {
     this.tabs?.forEach((tab) => {

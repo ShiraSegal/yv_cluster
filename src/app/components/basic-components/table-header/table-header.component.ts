@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output,EventEmitter, inject } from '@angular/core';
-import { HeaderCellType, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
+import { Component, Input, Output,EventEmitter, inject, SimpleChanges } from '@angular/core';
+import { AutoClusterTabType, HeaderCellType, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
 import { HeaderCellsComponent } from "../header-cells/header-cells.component";
 import { FormControl } from '@angular/forms';
 import { CheckType } from 'src/app/enums/check-enum';
@@ -19,15 +19,19 @@ export class TableHeaderComponent {
 @Output() checkStatus= new EventEmitter<CheckType>();
 @Output() openDialog= new EventEmitter<boolean>();
 @Input() headerCheckboxControl: FormControl;
-
+@Input() currentTab : AutoClusterTabType;
  #clusterService=inject(ClusterService)
 currentUserRole = this.#clusterService.currentUser.role;
-
+autoClusterTabType=AutoClusterTabType
 //injections
 headerCellType =   HeaderCellType
 
 //functions
-
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['headers']) {
+      this.headers = changes['headers'].currentValue;
+    }
+  }
 checkChange(checkStatus:CheckType) {
   this.checkStatus.emit(checkStatus);
  // console.log(" table header check status", checkStatus)

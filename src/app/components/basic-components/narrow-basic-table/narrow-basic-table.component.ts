@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, SimpleChanges } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, Input, SimpleChanges } from '@angular/core';
 import { AutoClusterTabType, ButtonType, DataCellType, HeaderCellType, NarrowBasicTableRowExpandState, NarrowBasicTableRowInputState, NarrowBasicTableRowLength, State } from 'src/app/enums/basic-enum';
 import { NarrowBasicTableRowComponent } from '../narrow-basic-table-row/narrow-basic-table-row.component';
 import { TableHeaderComponent } from '../table-header/table-header.component';
@@ -23,15 +23,19 @@ import { log } from 'console';
     NarrowBasicTableRowComponent,
     TableHeaderComponent,
     FilterSectionComponent,
-    ExpandableComponent],
+    ExpandableComponent
+  ],
   templateUrl: './narrow-basic-table.component.html',
-  styleUrl: './narrow-basic-table.component.scss'
+  styleUrl: './narrow-basic-table.component.scss',
 })
 export class NarrowBasicTableComponent {
   @Input() currentTab: AutoClusterTabType;
   @Input() Filters: FilterNames[] = [];
-  @Input() Headers: { data: string }[]
-  @Input() Rows: any[][]
+  @Input() Headers: { data: string }[];
+  @Input() Rows: any[][];
+
+  HeadersForTab: { data: string }[];
+  RowsForTab: any[][];
 
   initialStateString: FormControlState<string> = {
     value: '',
@@ -68,26 +72,28 @@ export class NarrowBasicTableComponent {
   iconsVisible: boolean = false;
 
   ngOnInit() {
+    this.HeadersForTab = this.Headers;
+    this.RowsForTab = this.Rows;
     this.initializeRowsFormArray();
-    console.log(this.rowsFormArray);
+    //console.log(this.rowsFormArray);
 
-    // מנוי על שינויים בפורם הראשי
-    this.tableDataForm.valueChanges.subscribe((value) => {
-       console.log('Basic table Form Value:', value);
-    });
+    // // מנוי על שינויים בפורם הראשי
+    // this.tableDataForm.valueChanges.subscribe((value) => {
+    //   //console.log('Basic table Form Value:', value);
+    // });
 
-    // מנוי על שינויים ב-rowsFormArray
-    this.rowsFormArray.valueChanges.subscribe((value) => {
-      this.updateIconsVisibility();
-      console.log('table Rows value changes:', value);
-    });
+    // // מנוי על שינויים ב-rowsFormArray
+    // this.rowsFormArray.valueChanges.subscribe((value) => {
+      
+    //  // console.log('table Rows value changes:', value);
+    // });
 
-    // מנוי על שינויים ב-headerCheckboxControl
-    this.headerCheckboxControl.valueChanges.subscribe((isChecked) => {
-      console.log('Header Checkbox changed:', isChecked);
-      this.onHeaderCheckboxToggle();
-    });
-}
+    // // מנוי על שינויים ב-headerCheckboxControl
+    // this.headerCheckboxControl.valueChanges.subscribe((isChecked) => {
+    //   //console.log('Header Checkbox changed:', isChecked);
+    //   this.onHeaderCheckboxToggle();
+    // });
+  }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
@@ -96,12 +102,12 @@ export class NarrowBasicTableComponent {
 
   updateIconsVisibility() {
     // console.log('updateIconsVisibility called');
+    //לשאול את יהודית
     this.iconsVisible = this.rowsFormArray.controls.some((group) => {
       return group.get('checked')?.value;
     });
     // console.log('Icons visibility:', this.iconsVisible);
     // console.log(this.rowsFormArray);
-
   }
   onHeaderCheckboxToggle(): void {
     const isChecked = this.tableDataForm.get('headerCheckbox')?.value;
@@ -124,24 +130,23 @@ export class NarrowBasicTableComponent {
     this.hoveredPopover = null;
   }
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['Rows']) {
-        // console.log('Rows (ngOnChanges):', this.Rows);
-        if (this.Rows?.length) {
-            this.initializeRowsFormArray();
-        }
+    if (changes['Headers']) {
+      this.HeadersForTab = changes['Headers'].currentValue;
     }
-    // אם יש שינויים נוספים שאתה רוצה לעקוב אחריהם
-    // console.log('Changes detected:', changes);
-}
-
+    if (changes['Rows']) {
+      this.RowsForTab = changes['Rows'].currentValue;
+      this.initializeRowsFormArray()
+      console.log(this.rowsFormArray);
+    }
+  }
 
   initializeRowsFormArray() {
     this.rowsFormArray.clear();
-    this.Rows.forEach((row) => {
+    this.RowsForTab.forEach((row) => {
       const rowGroup = this.#fb.group({});
 
       row.forEach((cellData, index) => {
-        const header = this.Headers[index].data;
+        const header = this.HeadersForTab[index].data;
         let control = new FormControl({ value: cellData || '', disabled: true }); // disabled מראש
 
         switch (header) {
@@ -161,6 +166,7 @@ export class NarrowBasicTableComponent {
 
       this.rowsFormArray.push(rowGroup);
     });
+    this.updateIconsVisibility();
   }
 
 

@@ -1,19 +1,27 @@
 <form [formGroup]="rowGroup">
   <div class="narrow-basic-table-row" [ngClass]="property" [ngClass]="length">
     @for (control of rowGroupControls; let i = $index ;track i) {
-    @if(control.name === "assignee" && currentUserRole !== "manager"){} 
-    @else { 
-     <div class="cell" [ngClass]="control.name">
-      <yv-cluster-data-cells [data]="control.control.value"
-      [control]="control.control" [typeText]="control.name"
-       [prefCodeStatus]="prefCodeStatus" [formGroup]="rowGroup"
+    @if(control.name === "assignee" && currentUserRole !== "manager"){}
+    @else if(currentTab===autoClusterTabType.ERROR_MESSAGES){
+      <div class="cell,icon">
+        <yv-cluster-data-cells [currentTab]="currentTab"
+        typeText="icon" [prefCodeStatus]="prefCodeStatus" [moreData]="{'icon':iconType.CHEVRON_RIGHT_LIGHT}"
+          (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
+      </div>
+      }
+    @else {
+    <div class="cell" [ngClass]="control.name">
+      <yv-cluster-data-cells [data]="control.control.value" [currentTab]="currentTab" [control]="control.control"
+        [typeText]="control.name" [prefCodeStatus]="prefCodeStatus" [formGroup]="rowGroup"
         (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
-    </div> 
-    } 
-    <!-- @if(currentTab===autoClusterTabType.APPROVAL_GROUPS||currentTab===autoClusterTabType.CHECKLIST_ITEMS){
-    <h1>i need to button </h1>
-     <button ></button> 
-    }  -->
+    </div>
+    }
+    }
+    @if(currentTab===autoClusterTabType.APPROVAL_GROUPS||currentTab===autoClusterTabType.CHECKLIST_ITEMS){
+    <div class="cell,button" >
+     <yv-cluster-data-cells [currentTab]="currentTab"  typeText="button" [moreData]="{'text':'open', 'isBig' : true,'buttonType': buttonType.SECONDARY,'iconType':iconType.NOTHING}"
+        (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
+    </div>
     }
   </div>
 </form>

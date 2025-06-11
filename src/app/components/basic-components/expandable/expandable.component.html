@@ -1,20 +1,16 @@
 <div class="expandable">
     <div class="narrow-basic-table-row-expandable" [ngClass]="property" [formGroup]="rowGroup" [ngClass]="length">
-        @for (cell of getFormControls(rowGroup); let i = $index ;track i) {
-        @if(currentUserRole === "manager" && cell.value.value.type === dataCellType.ASSIGNEE){
-        <div class="cell" [ngClass]="cell.value.value.type">
-            <yv-cluster-data-cells [data]="cell.value.value.data" [type]="cell.value.value.type"
-                [moreData]="cell.value.value.moreData" [control]="controls[cell.key]"
-                (iconClick)="openExpand()"></yv-cluster-data-cells>
-        </div>
-        }
-        @if(cell.value.value.type !== dataCellType.ASSIGNEE){
-        <div class="cell" [ngClass]="cell.value.value.type">
-            <yv-cluster-data-cells [data]="cell.value.value.data" [type]="cell.value.value.type"
-                [moreData]="cell.value.value.moreData" [control]="controls[cell.key]"
-                (iconClick)="openExpand()"></yv-cluster-data-cells>
-        </div>
-        }
+        @for (control of rowGroupControls; let i = $index ;track i) {
+            @if(control.name === "assignee" && currentUserRole !== "manager"){} 
+            @else { 
+             <div class="cell" [ngClass]="control.name">
+              <yv-cluster-data-cells [data]="control.control.value"
+              [currentTab] ="currentTab"
+              [control]="control.control" [typeText]="control.name"
+               [prefCodeStatus]="prefCodeStatus" [formGroup]="rowGroup"
+                (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
+            </div> 
+            } 
         }
     </div>
     @if(showExpand){

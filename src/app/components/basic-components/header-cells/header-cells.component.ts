@@ -36,7 +36,7 @@ export class HeaderCellsComponent {
       default:
         this.type = HeaderCellType.TEXT;
     }
-
+console.log("HeaderCellsComponent initialized with data:", this.data, "and type:", this.type);
   }
   sortBy(column: string) {
     if (this.type === 'order' || this.type === HeaderCellType.ORDERDOWN) {
@@ -53,6 +53,7 @@ export class HeaderCellsComponent {
     this.checkStatus.emit(checkStatus);
 
   }
+
   openPeiComponent() {
    // console.log("openPeiComponent");
     this.openDialog.emit(true);
