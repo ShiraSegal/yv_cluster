@@ -8,7 +8,6 @@
     <div class="tabs-container">
       @for (tab of tabs; track tab) {
       <yv-cluster-basic-tab [text]="tab.text" [active]="tab.status" (tabChange)="setActiveTab(tab.text)">
-      <yv-cluster-basic-tab [text]="tab.text" [active]="tab.status" (tabChange)="setActiveTab(tab.text)">
       </yv-cluster-basic-tab>
       }
     </div>
@@ -19,9 +18,7 @@
       [Filters]="filtersDictionary[currentTab]"></yv-cluster-narrow-basic-table>
     }
   </div>
-  <div *ngIf="Rows.length === 0">
-    <p>No data available for the current tab.</p>
-  </div>
+
 
 
 </div>

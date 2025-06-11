@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 // Ensure the correct path to the model file
-import { SapirClusterModel } from '../models/sapir-cluster-model';
+// Ensure the correct path to the model file
+import { SapirClusterModel } from '../models/sapir-cluster-model.model';
 import { RootObject } from '../models/root-object.model';
 
 
@@ -16,8 +17,25 @@ export class ClusterApiService {
   #http = inject(HttpClient);
   apiUrl = 'assets/json-data';
 
-   getAutoClusterData(params?: { [key: string]: string | number }): Observable<string[]> {
-    return this.#http.get<string[]>(`${this.apiUrl}/getAutoCluster.json`, { params });
+  getAutoClusterData(params?: { [key: string]: string | number }) {
+    return this.#http.get<any>(`${this.apiUrl}/getAutoCluster.json`).pipe(
+      map(data => {
+        if (!params || !params['currentTabKey']) return { pagedData: data, totalRows: 0 };
+  
+        const tabKey = params['currentTabKey'] as string;
+        const allRows = Array.isArray(data[tabKey]) ? data[tabKey] : [];
+        const totalRows = allRows.length;
+        const page = +(params['_page'] || 1);
+        const limit = +(params['_limit'] || 20);
+
+  
+        // Only slice for the requested page
+        const pagedRows = allRows.slice((page - 1) * limit, page * limit);
+  
+        // Return the same data structure as backend would
+        return { pagedData: { ...data, [tabKey]: pagedRows }, totalRows };
+      })
+    );
   }
   
   getCreateClusterData() {
@@ -53,9 +71,6 @@ export class ClusterApiService {
   }
   
   
-  getAssigneeList(): Observable<{ name: string }[]> {
-    return this.#http.get<{ name: string }[]>(`${this.apiUrl}/getAssignees.json`);
-  }
-  
+
   
 }

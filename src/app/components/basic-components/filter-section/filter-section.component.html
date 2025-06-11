@@ -29,7 +29,7 @@
         (onClick)="onClickStatus()"></yv-cluster-icon-button-large>
       @if(visiblePopover === popOverTypeEnum.ASSIGNEE){
       <div class="popover">
-        <yv-cluster-popover [type]="popOverTypeEnum.ASSIGNEE" [popoverOptions]="assigneeOptions"></yv-cluster-popover>
+        <yv-cluster-popover [type]="popOverTypeEnum.ASSIGNEE" [options]="assigneeOptions"></yv-cluster-popover>
       </div>
       }
     </div> 
@@ -41,7 +41,7 @@
         (onClick)="onClickAssinee()"></yv-cluster-icon-button-large>
       @if(visiblePopover === popOverTypeEnum.STATUS){
       <div class="popover">
-        <yv-cluster-popover [type]="popOverTypeEnum.STATUS" [popoverOptions]="badgeOptions"></yv-cluster-popover>
+        <yv-cluster-popover [type]="popOverTypeEnum.STATUS" [options]="badgeOptions"></yv-cluster-popover>
       </div>
       }
 

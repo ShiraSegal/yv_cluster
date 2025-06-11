@@ -24,15 +24,13 @@ export class HomeComponent {
   tableData: any;
   clusterService = inject(ClusterService);
   async ngOnInit() {
-    (await this.clusterService.getAutoClusterData()).subscribe({
-      next: (data: any) => {
-        console.log('Received data:', data);
-        this.tableData = data;
-      },
-      error: (err: any) => {
-        console.error('Error fetching data:', err);
-      }
-    });
+    try {
+      const data = await this.clusterService.getAutoClusterData();
+      console.log('Received data:', data);
+      this.tableData = data;
+    } catch (err) {
+      console.error('Error fetching data:', err);
+    }
   }
   statisticsData = [
     { color: '#FF5733', value: 40 }, // Example segment 1

@@ -1,13 +1,44 @@
 <div class="popover-warp">
-    <div class="header-warp">
-        <yv-cluster-body class="header" [bodyText]="header" [size]="size" [weight]="weight" [color]="color"></yv-cluster-body>
+    <div class="popover-internal-warp">
+      <div class="popover-upper-warp">
+        <div class="header-warp">
+          <yv-cluster-body
+            class="header"
+            [bodyText]="header"
+            [size]="size"
+            [weight]="weight"
+            [color]="color">
+          </yv-cluster-body>
+        </div>
+  
+        @if (type !== 'status') {
+          <div class="field-warp">
+            <yv-cluster-field
+              [placeholder]="'Search By name'"
+              (input)="filterPopoverList($event)">
+            </yv-cluster-field>
+          </div>
+        }
+      </div>
+  
+      <div class="nativ-options-warp" (wheel)="onMouseScroll($event)">
+        <div class="nativ-options-internal-warp" #scrollable>
+          @for (option of filterdList; track $index) {
+            <div class="native-option" #nativeOption (click)="onSelectedOption(option)">
+              <yv-cluster-native-option
+                [optionType]="option.optionType"
+                [displayText]="option.displayText"
+                [property]="option.property">
+              </yv-cluster-native-option>
+            </div>
+          }
+        </div>
+  
+        @if (showScrollbar) {
+          <div class="custom-scrollbar">
+            <div class="custom-thumb" #customThumb></div>
+          </div>
+        }
+      </div>
     </div>
-
-    @for(option of popoverOptions; track $index){
-    <div class="native-option" (click)="onSelectedOption(option)">
-        <yv-cluster-native-option [optionType]="option.optionType" [displayText]="option.displayText" [property]="option.property"></yv-cluster-native-option>
-
-    </div>
-    }
-
-</div>
+  </div>

@@ -11,11 +11,12 @@ import { ClusterService } from 'src/app/services/cluster.service';
 import { Subscription } from 'rxjs';
 import { PopoverComponent } from '../popover/popover.component';
 import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
+import { MatDataFooterComponent } from '../mat-data-footer/mat-data-footer.component';
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NarrowBasicTableRowComponent, TableHeaderComponent, FilterSectionComponent,PopoverComponent],
+  imports: [CommonModule, ReactiveFormsModule, NarrowBasicTableRowComponent, TableHeaderComponent, FilterSectionComponent,PopoverComponent,MatDataFooterComponent],
   templateUrl: './narrow-basic-table.component.html',
   styleUrl: './narrow-basic-table.component.scss'
 })
@@ -54,14 +55,9 @@ export class NarrowBasicTableComponent {
     headerCheckbox: new FormControl(false),
     rowsFormArray: this.#fb.array([])
   });
-//varibles:
-nativeOptionswe = [
-  { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
-  { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
-  { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
-];
 
   iconsVisible: boolean = false;
+
 
 
   get rowsFormArray(): FormArray {
@@ -72,8 +68,6 @@ nativeOptionswe = [
   }
 
   ngOnInit() {
-    this.initializeRowsFormArray();
-    debugger
     console.log( "ngoninit rows:",this.Rows);
     console.log( "ngoninit filters:",this.Filters);
     this.initializeRowsFormArray();
@@ -86,21 +80,6 @@ nativeOptionswe = [
     // ))
 
     this.tableDataForm.valueChanges.subscribe((value) => {
-      console.log('Basic table Form Value:', value);
-    }
-    );
-    this.rowsFormArray.valueChanges.subscribe((value) =>{
-       console.log('table Rows value changes:', value)
-    }
-  );
-  console.log('Rows:', this.Rows);
-  
-  }
-  // Initialize the FormArray with the rows data
-
-  get rowsFormArray(): FormArray {
-    return this.tableDataForm.get('rowsFormArray') as FormArray;
-  }
       // console.log('Basic table Form Value:', value);
     });
     this.rowsFormArray.valueChanges.subscribe((value) => {
@@ -194,43 +173,11 @@ nativeOptionswe = [
       console.log('Rows (ngOnChanges):', this.Rows);
       if (changes['Rows'] && this.Rows?.length) {
         this.initializeRowsFormArray();
-      }
-    }
-  }
-  initializeRowsFormArray() {
-    this.rowsFormArray.clear(); 
-    this.Rows?.forEach((row,index) => {
-      const rowGroup = this.#fb.group({
-        // id: [row.cells[index].data],
-        status : new FormControl(row.cells.find(cell => cell.type === DataCellType.STATUS)?.data || ''),
-        assignee : new FormControl(row.cells.find(cell => cell.type === DataCellType.ASSIGNEE)?.data || ''),
-        checked : new FormControl(row.cells.find(cell => cell.type === DataCellType.CHECK)?.data || false),
-      });
-      this.rowsFormArray.push(rowGroup);
-      console.log('Rows:', this.Rows);
-      console.log('FormArray Controls:', this.rowsFormArray.controls);
-    });
-  }
-    label: string = 'Select Label'; 
-    primary = ButtonType.PRIMARY
-    variant3 = ButtonIconProperty.VARIANT3
-    icon=ButtonIcon.PLUS
-    // property :NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
-    // cells: { data: string; type: DataCellType }[] = [{data: 'test', type: DataCellType.TEXT},{data: '' ,type: DataCellType.CHECK}];
-    stateEnum = State
-    nativeOptions = NativeOptionType;
-    rowProperty: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
         this.initializeRowControlsArray(); 
            }
     }
   }
 
-
-    trackByFn(index: number, item: any): any {
-      return index; 
-    }
-    onClick()
-  {
   nativeOptionswe = [
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
     { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },

@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
 import { BasicTablePropertyType, ButtonType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
-import { BasicTablePropertyType, ButtonType, NarrowBasicTableRowInputState } from 'src/app/enums/basic-enum';
 import { DataCellType, HeaderCellType, AutoClusterTabType } from 'src/app/enums/basic-enum';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 import { ClusterService } from 'src/app/services/cluster.service';
@@ -14,15 +13,10 @@ import { log } from 'console';
   selector: 'yv-cluster-narrow-basic-table-warp',
   standalone: true,
   imports: [CommonModule, BasicTabComponent, NarrowBasicTableComponent],
-  imports: [CommonModule, BasicTabComponent, NarrowBasicTableComponent],
   templateUrl: './narrow-basic-table-warp.component.html',
   styleUrl: './narrow-basic-table-warp.component.scss'
 })
 export class NarrowBasicTableWarpComponent {
-  autoClusterTabType = AutoClusterTabType;
-  headerCellType = HeaderCellType;
-  dataCellType = DataCellType;
-  basicTablePropertyType = BasicTablePropertyType;
   autoClusterTabType = AutoClusterTabType;
   headerCellType = HeaderCellType;
   dataCellType = DataCellType;
@@ -37,7 +31,6 @@ export class NarrowBasicTableWarpComponent {
   tabData: any;
 
   clusterService = inject(ClusterService);
-  readonly TabToJSONKeyMap: { [key in AutoClusterTabType]: string } = {
   readonly TabToJSONKeyMap: { [key in AutoClusterTabType]: string } = {
     [AutoClusterTabType.SAPIR_CLUSTERS]: 'ClustersForSapir',
     [AutoClusterTabType.MISSING_FIELD]: 'ClustersWithMissingFields',
@@ -116,46 +109,9 @@ export class NarrowBasicTableWarpComponent {
   //   this.filtersDictionary[this.currentTab] = newFilters;
   // }
   
-  filters : FilterNames[] = [
-    FilterNames.DATE_OF_REPORT,
-    FilterNames.DATE_OF_ASSIGNEE,
-    FilterNames.FILTER_BY_STATUS,
-    FilterNames.FILTER_BY_ASSIGNEE
-  ];
+
  
-  filtersDictionary: { [key in AutoClusterTabType]: FilterNames[] } = {
-    [this.autoClusterTabType.SAPIR_CLUSTERS]: [FilterNames.DATE_OF_REPORT],
-    [this.autoClusterTabType.MISSING_FIELD]: [
-      FilterNames.DATE_OF_REPORT,
-      FilterNames.DATE_OF_ASSIGNEE,
-      FilterNames.FILTER_BY_ASSIGNEE,
-      FilterNames.FILTER_BY_STATUS,
-    ],
-    [this.autoClusterTabType.APPROVAL_GROUPS]: [
-      FilterNames.DATE_OF_REPORT,
-      FilterNames.DATE_OF_ASSIGNEE,
-      FilterNames.FILTER_BY_ASSIGNEE,
-      FilterNames.FILTER_BY_STATUS,
-    ],
-    [this.autoClusterTabType.CHECKLIST_ITEMS]: [
-      FilterNames.DATE_OF_REPORT,
-      FilterNames.DATE_OF_ASSIGNEE,
-      FilterNames.FILTER_BY_ASSIGNEE,
-      FilterNames.FILTER_BY_STATUS,
-    ],
-    [this.autoClusterTabType.DIFFERENT_CLUSTERS]: [
-      FilterNames.DATE_OF_REPORT,
-      FilterNames.DATE_OF_ASSIGNEE,
-      FilterNames.FILTER_BY_ASSIGNEE,
-      FilterNames.FILTER_BY_STATUS,
-    ],
-    [this.autoClusterTabType.ERROR_MESSAGES]: [
-      FilterNames.DATE_OF_REPORT,
-      FilterNames.DATE_OF_ASSIGNEE,
-      FilterNames.FILTER_BY_ASSIGNEE,
-      FilterNames.FILTER_BY_STATUS,
-    ],
-  };
+  
 
   // initializeFiltersForTab() {
   //   const newFilters: FilterNames[] = [];
@@ -186,15 +142,6 @@ export class NarrowBasicTableWarpComponent {
     { text: AutoClusterTabType.DIFFERENT_CLUSTERS, status: false},
     { text: AutoClusterTabType.CHECKLIST_ITEMS, status: false },
     { text: AutoClusterTabType.ERROR_MESSAGES, status: false },
-
-   
-    { text: AutoClusterTabType.SAPIR_CLUSTERS, status: true },
-    { text: AutoClusterTabType.MISSING_FIELD, status: false },
-    { text: AutoClusterTabType.APPROVAL_GROUPS, status: false },
-    { text: AutoClusterTabType.DIFFERENT_CLUSTERS, status: false},
-    { text: AutoClusterTabType.CHECKLIST_ITEMS, status: false },
-    { text: AutoClusterTabType.ERROR_MESSAGES, status: false },
-
    
   ];
   HeaderToDataCellTypeMap: { [key in HeaderCellType]?: DataCellType } = {
@@ -215,35 +162,26 @@ export class NarrowBasicTableWarpComponent {
   getDataForCurrentTab(): any[] {
     const jsonKey = this.TabToJSONKeyMap[this.currentTab];
     return this.tabData?.[jsonKey] || [];
-    return this.tabData?.[jsonKey] || [];
   }
 
-  setActiveTab(tabText: AutoClusterTabType) {
-    this.tabs = this.tabs.map((tab) => ({
+  async setActiveTab(tabText: AutoClusterTabType) {
     this.tabs = this.tabs.map((tab) => ({
       ...tab,
       status: tab.text === tabText ? true : false
-      status: tab.text === tabText ? true : false
-
     }));
     this.currentTab = tabText;
-    // this.initializeFiltersForTab();
-    this.loadDataForTab(); 
-    // this.initializeFiltersForTab();
-    this.loadDataForTab(); 
+    this.currentPage = 1; // reset page for new tab
+    this.Rows = []; // (optional) clear rows until new data arrives
+    const currentTabKey = this.TabToJSONKeyMap[this.currentTab];
+    await this.clusterService.getAutoClusterData(currentTabKey, { _page: this.currentPage, _limit: this.pageSize, currentTabKey });
   }
   readonly DBKeyToHeaderMap: { [key: string]: string } = {
     clusterID: 'Cluster ID',
-    MissingField: 'Missing field',
     MissingField: 'Missing field',
     status: 'Status',
     assignee: 'Assignee',
     dateOfReport: 'Date of report',
     assigneeData: 'Assignee data',
-    book_id: 'Book ID',
-    clustersIDs: 'Clusters ID',
-    errorMessage: 'Error message',
-    groupID: 'Group ID',
     book_id: 'Book ID',
     clustersIDs: 'Clusters ID',
     errorMessage: 'Error message',
@@ -255,12 +193,6 @@ export class NarrowBasicTableWarpComponent {
   Rows: {
     property: any;
     showAction: boolean;
-    cells: {
-      data: string;
-      type: DataCellType;
-      moreData?: { [key: string]: any };
-    }[];
-
     cells: {
       data: string;
       type: DataCellType;
@@ -280,7 +212,6 @@ export class NarrowBasicTableWarpComponent {
       { data: '', type: HeaderCellType.CHECK },
       { data: 'CNT', type: HeaderCellType.TEXT },
       { data: this.DBKeyToHeaderMap['clusterID'], type: HeaderCellType.TEXT },
-      { data: this.DBKeyToHeaderMap['MissingField'], type: HeaderCellType.TEXT },
       { data: this.DBKeyToHeaderMap['MissingField'], type: HeaderCellType.TEXT },
       { data: 'Comments', type: HeaderCellType.TEXT },
       { data: 'Status', type: HeaderCellType.TEXT },
@@ -340,21 +271,15 @@ export class NarrowBasicTableWarpComponent {
   loadDataForTab() {
     const jsonKey = this.TabToJSONKeyMap[this.currentTab]; // מיפוי הטאב למפתח המתאים
     const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
-    const jsonKey = this.TabToJSONKeyMap[this.currentTab]; // מיפוי הטאב למפתח המתאים
-    const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
     this.Headers = this.TabHeaders[this.currentTab];
     const headerToKeyMap = Object.entries(this.DBKeyToHeaderMap).reduce((acc, [key, value]) => {
       acc[value] = key;
       return acc;
     }, {} as { [key: string]: string });
-
-
     this.Rows = tabData.map((item: any) => ({
       property: item,
       showAction: true,
       cells: this.Headers.map(header => {
-        const jsonKey = headerToKeyMap[header.data] || header.data;
-        const cellData = item[jsonKey] || '';
         const jsonKey = headerToKeyMap[header.data] || header.data;
         const cellData = item[jsonKey] || '';
         const dataCellType = this.getDataCellTypeForHeader(header.data, header.type);
@@ -371,15 +296,7 @@ export class NarrowBasicTableWarpComponent {
 
         return cellTemplates[dataCellType]?.() || { data: cellData, type: dataCellType, moreData: {} };
 
-        const cellTemplates: { [key in DataCellType]?: () => any } = {
-          [DataCellType.CHECK]: () => ({ data: "", type: DataCellType.CHECK, moreData: {} }),
-          [DataCellType.ASSIGNEE]: () => ({ data: "unAssignne", type: DataCellType.ASSIGNEE, moreData: {} }),
-          [DataCellType.BUTTON]: () => ({
-            data: "",
-            type: DataCellType.BUTTON,
-            moreData: { buttonType: ButtonType.SECONDARY, text: 'open', isBig: false },
-          }),
-        };
+       
 
         return cellTemplates[dataCellType]?.() || { data: cellData, type: dataCellType, moreData: {} };
       }),
@@ -400,19 +317,25 @@ export class NarrowBasicTableWarpComponent {
     // Fetch the initial data for the first page
     console.log(`Total rows for ${currentTabKey}:`, this.totalRows); // בדיקה של מספר השורות
     
-    this.clusterService.getAutoClusterData(currentTabKey,{ _page: this.currentPage, _limit: this.pageSize }).catch((err) => {
+    this.clusterService.getAutoClusterData(currentTabKey,{ _page: this.currentPage, _limit: this.pageSize,currentTabKey  }).catch((err) => {
       console.error('Error fetching data in ngOnInit:', err);
     });
   }
   loadMoreRows() {
     const currentTabKey = this.TabToJSONKeyMap[this.currentTab];
     this.currentPage++; // Increment the page number
-    this.clusterService.getAutoClusterData(currentTabKey,{ _page: this.currentPage, _limit: this.pageSize }).catch((err) => {
+    this.clusterService.getAutoClusterData(currentTabKey, { _page: this.currentPage, _limit: this.pageSize,currentTabKey  }).then((newData: any) => {
+      const newRows = (newData?.[currentTabKey] || []).map((item: any) => ({
+        property: item,
+        showAction: true,
+        cells: this.Headers.map(header => {
+          // ...same as before for cell mapping...
+        }),
+      }));
+      this.Rows = [...this.Rows, ...newRows]; // Append the new rows to the existing rows
+    }).catch((err) => {
       console.error('Error loading more rows:', err);
     });
-    const newRows = this.getDataForCurrentTab(); // Get the new rows for the current tab
-    this.Rows = [...this.Rows, ...newRows]; // Append the new rows to the existing rows
-
   }
 }
 
