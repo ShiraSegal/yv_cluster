@@ -83,7 +83,7 @@ export class FilterHandlingSuggestionsComponent {
 
   }
   openDialog() {
-    //console.log("openDialog");
+    //// console.log("openDialog");
 
     this.dialogRef = this.#dialog.open(CreateClusterComponent, {
       disableClose: true,
@@ -98,10 +98,10 @@ export class FilterHandlingSuggestionsComponent {
     this.dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.showToastNotification.emit(result.bookId);
-       // console.log('page Data received from dialog:', result);
+       // // console.log('page Data received from dialog:', result);
 
         if (result.bookId === "formIsNotValid") {
-         // console.log('page Data received from dialog: no data');
+         // // console.log('page Data received from dialog: no data');
         }
       }
     });
@@ -111,12 +111,12 @@ export class FilterHandlingSuggestionsComponent {
   onPrefCodeChange(state: boolean) {
     this.formData.prefCode = state;
     this.prefCodeStatus.emit(state);
-   // console.log('Pref code switch:', state);
+   // // console.log('Pref code switch:', state);
   }
 
   handleSwitchChange(state: boolean) {
     this.switchState = state;
-   // console.log('Switch:', state ? 'דלוק' : 'מכובה');
+   // // console.log('Switch:', state ? 'דלוק' : 'מכובה');
   }
   onRightLeftClick() {
     alert('right left button clicked');
@@ -128,6 +128,6 @@ export class FilterHandlingSuggestionsComponent {
   }
   onClick() {
     alert('test on click');
-   // console.log('test on click');
+   // // console.log('test on click');
   }
 }

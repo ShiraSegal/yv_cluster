@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output, SimpleChanges } from '@angular/core';
 import { AutoClusterTabType, ButtonType, CheckStateType, DataCellType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { IconType } from 'src/app/enums/icon-enum';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'yv-cluster-narrow-basic-table-row',
   standalone: true,
@@ -19,6 +20,7 @@ export class NarrowBasicTableRowComponent {
   @Input() rowGroup: FormGroup;
   @Input() prefCodeStatus: boolean=false;
   @Output() bookIdToDelet= new EventEmitter<string>();
+  subscription: Subscription = new Subscription();
 
   #clusterService=inject(ClusterService)
   currentUserRole = this.#clusterService.currentUser.role;
@@ -30,11 +32,13 @@ autoClusterTabType=AutoClusterTabType
 rowGroupControls: { name: string; control: FormControl }[] = [];
 
 ngOnInit() {
+  // console.log('RowGroup:', this.rowGroup);
+
   this.initializeRowGroupControls()
-  this.rowGroup.valueChanges.subscribe((value) => {
-    console.log('Form value changed:', value);
+  this.subscription.add(this.rowGroup.valueChanges.subscribe((value) => {
+    console.log('RowGroup changed:', value);
     this.initializeRowGroupControls()
-  })
+  }))
 }
 
 initializeRowGroupControls(){
@@ -42,7 +46,19 @@ initializeRowGroupControls(){
     return { name, control: control as FormControl }; // שמירת השם והקונטרול
 });
 }
+ngOnChanges(changes: SimpleChanges): void {
+  this.initializeRowGroupControls()
 
+ this.subscription.add(this.rowGroup.valueChanges.subscribe((value) => {
+    console.log('RowGroup changed:', value);
+    this.initializeRowGroupControls()
+  }))
+
+}
+ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+
+  }
   onIconDeletClick() {
     const cellControl = this.rowGroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי
     const cellData = cellControl?.value?.data;

@@ -5,6 +5,7 @@ import { AutoClusterTabType, CheckStateType, DataCellType, NarrowBasicTableRowEx
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ClusterService } from 'src/app/services/cluster.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'yv-cluster-expandable',
   standalone: true,
@@ -25,24 +26,29 @@ export class ExpandableComponent {
   checkStateType = CheckStateType;
   showExpand:boolean = false;
   rowGroupControls: { name: string; control: FormControl }[] = [];
-
+subscription: Subscription = new Subscription();
 ngOnInit() {
   this.initializeRowGroupControls()
-  this.rowGroup.valueChanges.subscribe((value) => {
-    console.log('Form value changed:', value);
+  this.subscription.add(this.rowGroup.valueChanges.subscribe((value) => {
+    // console.log('Form value changed:', value);
     this.initializeRowGroupControls()
-  })
+  }))
 }
 initializeRowGroupControls(){
   this.rowGroupControls = Object.entries(this.rowGroup.controls).map(([name, control]) => {
     return { name, control: control as FormControl }; // שמירת השם והקונטרול
 });
 }
+ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+
+  }
+
   openExpand(){
     this.showExpand = !this.showExpand;
     this.property = NarrowBasicTableRowExpandState.OPEN
-   //console.log(this.rowGroup);
-   
+   //// console.log(this.rowGroup);
+
   }
   onIconDeletClick() {
     const cellControl = this.rowGroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי

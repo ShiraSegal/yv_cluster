@@ -40,7 +40,7 @@ getValue(subItem: any, key: string): any {
     if (changes['allDatabaseData'] || changes['spsipicPlaceData']) {
       // אם צריך לעדכן לוגיקה פנימית או לחשב דברים מחדש, תעשי זאת כאן
       // ואז תכריחי את Angular לרנדר שוב:
-     // console.log("ngOnChanges(changes: SimpleChanges): void");
+     // // console.log("ngOnChanges(changes: SimpleChanges): void");
 
       this.#crd.detectChanges();
       this.#crd.markForCheck()

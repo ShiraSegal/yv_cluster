@@ -224,7 +224,7 @@ export class TestComponent {
   //functions-----------------------------------------------------------------------
   //header-cell- sort function
   handleSort(event: { column: string, direction: string }) {
-   // console.log(`Sorting by ${event.column} in ${event.direction} order`);
+   // // console.log(`Sorting by ${event.column} in ${event.direction} order`);
   }
   //switch-component function
   handleSwitchChange(state: boolean) {
@@ -237,14 +237,14 @@ export class TestComponent {
   //button & icon button component function
   onClick() {
     alert('test on click');
-   // console.log('test on click');
+   // // console.log('test on click');
   }
   onRadioButtonListSelectionChange(selectedValue: string) {
     this.selectedOption = selectedValue;
-   // console.log("האפשרות שנבחרה:", this.selectedOption);
+   // // console.log("האפשרות שנבחרה:", this.selectedOption);
   }
   checkChange(checkStatus:CheckType) {
-   // console.log("check status", checkStatus)
+   // // console.log("check status", checkStatus)
 
   }
   //data-----------------------------------------------------------------------
@@ -368,12 +368,12 @@ export class TestComponent {
 
   // handleSort(event: { column: string, direction: string }) {
 
-  //  // console.log(`Sorting by ${event.column} in ${event.direction} order`);
+  //  // // console.log(`Sorting by ${event.column} in ${event.direction} order`);
   // }
 
   // onClick() {
   //   alert('test on click');
-  //  // console.log('test on click');
+  //  // // console.log('test on click');
   // }
 
 
@@ -397,7 +397,7 @@ popoverOptionsAssignee:{
   {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 3'},
     {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 2'},
   {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 3'},
-  
+
 ];
 
 popoverOptionsLink:{
@@ -417,12 +417,12 @@ popoverOptionsLink:{
   //functions-----------------------------------------------------------------------
   //header-cell- sort function
   // handleSort(event: { column: string, direction: string }) {
-  //  // console.log(`Sorting by ${event.column} in ${event.direction} order`);
+  //  // // console.log(`Sorting by ${event.column} in ${event.direction} order`);
   // }
   // //button & icon button component function
   // onClick() {
   //   alert('test on click');
-  //  // console.log('test on click');
+  //  // // console.log('test on click');
   // }
   headers: { data: string; type: HeaderCellType }[] = [
     { data: 'name list', type: HeaderCellType.TEXT },
@@ -514,11 +514,11 @@ popoverOptionsLink:{
 
   handleToggleChange(state: string) {
     this.toggleState = state;
-   // console.log('state:', state);
+   // // console.log('state:', state);
   }
   handleRadioButtonChange(state: boolean) {
     this.radioButtonState = state;
-   // console.log('radioButton:', state ? 'דלוק' : 'מכובה');
+   // // console.log('radioButton:', state ? 'דלוק' : 'מכובה');
   }
 
 

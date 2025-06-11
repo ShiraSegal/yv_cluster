@@ -39,7 +39,7 @@ export class ClusterService
     return this.#clusterApiService.getDashboardDataById(id).pipe(
       take(1),
       tap((user) => {
-       // console.log(`Fetched user with ID ${id}:`, user);
+       // // console.log(`Fetched user with ID ${id}:`, user);
       }),
       catchError((err) => {
         return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
@@ -78,10 +78,10 @@ export class ClusterService
       })
     );
   }
-  
-  
-  
-  
+
+
+
+
 
   get isLoading$() {
     return this.isLoadingBehaviorSubject$.asObservable();
@@ -213,7 +213,7 @@ export class ClusterService
         // map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
 
         tap(res => {
-         // console.log("getCreateClusterData", res);
+         // // console.log("getCreateClusterData", res);
 
         }),
         catchError(err => {
@@ -221,7 +221,7 @@ export class ClusterService
         })
       );
 
-     // console.log("result",result);
+     // // console.log("result",result);
 
     return result; // מחזיר את המערך SapirClusterDetails
   }
@@ -232,7 +232,7 @@ export class ClusterService
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
-          console.log("Cluster created successfully:", res); // לוג לתוצאה
+          // console.log("Cluster created successfully:", res); // לוג לתוצאה
           // return res;
         }),
         catchError(err => {
@@ -246,7 +246,7 @@ export class ClusterService
       return this.#clusterApiService.getSingleItemByBookId(bookId)
       .pipe(
         tap((res) => {
-          console.log("BookId fetched successfully:", res);
+          // console.log("BookId fetched successfully:", res);
         }),
         catchError((err) => {
           console.error("Error occurred while fetching BookId:", err);
@@ -255,13 +255,13 @@ export class ClusterService
       );
   }
 
-  
+
   getClusterGroupByBookId(cluster:string): Observable<RootObject | any>{
      return this.#clusterApiService.getClusterGroupByBookId(cluster)
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
         tap(res => {
-         // console.log("Cluster added successfully:", res); // לוג לתוצאה
+         // // console.log("Cluster added successfully:", res); // לוג לתוצאה
           // return res;
         }),
         catchError(err => {

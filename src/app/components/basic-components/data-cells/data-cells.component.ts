@@ -49,7 +49,7 @@ export class DataCellsComponent<T extends DataCellType> {
   @Output() iconClick = new EventEmitter<void>();
   bookId: string = "";
   hRef: string = "";
-  
+
 
   //injecting ENUM
   badgeType = BadgeType;
@@ -62,7 +62,7 @@ export class DataCellsComponent<T extends DataCellType> {
   autoClusterTabType=AutoClusterTabType
   ngOnInit() {
     this.type = this.mapType(this.typeText);
-   //console.log('Parent FormGroup:', this.formGroup);
+   //// console.log('Parent FormGroup:', this.formGroup);
   }
 
   private mapType(typeText: string): DataCellType {
@@ -96,7 +96,7 @@ export class DataCellsComponent<T extends DataCellType> {
 
   checkChange(checkStatus: CheckType) {
     this.checkStatus.emit(checkStatus);
-    // console.log("data cells check status", checkStatus)
+    // // console.log("data cells check status", checkStatus)
   }
   onClick() {
     // alert('click');

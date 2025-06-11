@@ -75,22 +75,22 @@ export class NarrowBasicTableComponent {
     this.HeadersForTab = this.Headers;
     this.RowsForTab = this.Rows;
     this.initializeRowsFormArray();
-    //console.log(this.rowsFormArray);
+    //// console.log(this.rowsFormArray);
 
     // // מנוי על שינויים בפורם הראשי
     // this.tableDataForm.valueChanges.subscribe((value) => {
-    //   //console.log('Basic table Form Value:', value);
+    //   //// console.log('Basic table Form Value:', value);
     // });
 
     // // מנוי על שינויים ב-rowsFormArray
-    // this.rowsFormArray.valueChanges.subscribe((value) => {
-      
-    //  // console.log('table Rows value changes:', value);
-    // });
+    this.rowsFormArray.valueChanges.subscribe((value) => {
+
+      // console.log('table Rows value changes:', value);
+    });
 
     // // מנוי על שינויים ב-headerCheckboxControl
     // this.headerCheckboxControl.valueChanges.subscribe((isChecked) => {
-    //   //console.log('Header Checkbox changed:', isChecked);
+    //   //// console.log('Header Checkbox changed:', isChecked);
     //   this.onHeaderCheckboxToggle();
     // });
   }
@@ -101,13 +101,13 @@ export class NarrowBasicTableComponent {
   }
 
   updateIconsVisibility() {
-    // console.log('updateIconsVisibility called');
+    // // console.log('updateIconsVisibility called');
     //לשאול את יהודית
     this.iconsVisible = this.rowsFormArray.controls.some((group) => {
       return group.get('checked')?.value;
     });
-    // console.log('Icons visibility:', this.iconsVisible);
-    // console.log(this.rowsFormArray);
+    // // console.log('Icons visibility:', this.iconsVisible);
+    // // console.log(this.rowsFormArray);
   }
   onHeaderCheckboxToggle(): void {
     const isChecked = this.tableDataForm.get('headerCheckbox')?.value;
@@ -119,7 +119,7 @@ export class NarrowBasicTableComponent {
         checkedControl.setValue(isChecked, { emitEvent: true });
       }
     });
-    // console.log('Updated rowsFormArray values:', this.rowsFormArray.value);
+    // // console.log('Updated rowsFormArray values:', this.rowsFormArray.value);
   }
 
   showPopover(type: string, index: number): void {
@@ -136,38 +136,45 @@ export class NarrowBasicTableComponent {
     if (changes['Rows']) {
       this.RowsForTab = changes['Rows'].currentValue;
       this.initializeRowsFormArray()
-      console.log(this.rowsFormArray);
+      // console.log(this.rowsFormArray);
     }
   }
 
   initializeRowsFormArray() {
-    this.rowsFormArray.clear();
+    const newRowsFormArray = this.#fb.array([]);
+
     this.RowsForTab.forEach((row) => {
       const rowGroup = this.#fb.group({});
 
       row.forEach((cellData, index) => {
-        const header = this.HeadersForTab[index].data;
-        let control = new FormControl({ value: cellData || '', disabled: true }); // disabled מראש
+        const header = this.HeadersForTab[index]?.data;
+        if (!header) return;
+
+        let control = new FormControl({ value: cellData || '', disabled: true });
 
         switch (header) {
           case "check":
-            const controlBoolean = new FormControl(this.initialStateBoolean);
-            rowGroup.addControl(header, controlBoolean);
+            control = new FormControl(this.initialStateBoolean);
             break;
           case "assignee":
           case "status":
-            control.enable(); // אפשר עריכה עבור assignee ו-status
-            rowGroup.addControl(header, control);
+            control.enable();
             break;
-          default:
-            rowGroup.addControl(header, control);
         }
+
+        rowGroup.addControl(header, control);
       });
 
-      this.rowsFormArray.push(rowGroup);
+      newRowsFormArray.push(rowGroup);
     });
+
+    // החלפת כל המבנה הקודם באובייקט חדש (כדי שזיהוי שינויים יעבוד)
+    this.tableDataForm.setControl('rowsFormArray', newRowsFormArray);
+
+    console.log('Initialized rowsFormArray:', newRowsFormArray.value);
     this.updateIconsVisibility();
   }
+
 
 
   get rowsFormArray(): FormArray<FormGroup> {
@@ -189,7 +196,7 @@ export class NarrowBasicTableComponent {
   }
   onClick() {
     alert('test on click');
-    // console.log('test on click');
+    // // console.log('test on click');
   }
   onClickAddCluster() {
     //open dialog create new cluster
@@ -198,7 +205,7 @@ export class NarrowBasicTableComponent {
   }
 
   onFilterValuesChange(values: any[]) {
-    // console.log('filter values:', values);
+    // // console.log('filter values:', values);
     //create filter arr
     // filter this.Rows based on the values
   }

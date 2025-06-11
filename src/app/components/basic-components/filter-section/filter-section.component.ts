@@ -47,7 +47,7 @@ export class FilterSectionComponent {
 currentUserRole = this.#clusterService.currentUser.role;
 
   ngOnInit() {
-   // console.log('Filters received in filter-section:', this.Filters); // Debugging log
+   // // console.log('Filters received in filter-section:', this.Filters); // Debugging log
   }
 
   filterForm: FormGroup;
@@ -104,7 +104,7 @@ currentUserRole = this.#clusterService.currentUser.role;
     });
 
     this.statusAssineeForm.valueChanges.subscribe(val => {
-     // console.log('statusAssineeForm:', val);
+     // // console.log('statusAssineeForm:', val);
     });
 
     // קבלת AssigneeList מהשאיבה מהגיסון
@@ -124,7 +124,7 @@ currentUserRole = this.#clusterService.currentUser.role;
     this.visiblePopover = null;
   }
   onClick() {
-   // console.log('Submit clicked:', this.filterForm.value);
+   // // console.log('Submit clicked:', this.filterForm.value);
   }
 
   onClickAddClusterFunc() {

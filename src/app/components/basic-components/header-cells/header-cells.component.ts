@@ -36,7 +36,7 @@ export class HeaderCellsComponent {
       default:
         this.type = HeaderCellType.TEXT;
     }
-console.log("HeaderCellsComponent initialized with data:", this.data, "and type:", this.type);
+// console.log("HeaderCellsComponent initialized with data:", this.data, "and type:", this.type);
   }
   sortBy(column: string) {
     if (this.type === 'order' || this.type === HeaderCellType.ORDERDOWN) {
@@ -49,13 +49,13 @@ console.log("HeaderCellsComponent initialized with data:", this.data, "and type:
   }
 
   checkChange(checkStatus: CheckType) {
-   // console.log(" header cells check status", checkStatus)
+   // // console.log(" header cells check status", checkStatus)
     this.checkStatus.emit(checkStatus);
 
   }
 
   openPeiComponent() {
-   // console.log("openPeiComponent");
+   // // console.log("openPeiComponent");
     this.openDialog.emit(true);
   }
 }

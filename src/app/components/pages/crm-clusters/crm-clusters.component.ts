@@ -40,15 +40,15 @@ export class CrmClustersComponent {
 
     this.dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log('page Data received from dialog:', result);
-        // בצע פעולה עם הנתונים שהתקבלו  
+        // console.log('page Data received from dialog:', result);
+        // בצע פעולה עם הנתונים שהתקבלו
         this.showToastNotificationFanction(result.bookId+"added to the cluster successfully!");
         if(result.bookId === "formIsNotValid") {
-          console.log('page Data received from dialog: no data');
+          // console.log('page Data received from dialog: no data');
           this.showToastNotificationFanction(result.bookId);
         }
       }
-    
+
     });
 
   }
@@ -69,8 +69,8 @@ export class CrmClustersComponent {
 
   onClick() {
     // alert('test on click');
-    // console.log('test on click');
-    console.log("openPeiComponent");
+    // // console.log('test on click');
+    // console.log("openPeiComponent");
     this.openDialog()
   }
   // האזנה לנתונים שמוחזרים מהדיאלוג

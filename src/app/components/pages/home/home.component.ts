@@ -52,7 +52,7 @@ export class HomeComponent {
 
   ngOnInit() {
     this.form.valueChanges.subscribe(value => {
-      console.log('Checkbox value changed:', value.myCheckbox);
+      // console.log('Checkbox value changed:', value.myCheckbox);
 
     })
     const userId = 4; // ID של המשתמש הרצוי
@@ -60,7 +60,7 @@ export class HomeComponent {
     this.#clusterService.getDashboardDataById(userId).subscribe({
       next: (user: any) => {
         this.selectedUser = user;
-       // console.log('Selected User:', this.selectedUser);
+       // // console.log('Selected User:', this.selectedUser);
         // הכנת הנתונים לגרף
         this.statisticsData = [
           { color: '#1334B9', value: user.newSuggestionPending || 0 }, // New Suggestions
@@ -115,7 +115,7 @@ export class HomeComponent {
         }))
       }
     };
-   // console.log("tableData", this.tableData);
+   // // console.log("tableData", this.tableData);
 
   }
 }

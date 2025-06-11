@@ -44,14 +44,14 @@ export class PieComponentDistributionModalComponent {
     this.#clusterService.getStatisticData().subscribe({
       next: (res: any) => {
         this.statisticData = res;
-       // console.log("this.bigData", this.statisticData);
+       // // console.log("this.bigData", this.statisticData);
         // עיבוד הנתונים
         this.lastNames = this.statisticData.details.map((detail: any) => detail.lastName);
         this.lastNamesInPlaces = this.statisticData.details.map((detail: any) => detail.lastNameInPlaces);
         this.totalCount = this.statisticData.totalCount;
-       // console.log("Total Count:", this.totalCount);
-       // console.log("Last Names:", this.lastNames);
-       // console.log("Last Names In Places:", this.lastNamesInPlaces);
+       // // console.log("Total Count:", this.totalCount);
+       // // console.log("Last Names:", this.lastNames);
+       // // console.log("Last Names In Places:", this.lastNamesInPlaces);
       },
       error: (error) => {
         console.error("getSpecialActivitiesData occurred:", error);
@@ -65,7 +65,7 @@ export class PieComponentDistributionModalComponent {
   }
   changeTheShowingPei() {
     this.showAllThaDatabasePie = !this.showAllThaDatabasePie;
-   // console.log("האם הפאי של כל המסד נתונים מוצג?:" + this.showAllThaDatabasePie);
+   // // console.log("האם הפאי של כל המסד נתונים מוצג?:" + this.showAllThaDatabasePie);
 
   }
 }

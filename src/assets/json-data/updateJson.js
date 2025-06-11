@@ -22,4 +22,4 @@ removeAssigneeFromClustersForSapir(jsonData);
 // כתיבת הקובץ המעודכן
 fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2), 'utf8');
 
-console.log('Assignee fields removed from ClustersForSapir in the JSON successfully!');
+// console.log('Assignee fields removed from ClustersForSapir in the JSON successfully!');

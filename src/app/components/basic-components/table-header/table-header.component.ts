@@ -34,10 +34,10 @@ headerCellType =   HeaderCellType
   }
 checkChange(checkStatus:CheckType) {
   this.checkStatus.emit(checkStatus);
- // console.log(" table header check status", checkStatus)
+ // // console.log(" table header check status", checkStatus)
 }
 openPeiComponent(){
- // console.log("openPeiComponent");
+ // // console.log("openPeiComponent");
   this.openDialog.emit(true);
     }
 }

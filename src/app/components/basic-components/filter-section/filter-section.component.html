@@ -7,10 +7,10 @@
     <yv-cluster-select formControlName="date" [default]="'Select Date Of Report'"
       [dropdownType]="nativeOptions.TEXT"></yv-cluster-select>
     }
-    @if (Filters.includes(filterNames.DATE_OF_ASSIGNEE)) {
+    <!-- @if (Filters.includes(filterNames.DATE_OF_ASSIGNEE)) {
       <yv-cluster-select formControlName="assigneeDate" [default]="'Select Date Of Assignee '"
         [dropdownType]="nativeOptions.TEXT" [options]="assigneeOptions"></yv-cluster-select>
-    }
+    } -->
     @if (Filters.includes(filterNames.FILTER_BY_STATUS)) {
     <yv-cluster-select formControlName="status" [default]="'Filter By Status'" [dropdownType]="nativeOptions.STATUS"
       [options]="badgeOptions"></yv-cluster-select>
@@ -32,7 +32,7 @@
         <yv-cluster-popover [type]="popOverTypeEnum.ASSIGNEE" [options]="assigneeOptions"></yv-cluster-popover>
       </div>
       }
-    </div> 
+    </div>
 
     <!-- כפתור שני: Status toggle -->
     <!-- formControlName="toggleStatus" -->

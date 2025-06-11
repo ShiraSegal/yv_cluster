@@ -27,7 +27,7 @@ export class BadgeComponent implements ControlValueAccessor {
   writeValue(value: string): void {
     this.value = value; // שמירת הערך
     this.valueForCss = value.split(' ')[0] +'-'+ value.split(' ')[1];
-    //console.log('Badge Updated Value:', this.value); // הדפסת הערך
+    //// console.log('Badge Updated Value:', this.value); // הדפסת הערך
   }
 
   registerOnChange(fn: (value: string) => void): void {

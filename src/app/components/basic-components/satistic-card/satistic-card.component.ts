@@ -18,7 +18,7 @@ export class SatisticCardComponent {
   ngOnInit(): void {
     // חישוב ההיקף של המעגל
     this.dashArray = 2 * Math.PI * 76; // היקף המעגל (r=76)
-   // console.log("this.dashArray", this.dashArray);
+   // // console.log("this.dashArray", this.dashArray);
 
     // חישוב אחוזי ההתקדמות
     this.calculateProgress();
@@ -30,7 +30,7 @@ export class SatisticCardComponent {
     } else {
       this.progress = (this.doneNumber / (this.doneNumber + this.toDoNumber)) * 100; // חישוב האחוז
     }
-   // console.log("this.progress", this.progress);
+   // // console.log("this.progress", this.progress);
   }
 
   get dashOffset(): number {

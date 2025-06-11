@@ -7,6 +7,7 @@ import { ClusterService } from 'src/app/services/cluster.service';
 import { BasicTabComponent } from '../basic-tab/basic-tab.component';
 import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 import { IconType } from 'src/app/enums/icon-enum';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table-warp',
@@ -92,13 +93,19 @@ export class NarrowBasicTableWarpComponent {
     { text: AutoClusterTabType.CHECKLIST_ITEMS, status: false },
     { text: AutoClusterTabType.ERROR_MESSAGES, status: false },
   ];
+  subscription: Subscription = new Subscription();
+
 
   ngOnInit() {
     this.clusterService.getAutoClusterData();
-    this.clusterService.getAutoClusterData().subscribe((data) => {
+    this.subscription.add(this.clusterService.getAutoClusterData().subscribe((data) => {
       this.tabData = data; // שמירת הנתונים ב-tabData
       this.loadDataForTab(); // טען את הנתונים לטבלה
-    });
+    }))
+  }
+ ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+
   }
 
   setActiveTab(tabText: AutoClusterTabType) {
@@ -112,28 +119,28 @@ export class NarrowBasicTableWarpComponent {
     this.tabs?.forEach((tab) => {
       const jsonKey = this.TabToJSONKeyMap[tab.text]; // מיפוי הטאב למפתח המתאים
       const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
-  
+
       // יצירת Headers דינמיים
       this.Headers[tab.text] = this.generateHeadersFromData(tabData);
-  
+
       // יצירת Rows דינמיים
       this.Rows[tab.text] = this.generateCellsFromRow(tabData, this.Headers[tab.text]);
     });
   }
-  
+
   generateHeadersFromData(data: any[]): { data: string }[] {
     if (!data.length) return [{ data: 'CHECK' }]; // אם אין נתונים, החזר אובייקט עם 'CHECK'
-    
+
     const keys = Object.keys(data[0]); // קבלת המפתחות מהאובייקט הראשון
     let headers: { data: string }[] = keys.map((key) => {
       return { data: key }; // החזר את המפתח ככותרת
     });
-  
+
     // הוסף אובייקט 'CHECK' בתחילת המערך
     headers.unshift({ data: 'check' });
     return headers;
   }
-  
+
   generateCellsFromRow(data: any[], headers: { data: string }[]): any[][] {
     return data.map((row) => {
       return headers.map((header) => {
@@ -141,8 +148,8 @@ export class NarrowBasicTableWarpComponent {
       });
     });
   }
-  
-  
+
+
 
 }
 
