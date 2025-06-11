@@ -1,10 +1,13 @@
 import * as e from "express";
+ 
+import { IconType } from "./icon-enum";
 
 export enum ButtonType {
   PRIMARY = "primary",
   SECONDARY = "secondary",
   TERTIARY = "tertiary"
 }
+ 
 
 export enum NarrowBasicTableRowInputState {
   DEFAULT = 'Default',
@@ -14,19 +17,22 @@ export enum BasicTableRowPropertyVariants {
   DEFAULT = 'Default',
   VARIANT2 = 'Variant2',
 }
+ 
+
 
 export enum BasicTablePropertyType {
   OLD_SUGGESTIONS = 'Old Suggestions',
   NEWֹֹֹֹֹֹ_SUGGESTIONS = 'New Suggestions',
 }
-export enum ButtonSize {
-  BIG = "big",
-  SMALL = "small"
-}
 
-export enum CheckType {
-  UNCHECKED = 'unchecked',
-  CHECKED = 'checked'
+export enum ButtonSize{
+  BIG="big",
+  SMALL="small"
+}
+export enum TextSize {
+  LARGE = "large",
+  MEDIUM = "medium",
+  SMALL = "small"
 }
 export enum CheckStateType {
   ENABLED = 'enabled',
@@ -42,14 +48,35 @@ export enum DataCellType {
   ICON = 'icon',
   ASSIGNEE = 'assignee',
   BUTTON = 'button',
-  SLIDER = 'slider',
+  SLIDER='slider',
   PLACEOLDER = 'place-order',
 }
+ 
+export enum PopoverHeader{
+  STATUS = 'Status',
+  ASSIGN_RESPONSIBLE= 'Assign Responsible',
+  LINK_TO_CRM = 'Link to CRM',
+}
+ 
+ 
+  export enum CheckType {
+    UNCHECKED = 'unchecked',
+    CHECKED = 'checked'
+  }
+  
+
+
 export type DataCellValue<T extends DataCellType> =
   T extends DataCellType.TEXT ? string :
   T extends DataCellType.LINK ? string | number :
   T extends DataCellType.ASSIGNEE ? string :
-  T extends DataCellType.BUTTON ? string :
+  T extends DataCellType.BUTTON ? { 
+    text?: string; 
+    buttonType?: ButtonType; 
+    disabled?: boolean; 
+    isBig?: boolean; // Changed from size
+    iconType?: IconType; // Changed from buttonIcon
+  } : // אובייקט מורכב עבור BUTTON
   T extends DataCellType.SLIDER ? number | null :
   never;
 
@@ -64,31 +91,28 @@ export enum AutoClusterTabType {
   ERROR_MESSAGES = 'Error Messages'
 }
 
-
-export enum ButtonIcon {
-  FOLDER_PLUS = "fa-light fa-folder-plus",
-  LAYER_PLUS = "fa-light fa-layer-plus",
-  PLUS = "fa-light fa-plus",
-  FILE_ARROW_DOWN = "fa-light fa-file-arrow-down",
-  CHEVRON_LEFT = "fa-light fa-chevron-left"
+export enum HomeTableTabType {
+ NEW_SUGGESTIONS = 'new-suggestion',
+  OLD_SUGGESTIONS = 'old_suggestion',
+  
 }
+  export enum TextColor {
+    BLACK = "black",
+    SLATE_BLUE = "slate-blue",
+    NEUTRAL_GRAY = "neutral-gray",
+    DARK_GRAY = "dark-gray",
+    COOl_BLUE="cool-blue",
+    PRIMARY_BTN= "primary_btn",
+    MEDIUM_GRAY="medium_gray",
+    VIBRANT_GREEN="vibrant_green",
+    DEEP_BLACK="deep_black",
+    WHITE="white"
+  }
 
-export enum TextSize {
-  LARGE = "large",
-  MEDIUM = "medium",
-  SMALL = "small"
-}
-
-export enum TextColor {
-  BLACK = "black",
-  SLATE_BLUE = "slate-blue",
-  NEUTRAL_GRAY = "neutral-gray",
-}
-
-export enum TextWeight {
-  BOLD = "bold",
-  NORMAL = "normal"
-}
+  export enum TextWeight {
+    BOLD = "bold",
+    NORMAL = "normal"
+    }
 
 export enum HeaderCellType {
   TEXT = "text",
@@ -97,20 +121,9 @@ export enum HeaderCellType {
   PLACEOLDER = "place-order",
   ORDER = "order",
   CHECK = "check",
-  ORDERDOWN = "order down"
+  ORDERDOWN = "order-down"
 }
 
-export enum CardIcons {
-  HOURGLASS_CLOCK = "fa-solid fa-hourglass-clock",
-  CLOCK_FIVE = "fa-solid fa-clock-five",
-  EDIT = "fa-solid fa-pen-to-square",
-  CIRCLE_CHECK = "fa-solid fa-circle-check",
-  HOME = "fa-light fa-house"
-}
-export enum ToastNotificationIcons {
-  ERROR = "fa-solid fa-circle-xmark",
-  SUCCESS = "fa-solid fa-circle-check",
-}
 export enum BadgeType {
   TODO = "To-do",
   DONE = "Done"
@@ -121,11 +134,12 @@ export enum SliderNavigationTabType {
   ACTIVE = "active"
 }
 export enum SliderNavigationTabTextType {
-  HOME = "Home",
-  LOGOUT = "Logout",
-  AUTOCLUSRET = "Auto Cluster",
-  REPORT = "Report",
-  NEWCLUSTER = "New Cluster",
+  HOME = "home",
+  LOG_OUT = "logout",
+  CRM_CLUSTERS  = "CRM Clusters",
+  AUTO_CLUSTER = "auto cluster",
+  REPORT = "report",
+  NEW_CLUSTER = "new cluster",
 
 }
 
@@ -141,22 +155,38 @@ export enum IconButtonLargeType {
   DEFAULT = "default",
   HOVER = "hover",
 }
-export enum NativeOptionType {
+
+
+export enum NativeOptionType{
   ASSIGNEE = "assignee",
   STATUS = "status",
   TEXT = "text"
 }
-export enum NativeOptionState {
+
+
+export enum PopoverType{
+  ASSIGNEE = "assignee",
+  STATUS = "status",
+  LINK = "link"
+}
+export enum NativeOptionState{
   DEFAULT = "default",
   HOVER = "hover"
 }
-export enum ButtonIconProperty {
-  VARIANT1 = "variant1",
-  VARIANT2 = "variant2",
-  VARIANT3 = "variant3"
-}
 
-export enum StatusActiveOrNotActive {
-  ACTIVE = "active",
-  NOT_ACTIVE = "not-active"
-}
+export enum ButtonIconProperty{
+  VARIANT1="variant1",
+  VARIANT2="variant2",
+  VARIANT3="variant3"
+  }
+  export enum RadioButtonListDirection{
+    ROW="row",
+    COLUMN="column"
+  }
+  export enum BigCardSize{
+    SHORT = "short",
+    LONG = "long"
+  }
+
+
+  

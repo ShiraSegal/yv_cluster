@@ -8,6 +8,7 @@
     <div class="tabs-container">
       @for (tab of tabs; track tab) {
       <yv-cluster-basic-tab [text]="tab.text" [active]="tab.status" (tabChange)="setActiveTab(tab.text)">
+      <yv-cluster-basic-tab [text]="tab.text" [active]="tab.status" (tabChange)="setActiveTab(tab.text)">
       </yv-cluster-basic-tab>
       }
     </div>

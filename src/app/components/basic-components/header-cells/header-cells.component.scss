@@ -1,4 +1,4 @@
-@import "../../../../styles/colors.scss";
+@import "src/styles.scss";;
 
 .sort-icon {
     text-align: center;
@@ -9,55 +9,45 @@
     line-height: normal;
     width: 1.3125rem;
     height: 1.0625rem;
+    flex-shrink: 0; 
+}
+
+.header-cell { 
+    display: flex;
+    padding:  0.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.25rem;
+    gap: 0.625rem;
     flex-shrink: 0;
+    color: $c-3F4B5A;
+    font-family: Poppins;
+    font-size: 0.875rem;
 }
 
 .text,
 .order,
 .order-down {
-    display: flex;
-    align-items: center;
+    align-items:center;
     justify-content: space-between;
-    width: 9.375rem;
-    height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
-    gap: 0.625rem;
-    flex-shrink: 0;
-    color: $slate_blue;
-    font-family: Poppins;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.25rem;
-    /* 142.857% */
     flex: 1 0 0;
+
+    width: 6.25rem;
 }
 
 .header-search {
-    display: flex;
-    width: 9.375rem;
-    height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 0.625rem;
-    flex-shrink: 0;
-    color: $slate_blue;
-    font-family: Poppins;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.25rem;
     align-self: stretch;
 }
 
 .header-search-search {
     display: flex;
-    height: 15px;
+    height: 0.9375rem;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 10px;
+    gap: 0.625rem;
     flex-shrink: 0;
     align-self: stretch;
 }
@@ -69,11 +59,12 @@
     align-items: center;
     gap: 0.625rem;
     align-self: stretch;
-    border-bottom: 1px solid $slate_blue;
+    border-bottom: 0.0625rem solid $c-3F4B5A;
 }
 
 .header-search-cancle {
-    color: $slate_blue;
+    color: $c-3F4B5A;
+
     font-family: "Font Awesome 6 Pro";
     font-size: 0.625rem;
     font-style: normal;
@@ -82,48 +73,29 @@
 }
 
 .more {
-    display: flex;
     width: 1.5625rem;
-    height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
     justify-content: flex-end;
     align-items: center;
-    gap: 0.625rem;
-    color: $slate_blue;
     text-align: center;
-    font-family: "Font Awesome 6 Pro";
-    font-size: 0.875rem;
-    font-style: normal;
     font-weight: 900;
-    line-height: normal;
-    width: 1.3125rem;
-    height: 1.0625rem;
     flex-shrink: 0;
 }
 
 .place-order {
-    display: flex;
     width: 1.5625rem;
-    height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
     justify-content: flex-end;
     align-items: center;
-    gap: 0.625rem;
 }
 
-.header-cell {
-    display: flex;
-    align-items: center;
-    padding: var(--layout-02, 0.5rem);
-    gap: 0.625rem;
-    flex: 1 0 0;
-    /* התאמה לצורת התאים */
-    height: 2.8125rem;
-    /* זהה לגובה של .cell */
-    width: 9.375rem;
-    flex: 1 0 0;
-    min-width: 0;
-    /* אם יש לך רוחב קבוע */
-    text-align: center;
-    justify-content: center;
+.chart-icon{
+    color:$c-1334B9;
+font-family: "Font Awesome 6 Pro";
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 900;
+line-height: 1.25rem; /* 142.857% */
+margin-right: 5px;
+}
+.pie-icon{
+    cursor: pointer;
 }

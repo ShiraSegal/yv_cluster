@@ -1,0 +1,19 @@
+@if(isVisible){
+<div [ngClass]="{
+    'toast-notification-container-success': iconName === toastNotificationIcons.SUCCESS_SOLID,
+    'toast-notification-container-error': iconName === toastNotificationIcons.ERROR_SOLID}">
+    <div [class]="iconName" [ngClass]="{
+        'icon-success': iconName === toastNotificationIcons.SUCCESS_SOLID,
+        'icon-error': iconName === toastNotificationIcons.ERROR_SOLID}">
+    </div>
+    <div class="message">{{message}}</div>
+
+    <div class="text">{{text}}</div>
+    <button class="x-button" (click)="closeToastNotification()">
+        <div>
+            <i class="fa-light fa-xmark x-icon"></i>
+        </div>
+    </button>
+</div>
+}
+

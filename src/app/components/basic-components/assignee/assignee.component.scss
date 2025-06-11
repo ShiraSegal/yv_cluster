@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
-@import "../../../../styles/colors.scss";
+@import "src/styles.scss";
 .assignee {
     display: flex;
     align-items: center;
     gap: 0.125rem;
-    color:$slate_blue; /* Slate Blue */
+    color: $c-3F4B5A;
     text-align: right;
     font-family: 'Poppins', sans-serif;
     font-size: 0.75rem;
@@ -14,8 +14,8 @@
 }
 
 .assignee-icon {
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     flex-shrink: 0;
     display: inline-block;
 }
@@ -24,13 +24,13 @@
     cx: 12;
     cy: 12;
     r: 12;
-    fill: $light_slate_blue;; /* Light Slate Blue */
+    fill: $c-8999DC; /* Light Slate Blue */
 }
 
 .circle-text {
     text-anchor: middle;
-    dominant-baseline: middle;
-    fill: $white; /* White */
+    dominant-baseline: middle; 
+    fill: $c-FFFFFF;
     font-family: 'Rubik', sans-serif; 
     font-size: 0.6rem;
     font-style: normal;

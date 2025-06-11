@@ -1,0 +1,29 @@
+@import "src/styles.scss";
+.basic-table-row {
+  display: flex;
+  flex-direction: row;
+  width: 65.0625rem;
+  height: 5.125rem;
+  padding: 0.25rem 0rem;
+  align-items: center;
+  gap: 0.0625rem;
+  flex-shrink: 0;
+  border-bottom:0.0625rem solid $c-D0D6F1;;
+  justify-content: space-between;
+}
+
+.check .more .placeolder .icon .place-order{
+  flex-grow: 0;
+  flex-basis: auto;
+  margin-left: auto;
+}
+
+.text .link .asignee .button .status .slider{
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.Variant2 {
+  background: $c-D0D6F1;
+}
+

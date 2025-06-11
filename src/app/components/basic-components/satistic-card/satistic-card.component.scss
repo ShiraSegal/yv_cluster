@@ -1,0 +1,98 @@
+.card-container{
+    display: flex;
+width: 19.875rem;
+height: 25.875rem;
+padding: 0.9375rem 1.875rem;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 1.875rem;
+flex-shrink: 0;
+border-radius: 0.625rem;
+background: #FFF;
+
+box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+.circle{
+    width: 10rem;
+height: 10rem;
+flex-shrink: 0;
+stroke-width: 8px;
+stroke: var(--E7EBF8, #E7EBF8);
+}
+.circle-text{
+    display: flex;
+    width: 4.25rem;
+    flex-direction: column;
+    align-items: center;  
+}
+.card-text{
+    width: 15.125rem;
+color: #040405;
+
+text-align: center;
+/* Heading/Small bold */
+font-family: Poppins;
+font-size: 1.125rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.done-and-to-do{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 0.5rem;
+align-self: stretch;
+}
+.done{
+    display: flex;
+justify-content: space-between;
+align-items: flex-end;
+align-self: stretch;
+}
+.to-do{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: stretch;
+}
+.done-circle{
+    width: 1.1875rem;
+height: 1.125rem;
+fill: var(--Linear, linear-gradient(225deg, var(--D0D6F1, #D0D6F1) 4.05%, var(--Primery, #1334B9) 100.04%));
+}
+.circle-and-text{
+    display: flex;
+align-items: flex-end;
+gap: 0.5rem;
+flex: 1 0 0;
+}
+.text{
+    color: var(--Color-2, #262C34);
+text-align: center;
+/* Body/medium */
+font-family: Poppins;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.25rem;
+}
+.number{
+    color: var(--Color-2, #262C34);
+text-align: center;
+/* Body/medium */
+font-family: Poppins;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.25rem; 
+}
+
+// :host {
+//     position: relative;
+//     width: 160px;
+//     height: 160px;
+//     display: inline-block;
+//   }
+  

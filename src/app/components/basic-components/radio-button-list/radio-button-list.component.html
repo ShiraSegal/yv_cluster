@@ -1,0 +1,9 @@
+<div [ngClass]="{'radio-button-list-row': direction==='row', 'radio-button-list-column': direction==='column'}"
+  [formGroup]="radioForm">
+  @for (obj of radioButtonValuesArray ; track obj.key ){
+  <yv-cluster-basic-radio-button [disable]="disable" [checked]="radioControl.value === obj.key" [text]="obj.value"
+    (checkedChange)="onOneRadioButtonChange(obj.key)"
+    (fieldValue)="onOtherFieldChecked($event)">
+  </yv-cluster-basic-radio-button>
+  }
+</div>

@@ -53,4 +53,9 @@ export class ClusterApiService {
   }
   
   
+  getAssigneeList(): Observable<{ name: string }[]> {
+    return this.#http.get<{ name: string }[]>(`${this.apiUrl}/getAssignees.json`);
+  }
+  
+  
 }

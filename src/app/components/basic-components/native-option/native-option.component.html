@@ -1,4 +1,4 @@
-<div class="option-wrapper" [ngClass]="optionState">
+<!-- <div class="option-wrapper" [ngClass]="optionState">
     <div [ngClass]="optionType">
         @if(optionType === optionTypeMain.TEXT){
             <span class="icon-wrapper">
@@ -9,10 +9,43 @@
             <yv-cluster-badge [property]="badgeType.TODO"></yv-cluster-badge>
         }
         @else{
-            <yv-cluster-assignee data="Ariela Zoppelmann"></yv-cluster-assignee>
+            <yv-cluster-assignee [data]="optionType"></yv-cluster-assignee>
+
         }
         {{ (optionType === optionTypeMain.TEXT ) ? Text : '' }}
     </div>
 </div>
 
-
+ -->
+ <div class="option-wrapper" [ngClass]="optionState">
+    <div [ngClass]="optionType">
+      @switch(optionType) {
+        @case(optionTypeMain.TEXT) {
+          <span class="icon-wrapper">
+            <i class="fa-regular fa-square-arrow-up-right custom-arrow"></i>
+          </span>
+          @if(displayText && displayText.includes('crm')){
+         <a href="{{displayText}}">  {{ displayText.split('#').pop() }}</a>
+          }
+            @else{
+         <a href="{{displayText}}">  {{ displayText}}</a>
+          }
+        }
+  
+        @case(optionTypeMain.STATUS) {
+          @if (property) {
+            <yv-cluster-badge [property]="property"></yv-cluster-badge>
+          }
+        }
+  
+        @case(optionTypeMain.ASSIGNEE) {
+          <yv-cluster-assignee [data]="displayText"></yv-cluster-assignee>
+        }
+  
+        @default {
+          {{ displayText }}
+        }
+      }
+    </div>
+  </div>
+  

@@ -1,0 +1,26 @@
+
+
+.app-wrraper {
+    position: relative;
+    display: flex;
+    flex-direction: row; /* ניווט בצד ותוכן מימין */
+    background: linear-gradient(0deg, rgba(231, 235, 248, 0.30) 0%, rgba(231, 235, 248, 0.30) 100%), #FFF;
+}
+
+nav {
+    flex: 0 0 14rem;
+    position: fixed; 
+    height: 80vh;
+    
+}
+
+main {
+    flex: 1;
+    overflow: auto;
+    padding: 1rem;
+    margin-left: 13.94rem; 
+    margin-top: 5.5rem; 
+    /* margin-left: 7rem; */
+     /* Add a margin to account for the nav's width */
+    /* padding: 1rem; */
+}

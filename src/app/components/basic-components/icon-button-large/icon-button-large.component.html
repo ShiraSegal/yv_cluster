@@ -1,6 +1,5 @@
-<div class="warpper" >
-<div class="icon-warpper"> 
-    <i [ngClass]="[icon,'icon']"></i>
-</div>
-</div>
-
+<button [ngClass]="property" (click)="onClick.emit()">
+    <div class="icon-warpper">
+        <i [ngClass]="[icon,'icon']"></i>
+    </div>
+</button>

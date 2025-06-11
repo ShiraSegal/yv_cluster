@@ -11,7 +11,7 @@
     align-items: center;
     gap: var(--Layout-medium, 0.5rem);
     flex-shrink: 0;
-    border-bottom: 3px solid $cool_blue;
+    border-bottom: 3px solid $c-2449D8;
 }
 
 .not-active {
@@ -28,8 +28,8 @@
     flex-shrink: 0;
 }
 
-.text-active {
-    color:$cool_blue;
+.tab-text-active {
+    color:$c-2449D8;
     text-align: center;
     /* Heading/Small bold */
     font-family: Poppins;
@@ -39,8 +39,8 @@
     line-height: normal;
 }
 
-.text-not-active {
-    color: $slate_blue;
+.tab-text-not-active {
+    color: $c-3F4B5A;
     text-align: center;
     /* Heading/Small */
     font-family: Poppins;

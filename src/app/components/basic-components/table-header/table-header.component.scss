@@ -1,14 +1,48 @@
-@import "../../../../styles/colors.scss";
+// @import "src/styles.scss";
+
+// .table-header {
+//   // height: 5.125rem;
+//   // justify-content: space-between;
+//   // align-self: stretch;
+//   // border-bottom: 1px solid $c-D0D6F1;
+//   // display: flex;
+//   // width: 100%;
+//   // padding: 0.25rem 0rem;
+//   // align-items: center;
+
+//   display: flex;
+// padding: 0.25rem 0rem;
+// align-items: center;
+// align-self: stretch;
+//  border-bottom: 1px solid $c-D0D6F1;
+// //  width: 100rem;
+// }
+
+// .regular-cell {
+//   flex-grow: 1;
+//   flex-basis: 0;
+//   min-width: 0;
+// }
+// .special-cell {
+//   flex-grow: 0;
+//   flex-basis: auto;
+//   margin-left: auto;
+//   width: auto;
+// }
+@import "src/styles.scss";
 
 .table-header {
   height: 5.125rem;
+
   justify-content: space-between;
   align-self: stretch;
-  border-bottom: 1px solid $lavender_blue;
+  border-bottom: 1px solid $c-D0D6F1;
   display: flex;
-  width: 100%;
-  padding: 0.25rem 0rem;
-  align-items: center;
+padding: 0.25rem 0rem;
+align-items: center;
+align-self: stretch;
+ border-bottom: 1px solid $c-D0D6F1;
+ margin-left: -0.5rem;
 }
 
 .regular-cell {
@@ -18,7 +52,8 @@
 }
 .special-cell {
   flex-grow: 0;
-  flex-basis: auto;
-  margin-left: auto;
-  width: auto; 
+  flex-basis: 0;
+  margin-right: 2.6rem;
+  width: 1.5625rem;
+  
 }
