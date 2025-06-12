@@ -112,7 +112,7 @@ export class NarrowBasicTableWarpComponent {
   subscription: Subscription = new Subscription();
 
   tableDataForm: FormGroup = this.#fb.group({
-    headerCheckbox: new FormControl(false),
+   headerCheckbox: new FormControl(false),
     rowsFormArray: this.#fb.array([])
   });
 
@@ -139,15 +139,15 @@ export class NarrowBasicTableWarpComponent {
   initializeRowsFormArray() {
     // ניקוי השורות הקיימות
     this.rowsFormArray.clear();
-  
+
     this.Rows[this.currentTab]?.forEach((row) => {
       const rowGroup = this.#fb.group({});
-  
+
       row.forEach((cellData, index) => {
         const header = this.Headers[this.currentTab][index]?.data;
-  
+
         let control = new FormControl({ value: cellData || '', disabled: true });
-  
+
         switch (header) {
           case "check":
             control = new FormControl(this.initialStateBoolean);
@@ -157,18 +157,16 @@ export class NarrowBasicTableWarpComponent {
             control.enable();
             break;
         }
-  
+
         rowGroup.addControl(header, control);
       });
-  
+
       this.rowsFormArray.push(rowGroup); // הוספת FormGroup
     });
   }
 
 
-  get rowsFormArray(): FormArray<FormGroup> {
-    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
-  }
+rowsFormArray
   get headerCheckboxControl(): FormControl {
     return this.tableDataForm.get('headerCheckbox') as FormControl;
   }
@@ -176,14 +174,14 @@ export class NarrowBasicTableWarpComponent {
     this.tabs?.forEach((tab) => {
       const jsonKey = this.TabToJSONKeyMap[tab.text]; // מיפוי הטאב למפתח המתאים
       const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
-  
+
       // יצירת Headers דינמיים
       this.Headers[tab.text] = this.generateHeadersFromData(tabData);
-  
+
       // יצירת Rows דינמיים
       this.Rows[tab.text] = this.generateCellsFromRow(tabData, this.Headers[tab.text]);
     });
-  
+
     // טען את השורות לטופס
     this.initializeRowsFormArray();
   }

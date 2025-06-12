@@ -16,7 +16,7 @@ import { CheckComponent } from '../../basic-components/check/check.component';
 @Component({
   selector: 'yv-cluster-home',
   standalone: true,
-  imports: [BasicCardComponent, HeadingComponent,CheckComponent,ReactiveFormsModule,
+  imports: [BasicCardComponent, HeadingComponent,ReactiveFormsModule,
     BasicTableWarpComponent, SuggestionsStatisticsComponent
   ],
   templateUrl: './home.component.html',

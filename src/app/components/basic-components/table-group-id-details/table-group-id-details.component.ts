@@ -14,7 +14,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { PieComponentDistributionModalComponent } from '../pie-component-distribution-modal/pie-component-distribution-modal.component';
 import { FilterHandlingSuggestionsComponent } from '../filter-handling-suggestions/filter-handling-suggestions.component';
 import { log } from 'util';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormControlState, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { group } from 'console';
 import { TooltipComponent } from '../tooltip/tooltip.component';
 import { ToastNotificationComponent } from '../toast-notification/toast-notification.component';
@@ -26,7 +26,7 @@ import { NotifictionService } from 'src/app/services/notifiction.service';
 @Component({
   selector: 'yv-cluster-table-group-id-details',
   standalone: true,
-  imports: [CommonModule, TableHeaderComponent, NarrowBasicTableRowComponent, FilterHandlingSuggestionsComponent, ReactiveFormsModule, FormsModule, TooltipComponent, ToastNotificationComponent, ButtonComponent],
+  imports: [CommonModule, TableHeaderComponent, NarrowBasicTableComponent, FilterHandlingSuggestionsComponent, ReactiveFormsModule, FormsModule, TooltipComponent, ToastNotificationComponent, ButtonComponent],
   templateUrl: './table-group-id-details.component.html',
   styleUrl: './table-group-id-details.component.scss'
 })
@@ -79,58 +79,81 @@ export class TableGroupIdDetailsComponent {
     const formGroup = this.rowsArray.at(index) as FormGroup;
     return Object.keys(formGroup.controls).map(key => formGroup.get(key) as FormControl);
   }
+  tableDataForm: FormGroup = this.#fb.group({
+    headerCheckbox: new FormControl(false),
+    rowsFormArray: this.#fb.array([])
+  });
   //כותרות הטבלה
-  Headers = [{ data: '', type: HeaderCellType.CHECK },
-  { data: 'Book ID', type: HeaderCellType.TEXT },
-  { data: 'Cluster ID', type: HeaderCellType.TEXT },
-  { data: 'Score', type: HeaderCellType.TEXT },
-  { data: 'First Name', type: HeaderCellType.TEXT },
-  { data: 'Last Name', type: HeaderCellType.TEXT },
-  { data: 'Father Name', type: HeaderCellType.TEXT },
-  { data: 'Mother Name', type: HeaderCellType.TEXT },
-  { data: 'Spouse First Name', type: HeaderCellType.TEXT },
-  { data: 'Date of Birth', type: HeaderCellType.TEXT },
-  { data: 'Place of Birth', type: HeaderCellType.TEXT },
-  { data: 'Permanent Place', type: HeaderCellType.TEXT },
-  { data: 'Source', type: HeaderCellType.TEXT },
-  { data: '', type: HeaderCellType.MORE }
+  Headers = [{ data: '' },
+  { data: 'Book ID' },
+  { data: 'Cluster ID' },
+  { data: 'Score' },
+  { data: 'First Name' },
+  { data: 'Last Name' },
+  { data: 'Father Name' },
+  { data: 'Mother Name' },
+  { data: 'Spouse First Name' },
+  { data: 'Date of Birth' },
+  { data: 'Place of Birth' },
+  { data: 'Permanent Place' },
+  { data: 'Source' },
+  { data: '' }
   ]
 
-
+  initialStateBoolean: FormControlState<boolean> = {
+    value: false,
+    disabled: false
+  };
 
   ngOnInit() {
     // this.#loadingService.show(); // התחלת טעינה
     this.#clusterService.getClusterGroupDetails().subscribe((res: rootObjectOfClusterGroupDetails | null) => {
       if (res && res.d && res.d.clusteredNameRowList) {
+        this.Rows?.forEach((row) => {
+          const rowGroup = this.#fb.group({});
+          row.forEach((cellData, index) => {
+            const header = this.Headers[index]?.data;
+            let control = new FormControl({ value: cellData || '', disabled: true });
+
+            switch (header) {
+              case "check":
+                control = new FormControl(this.initialStateBoolean);
+                break;
+            }
+            rowGroup.addControl(header, control);
+          });
+
+          this.rowsFormArray.push(rowGroup); // הוספת FormGroup
+        });
         // this.clusterGroupDetails = res;
 
-        this.Rows = res.d.clusteredNameRowList.map(row => {
-          return [
-            { data: '', type: DataCellType.CHECK, moreData: { checkStatus: CheckType.UNCHECKED } },
-            { data: row.BookId, type: DataCellType.LINK, moreData: { linkHRef: 'https://collections.yadvashem.org/en/names/' } },
-            { data: row.ExistsClusterId || 'New', type: DataCellType.TEXT, moreData: { prefCode: row.ExistsClusterId || 'New' } },
-            { data: row.Score, type: DataCellType.TEXT, moreData: { prefCode: row.Score ?? '' } },
-            { data: row.FirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.FirstName?.Code ?? '' } },
-            { data: row.lastName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.lastName?.Code ?? '' } },
-            { data: row.FatherFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.FatherFirstName?.Code ?? '' } },
-            { data: row.MotherFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.MotherFirstName?.Code ?? '' } },
-            { data: row.SpouseFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.SpouseFirstName?.Code ?? '' } },
-            { data: row.DateOfBirth?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.DateOfBirth?.Value ?? '' } },
-            { data: row.PlaceOfBirth?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.PlaceOfBirth?.Code ?? '' } },
-            { data: row.PermanentPlace?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.PermanentPlace?.Code ?? '' } },
-            { data: row.Source?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.Source?.Code ?? '' } },
-            { data: IconType.AUTO_CLUSRE_TLIGHT, type: DataCellType.ICON, moreData: { icon: IconType.TRASH_LIGHT } }
-          ];
-        });
+        // this.Rows = res.d.clusteredNameRowList.map(row => {
+        //   return [
+        //     { data: '', type: DataCellType.CHECK, moreData: { checkStatus: CheckType.UNCHECKED } },
+        //     { data: row.BookId, type: DataCellType.LINK, moreData: { linkHRef: 'https://collections.yadvashem.org/en/names/' } },
+        //     { data: row.ExistsClusterId || 'New', type: DataCellType.TEXT, moreData: { prefCode: row.ExistsClusterId || 'New' } },
+        //     { data: row.Score, type: DataCellType.TEXT, moreData: { prefCode: row.Score ?? '' } },
+        //     { data: row.FirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.FirstName?.Code ?? '' } },
+        //     { data: row.lastName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.lastName?.Code ?? '' } },
+        //     { data: row.FatherFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.FatherFirstName?.Code ?? '' } },
+        //     { data: row.MotherFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.MotherFirstName?.Code ?? '' } },
+        //     { data: row.SpouseFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.SpouseFirstName?.Code ?? '' } },
+        //     { data: row.DateOfBirth?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.DateOfBirth?.Value ?? '' } },
+        //     { data: row.PlaceOfBirth?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.PlaceOfBirth?.Code ?? '' } },
+        //     { data: row.PermanentPlace?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.PermanentPlace?.Code ?? '' } },
+        //     { data: row.Source?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.Source?.Code ?? '' } },
+        //     { data: IconType.AUTO_CLUSRE_TLIGHT, type: DataCellType.ICON, moreData: { icon: IconType.TRASH_LIGHT } }
+        //   ];
+        // });
         // this.#loadingService.hide(); // סיום טעינה
-        this.rowsArray.clear();
+        this.rowsFormArray.clear();
         this.initRowsArray();
 
         //// // console.log("this.rowsArray", this.rowsArray);
 
         // ניתן להאזין לשינויים ב־FormArray אם צריך:
-        this.rowsArray.valueChanges.subscribe(values => {
-         // // console.log('ערכי הצ׳קים:', values);
+        this.rowsFormArray.valueChanges.subscribe(values => {
+          // // console.log('ערכי הצ׳קים:', values);
         });
       } else {
         console.warn("Received null or invalid response from getClusterGroupDetails");
@@ -151,7 +174,7 @@ export class TableGroupIdDetailsComponent {
   //האזנה למשתנה twoChosen
 
   checkHowManyChecked(): void {
-    this.rowsArray.valueChanges.subscribe((controls: any[]) => {
+    this.rowsFormArray.valueChanges.subscribe((controls: any[]) => {
       const checkedCount = controls.filter(control => control.checked).length;
 
       if (this.howManyChecked !== checkedCount) {
@@ -167,10 +190,10 @@ export class TableGroupIdDetailsComponent {
         id: [row[1]?.data],
 
       });
-      this.rowsArray.push(control);
+      this.rowsFormArray.push(control);
       this.checkedControls.push(control.get('checked') as FormControl);
-     // // console.log("this.rowsArray: " + this.rowsArray);
-      this.rowsArray.controls.forEach((e) => {
+      // // console.log("this.rowsArray: " + this.rowsArray);
+      this.rowsFormArray.controls.forEach((e) => {
         // // console.log('id: ' + e.get('id')?.value);
         // // console.log('checked: ' + e.get('checked')?.value);
 
@@ -192,7 +215,7 @@ export class TableGroupIdDetailsComponent {
     });
 
     // עדכון שדה 'checked' בכל FormGroup בתוך rowsArray
-    this.rowsArray.controls.forEach((group: AbstractControl) => {
+    this.rowsFormArray.controls.forEach((group: AbstractControl) => {
       const checkedControl = group.get('checked');
       if (checkedControl instanceof FormControl) {
         checkedControl.setValue(checkStatus === CheckType.CHECKED);
@@ -202,22 +225,24 @@ export class TableGroupIdDetailsComponent {
 
   //מחיקת שורה
   deleteByBookId(bookId: string) {
-    this.rowsArray.controls.forEach((row, index) => {
+    this.rowsFormArray.controls.forEach((row, index) => {
       if (row.get('id')?.value === bookId)
         this.rowsArray.removeAt(index)
     });
     this.Rows = this.Rows.filter(item => item[1].data !== bookId);
     // this.initRowsArray()
     this.checkedControls = [];
-    this.rowsArray.controls.forEach((c) => {
+    this.rowsFormArray.controls.forEach((c) => {
       this.checkedControls.push(c.get('checked') as FormControl);
     })
   }
-
+  get rowsFormArray(): FormArray<FormGroup> {
+    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
+  }
 
   //בחירת check
   checkChange(checkStatus: CheckType) {
-   // // console.log(" TableGroupIdDetailsComponent check status", checkStatus)
+    // // console.log(" TableGroupIdDetailsComponent check status", checkStatus)
 
   }
   openDialog() {
@@ -233,12 +258,12 @@ export class TableGroupIdDetailsComponent {
     });
   }
   openPeiComponent() {
-   // // console.log("openPeiComponent");
+    // // console.log("openPeiComponent");
     this.openDialog()
   }
 
   prefCodeStatusChange(prefCodeStatus: boolean) {
-   // // console.log("prefCodeStatus table", prefCodeStatus);
+    // // console.log("prefCodeStatus table", prefCodeStatus);
     this.prefCodeStatus = prefCodeStatus;
   }
   openEnterBookIdDialog() {
@@ -270,4 +295,4 @@ export class TableGroupIdDetailsComponent {
     });
 
   }
- }
+}
