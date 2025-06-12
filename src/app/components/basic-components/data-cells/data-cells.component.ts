@@ -45,8 +45,8 @@ export class DataCellsComponent<T extends DataCellType> {
   @Input() prefCodeStatus: boolean = false;
   @Input() formGroup: FormGroup;
   @Input() currentTab : AutoClusterTabType;
-  @Output() checkStatus = new EventEmitter<CheckType>();
-  @Output() iconClick = new EventEmitter<void>();
+  @Output() expand = new EventEmitter<void>();
+
   bookId: string = "";
   hRef: string = "";
 
@@ -74,6 +74,8 @@ export class DataCellsComponent<T extends DataCellType> {
       case 'icon': return DataCellType.ICON;
       default: return DataCellType.TEXT;
     }
+
+    
   }
 
 
@@ -94,14 +96,12 @@ export class DataCellsComponent<T extends DataCellType> {
     return typeof value === 'number';
   }
 
-  checkChange(checkStatus: CheckType) {
-    this.checkStatus.emit(checkStatus);
-    // // console.log("data cells check status", checkStatus)
-  }
   onClick() {
-    // alert('click');
-    this.iconClick.emit();
-
-
+    // Handle other click logic if needed
   }
+
+  triggerExpand() {
+    this.expand.emit(); // Emit the expand event
+  }
+
 }

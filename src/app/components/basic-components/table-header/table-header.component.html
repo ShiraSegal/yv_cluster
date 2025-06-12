@@ -2,24 +2,24 @@
     @for (header of headers ; track $index)
       {
         @if(currentUserRole !== "manager" && header.data === "assignee"){} 
-        @else if(currentTab===autoClusterTabType.ERROR_MESSAGES){
-          <div class="cell,place-order">
-            <yv-cluster-header-cells [data]="" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
-            [headerCheckboxControl]="headerCheckboxControl"
-            ></yv-cluster-header-cells>
-        </div>
-          }
-        @else { 
+        @else{ 
           <div class="cell" [ngClass]="header.data">
             <yv-cluster-header-cells [data]="header.data" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
             [headerCheckboxControl]="headerCheckboxControl"
             ></yv-cluster-header-cells>
         </div>
         } 
+        @if(currentTab===autoClusterTabType.ERROR_MESSAGES && header.data==='check'){
+          <div class="cell,place-order">
+            <yv-cluster-header-cells [data]="'place-older'" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
+            [headerCheckboxControl]="headerCheckboxControl"
+            ></yv-cluster-header-cells>
+        </div>
+          }
     }
     @if(currentTab===autoClusterTabType.APPROVAL_GROUPS||currentTab===autoClusterTabType.CHECKLIST_ITEMS){
       <div class="cell,place-order">
-        <yv-cluster-header-cells [data]="" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
+        <yv-cluster-header-cells [data]="'place-older'" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
         [headerCheckboxControl]="headerCheckboxControl"
         ></yv-cluster-header-cells>
     </div>

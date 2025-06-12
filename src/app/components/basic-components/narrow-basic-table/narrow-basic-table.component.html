@@ -1,19 +1,14 @@
 <form [formGroup]="tableDataForm">
     <div class="table-frame">
-        <div class="table-actions">
-            <yv-cluster-filter-section [iconsVisible]="iconsVisible" [Filters]="Filters"
-                (onClickAddCluster)="onClickAddCluster()" (onClicShowkAssineeOrStatus)="onClicShowkAssineeOrStatus()"
-                (onFilterValuesChange)="onFilterValuesChange($event)"></yv-cluster-filter-section>
-        </div>
         <div class="data-container">
-            <yv-cluster-table-header [currentTab]="currentTab" [headers]="HeadersForTab" [length]="narrowBasicTableRowLength.LONG"
+            <yv-cluster-table-header [currentTab]="currentTab" [headers]="Headers" [length]="narrowBasicTableRowLength.LONG"
                 [headerCheckboxControl]="headerCheckboxControl">
             </yv-cluster-table-header>
             <div class="rows-container" formArrayName="rowsFormArray">
-                @for(rowGroup of rowsFormArray.controls; let i = $index ;track i;){
+                @for(rowGroup of rowsFormArray.controls ; let i = $index ;track i;){ 
                     @if (currentTab === autoClusterTabType.ERROR_MESSAGES) {
-                        <yv-cluster-expandable [currentTab]="currentTab" [property]="NarrowBasicTableRowExpandState.CLOSE"
-                        [rowGroup]="rowGroup" [length]="narrowBasicTableRowLength.LONG">
+                        <yv-cluster-expandable [currentTab]="currentTab" [property]="narrowBasicTableRowExpandState.CLOSE"
+                        [rowGroup]="rowGroup" >
                     </yv-cluster-expandable>
                     }
                    @else {
@@ -23,7 +18,6 @@
                     }
             }
             </div>
-
         </div>
     </div>
 </form>

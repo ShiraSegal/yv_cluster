@@ -21,9 +21,15 @@
 }
 
 .place-order {
-    width: 9.1875rem;
-    justify-content: flex-end;
+    // width: 9.1875rem;
+    // justify-content: flex-end;
+    // align-items: center;
+    display: flex;
+    width: 2.75rem;
+    padding: var(--layout-02, 0.5rem);
+    justify-content: center;
     align-items: center;
+    gap: 0.625rem;
     }
 
 .chart-icon {

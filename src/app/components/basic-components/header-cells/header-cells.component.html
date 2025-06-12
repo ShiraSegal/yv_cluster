@@ -5,9 +5,9 @@
         {{ data }}
     </div>
     }
-    @if(type === headerCellType.PLACEOLDER){
-
-        }
+    @if(type === headerCellType.TEXT){
+        {{ data }}
+    }
     @if(type === headerCellType.ORDER){
     <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>
     }
@@ -23,7 +23,7 @@
     @if(type === headerCellType.CHECK){
     <yv-cluster-check></yv-cluster-check>
     }
-    @else{
-        {{data}}
-        }
+    @if(type === headerCellType.PLACEOLDER){
+
+    }
 </div>

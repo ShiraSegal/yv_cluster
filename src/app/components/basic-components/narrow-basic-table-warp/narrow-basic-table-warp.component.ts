@@ -8,17 +8,24 @@ import { BasicTabComponent } from '../basic-tab/basic-tab.component';
 import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 import { IconType } from 'src/app/enums/icon-enum';
 import { Subscription } from 'rxjs';
+import { FormArray, FormBuilder, FormControl, FormControlState, FormGroup } from '@angular/forms';
+import { FilterSectionComponent } from '../filter-section/filter-section.component';
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table-warp',
   standalone: true,
-  imports: [CommonModule, BasicTabComponent, NarrowBasicTableComponent],
+  imports: [CommonModule,
+     BasicTabComponent,
+      NarrowBasicTableComponent,
+      FilterSectionComponent
+    ],
   templateUrl: './narrow-basic-table-warp.component.html',
   styleUrl: './narrow-basic-table-warp.component.scss',
 })
 export class NarrowBasicTableWarpComponent {
-
+  @Input() subTitle: string = '';
   clusterService = inject(ClusterService);
+  #fb = inject(FormBuilder)
   //enum imports
   autoClusterTabType = AutoClusterTabType;
   headerCellType = HeaderCellType;
@@ -28,14 +35,22 @@ export class NarrowBasicTableWarpComponent {
   checkStateType = CheckStateType;
   checkType = CheckType;
   buttonType = ButtonType;
+  iconType = IconType
   //data
-
   tabData: any;
-  @Input() subTitle: string = '';
   currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
   Headers: { [key in AutoClusterTabType]?: { data: string }[] } = {};
   Rows: { [key in AutoClusterTabType]?: any[][] } = {};
 
+  initialStateString: FormControlState<string> = {
+    value: '',
+    disabled: true
+  };
+  initialStateBoolean: FormControlState<boolean> = {
+    value: false,
+    disabled: false
+  };
+  hoveredPopover: { type: string; index: number } | null = null;
   readonly TabToJSONKeyMap: { [key in AutoClusterTabType]: string } = {
     [AutoClusterTabType.SAPIR_CLUSTERS]: 'ClustersForSapir',
     [AutoClusterTabType.MISSING_FIELD]: 'ClustersWithMissingFields',
@@ -93,40 +108,96 @@ export class NarrowBasicTableWarpComponent {
     { text: AutoClusterTabType.CHECKLIST_ITEMS, status: false },
     { text: AutoClusterTabType.ERROR_MESSAGES, status: false },
   ];
+
   subscription: Subscription = new Subscription();
 
+  tableDataForm: FormGroup = this.#fb.group({
+    headerCheckbox: new FormControl(false),
+    rowsFormArray: this.#fb.array([])
+  });
+
+  iconsVisible: boolean = false;
 
   ngOnInit() {
     this.clusterService.getAutoClusterData();
     this.subscription.add(this.clusterService.getAutoClusterData().subscribe((data) => {
       this.tabData = data; // שמירת הנתונים ב-tabData
       this.loadDataForTab(); // טען את הנתונים לטבלה
-    }))
-  }
- ngOnDestroy(): void {
-    this.subscription.unsubscribe()
-
-  }
-
-  setActiveTab(tabText: AutoClusterTabType) {
-    this.tabs = this.tabs.map((tab) => ({
-      ...tab,
-      status: tab.text === tabText ? true : false
     }));
-    this.currentTab = tabText;
+    this.subscription.add(this.tableDataForm.valueChanges.subscribe((value) => {
+      // Handle changes in the entire form
+      console.log('Basic table Form Value:', value);
+    }));
+    this.subscription.add(this.rowsFormArray.valueChanges.subscribe((rows) => {
+      // Handle changes in the rows dynamically
+      console.log('Rows Form Array Value:', rows);
+    }));
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }
+  initializeRowsFormArray() {
+    // ניקוי השורות הקיימות
+    this.rowsFormArray.clear();
+  
+    this.Rows[this.currentTab]?.forEach((row) => {
+      const rowGroup = this.#fb.group({});
+  
+      row.forEach((cellData, index) => {
+        const header = this.Headers[this.currentTab][index]?.data;
+  
+        let control = new FormControl({ value: cellData || '', disabled: true });
+  
+        switch (header) {
+          case "check":
+            control = new FormControl(this.initialStateBoolean);
+            break;
+          case "assignee":
+          case "status":
+            control.enable();
+            break;
+        }
+  
+        rowGroup.addControl(header, control);
+      });
+  
+      this.rowsFormArray.push(rowGroup); // הוספת FormGroup
+    });
+  }
+
+
+  get rowsFormArray(): FormArray<FormGroup> {
+    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
+  }
+  get headerCheckboxControl(): FormControl {
+    return this.tableDataForm.get('headerCheckbox') as FormControl;
   }
   loadDataForTab() {
     this.tabs?.forEach((tab) => {
       const jsonKey = this.TabToJSONKeyMap[tab.text]; // מיפוי הטאב למפתח המתאים
       const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
-
+  
       // יצירת Headers דינמיים
       this.Headers[tab.text] = this.generateHeadersFromData(tabData);
-
+  
       // יצירת Rows דינמיים
       this.Rows[tab.text] = this.generateCellsFromRow(tabData, this.Headers[tab.text]);
     });
+  
+    // טען את השורות לטופס
+    this.initializeRowsFormArray();
   }
+setActiveTab(tabText: AutoClusterTabType) {
+  this.tabs = this.tabs.map((tab) => ({
+    ...tab,
+    status: tab.text === tabText ? true : false
+  }));
+  this.currentTab = tabText;
+  this.initializeRowsFormArray()
+  this.tableDataForm.patchValue({
+    rowsFormArray : this.Rows[this.currentTab] || []
+  });
+}
 
   generateHeadersFromData(data: any[]): { data: string }[] {
     if (!data.length) return [{ data: 'CHECK' }]; // אם אין נתונים, החזר אובייקט עם 'CHECK'
@@ -149,8 +220,34 @@ export class NarrowBasicTableWarpComponent {
     });
   }
 
+  onFilterValuesChange(values: any[]) {
+    console.log('Filter values:', values);
+    this.filterRows(values); // Apply filtering logic
+  }
 
+  onClickAddCluster() {
+    console.log('Add Cluster clicked');
+    // Handle add cluster logic
+  }
 
+  onClicShowkAssineeOrStatus() {
+    console.log('Show Assignee or Status clicked');
+    // Handle assignee/status logic
+  }
+
+  filterRows(filterValues: any[]) {
+    this.Rows[this.currentTab] = this.Rows[this.currentTab]?.filter((row) => {
+      return filterValues.includes(row[0]); // Example filtering logic
+    });
+    this.initializeRowsFormArray(); // Reinitialize rows after filtering
+  }
+  showPopover(type: string, index: number): void {
+    this.hoveredPopover = { type, index };
+  }
+
+  hidePopover(): void {
+    this.hoveredPopover = null;
+  }
 }
 
 

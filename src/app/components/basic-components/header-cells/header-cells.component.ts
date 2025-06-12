@@ -30,13 +30,13 @@ export class HeaderCellsComponent {
       case 'check':
         this.type = HeaderCellType.CHECK;
         break;
-      case '':
+      case 'place-older':
         this.type = HeaderCellType.PLACEOLDER;
         break;
       default:
         this.type = HeaderCellType.TEXT;
     }
-// console.log("HeaderCellsComponent initialized with data:", this.data, "and type:", this.type);
+//  console.log("HeaderCellsComponent initialized with data:", this.data, "and type:", this.type);
   }
   sortBy(column: string) {
     if (this.type === 'order' || this.type === HeaderCellType.ORDERDOWN) {

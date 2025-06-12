@@ -5,15 +5,11 @@ import { NarrowBasicTableRowComponent } from '../narrow-basic-table-row/narrow-b
 import { TableHeaderComponent } from '../table-header/table-header.component';
 import { ButtonIconProperty, NativeOptionState, NativeOptionType } from 'src/app/enums/native-option-enum';
 import { IconType } from 'src/app/enums/icon-enum';
-import { FilterSectionComponent } from "../filter-section/filter-section.component";
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormControlState, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { ClusterService } from 'src/app/services/cluster.service';
 import { Subscription } from 'rxjs';
-import { PopoverComponent } from '../popover/popover.component';
-import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 import { ExpandableComponent } from '../expandable/expandable.component';
 import { log } from 'console';
-
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table',
@@ -22,7 +18,6 @@ import { log } from 'console';
     ReactiveFormsModule,
     NarrowBasicTableRowComponent,
     TableHeaderComponent,
-    FilterSectionComponent,
     ExpandableComponent
   ],
   templateUrl: './narrow-basic-table.component.html',
@@ -30,184 +25,35 @@ import { log } from 'console';
 })
 export class NarrowBasicTableComponent {
   @Input() currentTab: AutoClusterTabType;
-  @Input() Filters: FilterNames[] = [];
   @Input() Headers: { data: string }[];
-  @Input() Rows: any[][];
-
-  HeadersForTab: { data: string }[];
-  RowsForTab: any[][];
-
-  initialStateString: FormControlState<string> = {
-    value: '',
-    disabled: true
-  };
-  initialStateBoolean: FormControlState<boolean> = {
-    value: false,
-    disabled: false
-  };
+  @Input() tableDataForm: FormGroup;
+  narrowBasicTableRowExpandState = NarrowBasicTableRowExpandState
   narrowBasicTableRowLength = NarrowBasicTableRowLength;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
-  label: string = 'Select Label';
-  primary = ButtonType.PRIMARY
-  variant3 = ButtonIconProperty.VARIANT3
-  iconType = IconType
-  stateEnum = State
-  nativeOptions = NativeOptionType
-  autoClusterTabType = AutoClusterTabType
-  NarrowBasicTableRowExpandState = NarrowBasicTableRowExpandState
-  hoveredPopover: { type: string; index: number } | null = null;
-
-  //injects
-
-  #fb = inject(FormBuilder)
-
+ 
+  autoClusterTabType = AutoClusterTabType;
   subscription: Subscription = new Subscription();
-
-  //initializing the form
-  tableDataForm: FormGroup = this.#fb.group({
-    headerCheckbox: new FormControl(false),
-    rowsFormArray: this.#fb.array([])
-  });
-
-  iconsVisible: boolean = false;
+  cdr = inject(ChangeDetectorRef);
 
   ngOnInit() {
-    this.HeadersForTab = this.Headers;
-    this.RowsForTab = this.Rows;
-    this.initializeRowsFormArray();
-    //// console.log(this.rowsFormArray);
-
-    // // מנוי על שינויים בפורם הראשי
-    // this.tableDataForm.valueChanges.subscribe((value) => {
-    //   //// console.log('Basic table Form Value:', value);
-    // });
-
-    // // מנוי על שינויים ב-rowsFormArray
-    this.rowsFormArray.valueChanges.subscribe((value) => {
-
-      // console.log('table Rows value changes:', value);
-    });
-
-    // // מנוי על שינויים ב-headerCheckboxControl
-    // this.headerCheckboxControl.valueChanges.subscribe((isChecked) => {
-    //   //// console.log('Header Checkbox changed:', isChecked);
-    //   this.onHeaderCheckboxToggle();
-    // });
+    this.subscription.add(this.tableDataForm.get('headerCheckbox').valueChanges.subscribe((isChecked) => {
+      console.log('Header Checkbox changed:', isChecked);
+    }));
+    this.subscription.add(this.rowsFormArray.valueChanges.subscribe((rows) => {
+      // Handle changes in the rows dynamically
+      console.log('Rows Form Array Value in Child:', rows);
+      this.cdr.detectChanges(); // Trigger change detection manually
+    }));
   }
-
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
-
-  }
-
-  updateIconsVisibility() {
-    // // console.log('updateIconsVisibility called');
-    //לשאול את יהודית
-    this.iconsVisible = this.rowsFormArray.controls.some((group) => {
-      return group.get('checked')?.value;
-    });
-    // // console.log('Icons visibility:', this.iconsVisible);
-    // // console.log(this.rowsFormArray);
-  }
-  onHeaderCheckboxToggle(): void {
-    const isChecked = this.tableDataForm.get('headerCheckbox')?.value;
-
-    // Update all row checkboxes
-    this.rowsFormArray.controls.forEach((group) => {
-      const checkedControl = group.get('checked');
-      if (checkedControl) {
-        checkedControl.setValue(isChecked, { emitEvent: true });
-      }
-    });
-    // // console.log('Updated rowsFormArray values:', this.rowsFormArray.value);
-  }
-
-  showPopover(type: string, index: number): void {
-    this.hoveredPopover = { type, index };
-  }
-
-  hidePopover(): void {
-    this.hoveredPopover = null;
-  }
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['Headers']) {
-      this.HeadersForTab = changes['Headers'].currentValue;
-    }
-    if (changes['Rows']) {
-      this.RowsForTab = changes['Rows'].currentValue;
-      this.initializeRowsFormArray()
-      // console.log(this.rowsFormArray);
-    }
-  }
-
-  initializeRowsFormArray() {
-    const newRowsFormArray = this.#fb.array([]);
-
-    this.RowsForTab.forEach((row) => {
-      const rowGroup = this.#fb.group({});
-
-      row.forEach((cellData, index) => {
-        const header = this.HeadersForTab[index]?.data;
-        if (!header) return;
-
-        let control = new FormControl({ value: cellData || '', disabled: true });
-
-        switch (header) {
-          case "check":
-            control = new FormControl(this.initialStateBoolean);
-            break;
-          case "assignee":
-          case "status":
-            control.enable();
-            break;
-        }
-
-        rowGroup.addControl(header, control);
-      });
-
-      newRowsFormArray.push(rowGroup);
-    });
-
-    // החלפת כל המבנה הקודם באובייקט חדש (כדי שזיהוי שינויים יעבוד)
-    this.tableDataForm.setControl('rowsFormArray', newRowsFormArray);
-
-    console.log('Initialized rowsFormArray:', newRowsFormArray.value);
-    this.updateIconsVisibility();
   }
 
 
-
-  get rowsFormArray(): FormArray<FormGroup> {
-    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
-  }
   get headerCheckboxControl(): FormControl {
     return this.tableDataForm.get('headerCheckbox') as FormControl;
   }
-
-
-  nativeOptionswe = [
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT },
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT }
-  ];
-
-  trackByFn(index: number, item: any): any {
-    return index;
+  get rowsFormArray(): FormArray<FormGroup> {
+    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
   }
-  onClick() {
-    alert('test on click');
-    // // console.log('test on click');
-  }
-  onClickAddCluster() {
-    //open dialog create new cluster
-  }
-  onClicShowkAssineeOrStatus() {
-  }
-
-  onFilterValuesChange(values: any[]) {
-    // // console.log('filter values:', values);
-    //create filter arr
-    // filter this.Rows based on the values
-  }
-
 }

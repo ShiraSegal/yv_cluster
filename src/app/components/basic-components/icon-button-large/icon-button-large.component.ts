@@ -19,6 +19,5 @@ export class IconButtonLargeComponent {
 
   handleClick() {  
       this.onClick.emit();
-
   }
 }
