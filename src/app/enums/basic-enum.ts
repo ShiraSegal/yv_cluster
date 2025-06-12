@@ -1,5 +1,5 @@
 import * as e from "express";
- 
+
 import { IconType } from "./icon-enum";
 
 export enum ButtonType {
@@ -7,7 +7,7 @@ export enum ButtonType {
   SECONDARY = "secondary",
   TERTIARY = "tertiary"
 }
- 
+
 
 export enum NarrowBasicTableRowInputState {
   DEFAULT = 'Default',
@@ -18,6 +18,7 @@ export enum NarrowBasicTableRowExpandState {
   OPEN = 'open',
   CLOSE = 'close'
 }
+
 
 export enum BasicTableRowPropertyVariants {
   DEFAULT = 'Default',
@@ -60,29 +61,29 @@ export enum DataCellType {
   SLIDER='slider',
   PLACEOLDER = 'place-order',
 }
- 
+
 export enum PopoverHeader{
   STATUS = 'Status',
   ASSIGN_RESPONSIBLE= 'Assign Responsible',
   LINK_TO_CRM = 'Link to CRM',
 }
- 
- 
+
+
   export enum CheckType {
     UNCHECKED = 'unchecked',
     CHECKED = 'checked'
   }
-  
+
 
 
 export type DataCellValue<T extends DataCellType> =
   T extends DataCellType.TEXT ? string :
   T extends DataCellType.LINK ? string | number :
   T extends DataCellType.ASSIGNEE ? string :
-  T extends DataCellType.BUTTON ? { 
-    text?: string; 
-    buttonType?: ButtonType; 
-    disabled?: boolean; 
+  T extends DataCellType.BUTTON ? {
+    text?: string;
+    buttonType?: ButtonType;
+    disabled?: boolean;
     isBig?: boolean; // Changed from size
     iconType?: IconType; // Changed from buttonIcon
   } : // אובייקט מורכב עבור BUTTON
@@ -105,7 +106,7 @@ export enum AutoClusterTabType {
 export enum HomeTableTabType {
  NEW_SUGGESTIONS = 'new-suggestion',
   OLD_SUGGESTIONS = 'old_suggestion',
-  
+
 }
   export enum TextColor {
     BLACK = "black",
@@ -210,4 +211,4 @@ export enum ButtonIconProperty{
   }
 
 
-  
+

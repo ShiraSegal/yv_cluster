@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output,EventEmitter, inject, SimpleChanges } from '@angular/core';
 import { AutoClusterTabType, HeaderCellType, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
+
 import { HeaderCellsComponent } from "../header-cells/header-cells.component";
 import { FormControl } from '@angular/forms';
 import { CheckType } from 'src/app/enums/check-enum';
@@ -23,6 +24,7 @@ export class TableHeaderComponent {
  #clusterService=inject(ClusterService)
 currentUserRole = this.#clusterService.currentUser.role;
 autoClusterTabType=AutoClusterTabType
+
 //injections
 headerCellType =   HeaderCellType
 

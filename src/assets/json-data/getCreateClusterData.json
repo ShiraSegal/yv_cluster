@@ -3,7 +3,7 @@
     "15901353",
     "7029235"
 ],
-"SapirClusterDetails": [
+"sapirClusterDetails": [
     {
         "Field": "FirstName",
         "Values": [
@@ -21,7 +21,7 @@
         "HasOtherOption": false
     },
     {
-        "Field": "LastName",
+        "Field": "lastName",
         "Values": [
             {
                 "NameCode": "T182674",

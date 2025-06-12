@@ -1,17 +1,17 @@
-import { ValueCodeItem } from "./value-code-item.model";
+import { valueCodeItem } from "./value-code-item.model";
 
-export class ClusteredNameRow {
+export class clusteredNameRow {
     __type: string;
     BookId: string;
-    FirstName: ValueCodeItem;
-    LastName: ValueCodeItem;
-    FatherFirstName: ValueCodeItem;
-    MotherFirstName: ValueCodeItem;
-    PlaceOfBirth: ValueCodeItem;
-    PermanentPlace: ValueCodeItem;
-    DateOfBirth: ValueCodeItem;
-    Source: ValueCodeItem;
-    SpouseFirstName: ValueCodeItem;
+    FirstName: valueCodeItem;
+    lastName: valueCodeItem;
+    FatherFirstName: valueCodeItem;
+    MotherFirstName: valueCodeItem;
+    PlaceOfBirth: valueCodeItem;
+    PermanentPlace: valueCodeItem;
+    DateOfBirth: valueCodeItem;
+    Source: valueCodeItem;
+    SpouseFirstName: valueCodeItem;
     MaidenName: string;
     IsClustered: number;
     ExistsClusterId: string;
@@ -26,15 +26,15 @@ export class ClusteredNameRow {
     constructor(
         __type: string,
         BookId: string,
-        FirstName: ValueCodeItem,
-        LastName: ValueCodeItem,
-        FatherFirstName: ValueCodeItem,
-        MotherFirstName: ValueCodeItem,
-        PlaceOfBirth: ValueCodeItem,
-        PermanentPlace: ValueCodeItem,
-        DateOfBirth: ValueCodeItem,
-        Source: ValueCodeItem,
-        SpouseFirstName: ValueCodeItem,
+        FirstName: valueCodeItem,
+        lastName: valueCodeItem,
+        FatherFirstName: valueCodeItem,
+        MotherFirstName: valueCodeItem,
+        PlaceOfBirth: valueCodeItem,
+        PermanentPlace: valueCodeItem,
+        DateOfBirth: valueCodeItem,
+        Source: valueCodeItem,
+        SpouseFirstName: valueCodeItem,
         MaidenName: string,
         IsClustered: number,
         ExistsClusterId: string,
@@ -49,7 +49,7 @@ export class ClusteredNameRow {
         this.__type = __type;
         this.BookId = BookId;
         this.FirstName = FirstName;
-        this.LastName = LastName;
+        this.lastName = lastName;
         this.FatherFirstName = FatherFirstName;
         this.MotherFirstName = MotherFirstName;
         this.PlaceOfBirth = PlaceOfBirth;

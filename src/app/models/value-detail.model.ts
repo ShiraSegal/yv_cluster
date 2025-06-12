@@ -1,4 +1,4 @@
-export class ValueDetail {
+export class valueDetail {
     NameCode: string;
     Value: string;
     Counter: number;

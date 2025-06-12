@@ -20,21 +20,14 @@ import { RootObject } from 'src/app/models/root-object.model';
   styleUrl: './enter-bookid.component.scss'
 })
 export class EnterBookidComponent {
-
-//   constructor(
-//     @Optional() @Inject(MAT_DIALOG_DATA) public data: { title: string },
-//     @Optional() public dialogRef: MatDialogRef<EnterBookidComponent>
-
-// ){}
-data: { title: string } = inject(MAT_DIALOG_DATA, { optional: true });
-dialogRef: MatDialogRef<EnterBookidComponent> = inject(MatDialogRef, { optional: true })!;
-    #clusterService = inject(ClusterService);
-
-    @Input() showRadioButtons: boolean;
+  #clusterService = inject(ClusterService);
+  showRadioButtons: { showRadioButtons: boolean } = inject(MAT_DIALOG_DATA);
+  dialogRef: MatDialogRef<EnterBookidComponent> = inject(MatDialogRef, { optional: true })!;
+  // @Input() showRadioButtons: boolean;
 
   //form
   // dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
-  enterBookIdOrClusterForm:FormGroup = new FormGroup({
+  enterBookIdOrClusterForm: FormGroup = new FormGroup({
     input: new FormControl('', Validators.required)
   });
 
@@ -65,15 +58,16 @@ dialogRef: MatDialogRef<EnterBookidComponent> = inject(MatDialogRef, { optional:
 
 
   //toast notification
-  iconType=IconType
+  iconType = IconType
   message: string = `${this.selected} Submitted!`;
 
-ngOnInit() {
-  if(this.showRadioButtons)
-  {
-    this.enterBookIdOrClusterForm.addControl('selection', new FormControl('', Validators.required));
+  ngOnInit() {
+    if (this.showRadioButtons) {
+      this.enterBookIdOrClusterForm.addControl('selection', new FormControl('', Validators.required));
+    }
+    console.log("showRadioButtons", this.showRadioButtons);
+
   }
-}
 
   checkedChange(selected: string) {
     this.selected = selected;
@@ -81,52 +75,54 @@ ngOnInit() {
 
 
   add() {
-    // this.closeDialogWithData({ bookId: '12345' })
+    //להוריד שורה זו אחרי שה POST עובד
+    this.closeDialogWithData({ bookId: this.enterBookIdOrClusterForm.value.input })
+
     if (this.enterBookIdOrClusterForm.valid) {
-      if(this.enterBookIdOrClusterForm.value.selection=='Book ID'){
-      this.#clusterService.getSingleItemByBookId(this.enterBookIdOrClusterForm.value.input).subscribe({
-        next: (res: RootObject | boolean) => {
-          // console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
-          this.closeDialogWithData({ bookId:this.enterBookIdOrClusterForm.value.input })
-          if (res) {
-            // console.log("bookId add:", res);
+      if (this.enterBookIdOrClusterForm.value.selection == 'Book ID') {
+        this.#clusterService.getSingleItemByBookId(this.enterBookIdOrClusterForm.value.input).subscribe({
+          next: (res: RootObject | boolean) => {
+            console.log("**********************", { bookId: this.enterBookIdOrClusterForm.value.input });
+            this.closeDialogWithData({ bookId: this.enterBookIdOrClusterForm.value.input })
+            if (res) {
+              console.log("bookId add:", res);
 
-          } else {
-            console.warn("add bookId failed.");
+            } else {
+              console.warn("add bookId failed.");
+            }
+          },
+          error: (err: any) => {
+            console.error("Error during cluster creation:", err);
           }
-        },
-        error: (err:any) => {
-          console.error("Error during cluster creation:", err);
-        }
-      });
-      this.formIsValid = true;
-      this.close = true;
-    }
-    else if(this.enterBookIdOrClusterForm.value.selection=='Cluster'){
-      this.#clusterService.getClusterGroupByBookId(this.enterBookIdOrClusterForm.value.input).subscribe({
-        next: (res:RootObject | boolean) => {
-          // console.log("res", res);
+        });
+        this.formIsValid = true;
+        this.close = true;
+      }
+      else if (this.enterBookIdOrClusterForm.value.selection == 'Cluster') {
+        this.#clusterService.getClusterGroupByBookId(this.enterBookIdOrClusterForm.value.input).subscribe({
+          next: (res: RootObject | boolean) => {
+            console.log("res", res);
 
-          // console.log("**********************",{bookId:this.enterBookIdOrClusterForm.value.input});
-          this.closeDialogWithData({ bookId:this.enterBookIdOrClusterForm.value.input })
-          if (res) {
-           // // console.log("Cluster add:", res);
-          } else {
-            console.warn("add cluster failed.");
+            console.log("**********************", { bookId: this.enterBookIdOrClusterForm.value.input });
+            this.closeDialogWithData({ bookId: this.enterBookIdOrClusterForm.value.input })
+            if (res) {
+              console.log("Cluster add:", res);
+            } else {
+              console.warn("add cluster failed.");
+            }
+          },
+          error: (err: any) => {
+            console.error("Error during cluster creation:", err);
           }
-        },
-        error: (err:any) => {
-          console.error("Error during cluster creation:", err);
-        }
-      });
-    }
+        });
+      }
 
+    }
+    else {
+      this.formIsValid = false;
+      this.closeDialogWithData({ bookId: "formIsNotValid" })
+    }
   }
-  else {
-    this.formIsValid = false;
-    this.closeDialogWithData({ bookId:"formIsNotValid" })
-  }
-}
   // cancel() {
   //   this.close = true;
   //     this.dialogRef.close();  // סוגר את הדיאלוג

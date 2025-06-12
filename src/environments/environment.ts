@@ -3,7 +3,7 @@
 export const environment = {
   production: false,
   baseUrl: "http://localhost:3000",
-  apiUrl: "",
+  apiUrl: "https://localhost:7059",
   optionsLangs: ['en', 'he'],
   defaultLang: 'en',
   dateFormat: 'dd/MM/yyyy',

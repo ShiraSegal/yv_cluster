@@ -2,50 +2,50 @@
 {
   "7029235": [
       {
-          "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+          "__type": "ClusteredNamesSystem.classes.clusteredNameRow",
           "BookId": "7029235",
           "FirstName": {
-              "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+              "__type": "ClusteredNamesSystem.classes.valueCodeItem",
               "Code": "T96064",
               "Value": "Adler"
           },
-          "LastName": {
-              "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+          "lastName": {
+              "__type": "ClusteredNamesSystem.classes.valueCodeItem",
               "Code": "T60363 ",
               "Value": "Adler"
           },
           "FatherFirstName": {
-              "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+              "__type": "ClusteredNamesSystem.classes.valueCodeItem",
               "Code": "",
               "Value": ""
           },
           "MotherFirstName": {
-              "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+              "__type": "ClusteredNamesSystem.classes.valueCodeItem",
               "Code": "",
               "Value": ""
           },
           "PlaceOfBirth": {
-              "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+              "__type": "ClusteredNamesSystem.classes.valueCodeItem",
               "Code": "",
               "Value": ""
           },
           "PermanentPlace": {
-              "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+              "__type": "ClusteredNamesSystem.classes.valueCodeItem",
               "Code": "",
               "Value": ""
           },
           "DateOfBirth": {
-              "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+              "__type": "ClusteredNamesSystem.classes.valueCodeItem",
               "Code": "",
               "Value": "26/09/1892"
           },
           "Source": {
-              "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+              "__type": "ClusteredNamesSystem.classes.valueCodeItem",
               "Code": "T3228",
               "Value": "List of murdered persons"
           },
           "SpouseFirstName": {
-              "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+              "__type": "ClusteredNamesSystem.classes.valueCodeItem",
               "Code": "",
               "Value": ""
           },
@@ -63,50 +63,50 @@
   ],
   "1111111": [
         {
-            "__type": "ClusteredNamesSystem.classes.ClusteredNameRow",
+            "__type": "ClusteredNamesSystem.classes.clusteredNameRow",
             "BookId": "7029235",
             "FirstName": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "T96064",
                 "Value": "Adler"
             },
-            "LastName": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+            "lastName": {
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "T60363 ",
                 "Value": "Adler"
             },
             "FatherFirstName": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "",
                 "Value": ""
             },
             "MotherFirstName": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "",
                 "Value": ""
             },
             "PlaceOfBirth": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "",
                 "Value": ""
             },
             "PermanentPlace": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "",
                 "Value": ""
             },
             "DateOfBirth": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "",
                 "Value": "26/09/1892"
             },
             "Source": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "T3228",
                 "Value": "List of murdered persons"
             },
             "SpouseFirstName": {
-                "__type": "ClusteredNamesSystem.classes.ValueCodeItem",
+                "__type": "ClusteredNamesSystem.classes.valueCodeItem",
                 "Code": "",
                 "Value": ""
             },

@@ -15,8 +15,8 @@ import { HeaderCellsComponent } from '../../basic-components/header-cells/header
 import { FieldComponent } from '../../basic-components/field/field.component';
 import { ToastNotificationComponent } from '../../basic-components/toast-notification/toast-notification.component';
 import { SelectComponent } from '../../basic-components/select/select.component';
-import { SapirClusterModel } from 'src/app/models/sapir-cluster-model.model';
-import { SapirClusterDetail } from 'src/app/models/sapir-cluster-detail.model';
+import { sapirClusterModel } from 'src/app/models/sapir-cluster-model.model';
+import { sapirClusterDetail } from 'src/app/models/sapir-cluster-detail.model';
 import { IconType } from 'src/app/enums/icon-enum';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { RadioButtonComponent } from '../../basic-components/radio-button/radio-button.component';
@@ -52,7 +52,7 @@ export class CreateClusterComponent {
 
   //form data
   dataCells: any[];
-  clusterModel: SapirClusterModel = new SapirClusterModel();
+  clusterModel: sapirClusterModel = new sapirClusterModel();
 
   //close dialog
   close: boolean = false;
@@ -125,14 +125,14 @@ ngOnDestroy(): void {
 }
   createClusterFormData() {
     this.#clusterService.getCreateClusterData().subscribe({
-      next: (res: SapirClusterModel | null) => {
+      next: (res: sapirClusterModel | null) => {
         if (res) {
           // // console.log("getCreateClusterData", res);
 
           this.clusterModel = res;
           // // console.log("this.clusterModel", this.clusterModel);
 
-          this.dataCells = res.SapirClusterDetails; // Process the data if it's not null
+          this.dataCells = res.sapirClusterDetails; // Process the data if it's not null
           // console.log("check1",this.clusterModel.SapirClusterDetails);
 
           this.dataCells.forEach((d: any) => {
@@ -202,9 +202,9 @@ ngOnDestroy(): void {
     if (this.createClusterForm.valid) {
       this.formIsValid = true;
       this.closeDialogWithData({ bookId:"creat cluster succesfully😍❤"});
-      // console.log("this.clusterModel", "creat cluster succesfully😍❤");
-      this.clusterModel.SapirClusterDetails.map((field: any) => {
-       // // console.log("field", field);
+      console.log("this.clusterModel", "creat cluster succesfully😍❤");
+      this.clusterModel.sapirClusterDetails.map((field: any) => {
+        console.log("field", field);
         const values = field.Values.filter((value: any) => {
           return value.NameCode === this.createClusterForm.controls[field.Field].value;
         });

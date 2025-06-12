@@ -30,7 +30,7 @@ export class NarrowBasicTableComponent {
   narrowBasicTableRowExpandState = NarrowBasicTableRowExpandState
   narrowBasicTableRowLength = NarrowBasicTableRowLength;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
- 
+
   autoClusterTabType = AutoClusterTabType;
   subscription: Subscription = new Subscription();
   cdr = inject(ChangeDetectorRef);
@@ -47,6 +47,48 @@ export class NarrowBasicTableComponent {
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
+  }
+
+  get rowGroup(): FormGroup[] {
+    return this.rowsFormArray.controls as FormGroup[];
+  }
+
+  rowControlsArray: FormControl[][] = []
+
+  initializeRowControlsArray() {
+    console.log('initializeRowControlsArray called');
+    const rowsFormArray = this.tableDataForm.get('rowsFormArray') as FormArray;
+    this.rowControlsArray = rowsFormArray.controls.map((rowFormGroup,index) => {
+      const group = rowFormGroup as FormGroup;
+      // console.log(`Row ${index} FormGroup Value:`, group.getRawValue());
+      return [
+        group.get('checked') as FormControl,
+        group.get('assignee') as FormControl,
+        group.get('status') as FormControl,
+      ];
+    });
+    console.log('All Row Controls:', this.rowControlsArray); // לוג של כל המערך של ה-Controls
+  }
+  getRowControls(rowIndex: number): FormControl[] {
+    const rowFormGroup = (this.tableDataForm.get('rowsFormArray') as FormArray).at(rowIndex) as FormGroup;
+
+    return [
+      rowFormGroup.get('checked') as FormControl,
+      rowFormGroup.get('assignee') as FormControl,
+      rowFormGroup.get('status') as FormControl,
+    ];
+  }
+  onHeaderCheckboxToggle(): void {
+    const isChecked = this.tableDataForm.get('headerCheckbox')?.value;
+
+    // Update all row checkboxes
+    this.rowsFormArray.controls.forEach((group) => {
+      const checkedControl = group.get('checked');
+      if (checkedControl) {
+        checkedControl.setValue(isChecked, { emitEvent: true });
+      }
+    });
+    console.log('Updated rowsFormArray values:', this.rowsFormArray.value);
   }
 
 

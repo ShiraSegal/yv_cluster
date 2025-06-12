@@ -25,7 +25,7 @@
             </div>
 
              @if(howManyChecked>0){
-            <yv-cluster-button type="button" (onClick)="onClick()" text="Add to cluster"
+            <yv-cluster-button type="button" (onClick)="openEnterBookidDialog()" text="Add to cluster"
                 [buttonType]="buttonType.SECONDARY" [isBig]=true
                 [iconType]="iconType.LAYER_PLUS_LIGHT"></yv-cluster-button>
              }

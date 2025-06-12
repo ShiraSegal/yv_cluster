@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { IconType } from 'src/app/enums/icon-enum';
+import { NotifictionService } from 'src/app/services/notifiction.service';
 
 @Component({
   selector: 'yv-cluster-toast-notification',
@@ -10,11 +11,13 @@ import { IconType } from 'src/app/enums/icon-enum';
   styleUrl: './toast-notification.component.scss'
 })
 export class ToastNotificationComponent {
-toastNotificationIcons = IconType;
-  @Input() iconName:IconType=IconType.SUCCESS_SOLID;
-  @Input() message!:string;
-  @Input() text!:string;
+  toastNotificationIcons = IconType;
+  @Input() iconName: IconType = IconType.SUCCESS_SOLID;
+  @Input() title!: string;
+  @Input() message!: string;
   @Input() duration!: number;
+
+  notifictionService = inject(NotifictionService)
 
   isVisible: boolean = true;
 

@@ -1,4 +1,4 @@
-export class ValueCodeItem {
+export class valueCodeItem {
     __type: string;
     Code: string;
     Value: string;

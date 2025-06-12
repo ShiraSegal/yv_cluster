@@ -1,0 +1,48 @@
+.loading-overlay {
+    display: flex;
+    flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background:#00000033;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+// .spinner {
+//   border: 8px solid #c2bdbd;
+//   border-top: 8px solid #4321dc;
+//   border-radius: 50%;
+//   width: 60px;
+//   height: 60px;
+//   animation: spin 1s linear infinite;
+// }
+
+// @keyframes spin {
+//   to { transform: rotate(360deg); }
+// }
+// .text{
+//     font-family: Poppins;
+//     font-size: 1.5rem;
+//     font-style: normal;
+//     font-weight: 500;
+//     line-height: normal;
+//     color: #5b6672;
+//     margin-top: 10px;
+// }
+
+.spinner-svg {
+  width: 60px;
+  height: 60px;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

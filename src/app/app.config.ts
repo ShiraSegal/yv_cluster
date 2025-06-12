@@ -9,6 +9,8 @@ import { APP_ID, importProvidersFrom } from '@angular/core';
 import {provideClientHydration} from '@angular/platform-browser';
 import { YvTranslateModule } from './core/yv-translate/yv-translate.module';
 import { DatePipe } from '@angular/common';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { loadingInterceptor } from './interceptors/loading.interceptor';
 
 
 
@@ -20,6 +22,11 @@ export const appConfig = {
     provideClientHydration(),
     { provide: APP_ID, useValue: 'serverApp' },
     provideRouter(routes),
-    provideAnimations()
+    provideAnimations(),
+    provideHttpClient(
+      withInterceptors([
+        loadingInterceptor
+      ])
+    )
 ]
 }

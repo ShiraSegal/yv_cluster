@@ -16,8 +16,6 @@ export class NativeOptionComponent {
   @Input() optionType!: NativeOptionType;
   @Input() optionState!: NativeOptionState;
   @Input() property?: BadgeType = BadgeType.TODO;
-
-
   // 💡 חדש: לשם התצוגה הדינאמית
   @Input() displayText?: string;
 

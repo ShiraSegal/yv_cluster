@@ -13,11 +13,11 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-}
-.check .more {
-    width: 2.375rem;
-    justify-content: center;
-    align-items: center;
+    width: 1.3125rem;
+    height: 1.0625rem;
+    flex-shrink: 0;
+
+
 }
 
 .place-order {
@@ -36,10 +36,10 @@
     color: $c-1334B9;
     font-family: "Font Awesome 6 Pro";
     font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 1.25rem;
-    margin-right: 5px;
+
+    background-color: $c-F1F1F1;
+   width: 9.375rem;
+height: 3.4375rem;
 }
 
 .pie-icon {

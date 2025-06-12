@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, inject, Input, Output, SimpleChanges } from '@angular/core';
 import { AutoClusterTabType, ButtonType, CheckStateType, DataCellType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
+
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ClusterService } from 'src/app/services/cluster.service';
@@ -21,6 +22,13 @@ export class NarrowBasicTableRowComponent {
   @Input() prefCodeStatus: boolean = false;
   @Output() bookIdToDelet = new EventEmitter<string>();
   subscription: Subscription = new Subscription();
+  @Input() cells: {
+    data: string;
+    type: DataCellType;
+    moreData?: { [key: string]: any };
+  }[] = [];
+  @Input() controls!: FormControl[];
+
 
   #clusterService = inject(ClusterService)
   currentUserRole = this.#clusterService.currentUser.role;

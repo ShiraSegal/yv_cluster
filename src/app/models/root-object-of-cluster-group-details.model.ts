@@ -1,5 +1,5 @@
-import { ClusterGroupWithCrmLinks } from "./cluster-group-with-crm-links.model";
+import { clusterGroupWithCrmLinks } from "./cluster-group-with-crm-links.model";
 
-export class RootObjectOfClusterGroupDetails {
-  constructor(public d: ClusterGroupWithCrmLinks) {}
+export class rootObjectOfClusterGroupDetails {
+  constructor(public d: clusterGroupWithCrmLinks) {}
 }

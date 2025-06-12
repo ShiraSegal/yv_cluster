@@ -7,7 +7,7 @@ import { TableHeaderComponent } from '../table-header/table-header.component';
 import { BasicTableRowComponent } from '../basic-table-row/basic-table-row.component';
 import { NarrowBasicTableRowComponent } from '../narrow-basic-table-row/narrow-basic-table-row.component';
 import { ClusterService } from 'src/app/services/cluster.service';
-import { RootObjectOfClusterGroupDetails } from 'src/app/models/root-object-of-cluster-group-details.model';
+import { rootObjectOfClusterGroupDetails } from 'src/app/models/root-object-of-cluster-group-details.model';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 import { CheckType } from 'src/app/enums/check-enum';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -18,23 +18,31 @@ import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsM
 import { group } from 'console';
 import { TooltipComponent } from '../tooltip/tooltip.component';
 import { ToastNotificationComponent } from '../toast-notification/toast-notification.component';
+import { LoadingService } from 'src/app/services/loading.service';
+import { ButtonComponent } from '../button/button.component';
+import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter-bookid.component';
+import { NotifictionService } from 'src/app/services/notifiction.service';
 
 @Component({
   selector: 'yv-cluster-table-group-id-details',
   standalone: true,
-  imports: [CommonModule,  TableHeaderComponent, FilterHandlingSuggestionsComponent, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, TableHeaderComponent, NarrowBasicTableRowComponent, FilterHandlingSuggestionsComponent, ReactiveFormsModule, FormsModule, TooltipComponent, ToastNotificationComponent, ButtonComponent],
   templateUrl: './table-group-id-details.component.html',
   styleUrl: './table-group-id-details.component.scss'
 })
 export class TableGroupIdDetailsComponent {
 
-  @Output() showToastNotification = new EventEmitter<string>();
+  // @Output() showToastNotification = new EventEmitter<string>();
 
   #clusterService = inject(ClusterService)
+  #loadingService = inject(LoadingService)
+  #notifictionService = inject(NotifictionService)
+
   #dialog = inject(MatDialog);
   #fb = inject(FormBuilder)
+  dialogEnterBookidRef: MatDialogRef<EnterBookidComponent> | null = null;
 
-  // clusterGroupDetails: RootObjectOfClusterGroupDetails[] = [];
+  // clusterGroupDetails: rootObjectOfClusterGroupDetails[] = [];
   headerCheckStatus: CheckType = CheckType.UNCHECKED;
   Rows: any[];
   crmLinkList: string[];
@@ -42,6 +50,9 @@ export class TableGroupIdDetailsComponent {
   dialogRef: MatDialogRef<PieComponentDistributionModalComponent> | null = null;
   prefCodeStatus: boolean = false;
   checkedControls: FormControl[] = []; // רק ה־checked של כל שורה
+  // showToastNotification: boolean;
+  // toastMessage: string = '';
+  // toastIcon: IconType;
 
   //enums
   ButtonType = ButtonType;
@@ -88,18 +99,19 @@ export class TableGroupIdDetailsComponent {
 
 
   ngOnInit() {
-    this.#clusterService.getClusterGroupDetails().subscribe((res: RootObjectOfClusterGroupDetails | null) => {
-      if (res && res.d && res.d.ClusteredNameRowList) {
+    // this.#loadingService.show(); // התחלת טעינה
+    this.#clusterService.getClusterGroupDetails().subscribe((res: rootObjectOfClusterGroupDetails | null) => {
+      if (res && res.d && res.d.clusteredNameRowList) {
         // this.clusterGroupDetails = res;
 
-        this.Rows = res.d.ClusteredNameRowList.map(row => {
+        this.Rows = res.d.clusteredNameRowList.map(row => {
           return [
             { data: '', type: DataCellType.CHECK, moreData: { checkStatus: CheckType.UNCHECKED } },
             { data: row.BookId, type: DataCellType.LINK, moreData: { linkHRef: 'https://collections.yadvashem.org/en/names/' } },
             { data: row.ExistsClusterId || 'New', type: DataCellType.TEXT, moreData: { prefCode: row.ExistsClusterId || 'New' } },
             { data: row.Score, type: DataCellType.TEXT, moreData: { prefCode: row.Score ?? '' } },
             { data: row.FirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.FirstName?.Code ?? '' } },
-            { data: row.LastName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.LastName?.Code ?? '' } },
+            { data: row.lastName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.lastName?.Code ?? '' } },
             { data: row.FatherFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.FatherFirstName?.Code ?? '' } },
             { data: row.MotherFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.MotherFirstName?.Code ?? '' } },
             { data: row.SpouseFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.SpouseFirstName?.Code ?? '' } },
@@ -110,7 +122,7 @@ export class TableGroupIdDetailsComponent {
             { data: IconType.AUTO_CLUSRE_TLIGHT, type: DataCellType.ICON, moreData: { icon: IconType.TRASH_LIGHT } }
           ];
         });
-
+        // this.#loadingService.hide(); // סיום טעינה
         this.rowsArray.clear();
         this.initRowsArray();
 
@@ -229,7 +241,33 @@ export class TableGroupIdDetailsComponent {
    // // console.log("prefCodeStatus table", prefCodeStatus);
     this.prefCodeStatus = prefCodeStatus;
   }
-  showToastNotificationFunction(result:string){
-this.showToastNotification.emit(result);
+  openEnterBookIdDialog() {
+    this.dialogEnterBookidRef = this.#dialog.open(EnterBookidComponent, {
+      data: true,
+      disableClose: true,
+      hasBackdrop: true,
+      panelClass: 'custom-dialog-container',
+      autoFocus: false,
+      width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
+      height: 'auto',
+
+    });
+
+    this.dialogEnterBookidRef.afterClosed().subscribe((result) => {
+      if (result) {
+        console.log('page Data received from dialog:', result);
+        this.#notifictionService.showToastNotification({
+          iconName: this.iconType.SUCCESS_SOLID,
+          title: 'Successfull',
+          message: result.bookId + "  added to the cluster successfully!",
+          duration: 3000
+        });
+        if (result.bookId === "formIsNotValid") {
+          console.log('page Data received from dialog: no data');
+        }
+      }
+
+    });
+
   }
-}
+ }
