@@ -7,9 +7,9 @@ import { ButtonIconProperty, NativeOptionState, NativeOptionType } from 'src/app
 import { IconType } from 'src/app/enums/icon-enum';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormControlState, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { ExpandableComponent } from '../expandable/expandable.component';
 import { log } from 'console';
 import { ChangeDetectorRef } from '@angular/core';
+import { ExpandableComponent } from '../expandable/expandable.component';
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table',
