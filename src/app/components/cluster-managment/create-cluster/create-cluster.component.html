@@ -19,9 +19,12 @@
                 </div>
                 <div class="options-cells">
                     <div class="radiobuttons">
-          
+            <yv-cluster-radio-button  [formControlName]="data.Field"
+             [radioButtonValuesArray]="data.RadioOptions"
+            ></yv-cluster-radio-button>
 
-                        <yv-cluster-radio-button-list [radioButtonValuesArray]="data.RadioOptions"  [formControlName]="data.Field" (selectionChange)="checkChange($event)"></yv-cluster-radio-button-list>
+                        <!-- <yv-cluster-radio-button-list [radioButtonValuesArray]="data.RadioOptions"
+                          [formControlName]="data.Field"></yv-cluster-radio-button-list> -->
                     </div>
                 </div>
 
@@ -43,9 +46,9 @@
                             </yv-cluster-button>
                         </div>
                     </div>
-              
+
             </div>
-            
+
         </div>
     </div>
 </form>

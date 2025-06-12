@@ -14,7 +14,6 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'yv-cluster-data-cells',
   standalone: true,
-
   imports: [
     ButtonComponent,
     SliderComponent,

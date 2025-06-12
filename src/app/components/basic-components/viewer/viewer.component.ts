@@ -97,6 +97,5 @@ export class ViewerComponent {
     } else {
       console.error('Failed to find print content');
     }
-
   }
 }

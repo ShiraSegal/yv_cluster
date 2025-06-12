@@ -8,19 +8,15 @@ import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large
 @Component({
   selector: 'yv-cluster-basic-table-row',
   standalone: true,
-  imports: [CommonModule , DataCellsComponent],
+  imports: [CommonModule , DataCellsComponent,IconButtonLargeComponent],
   templateUrl: './basic-table-row.component.html',
   styleUrl: './basic-table-row.component.scss'
 })
 export class BasicTableRowComponent {
   @Input() property: BasicTableRowPropertyVariants = BasicTableRowPropertyVariants.DEFAULT; 
   @Input() showAction: boolean = false; 
-  @Input() cells: {
-    data: string;
-    type: DataCellType;
-    moreData?: { [key: string]: any };
-  }[];
- 
+  @Input() cells: { data: string; type: DataCellType }[] = [];
+   
   basicTableRowPropertyVariants= BasicTableRowPropertyVariants;
   dataCellType = DataCellType;
     iconButtonLargeType = IconButtonLargeType;

@@ -11,7 +11,7 @@ import { FieldComponent } from '../field/field.component';
   templateUrl: './basic-radio-button.component.html',
   styleUrl: './basic-radio-button.component.scss'
 })
-export class BasicRadioButtonComponent {
+export class BasicRadioButtonComponent  {
   @Input() disable?: boolean;
   @Input() checked?: boolean;
   @Input() text!: string;

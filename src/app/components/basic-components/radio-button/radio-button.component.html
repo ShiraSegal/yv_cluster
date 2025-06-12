@@ -1,0 +1,23 @@
+  <!-- @for (option of radioButtonValuesArray; track option){
+  <div class="option">
+    <input type="radio" [checked]="option.value"
+    [value]="option.value"
+    [formControl]="control">
+    {{option.value}}
+
+  </div>
+  } -->
+<!--  [name]="myformControlName" -->
+<!-- (click)="chooseOption(option)" -->
+<div >
+  <div *ngFor="let option of radioButtonValuesArray" class="option">
+    <input
+      type="radio"
+      [value]="option.value"
+      [checked]="option.value === value"
+      [disabled]="disable"
+      (change)="selectOption(option)"
+    />
+    {{ option.value }}
+  </div>
+</div>
