@@ -27,6 +27,7 @@ export class NarrowBasicTableComponent {
   @Input() currentTab: AutoClusterTabType;
   @Input() Headers: { data: string }[];
   @Input() tableDataForm: FormGroup;
+  @Input() length: NarrowBasicTableRowLength;
   narrowBasicTableRowExpandState = NarrowBasicTableRowExpandState
   narrowBasicTableRowLength = NarrowBasicTableRowLength;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;

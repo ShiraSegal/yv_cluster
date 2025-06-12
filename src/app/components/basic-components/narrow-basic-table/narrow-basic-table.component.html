@@ -1,7 +1,7 @@
 <form [formGroup]="tableDataForm">
     <div class="table-frame">
         <div class="data-container">
-            <yv-cluster-table-header [currentTab]="currentTab" [headers]="Headers" [length]="narrowBasicTableRowLength.LONG"
+            <yv-cluster-table-header [currentTab]="currentTab" [headers]="Headers" [length]="length"
                 [headerCheckboxControl]="headerCheckboxControl">
             </yv-cluster-table-header>
             <div class="rows-container" formArrayName="rowsFormArray">

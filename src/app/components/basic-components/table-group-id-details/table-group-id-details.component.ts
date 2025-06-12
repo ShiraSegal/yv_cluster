@@ -62,29 +62,31 @@ export class TableGroupIdDetailsComponent {
   NarrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   narrowBasicTableRowLength = NarrowBasicTableRowLength;
 
-  formGroup: FormGroup = this.#fb.group({
-    checks: this.#fb.array([]),  // זה ה־FormArray לכל הצ'קים
-  });
+  // formGroup: FormGroup = this.#fb.group({
+  //   checks: this.#fb.array([]),  // זה ה־FormArray לכל הצ'קים
+  // });
 
-  get rowsArray(): FormArray {
-    return this.formGroup.get('checks') as FormArray;
-  }
+  // get rowsArray(): FormArray {
+  //   return this.formGroup.get('checks') as FormArray;
+  // }
 
-  getFormControl(index: number): FormControl {
-    //// // console.log("getFormControl", this.rowsArray.at(index) as FormControl);
-    return this.rowsArray.at(index) as FormControl;
-  }
+  // getFormControl(index: number): FormControl {
+  //   //// // console.log("getFormControl", this.rowsArray.at(index) as FormControl);
+  //   return this.rowsArray.at(index) as FormControl;
+  // }
 
-  getFormControlsArray(index: number): FormControl[] {
-    const formGroup = this.rowsArray.at(index) as FormGroup;
-    return Object.keys(formGroup.controls).map(key => formGroup.get(key) as FormControl);
-  }
+  // getFormControlsArray(index: number): FormControl[] {
+  //   const formGroup = this.rowsArray.at(index) as FormGroup;
+  //   return Object.keys(formGroup.controls).map(key => formGroup.get(key) as FormControl);
+  // }
+
+
   tableDataForm: FormGroup = this.#fb.group({
     headerCheckbox: new FormControl(false),
     rowsFormArray: this.#fb.array([])
   });
   //כותרות הטבלה
-  Headers = [{ data: '' },
+  Headers = [{ data: 'check' },
   { data: 'Book ID' },
   { data: 'Cluster ID' },
   { data: 'Score' },
@@ -96,19 +98,22 @@ export class TableGroupIdDetailsComponent {
   { data: 'Date of Birth' },
   { data: 'Place of Birth' },
   { data: 'Permanent Place' },
-  { data: 'Source' },
-  { data: '' }
+  { data: 'Source' }
   ]
 
   initialStateBoolean: FormControlState<boolean> = {
     value: false,
     disabled: false
   };
-
+  initialStateString: FormControlState<string> = {
+    value: '',
+    disabled: false
+  };
   ngOnInit() {
     // this.#loadingService.show(); // התחלת טעינה
     this.#clusterService.getClusterGroupDetails().subscribe((res: rootObjectOfClusterGroupDetails | null) => {
       if (res && res.d && res.d.clusteredNameRowList) {
+        console.log(res);
         this.Rows?.forEach((row) => {
           const rowGroup = this.#fb.group({});
           row.forEach((cellData, index) => {
@@ -227,7 +232,7 @@ export class TableGroupIdDetailsComponent {
   deleteByBookId(bookId: string) {
     this.rowsFormArray.controls.forEach((row, index) => {
       if (row.get('id')?.value === bookId)
-        this.rowsArray.removeAt(index)
+        this.rowsFormArray.removeAt(index)
     });
     this.Rows = this.Rows.filter(item => item[1].data !== bookId);
     // this.initRowsArray()
