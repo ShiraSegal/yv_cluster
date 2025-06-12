@@ -11,9 +11,13 @@ export enum IconType {
     CHART_LINE_UP_LIGHT = "fa-light fa-chart-line-up ",
     ARROW_ROTATE_RIGHT_LIGHT = "fa-light fa-arrow-rotate-right ",
     ARROW_ROTATE_LEFT_LIGHT = "fa-light fa-arrow-rotate-left ",
+    ARROW_ROTATE_RIGHT = "fa-solid fa-arrow-rotate-right ",
+    ARROW_ROTATE_LEFT = "fa-solid fa-arrow-rotate-left ",
     PRINT_LIGHT = "fa-light fa-print ",
     MAGNIFYING_GLASS_MINUS_LIGHT = "fa-light fa-magnifying-glass-minus ",
     MAGNIFYING_GLASS_PLUS_LIGHT = "fa-light fa-magnifying-glass-plus ",
+    MAGNIFYING_GLASS_MINUS = "fa-solid fa-magnifying-glass-minus ",
+    MAGNIFYING_GLASS_PLUS = "fa-solid fa-magnifying-glass-plus ",
     FOLDER_PLUS_LIGHT = "fa-light fa-folder-plus",
     LAYER_PLUS_LIGHT = "fa-light fa-layer-plus",
     PLUS_REGULAR = "fa-regular fa-plus",
@@ -33,9 +37,12 @@ export enum IconType {
     NEWCLUSTERLIGHT = "fa-light fa-plus ",
     ROTATERIGHT = "fa-light fa-arrow-rotate-right ",
     ROTATELEFT = "fa-light fa-arrow-rotate-left ",
-    PRINT = "fa-light fa-print ",
-    ZOOMIN = "fa-light fa-magnifying-glass-minus ",
-    ZOOMOUT = "fa-light fa-magnifying-glass-plus ",
+    PRINT = "fa-solid fa-print ",
+    ZOOMIN_LIGHT = "fa-light fa-magnifying-glass-minus ",
+    ZOOMOUT_LIGHT = "fa-light fa-magnifying-glass-plus ",
+    ZOOMIN = "fa-solid fa-magnifying-glass-minus ",
+    ZOOMOUT = "fa-solid fa-magnifying-glass-plus ",
+    
     CHEVRONRIGHT = "fa-light fa-chevron-right",
     HOURGLASS_CLOCK="fa-solid fa-hourglass-clock",
     CLOCK_FIVE="fa-solid fa-clock-five",
@@ -49,5 +56,11 @@ export enum IconType {
     LIST="fa-solid fa-list",
     TRASH="fa-solid fa-trash",
     IMAGE="fa-solid fa-image",
-    REGULAR_CIRCLE_CHECK="fa-regular fa-circle-check"
+    REGULAR_CIRCLE_CHECK="fa-regular fa-circle-check",
+    EYE="fa-light fa-eye",
+    EYE_SLASH="fa-solid fa-eye-slash",
+    TABLE="fa-solid fa-table",
+    LAYER_GROUP="fa-solid fa-layer-group",
+    XMARK="fa-solid fa-xmark"
+
 }

@@ -42,6 +42,7 @@ import { BodyComponent } from "../basic-components/body/body.component";
 import { FieldComponent } from "../basic-components/field/field.component";
 import { CompareModalTableComponent } from "../cluster-managment/compare-modal-table/compare-modal-table.component";
 import { CompareModalPageComponent } from "../cluster-managment/compare-modal-page/compare-modal-page.component";
+import { RecordDetailsComponent } from "../cluster-managment/record-details/record-details.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -110,7 +111,8 @@ import { CompareModalPageComponent } from "../cluster-managment/compare-modal-pa
     HeadingComponent,
     BodyComponent,
     CompareModalTableComponent,
-    CompareModalPageComponent
+    CompareModalPageComponent,
+    RecordDetailsComponent
   ],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',

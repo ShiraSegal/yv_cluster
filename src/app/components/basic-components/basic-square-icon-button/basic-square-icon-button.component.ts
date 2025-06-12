@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {IconType } from 'src/app/enums/icon-enum';
 
 @Component({
@@ -10,6 +10,15 @@ import {IconType } from 'src/app/enums/icon-enum';
   styleUrls: ['./basic-square-icon-button.component.scss']
 })
 export class BasicSquareIconButtonComponent {
-  @Input() icon: IconType = IconType.LIST;
+  @Input() icon: IconType;
   @Input() isActive = false;
+  @Input() selected: boolean = false;
+  // @Input() label: string = '';
+  
+  @Output() onClick = new EventEmitter<boolean>();
+
+  handleClick() {
+      this.isActive=!this.isActive
+      this.onClick.emit(this.isActive);
+  }
 }

@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CompareModalTableComponent } from '../compare-modal-table/compare-modal-table.component';
-import { CompareModalButtonComponent } from '../../basic-components/compare-modal-button/compare-modal-button.component';
 import { ClusterService } from 'src/app/services/cluster.service';
 // import { CompareModalService } from 'src/app/services/compare-modal.service';
 import { ButtonComponent } from '../../basic-components/button/button.component';
@@ -12,7 +11,7 @@ import { ButtonType } from 'src/app/enums/basic-enum';
 @Component({
   selector: 'yv-cluster-compare-modal-page',
   standalone: true,
-  imports: [CommonModule, CompareModalTableComponent, CompareModalButtonComponent, ButtonComponent],
+  imports: [CommonModule, CompareModalTableComponent, ButtonComponent],
   templateUrl: './compare-modal-page.component.html',
   styleUrls: ['./compare-modal-page.component.scss']
 })
