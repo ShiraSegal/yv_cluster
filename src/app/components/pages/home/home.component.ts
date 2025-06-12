@@ -9,15 +9,13 @@ import { SuggestionsStatisticsComponent } from '../../basic-components/suggestio
 import { log } from 'node:console';
 import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
 import { RadioButtonComponent } from '../../basic-components/radio-button/radio-button.component';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CheckComponent } from '../../basic-components/check/check.component';
 
 @Component({
   selector: 'yv-cluster-home',
   standalone: true,
-  imports: [BasicCardComponent, HeadingComponent,RadioButtonComponent,ReactiveFormsModule
-    ,
   imports: [BasicCardComponent, HeadingComponent,CheckComponent,ReactiveFormsModule,
     BasicTableWarpComponent, SuggestionsStatisticsComponent
   ],
@@ -67,10 +65,6 @@ radioButtonValuesArray: { key: string, value: string }[] = [
   ngOnInit() {
 
 
-    this.form.valueChanges.subscribe(value => {
-      // console.log('Checkbox value changed:', value.myCheckbox);
-
-    })
     const userId = 4; // ID של המשתמש הרצוי
     //בעיקרון פה לוקחים את הID מהLOCALSTORAGE או משהו בסגנון
     this.#clusterService.getDashboardDataById(userId).subscribe({
