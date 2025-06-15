@@ -11,10 +11,24 @@
     font-style: normal;
     font-weight: 400;
     line-height: 1.25rem; 
-    height: 3.4375rem;
+    min-height: 3.4375rem;
 }
 .string {
     color: $c-3F4B5A;
+
+    align-items: center;
+    justify-content: center;
+    color: $c-3F4B5A;
+    // font-family: Poppins;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    flex: 1 0 0;
+
+  word-break: normal;
+  overflow-wrap: anywhere; /* מאפשר שבירה גם אחרי תווים מיוחדים */
+  white-space: normal;    // מאפשר ירידת שורה
 
 }
 .link {

@@ -39,6 +39,8 @@ export class NarrowBasicTableRowComponent {
   buttonType = ButtonType;
   rowGroupControls: { control: FormControl, name: string }[];
   ngOnInit() {
+    console.log('RowGroup controls:', this.rowGroup.controls);
+    
     this.rowGroupControls = Object.keys(this.rowGroup.controls).map(controlKey => {
       return {
         control: this.rowGroup.controls[controlKey] as FormControl, // קונטרול מסוג FormControl
