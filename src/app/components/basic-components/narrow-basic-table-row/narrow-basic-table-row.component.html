@@ -3,17 +3,16 @@
     @for (control of rowGroupControls; let i = $index ;track i) {
     @if(control.name === "assignee" && currentUserRole !== "manager"){}
     @else {
-    <div [ngClass]="control.name" class="cell" >
-      <yv-cluster-data-cells [data]="control.control.value" [currentTab]="currentTab" [control]="control.control"
+    <div  class="cell" [ngClass]="control.name">
+      <yv-cluster-data-cells [data]="control.control.value" [currentTab]="currentTab"
         [typeText]="control.name" [prefCodeStatus]="prefCodeStatus" [formGroup]="rowGroup"
         (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
     </div>
-
     }
     }
     @if(currentTab===autoClusterTabType.APPROVAL_GROUPS||currentTab===autoClusterTabType.CHECKLIST_ITEMS){
     <div class="cell,button">
-      <yv-cluster-data-cells [currentTab]="currentTab" typeText="button"
+      <yv-cluster-data-cells  [currentTab]="currentTab" [formGroup]="rowGroup" typeText="button"
         [moreData]="{'text':'open', 'isBig' : true,'buttonType': buttonType.SECONDARY,'iconType':iconType.NOTHING}"
         (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
     </div>

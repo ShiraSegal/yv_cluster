@@ -10,6 +10,7 @@ import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { CheckType } from 'src/app/enums/check-enum';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'yv-cluster-data-cells',
@@ -40,7 +41,6 @@ export class DataCellsComponent<T extends DataCellType> {
   @Input() typeText:string
   @Input() data: DataCellValue<T>;
   @Input() moreData: { [key: string]: any }; // אובייקט לפרמטרים נוספים
-  @Input() control: FormControl;
   @Input() prefCodeStatus: boolean = false;
   @Input() formGroup: FormGroup;
   @Input() currentTab : AutoClusterTabType;
@@ -59,11 +59,18 @@ export class DataCellsComponent<T extends DataCellType> {
   checkStateType = CheckStateType;
   checkType = CheckType;
   autoClusterTabType=AutoClusterTabType
+  subscription: Subscription=new Subscription();
   ngOnInit() {
+    this.subscription.add(this.formGroup.valueChanges.subscribe((value)=>{
+      console.log("ggg", value);
+      
+    }))
     this.type = this.mapType(this.typeText);
    //// console.log('Parent FormGroup:', this.formGroup);
   }
-
+ngOnDestroy() {
+  this.subscription.unsubscribe(); // Unsubscribe to prevent memory leaks
+}
   private mapType(typeText: string): DataCellType {
     switch (typeText) {
       case 'check': return DataCellType.CHECK;

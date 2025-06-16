@@ -37,9 +37,9 @@ subscription: Subscription = new Subscription();
       default:
         this.type = HeaderCellType.TEXT;
     }
-    this.subscription.add(this.headerCheckbox.valueChanges.subscribe((isChecked) => {
-      this.checkChange(isChecked); // Emit the change event
-    }));
+    // this.subscription.add(this.headerCheckbox.valueChanges.subscribe((isChecked) => {
+    //   this.checkChange(isChecked); // Emit the change event
+    // }));
   }
   get headerCheckbox(): FormControl | null {
     return this.tableDataForm?.get('headerCheckbox') as FormControl;
@@ -56,9 +56,9 @@ subscription: Subscription = new Subscription();
     }
   }
 
-  checkChange(checkStatus: CheckType) {
-    this.checkStatus.emit(checkStatus);
-  }
+  // checkChange(checkStatus: CheckType) {
+  //   this.checkStatus.emit(checkStatus);
+  // }
 
   openPeiComponent() {
    // // console.log("openPeiComponent");

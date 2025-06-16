@@ -31,20 +31,12 @@ export class NarrowBasicTableComponent {
   narrowBasicTableRowExpandState = NarrowBasicTableRowExpandState
   narrowBasicTableRowLength = NarrowBasicTableRowLength;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
-  @Output() HeaderCheckboxToggle = new EventEmitter<void>();
   autoClusterTabType = AutoClusterTabType;
   subscription: Subscription = new Subscription();
   cdr = inject(ChangeDetectorRef);
 
   ngOnInit() {
-    this.subscription.add(this.rowsFormArray.valueChanges.subscribe((rows) => {
-      // Handle changes in the rows dynamically
-      // console.log('Rows Form Array Value in Child:', rows);
-      this.cdr.detectChanges(); // Trigger change detection manually
-    }));
-    this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
-      this.cdr.detectChanges()
-    }));
+
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
@@ -55,9 +47,6 @@ export class NarrowBasicTableComponent {
   }
 
   
-  onHeaderCheckboxToggle(): void {
-   this.HeaderCheckboxToggle.emit()
-  }
 
 
   get headerCheckbox(): FormControl {

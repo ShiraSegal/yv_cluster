@@ -13,7 +13,8 @@
   </div>
   <div class="table">
     <div class="table-actions">
-      <yv-cluster-filter-section [iconsVisible]="iconsVisible" [Filters]="filtersDictionary[currentTab]"
+      <yv-cluster-filter-section 
+      [iconsVisible]="iconsVisible" [Filters]="filtersDictionary[currentTab]"
         (onClickAddCluster)="onClickAddCluster()" (onClicShowkAssineeOrStatus)="onClicShowkAssineeOrStatus()"
         (onFilterValuesChange)="onFilterValuesChange($event)">
       </yv-cluster-filter-section>
@@ -21,7 +22,12 @@
     <form [formGroup]="tableDataForm">
       <div class="table-frame">
         <div class="data-container">
-          <yv-cluster-narrow-basic-table [Headers]="Headers[currentTab]" [tableDataForm]="tableDataForm" [currentTab]="currentTab" [length]="narrowBasicTableRowLength.LONG" (HeaderCheckboxToggle)="onHeaderCheckboxToggle()">
+          <yv-cluster-narrow-basic-table
+           [Headers]="Headers[currentTab]" 
+           [tableDataForm]="tableDataForm" 
+           [currentTab]="currentTab" 
+           [length]="narrowBasicTableRowLength.LONG" 
+          >
           </yv-cluster-narrow-basic-table>
         </div>
       </div>

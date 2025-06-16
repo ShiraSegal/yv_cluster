@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 import { FormArray, FormBuilder, FormControl, FormControlState, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FilterSectionComponent } from '../filter-section/filter-section.component';
 import { ChangeDetectorRef } from '@angular/core';
+import { emit } from 'process';
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table-warp',
@@ -138,6 +139,7 @@ export class NarrowBasicTableWarpComponent {
     }));
     this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
       // Handle changes in the rows dynamically
+      debugger;
       this.onHeaderCheckboxToggle()
     }));
   }
@@ -201,9 +203,13 @@ setActiveTab(tabText: AutoClusterTabType) {
   this.currentTab = tabText;
   this.initializeRowsFormArray()
   this.tableDataForm.patchValue({
-    rowsFormArray : this.Rows[this.currentTab] || []
+    headerCheckbox: false // איפוס ה-checkbox של הכותרת
   });
-}
+  this.tableDataForm.patchValue({
+    rowsFormArray: this.Rows[this.currentTab] || [] // איפוס השורות בטופס
+  });
+   //, { emitEvent: false }
+  }
 
   generateHeadersFromData(data: any[]): { data: string }[] {
     if (!data.length) return [{ data: 'CHECK' }]; // אם אין נתונים, החזר אובייקט עם 'CHECK'
@@ -257,13 +263,11 @@ setActiveTab(tabText: AutoClusterTabType) {
 
   onHeaderCheckboxToggle(): void {
     const isChecked = this.headerCheckbox.value;
-    console.log('Header checkbox toggle detected. Value:', isChecked);
-
+    debugger;
     // Update each control in rowsFormArray directly
     this.rowsFormArray.controls.forEach((group, index) => {
       const checkedControl = group.get('check');
-      if (checkedControl) {
-        console.log(`Updating row ${index} checkbox to:`, isChecked);
+      if (checkedControl&&checkedControl.value!==isChecked) {
         checkedControl.setValue(isChecked);
       }
     });
@@ -271,7 +275,7 @@ setActiveTab(tabText: AutoClusterTabType) {
     console.log('Updated FormArray:', this.rowsFormArray.value);
     console.log('Updated tableDataForm:', this.tableDataForm.value);
     // Force Angular to detect changes
-    this.cdr.detectChanges();
+   // this.cdr.detectChanges();
   }
 }
 
