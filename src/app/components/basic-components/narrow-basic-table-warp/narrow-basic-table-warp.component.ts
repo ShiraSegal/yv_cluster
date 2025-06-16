@@ -138,7 +138,7 @@ export class NarrowBasicTableWarpComponent {
     }));
     this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
       // Handle changes in the rows dynamically
-      console.log('headerCheckBox Value:', headerCheckBox);
+      this.onHeaderCheckboxToggle()
     }));
   }
   ngOnDestroy(): void {
@@ -259,15 +259,17 @@ setActiveTab(tabText: AutoClusterTabType) {
     const isChecked = this.headerCheckbox.value;
     console.log('Header checkbox toggle detected. Value:', isChecked);
 
-    this.rowsFormArray.controls.forEach((group) => {
-      debugger
+    // Update each control in rowsFormArray directly
+    this.rowsFormArray.controls.forEach((group, index) => {
       const checkedControl = group.get('check');
       if (checkedControl) {
-        checkedControl.setValue(isChecked, { emitEvent: true });
+        console.log(`Updating row ${index} checkbox to:`, isChecked);
+        checkedControl.setValue(isChecked);
       }
     });
 
-
+    console.log('Updated FormArray:', this.rowsFormArray.value);
+    console.log('Updated tableDataForm:', this.tableDataForm.value);
     // Force Angular to detect changes
     this.cdr.detectChanges();
   }

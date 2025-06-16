@@ -30,8 +30,8 @@ export class TableHeaderComponent {
   subscription: Subscription = new Subscription();
   ngOnInit() {
     this.subscription.add(this.tableDataForm.get('headerCheckbox').valueChanges.subscribe((isChecked) => {
-      console.log('TableHeaderComponent: Header checkbox value changed:', isChecked); // Debugging
-      this.headerCheckboxToggle.emit();
+      console.log('Header Checkbox changed:', isChecked);
+      this.headerCheckboxToggle.emit(); // Emit the toggle event
     }));
   }
   get headerCheckbox(): FormControl {

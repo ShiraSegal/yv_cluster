@@ -37,13 +37,13 @@ subscription: Subscription = new Subscription();
       default:
         this.type = HeaderCellType.TEXT;
     }
-    this.subscription.add(this.tableDataForm.get('headerCheckbox').valueChanges.subscribe((isChecked) => {
-      console.log('Header checkbox value changed:', isChecked); // Debugging
-      this.checkChange(isChecked);
+    this.subscription.add(this.headerCheckbox.valueChanges.subscribe((isChecked) => {
+      this.checkChange(isChecked); // Emit the change event
     }));
   }
-  get headerCheckbox(): FormControl {
-    return this.tableDataForm.get('headerCheckbox') as FormControl;
+  get headerCheckbox(): FormControl | null {
+    return this.tableDataForm?.get('headerCheckbox') as FormControl;
+    
   }
 
   sortBy(column: string) {
@@ -57,7 +57,6 @@ subscription: Subscription = new Subscription();
   }
 
   checkChange(checkStatus: CheckType) {
-    console.log('checkChange called with status:', checkStatus); // Debugging
     this.checkStatus.emit(checkStatus);
   }
 

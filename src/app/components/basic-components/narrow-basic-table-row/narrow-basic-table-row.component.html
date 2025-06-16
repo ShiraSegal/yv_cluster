@@ -3,7 +3,7 @@
     @for (control of rowGroupControls; let i = $index ;track i) {
     @if(control.name === "assignee" && currentUserRole !== "manager"){}
     @else {
-    <div class="cell" [ngClass]="control.name">
+    <div [ngClass]="control.name" class="cell" >
       <yv-cluster-data-cells [data]="control.control.value" [currentTab]="currentTab" [control]="control.control"
         [typeText]="control.name" [prefCodeStatus]="prefCodeStatus" [formGroup]="rowGroup"
         (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>

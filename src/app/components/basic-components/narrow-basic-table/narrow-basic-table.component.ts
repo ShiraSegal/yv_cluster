@@ -37,14 +37,13 @@ export class NarrowBasicTableComponent {
   cdr = inject(ChangeDetectorRef);
 
   ngOnInit() {
-    this.subscription.add(this.tableDataForm.get('headerCheckbox').valueChanges.subscribe((isChecked) => {
-      console.log('Header Checkbox changed:', isChecked);
-      this.cdr.detectChanges()
-    }));
     this.subscription.add(this.rowsFormArray.valueChanges.subscribe((rows) => {
       // Handle changes in the rows dynamically
       // console.log('Rows Form Array Value in Child:', rows);
       this.cdr.detectChanges(); // Trigger change detection manually
+    }));
+    this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
+      this.cdr.detectChanges()
     }));
   }
   ngOnDestroy(): void {

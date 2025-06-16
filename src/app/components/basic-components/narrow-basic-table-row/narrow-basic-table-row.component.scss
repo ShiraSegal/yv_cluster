@@ -15,18 +15,7 @@
 .long{
     width: 130rem;
 }
-.regular-cell {
-    flex-grow: 1;
-    flex-basis: 0;
-}
-
-.special-cell {
-    flex-grow: 0;
-    flex-basis: auto;
-    margin-left: auto;
-}
 .check{
-
   flex: 0; /* כל תא יקבל רוחב שווה */
 }
 .button{
@@ -43,5 +32,6 @@
     padding: var(--layout-02, 0.5rem);
     align-items: center;
     gap: 0.625rem;
-    flex: 1 0 0;
+    flex: 1;
 }
+

@@ -17,12 +17,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class CheckComponent implements ControlValueAccessor {
   value: boolean = false;
 
-  onChange: (value: boolean) => void = () => {};
+  onChange: (value: boolean) => void = () => {
+  };
   onTouched: () => void = () => {};
   cdr = inject(ChangeDetectorRef);
 
   writeValue(value: boolean): void {
     this.value = value;
+    this.onChange(this.value);
+    this.cdr.detectChanges(); // Ensure UI updates
   }
 
   registerOnChange(fn: (value: boolean) => void): void {
@@ -35,8 +38,9 @@ export class CheckComponent implements ControlValueAccessor {
 
   toggleCheckbox() {
     this.value = !this.value;
-    this.cdr.detectChanges();
-    this.onChange(this.value);
-    this.onTouched();
-  }
+    this.onChange(this.value); // Notify the FormControl of the change
+    this.onTouched(); // Mark the control as touched
+    this.cdr.detectChanges(); // Ensure UI updates
+  } 
 }
+
