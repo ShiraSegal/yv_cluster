@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, Input, SimpleChanges } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, inject, Input, Output, SimpleChanges } from '@angular/core';
 import { AutoClusterTabType, ButtonType, DataCellType, HeaderCellType, NarrowBasicTableRowExpandState, NarrowBasicTableRowInputState, NarrowBasicTableRowLength, State } from 'src/app/enums/basic-enum';
 import { NarrowBasicTableRowComponent } from '../narrow-basic-table-row/narrow-basic-table-row.component';
 import { TableHeaderComponent } from '../table-header/table-header.component';
@@ -31,7 +31,7 @@ export class NarrowBasicTableComponent {
   narrowBasicTableRowExpandState = NarrowBasicTableRowExpandState
   narrowBasicTableRowLength = NarrowBasicTableRowLength;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
-
+  @Output() HeaderCheckboxToggle = new EventEmitter<void>();
   autoClusterTabType = AutoClusterTabType;
   subscription: Subscription = new Subscription();
   cdr = inject(ChangeDetectorRef);
@@ -39,10 +39,11 @@ export class NarrowBasicTableComponent {
   ngOnInit() {
     this.subscription.add(this.tableDataForm.get('headerCheckbox').valueChanges.subscribe((isChecked) => {
       console.log('Header Checkbox changed:', isChecked);
+      this.cdr.detectChanges()
     }));
     this.subscription.add(this.rowsFormArray.valueChanges.subscribe((rows) => {
       // Handle changes in the rows dynamically
-      console.log('Rows Form Array Value in Child:', rows);
+      // console.log('Rows Form Array Value in Child:', rows);
       this.cdr.detectChanges(); // Trigger change detection manually
     }));
   }
@@ -54,46 +55,13 @@ export class NarrowBasicTableComponent {
     return this.rowsFormArray.controls as FormGroup[];
   }
 
-  rowControlsArray: FormControl[][] = []
-
-  initializeRowControlsArray() {
-    console.log('initializeRowControlsArray called');
-    const rowsFormArray = this.tableDataForm.get('rowsFormArray') as FormArray;
-    this.rowControlsArray = rowsFormArray.controls.map((rowFormGroup,index) => {
-      const group = rowFormGroup as FormGroup;
-      // console.log(`Row ${index} FormGroup Value:`, group.getRawValue());
-      return [
-        group.get('checked') as FormControl,
-        group.get('assignee') as FormControl,
-        group.get('status') as FormControl,
-      ];
-    });
-    console.log('All Row Controls:', this.rowControlsArray); // לוג של כל המערך של ה-Controls
-  }
-  getRowControls(rowIndex: number): FormControl[] {
-    const rowFormGroup = (this.tableDataForm.get('rowsFormArray') as FormArray).at(rowIndex) as FormGroup;
-
-    return [
-      rowFormGroup.get('checked') as FormControl,
-      rowFormGroup.get('assignee') as FormControl,
-      rowFormGroup.get('status') as FormControl,
-    ];
-  }
+  
   onHeaderCheckboxToggle(): void {
-    const isChecked = this.tableDataForm.get('headerCheckbox')?.value;
-
-    // Update all row checkboxes
-    this.rowsFormArray.controls.forEach((group) => {
-      const checkedControl = group.get('checked');
-      if (checkedControl) {
-        checkedControl.setValue(isChecked, { emitEvent: true });
-      }
-    });
-    console.log('Updated rowsFormArray values:', this.rowsFormArray.value);
+   this.HeaderCheckboxToggle.emit()
   }
 
 
-  get headerCheckboxControl(): FormControl {
+  get headerCheckbox(): FormControl {
     return this.tableDataForm.get('headerCheckbox') as FormControl;
   }
   get rowsFormArray(): FormArray<FormGroup> {

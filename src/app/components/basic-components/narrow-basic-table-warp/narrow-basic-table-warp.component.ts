@@ -8,8 +8,9 @@ import { BasicTabComponent } from '../basic-tab/basic-tab.component';
 import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 import { IconType } from 'src/app/enums/icon-enum';
 import { Subscription } from 'rxjs';
-import { FormArray, FormBuilder, FormControl, FormControlState, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormControlState, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FilterSectionComponent } from '../filter-section/filter-section.component';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table-warp',
@@ -17,7 +18,8 @@ import { FilterSectionComponent } from '../filter-section/filter-section.compone
   imports: [CommonModule,
      BasicTabComponent,
       NarrowBasicTableComponent,
-      FilterSectionComponent
+      FilterSectionComponent,
+      ReactiveFormsModule
     ],
   templateUrl: './narrow-basic-table-warp.component.html',
   styleUrl: './narrow-basic-table-warp.component.scss',
@@ -25,17 +27,19 @@ import { FilterSectionComponent } from '../filter-section/filter-section.compone
 export class NarrowBasicTableWarpComponent {
   @Input() subTitle: string = '';
   clusterService = inject(ClusterService);
-  #fb = inject(FormBuilder)
+  #fb = inject(FormBuilder);
+  cdr = inject(ChangeDetectorRef);
   //enum imports
   autoClusterTabType = AutoClusterTabType;
   headerCellType = HeaderCellType;
   dataCellType = DataCellType;
   basicTablePropertyType = BasicTablePropertyType;
+  narrowBasicTableRowLength = NarrowBasicTableRowLength;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   checkStateType = CheckStateType;
   checkType = CheckType;
   buttonType = ButtonType;
-  iconType = IconType
+  iconType = IconType;
   //data
   tabData: any;
   currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
@@ -126,11 +130,15 @@ export class NarrowBasicTableWarpComponent {
     }));
     this.subscription.add(this.tableDataForm.valueChanges.subscribe((value) => {
       // Handle changes in the entire form
-      console.log('Basic table Form Value:', value);
+      // console.log('Basic table Form Value:', value);
     }));
     this.subscription.add(this.rowsFormArray.valueChanges.subscribe((rows) => {
       // Handle changes in the rows dynamically
-      console.log('Rows Form Array Value:', rows);
+      // console.log('Rows Form Array Value:', rows);
+    }));
+    this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
+      // Handle changes in the rows dynamically
+      console.log('headerCheckBox Value:', headerCheckBox);
     }));
   }
   ngOnDestroy(): void {
@@ -164,10 +172,10 @@ export class NarrowBasicTableWarpComponent {
       this.rowsFormArray.push(rowGroup); // הוספת FormGroup
     });
   }
-
-
-rowsFormArray
-  get headerCheckboxControl(): FormControl {
+  get rowsFormArray(): FormArray<FormGroup> {
+    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup> ;
+  }
+  get headerCheckbox(): FormControl {
     return this.tableDataForm.get('headerCheckbox') as FormControl;
   }
   loadDataForTab() {
@@ -245,6 +253,23 @@ setActiveTab(tabText: AutoClusterTabType) {
 
   hidePopover(): void {
     this.hoveredPopover = null;
+  }
+
+  onHeaderCheckboxToggle(): void {
+    const isChecked = this.headerCheckbox.value;
+    console.log('Header checkbox toggle detected. Value:', isChecked);
+
+    this.rowsFormArray.controls.forEach((group) => {
+      debugger
+      const checkedControl = group.get('check');
+      if (checkedControl) {
+        checkedControl.setValue(isChecked, { emitEvent: true });
+      }
+    });
+
+
+    // Force Angular to detect changes
+    this.cdr.detectChanges();
   }
 }
 
