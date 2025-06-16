@@ -206,7 +206,7 @@ setActiveTab(tabText: AutoClusterTabType) {
     headerCheckbox: false // איפוס ה-checkbox של הכותרת
   });
   this.tableDataForm.patchValue({
-    rowsFormArray: this.Rows[this.currentTab] || [] // איפוס השורות בטופס
+    rowsFormArray: this.Rows[this.currentTab] // איפוס השורות בטופס
   });
    //, { emitEvent: false }
   }
