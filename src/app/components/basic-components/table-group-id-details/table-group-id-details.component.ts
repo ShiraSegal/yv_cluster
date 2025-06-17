@@ -18,10 +18,10 @@ import { AbstractControl, FormArray, FormBuilder, FormControl, FormControlState,
 import { group } from 'console';
 import { TooltipComponent } from '../tooltip/tooltip.component';
 import { ToastNotificationComponent } from '../toast-notification/toast-notification.component';
-import { LoadingService } from 'src/app/services/loading.service';
 import { ButtonComponent } from '../button/button.component';
 import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter-bookid.component';
 import { NotifictionService } from 'src/app/services/notifiction.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'yv-cluster-table-group-id-details',

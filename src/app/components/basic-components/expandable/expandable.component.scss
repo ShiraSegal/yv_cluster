@@ -31,10 +31,11 @@
 .expandable-row {
     display: flex;
     width: 130rem;
-    padding: 1.5rem 5.9375rem 1.5rem 5.9375rem;
+    padding: 1.5rem 5.75rem 1.5rem 5.75rem;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+
+    align-self: stretch;
     gap: 0.625rem;
     color: $c-C00;
     font-family: Poppins;
@@ -44,9 +45,14 @@
     line-height: 1.25rem;
     border-bottom: 1px solid $c-D0D6F1;
 }
-.errorMessage{
-    flex: 1 0 0;
+
+.errorMessage {
+    width: 43rem; // Ensure proper alignment and readability
+    text-align: left; // Align text to the left for consistency
+    white-space: nowrap; // Prevent text from wrapping
+    overflow: hidden; // Hide overflow text
 }
+
 .cell {
     color: $c-C00;
 }
@@ -61,8 +67,9 @@
 
 .icon {
     flex: 0;
-    max-width: 2.75rem;
 }
-.status .assignee .dateOfReport .assigneeDate {
-    flex: 1;
+
+.status, .assignee, .dateOfReport, .assigneeDate {
+    width: 12.5rem; // Ensure consistent widths across these elements
+    text-align: center; // Center-align content for better appearance
 }

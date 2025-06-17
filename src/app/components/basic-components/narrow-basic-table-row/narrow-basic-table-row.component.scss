@@ -7,26 +7,18 @@
 .narrow-basic-table-row {
     padding: 0.25rem 0rem;
     gap: 0.0625rem;
-    align-self: stretch;
     border-bottom: 1px solid $c-D0D6F1;
     display: flex;
     align-items: center;
+    align-self: stretch;
 }
 .long{
     width: 130rem;
 }
-.regular-cell {
-    flex-grow: 1;
-    flex-basis: 0;
-}
-
-.special-cell {
-    flex-grow: 0;
-    flex-basis: auto;
-    margin-left: auto;
+.cell {
+    flex: 1;
 }
 .check{
-
   flex: 0; /* כל תא יקבל רוחב שווה */
 }
 .button{
@@ -37,11 +29,4 @@
   max-width:2.75rem;
  }
 
-.cell {
-    display: flex;
-    min-height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
-    align-items: center;
-    gap: 0.625rem;
-    flex: 1 0 0;
-}
+

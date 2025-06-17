@@ -5,7 +5,7 @@
       @if(currentUserRole !== "manager" && header.data === "assignee"){} 
       @else{ 
         <div class="cell" [ngClass]="header.data">
-          <yv-cluster-header-cells [data]="header.data" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
+          <yv-cluster-header-cells [data]="header.data"  (openDialog)="openPeiComponent()"
           [tableDataForm]="tableDataForm"
           ></yv-cluster-header-cells>
       </div>

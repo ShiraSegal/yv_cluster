@@ -18,9 +18,7 @@ export class TableHeaderComponent {
   @Input() headers: { data: string }[] = [];
   @Input() length: NarrowBasicTableRowLength;
   @Input() tableDataForm: FormGroup;
-  @Output() checkStatus = new EventEmitter<CheckType>();
   @Output() openDialog = new EventEmitter<boolean>();
-  @Output() headerCheckboxToggle = new EventEmitter<void>();
   @Input() currentTab: AutoClusterTabType;
   #clusterService = inject(ClusterService)
   currentUserRole = this.#clusterService.currentUser.role;
@@ -29,10 +27,7 @@ export class TableHeaderComponent {
   headerCellType = HeaderCellType
   subscription: Subscription = new Subscription();
   ngOnInit() {
-    this.subscription.add(this.tableDataForm.get('headerCheckbox').valueChanges.subscribe((isChecked) => {
-      console.log('TableHeaderComponent: Header checkbox value changed:', isChecked); // Debugging
-      this.headerCheckboxToggle.emit();
-    }));
+   
   }
   get headerCheckbox(): FormControl {
     return this.tableDataForm.get('headerCheckbox') as FormControl;
@@ -42,10 +37,6 @@ export class TableHeaderComponent {
     if (changes['headers']) {
       this.headers = changes['headers'].currentValue;
     }
-  }
-  checkChange(checkStatus: CheckType) {
-    this.checkStatus.emit(checkStatus);
-    // // console.log(" table header check status", checkStatus)
   }
   openPeiComponent() {
     // // console.log("openPeiComponent");

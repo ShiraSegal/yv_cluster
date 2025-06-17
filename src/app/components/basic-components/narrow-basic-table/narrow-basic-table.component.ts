@@ -32,21 +32,11 @@ export class NarrowBasicTableComponent {
   narrowBasicTableRowExpandState = NarrowBasicTableRowExpandState
   narrowBasicTableRowLength = NarrowBasicTableRowLength;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
-  @Output() HeaderCheckboxToggle = new EventEmitter<void>();
   autoClusterTabType = AutoClusterTabType;
   subscription: Subscription = new Subscription();
   cdr = inject(ChangeDetectorRef);
 
   ngOnInit() {
-    this.subscription.add(this.tableDataForm.get('headerCheckbox').valueChanges.subscribe((isChecked) => {
-      console.log('Header Checkbox changed:', isChecked);
-      this.cdr.detectChanges()
-    }));
-    this.subscription.add(this.rowsFormArray.valueChanges.subscribe((rows) => {
-      // Handle changes in the rows dynamically
-      // console.log('Rows Form Array Value in Child:', rows);
-      this.cdr.detectChanges(); // Trigger change detection manually
-    }));
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
@@ -57,25 +47,6 @@ export class NarrowBasicTableComponent {
   }
 
   
-  onHeaderCheckboxToggle(): void {
-    console.log('Header checkbox toggled');
- this.rowsFormArray.controls.forEach((row: FormGroup) => {
-  // console.log('row value:', row.value);
-  // console.log('row checkkkkkkkkkkkkkkkk:', row.get('check').value);
- row.get('check')?.setValue(this.headerCheckbox.value);
-  console.log('row checkkkkkkkkkkkkkkkk:', row.get('check').value);
-      const checkboxControl = row.get('check') as FormControl;
-      if (checkboxControl) {
-        checkboxControl.setValue(this.headerCheckbox.value);
-        console.log('Checkbox value set for row:', row.value);
-        
-      }
-    }
-    );
-    // console.log("tableDataForm:"+this.tableDataForm.controls.);
-
-    this.HeaderCheckboxToggle.emit();
-  }
 
 
   get headerCheckbox(): FormControl {

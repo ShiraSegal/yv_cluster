@@ -38,11 +38,8 @@ export class ExpandableComponent {
         name: controlKey // שם הקונטרול
       };
     });
-    console.log('RowGroup Controls:', this.rowGroupControls);
     this.subscription.add(this.rowGroup.valueChanges.subscribe((value) => {
       console.log('RowGroup changed:', value);
-     
-      
     }))
   }
 
