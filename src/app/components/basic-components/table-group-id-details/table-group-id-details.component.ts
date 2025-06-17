@@ -22,6 +22,7 @@ import { LoadingService } from 'src/app/services/loading.service';
 import { ButtonComponent } from '../button/button.component';
 import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter-bookid.component';
 import { NotifictionService } from 'src/app/services/notifiction.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'yv-cluster-table-group-id-details',
@@ -124,7 +125,12 @@ export class TableGroupIdDetailsComponent {
     value: '',
     disabled: false
   };
+    subscription: Subscription = new Subscription();
   ngOnInit() {
+    this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
+      // Handle changes in the rows dynamically
+      this.onHeaderCheckboxToggle()
+    }));
     // this.#loadingService.show(); // התחלת טעינה
     this.#clusterService.getClusterGroupDetails().subscribe((res: rootObjectOfClusterGroupDetails | null) => {
       if (res && res.d && res.d.clusteredNameRowList) {
@@ -327,5 +333,24 @@ export class TableGroupIdDetailsComponent {
 
     });
 
+  }
+  get headerCheckbox(): FormControl {
+    return this.tableDataForm.get('headerCheckbox') as FormControl;
+  }
+  onHeaderCheckboxToggle(): void {
+    const isChecked = this.headerCheckbox.value;
+    debugger;
+    // Update each control in rowsFormArray directly
+    this.rowsFormArray.controls.forEach((group, index) => {
+      const checkedControl = group.get('check');
+      if (checkedControl&&checkedControl.value!==isChecked) {
+        checkedControl.setValue(isChecked);
+      }
+    });
+
+    console.log('Updated FormArray:', this.rowsFormArray.value);
+    console.log('Updated tableDataForm:', this.tableDataForm.value);
+    // Force Angular to detect changes
+   // this.cdr.detectChanges();
   }
 }

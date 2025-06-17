@@ -33,11 +33,17 @@ export class NarrowBasicTableComponent {
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   autoClusterTabType = AutoClusterTabType;
   subscription: Subscription = new Subscription();
-  cdr = inject(ChangeDetectorRef);
+
 
   ngOnInit() {
-
+    this.subscription.add(this.rowsFormArray.valueChanges.subscribe((value) => {
+      // Trigger change detection to ensure child components receive updated rowGroup
+      this.rowsFormArray.controls.forEach((rowGroup, index) => {
+        rowGroup.updateValueAndValidity(); // Ensure rowGroup validity is updated
+      });
+    }));
   }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }
@@ -46,7 +52,7 @@ export class NarrowBasicTableComponent {
     return this.rowsFormArray.controls as FormGroup[];
   }
 
-  
+
 
 
   get headerCheckbox(): FormControl {

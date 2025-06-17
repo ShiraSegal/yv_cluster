@@ -201,15 +201,13 @@ setActiveTab(tabText: AutoClusterTabType) {
     status: tab.text === tabText ? true : false
   }));
   this.currentTab = tabText;
-  this.initializeRowsFormArray()
-  this.tableDataForm.patchValue({
-    headerCheckbox: false // איפוס ה-checkbox של הכותרת
-  });
-  this.tableDataForm.patchValue({
-    rowsFormArray: this.Rows[this.currentTab] || [] // איפוס השורות בטופס
-  });
-   //, { emitEvent: false }
-  }
+
+  // Reinitialize rowsFormArray
+  this.initializeRowsFormArray();
+
+  // Reset headerCheckbox
+  this.headerCheckbox.setValue(false);
+}
 
   generateHeadersFromData(data: any[]): { data: string }[] {
     if (!data.length) return [{ data: 'CHECK' }]; // אם אין נתונים, החזר אובייקט עם 'CHECK'
