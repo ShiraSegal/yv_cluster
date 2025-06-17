@@ -139,7 +139,6 @@ export class NarrowBasicTableWarpComponent {
     }));
     this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
       // Handle changes in the rows dynamically
-      debugger;
       this.onHeaderCheckboxToggle()
     }));
   }

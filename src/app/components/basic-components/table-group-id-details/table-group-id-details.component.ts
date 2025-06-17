@@ -32,9 +32,6 @@ import { Subscription } from 'rxjs';
   styleUrl: './table-group-id-details.component.scss'
 })
 export class TableGroupIdDetailsComponent {
-
-  // @Output() showToastNotification = new EventEmitter<string>();
-
   #clusterService = inject(ClusterService)
   #loadingService = inject(LoadingService)
   #notifictionService = inject(NotifictionService)
@@ -42,7 +39,6 @@ export class TableGroupIdDetailsComponent {
   #dialog = inject(MatDialog);
   #fb = inject(FormBuilder)
   dialogEnterBookidRef: MatDialogRef<EnterBookidComponent> | null = null;
-
   // clusterGroupDetails: rootObjectOfClusterGroupDetails[] = [];
   headerCheckStatus: CheckType = CheckType.UNCHECKED;
   Rows: any[];
@@ -63,25 +59,6 @@ export class TableGroupIdDetailsComponent {
   NarrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   narrowBasicTableRowLength = NarrowBasicTableRowLength;
 
-  // formGroup: FormGroup = this.#fb.group({
-  //   checks: this.#fb.array([]),  // זה ה־FormArray לכל הצ'קים
-  // });
-
-  // get rowsArray(): FormArray {
-  //   return this.formGroup.get('checks') as FormArray;
-  // }
-
-  // getFormControl(index: number): FormControl {
-  //   //// // console.log("getFormControl", this.rowsArray.at(index) as FormControl);
-  //   return this.rowsArray.at(index) as FormControl;
-  // }
-
-  // getFormControlsArray(index: number): FormControl[] {
-  //   const formGroup = this.rowsArray.at(index) as FormGroup;
-  //   return Object.keys(formGroup.controls).map(key => formGroup.get(key) as FormControl);
-  // }
-
-
   tableDataForm: FormGroup = this.#fb.group({
     headerCheckbox: new FormControl(false),
     rowsFormArray: this.#fb.array([])
@@ -101,22 +78,22 @@ export class TableGroupIdDetailsComponent {
   { data: 'Permanent Place' },
   { data: 'Source' }
   ]
- tableKeys = [
-  'check',
-  'BookId',
-  'ClusterId',
-  'Score',
-  'FirstName',
-  'lastName',
-  'FatherFirstName',
-  'MotherFirstName',
-  'SpouseFirstName',
-  'DateOfBirth',
-  'PlaceOfBirth',
-  'PermanentPlace',
-  'Source',
-  'Score',
-];
+  tableKeys = [
+    'check',
+    'BookId',
+    'ClusterId',
+    'Score',
+    'FirstName',
+    'lastName',
+    'FatherFirstName',
+    'MotherFirstName',
+    'SpouseFirstName',
+    'DateOfBirth',
+    'PlaceOfBirth',
+    'PermanentPlace',
+    'Source',
+    'Score',
+  ];
   initialStateBoolean: FormControlState<boolean> = {
     value: false,
     disabled: false
@@ -125,90 +102,56 @@ export class TableGroupIdDetailsComponent {
     value: '',
     disabled: false
   };
-    subscription: Subscription = new Subscription();
+  subscription: Subscription = new Subscription();
+  Res:rootObjectOfClusterGroupDetails | null
   ngOnInit() {
-    this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
-      // Handle changes in the rows dynamically
+    this.#clusterService.getClusterGroupDetails();
+    this.subscription.add(this.#clusterService.getClusterGroupDetails().subscribe((res: rootObjectOfClusterGroupDetails | null) => {
+      this.Res = res;
+      this.i();
+      this.#loadingService.hide()
+  }))
+   this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
       this.onHeaderCheckboxToggle()
     }));
-    // this.#loadingService.show(); // התחלת טעינה
-    this.#clusterService.getClusterGroupDetails().subscribe((res: rootObjectOfClusterGroupDetails | null) => {
-      if (res && res.d && res.d.clusteredNameRowList) {
-        this.Rows = res.d.clusteredNameRowList
-        this.Rows?.forEach((row) => {
-          const rowGroup = this.#fb.group({});
-          ///הוספת CHECK בתחילת כל שורה
-          let control = new FormControl(this.initialStateBoolean);
-             rowGroup.addControl("check", control);
-          for (let key in row) {
-            if (this.tableKeys.includes(key)) {              
+    //האזנה למשתנה twoChosen
+    // this.checkHowManyChecked()
+   
+  }
+  i(){
+    if (this.Res && this.Res.d && this.Res.d.clusteredNameRowList) {
+      this.Rows = this.Res.d.clusteredNameRowList
+      this.Rows?.forEach((row) => {
+        const rowGroup = this.#fb.group({});
+        ///הוספת CHECK בתחילת כל שורה
+        let control = new FormControl(this.initialStateBoolean);
+        rowGroup.addControl("check", control);
+        for (let key in row) {
+          if (this.tableKeys.includes(key)) {
             if (row.hasOwnProperty(key)) {
               const header = key;
               let control = new FormControl({ value: row[key], disabled: false });
 
               if (row[key] && typeof row[key] === 'object' && 'Value' in row[key]) {
-                  control = new FormControl({ value: row[key].Value || '', disabled: false });
+                control = new FormControl({ value: row[key].Value || '', disabled: false });
               }
-              // switch (header) {
-              //   case "check":
-              //     console.log("check", row[key]);
-                  
-              //     control = new FormControl(this.initialStateBoolean);
-              //     break;
-              // }
               rowGroup.addControl(header, control);
             }
-}
           }
-            this.rowsFormArray.push(rowGroup); // הוספת FormGroup
-          });
-        console.log("this.rowsFormArray", this.rowsFormArray);
+        }
+        this.rowsFormArray.push(rowGroup); // הוספת FormGroup
+      });
+      console.log("this.rowsFormArray", this.rowsFormArray);
 
-        // this.clusterGroupDetails = res;
-
-        // this.Rows = res.d.clusteredNameRowList.map(row => {
-        //   return [
-        //     { data: '', type: DataCellType.CHECK, moreData: { checkStatus: CheckType.UNCHECKED } },
-        //     { data: row.BookId, type: DataCellType.LINK, moreData: { linkHRef: 'https://collections.yadvashem.org/en/names/' } },
-        //     { data: row.ExistsClusterId || 'New', type: DataCellType.TEXT, moreData: { prefCode: row.ExistsClusterId || 'New' } },
-        //     { data: row.Score, type: DataCellType.TEXT, moreData: { prefCode: row.Score ?? '' } },
-        //     { data: row.FirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.FirstName?.Code ?? '' } },
-        //     { data: row.lastName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.lastName?.Code ?? '' } },
-        //     { data: row.FatherFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.FatherFirstName?.Code ?? '' } },
-        //     { data: row.MotherFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.MotherFirstName?.Code ?? '' } },
-        //     { data: row.SpouseFirstName?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.SpouseFirstName?.Code ?? '' } },
-        //     { data: row.DateOfBirth?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.DateOfBirth?.Value ?? '' } },
-        //     { data: row.PlaceOfBirth?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.PlaceOfBirth?.Code ?? '' } },
-        //     { data: row.PermanentPlace?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.PermanentPlace?.Code ?? '' } },
-        //     { data: row.Source?.Value ?? '', type: DataCellType.TEXT, moreData: { prefCode: row.Source?.Code ?? '' } },
-        //     { data: IconType.AUTO_CLUSRE_TLIGHT, type: DataCellType.ICON, moreData: { icon: IconType.TRASH_LIGHT } }
-        //   ];
-        // });
-        // this.#loadingService.hide(); // סיום טעינה
-        // this.rowsFormArray.clear();
-        // this.initRowsArray();
-
-        //// // console.log("this.rowsArray", this.rowsArray);
-
-        // ניתן להאזין לשינויים ב־FormArray אם צריך:
-        // this.rowsFormArray.valueChanges.subscribe(values => {
-        //   // // console.log('ערכי הצ׳קים:', values);
-        // });
-      } else {
-        console.warn("Received null or invalid response from getClusterGroupDetails");
-      }
-      if (res && res.d && res.d.CrmLinkList) {
-        this.crmLinkList = res.d.CrmLinkList.map((item: any) => {
-          return item;
-        });
-        // // console.log("this.crmLinkList", this.crmLinkList);
-      }
-    }, error => {
-      console.error("getClusterGroupDetails occurred:", error);
-    });
-    //האזנה למשתנה twoChosen
-    this.checkHowManyChecked()
-
+    } else {
+      console.warn("Received null or invalid response from getClusterGroupDetails");
+    }
+    if (this.Res && this.Res.d && this.Res.d.CrmLinkList) {
+      this.crmLinkList = this.Res.d.CrmLinkList.map((item: any) => {
+        return item;
+      });
+    
+    }
   }
   //האזנה למשתנה twoChosen
 
@@ -221,47 +164,7 @@ export class TableGroupIdDetailsComponent {
       }
     });
   }
-  //אתחול ה CHECKS
-  // initRowsArray() {
-  //   this.Rows.forEach((row, index) => {
-  //     const control = this.#fb.group({
-  //       checked: [false],
-  //       id: [row[1]?.data],
-
-  //     });
-  //     this.rowsFormArray.push(control);
-  //     this.checkedControls.push(control.get('checked') as FormControl);
-  //     // // console.log("this.rowsArray: " + this.rowsArray);
-  //     this.rowsFormArray.controls.forEach((e) => {
-  //       // // console.log('id: ' + e.get('id')?.value);
-  //       // // console.log('checked: ' + e.get('checked')?.value);
-
-  //     })
-  //     // // console.log("this.checkedControls: " + this.checkedControls);
-
-  //   })
-  // }
-  //בחירת ה check  של ה header
-  // headerCheckChange(checkStatus: CheckType) {
-  //   this.headerCheckStatus = checkStatus;
-  //   // // console.log("header table group id check status", this.headerCheckStatus);
-
-  //   // עדכון checkStatus באובייקט הנתונים המקורי
-  //   this.Rows.forEach((row) => {
-  //     if (row && row[0]?.moreData) {
-  //       row[0].moreData.checkStatus = checkStatus;
-  //     }
-  //   });
-
-  //   // עדכון שדה 'checked' בכל FormGroup בתוך rowsArray
-  //   this.rowsFormArray.controls.forEach((group: AbstractControl) => {
-  //     const checkedControl = group.get('checked');
-  //     if (checkedControl instanceof FormControl) {
-  //       checkedControl.setValue(checkStatus === CheckType.CHECKED);
-  //     }
-  //   });
-  // }
-
+ 
   //מחיקת שורה
   deleteByBookId(bookId: string) {
     this.rowsFormArray.controls.forEach((row, index) => {
@@ -274,9 +177,6 @@ export class TableGroupIdDetailsComponent {
     this.rowsFormArray.controls.forEach((c) => {
       this.checkedControls.push(c.get('checked') as FormControl);
     })
-  }
-  get rowsFormArray(): FormArray<FormGroup> {
-    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
   }
 
   //בחירת check
@@ -334,6 +234,9 @@ export class TableGroupIdDetailsComponent {
     });
 
   }
+  get rowsFormArray(): FormArray<FormGroup> {
+    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup> ;
+  }
   get headerCheckbox(): FormControl {
     return this.tableDataForm.get('headerCheckbox') as FormControl;
   }
@@ -343,7 +246,7 @@ export class TableGroupIdDetailsComponent {
     // Update each control in rowsFormArray directly
     this.rowsFormArray.controls.forEach((group, index) => {
       const checkedControl = group.get('check');
-      if (checkedControl&&checkedControl.value!==isChecked) {
+      if (checkedControl && checkedControl.value !== isChecked) {
         checkedControl.setValue(isChecked);
       }
     });
@@ -351,6 +254,6 @@ export class TableGroupIdDetailsComponent {
     console.log('Updated FormArray:', this.rowsFormArray.value);
     console.log('Updated tableDataForm:', this.tableDataForm.value);
     // Force Angular to detect changes
-   // this.cdr.detectChanges();
+    // this.cdr.detectChanges();
   }
 }

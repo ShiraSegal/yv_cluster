@@ -115,7 +115,7 @@ export class ClusterService
   }
 
   getClusterGroupDetails(): Observable<rootObjectOfClusterGroupDetails | null> {
-    //  this.#loadingService.show();
+
     return this.#clusterApiService.getClusterGroupDetails().pipe(
       take(2),
       map((res: any) => {
@@ -153,12 +153,10 @@ export class ClusterService
           res.d.contact
         );
         console.log("new rootObjectOfClusterGroupDetails(clusterGroup):" + new rootObjectOfClusterGroupDetails(clusterGroup));
-        //  this.#loadingService.hide();
         return new rootObjectOfClusterGroupDetails(clusterGroup);
 
       }),
       catchError(err => {
-        this.#loadingService.hide();
         console.error('Error fetching cluster group details:', err);
         return of(null);
       })
