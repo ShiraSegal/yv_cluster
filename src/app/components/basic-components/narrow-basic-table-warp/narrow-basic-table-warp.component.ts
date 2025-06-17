@@ -139,6 +139,7 @@ export class NarrowBasicTableWarpComponent {
     }));
     this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
       // Handle changes in the rows dynamically
+      debugger;
       this.onHeaderCheckboxToggle()
     }));
   }
@@ -200,13 +201,11 @@ setActiveTab(tabText: AutoClusterTabType) {
     status: tab.text === tabText ? true : false
   }));
   this.currentTab = tabText;
-
-  // Reinitialize rowsFormArray
-  this.initializeRowsFormArray();
-
-  // Reset headerCheckbox
+  this.initializeRowsFormArray()
+  this.rowsFormArray.setValue(this.Rows[this.currentTab] || []); // עדכון הטופס עם השורות החדשות
   this.headerCheckbox.setValue(false);
-}
+   //, { emitEvent: false }
+  }
 
   generateHeadersFromData(data: any[]): { data: string }[] {
     if (!data.length) return [{ data: 'CHECK' }]; // אם אין נתונים, החזר אובייקט עם 'CHECK'

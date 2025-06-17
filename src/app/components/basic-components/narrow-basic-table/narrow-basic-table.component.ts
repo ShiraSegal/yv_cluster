@@ -37,11 +37,8 @@ export class NarrowBasicTableComponent {
 
   ngOnInit() {
     this.subscription.add(this.rowsFormArray.valueChanges.subscribe((value) => {
-      // Trigger change detection to ensure child components receive updated rowGroup
-      this.rowsFormArray.controls.forEach((rowGroup, index) => {
-        rowGroup.updateValueAndValidity(); // Ensure rowGroup validity is updated
-      });
-    }));
+
+  }))
   }
 
   ngOnDestroy(): void {

@@ -109,7 +109,6 @@ export class TableGroupIdDetailsComponent {
     this.subscription.add(this.#clusterService.getClusterGroupDetails().subscribe((res: rootObjectOfClusterGroupDetails | null) => {
       this.Res = res;
       this.i();
-      this.#loadingService.hide()
   }))
    this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
       this.onHeaderCheckboxToggle()
