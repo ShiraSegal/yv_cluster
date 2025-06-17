@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input } from '@angular/core';
+import { Component, Inject, inject, Input } from '@angular/core';
+import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 import { IconType } from 'src/app/enums/icon-enum';
 import { NotifictionService } from 'src/app/services/notifiction.service';
 
@@ -30,4 +31,6 @@ export class ToastNotificationComponent {
   closeToastNotification() {
     this.isVisible = false;
   }
+  ///////////////////////
+   constructor(@Inject(MAT_SNACK_BAR_DATA) public data: { message: string }) {}
 }

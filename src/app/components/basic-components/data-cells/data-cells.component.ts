@@ -62,6 +62,8 @@ export class DataCellsComponent<T extends DataCellType> {
   ngOnInit() {
     this.type = this.mapType(this.typeText);
    //// console.log('Parent FormGroup:', this.formGroup);
+   console.log('DataCellsComponent initialized with type:', this.type, 'and data:', this.data, 'and moreData:', this.moreData, 'and typeText:', this.typeText, 'and currentTab:', this.currentTab, 'and prefCodeStatus:', this.prefCodeStatus, 'and control:', this.control);
+   
   }
 
   private mapType(typeText: string): DataCellType {

@@ -18,3 +18,32 @@ body {
   margin: 0;
   font-family: Assistant;
 }
+::ng-deep .no-snack-style.mat-snack-bar-container {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  min-width: unset !important;
+  max-width: unset !important;
+  width: auto !important;
+  display: contents !important;
+}
+
+/* הוספת שליטה על האלמנט הפנימי שמפריע */
+::ng-deep .no-snack-style .mdc-snackbar__label {
+  display: contents !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: inherit !important;
+  font: inherit !important;
+  background-color: transparent !important;
+  border-radius: 80px !important;
+  box-shadow: none !important;
+}
+::ng-deep .mat-mdc-snack-bar-container {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}

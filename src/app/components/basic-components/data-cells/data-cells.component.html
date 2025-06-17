@@ -2,9 +2,8 @@
   <div [ngClass]="[type,'data-cell']">
     @switch (type) {
     @case (dataCellType.CHECK) {
-    <yv-cluster-check [formControlName]="typeText">
+    <yv-cluster-check [formControlName]="typeText" >
     </yv-cluster-check>
-
     }
     @case (dataCellType.ASSIGNEE) {
     <yv-cluster-assignee [formControlName]="typeText">

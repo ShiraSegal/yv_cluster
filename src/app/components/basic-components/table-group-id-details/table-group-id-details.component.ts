@@ -273,11 +273,11 @@ export class TableGroupIdDetailsComponent {
     return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
   }
 
-  //בחירת check
-  checkChange(checkStatus: CheckType) {
-    // // console.log(" TableGroupIdDetailsComponent check status", checkStatus)
+  // //בחירת check
+  // checkChange(checkStatus: CheckType) {
+  //   // // console.log(" TableGroupIdDetailsComponent check status", checkStatus)
 
-  }
+  // }
   openDialog() {
     this.dialogRef = this.#dialog.open(PieComponentDistributionModalComponent, {
       data: { title: 'Data Distribution' },

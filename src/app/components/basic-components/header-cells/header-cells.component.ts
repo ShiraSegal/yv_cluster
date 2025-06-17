@@ -3,19 +3,20 @@ import { CheckComponent } from "../check/check.component";
 import { CommonModule } from '@angular/common';
 import { CheckStateType, HeaderCellType } from 'src/app/enums/basic-enum';
 import { CheckType } from 'src/app/enums/check-enum';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'yv-cluster-header-cells',
   standalone: true,
-  imports: [CheckComponent, CommonModule],
+  imports: [CheckComponent,CommonModule,ReactiveFormsModule],
   templateUrl: './header-cells.component.html',
   styleUrl: './header-cells.component.scss'
 })
 export class HeaderCellsComponent {
   @Input() data: string;
   @Input() type: HeaderCellType;
-  @Input() headerCheckboxControl: FormControl;
+  @Input() tableDataForm: FormGroup;
 
   @Output() sortEvent = new EventEmitter<{ column: string, direction: string }>();
   @Output() checkStatus = new EventEmitter<CheckType>();
@@ -24,7 +25,7 @@ export class HeaderCellsComponent {
   headerCellType = HeaderCellType;
   checkType = CheckType
   checkStateType = CheckStateType
-
+subscription: Subscription = new Subscription();
   ngOnInit() {
     switch(this.data){
       case 'check':
@@ -36,8 +37,15 @@ export class HeaderCellsComponent {
       default:
         this.type = HeaderCellType.TEXT;
     }
-//  console.log("HeaderCellsComponent initialized with data:", this.data, "and type:", this.type);
+    this.subscription.add(this.tableDataForm.get('headerCheckbox').valueChanges.subscribe((isChecked) => {
+      console.log('Header checkbox value changed:', isChecked); // Debugging
+      this.checkChange(isChecked);
+    }));
   }
+  get headerCheckbox(): FormControl {
+    return this.tableDataForm.get('headerCheckbox') as FormControl;
+  }
+
   sortBy(column: string) {
     if (this.type === 'order' || this.type === HeaderCellType.ORDERDOWN) {
       const direction = this.type === 'order' ? 'asc' : 'desc';
@@ -49,9 +57,8 @@ export class HeaderCellsComponent {
   }
 
   checkChange(checkStatus: CheckType) {
-   // // console.log(" header cells check status", checkStatus)
+    console.log('checkChange called with status:', checkStatus); // Debugging
     this.checkStatus.emit(checkStatus);
-
   }
 
   openPeiComponent() {

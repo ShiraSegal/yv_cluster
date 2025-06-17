@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, forwardRef } from '@angular/core';
+import { ChangeDetectorRef, Component, forwardRef, inject } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -19,6 +19,7 @@ export class CheckComponent implements ControlValueAccessor {
 
   onChange: (value: boolean) => void = () => {};
   onTouched: () => void = () => {};
+  cdr = inject(ChangeDetectorRef);
 
   writeValue(value: boolean): void {
     this.value = value;
@@ -34,6 +35,7 @@ export class CheckComponent implements ControlValueAccessor {
 
   toggleCheckbox() {
     this.value = !this.value;
+    this.cdr.detectChanges();
     this.onChange(this.value);
     this.onTouched();
   }

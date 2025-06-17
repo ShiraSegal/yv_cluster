@@ -11,7 +11,9 @@ border-radius:  0.5rem;
 background: $c-F5FFEF;
 box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);
 
-animation: slide-up 1s ease-out forwards;
+// animation: slide-up 1s ease-out forwards;
+
+
 
 }
 .toast-notification-container-error{
@@ -103,4 +105,8 @@ flex: 1 0 0;
     font-weight: 300;
     line-height: normal;
 
+}
+//////////////////////
+:host {
+  display: contents;
 }
