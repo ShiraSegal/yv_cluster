@@ -22,8 +22,8 @@ import { CloseRecordDetailsComponent } from '../close-record-details/close-recor
   styleUrls: ['./compare-modal-table.component.scss']
 })
 export class CompareModalTableComponent {
-  // compareData: any[] = [];
-  compareData$: Observable<CompaereDetailsData[]>
+  compareData: CompaereDetailsData[] = [];
+  // compareData$: Observable<CompaereDetailsData[]>
   #service = inject(ClusterService);
 
   xmark: IconType = IconType.XMARK
@@ -37,7 +37,7 @@ export class CompareModalTableComponent {
     this.#service.getCompareData()
       .subscribe({
         next: (res: CompaereDetailsData[] | null) => {
-          this.compareData$ = res || [];
+          this.compareData = res || [];
           // this.compareData$.next(this.isReadyForCreateInvoice());          
           console.log("getCompareDataInCom", res);
 
@@ -55,13 +55,13 @@ export class CompareModalTableComponent {
     this.subscription.unsubscribe();
   }
 
-  handleDetailsModeChange(isActive: boolean, index: number) {
-    this.compareData[index].detailsOn = isActive; // מעדכן את המצב של details בקומפוננטת האב
-  }
+  // handleDetailsModeChange(isActive: boolean, index: number) {
+  //   this.compareData[index].detailsOn = isActive; // מעדכן את המצב של details בקומפוננטת האב
+  // }
 
-  handleImageModeChange(isActive: boolean, index: number) {
-    this.compareData[index].imageOn = isActive; // מעדכן את המצב של details בקומפוננטת האב
-  }
+  // handleImageModeChange(isActive: boolean, index: number) {
+  //   this.compareData[index].imageOn = isActive; // מעדכן את המצב של details בקומפוננטת האב
+  // }
   markedMatches() {
     if (this.markedButtonType == ButtonType.SECONDARY) {
       this.markedButtonType = ButtonType.PRIMARY

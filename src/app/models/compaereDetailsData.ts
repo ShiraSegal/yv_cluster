@@ -1,7 +1,7 @@
 export class CompaereDetailsData {
   recordTitle: string; // לדוגמה: record1, record2 וכו'
   values: { key: string; value: string }[]; // מערך של אובייקטים עם key ו-value
-  isOpen:boolean
+  isOpen:boolean;
 
   constructor(recordTitle: string, values: { [key: string]: string }) {
     this.recordTitle = recordTitle;

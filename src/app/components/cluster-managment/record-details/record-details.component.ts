@@ -5,7 +5,7 @@ import { CompaereDetailsData } from 'src/app/models/compaereDetailsData';
 import { BasicSquareIconButtonComponent } from '../../basic-components/basic-square-icon-button/basic-square-icon-button.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { BasicSimpleSquareIconButtonComponent } from '../../basic-components/basic-simple-square-icon-button/basic-simple-square-icon-button.component';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Component({
@@ -16,7 +16,8 @@ import { Observable } from 'rxjs';
   styleUrl: './record-details.component.scss'
 })
 export class RecordDetailsComponent {
-  @Input() recordDetails!: Observable<CompaereDetailsData[]>;
+  // @Input() recordDetails: BehaviorSubject<CompaereDetailsData>;
+  @Input() recordDetails!: CompaereDetailsData;
 
   // @Output() isActive: boolean = true
   isOpen: boolean = true
@@ -25,19 +26,14 @@ export class RecordDetailsComponent {
   layerGroup = IconType.LAYER_GROUP
   eyeIcon: IconType = IconType.EYE
   eyeSlashIcon: IconType = IconType.EYE_SLASH
+  translateIcon:IconType=IconType.TRANSLATE
   // objectEntries(obj: { [key: string]: string }): [string, string][] {
   //   return Object.entries(obj);
   // }
-  selectedButton: number = 1;
+  selectedButton: number = 3;
 
   changeMode(index: number) {
     this.selectedButton = index;
-    // if (index === 1)
-    //   this.recordDetails.bothOn = true
-    // if (index === 2)
-    //   this.recordDetails.imageOn = true
-    // else
-    //   this.recordDetails.detailsOn = true
   }
 
   onClick() {

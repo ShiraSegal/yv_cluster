@@ -61,6 +61,7 @@ export enum IconType {
     EYE_SLASH="fa-solid fa-eye-slash",
     TABLE="fa-solid fa-table",
     LAYER_GROUP="fa-solid fa-layer-group",
-    XMARK="fa-solid fa-xmark"
+    XMARK="fa-solid fa-xmark",
+    TRANSLATE="fa-light fa-language",
 
 }

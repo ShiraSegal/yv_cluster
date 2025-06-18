@@ -1,16 +1,24 @@
 <!-- <div class="viewer-warpper"> -->
-    <!--<div class="picture-name-warpper">
+<!--<div class="picture-name-warpper">
         <div class="picture-name">{{pictureName}}</div>
     </div> -->
-
-    <!-- <div class="image-warrper"> -->
-        <img [src]="pictureUrl" class="printable-image" [ngClass]="zoomClass">
-    <!-- </div> -->
-    <div class="button-warpper">
-        <yv-cluster-icon-button-large (click)="rotateRight()" [icon]="iconType.ARROW_ROTATE_RIGHT"></yv-cluster-icon-button-large>
-        <yv-cluster-icon-button-large (click)="rotateLeft()" [icon]="iconType.ARROW_ROTATE_LEFT"></yv-cluster-icon-button-large>
-        <yv-cluster-icon-button-large (click)="print()" [icon]="iconType.PRINT"></yv-cluster-icon-button-large>
-        <yv-cluster-icon-button-large (click)="zoomOut()" [icon]="iconType.MAGNIFYING_GLASS_MINUS"></yv-cluster-icon-button-large>
-        <yv-cluster-icon-button-large (click)="zoomIn()" [icon]="iconType.MAGNIFYING_GLASS_PLUS"></yv-cluster-icon-button-large>
+<div class="image-wrapper-container">
+    <div class="print-area">
+        <div class="image-warrper">
+            <img #imageElement [src]="pictureUrl" class="printable-image" [ngClass]="zoomClass">
+        </div>
     </div>
+</div>
+
+<div class="button-warpper">
+    <yv-cluster-icon-button-large (click)="rotateRight()"
+        [icon]="iconType.ARROW_ROTATE_RIGHT"></yv-cluster-icon-button-large>
+    <yv-cluster-icon-button-large (click)="rotateLeft()"
+        [icon]="iconType.ARROW_ROTATE_LEFT"></yv-cluster-icon-button-large>
+    <yv-cluster-icon-button-large (click)="print()" [icon]="iconType.PRINT"></yv-cluster-icon-button-large>
+    <yv-cluster-icon-button-large (click)="zoomOut()"
+        [icon]="iconType.MAGNIFYING_GLASS_MINUS"></yv-cluster-icon-button-large>
+    <yv-cluster-icon-button-large (click)="zoomIn()"
+        [icon]="iconType.MAGNIFYING_GLASS_PLUS"></yv-cluster-icon-button-large>
+</div>
 <!-- </div> -->

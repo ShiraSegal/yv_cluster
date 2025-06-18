@@ -1,8 +1,9 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 import { IconType } from 'src/app/enums/icon-enum';
+
 
 @Component({
   selector: 'yv-cluster-viewer',
@@ -13,6 +14,7 @@ import { IconType } from 'src/app/enums/icon-enum';
 })
 export class ViewerComponent {
   @Input() pictureName: string = '';
+  @ViewChild('imageElement') imageElementRef!: ElementRef<HTMLImageElement>;
   pictureUrl: string = '';
   iconType = IconType;
   iconButtonLargeType = IconButtonLargeType;
@@ -77,7 +79,8 @@ export class ViewerComponent {
   }
 
   updateTransform() {
-    const imgElement = document.querySelector('.printable-image') as HTMLElement;
+    const imgElement = this.imageElementRef?.nativeElement;
+    // const imgElement = document.querySelector('.printable-image') as HTMLElement;
     if (imgElement) {
       imgElement.style.transform = `rotate(${this.rotate}deg) scale(${1 + this.scaleIndex * 0.1})`;
     }
