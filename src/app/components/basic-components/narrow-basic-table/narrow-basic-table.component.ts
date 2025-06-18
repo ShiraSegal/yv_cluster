@@ -36,10 +36,12 @@ export class NarrowBasicTableComponent {
 
 
   ngOnInit() {
-    this.subscription.add(this.rowsFormArray.valueChanges.subscribe((value) => {
-
-  }))
-  }
+  //   this.subscription.add(this.rowsFormArray.valueChanges.subscribe((value) => {
+  //     this.tableDataForm.patchValue({
+  //       rowsFormArray: value
+  //     })
+  //   }))
+   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()

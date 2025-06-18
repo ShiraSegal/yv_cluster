@@ -38,18 +38,19 @@ export class NarrowBasicTableRowComponent {
   iconType = IconType;
   buttonType = ButtonType;
   rowGroupControls: { control: FormControl, name: string }[];
+ 
   ngOnInit() {
-    // Initialize rowGroupControls for debugging
     this.rowGroupControls = Object.keys(this.rowGroup.controls).map(controlKey => {
       return {
-        control: this.rowGroup.controls[controlKey] as FormControl, // FormControl instance
-        name: controlKey // Control name
+        control: this.rowGroup.controls[controlKey] as FormControl, // קונטרול מסוג FormControl
+        name: controlKey // שם הקונטרול
       };
     });
     this.subscription.add(this.rowGroup.valueChanges.subscribe((value) => {
       console.log('RowGroup changed:', value);
     }))
   }
+
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
