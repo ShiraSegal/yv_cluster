@@ -25,5 +25,12 @@
       ></yv-cluster-header-cells>
   </div>
     }
+      @if(currentTab===autoClusterTabType.TABLEGROUPIDDETAILS){
+    <div class="cell">
+      <yv-cluster-header-cells [data]="'place-older'" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
+      [tableDataForm]="tableDataForm"
+      ></yv-cluster-header-cells>
+  </div>
+    }
 </div>
 </form>

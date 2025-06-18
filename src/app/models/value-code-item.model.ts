@@ -1,10 +1,8 @@
 export class valueCodeItem {
-    __type: string;
     Code: string;
     Value: string;
 
-    constructor(__type: string, Code: string, Value: string) {
-        this.__type = __type;
+    constructor( Code: string, Value: string) {
         this.Code = Code;
         this.Value = Value;
     }

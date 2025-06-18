@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { sapirClusterModel } from '../models/sapir-cluster-model.model';
-import { rootObjectOfClusterGroupDetails } from '../models/root-object-of-cluster-group-details.model';
 import { RootObject } from 'src/app/models/root-object.model';
+import { clusterGroupWithCrmLinks } from '../models/cluster-group-with-crm-links.model';
 
 
 @Injectable({
@@ -45,9 +45,9 @@ export class ClusterApiService {
   // getClusterGroupDetails(): Observable<any> {
   //   return this.#http.get('./assets/json-data/getClusterGroupDetails.json');
   // }
-  getClusterGroupDetails(): Observable<rootObjectOfClusterGroupDetails> {
+  getClusterGroupDetails(groupId:string): Observable<clusterGroupWithCrmLinks> {
     let result: any;
-     result= this.#http.get(`https://localhost:7059/api/SystemCluster/GetClusterGroupDetails`);
+     result= this.#http.get(`https://localhost:7059/api/SystemCluster/GetClusterGroupDetails/${groupId}`);
     return result;
   }
   getDashboardDataById(id: number): Observable<any> {

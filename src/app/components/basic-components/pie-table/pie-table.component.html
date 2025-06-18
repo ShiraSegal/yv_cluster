@@ -25,25 +25,25 @@
                 @if(item.rowName==='Last Name'){
                 <div class="table-text data-cell-color-{{i%4}}">
                     <yv-cluster-data-cells [type]=dataCellType.TEXT
-                        data="{{getValue(subItem, item.objectKey)}}"></yv-cluster-data-cells>
+                        data="{{getValue(subItem, item.objectKey)}}" [formGroup]="emptyFormGroup"></yv-cluster-data-cells>
                 </div>
                 }
                 @else if(item.rowName==='percent'){
                 <div class="table-text ">
                     <yv-cluster-data-cells [type]=dataCellType.TEXT
-                        data="{{calculatePercentage(subItem.Count, thePlaceTotalValue.TotalCount)}}%"></yv-cluster-data-cells>
+                        data="{{calculatePercentage(subItem.Count, thePlaceTotalValue.TotalCount)}}%" [formGroup]="emptyFormGroup"></yv-cluster-data-cells>
                 </div>
                 }
                 @else if(item.rowName==='Total name count'){
                     <div class="table-text ">
                         <yv-cluster-data-cells [type]=dataCellType.TEXT
-                            data="{{totalAllNamesInTheDatabase}}"></yv-cluster-data-cells>
+                            data="{{totalAllNamesInTheDatabase}}" [formGroup]="emptyFormGroup"></yv-cluster-data-cells>
                     </div>
                     }
                 @else{
                 <div class="table-text">
                     <yv-cluster-data-cells [type]=dataCellType.TEXT
-                        data="{{getValue(subItem, item.objectKey)}}"></yv-cluster-data-cells>
+                        data="{{getValue(subItem, item.objectKey)}}" [formGroup]="emptyFormGroup"></yv-cluster-data-cells>
                 </div>
                 }
                 }
@@ -56,25 +56,25 @@
                 @if(item.rowName==='Last Name'){
                 <div class="table-text data-cell-color-{{i%4}}">
                     <yv-cluster-data-cells [type]=dataCellType.TEXT
-                        data="{{ getValue(subItem, item.objectKey) }}"></yv-cluster-data-cells>
+                        data="{{ getValue(subItem, item.objectKey) }}" [formGroup]="emptyFormGroup"></yv-cluster-data-cells>
                 </div>
                 }
                 @else if(item.rowName==='percent'){
                 <div class="table-text ">
                     <yv-cluster-data-cells [type]=dataCellType.TEXT
-                        data="{{calculatePercentage(subItem.Count, allDatabaseTotalValue.TotalCount)}}%"></yv-cluster-data-cells>
+                        data="{{calculatePercentage(subItem.Count, allDatabaseTotalValue.TotalCount)}}%" [formGroup]="emptyFormGroup"></yv-cluster-data-cells>
                 </div>
                 }
                 @else if(item.rowName==='Total name count'){
                     <div class="table-text ">
                         <yv-cluster-data-cells [type]=dataCellType.TEXT
-                            data="{{totalAllNamesInTheDatabase}}"></yv-cluster-data-cells>
+                            data="{{totalAllNamesInTheDatabase}}" [formGroup]="emptyFormGroup"></yv-cluster-data-cells>
                     </div>
                     }
                 @else{
                 <div class="table-text">
                     <yv-cluster-data-cells [type]=dataCellType.TEXT
-                        data="{{getValue(subItem, item.objectKey)}}"></yv-cluster-data-cells>
+                        data="{{getValue(subItem, item.objectKey)}}" [formGroup]="emptyFormGroup"></yv-cluster-data-cells>
                 </div>
                 }
                 }

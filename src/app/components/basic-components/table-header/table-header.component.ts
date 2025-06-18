@@ -38,6 +38,7 @@ export class TableHeaderComponent {
       this.headers = changes['headers'].currentValue;
     }
   }
+
   openPeiComponent() {
     // // console.log("openPeiComponent");
     this.openDialog.emit(true);

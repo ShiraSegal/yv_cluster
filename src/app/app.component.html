@@ -4,15 +4,6 @@
     </nav>
     <main>
          <yv-cluster-loading></yv-cluster-loading>
-      <!-- @if(notifictionService.notifiction$ | async){ -->
-    <yv-cluster-toast-notification  *ngIf="notifictionService.notifiction$ | async as notification"
-    class="toast-notification"
-    [iconName]="notification.iconName"
-    [title]="notification.title"
-    [message]="notification.message"
-    [duration]="notification.duration">
-</yv-cluster-toast-notification>
-<!-- }      -->
         <router-outlet></router-outlet>
     </main>
 </div>

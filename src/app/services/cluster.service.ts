@@ -8,13 +8,12 @@ import { statisticDetail } from '../models/statistic-detail.model';
 import { statisticData } from '../models/statistic-data.model';
 import { valueCodeItem } from '../models/value-code-item.model';
 import { clusterGroupWithCrmLinks } from '../models/cluster-group-with-crm-links.model';
-import { clusteredNameRow } from '../models/clustered-name-row.model';
-import { rootObjectOfClusterGroupDetails } from '../models/root-object-of-cluster-group-details.model';
 // import { map } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { sapirClusterModel } from '../models/sapir-cluster-model.model';
 import { RootObject } from '../models/root-object.model';
 import { LoadingService } from './loading.service';
+import { bookIdDetails } from '../models/book-id-details.model';
 
 
 @Injectable({
@@ -114,26 +113,25 @@ export class ClusterService
     );
   }
 
-  getClusterGroupDetails(): Observable<rootObjectOfClusterGroupDetails | null> {
+  getClusterGroupDetails(groupId:string): Observable<clusterGroupWithCrmLinks | null> {
     //  this.#loadingService.show();
-    return this.#clusterApiService.getClusterGroupDetails().pipe(
+    return this.#clusterApiService.getClusterGroupDetails(groupId).pipe(
       take(2),
       map((res: any) => {
         if (!res) {
           return null
         }
-        const clusteredPeople: clusteredNameRow[] = res.d.clusteredNameRowList.map((row: any) => new clusteredNameRow(
-          row.__type,
+        const clusteredPeople: bookIdDetails[] = res.bookIdDetailsList.map((row: any) => new bookIdDetails(
           row.bookId,
-          new valueCodeItem(row.firstName.__type, row.firstName.code, row.firstName.value),
-          new valueCodeItem(row.lastName.__type, row.lastName.code, row.lastName.value),
-          new valueCodeItem(row.fatherFirstName.__type, row.fatherFirstName.code, row.fatherFirstName.value),
-          new valueCodeItem(row.motherFirstName.__type, row.motherFirstName.code, row.motherFirstName.value),
-          new valueCodeItem(row.placeOfBirth.__type, row.placeOfBirth.code, row.placeOfBirth.value),
-          new valueCodeItem(row.permanentPlace.__type, row.permanentPlace.code, row.permanentPlace.value),
-          new valueCodeItem(row.dateOfBirth.__type, row.dateOfBirth.code, row.dateOfBirth.value),
-          new valueCodeItem(row.source.__type, row.source.code, row.source.value),
-          new valueCodeItem(row.spouseFirstName.__type, row.spouseFirstName.code, row.spouseFirstName.value),
+          new valueCodeItem( row.firstName.code, row.firstName.value),
+          new valueCodeItem( row.lastName.code, row.lastName.value),
+          new valueCodeItem(row.fatherFirstName.code, row.fatherFirstName.value),
+          new valueCodeItem(row.motherFirstName.code, row.motherFirstName.value),
+          new valueCodeItem(row.placeOfBirth.code, row.placeOfBirth.value),
+          new valueCodeItem( row.permanentPlace.code, row.permanentPlace.value),
+          new valueCodeItem(row.dateOfBirth.code, row.dateOfBirth.value),
+          new valueCodeItem( row.source.code, row.source.value),
+          new valueCodeItem(row.spouseFirstName.code, row.spouseFirstName.value),
           row.maidenName,
           row.isClustered,
           row.existsClusterId,
@@ -147,14 +145,12 @@ export class ClusterService
         ));
 
         const clusterGroup = new clusterGroupWithCrmLinks(
-          res.d.__type,
           clusteredPeople,
-          res.d.crmLinkList,
-          res.d.contact
+          res.crmLinkList,
+          res.contact
         );
-        console.log("new rootObjectOfClusterGroupDetails(clusterGroup):" + new rootObjectOfClusterGroupDetails(clusterGroup));
         //  this.#loadingService.hide();
-        return new rootObjectOfClusterGroupDetails(clusterGroup);
+        return clusterGroup;
 
       }),
       catchError(err => {

@@ -39,15 +39,15 @@ export class NarrowBasicTableRowComponent {
   buttonType = ButtonType;
   rowGroupControls: { control: FormControl, name: string }[];
   ngOnInit() {
- 
+    // Initialize rowGroupControls for debugging
     this.rowGroupControls = Object.keys(this.rowGroup.controls).map(controlKey => {
       return {
-        control: this.rowGroup.controls[controlKey] as FormControl, // קונטרול מסוג FormControl
-        name: controlKey // שם הקונטרול
+        control: this.rowGroup.controls[controlKey] as FormControl, // FormControl instance
+        name: controlKey // Control name
       };
     });
     this.subscription.add(this.rowGroup.valueChanges.subscribe((value) => {
-      console.log('RowGroup changed:', value);
+      console.log('narrow RowGroup changed:', value);
     }))
   }
 
@@ -55,6 +55,8 @@ export class NarrowBasicTableRowComponent {
     this.subscription.unsubscribe()
   }
   onIconDeletClick() {
+    console.log('narrow Icon delete clicked');
+    
     const cellControl = this.rowGroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי
     const cellData = cellControl?.value?.data;
 

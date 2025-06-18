@@ -1,30 +1,28 @@
 import { valueCodeItem } from "./value-code-item.model";
 
-export class clusteredNameRow {
-    __type: string;
+export class bookIdDetails {
     BookId: string;
+    ExistsClusterId: string;
+    Score: string;
     FirstName: valueCodeItem;
-    lastName: valueCodeItem;
+    LastName: valueCodeItem;
     FatherFirstName: valueCodeItem;
     MotherFirstName: valueCodeItem;
+    SpouseFirstName: valueCodeItem;
+    DateOfBirth: valueCodeItem;
     PlaceOfBirth: valueCodeItem;
     PermanentPlace: valueCodeItem;
-    DateOfBirth: valueCodeItem;
     Source: valueCodeItem;
-    SpouseFirstName: valueCodeItem;
     MaidenName: string;
     IsClustered: number;
-    ExistsClusterId: string;
     RelatedFnameGroupId: number | null;
     IsHasRelatedFname: boolean;
     Ind: number;
     HasRelatedGroups: boolean;
-    Score: string;
     NumberOfSuggestions: number;
     RelatedFnameList: any; // ניתן להחליף בהתאם למבנה אם קיים
 
     constructor(
-        __type: string,
         BookId: string,
         FirstName: valueCodeItem,
         lastName: valueCodeItem,
@@ -46,10 +44,9 @@ export class clusteredNameRow {
         NumberOfSuggestions: number,
         RelatedFnameList: any
     ) {
-        this.__type = __type;
         this.BookId = BookId;
         this.FirstName = FirstName;
-        this.lastName = lastName;
+        this.LastName = lastName;
         this.FatherFirstName = FatherFirstName;
         this.MotherFirstName = MotherFirstName;
         this.PlaceOfBirth = PlaceOfBirth;

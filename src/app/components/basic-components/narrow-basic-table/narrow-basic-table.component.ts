@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
 import { log } from 'console';
 import { ChangeDetectorRef } from '@angular/core';
 import { ExpandableComponent } from '../expandable/expandable.component';
-import { loadavg } from 'os';
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table',
@@ -34,10 +33,14 @@ export class NarrowBasicTableComponent {
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   autoClusterTabType = AutoClusterTabType;
   subscription: Subscription = new Subscription();
-  cdr = inject(ChangeDetectorRef);
+
 
   ngOnInit() {
+    this.subscription.add(this.rowsFormArray.valueChanges.subscribe((value) => {
+
+  }))
   }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }
@@ -46,7 +49,7 @@ export class NarrowBasicTableComponent {
     return this.rowsFormArray.controls as FormGroup[];
   }
 
-  
+
 
 
   get headerCheckbox(): FormControl {

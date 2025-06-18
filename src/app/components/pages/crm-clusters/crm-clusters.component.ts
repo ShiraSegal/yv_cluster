@@ -7,6 +7,7 @@ import { SlidebarNavigationComponent } from '../../basic-components/slidebar-nav
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter-bookid.component';
 import { ToastNotificationComponent } from '../../basic-components/toast-notification/toast-notification.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'yv-cluster-handling-suggestions-page',
@@ -16,13 +17,21 @@ import { ToastNotificationComponent } from '../../basic-components/toast-notific
   styleUrl: './crm-clusters.component.scss'
 })
 export class CrmClustersComponent {
-  @Input() groupIdNumber!: number;
-
+  #route: ActivatedRoute = inject(ActivatedRoute);
+  
   showToastNotification: boolean;
   toastMessage: string = '';
-
+  groupId: string;
   toastIcon: IconType;
   iconType = IconType
 
+
+
+  constructor() { }
+
+  ngOnInit(): void {
+    this.groupId = this.#route.snapshot.paramMap.get('id')!;
+    console.log('ID:', this.groupId);
+  }
 }
 

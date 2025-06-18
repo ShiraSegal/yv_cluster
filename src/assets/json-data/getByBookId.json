@@ -1,7 +1,7 @@
 {
     "d": [
         {
-            "__type": "ClusteredNamesSystem.classes.clusteredNameRow",
+            "__type": "ClusteredNamesSystem.classes.bookIdDetails",
             "BookId": "1000000",
             "FirstName": {
                 "__type": "ClusteredNamesSystem.classes.valueCodeItem",

@@ -29,7 +29,8 @@ import { Subscription } from 'rxjs';
     AssigneeComponent,
     BadgeComponent,
     IconButtonLargeComponent,
-    CommonModule],
+    CommonModule,
+  ReactiveFormsModule ],
 
   templateUrl: './data-cells.component.html',
   styleUrls: ['./data-cells.component.scss']
@@ -62,12 +63,11 @@ export class DataCellsComponent<T extends DataCellType> {
   subscription: Subscription=new Subscription();
   ngOnInit() {
     this.subscription.add(this.formGroup.valueChanges.subscribe((value)=>{
-      console.log("ggg", value);
+      // console.log("ggg", value);
       
     }))
     this.type = this.mapType(this.typeText);
    //// console.log('Parent FormGroup:', this.formGroup);
-   
   }
 ngOnDestroy() {
   this.subscription.unsubscribe(); // Unsubscribe to prevent memory leaks
@@ -110,5 +110,4 @@ ngOnDestroy() {
   triggerExpand() {
     this.expand.emit(); // Emit the expand event
   }
-
 }

@@ -1,5 +1,5 @@
-import { clusteredNameRow } from "./clustered-name-row.model";
+import { bookIdDetails } from "./book-id-details.model";
 
 export class RootObject {
-    d: clusteredNameRow[];
+    d: bookIdDetails[];
   }
