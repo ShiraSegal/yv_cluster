@@ -1,4 +1,6 @@
-<div class="slider-navigation">
+<!-- <div class="slider-navigation">
+    <div class="inner-warp">
+    <div class="upper-warp">
     <div class="logo"></div>
     <div class="tabs">
         @for (tab of tabs; track index; let index = $index;) {
@@ -10,11 +12,79 @@
         <div class="line"></div>
         }
 
-        <yv-cluster-slider-navigation-tab [property]="tab.property"
+        <yv-cluster-slider-navigation-tab class="tab"[property]="tab.property"
             [icon]="activeTabIndex ===index ? tab.activeIcon : tab.icon" [text]="tab.text"
             (click)="setActiveTab(tab.text)">
         </yv-cluster-slider-navigation-tab>
         }
     </div>
-   
+    <div class="line"></div>
+       <div class="user">
+        <div class="user-warp">
+            {{userName}}
+            <i  class="fa-solid fa-chevron-down custom-arrow"></i>
+        </div>
+       </div>
+    </div>
+</div>
+
+
+</div> -->
+
+<div class="slider-navigation">
+  <div class="upper-warp">
+    <div class="logo"></div>
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="148" height="79" viewBox="0 0 148 79" fill="none">
+      <path d="M147.903 0H0.0966797V79H147.903V0Z" fill="white"/>
+    </svg> -->
+    <div class="inner-upper-warp">
+      <div class="tabs">
+        @for (tab of tabs; track index; let index = $index;) { @if (tab.text ===
+        sliderNavigationTabTextType.AUTO_CLUSTER ||tab.text ===
+        sliderNavigationTabTextType.REPORT) {
+        <div class="line"></div>
+        }
+        <yv-cluster-slider-navigation-tab
+          class="tab"
+          [property]="tab.property"
+          [icon]="activeTabIndex === index ? tab.activeIcon : tab.icon"
+          [text]="tab.text"
+          (click)="setActiveTab(tab.text)"
+        >
+        </yv-cluster-slider-navigation-tab>
+
+        }
+      </div>
+    </div>
+
+    <!-- <div>
+      <div class="user-warp">
+        <div class="user-text">
+          {{ userName }}
+          <i
+            class="fa-solid fa-chevron-down custom-arrow"
+            (click)="openLogOut()"
+          ></i>
+        </div>
+      </div>
+    </div> -->
+    <div class="space"></div>
+    @if (showLogOut) {
+    <div class="logout">
+      <yv-cluster-native-option
+        class="native-option-logout"
+        [displayText]="'Log out'"
+        [optionType]="nativeOptionType.TEXT"
+        [linkIcon]="iconType.ARROW_RIGHT_FROM_BRACKET_LIGHT"
+      >
+      </yv-cluster-native-option>
+    </div>
+    }
+    <div class="line"></div>
+    <div class="user" (click)="openLogOut()" [class.active]="active">
+      <yv-cluster-assignee class="assignee-in-slidebar" [data]="userName">
+      </yv-cluster-assignee>
+      <i class="fa-solid fa-chevron-down custom-arrow icon"></i>
+    </div>
+  </div>
 </div>

@@ -32,8 +32,8 @@ type NativeSelectOption = {
   styleUrl: './create-cluster.component.scss'
 })
 export class CreateClusterComponent {
-  #dialogRef= inject(MatDialogRef<CreateClusterComponent>);
-  #data= inject(MAT_DIALOG_DATA);
+  #dialogRef= inject(MatDialogRef<CreateClusterComponent>,{ optional: true });
+  #data= inject(MAT_DIALOG_DATA,{ optional: true });
 //{ optional: true }- האם צריך את זה?
   #formBuilder = inject(FormBuilder);
   #clusterService = inject(ClusterService);
@@ -147,8 +147,7 @@ export class CreateClusterComponent {
       this.clusterModel.level = this.createClusterForm.value.clusterLevel;
       this.clusterModel.comments = this.createClusterForm.value.comments;
 
-      this.#clusterService.createCluster(this.clusterModel)
-        .pipe(takeUntil(this.#destroy$)) // ← הוספנו גם כאן ביטול אוטומטי
+     this.subscription.add(this.#clusterService.createCluster(this.clusterModel)
         .subscribe({
           next: (res) => {
             if (res) {
@@ -160,7 +159,7 @@ export class CreateClusterComponent {
           error: (err: any) => {
             console.error("Error during cluster creation:", err);
           }
-        });
+        }));
     }
     else {
       this.formIsValid = false;

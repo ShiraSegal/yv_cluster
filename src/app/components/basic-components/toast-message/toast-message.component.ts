@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, Input, SimpleChanges } from '@angular/core';
+import { Component, inject, Inject, Input, SimpleChanges } from '@angular/core';
 import { ButtonType, MessageType, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
 import { BodyComponent } from '../body/body.component';
 import { ButtonComponent } from "../button/button.component";
 import { MessageService } from 'src/app/services/message.service';
+import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'yv-cluster-toast-message',
@@ -14,24 +15,30 @@ import { MessageService } from 'src/app/services/message.service';
   styleUrl: './toast-message.component.scss'
 })
 export class ToastMessageComponent {
-  // #messageService=Inject(MessageService)
-@Input() type:MessageType;
-@Input() heading:string;
-@Input() content:string;
+  data=inject(MAT_SNACK_BAR_DATA);
+  snackBarRef = inject(MatSnackBarRef<ToastMessageComponent>);
+
+type: MessageType;
+heading: string;
+content: string;
+hasButton: boolean;
 icon:IconType;
 color=TextColor;
 size=TextSize;
 buttonType=ButtonType;
 isVisible:boolean=true;
-// show:boolean=false; // תנאי להצגה ב־HTML
 
 
 
-ngOnChanges(changes: SimpleChanges) {
-  console.log("ToastMessageComponent changes:", changes['type'], changes['heading'], changes['content']);
+  ngOnInit() {
+    console.log('data from snackbar:', this.data);
   
-  if (changes['type'] || changes['heading'] || changes['content']) {
-    this.isVisible = false;
+    if (!this.data) return;
+  
+    this.type = this.data.type;
+    this.heading = this.data.heading;
+    this.content = this.data.content;
+  
     switch (this.type) {
       case 'success':
         this.icon = IconType.CIRCLE_CHECK_SOLID;
@@ -47,10 +54,10 @@ ngOnChanges(changes: SimpleChanges) {
         break;
     }
   }
-}
+  
 
 
-closeToastMessage() {
-  this.isVisible = false;
-}
+  closeToastMessage() {
+    this.snackBarRef.dismiss(); // זו השורה שסוגרת את ה־SnackBar
+  }
 }

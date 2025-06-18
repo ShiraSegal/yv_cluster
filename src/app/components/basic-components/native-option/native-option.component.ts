@@ -5,6 +5,7 @@ import { BadgeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from '../assignee/assignee.component';
 import { NativeOptionState, NativeOptionType } from 'src/app/enums/native-option-enum';
 import { BadgeComponent } from '../badge/badge.component';
+import { IconType } from 'src/app/enums/icon-enum';
 
 @Component({
   selector: 'yv-cluster-native-option',
@@ -17,10 +18,8 @@ export class NativeOptionComponent {
   @Input() optionType!: NativeOptionType;
   @Input() optionState!: NativeOptionState;
   @Input() property?: BadgeType = BadgeType.TODO;
-
-
-  // 💡 חדש: לשם התצוגה הדינאמית
   @Input() displayText?: string;
+  @Input()linkIcon?: IconType= IconType.SQUARE_ARROW_UP_RIGHT_REGULAR;
 
   optionTypeMain = NativeOptionType;
   optionStateMain = NativeOptionState;

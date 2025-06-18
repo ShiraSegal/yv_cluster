@@ -43,4 +43,6 @@ export enum IconType {
   CIRCLE_INFO_SOLID = 'fa-solid fa-circle-info',
   CIRCLE_EXCLAMATION_SOLID = 'fa-solid fa-circle-exclamation',
   TRIANGLE_EXCLAMATION_SOLID = 'fa-solid fa-triangle-exclamation',
+ CHEVRON_DOWN_SOLID="fa-solid fa-chevron-down custom-arrow",
+ ARROW_RIGHT_FROM_BRACKET_LIGHT ="fa-light fa-arrow-right-from-bracket"
 }

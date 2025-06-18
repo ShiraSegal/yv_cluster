@@ -228,8 +228,8 @@ export class ClusterService
          this.#messageService.showToastMessage(
           {
            type: MessageType.SUCCESS,
-           heading: 'SuccessB',
-           content: "Cluster reated successfully!"
+           heading: 'Success',
+           content: "Cluster created successfully!"
           }
           );
         }),

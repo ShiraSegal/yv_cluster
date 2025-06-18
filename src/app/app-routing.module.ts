@@ -23,7 +23,9 @@ export const routes: Routes = [
         {
           path: 'report', loadComponent: () => import('./components/test/test.component').then(x => x.TestComponent)
         },
-        
+        {
+          path: 'logout', loadComponent: () => import('./components//pages/logout/logout.component').then(x => x.LogoutComponent)
+        },
      ],
   },
 ];

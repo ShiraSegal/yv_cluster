@@ -1,5 +1,5 @@
 
-@if (isVisible) {
+
 <div class="message-warp" [ngClass]="type">
   <div class="inner-warp">
     <i [ngClass]="['icon', icon]"></i>
@@ -17,11 +17,13 @@
         [size]="size.MEDIUM"
       ></yv-cluster-body>
     </div>
+    @if (hasButton) {
     <yv-cluster-button
       class="button"
       [buttonType]="buttonType.TERTIARY"
       [text]="'Cancel'"
     ></yv-cluster-button>
+  }
   </div>
 
   <button class="x-button" (click)="closeToastMessage()">
@@ -30,6 +32,6 @@
     </div>
   </button>
 </div>
-}
+
 
 

@@ -6,6 +6,9 @@ import { ToastMessageComponent } from './components/basic-components/toast-messa
 import { MessageService } from './services/message.service';
 import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
 import { IconType } from './enums/icon-enum';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+// import {Component, inject} from '@angular/core';
+
 
 
 @Component({
@@ -13,7 +16,7 @@ import { IconType } from './enums/icon-enum';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [RouterOutlet, SlidebarNavigationComponent,ToastMessageComponent,AsyncPipe,JsonPipe],
+  imports: [RouterOutlet, SlidebarNavigationComponent,ToastMessageComponent,AsyncPipe,JsonPipe,MatSnackBarModule],
 })
 export class AppComponent {
   #clusterService = inject(ClusterService);
@@ -28,6 +31,9 @@ export class AppComponent {
       console.log('📩 message from service:', message);
     });
   }
+
+  // openSnackBar(message: string, action: string) {
+  //   this.#snackBar.open(message, action);
   
   // ngOnInit() {
   //   this.#clusterService.login(1).subscribe({

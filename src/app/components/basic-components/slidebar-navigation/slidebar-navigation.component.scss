@@ -1,53 +1,257 @@
-@import 'src/styles/colors';
+// @import "src/styles/colors";
+
+// .slider-navigation {
+//   display: flex;
+//   width: 20.7184rem;
+//   height: 100.73625rem;
+//   padding-top: 1.119375rem;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 6.344625rem;
+//   background: $c-081548;
+// }
+
+// .upper-warp {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   align-items: center;
+//   flex: 1 0 0;
+//   align-self: stretch;
+// }
+
+// .inner-upper-warp {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 7.4625rem;
+//   align-self: stretch;
+// }
+
+// .logo {
+//   background: url('/assets/images/logo.png') no-repeat center center;
+//   background-size: contain;
+//   width: 13.785rem;
+//   height: 7.370625rem;
+//   flex-shrink: 0;
+//   margin-right: 2.985rem auto; /* ריווח ומרכז הלוגו */
+// }
+
+// .tabs {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 1.1184375rem;
+//   align-self: stretch;
+//   padding-top: 8.20875rem;
+// }
+
+// .tab {
+//   display: flex;
+//   height: 5.97rem;
+//   padding: 0.65259375rem 1.1184375rem 0rem 0rem;
+//   align-items: center;
+//   gap: 0.93390625rem;
+//   align-self: stretch;
+// }
+
+// .space {
+//   margin-top: 37.3125rem;
+// }
+
+// .line {
+//   display: flex;
+//   width: 20.7184rem;
+//   height: 0.09328125rem;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 0.27984375rem;
+//   flex-shrink: 0;
+//   border-bottom: 0.5px solid $c-A1AEE3;
+// }
+
+// .user {
+//   display: flex;
+//   height: 5.97rem;
+//   padding-top: 0.74625rem;
+//   align-items: center;
+//   gap: 0.93390625rem;
+//   align-self: stretch;
+//   &.active {
+//     display: inline-flex;
+//     padding-top: 0.74625rem;
+//     align-items: center;
+//     gap: 0.93390625rem;
+//     border-radius: 0.466875rem;
+//     background: rgba(19, 52, 185, 0.40);
+//   }
+// }
+
+// ::ng-deep yv-cluster-assignee.assignee-in-slidebar .assignee {
+//   align-items: flex-start !important;
+//   align-self: stretch;
+//   height: 5.97rem;
+//   gap: 0.74625rem;
+//   color: #fff !important;
+//   font-size: 1.4925rem !important;
+//   padding-right: 2.985rem;
+//   padding-left: 0.74625rem;
+//   padding-top: 2.23875rem;
+// }
+
+// .icon {
+//   color: #D0D6F1;
+//   text-align: center;
+//   font-family: "Font Awesome 6 Pro";
+//   font-size: 1.4925rem;
+//   font-style: normal;
+//   font-weight: 900;
+//   line-height: normal;
+//   margin-left: -2.985rem;
+//   margin-top: -1.4925rem;
+// }
+
+// .logout {
+//   display: flex;
+//   width: 18.57309375rem;
+//   padding: 0.74625rem;
+//   margin-top: -5.22375rem;
+//   align-items: center;
+//   border-radius: 0.55921875rem;
+//   background: $c-FFFFFF;
+//   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1),
+//     0px -4px 5px 0px rgba(0, 0, 0, 0.05);
+// }
+
+// .native-option-logout {
+//   width: 18.57309375rem !important;
+// }
+@import "src/styles/colors";
 
 .slider-navigation {
-    position: fixed; // קובע שהאלמנט לא זז עם הגלילה
-    top: 0;
-    left: 0; // אם העיצוב בעברית – ייתכן שתרצה right: 0;
-    height: 100vh; // גובה מלא של המסך
-    width: 13.875rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4.25rem;
-    background: $c-081548;
-    z-index: 1000; // לוודא שהוא מעל תוכן אחר
-  }
-  
+  display: flex;
+  width: 9.29625rem;
+  height: 45.225rem;
+  padding-top: 0.5025rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.8475rem;
+  background: $c-081548;
+}
+
+.upper-warp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.inner-upper-warp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.35rem;
+  align-self: stretch;
+}
 
 .logo {
-    background: url('/assets/images/logo.png') no-repeat center center ;
-    background-size: contain;
-    // width: 3.0625rem; /* רוחב הלוגו */
-    // height: 4.75rem; /* גובה הלוגו */
-    // flex-shrink: 0;
-    margin: 2rem auto; /* ריווח ומרכז הלוגו */
-    width: 9.23788rem;
-height: 4.9375rem;
-flex-shrink: 0;
-fill: url('/assets/images/logo.png') lightgray 0px 1.835px / 100% 122.237% no-repeat;
+  background: url('/assets/images/logo.png') no-repeat center center;
+  background-size: contain;
+  width: 6.19018rem;
+  height: 3.30713rem;
+  flex-shrink: 0;
+  margin-right: 1.34rem auto;
 }
 
 .tabs {
-    display: flex;
-    flex-direction: column;
-    // align-items: center;
-    gap: 0.75rem;
-    align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5025rem;
+  align-self: stretch;
+  padding-top: 3.685rem;
 }
 
-.space{
-    margin-top: 20rem;
+.tab {
+  display: flex;
+  height: 2.68rem;
+  padding: 0.293375rem 0.5025rem 0rem 0rem;
+  align-items: center;
+  gap: 0.41875rem;
+  align-self: stretch;
 }
+
+.space {
+  margin-top: 16.75rem;
+}
+
 .line {
-    display: flex;
-width: 13.875rem;
-height: 0.0625rem;
-// padding: 0.75rem 0rem;
-flex-direction: column;
-align-items: center;
-gap: 0.1875rem;
-flex-shrink: 0;
-border-bottom: 0.5px solid #A1AEE3;
+  display: flex;
+  width: 9.29625rem;
+  height: 0.041875rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.125625rem;
+  flex-shrink: 0;
+  border-bottom: 0.5px solid $c-A1AEE3;
 }
 
+.user {
+  display: flex;
+  height: 2.68rem;
+  padding-top: 0.335rem;
+  align-items: center;
+  gap: 0.41875rem;
+  align-self: stretch;
+  &.active {
+    display: inline-flex;
+    padding-top: 0.335rem;
+    align-items: center;
+    gap: 0.41875rem;
+    border-radius: 0.209375rem;
+    background: $c-1334b966;
+  }
+}
+
+::ng-deep yv-cluster-assignee.assignee-in-slidebar .assignee {
+  // align-items: flex-start !important;
+  align-self: stretch;
+  height: 2.68rem;
+  gap: 0.335rem;
+  color: $c-FFFFFF !important;
+  font-size: 0.67rem !important;
+  padding-right: 1.34rem;
+  padding-left: 0.335rem;
+  padding-bottom: 0.5rem;
+}
+
+.icon {
+  color: $c-D0D6F1;
+  text-align: center;
+  font-family: "Font Awesome 6 Pro";
+  font-size: 0.67rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  margin-left: -1.5rem;
+  margin-top: -0.67rem;
+}
+
+.logout {
+  display: flex;
+  width: 8.33313rem;
+  // padding: 0.335rem;
+  padding-left: 0.75rem;
+  margin-top: -2.345rem;
+  align-items: center;
+  border-radius: 0.25125rem;
+  background: $c-FFFFFF;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1),
+  0px -4px 5px 0px rgba(0, 0, 0, 0.05);
+}
+
+::ng-deep yv-cluster-native-option.native-option-logout .option-wrapper{
+  min-width: 6.5831971rem !important;
+}
