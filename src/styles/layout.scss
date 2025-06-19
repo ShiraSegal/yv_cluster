@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  height: 100%; // Ensure the container takes the full height
+}
+
+.sidebar {
+  flex: 0 0 9.29625rem; // Sidebar width
+}
+
+.main-content {
+  flex: 1; // Main content takes the remaining space
+  overflow-y: auto; // Allow scrolling for content
+}

@@ -1,0 +1,37 @@
+
+
+<div class="message-warp" [ngClass]="type">
+  <div class="inner-warp">
+    <i [ngClass]="['icon', icon]"></i>
+    <div class="text-warp">
+      <yv-cluster-body
+        class="heading"
+        [bodyText]="heading"
+        [color]="color.BLACK"
+        [size]="size.LARGE"
+      ></yv-cluster-body>
+      <yv-cluster-body
+        class="content"
+        [bodyText]="content"
+        [color]="color.SLATE_BLUE"
+        [size]="size.MEDIUM"
+      ></yv-cluster-body>
+    </div>
+    @if (hasButton) {
+    <yv-cluster-button
+      class="button"
+      [buttonType]="buttonType.TERTIARY"
+      [text]="'Cancel'"
+    ></yv-cluster-button>
+  }
+  </div>
+
+  <button class="x-button" (click)="closeToastMessage()">
+    <div>
+      <i class="fa-light fa-xmark x-icon"></i>
+    </div>
+  </button>
+</div>
+
+
+

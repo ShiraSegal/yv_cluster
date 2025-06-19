@@ -93,11 +93,17 @@ export class PopoverComponent implements ControlValueAccessor {
     });
   }
 
-  onMouseScroll(event: WheelEvent) {
-    event.preventDefault();
-    this.scrollableRef.nativeElement.scrollTop += event.deltaY;
+onMouseScroll(event: WheelEvent) {
+  const scrollable = this.scrollableRef.nativeElement;
+  const prevScrollTop = scrollable.scrollTop;
+  scrollable.scrollTop += event.deltaY;
+
+  if (scrollable.scrollTop !== prevScrollTop) {
+    event.preventDefault(); // רק אם הייתה תזוזה בפועל
     this.updateThumbPosition();
   }
+}
+
 
   updateThumbHeight() {
     const scrollable = this.scrollableRef.nativeElement;

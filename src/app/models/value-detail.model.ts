@@ -1,5 +1,5 @@
-export class valueDetail {
-    NameCode: string;
-    Value: string;
-    Counter: number;
+export class ValueDetail {
+    nameCode: string;
+    value: string;
+    counter: number;
   }

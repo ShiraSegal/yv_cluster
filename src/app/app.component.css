@@ -1,30 +1,12 @@
 
 
 .app-wrraper {
-    width: 100%;
-    display: flex;
-    flex-direction: row; /* ניווט בצד ותוכן מימין */
+    width: 75rem;
+    height: 67.5rem;
     background: linear-gradient(0deg, rgba(231, 235, 248, 0.30) 0%, rgba(231, 235, 248, 0.30) 100%), #FFF;
-    min-height: 100vh;
+  
 }
 
 nav {
     position: fixed; /* מיקום קבוע לניווט */
- 
 }
-
-main {
-    width: 100%;
-    margin-right: 13.94rem;
-    margin-left: 13.94rem;
-    margin-top: 5.5rem;
-    margin-bottom: 5.5rem;
-}
-
-
-.toast-notification {
-    position: fixed;
-    bottom: 5vh; /* מרחק מהתחתית */
-    left: 12.9375rem; /* מרחק מהצד השמאלי */
-    z-index: 1000; /* כדי לוודא שהאלמנט יופיע מעל תוכן אחר */
-  }

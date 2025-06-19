@@ -139,6 +139,7 @@ export class NarrowBasicTableWarpComponent {
     }));
     this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
       // Handle changes in the rows dynamically
+      debugger;
       this.onHeaderCheckboxToggle()
     }));
   }
@@ -201,10 +202,9 @@ setActiveTab(tabText: AutoClusterTabType) {
   }));
   this.currentTab = tabText;
   this.initializeRowsFormArray()
-  this.tableDataForm.patchValue({
-    headerCheckbox: false, // Reset header checkbox
-    rowsFormArray: this.Rows[this.currentTab] // Reset rows form array
-  });
+  this.rowsFormArray.setValue(this.Rows[this.currentTab] || []); // עדכון הטופס עם השורות החדשות
+  this.headerCheckbox.setValue(false);
+   //, { emitEvent: false }
   }
 
   generateHeadersFromData(data: any[]): { data: string }[] {
@@ -259,13 +259,19 @@ setActiveTab(tabText: AutoClusterTabType) {
 
   onHeaderCheckboxToggle(): void {
     const isChecked = this.headerCheckbox.value;
+    debugger;
     // Update each control in rowsFormArray directly
     this.rowsFormArray.controls.forEach((group, index) => {
       const checkedControl = group.get('check');
       if (checkedControl&&checkedControl.value!==isChecked) {
-        checkedControl.patchValue(isChecked);
+        checkedControl.setValue(isChecked);
       }
     });
+
+    console.log('Updated FormArray:', this.rowsFormArray.value);
+    console.log('Updated tableDataForm:', this.tableDataForm.value);
+    // Force Angular to detect changes
+   // this.cdr.detectChanges();
   }
 }
 

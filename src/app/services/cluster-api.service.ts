@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
-import { sapirClusterModel } from '../models/sapir-cluster-model.model';
+import { SapirClusterModel } from '../models/sapir-cluster-model.model';
 import { rootObjectOfClusterGroupDetails } from '../models/root-object-of-cluster-group-details.model';
 import { RootObject } from 'src/app/models/root-object.model';
 
@@ -15,26 +15,39 @@ export class ClusterApiService {
   basicParam: string = 'reservations';
   #http = inject(HttpClient);
   apiUrl = 'assets/json-data';
-
-  getAutoClusterData() : Observable<any> {
-    return this.#http.get(`${this.apiUrl}/getAutoCluster.json`);
+  
+   getAutoClusterData() {
+    return this.#http.get<string[]>(`${this.apiUrl}/getAutoCluster.json`);
   }
 
   getCreateClusterData() {
-    return this.#http.get<sapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`);
+    return this.#http.get<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`);
   }
 
   getSingleItemByBookId (bookId:string){
     // let url= `${this.apiUrl}/getByBookId.json`;
-    return this.#http.get<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`);
+    return this.#http.post<RootObject | boolean>(`${this.apiUrl}/AddBookIdOrCluster/AddBookId`,
+      JSON.stringify(bookId),
+      {
+      headers: 
+       {'Content-Type': 'application/json' }
+      },
+    )
   }
 
-  getClusterGroupByBookId(cluster:string){
-    return this.#http.get<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`);
+  getClusterGroupByBookId(clusterId:string){
+    // let url= `${this.apiUrl}/getByBookId.json`;
+    return this.#http.post<RootObject | boolean>(`${this.apiUrl}/AddBookIdOrCluster/AddBookIdsByClusterId`,
+      JSON.stringify(clusterId),
+      {
+      headers: 
+       {'Content-Type': 'application/json' }
+      },
+    )
   }
 
-  createCluster(sapirClusterModel: sapirClusterModel) {
-    return this.#http.post<sapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`, sapirClusterModel);
+  createCluster(SapirClusterModel: SapirClusterModel){
+    return this.#http.post<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`, SapirClusterModel);
   }
   // getstatisticData(): Observable<any> {
   //   return this.#http.get('./assets/json-data/getstatisticData.json');

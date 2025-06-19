@@ -1,27 +1,40 @@
 import { Component, inject } from '@angular/core';
 import { ClusterService } from './services/cluster.service';
-
-import {  RouterOutlet } from '@angular/router';
-import { SlidebarNavigationComponent } from './components/basic-components/slidebar-navigation/slidebar-navigation.component';
-import { LoadingComponent } from './components/basic-components/loading/loading.component';
-import { ToastNotificationComponent } from './components/basic-components/toast-notification/toast-notification.component';
+import { ToastMessageComponent } from './components/basic-components/toast-message/toast-message.component';
+import { MessageService } from './services/message.service';
+import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
 import { IconType } from './enums/icon-enum';
-import { NotifictionService } from './services/notifiction.service';
-import { AsyncPipe, CommonModule } from '@angular/common';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SlidebarNavigationComponent } from './components/basic-components/slidebar-navigation/slidebar-navigation.component';
+import { RouterOutlet } from '@angular/router';
+// import {Component, inject} from '@angular/core';
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [CommonModule,AsyncPipe, RouterOutlet,SlidebarNavigationComponent,LoadingComponent,ToastNotificationComponent],
+  imports: [MatSnackBarModule,SlidebarNavigationComponent,RouterOutlet],
 })
 export class AppComponent {
   #clusterService = inject(ClusterService);
-  currentUser: { id:number,name:string,role:string} = this.#clusterService.currentUser;
-      notifictionService = inject(NotifictionService)
+  messageService = inject(MessageService);
 
-IconType=IconType
+
+  type=IconType;
+  currentUser: { id:number,name:string,role:string} = this.#clusterService.currentUser;
+
+  ngOnInit() {
+    this.messageService.message$.subscribe(message => {
+      console.log('📩 message from service:', message);
+    });
+  }
+
+  // openSnackBar(message: string, action: string) {
+  //   this.#snackBar.open(message, action);
+  
   // ngOnInit() {
   //   this.#clusterService.login(1).subscribe({
   //     next: (user: any) => {

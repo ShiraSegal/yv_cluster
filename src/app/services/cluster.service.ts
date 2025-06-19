@@ -12,9 +12,12 @@ import { clusteredNameRow } from '../models/clustered-name-row.model';
 import { rootObjectOfClusterGroupDetails } from '../models/root-object-of-cluster-group-details.model';
 // import { map } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
-import { sapirClusterModel } from '../models/sapir-cluster-model.model';
+
 import { RootObject } from '../models/root-object.model';
 import { LoadingService } from './loading.service';
+import {  MessageService } from './message.service';
+import { MessageType } from '../enums/basic-enum';
+import { SapirClusterModel } from '../models/sapir-cluster-model.model';
 
 
 @Injectable({
@@ -25,6 +28,8 @@ export class ClusterService
   #translateService = inject(TranslateService);
   #clusterApiService = inject(ClusterApiService)
   #loadingService = inject(LoadingService)
+  #messageService = inject(MessageService)
+
 
  autoClusterListSubject$ = new BehaviorSubject<string[]>([]);
 
@@ -71,8 +76,8 @@ export class ClusterService
     );
   }
 
-  getAutoClusterData(): Observable<string[]> {
-    return this.#clusterApiService.getAutoClusterData().pipe(
+   getAutoClusterData(): Observable<string[]> {
+    return ( this.#clusterApiService.getAutoClusterData()).pipe(
       take(1),
       catchError(err => {
         console.error('Error fetching auto cluster data:', err);
@@ -220,10 +225,23 @@ export class ClusterService
         // map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
 
         tap(res => {
-         // // console.log("getCreateClusterData", res);
-
+         // console.log("getCreateClusterData", res);
+         this.#messageService.showToastMessage(
+          {
+           type: MessageType.SUCCESS,
+           heading: 'Success',
+           content: "Cluster created successfully!"
+          }
+          );
         }),
         catchError(err => {
+          this.#messageService.showToastMessage(
+            {
+             type: MessageType.ERROR,
+             heading: 'Error',
+             content: err.message
+            }
+            );
           return of(null);
         })
       );
@@ -234,7 +252,7 @@ export class ClusterService
   }
 
 
-  createCluster(sapirClusterModel: sapirClusterModel) {
+  createCluster(sapirClusterModel: SapirClusterModel) {
     return this.#clusterApiService.createCluster(sapirClusterModel)
       .pipe(
         take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
@@ -243,21 +261,43 @@ export class ClusterService
           // return res;
         }),
         catchError(err => {
-          console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
-          return of(false); // החזרת ערך ברירת מחדל במקרה של שגיאה
+           console.error("Error occurred while creating cluster:", err); // טיפול בשגיאה
+          //  return of(err); // החזרת ערך ברירת מחדל במקרה של שגיאה
+          this.#messageService.showToastMessage(
+            {
+             type: MessageType.ERROR,
+             heading: 'Error',
+             content: err.message
+            }
+            );
+           return of(null);
         })
       );
   }
 
-  getSingleItemByBookId (bookId:string): Observable<RootObject |any> {
+  getSingleItemByBookId (bookId:string): Observable<RootObject | any> {
       return this.#clusterApiService.getSingleItemByBookId(bookId)
       .pipe(
         tap((res) => {
-          // console.log("BookId fetched successfully:", res);
+          console.log("BookId fetched successfully:", res);
+          this.#messageService.showToastMessage(
+            {
+             type: MessageType.SUCCESS,
+             heading: 'Success',
+             content: "Cluster reated successfully!"
+            }
+            );
         }),
         catchError((err) => {
-          console.error("Error occurred while fetching BookId:", err);
-          return of(err); // מחזיר false במקרה של שגיאה
+           this.#messageService.showToastMessage(
+           {
+            type: MessageType.ERROR,
+            heading: 'Error',
+            content: err.message
+           }
+           );
+           return of(null);
+
         })
       );
   }
