@@ -1,5 +1,7 @@
 @import "src/styles.scss";
-
+.icon-button-large{
+       cursor: pointer; 
+}
 .icon-warpper {
     display: flex;
     width: 1.25rem;
@@ -20,7 +22,8 @@ button {
     gap: var(--Layout-medium, 0.5rem);
     border-radius: 6.25rem;
     border: none; 
-    background: none; 
+    background: none;
+    
 }
 
 button.default {
@@ -39,4 +42,5 @@ button.default {
 .icon {
     color:$c-262C34;
     font-size: 1.125rem;
+       cursor: pointer; 
 }
