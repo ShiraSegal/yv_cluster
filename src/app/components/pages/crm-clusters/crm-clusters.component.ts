@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input } from '@angular/core';
+import { Component, Inject, inject, Input } from '@angular/core';
 import { TableGroupIdDetailsComponent } from '../../basic-components/table-group-id-details/table-group-id-details.component';
 import { IconButtonComponent } from '../../basic-components/icon-button/icon-button.component';
 import { IconType } from 'src/app/enums/icon-enum';
@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'yv-cluster-handling-suggestions-page',
   standalone: true,
-  imports: [CommonModule, TableGroupIdDetailsComponent, IconButtonComponent, SlidebarNavigationComponent, ToastNotificationComponent],
+  imports: [CommonModule, TableGroupIdDetailsComponent, IconButtonComponent, ToastNotificationComponent],
   templateUrl: './crm-clusters.component.html',
   styleUrl: './crm-clusters.component.scss'
 })
@@ -26,8 +26,6 @@ export class CrmClustersComponent {
   iconType = IconType
 
 
-
-  constructor() { }
 
   ngOnInit(): void {
     this.groupId = this.#route.snapshot.paramMap.get('id')!;

@@ -1,9 +1,9 @@
-export class valueCodeItem {
-    Code: string;
-    Value: string;
+export class ValueCodeItem {
+    code: string;
+    value: string;
 
-    constructor( Code: string, Value: string) {
-        this.Code = Code;
-        this.Value = Value;
+    constructor(code: string, value: string) {
+        this.code = code;
+        this.value = value;
     }
 }

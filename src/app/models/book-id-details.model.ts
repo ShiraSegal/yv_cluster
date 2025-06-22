@@ -1,68 +1,68 @@
-import { valueCodeItem } from "./value-code-item.model";
+import { ValueCodeItem } from "./value-code-item.model";
 
-export class bookIdDetails {
-    BookId: string;
-    ExistsClusterId: string;
-    Score: string;
-    FirstName: valueCodeItem;
-    LastName: valueCodeItem;
-    FatherFirstName: valueCodeItem;
-    MotherFirstName: valueCodeItem;
-    SpouseFirstName: valueCodeItem;
-    DateOfBirth: valueCodeItem;
-    PlaceOfBirth: valueCodeItem;
-    PermanentPlace: valueCodeItem;
-    Source: valueCodeItem;
-    MaidenName: string;
-    IsClustered: number;
-    RelatedFnameGroupId: number | null;
-    IsHasRelatedFname: boolean;
-    Ind: number;
-    HasRelatedGroups: boolean;
-    NumberOfSuggestions: number;
-    RelatedFnameList: any; // ניתן להחליף בהתאם למבנה אם קיים
+export class BookIdDetails {
+    bookId: string;
+    existsClusterId: string;
+    score: string;
+    firstName: ValueCodeItem;
+    lastName: ValueCodeItem;
+    fatherFirstName: ValueCodeItem;
+    motherFirstName: ValueCodeItem;
+    spouseFirstName: ValueCodeItem;
+    dateOfBirth: ValueCodeItem;
+    placeOfBirth: ValueCodeItem;
+    permanentPlace: ValueCodeItem;
+    source: ValueCodeItem;
+    maidenName: string;
+    isClustered: number;
+    relatedFnameGroupId: number | null;
+    isHasRelatedFname: boolean;
+    ind: number;
+    hasRelatedGroups: boolean;
+    numberOfSuggestions: number;
+    relatedFnameList: any; // ניתן להחליף בהתאם למבנה אם קיים
 
     constructor(
-        BookId: string,
-        FirstName: valueCodeItem,
-        lastName: valueCodeItem,
-        FatherFirstName: valueCodeItem,
-        MotherFirstName: valueCodeItem,
-        PlaceOfBirth: valueCodeItem,
-        PermanentPlace: valueCodeItem,
-        DateOfBirth: valueCodeItem,
-        Source: valueCodeItem,
-        SpouseFirstName: valueCodeItem,
-        MaidenName: string,
-        IsClustered: number,
-        ExistsClusterId: string,
-        RelatedFnameGroupId: number | null,
-        IsHasRelatedFname: boolean,
-        Ind: number,
-        HasRelatedGroups: boolean,
-        Score: string,
-        NumberOfSuggestions: number,
-        RelatedFnameList: any
+        bookId: string,
+        firstName: ValueCodeItem,
+        lastName: ValueCodeItem,
+        fatherFirstName: ValueCodeItem,
+        motherFirstName: ValueCodeItem,
+        placeOfBirth: ValueCodeItem,
+        permanentPlace: ValueCodeItem,
+        dateOfBirth: ValueCodeItem,
+        source: ValueCodeItem,
+        spouseFirstName: ValueCodeItem,
+        maidenName: string,
+        isClustered: number,
+        existsClusterId: string,
+        relatedFnameGroupId: number | null,
+        isHasRelatedFname: boolean,
+        ind: number,
+        hasRelatedGroups: boolean,
+        score: string,
+        numberOfSuggestions: number,
+        relatedFnameList: any
     ) {
-        this.BookId = BookId;
-        this.FirstName = FirstName;
-        this.LastName = lastName;
-        this.FatherFirstName = FatherFirstName;
-        this.MotherFirstName = MotherFirstName;
-        this.PlaceOfBirth = PlaceOfBirth;
-        this.PermanentPlace = PermanentPlace;
-        this.DateOfBirth = DateOfBirth;
-        this.Source = Source;
-        this.SpouseFirstName = SpouseFirstName;
-        this.MaidenName = MaidenName;
-        this.IsClustered = IsClustered;
-        this.ExistsClusterId = ExistsClusterId;
-        this.RelatedFnameGroupId = RelatedFnameGroupId;
-        this.IsHasRelatedFname = IsHasRelatedFname;
-        this.Ind = Ind;
-        this.HasRelatedGroups = HasRelatedGroups;
-        this.Score = Score;
-        this.NumberOfSuggestions = NumberOfSuggestions;
-        this.RelatedFnameList = RelatedFnameList;
+        this.bookId = bookId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.fatherFirstName = fatherFirstName;
+        this.motherFirstName = motherFirstName;
+        this.placeOfBirth = placeOfBirth;
+        this.permanentPlace = permanentPlace;
+        this.dateOfBirth = dateOfBirth;
+        this.source = source;
+        this.spouseFirstName = spouseFirstName;
+        this.maidenName = maidenName;
+        this.isClustered = isClustered;
+        this.existsClusterId = existsClusterId;
+        this.relatedFnameGroupId = relatedFnameGroupId;
+        this.isHasRelatedFname = isHasRelatedFname;
+        this.ind = ind;
+        this.hasRelatedGroups = hasRelatedGroups;
+        this.score = score;
+        this.numberOfSuggestions = numberOfSuggestions;
+        this.relatedFnameList = relatedFnameList;
     }
 }

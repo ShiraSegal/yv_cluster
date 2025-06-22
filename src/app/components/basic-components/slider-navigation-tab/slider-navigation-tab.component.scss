@@ -1,49 +1,49 @@
 @import "src/styles.scss";
 
-
 .tab {
-    display: flex;
-    width: 5.875rem;
-    height: 4rem;
-    justify-content: center;
+  display: flex;
+  height: 2.68rem; // 4 * 0.67
+  padding: 0.293rem 0.5025rem 0.293rem 1.005rem; // 0.4375 * 0.67 וכו'
+  align-items: center;
+  gap: 0.41875rem; // 0.625 * 0.67
+  align-self: stretch;
+
+  &.active {
+    width: 7.75rem; // 11.5625 * 0.67
+    padding: 0rem 0.5025rem 0rem 1.005rem;
+    margin-right: -0.335rem; // -0.5 * 0.67
     align-items: center;
-    flex-shrink: 0;
-    width: 5.875rem;
-    flex-direction: column;
-    width: 5.875rem;
-    flex-direction: column;
-    gap: 0.1875rem;
-    padding: 0.40625rem 0rem;
-    padding: 0.40625rem 0rem;
-}
-
-
-.active {
-    border-radius: 0.3125rem;
-    background: $c-425DC7;
+    gap: 0.41875rem;
+    border-radius: 0.209375rem; // 0.3125 * 0.67
+    background: rgba(19, 52, 185, 0.4);
+  }
 }
 
 .icon {
-    
-    font-size: 1.875rem;
+  font-size: 0.67rem; // 1 * 0.67
 }
 
 .fa-light {
-    color: $c-FFFFFF;
+  color: $c-FFFFFF;
 }
-
 
 .fa-solid {
-    color: $c-D0D6F1;
+  color: $c-D0D6F1;
 }
- 
+
 .text-icon {
-    color:$c-FFFFFF;
+  color: $c-FFFFFF;
+  text-align: center;
+  font-size: 0.67rem; // 1 * 0.67
+  font-family: Poppins;
+  font-style: normal;
+  line-height: 149.558%;
+
+  &.active {
+    color: $c-D0D6F1;
     text-align: center;
     font-family: Poppins;
-    font-size: 0.75rem;
     font-style: normal;
-    font-weight: 400;
     line-height: normal;
-    align-self: stretch;
+  }
 }

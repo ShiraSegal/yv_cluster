@@ -1,31 +1,31 @@
 <form [formGroup]="tableDataForm">
-<div [ngClass]="[type,'header-cell']">
-    @if(data === 'Last Name'){
-    <div class="pie-icon">
-        <i class="fa-solid fa-chart-simple chart-icon"  (click)="openPeiComponent()"></i>
-        {{ data }}
+    <div [ngClass]="[type,'header-cell']">
+        @if(data === 'Last Name'){
+        <div class="pie-icon">
+            <i class="fa-solid fa-chart-simple chart-icon"  (click)="openPeiComponent()"></i>
+            {{ data }}
+        </div>
+        }
+        @else if(type === headerCellType.TEXT){
+            {{ data }}
+        }
+        @if(type === headerCellType.ORDER){
+        <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>
+        }
+        @if(type === headerCellType.ORDERDOWN){
+        <i class="fas fa-arrow-down sort-icon" (click)="sortBy('column')"></i>
+        }
+        @if(type === headerCellType.HEADERSEARCH){
+        <div class="header-search-search">
+            <div class="header-search-line"></div>
+            <span class="header-search-cancle"><i class="fas fa-close"></i></span>
+        </div>
+        }
+        @if(type === headerCellType.CHECK){
+        <yv-cluster-check class="check" formControlName="headerCheckbox"></yv-cluster-check>
+        }
+        @if(type === headerCellType.PLACEOLDER){
+    
+        }
     </div>
-    }
-    @else if(type === headerCellType.TEXT){
-        {{ data }}
-    }
-    @if(type === headerCellType.ORDER){
-    <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>
-    }
-    @if(type === headerCellType.ORDERDOWN){
-    <i class="fas fa-arrow-down sort-icon" (click)="sortBy('column')"></i>
-    }
-    @if(type === headerCellType.HEADERSEARCH){
-    <div class="header-search-search">
-        <div class="header-search-line"></div>
-        <span class="header-search-cancle"><i class="fas fa-close"></i></span>
-    </div>
-    }
-    @if(type === headerCellType.CHECK){
-    <yv-cluster-check class="check" formControlName="headerCheckbox"></yv-cluster-check>
-    }
-    @if(type === headerCellType.PLACEOLDER){
-
-    }
-</div>
-</form>
+    </form>

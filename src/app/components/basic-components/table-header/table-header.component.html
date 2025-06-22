@@ -1,36 +1,36 @@
 <form [formGroup]="tableDataForm">
-<div [ngClass]="['table-header', length]">
-  @for (header of headers ; track $index)
-    {
-      @if(currentUserRole !== "manager" && header.data === "assignee"){} 
-      @else{ 
-        <div class="cell" [ngClass]="header.data">
-          <yv-cluster-header-cells [data]="header.data"  (openDialog)="openPeiComponent()"
-          [tableDataForm]="tableDataForm"
-          ></yv-cluster-header-cells>
-      </div>
-      } 
-      @if(currentTab===autoClusterTabType.ERROR_MESSAGES && header.data==='check'){
-        <div class="cell,place-order">
-          <yv-cluster-header-cells [data]="'place-older'" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
-          [tableDataForm]="tableDataForm"
-          ></yv-cluster-header-cells>
-      </div>
-        }
-  }
-  @if(currentTab===autoClusterTabType.APPROVAL_GROUPS||currentTab===autoClusterTabType.CHECKLIST_ITEMS){
-    <div class="cell,place-order">
-      <yv-cluster-header-cells [data]="'place-older'" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
-      [tableDataForm]="tableDataForm"
-      ></yv-cluster-header-cells>
-  </div>
+  <div [ngClass]="['table-header', length]">
+    @for (header of headers ; track $index)
+      {
+        @if(currentUserRole !== "manager" && header.data === "assignee"){} 
+        @else{ 
+          <div class="cell" [ngClass]="header.data">
+            <yv-cluster-header-cells [data]="header.data"  (openDialog)="openPeiComponent()"
+            [tableDataForm]="tableDataForm"
+            ></yv-cluster-header-cells>
+        </div>
+        } 
+        @if(currentTab===autoClusterTabType.ERROR_MESSAGES && header.data==='check'){
+          <div class="cell,place-order">
+            <yv-cluster-header-cells [data]="'place-older'" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
+            [tableDataForm]="tableDataForm"
+            ></yv-cluster-header-cells>
+        </div>
+          }
     }
-      @if(currentTab===autoClusterTabType.TABLEGROUPIDDETAILS){
-    <div class="cell">
-      <yv-cluster-header-cells [data]="'place-older'" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
-      [tableDataForm]="tableDataForm"
-      ></yv-cluster-header-cells>
+    @if(currentTab===autoClusterTabType.APPROVAL_GROUPS||currentTab===autoClusterTabType.CHECKLIST_ITEMS){
+      <div class="cell,place-order">
+        <yv-cluster-header-cells [data]="'place-older'" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
+        [tableDataForm]="tableDataForm"
+        ></yv-cluster-header-cells>
+    </div>
+      }
+        @if(currentTab===autoClusterTabType.TABLE_GROUP_ID_DETAILS){
+      <div class="cell">
+        <yv-cluster-header-cells [data]="'place-older'" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
+        [tableDataForm]="tableDataForm"
+        ></yv-cluster-header-cells>
+    </div>
+      }
   </div>
-    }
-</div>
-</form>
+  </form>

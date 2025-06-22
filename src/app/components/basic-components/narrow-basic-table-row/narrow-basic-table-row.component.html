@@ -13,11 +13,11 @@
     @if(currentTab===autoClusterTabType.APPROVAL_GROUPS||currentTab===autoClusterTabType.CHECKLIST_ITEMS){
     <div class="cell,button">
       <yv-cluster-data-cells [currentTab]="currentTab" [formGroup]="rowGroup" typeText="button"
-        [moreData]="{'text':'open', 'isBig' : true,'buttonType': buttonType.SECONDARY,'iconType':iconType.NOTHING}"
-        (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
+        [moreData]="{'text':'open', 'isBig' : true,'buttonType': buttonType.SECONDARY}"
+        (click)="onOpenClick()"></yv-cluster-data-cells>
     </div>
     }
-    @if(currentTab===autoClusterTabType.TABLEGROUPIDDETAILS){
+    @if(currentTab===autoClusterTabType.TABLE_GROUP_ID_DETAILS){
     <yv-cluster-data-cells [type]="dataCellType.ICON" [moreData]="{icon:iconType.TRASH_LIGHT}"
       (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
     }
