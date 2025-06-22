@@ -22,7 +22,7 @@
       @switch(optionType) {
         @case(optionTypeMain.TEXT) {
           <span class="icon-wrapper">
-            <i class="fa-regular fa-square-arrow-up-right custom-arrow"></i>
+            <i [ngClass]="linkIcon"></i>
           </span>
           @if(displayText && displayText.includes('crm')){
          <a href="{{displayText}}">  Link</a>

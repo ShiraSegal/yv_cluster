@@ -21,7 +21,7 @@ import { ButtonComponent } from '../button/button.component';
 import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter-bookid.component';
 import { NotifictionService } from 'src/app/services/notifiction.service';
 import { LoadingService } from 'src/app/services/loading.service';
-import { clusterGroupWithCrmLinks } from 'src/app/models/cluster-group-with-crm-links.model';
+import { ClusterGroupWithCrmLinks } from 'src/app/models/cluster-group-with-crm-links.model';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -101,23 +101,22 @@ export class TableGroupIdDetailsComponent {
   { data: 'Permanent Place' },
   { data: 'Source' }
   ]
- tableKeys = [
-  'check',
-  'BookId',
-  'ClusterId',
-  'Score',
-  'FirstName',
-  'LastName',
-  'FatherFirstName',
-  'MotherFirstName',
-  'SpouseFirstName',
-  'DateOfBirth',
-  'PlaceOfBirth',
-  'PermanentPlace',
-  'Source',
-  'Score',
-  'ExistsClusterId'
-];
+
+  tableKeys = [
+    'check',
+    'bookId',
+    'existsClusterId',
+    'score',
+    'firstName',
+    'lastName',
+    'fatherFirstName',
+    'motherFirstName',
+    'spouseFirstName',
+    'dateOfBirth',
+    'placeOfBirth',
+    'permanentPlace',
+    'source'
+  ];
  initialStateBoolean: FormControlState<boolean> = {
     value: false,
     disabled: false
@@ -127,10 +126,10 @@ export class TableGroupIdDetailsComponent {
     disabled: false
   };
   subscription: Subscription = new Subscription();
-  Res:clusterGroupWithCrmLinks | null
+  Res:ClusterGroupWithCrmLinks | null
   ngOnInit() {
     this.#clusterService.getClusterGroupDetails(this.groupId);
-    this.subscription.add(this.#clusterService.getClusterGroupDetails(this.groupId).subscribe((res: clusterGroupWithCrmLinks | null) => {
+    this.subscription.add(this.#clusterService.getClusterGroupDetails(this.groupId).subscribe((res: ClusterGroupWithCrmLinks | null) => {
       this.Res = res;
       this.i();
 
@@ -165,22 +164,23 @@ export class TableGroupIdDetailsComponent {
               const header = key;
               let control = new FormControl({ value: row[key], disabled: false });
 
-              if (row[key] && typeof row[key] === 'object' && 'Value' in row[key]) {
-                control = new FormControl({ value: row[key].Value || '', disabled: false });
+              if (row[key] && typeof row[key] === 'object' && 'value' in row[key]) {
+                control = new FormControl({ value: row[key].value || '', disabled: false });
               }
               rowGroup.addControl(header, control);
             }
           }
         }
         this.rowsFormArray.push(rowGroup); // הוספת FormGroup
+        console.log(this.Rows);
       });
       console.log("this.rowsFormArray", this.rowsFormArray);
 
     } else {
       console.warn("Received null or invalid response from getClusterGroupDetails");
     }
-    if (this.Res  && this.Res.CrmLinkList) {
-      this.crmLinkList = this.Res.CrmLinkList.map((item: any) => {
+    if (this.Res  && this.Res.crmLinkList) {
+      this.crmLinkList = this.Res.crmLinkList.map((item: any) => {
         return item;
       });
     
@@ -256,6 +256,9 @@ export class TableGroupIdDetailsComponent {
     this.dialogEnterBookidRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log('page Data received from dialog:', result);
+        this.Rows.push(result);
+        console.log('Updated Rows:', this.Rows);
+        // this.i();  
         this.#notifictionService.showToastNotification({
           iconName: this.iconType.SUCCESS_SOLID,
           title: 'Successfull',

@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, Inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormControl } from "@angular/forms";
 //import enums
-import {  ButtonSize, CheckStateType, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State , AutoClusterTabType,  BasicTableRowPropertyVariants, ButtonIconProperty, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, SliderNavigationTabTextType, TextSize, TextWeight, BadgeType, RadioButtonListDirection, BigCardSize, HomeTableTabType } from 'src/app/enums/basic-enum';
+import {  ButtonSize, CheckStateType, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, SliderNavigationTabType, State , AutoClusterTabType,  BasicTableRowPropertyVariants, ButtonIconProperty, NarrowBasicTableRowInputState, NativeOptionState, NativeOptionType, SliderNavigationTabTextType, TextSize, TextWeight, BadgeType, RadioButtonListDirection, BigCardSize, HomeTableTabType, MessageType } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
 import { CheckType } from "src/app/enums/check-enum";
 //import components
@@ -51,13 +51,14 @@ import { HomeComponent } from "../pages/home/home.component";
 import { CrmClustersComponent } from "../pages/crm-clusters/crm-clusters.component";
 import { SelectComponent } from "../basic-components/select/select.component";
 import { NativeOptionComponent } from "../basic-components/native-option/native-option.component";
+import { ToastMessageComponent } from "../basic-components/toast-message/toast-message.component";
+import { MessageService } from "src/app/services/message.service";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
   imports: [
     IconButtonComponent,
     SliderComponent,
-    CheckComponent,
     DataCellsComponent,
     HeaderCellsComponent,
     BadgeComponent,
@@ -70,11 +71,9 @@ import { NativeOptionComponent } from "../basic-components/native-option/native-
     CommonModule,
     SliderNavigationTabComponent,
     ButtonComponent,
-    CheckComponent,
     IconButtonLargeComponent,
     SliderComponent,
     SliderComponent,
-    CheckComponent,
     BadgeComponent,
     BadgeComponent,
     DataCellsComponent,
@@ -95,23 +94,24 @@ import { NativeOptionComponent } from "../basic-components/native-option/native-
     CommonModule,
     IconButtonComponent,
     ButtonComponent,
-    CheckComponent,
     SliderComponent,
     FieldComponent,
     RadioButtonListComponent,
     BadgeComponent,
     IconButtonLargeComponent,
-     TableHeaderComponent,
-      // HomeWarpComponent,
+    TableHeaderComponent,
+    // HomeWarpComponent,
     // HomeWarpComponent,
     PopoverComponent,
     PopoverComponent,
 
-  ],
+],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
+
+
   //enums-----------------------------------------------------------------------
   iconType = IconType;//  types of icons.
   badgeType = BadgeType;//types of badge
@@ -204,8 +204,9 @@ export class TestComponent {
   DataCellType = DataCellType;
   // SliderNavigationTabIconType = SliderNavigationTabIconType;
   // SliderNavigationTabType = SliderNavigationTabType;
-
-
+  messageType=MessageType;
+ 
+  
 
   selectedOption: string = '';
   radioButtonArray: string[] = ["a", "b", "c", "d", "other"];
@@ -396,7 +397,9 @@ popoverOptionsAssignee:{
   {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 3'},
     {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 2'},
   {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 3'},
-
+  {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 2'},
+  {optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Assignee 3'},
+  
 ];
 
 popoverOptionsLink:{
@@ -406,9 +409,6 @@ popoverOptionsLink:{
 }[] = [{optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 1'},
   {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
   {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
-  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
-  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
-  {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 1'},
 ];
 
 

@@ -4,15 +4,15 @@
         @if(control.name === "assignee" && currentUserRole !== "manager"){}
         @else {
         <div [ngClass]="control.name" class="cell">
-            <yv-cluster-data-cells [data]="control.control.value" [currentTab]="currentTab" [control]="control.control"
+            <!-- <yv-cluster-data-cells [data]="control.control.value" [currentTab]="currentTab" [control]="control.control"
                 [typeText]="control.name" [prefCodeStatus]="prefCodeStatus"
-                [formGroup]="rowGroup"></yv-cluster-data-cells>
+                [formGroup]="rowGroup"></yv-cluster-data-cells> -->
         </div>
         }
         @if(control.name ==='check'){
         <div class="cell icon">
             <yv-cluster-data-cells [type]="dataCellType.ICON" [formGroup]="rowGroup" [currentTab]="currentTab"
-                typeText="icon" [moreData]="{ icon: iconType.CHEVRON_DOWN }"
+                typeText="icon" [moreData]="{ icon: iconType.CHEVRON_DOWN_SOLID }"
                 (expand)="openExpand()"></yv-cluster-data-cells>
         </div>
         }

@@ -17,13 +17,15 @@ export const routes: Routes = [
         {
           path: 'crmClusters/:id', loadComponent: () => import('./components/pages/crm-clusters/crm-clusters.component').then(x => x.CrmClustersComponent)
         },
-        // {
-        //   path: 'newCluster/:id', loadComponent: () => import('./components/pages/new-cluster/new-cluster.component').then(x => x.NewClusterComponent)
-        // },
+        {
+          path: 'newCluster/:id', loadComponent: () => import('./components/pages/new-cluster/new-cluster.component').then(x => x.NewClusterComponent)
+        },
         {
           path: 'report', loadComponent: () => import('./components/test/test.component').then(x => x.TestComponent)
         },
-        
+        {
+          path: 'logout', loadComponent: () => import('./components//pages/logout/logout.component').then(x => x.LogoutComponent)
+        },
      ],
   },
 ];

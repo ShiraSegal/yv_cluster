@@ -45,31 +45,16 @@
         }
     }
 
-    .input {
+    ::ng-deep yv-cluster-field.enter-bookId-field .common-input-wrapper{
         display: flex;
-        height: 2.0625rem;
-        min-width: 9.6875rem;
-        max-width: 28.125rem;
-        padding: 0.5rem;
-        align-items: center;
-        gap: 0.5rem;
-        align-self: stretch;
-        overflow: hidden;
-        color: $c-3F4B5A;
-        text-overflow: ellipsis;
-        font-family: Poppins;
-        font-size: 0.875rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1.25rem;
-        align-self: stretch;
-        border-radius: 0.25rem;
-        border: 0.5px solid $c-3F4B5A;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-        flex: 1 0 0;
-    }
+height: 2.5rem;
+min-width: 9.6875rem;
+max-width: 28.125rem;
+padding-right: 6.5rem;
+align-items: center;
+gap: var(--Layout-medium, 0.5rem);
+align-self: stretch;
+      }
 
     .outer-button-warp {
         display: flex;

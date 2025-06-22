@@ -1,0 +1,105 @@
+@import "src/styles.scss";
+
+:host {
+  display: contents;
+}
+
+.message-warp {
+  width: 100%;
+  margin-right: 58rem;
+  margin-left: -16rem;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);;
+gap: 0.5rem;
+align-self: stretch;
+border-radius: 0.5rem
+}
+
+
+.icon{
+  text-align: center;
+  font-family: "Font Awesome 6 Pro";
+  font-size: 1.5625rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.success {
+  border: 1px solid $c-0C803E;
+  background: $c-E7FFF2;
+
+  .icon {
+    color: $c-0C803E;
+  }
+}
+
+.attention {
+  border: 1px solid $c-FF9812;
+  background: $c-FEF4E7;
+
+  .icon {
+    color: $c-FF9812;
+  }
+}
+
+.error {
+  border: 1px solid $c-C00;
+  background: $c-FFEFEF;
+
+  .icon {
+    color: $c-C00;
+  }
+}
+
+.inforrmative {
+  border: 1px solid $c-081548;
+  background: $c-e7ebf880;
+
+  .icon {
+    color: $c-081548;
+  }
+}
+
+.inner-warp {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1 0 0;
+}
+
+.text-warp{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  // gap: 0.25rem;
+  flex: 1 0 0;
+}
+.heading {
+  align-self: stretch;
+}
+
+.content {
+  align-self: stretch;
+}
+
+.x-button {
+  display: flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0.25rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+

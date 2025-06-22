@@ -5,26 +5,26 @@
         </div>
         <div class="form-warp">
             <div class="form-header-warp">
+                <!-- <yv-cluster-table-header> -->
                 <div class="table-header">
-                        <yv-cluster-header-cells [type]=headerCellType.TEXT [data]="tableHeader1"></yv-cluster-header-cells>
+                        <yv-cluster-header-cells [type]="headerCellType.TEXT" [data]="tableHeader1"></yv-cluster-header-cells>
                 </div>
+                 <!-- </yv-cluster-table-header> -->
                 <div class="header-cell">
-                    <yv-cluster-header-cells [type]=headerCellType.TEXT [data]="tableHeader2"></yv-cluster-header-cells>
+                    <yv-cluster-header-cells [type]="headerCellType.TEXT" [data]="tableHeader2"></yv-cluster-header-cells>
                 </div>
             </div>
             @for(data of dataCells; track $index){
             <div class="table">
                 <div class="data-cells">
-                        <label class="label">{{data.Field}}</label>
+                        <label class="label">{{data.field}}</label>
                 </div>
                 <div class="options-cells">
                     <div class="radiobuttons">
-            <yv-cluster-radio-button  [formControlName]="data.Field"
-             [radioButtonValuesArray]="data.RadioOptions"
-            ></yv-cluster-radio-button>
+                        <yv-cluster-radio-button-list [radioButtonValuesArray]="data.radioOptions"  [formControlName]="data.field"></yv-cluster-radio-button-list>
 
-                        <!-- <yv-cluster-radio-button-list [radioButtonValuesArray]="data.RadioOptions"
-                          [formControlName]="data.Field"></yv-cluster-radio-button-list> -->
+                        <yv-cluster-radio-button-list [radioButtonValuesArray]="data.RadioOptions"
+                          [formControlName]="data.Field"></yv-cluster-radio-button-list>
                     </div>
                 </div>
 

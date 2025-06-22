@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, inject, Input, Output, SimpleChanges } from '@angular/core';
 import { AutoClusterTabType, ButtonType, CheckStateType, DataCellType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
-
+import { ActivatedRoute,Router } from '@angular/router';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { IconType } from 'src/app/enums/icon-enum';
 import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'yv-cluster-narrow-basic-table-row',
   standalone: true,
@@ -29,6 +30,8 @@ export class NarrowBasicTableRowComponent {
   }[] = [];
   @Input() controls!: FormControl[];
 
+  #router = inject(Router);
+  #route = inject(ActivatedRoute);
 
   #clusterService = inject(ClusterService)
   currentUserRole = this.#clusterService.currentUser.role;
@@ -67,6 +70,17 @@ export class NarrowBasicTableRowComponent {
     }
   }
 
-
+  onOpenClick(){
+    console.log('rowGroup', this.rowGroup);
+    console.log('rowGroupControls', this.rowGroupControls);
+    console.log('controls', this.controls);
+    console.log(this.rowGroup.get('groupID')?.value);
+    
+    this.#router.navigate(['crmClusters', this.rowGroup.get('groupID')?.value]);
+    
+    // if(this.currentTab === AutoClusterTabType.AUTO_CLUSTER) {
+      // this.#clusterService.openClusterGroupDetails(this.rowGroup.get('groupId')?.value);
+    // }
+  }
 
 }
