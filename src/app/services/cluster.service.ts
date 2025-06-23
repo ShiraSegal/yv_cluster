@@ -214,9 +214,9 @@ export class ClusterService
 
 
 
-   getCreateClusterData() {
+   getCreateClusterData(bookIds:string[]) {
 
-    const result = this.#clusterApiService.getCreateClusterData()
+    const result = this.#clusterApiService.getCreateClusterData(bookIds)
       .pipe(
         take(1),
         // map(res => res?.SapirClusterDetails || []), // מיפוי התוצאה להחזרת SapirClusterDetails בלבד

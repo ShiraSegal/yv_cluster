@@ -256,7 +256,13 @@ export class TableGroupIdDetailsComponent {
     this.dialogEnterBookidRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log('page Data received from dialog:', result);
+        if(Array.isArray(result)){
+        result.forEach((item: any) => {
+        this.Rows.push(item);
+        })}
+        else{
         this.Rows.push(result);
+        }
         console.log('Updated Rows:', this.Rows);
         // this.i();  
         this.#notifictionService.showToastNotification({

@@ -18,6 +18,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { RadioButtonComponent } from '../../basic-components/radio-button/radio-button.component';
 import { SapirClusterModel } from 'src/app/models/sapir-cluster-model.model';
 import { TableHeaderComponent } from '../../basic-components/table-header/table-header.component';
+import { BookIdDetails } from 'src/app/models/book-id-details.model';
 // import { sapirClusterModel } from 'src/app/models/sapir-cluster-model.model';
 
 type NativeSelectOption = {
@@ -96,38 +97,38 @@ export class CreateClusterComponent {
 
   }
   createClusterFormData() {
-    this.subscription.add(this.#clusterService.getCreateClusterData()
-      .subscribe({
-        next: (res: SapirClusterModel | null) => {
-          if (res) {
-            this.clusterModel = res;
-            this.dataCells = res.sapirClusterDetails;
-            this.dataCells.forEach((d: any) => {
-              let values: any = [];
-              d.values.forEach((v: any) => {
-                if (v.nameCode === "") {
-                  v.nameCode = "unknown";
-                }
-                values.push({ key: v.nameCode, value: v.value });
-              });
+    // this.subscription.add(this.#clusterService.getCreateClusterData()
+    //   .subscribe({
+    //     next: (res: BookIdDetails[] | null) => {
+    //       if (res) {
+    //         this.clusterModel = res;
+    //         this.dataCells = res.sapirClusterDetails;
+    //         this.dataCells.forEach((d: any) => {
+    //           let values: any = [];
+    //           d.values.forEach((v: any) => {
+    //             if (v.nameCode === "") {
+    //               v.nameCode = "unknown";
+    //             }
+    //             values.push({ key: v.nameCode, value: v.value });
+    //           });
 
-              if (d.hasOtherOption) {
-                values.push({ key: "other", value: "other" });
-              }
+    //           if (d.hasOtherOption) {
+    //             values.push({ key: "other", value: "other" });
+    //           }
 
-              d.radioOptions = values;
-            });
+    //           d.radioOptions = values;
+    //         });
 
-            this.initializeFormGroup();
-          } else {
-            console.warn("No data received from getCreateClusterData.");
-            this.dataCells = [];
-          }
-        },
-        error: (error) => {
-          console.error("getCreateClusterData occurred:", error);
-        },
-      }));
+    //         this.initializeFormGroup();
+    //       } else {
+    //         console.warn("No data received from getCreateClusterData.");
+    //         this.dataCells = [];
+    //       }
+    //     },
+    //     error: (error) => {
+    //       console.error("getCreateClusterData occurred:", error);
+    //     },
+    //   }));
   }
 
   initializeFormGroup() {

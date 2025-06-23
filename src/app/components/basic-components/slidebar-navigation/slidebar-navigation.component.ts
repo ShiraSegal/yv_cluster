@@ -42,14 +42,20 @@ export class SlidebarNavigationComponent {
   ];
 
   ngOnInit() {
-      this.#router.events.subscribe((event) => {
-        if (event instanceof NavigationEnd) {
-          const currentUrl = event.urlAfterRedirects.split('/')[1];
-          this.tabs.forEach((tab) => {
-            tab.property = tab.url === currentUrl ? SliderNavigationTabType.ACTIVE : SliderNavigationTabType.VARIANT3;
-          });
-        }
-      });
+    this.#router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const currentUrl = event.urlAfterRedirects.split('/')[1];
+        this.tabs.forEach((tab) => {
+          if (tab.url === currentUrl) {
+            tab.property = SliderNavigationTabType.ACTIVE;
+            tab.icon = tab.activeIcon; // שינוי לאייקון פעיל
+          } else {
+            tab.property = SliderNavigationTabType.VARIANT3;
+            tab.icon = tab.icon; // שינוי לאייקון רגיל
+          }
+        });
+      }
+    });
     }
   
   

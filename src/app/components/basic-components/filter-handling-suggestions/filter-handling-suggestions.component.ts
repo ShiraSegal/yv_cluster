@@ -65,6 +65,7 @@ export class FilterHandlingSuggestionsComponent {
     displayText: string;
   }[] = [];
   ngOnInit() {
+    console.log('howManyChecked:', this.howManyChecked);
     this.numberCRM = this.crmLinkList?.length ?? 0;
     if (this.crmLinkList) {
       this.initPopoverOptionsLink();
@@ -91,17 +92,24 @@ export class FilterHandlingSuggestionsComponent {
 
   }
   openDialog() {
-    //// console.log("openDialog");
+  // שליפת ה-bookIds שסומנו
+  // const selectedBookIds = this.rowsFormArray.controls
+  //   .filter(group => group.get('check')?.value) // בדיקה אם השורה מסומנת
+  //   .map(group => group.get('bookId')?.value); // שליפת ה-bookId
 
-    this.dialogRef = this.#dialog.open(CreateClusterComponent, {
-      disableClose: true,
-      hasBackdrop: true,
-      panelClass: 'custom-dialog-container',
-      autoFocus: false,
-      width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
-      height: '100vh',
+  // console.log('Selected Book IDs:', selectedBookIds);
 
-    });
+
+  // פתיחת הדיאלוג והעברת ה-bookIds
+  this.dialogRef = this.#dialog.open(CreateClusterComponent, {
+    disableClose: true,
+    hasBackdrop: true,
+    panelClass: 'custom-dialog-container',
+    autoFocus: false,
+    width: 'auto', // מאפשר לדיאלוג להתאמת לגודל התוכן
+    height: '100vh',
+    // data: { selectedBookIds } // העברת ה-bookIds לדיאלוג
+  });
 
     this.dialogRef.afterClosed().subscribe((result) => {
       if (result) {
