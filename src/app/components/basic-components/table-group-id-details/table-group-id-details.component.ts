@@ -47,7 +47,8 @@ export class TableGroupIdDetailsComponent {
   headerCheckStatus: CheckType = CheckType.UNCHECKED;
   Rows: any[];
   crmLinkList: string[];
-  howManyChecked: number = 0; // כמה צ'קים נבחרו
+  // howManyChecked: number = 0; // כמה צ'קים נבחרו
+  theCheckedRows:string[] = []; // רשימה של הצ'קים שנבחרו
   prefCodeStatus: boolean = false;
   checkedControls: FormControl[] = []; // רק ה־checked של כל שורה
   // showToastNotification: boolean;
@@ -132,15 +133,20 @@ export class TableGroupIdDetailsComponent {
     this.subscription.add(this.#clusterService.getClusterGroupDetails(this.groupId).subscribe((res: ClusterGroupWithCrmLinks | null) => {
       this.Res = res;
       this.i();
+this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
+  const checkedRows = rowsValue.filter(row => row.check);
+  const checkedCount = checkedRows.length;
 
-       //בדיקה כמה CHECK סומנו
-    this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
-      const checkedCount = rowsValue.filter(row => row.check).length;
-      if (this.howManyChecked !== checkedCount) {
-        this.howManyChecked = checkedCount;
-        console.log('מספר הצ׳קים שסומנו:', this.howManyChecked);
-      }
-    });
+  // // עדכון מספר הצ׳קים
+  // if (this.howManyChecked !== checkedCount) {
+  //   this.howManyChecked = checkedCount;
+  //   console.log('מספר הצ׳קים שסומנו:', this.howManyChecked);
+  // }
+
+  // עדכון מערך bookId
+  this.theCheckedRows = checkedRows.map(row => row.bookId);
+  console.log('bookId של שורות שנבחרו:', this.theCheckedRows);
+});
 
   }))
    this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
@@ -281,7 +287,6 @@ export class TableGroupIdDetailsComponent {
   }
   onHeaderCheckboxToggle(): void {
     const isChecked = this.headerCheckbox.value;
-    debugger;
     // Update each control in rowsFormArray directly
     this.rowsFormArray.controls.forEach((group, index) => {
       const checkedControl = group.get('check');

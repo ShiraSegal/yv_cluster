@@ -27,7 +27,7 @@ export class FilterHandlingSuggestionsComponent {
 
 
   @Output() prefCodeStatus = new EventEmitter<boolean>();
-  @Input() howManyChecked: number = 0;
+  @Input() theCheckedRows: string[] = [];
   @Input() crmLinkList: string[] = [];
 
 
