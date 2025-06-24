@@ -56,12 +56,7 @@ export class NarrowBasicTableRowComponent {
     }))
   }
 
-  //  ngOnChanges(changes: SimpleChanges): void {      
-  //     if (changes['prefCodeStatus'] ) {       
-  //       console.log('narrow Pref Code Status changed:', this.prefCodeStatus);
-  //       this.rowGroupControls = [...this.rowGroupControls];        
-  //   }
-  // }
+ 
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
