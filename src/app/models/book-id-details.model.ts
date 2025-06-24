@@ -2,6 +2,7 @@ import { ValueCodeItem } from "./value-code-item.model";
 
 export class BookIdDetails {
     bookId: string;
+    
     clusterId: string;
     firstName: ValueCodeItem;
     lastName: ValueCodeItem;
@@ -39,7 +40,7 @@ export class BookIdDetails {
     isHasRelatedFname: boolean;
     score: string;
 
-    
+
     constructor(
         bookId: string,
         firstName: ValueCodeItem,
