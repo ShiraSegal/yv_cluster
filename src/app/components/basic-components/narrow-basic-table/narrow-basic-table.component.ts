@@ -36,13 +36,15 @@ export class NarrowBasicTableComponent {
   subscription: Subscription = new Subscription();
 rowGroups$ = new BehaviorSubject<FormGroup[]>([]);
   ngOnInit() {
+    this.subscription.add(this.rowsFormArray.valueChanges.subscribe((value) => {
 
       this.subscription.add(
     this.rowsFormArray.valueChanges.subscribe((v) => {
       this.updateRowGroups();
     })
   );
-  }
+  }))
+}
 updateRowGroups() {
   this.rowGroups$.next(this.rowsFormArray.controls as FormGroup[]);
 }

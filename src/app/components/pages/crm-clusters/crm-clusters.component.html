@@ -1,15 +1,8 @@
 <div class="table-and-title-container">
     <div class="title-container">
-        <div class="group-id-title">Group Id: {{groupIdNumber}}</div>
+        <div class="group-id-title">Group Id: {{groupId}}</div>
     </div>
     <div>
-        <yv-cluster-table-group-id-details></yv-cluster-table-group-id-details>
+        <yv-cluster-table-group-id-details [groupId]="groupId"></yv-cluster-table-group-id-details>
     </div>
-    <!-- <yv-cluster-icon-button class="button-plus" (onClick)="onClick()"
-        [icon]="iconType.PLUS_REGULAR"></yv-cluster-icon-button> -->
-
-    <!-- @if(showToastNotification){
-    <yv-cluster-toast-notification class="toast-notification" [iconName]="toastIcon" [message]="toastMessage"
-        [title]="'Cluster created successfully!'" [duration]="3500"></yv-cluster-toast-notification>
-    } -->
 </div>

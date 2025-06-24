@@ -1,20 +1,9 @@
 <div class="app-wrraper">
     <nav>
-        <!-- <div>{{currentUser.name}} {{currentUser.role}}</div> -->
         <yv-cluster-slidebar-navigation></yv-cluster-slidebar-navigation>
     </nav>
     <main>
-        <!-- <yv-cluster-toast-message *ngIf="messageService.message$ | async as message"
-            [type]="message.type"
-            [heading]="message.heading"
-            [content]="message.content"
-          >
-          <pre>{{ message | async | json }}</pre>
-
-          </yv-cluster-toast-message> -->
-        
-
-
+         <yv-cluster-loading></yv-cluster-loading>
         <router-outlet></router-outlet>
     </main>
 </div>

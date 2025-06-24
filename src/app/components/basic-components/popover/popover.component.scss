@@ -9,6 +9,12 @@
   background: $c-FFFFFF;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.10), 0px -4px 5px rgba(0, 0, 0, 0.05);
 
+//שלא יתפוס מקום בעמוד
+  position: absolute; 
+  right: 0rem;
+  z-index: 1000; 
+
+
   .popover-internal-warp {
     display: flex;
     flex-direction: column;

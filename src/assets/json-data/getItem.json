@@ -2,7 +2,7 @@
 {
   "7029235": [
       {
-          "__type": "ClusteredNamesSystem.classes.clusteredNameRow",
+          "__type": "ClusteredNamesSystem.classes.bookIdDetails",
           "BookId": "7029235",
           "FirstName": {
               "__type": "ClusteredNamesSystem.classes.valueCodeItem",
@@ -63,7 +63,7 @@
   ],
   "1111111": [
         {
-            "__type": "ClusteredNamesSystem.classes.clusteredNameRow",
+            "__type": "ClusteredNamesSystem.classes.bookIdDetails",
             "BookId": "7029235",
             "FirstName": {
                 "__type": "ClusteredNamesSystem.classes.valueCodeItem",

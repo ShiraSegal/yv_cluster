@@ -1,3 +1,5 @@
 <div class="icon-button-large" [ngClass]="[property, isSelected ? 'selected' : '']" (click)="handleClick()">
-  <i [ngClass]="icon"></i>
+  @if(icon) {
+    <i [ngClass]="icon"></i>
+  }
 </div>

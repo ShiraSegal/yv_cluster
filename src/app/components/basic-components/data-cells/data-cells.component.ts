@@ -29,7 +29,8 @@ import { Subscription } from 'rxjs';
     AssigneeComponent,
     BadgeComponent,
     IconButtonLargeComponent,
-    CommonModule],
+    CommonModule,
+  ReactiveFormsModule ],
 
   templateUrl: './data-cells.component.html',
   styleUrls: ['./data-cells.component.scss']
@@ -105,5 +106,4 @@ ngOnDestroy() {
   triggerExpand() {
     this.expand.emit(); // Emit the expand event
   }
-
 }

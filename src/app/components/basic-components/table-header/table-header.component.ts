@@ -43,4 +43,8 @@ export class TableHeaderComponent {
     // // console.log("openPeiComponent");
     this.openDialog.emit(true);
   }
+
+  checkChange(event:string){
+    
+  }
 }

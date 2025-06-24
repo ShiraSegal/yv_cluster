@@ -1,9 +1,9 @@
 {
     "d": {
         "__type": "ClusteredNamesSystem.classes.clusterGroupWithCrmLinks",
-        "clusteredNameRowList": [
+        "bookIdDetailsList": [
             {
-                "__type": "ClusteredNamesSystem.classes.clusteredNameRow",
+                "__type": "ClusteredNamesSystem.classes.bookIdDetails",
                 "BookId": "15040243",
                 "FirstName": {
                     "__type": "ClusteredNamesSystem.classes.valueCodeItem",
@@ -62,7 +62,7 @@
                 "RelatedFnameList": null
             },
             {
-                "__type": "ClusteredNamesSystem.classes.clusteredNameRow",
+                "__type": "ClusteredNamesSystem.classes.bookIdDetails",
                 "BookId": "15094470",
                 "FirstName": {
                     "__type": "ClusteredNamesSystem.classes.valueCodeItem",
@@ -121,7 +121,7 @@
                 "RelatedFnameList": null
             },
             {
-                "__type": "ClusteredNamesSystem.classes.clusteredNameRow",
+                "__type": "ClusteredNamesSystem.classes.bookIdDetails",
                 "BookId": "15099933",
                 "FirstName": {
                     "__type": "ClusteredNamesSystem.classes.valueCodeItem",
@@ -180,7 +180,7 @@
                 "RelatedFnameList": null
             },
             {
-                "__type": "ClusteredNamesSystem.classes.clusteredNameRow",
+                "__type": "ClusteredNamesSystem.classes.bookIdDetails",
                 "BookId": "11696332",
                 "FirstName": {
                     "__type": "ClusteredNamesSystem.classes.valueCodeItem",

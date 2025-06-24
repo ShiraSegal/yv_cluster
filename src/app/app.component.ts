@@ -5,18 +5,18 @@ import { MessageService } from './services/message.service';
 import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
 import { IconType } from './enums/icon-enum';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {  RouterOutlet } from '@angular/router';
 import { SlidebarNavigationComponent } from './components/basic-components/slidebar-navigation/slidebar-navigation.component';
-import { RouterOutlet } from '@angular/router';
-// import {Component, inject} from '@angular/core';
-
-
+import { LoadingComponent } from './components/basic-components/loading/loading.component';
+import { ToastNotificationComponent } from './components/basic-components/toast-notification/toast-notification.component';
+import { NotifictionService } from './services/notifiction.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [MatSnackBarModule,SlidebarNavigationComponent,RouterOutlet],
+  imports: [RouterOutlet, SlidebarNavigationComponent,MatSnackBarModule,LoadingComponent],
 })
 export class AppComponent {
   #clusterService = inject(ClusterService);
@@ -35,6 +35,9 @@ export class AppComponent {
   // openSnackBar(message: string, action: string) {
   //   this.#snackBar.open(message, action);
   
+      notifictionService = inject(NotifictionService)
+
+IconType=IconType
   // ngOnInit() {
   //   this.#clusterService.login(1).subscribe({
   //     next: (user: any) => {

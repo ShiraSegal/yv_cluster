@@ -63,6 +63,7 @@ export class NarrowBasicTableWarpComponent {
     [AutoClusterTabType.APPROVAL_GROUPS]: 'GroupsForClusterApprovalSystem',
     [AutoClusterTabType.DIFFERENT_CLUSTERS]: 'GroupsWithDifferentClusters',
     [AutoClusterTabType.CHECKLIST_ITEMS]: 'ItemsForCheckList',
+    [AutoClusterTabType.TABLE_GROUP_ID_DETAILS]: 'TableGroupIdDetails' // ��� �������� ������������, ���� ���� ������
   };
 
   filters: FilterNames[] = [
@@ -104,6 +105,9 @@ export class NarrowBasicTableWarpComponent {
       FilterNames.FILTER_BY_ASSIGNEE,
       FilterNames.FILTER_BY_STATUS,
     ],
+  [this.autoClusterTabType.TABLE_GROUP_ID_DETAILS]: [
+
+  ]
   };
   tabs = [
     { text: AutoClusterTabType.SAPIR_CLUSTERS, status: true },

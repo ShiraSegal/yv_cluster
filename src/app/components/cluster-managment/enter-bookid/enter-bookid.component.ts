@@ -7,22 +7,27 @@ import { RadioButtonListComponent } from '../../basic-components/radio-button-li
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { IconType } from 'src/app/enums/icon-enum';
-import { RootObject } from 'src/app/models/root-object.model';
+// import { RootObject } from 'src/app/models/root-object.model';
 import { Subscription } from 'rxjs';
+import { FieldComponent } from '../../basic-components/field/field.component';
+import { BookIdDetails } from 'src/app/models/book-id-details.model';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, ButtonComponent, HeadingComponent, RadioButtonListComponent],
+  imports: [FormsModule, ReactiveFormsModule, ButtonComponent, HeadingComponent, RadioButtonListComponent,FieldComponent],
   templateUrl: './enter-bookid.component.html',
   styleUrl: './enter-bookid.component.scss'
 })
+
 export class EnterBookidComponent implements OnInit, OnDestroy {
-  data: { title: string } = inject(MAT_DIALOG_DATA, { optional: true });
+  // data: { title: string } = inject(MAT_DIALOG_DATA, { optional: true });
+  // dialogRef: MatDialogRef<EnterBookidComponent> = inject(MatDialogRef, { optional: true })!;
+  showRadioButtons: { showRadioButtons: boolean } = inject(MAT_DIALOG_DATA);
   dialogRef: MatDialogRef<EnterBookidComponent> = inject(MatDialogRef, { optional: true })!;
   #clusterService = inject(ClusterService);
 
-  @Input() showRadioButtons: boolean;
+  // @Input() showRadioButtons: boolean = false;
 
    subscription = new Subscription(); // 🟦 ניהול subscriptions
 
@@ -59,6 +64,8 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
     if (this.showRadioButtons) {
       this.enterBookIdOrClusterForm.addControl('selection', new FormControl('', Validators.required));
     }
+    console.log("showRadioButtons", this.showRadioButtons);
+
   }
 
   checkedChange(selected: string) {
@@ -67,16 +74,17 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
 
   add() {
     if (this.enterBookIdOrClusterForm.valid) {
+      // this.closeDialogWithData({ bookId: this.enterBookIdOrClusterForm.value.input })
       const input = this.enterBookIdOrClusterForm.value.input;
       const selection = this.enterBookIdOrClusterForm.value.selection;
 
       if (selection === 'Book ID' || !this.showRadioButtons) {
        this.subscription.add(this.#clusterService.getSingleItemByBookId(input).subscribe({
-          next: (res: RootObject | boolean) => {
+          next: (res: BookIdDetails | boolean) => {
             console.log("**********************", { bookId: input });
-            this.closeDialogWithData({ bookId: input });
             if (res) {
               console.log("bookId add:", res);
+            this.closeDialogWithData(res);
             } else {
               console.warn("add bookId failed.");
             }
@@ -89,11 +97,11 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
         this.close = true;
       } else if (selection === 'Cluster') {
         this.subscription.add(this.#clusterService.getClusterGroupByBookId(input).subscribe({
-          next: (res: RootObject | boolean) => {
-            console.log("**********************", { bookId: input });
-            this.closeDialogWithData({ bookId: input });
+          next: (res: BookIdDetails | boolean) => {
+            console.log("**********************!!!!!!!!", res);
             if (res) {
-              // console.log("Cluster add:", res);
+              console.log("Cluster add:", res);
+            this.closeDialogWithData(res);
             } else {
               console.warn("add cluster failed.");
             }

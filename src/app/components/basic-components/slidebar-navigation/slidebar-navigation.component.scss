@@ -131,7 +131,7 @@
 .slider-navigation {
   display: flex;
   width: 9.29625rem;
-  height: 45.225rem;
+  // height: 45.225rem;
   padding-top: 0.5025rem;
   flex-direction: column;
   align-items: center;
@@ -157,12 +157,11 @@
 }
 
 .logo {
-  background: url('/assets/images/logo.png') no-repeat center center;
+  background: url(/assets/images/image-logo.png) no-repeat center center;
   background-size: contain;
-  width: 6.19018rem;
-  height: 3.30713rem;
+  width: 8.19018rem;
+  height: 4.30713rem;
   flex-shrink: 0;
-  margin-right: 1.34rem auto;
 }
 
 .tabs {
@@ -171,7 +170,7 @@
   align-items: center;
   gap: 0.5025rem;
   align-self: stretch;
-  padding-top: 3.685rem;
+  padding-top: 3rem;
 }
 
 .tab {
@@ -200,17 +199,12 @@
 
 .user {
   display: flex;
-  height: 2.68rem;
-  padding-top: 0.335rem;
+  height: 4rem;
+  // padding-top: 0.335rem;
   align-items: center;
   gap: 0.41875rem;
   align-self: stretch;
   &.active {
-    display: inline-flex;
-    padding-top: 0.335rem;
-    align-items: center;
-    gap: 0.41875rem;
-    border-radius: 0.209375rem;
     background: $c-1334b966;
   }
 }
@@ -224,7 +218,7 @@
   font-size: 0.67rem !important;
   padding-right: 1.34rem;
   padding-left: 0.335rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 }
 
 .icon {
@@ -236,7 +230,7 @@
   font-weight: 900;
   line-height: normal;
   margin-left: -1.5rem;
-  margin-top: -0.67rem;
+  margin-top: -1rem;
 }
 
 .logout {
@@ -244,7 +238,7 @@
   width: 8.33313rem;
   // padding: 0.335rem;
   padding-left: 0.75rem;
-  margin-top: -2.345rem;
+  margin-top: -2.8rem;
   align-items: center;
   border-radius: 0.25125rem;
   background: $c-FFFFFF;
@@ -253,5 +247,9 @@
 }
 
 ::ng-deep yv-cluster-native-option.native-option-logout .option-wrapper{
-  min-width: 6.5831971rem !important;
+  min-width: 6.583197rem !important;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  margin-left: -0.5rem;
+  padding-right: 1.5rem;
 }

@@ -42,7 +42,7 @@
   background-color:$c-FFFFFF;
   color: $c-262C34;
   &:hover {
-    background: $c-BEC6D8;
+    background: rgba(190, 198, 208, 0.10);
   }
 
   &:disabled {
@@ -63,7 +63,7 @@
     background: $c-F8F9FA;
   }
   &:active {
-    border: 0px solid $c-F8F9FA;
+    border: 1px solid $c-F8F9FA;
     background: $c-F8F9FA;
   }
   &:disabled {

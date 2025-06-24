@@ -29,7 +29,7 @@ export enum IconType {
   ROBOT_SOLID = 'fa-solid fa-robot',
   LINK_SIMPLE_SOLID = 'fa-solid fa-link-simple',
   SQUARE_ARROW_UP_RIGHT_REGULAR = 'fa-regular fa-square-arrow-up-right custom-arrow',
-  NOTHING = '',
+  // NOTHING = '',
   LINK_SIMPLE = 'fa-solid fa-link-simple',
   ERROR_SOLID = 'fa-solid fa-circle-xmark',
   SUCCESS_SOLID = 'fa-solid fa-circle-check',

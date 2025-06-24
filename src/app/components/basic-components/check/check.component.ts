@@ -35,6 +35,7 @@ export class CheckComponent implements ControlValueAccessor {
 
   toggleCheckbox() {
     this.value = !this.value;
+    this.cdr.detectChanges();
     this.onChange(this.value);
     this.onTouched();
   }

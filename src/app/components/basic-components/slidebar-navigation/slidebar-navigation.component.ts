@@ -5,7 +5,7 @@ import { SliderNavigationTabComponent } from '../slider-navigation-tab/slider-na
 import { NativeOptionType, SliderNavigationTabTextType, SliderNavigationTabType, SliderNavigationTabUrl } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
 // import { Router } from 'express';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute,NavigationEnd,Router } from '@angular/router';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { AssigneeComponent } from '../assignee/assignee.component';
 import { NativeOptionComponent } from '../native-option/native-option.component';
@@ -20,6 +20,7 @@ import { NativeOptionComponent } from '../native-option/native-option.component'
 export class SlidebarNavigationComponent {
    #router = inject(Router);
    #route = inject(ActivatedRoute);
+
   #clusterService = inject(ClusterService);
   sliderNavigationTabTextType = SliderNavigationTabTextType;
   iconType = IconType;
@@ -40,6 +41,18 @@ export class SlidebarNavigationComponent {
     // {  property: SliderNavigationTabType.VARIANT3,icon: IconType.LEFT_FROM_BRACKET_LIGHT, activeIcon: IconType.LEFT_FROM_BRACKET_SOLID, text: SliderNavigationTabTextType.LOG_OUT,url:SliderNavigationTabUrl.LOG_OUT },
   ];
 
+  ngOnInit() {
+      this.#router.events.subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          const currentUrl = event.urlAfterRedirects.split('/')[1];
+          this.tabs.forEach((tab) => {
+            tab.property = tab.url === currentUrl ? SliderNavigationTabType.ACTIVE : SliderNavigationTabType.VARIANT3;
+          });
+        }
+      });
+    }
+  
+  
   setActiveTab(tabText: SliderNavigationTabTextType) {
     const groupId=1
     // this.activeTabIndex = tabText;

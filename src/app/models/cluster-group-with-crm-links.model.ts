@@ -1,21 +1,17 @@
-import { clusteredNameRow } from "./clustered-name-row.model";
+import { BookIdDetails } from "./book-id-details.model";
 
-export class clusterGroupWithCrmLinks {
-    __type: string;
-    clusteredNameRowList: clusteredNameRow[];
-    CrmLinkList: any[]; // ניתן להחליף בהתאם למבנה אם קיים
+export class ClusterGroupWithCrmLinks {
+    bookIdDetailsList: BookIdDetails[];
+    crmLinkList: any[]; // ניתן להחליף בהתאם למבנה אם קיים
     contact: any; // ניתן להחליף בהתאם למבנה אם קיים
 
-
     constructor(
-        __type: string,
-        clusteredNameRowList: clusteredNameRow[],
-        CrmLinkList: any[],
+        bookIdDetailsList: BookIdDetails[],
+        crmLinkList: any[],
         contact: any
     ) {
-        this.__type = __type;
-        this.clusteredNameRowList = clusteredNameRowList;
-        this.CrmLinkList = CrmLinkList;
+        this.bookIdDetailsList = bookIdDetailsList;
+        this.crmLinkList = crmLinkList;
         this.contact = contact;
     }
 }

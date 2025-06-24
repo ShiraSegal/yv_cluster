@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
-import { ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
+import { AutoClusterTabType, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
 import { TableHeaderComponent } from '../table-header/table-header.component';
 import { BasicTableRowComponent } from '../basic-table-row/basic-table-row.component';
 import { NarrowBasicTableRowComponent } from '../narrow-basic-table-row/narrow-basic-table-row.component';
 import { ClusterService } from 'src/app/services/cluster.service';
-import { rootObjectOfClusterGroupDetails } from 'src/app/models/root-object-of-cluster-group-details.model';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 import { CheckType } from 'src/app/enums/check-enum';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -18,10 +17,11 @@ import { AbstractControl, FormArray, FormBuilder, FormControl, FormControlState,
 import { group } from 'console';
 import { TooltipComponent } from '../tooltip/tooltip.component';
 import { ToastNotificationComponent } from '../toast-notification/toast-notification.component';
-import { LoadingService } from 'src/app/services/loading.service';
 import { ButtonComponent } from '../button/button.component';
 import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter-bookid.component';
 import { NotifictionService } from 'src/app/services/notifiction.service';
+import { LoadingService } from 'src/app/services/loading.service';
+import { ClusterGroupWithCrmLinks } from 'src/app/models/cluster-group-with-crm-links.model';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -32,19 +32,22 @@ import { Subscription } from 'rxjs';
   styleUrl: './table-group-id-details.component.scss'
 })
 export class TableGroupIdDetailsComponent {
+@Input() groupId: string;
+  // @Output() showToastNotification = new EventEmitter<string>();
+
   #clusterService = inject(ClusterService)
-  #loadingService = inject(LoadingService)
   #notifictionService = inject(NotifictionService)
 
   #dialog = inject(MatDialog);
   #fb = inject(FormBuilder)
   dialogEnterBookidRef: MatDialogRef<EnterBookidComponent> | null = null;
+  dialogRef: MatDialogRef<PieComponentDistributionModalComponent> | null = null;
+
   // clusterGroupDetails: rootObjectOfClusterGroupDetails[] = [];
   headerCheckStatus: CheckType = CheckType.UNCHECKED;
   Rows: any[];
   crmLinkList: string[];
   howManyChecked: number = 0; // כמה צ'קים נבחרו
-  dialogRef: MatDialogRef<PieComponentDistributionModalComponent> | null = null;
   prefCodeStatus: boolean = false;
   checkedControls: FormControl[] = []; // רק ה־checked של כל שורה
   // showToastNotification: boolean;
@@ -58,6 +61,26 @@ export class TableGroupIdDetailsComponent {
   iconButtonLargeType = IconButtonLargeType;
   NarrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   narrowBasicTableRowLength = NarrowBasicTableRowLength;
+  AutoClusterTabType = AutoClusterTabType;
+
+  // formGroup: FormGroup = this.#fb.group({
+  //   checks: this.#fb.array([]),  // זה ה־FormArray לכל הצ'קים
+  // });
+
+  // get rowsArray(): FormArray {
+  //   return this.formGroup.get('checks') as FormArray;
+  // }
+
+  // getFormControl(index: number): FormControl {
+  //   //// // console.log("getFormControl", this.rowsArray.at(index) as FormControl);
+  //   return this.rowsArray.at(index) as FormControl;
+  // }
+
+  // getFormControlsArray(index: number): FormControl[] {
+  //   const formGroup = this.rowsArray.at(index) as FormGroup;
+  //   return Object.keys(formGroup.controls).map(key => formGroup.get(key) as FormControl);
+  // }
+
 
   tableDataForm: FormGroup = this.#fb.group({
     headerCheckbox: new FormControl(false),
@@ -78,23 +101,23 @@ export class TableGroupIdDetailsComponent {
   { data: 'Permanent Place' },
   { data: 'Source' }
   ]
+
   tableKeys = [
     'check',
-    'BookId',
-    'ClusterId',
-    'Score',
-    'FirstName',
+    'bookId',
+    'existsClusterId',
+    'score',
+    'firstName',
     'lastName',
-    'FatherFirstName',
-    'MotherFirstName',
-    'SpouseFirstName',
-    'DateOfBirth',
-    'PlaceOfBirth',
-    'PermanentPlace',
-    'Source',
-    'Score',
+    'fatherFirstName',
+    'motherFirstName',
+    'spouseFirstName',
+    'dateOfBirth',
+    'placeOfBirth',
+    'permanentPlace',
+    'source'
   ];
-  initialStateBoolean: FormControlState<boolean> = {
+ initialStateBoolean: FormControlState<boolean> = {
     value: false,
     disabled: false
   };
@@ -103,12 +126,22 @@ export class TableGroupIdDetailsComponent {
     disabled: false
   };
   subscription: Subscription = new Subscription();
-  Res:rootObjectOfClusterGroupDetails | null
+  Res:ClusterGroupWithCrmLinks | null
   ngOnInit() {
-    this.#clusterService.getClusterGroupDetails();
-    this.subscription.add(this.#clusterService.getClusterGroupDetails().subscribe((res: rootObjectOfClusterGroupDetails | null) => {
+    this.#clusterService.getClusterGroupDetails(this.groupId);
+    this.subscription.add(this.#clusterService.getClusterGroupDetails(this.groupId).subscribe((res: ClusterGroupWithCrmLinks | null) => {
       this.Res = res;
       this.i();
+
+       //בדיקה כמה CHECK סומנו
+    this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
+      const checkedCount = rowsValue.filter(row => row.check).length;
+      if (this.howManyChecked !== checkedCount) {
+        this.howManyChecked = checkedCount;
+        console.log('מספר הצ׳קים שסומנו:', this.howManyChecked);
+      }
+    });
+
   }))
    this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
       this.onHeaderCheckboxToggle()
@@ -118,8 +151,8 @@ export class TableGroupIdDetailsComponent {
    
   }
   i(){
-    if (this.Res && this.Res.d && this.Res.d.clusteredNameRowList) {
-      this.Rows = this.Res.d.clusteredNameRowList
+    if (this.Res && this.Res.bookIdDetailsList) {
+      this.Rows = this.Res.bookIdDetailsList
       this.Rows?.forEach((row) => {
         const rowGroup = this.#fb.group({});
         ///הוספת CHECK בתחילת כל שורה
@@ -131,38 +164,42 @@ export class TableGroupIdDetailsComponent {
               const header = key;
               let control = new FormControl({ value: row[key], disabled: false });
 
-              if (row[key] && typeof row[key] === 'object' && 'Value' in row[key]) {
-                control = new FormControl({ value: row[key].Value || '', disabled: false });
+              if (row[key] && typeof row[key] === 'object' && 'value' in row[key]) {
+                control = new FormControl({ value: row[key].value || '', disabled: false });
               }
               rowGroup.addControl(header, control);
             }
           }
         }
         this.rowsFormArray.push(rowGroup); // הוספת FormGroup
+        console.log(this.Rows);
       });
       console.log("this.rowsFormArray", this.rowsFormArray);
 
     } else {
       console.warn("Received null or invalid response from getClusterGroupDetails");
     }
-    if (this.Res && this.Res.d && this.Res.d.CrmLinkList) {
-      this.crmLinkList = this.Res.d.CrmLinkList.map((item: any) => {
+    if (this.Res  && this.Res.crmLinkList) {
+      this.crmLinkList = this.Res.crmLinkList.map((item: any) => {
         return item;
       });
     
     }
+    
   }
-  //האזנה למשתנה twoChosen
+  // //האזנה למשתנה twoChosen
 
-  checkHowManyChecked(): void {
-    this.rowsFormArray.valueChanges.subscribe((controls: any[]) => {
-      const checkedCount = controls.filter(control => control.checked).length;
+  // checkHowManyChecked(): void {
+  //   console.log("checkHowManyChecked called");
+    
+  //   this.rowsFormArray.valueChanges.subscribe((controls: any[]) => {
+  //     const checkedCount = controls.filter(control => control.checked).length;
 
-      if (this.howManyChecked !== checkedCount) {
-        this.howManyChecked = checkedCount; // עדכון משתנה howManyChecked
-      }
-    });
-  }
+  //     if (this.howManyChecked !== checkedCount) {
+  //       this.howManyChecked = checkedCount; // עדכון משתנה howManyChecked
+  //     }
+  //   });
+  // }
  
   //מחיקת שורה
   deleteByBookId(bookId: string) {
@@ -178,11 +215,11 @@ export class TableGroupIdDetailsComponent {
     })
   }
 
-  //בחירת check
-  checkChange(checkStatus: CheckType) {
-    // // console.log(" TableGroupIdDetailsComponent check status", checkStatus)
+  // //בחירת check
+  // checkChange(checkStatus: CheckType) {
+  //   // // console.log(" TableGroupIdDetailsComponent check status", checkStatus)
 
-  }
+  // }
   openDialog() {
     this.dialogRef = this.#dialog.open(PieComponentDistributionModalComponent, {
       data: { title: 'Data Distribution' },
@@ -219,6 +256,9 @@ export class TableGroupIdDetailsComponent {
     this.dialogEnterBookidRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log('page Data received from dialog:', result);
+        this.Rows.push(result);
+        console.log('Updated Rows:', this.Rows);
+        // this.i();  
         this.#notifictionService.showToastNotification({
           iconName: this.iconType.SUCCESS_SOLID,
           title: 'Successfull',

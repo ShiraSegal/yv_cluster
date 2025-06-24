@@ -13,10 +13,12 @@ import { HeaderCellsComponent } from '../../basic-components/header-cells/header
 import { FieldComponent } from '../../basic-components/field/field.component';
 import { ToastNotificationComponent } from '../../basic-components/toast-notification/toast-notification.component';
 import { SelectComponent } from '../../basic-components/select/select.component';
-import { SapirClusterModel } from 'src/app/models/sapir-cluster-model.model';
 import { IconType } from 'src/app/enums/icon-enum';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { RadioButtonComponent } from '../../basic-components/radio-button/radio-button.component';
+import { SapirClusterModel } from 'src/app/models/sapir-cluster-model.model';
+import { TableHeaderComponent } from '../../basic-components/table-header/table-header.component';
+// import { sapirClusterModel } from 'src/app/models/sapir-cluster-model.model';
 
 type NativeSelectOption = {
   optionType: NativeOptionType;
@@ -28,7 +30,7 @@ type NativeSelectOption = {
 @Component({
   selector: 'yv-cluster-create-cluster',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, ButtonComponent, HeadingComponent, RadioButtonListComponent, ButtonComponent, HeaderCellsComponent, FieldComponent, ToastNotificationComponent, SelectComponent],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, ButtonComponent, HeadingComponent, RadioButtonListComponent, ButtonComponent, HeaderCellsComponent, FieldComponent, ToastNotificationComponent, SelectComponent,RadioButtonComponent,TableHeaderComponent],
   templateUrl: './create-cluster.component.html',
   styleUrl: './create-cluster.component.scss'
 })
@@ -82,17 +84,17 @@ export class CreateClusterComponent {
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
 
+
   iconType = IconType;
   subscription: Subscription = new Subscription(); // ← ניהול subscriptions
-  ngOnInit() {
-    this.createClusterFormData();
-    this.subscription.add(this.createClusterForm.valueChanges.subscribe((value) => {
-      console.log('Form value changed: 💜💜💜💜💜', value);
 
-    }))
+  ngOnInit() {
+    // this.subscription.add(this.createClusterForm.valueChanges.subscribe((value) => {
+    //   console.log('Form value changed: 💜💜💜💜💜', value);
+
+    // }))
 
   }
-
   createClusterFormData() {
     this.subscription.add(this.#clusterService.getCreateClusterData()
       .subscribe({
@@ -178,8 +180,6 @@ export class CreateClusterComponent {
   }
 
   ngOnDestroy(): void { // ← פונקציית ניקוי בסיום חיי הקומפוננטה
-   // this.#destroy$.next();
-   // this.#destroy$.complete();
    this.subscription.unsubscribe(); // מבטלת את כל המנויים שנוצרו
   }
 }

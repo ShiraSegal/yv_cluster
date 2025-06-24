@@ -1,10 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { CheckComponent } from "../check/check.component";
 import { CommonModule } from '@angular/common';
 import { CheckStateType, HeaderCellType } from 'src/app/enums/basic-enum';
 import { CheckType } from 'src/app/enums/check-enum';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { PieComponentDistributionModalComponent } from '../pie-component-distribution-modal/pie-component-distribution-modal.component';
 
 @Component({
   selector: 'yv-cluster-header-cells',
@@ -21,6 +23,10 @@ export class HeaderCellsComponent {
   @Output() sortEvent = new EventEmitter<{ column: string, direction: string }>();
   @Output() checkStatus = new EventEmitter<CheckType>();
   @Output() openDialog = new EventEmitter<boolean>();
+
+    #dialog = inject(MatDialog);
+    #fb = inject(FormBuilder)
+  dialogRef: MatDialogRef<PieComponentDistributionModalComponent> | null = null;
 
   headerCellType = HeaderCellType;
   checkType = CheckType
@@ -61,7 +67,18 @@ subscription: Subscription = new Subscription();
   // }
 
   openPeiComponent() {
-   // // console.log("openPeiComponent");
-    this.openDialog.emit(true);
-  }
+    // this.openDialog.emit(true);
+    //  openDialog() {
+        this.dialogRef = this.#dialog.open(PieComponentDistributionModalComponent, {
+          data: { title: 'Data Distribution' },
+          disableClose: true,
+          hasBackdrop: true,
+          panelClass: 'custom-dialog',
+          autoFocus: false,
+          width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
+          height: 'auto',
+    
+        });
+      }
+  // }
 }

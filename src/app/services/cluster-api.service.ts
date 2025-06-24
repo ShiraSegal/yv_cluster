@@ -3,9 +3,10 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
-import { SapirClusterModel } from '../models/sapir-cluster-model.model';
-import { rootObjectOfClusterGroupDetails } from '../models/root-object-of-cluster-group-details.model';
-import { RootObject } from 'src/app/models/root-object.model';
+import { SapirClusterModel} from '../models/sapir-cluster-model.model';
+// import { RootObject } from 'src/app/models/root-object.model';
+import { ClusterGroupWithCrmLinks } from '../models/cluster-group-with-crm-links.model';
+import { BookIdDetails } from '../models/book-id-details.model';
 
 
 @Injectable({
@@ -26,28 +27,16 @@ export class ClusterApiService {
 
   getSingleItemByBookId (bookId:string){
     // let url= `${this.apiUrl}/getByBookId.json`;
-    return this.#http.post<RootObject | boolean>(`${this.apiUrl}/AddBookIdOrCluster/AddBookId`,
-      JSON.stringify(bookId),
-      {
-      headers: 
-       {'Content-Type': 'application/json' }
-      },
-    )
+    return this.#http.get<BookIdDetails | boolean>(`${this.apiUrl}/AddBookIdOrCluster/AddBookId?bookId=${bookId}`)
   }
 
   getClusterGroupByBookId(clusterId:string){
     // let url= `${this.apiUrl}/getByBookId.json`;
-    return this.#http.post<RootObject | boolean>(`${this.apiUrl}/AddBookIdOrCluster/AddBookIdsByClusterId`,
-      JSON.stringify(clusterId),
-      {
-      headers: 
-       {'Content-Type': 'application/json' }
-      },
-    )
+    return this.#http.get<BookIdDetails | boolean>(`${this.apiUrl}/AddBookIdOrCluster/AddBookIdsByClusterId?clusterId=${clusterId}`)
   }
 
   createCluster(SapirClusterModel: SapirClusterModel){
-    return this.#http.post<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`, SapirClusterModel);
+    return this.#http.post<SapirClusterModel>(`${this.apiUrl}/CreateCluster/CreateNewCluster`, SapirClusterModel);
   }
   // getstatisticData(): Observable<any> {
   //   return this.#http.get('./assets/json-data/getstatisticData.json');
@@ -58,9 +47,9 @@ export class ClusterApiService {
   // getClusterGroupDetails(): Observable<any> {
   //   return this.#http.get('./assets/json-data/getClusterGroupDetails.json');
   // }
-  getClusterGroupDetails(): Observable<rootObjectOfClusterGroupDetails> {
+  getClusterGroupDetails(groupId:string): Observable<ClusterGroupWithCrmLinks> {
     let result: any;
-     result= this.#http.get(`https://localhost:7059/api/SystemCluster/GetClusterGroupDetails`);
+     result= this.#http.get(`https://localhost:7059/api/SystemCluster/GetClusterGroupDetails/${groupId}`);
     return result;
   }
   getDashboardDataById(id: number): Observable<any> {

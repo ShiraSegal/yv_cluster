@@ -51,19 +51,19 @@ export class FilterHandlingSuggestionsComponent {
     prefCode: false
   };
 
-  //     popoverOptionsLink:{
-  //   optionType: NativeOptionType.TEXT;
-  //   optionState: NativeOptionState;
-  //   displayText: string;
-  // }[] = [{optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: this.crmLinkList[0]},
-  //   {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
-  //   {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
-  // ];
-  popoverOptionsLink: {
-    optionType: NativeOptionType;
+      popoverOptionsLink:{
+    optionType: NativeOptionType.TEXT;
     optionState: NativeOptionState;
     displayText: string;
-  }[] = [];
+  }[] = [{optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 1'},
+    {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
+    {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
+  ];
+  // popoverOptionsLink: {
+  //   optionType: NativeOptionType;
+  //   optionState: NativeOptionState;
+  //   displayText: string;
+  // }[] = [];
   ngOnInit() {
     this.numberCRM = this.crmLinkList?.length ?? 0;
     if (this.crmLinkList) {
