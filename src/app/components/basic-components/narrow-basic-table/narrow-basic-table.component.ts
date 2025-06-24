@@ -33,9 +33,11 @@ export class NarrowBasicTableComponent {
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   autoClusterTabType = AutoClusterTabType;
   subscription: Subscription = new Subscription();
-
+  @Input() prefCodeStatus;
 
   ngOnInit() {
+    console.log('narrow tableDataForm', this.tableDataForm);
+    
     this.subscription.add(this.rowsFormArray.valueChanges.subscribe((value) => {
 
   }))

@@ -42,6 +42,8 @@ export class NarrowBasicTableRowComponent {
   buttonType = ButtonType;
   rowGroupControls: { control: FormControl, name: string }[];
   ngOnInit() {
+    console.log('narrow RowGroup', this.rowGroup);
+    
     // Initialize rowGroupControls for debugging
     this.rowGroupControls = Object.keys(this.rowGroup.controls).map(controlKey => {
       return {
@@ -53,6 +55,13 @@ export class NarrowBasicTableRowComponent {
       console.log('narrow RowGroup changed:', value);
     }))
   }
+
+  //  ngOnChanges(changes: SimpleChanges): void {      
+  //     if (changes['prefCodeStatus'] ) {       
+  //       console.log('narrow Pref Code Status changed:', this.prefCodeStatus);
+  //       this.rowGroupControls = [...this.rowGroupControls];        
+  //   }
+  // }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()

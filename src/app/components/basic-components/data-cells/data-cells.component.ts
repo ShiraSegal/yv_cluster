@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, inject, Input, Output, SimpleChanges } from '@angular/core';
 import { AutoClusterTabType, BadgeType, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { BadgeComponent } from '../badge/badge.component';
@@ -37,12 +37,25 @@ import { Subscription } from 'rxjs';
 })
 
 export class DataCellsComponent<T extends DataCellType> {
+
+  #cdr = inject(ChangeDetectorRef);
   // variables
   @Input() type: any;
   @Input() typeText:string
-  @Input() data: DataCellValue<T>;
+  // @Input() data: DataCellValue<T>;
+  private _data: DataCellValue<T>;
+
+@Input()
+set data(value: DataCellValue<T>) {
+  this._data = value;
+  this.handleDataChange(value); // ← כאן תבצעי את הפעולות שלך
+}
+
+get data(): DataCellValue<T> {
+  return this._data;
+}
   @Input() moreData: { [key: string]: any }; // אובייקט לפרמטרים נוספים
-  @Input() prefCodeStatus: boolean = false;
+  @Input() prefCodeStatus;
   @Input() formGroup: FormGroup;
   @Input() currentTab : AutoClusterTabType;
   @Output() expand = new EventEmitter<void>();
@@ -62,6 +75,8 @@ export class DataCellsComponent<T extends DataCellType> {
   autoClusterTabType=AutoClusterTabType
   subscription: Subscription=new Subscription();
   ngOnInit() {
+    console.log('Data Cell data:', this.data);
+    
     this.subscription.add(this.formGroup.valueChanges.subscribe((value)=>{
       // console.log("ggg", value);
       
@@ -69,6 +84,22 @@ export class DataCellsComponent<T extends DataCellType> {
     this.type = this.mapType(this.typeText);
    //// console.log('Parent FormGroup:', this.formGroup);
   }
+    ngOnChanges(changes: SimpleChanges): void {      
+    // if (changes['data'] ) {
+    //      console.log('Data Cell changes:', this.data);
+            
+        
+    // }
+      if (changes['prefCodeStatus'] ) {
+         console.log('Data Cell changes:', this.data);
+       
+        console.log('data cell Pref Code Status changed:', this.prefCodeStatus);        
+    }
+  }
+  handleDataChange(value: DataCellValue<T>) {
+  console.log('data changed:', value);
+  // כתבי כאן כל פעולה שאת רוצה לעשות
+}
 ngOnDestroy() {
   this.subscription.unsubscribe(); // Unsubscribe to prevent memory leaks
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
 import { AutoClusterTabType, ButtonType, DataCellType, HeaderCellType, IconButtonLargeType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
 import { IconType } from 'src/app/enums/icon-enum';
@@ -32,7 +32,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './table-group-id-details.component.scss'
 })
 export class TableGroupIdDetailsComponent {
-@Input() groupId: string;
+  @Input() groupId: string;
   // @Output() showToastNotification = new EventEmitter<string>();
 
   #clusterService = inject(ClusterService)
@@ -42,19 +42,19 @@ export class TableGroupIdDetailsComponent {
   #fb = inject(FormBuilder)
   dialogEnterBookidRef: MatDialogRef<EnterBookidComponent> | null = null;
   dialogRef: MatDialogRef<PieComponentDistributionModalComponent> | null = null;
-
+  #cdr = inject(ChangeDetectorRef);
   // clusterGroupDetails: rootObjectOfClusterGroupDetails[] = [];
   headerCheckStatus: CheckType = CheckType.UNCHECKED;
   Rows: any[];
   crmLinkList: string[];
   // howManyChecked: number = 0; // כמה צ'קים נבחרו
-  theCheckedRows:string[] = []; // רשימה של הצ'קים שנבחרו
+  theCheckedRows: string[] = []; // רשימה של הצ'קים שנבחרו
   prefCodeStatus: boolean = false;
   checkedControls: FormControl[] = []; // רק ה־checked של כל שורה
   // showToastNotification: boolean;
   // toastMessage: string = '';
   // toastIcon: IconType;
-
+  valueOrCode: string = 'value'; // משתנה לבחירת value או code
   //enums
   ButtonType = ButtonType;
   DataCellType = DataCellType;
@@ -118,7 +118,7 @@ export class TableGroupIdDetailsComponent {
     'permanentPlace',
     'source'
   ];
- initialStateBoolean: FormControlState<boolean> = {
+  initialStateBoolean: FormControlState<boolean> = {
     value: false,
     disabled: false
   };
@@ -127,77 +127,79 @@ export class TableGroupIdDetailsComponent {
     disabled: false
   };
   subscription: Subscription = new Subscription();
-  Res:ClusterGroupWithCrmLinks | null
+  Res: ClusterGroupWithCrmLinks | null
   ngOnInit() {
     this.#clusterService.getClusterGroupDetails(this.groupId);
     this.subscription.add(this.#clusterService.getClusterGroupDetails(this.groupId).subscribe((res: ClusterGroupWithCrmLinks | null) => {
       this.Res = res;
-      this.i();
-this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
-  const checkedRows = rowsValue.filter(row => row.check);
-  const checkedCount = checkedRows.length;
+      this.initRowsArray();
+      this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
+        const checkedRows = rowsValue.filter(row => row.check);
+        const checkedCount = checkedRows.length;
 
-  // // עדכון מספר הצ׳קים
-  // if (this.howManyChecked !== checkedCount) {
-  //   this.howManyChecked = checkedCount;
-  //   console.log('מספר הצ׳קים שסומנו:', this.howManyChecked);
-  // }
+        // // עדכון מספר הצ׳קים
+        // if (this.howManyChecked !== checkedCount) {
+        //   this.howManyChecked = checkedCount;
+        //   console.log('מספר הצ׳קים שסומנו:', this.howManyChecked);
+        // }
 
-  // עדכון מערך bookId
-  this.theCheckedRows = checkedRows.map(row => row.bookId);
-  console.log('bookId של שורות שנבחרו:', this.theCheckedRows);
-});
+        // עדכון מערך bookId
+        this.theCheckedRows = checkedRows.map(row => row.bookId);
+        console.log('bookId של שורות שנבחרו:', this.theCheckedRows);
+      });
 
-  }))
-   this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
+    }))
+    this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
       this.onHeaderCheckboxToggle()
     }));
     //האזנה למשתנה twoChosen
     // this.checkHowManyChecked()
-   
+
   }
-  i(){
+  initRowsArray() {
+    this.rowsFormArray.clear(); // מנקה את FormArray מהשורות הקודמות
+    this.Rows = []; // מאפס את המערך שמכיל את הנתונים לשורות (לרנדר/לתצוגה)
+
     if (this.Res && this.Res.bookIdDetailsList) {
-      this.Rows = this.Res.bookIdDetailsList
-      this.Rows?.forEach((row) => {
+      for (let row of this.Res.bookIdDetailsList) {
         const rowGroup = this.#fb.group({});
-        ///הוספת CHECK בתחילת כל שורה
-        let control = new FormControl(this.initialStateBoolean);
-        rowGroup.addControl("check", control);
-        for (let key in row) {
-          if (this.tableKeys.includes(key)) {
-            if (row.hasOwnProperty(key)) {
-              const header = key;
-              let control = new FormControl({ value: row[key], disabled: false });
 
-              if (row[key] && typeof row[key] === 'object' && 'value' in row[key]) {
-                control = new FormControl({ value: row[key].value || '', disabled: false });
-              }
-              rowGroup.addControl(header, control);
-            }
+        // checkbox
+        const checkControl = new FormControl(this.initialStateBoolean);
+        rowGroup.addControl("check", checkControl);
+
+        for (let key of this.tableKeys) {
+          if (key === 'check') continue;
+
+          let value = row[key];
+
+          // אם יש אובייקט עם value/code
+          if (value && typeof value === 'object' && 'value' in value && 'code' in value) {
+            value = value[this.valueOrCode as string] || '';
+            console.log('valueOrCode', this.valueOrCode, value);
           }
+          rowGroup.addControl(key, new FormControl({ value: value ?? '', disabled: false }));
         }
-        this.rowsFormArray.push(rowGroup); // הוספת FormGroup
-        console.log(this.Rows);
-      });
-      console.log("this.rowsFormArray", this.rowsFormArray);
 
-    } else {
-      console.warn("Received null or invalid response from getClusterGroupDetails");
+        this.rowsFormArray.push(rowGroup);
+        this.Rows.push(row); // נשמרים גם לוגיקה חיצונית
+
+      }
+      console.log('rowGroup', this.rowsFormArray);
+
+
     }
-    if (this.Res  && this.Res.crmLinkList) {
-      this.crmLinkList = this.Res.crmLinkList.map((item: any) => {
-        return item;
-      });
-    
+
+    if (this.Res && this.Res.crmLinkList) {
+      this.crmLinkList = [...this.Res.crmLinkList];
     }
-    
   }
+
   // //האזנה למשתנה twoChosen
 
   // checkHowManyChecked(): void {
   //   console.log("checkHowManyChecked called");
-    
+
   //   this.rowsFormArray.valueChanges.subscribe((controls: any[]) => {
   //     const checkedCount = controls.filter(control => control.checked).length;
 
@@ -206,7 +208,7 @@ this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
   //     }
   //   });
   // }
- 
+
   //מחיקת שורה
   deleteByBookId(bookId: string) {
     this.rowsFormArray.controls.forEach((row, index) => {
@@ -244,8 +246,14 @@ this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
   }
 
   prefCodeStatusChange(prefCodeStatus: boolean) {
-    // // console.log("prefCodeStatus table", prefCodeStatus);
+    console.log('PrefCodeStatus changed:', prefCodeStatus, " valueOrCode:", this.valueOrCode);
+
     this.prefCodeStatus = prefCodeStatus;
+    this.valueOrCode = prefCodeStatus ? 'code' : 'value'; // עדכון משתנה valueOrCode לפי סטטוס prefCodeStatus
+
+    this.initRowsArray(); // מאתחל מחדש את כל השורות לפי הערך החדש
+    // בקשה מאנגולר לעדכן את המסך
+    this.#cdr.detectChanges();
   }
   openEnterBookIdDialog() {
     this.dialogEnterBookidRef = this.#dialog.open(EnterBookidComponent, {
@@ -280,7 +288,7 @@ this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
 
   }
   get rowsFormArray(): FormArray<FormGroup> {
-    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup> ;
+    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
   }
   get headerCheckbox(): FormControl {
     return this.tableDataForm.get('headerCheckbox') as FormControl;
