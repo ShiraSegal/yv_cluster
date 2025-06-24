@@ -9,7 +9,8 @@
   } -->
 <!--  [name]="myformControlName" -->
 <!-- (click)="chooseOption(option)" -->
-<div >
+<div>
+  <!-- @for (item of items; track $index) {} -->
   <div *ngFor="let option of radioButtonValuesArray" class="option">
     <input
       type="radio"

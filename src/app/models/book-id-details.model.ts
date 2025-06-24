@@ -1,43 +1,35 @@
 import { ValueCodeItem } from "./value-code-item.model";
 
 export class BookIdDetails {
-    bookId: string;
-    clusterId: string;
-    firstName: ValueCodeItem;
-    lastName: ValueCodeItem;
-    fatherFirstName: ValueCodeItem;
-    motherFirstName: ValueCodeItem;
-    spouseFirstName: ValueCodeItem;
-    maidenName: string;
-    dateOfBirth: ValueCodeItem;
-    placeOfBirth: ValueCodeItem;
-    permanentPlace: ValueCodeItem;
-    source: ValueCodeItem;
-    placeOfDeath: string;
-    authenticDateOfBirth: string;
-    restoredDateOfBirth: string;
-    authenticDateOfDeath: string;
-    restoredDateOfDeath: string;
-    gender: string;
-    fate: string;
-    firstNameCode: string;
-    fatherNameCode: string;
-    lastNameCode: string;
-    motherNameCode: string;
-    spouseFirstNameCode: string;
-    dateOfBirthCode: string;
-    placeOfBirthCode: string;
-    permanentPlaceCode: string;
-    sourceCode: string;
-    isClustered: number;
-    existsClusterId: string;
-    relatedFnameGroupId: any;
-    ind: number;
-    hasRelatedGroups: boolean;
-    numberOfSuggestions: number;
-    relatedFnameList: any;
-    isHasRelatedFname: boolean;
-    score: string;
+        bookId: string;
+        clusterId: string;
+        firstName: ValueCodeItem;
+        lastName: ValueCodeItem;
+        fatherFirstName: ValueCodeItem;
+        motherFirstName: ValueCodeItem;
+        spouseFirstName: ValueCodeItem;
+        maidenName: string;
+        dateOfBirth: ValueCodeItem;
+        placeOfBirth: ValueCodeItem;
+        permanentPlace: ValueCodeItem;
+        source: ValueCodeItem;
+        placeOfDeath: ValueCodeItem;
+        authenticDateOfBirth: ValueCodeItem;
+        restoredDateOfBirth: ValueCodeItem;
+        authenticDateOfDeath: ValueCodeItem;
+        restoredDateOfDeath: ValueCodeItem;
+        gender: ValueCodeItem;
+        fate: ValueCodeItem;
+        isClustered: number;
+        existsClusterId: string;
+        relatedFnameGroupId: any;
+        ind: number;
+        hasRelatedGroups: boolean;
+        numberOfSuggestions: number;
+        relatedFnameList: any;
+        isHasRelatedFname: boolean;
+        score: string;
+    
 
     
     constructor(
