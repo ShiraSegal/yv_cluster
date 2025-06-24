@@ -11,7 +11,7 @@
             }
 
             <div class="rows-container" formArrayName="rowsFormArray">
-                @for(rowGroup of rowsFormArray.controls ; let i = $index ;track i;){
+                @for(rowGroup of (rowGroups$ | async) ; let i = $index ;track i;){
                 @if (currentTab === autoClusterTabType.ERROR_MESSAGES) {
                 <yv-cluster-expandable [currentTab]="currentTab" [property]="narrowBasicTableRowExpandState.CLOSE"
                     [rowGroup]="rowGroup">

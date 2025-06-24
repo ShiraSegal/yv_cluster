@@ -143,7 +143,7 @@ export class NarrowBasicTableWarpComponent {
     }));
     this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
       // Handle changes in the rows dynamically
-      debugger;
+
       this.onHeaderCheckboxToggle()
     }));
   }
@@ -206,12 +206,8 @@ setActiveTab(tabText: AutoClusterTabType) {
   }));
   this.currentTab = tabText;
   this.initializeRowsFormArray()
-  this.tableDataForm.patchValue({
-    headerCheckbox: false // איפוס ה-checkbox של הכותרת
-  });
-  this.tableDataForm.patchValue({
-    rowsFormArray: this.Rows[this.currentTab] // איפוס השורות בטופס
-  });
+  this.rowsFormArray.patchValue(this.Rows[this.currentTab] || []); // עדכון הטופס עם השורות החדשות
+  this.headerCheckbox.patchValue(false);
    //, { emitEvent: false }
   }
 
@@ -267,7 +263,6 @@ setActiveTab(tabText: AutoClusterTabType) {
 
   onHeaderCheckboxToggle(): void {
     const isChecked = this.headerCheckbox.value;
-    debugger;
     // Update each control in rowsFormArray directly
     this.rowsFormArray.controls.forEach((group, index) => {
       const checkedControl = group.get('check');

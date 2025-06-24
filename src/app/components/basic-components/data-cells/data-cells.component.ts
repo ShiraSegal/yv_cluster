@@ -75,12 +75,6 @@ get data(): DataCellValue<T> {
   autoClusterTabType=AutoClusterTabType
   subscription: Subscription=new Subscription();
   ngOnInit() {
-    console.log('Data Cell data:', this.data);
-    
-    this.subscription.add(this.formGroup.valueChanges.subscribe((value)=>{
-      // console.log("ggg", value);
-      
-    }))
     this.type = this.mapType(this.typeText);
    //// console.log('Parent FormGroup:', this.formGroup);
   }

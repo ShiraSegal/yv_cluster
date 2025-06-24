@@ -4,23 +4,33 @@
         @if(control.name === "assignee" && currentUserRole !== "manager"){}
         @else {
         <div [ngClass]="control.name" class="cell">
-            <!-- <yv-cluster-data-cells [data]="control.control.value" [currentTab]="currentTab" [control]="control.control"
+            @if(control.name === 'errorMessage'){
+            <yv-cluster-data-cells [data]="textSlice" [currentTab]="currentTab" [control]="control.control"
                 [typeText]="control.name" [prefCodeStatus]="prefCodeStatus"
-                [formGroup]="rowGroup"></yv-cluster-data-cells> -->
+                [formGroup]="rowGroup"></yv-cluster-data-cells>
+            }
+            @else {
+                <yv-cluster-data-cells [data]="control.control.value" [currentTab]="currentTab" [control]="control.control"
+                [typeText]="control.name" [prefCodeStatus]="prefCodeStatus"
+                [formGroup]="rowGroup"></yv-cluster-data-cells>
+            }  
+            
         </div>
         }
-        @if(control.name ==='check'){
+        @if(control.name ==='check'){   
         <div class="cell icon">
-            <yv-cluster-data-cells [type]="dataCellType.ICON" [formGroup]="rowGroup" [currentTab]="currentTab"
-                typeText="icon" [moreData]="{ icon: iconType.CHEVRON_DOWN_SOLID }"
+            <yv-cluster-data-cells
+             [type]="dataCellType.ICON"
+              [formGroup]="rowGroup"
+               [currentTab]="currentTab"
+                typeText="icon"
+                 [moreData]="{ icon:iconForExpand}"
                 (expand)="openExpand()"></yv-cluster-data-cells>
         </div>
         }
         }
     </div>
     @if(showExpand){
-    <div class="expandable-row">ERROR: can't care 15875015 Mandatory data is missing in the item 15875015, please check
-        can't care 15875015 Mandatory data is missing in the item 15875015, please check. can't care 15875015 Mandatory
-        data is missing in the item 15875015, please check.</div>
+    <div class="expandable-row">{{textForExpandable}}</div>
     }
 </form>

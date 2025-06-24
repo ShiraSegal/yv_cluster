@@ -64,25 +64,6 @@ export class TableGroupIdDetailsComponent {
   narrowBasicTableRowLength = NarrowBasicTableRowLength;
   AutoClusterTabType = AutoClusterTabType;
 
-  // formGroup: FormGroup = this.#fb.group({
-  //   checks: this.#fb.array([]),  // זה ה־FormArray לכל הצ'קים
-  // });
-
-  // get rowsArray(): FormArray {
-  //   return this.formGroup.get('checks') as FormArray;
-  // }
-
-  // getFormControl(index: number): FormControl {
-  //   //// // console.log("getFormControl", this.rowsArray.at(index) as FormControl);
-  //   return this.rowsArray.at(index) as FormControl;
-  // }
-
-  // getFormControlsArray(index: number): FormControl[] {
-  //   const formGroup = this.rowsArray.at(index) as FormGroup;
-  //   return Object.keys(formGroup.controls).map(key => formGroup.get(key) as FormControl);
-  // }
-
-
   tableDataForm: FormGroup = this.#fb.group({
     headerCheckbox: new FormControl(false),
     rowsFormArray: this.#fb.array([])
@@ -288,7 +269,7 @@ export class TableGroupIdDetailsComponent {
 
   }
   get rowsFormArray(): FormArray<FormGroup> {
-    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
+    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup> ;
   }
   get headerCheckbox(): FormControl {
     return this.tableDataForm.get('headerCheckbox') as FormControl;

@@ -34,9 +34,6 @@
 <div class="slider-navigation">
   <div class="upper-warp">
     <div class="logo"></div>
-    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="148" height="79" viewBox="0 0 148 79" fill="none">
-      <path d="M147.903 0H0.0966797V79H147.903V0Z" fill="white"/>
-    </svg> -->
     <div class="inner-upper-warp">
       <div class="tabs">
         @for (tab of tabs; track index; let index = $index;) { @if (tab.text ===
@@ -56,18 +53,6 @@
         }
       </div>
     </div>
-
-    <!-- <div>
-      <div class="user-warp">
-        <div class="user-text">
-          {{ userName }}
-          <i
-            class="fa-solid fa-chevron-down custom-arrow"
-            (click)="openLogOut()"
-          ></i>
-        </div>
-      </div>
-    </div> -->
     <div class="space"></div>
     @if (showLogOut) {
     <div class="logout">
