@@ -10,3 +10,6 @@
 nav {
     position: fixed; /* מיקום קבוע לניווט */
 }
+main{
+    margin-left: 12rem;
+}
