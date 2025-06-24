@@ -27,7 +27,7 @@ export class FilterHandlingSuggestionsComponent {
 
 
   @Output() prefCodeStatus = new EventEmitter<boolean>();
-  @Input() howManyChecked: number = 0;
+  @Input() theCheckedRows: string[] = [];
   @Input() crmLinkList: string[] = [];
 
 
@@ -51,21 +51,20 @@ export class FilterHandlingSuggestionsComponent {
     prefCode: false
   };
 
-  //     popoverOptionsLink:{
-  //   optionType: NativeOptionType.TEXT;
-  //   optionState: NativeOptionState;
-  //   displayText: string;
-  // }[] = [{optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: this.crmLinkList[0]},
-  //   {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
-  //   {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
-  // ];
-  popoverOptionsLink: {
-    optionType: NativeOptionType;
+      popoverOptionsLink:{
+    optionType: NativeOptionType.TEXT;
     optionState: NativeOptionState;
     displayText: string;
-  }[] = [];
+  }[] = [{optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 1'},
+    {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
+    {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
+  ];
+  // popoverOptionsLink: {
+  //   optionType: NativeOptionType;
+  //   optionState: NativeOptionState;
+  //   displayText: string;
+  // }[] = [];
   ngOnInit() {
-    console.log('howManyChecked:', this.howManyChecked);
     this.numberCRM = this.crmLinkList?.length ?? 0;
     if (this.crmLinkList) {
       this.initPopoverOptionsLink();
@@ -92,24 +91,17 @@ export class FilterHandlingSuggestionsComponent {
 
   }
   openDialog() {
-  // שליפת ה-bookIds שסומנו
-  // const selectedBookIds = this.rowsFormArray.controls
-  //   .filter(group => group.get('check')?.value) // בדיקה אם השורה מסומנת
-  //   .map(group => group.get('bookId')?.value); // שליפת ה-bookId
+    //// console.log("openDialog");
 
-  // console.log('Selected Book IDs:', selectedBookIds);
-
-
-  // פתיחת הדיאלוג והעברת ה-bookIds
-  this.dialogRef = this.#dialog.open(CreateClusterComponent, {
-    disableClose: true,
-    hasBackdrop: true,
-    panelClass: 'custom-dialog-container',
-    autoFocus: false,
-    width: 'auto', // מאפשר לדיאלוג להתאמת לגודל התוכן
-    height: '100vh',
-    // data: { selectedBookIds } // העברת ה-bookIds לדיאלוג
-  });
+    this.dialogRef = this.#dialog.open(CreateClusterComponent, {
+      disableClose: true,
+      hasBackdrop: true,
+      panelClass: 'custom-dialog-container',
+      autoFocus: false,
+      width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
+      height: '100vh',
+      data: this.theCheckedRows
+    });
 
     this.dialogRef.afterClosed().subscribe((result) => {
       if (result) {

@@ -50,8 +50,8 @@ export class CreateClusterComponent {
 
   formIsValid!: boolean;
   createClusterFormFields: any = {};
-  dataCells: any[];
-  clusterModel: SapirClusterModel = new SapirClusterModel();
+  dataCells: BookIdDetails[];
+  bookIdDetails: BookIdDetails[]// = new BookIdDetails();
   close: boolean = false;
 
   header: string = 'Create Cluster';
@@ -97,38 +97,43 @@ export class CreateClusterComponent {
 
   }
   createClusterFormData() {
-    // this.subscription.add(this.#clusterService.getCreateClusterData()
-    //   .subscribe({
-    //     next: (res: BookIdDetails[] | null) => {
-    //       if (res) {
-    //         this.clusterModel = res;
-    //         this.dataCells = res.sapirClusterDetails;
-    //         this.dataCells.forEach((d: any) => {
-    //           let values: any = [];
-    //           d.values.forEach((v: any) => {
-    //             if (v.nameCode === "") {
-    //               v.nameCode = "unknown";
-    //             }
-    //             values.push({ key: v.nameCode, value: v.value });
-    //           });
+    // console.log("createClusterFormData called with bookId:", this.#data?.bookId); // ← הוספת לוג
+    console.log("this.#data:", this.#data); // ← הוספת לוג
+    
+     this.subscription.add(this.#clusterService.getCreateClusterData(this.#data) // ← הוספת מנוי
+      .subscribe({
+        next: (res: BookIdDetails[] | null ) => {
+          if (res) {
+            this.dataCells = res;
+            console.log("getCreateClusterData response:", res);
+      //       this.dataCells = res.bookIdList || []; // ← ניהול נתונים
+            this.dataCells.forEach((d: any) => {
+              let values: any = [];
+              d.values.forEach((v: any) => {
+                if (v.code === "") {
+                  v.code = "unknown";
+                }
+                values.push({ key: v.code, value: v.value });
+              });
 
-    //           if (d.hasOtherOption) {
-    //             values.push({ key: "other", value: "other" });
-    //           }
+      //         if (d.hasOtherOption) {
+      //           values.push({ key: "other", value: "other" });
+      //         }
 
-    //           d.radioOptions = values;
-    //         });
+              d.radioOptions = values;
+            });
 
-    //         this.initializeFormGroup();
-    //       } else {
-    //         console.warn("No data received from getCreateClusterData.");
-    //         this.dataCells = [];
-    //       }
-    //     },
-    //     error: (error) => {
-    //       console.error("getCreateClusterData occurred:", error);
-    //     },
-    //   }));
+             this.initializeFormGroup();
+           } 
+           else {
+            console.warn("No data received from getCreateClusterData.");
+            this.dataCells = [];
+          }
+         },
+        error: (error) => {
+          console.error("getCreateClusterData occurred:", error);
+        },
+       }));
   }
 
   initializeFormGroup() {
@@ -138,42 +143,42 @@ export class CreateClusterComponent {
   }
 
   createCluster() {
-    console.log("createClusterForm", this.createClusterForm.value);
+    // console.log("createClusterForm", this.createClusterForm.value);
 
-    if (this.createClusterForm.valid) {
-      this.formIsValid = true;
-      this.closeDialogWithData({ bookId: "creat cluster succesfully😍❤" });
-      console.log("this.clusterModel", "creat cluster succesfully😍❤");
+    // if (this.createClusterForm.valid) {
+    //   this.formIsValid = true;
+    //   this.closeDialogWithData({ bookId: "creat cluster succesfully😍❤" });
+    //   console.log("this.clusterModel", "creat cluster succesfully😍❤");
 
-      this.clusterModel.sapirClusterDetails.map((field: any) => {
-        const values = field.values.filter((value: any) => {
-          return value.nameCode === this.createClusterForm.controls[field.field].value;
-        });
+    //   this.clusterModel.bookIdList.map((field: any) => {
+    //     const values = field.values.filter((value: any) => {
+    //       return value.nameCode === this.createClusterForm.controls[field.field].value;
+    //     });
 
-        field.Values = values;
-      });
+    //     field.Values = values;
+    //   });
 
-      this.clusterModel.level = this.createClusterForm.value.clusterLevel;
-      this.clusterModel.comments = this.createClusterForm.value.comments;
+    //   this.clusterModel.level = this.createClusterForm.value.clusterLevel;
+    //   this.clusterModel.comments = this.createClusterForm.value.comments;
 
-     this.subscription.add(this.#clusterService.createCluster(this.clusterModel)
-        .subscribe({
-          next: (res) => {
-            if (res) {
-              console.log("Cluster created:", res);
-            } else {
-              console.warn("Cluster creation failed.");
-            }
-          },
-          error: (err: any) => {
-            console.error("Error during cluster creation:", err);
-          }
-        }));
-    }
-    else {
-      this.formIsValid = false;
-      this.closeDialogWithData({ bookId: "formIsNotValid" });
-    }
+    //  this.subscription.add(this.#clusterService.createCluster(this.clusterModel)
+    //     .subscribe({
+    //       next: (res) => {
+    //         if (res) {
+    //           console.log("Cluster created:", res);
+    //         } else {
+    //           console.warn("Cluster creation failed.");
+    //         }
+    //       },
+    //       error: (err: any) => {
+    //         console.error("Error during cluster creation:", err);
+    //       }
+    //     }));
+    // }
+    // else {
+    //   this.formIsValid = false;
+    //   this.closeDialogWithData({ bookId: "formIsNotValid" });
+    // }
   }
 
   closeDialogWithData(data: any): void {

@@ -23,9 +23,10 @@ export class ClusterApiService {
     return this.#http.get(`${this.apiUrl}/getAutoCluster.json`);
 }
   
-  getCreateClusterData(bookIds:string[]) {
-    return this.#http.get<BookIdDetails[]>(`${this.url}/SystemCluster/GetCreateClusterData?bookIds=${bookIds.join(',')}`);
-  }
+getCreateClusterData(bookIds: string[]) {
+  const queryParams = bookIds.map(bookId => `bookIds=${bookId}`).join('&');
+  return this.#http.get<BookIdDetails[]>(`${this.url}/SystemCluster/GetCreateClusterData?${queryParams}`);
+}
 
   getSingleItemByBookId (bookId:string){
     // let url= `${this.apiUrl}/getByBookId.json`;

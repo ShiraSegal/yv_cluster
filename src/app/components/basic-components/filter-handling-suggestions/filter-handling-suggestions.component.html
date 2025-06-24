@@ -24,12 +24,12 @@
                 }
             </div>
 
-             @if(howManyChecked>0){
+                 @if(theCheckedRows.length>0){
             <yv-cluster-button type="button" (onClick)="openEnterBookidDialog()" text="Add to cluster"
                 [buttonType]="buttonType.SECONDARY" [isBig]=true
                 [iconType]="iconType.LAYER_PLUS_LIGHT"></yv-cluster-button>
              }
-             @if(howManyChecked>1){
+             @if(theCheckedRows.length>1){
             <yv-cluster-button (onClick)="openDialog()" text="Create Cluster" [buttonType]="buttonType.PRIMARY"
                 [isBig]=true [iconType]="iconType.FOLDER_PLUS_LIGHT"></yv-cluster-button>
              }
