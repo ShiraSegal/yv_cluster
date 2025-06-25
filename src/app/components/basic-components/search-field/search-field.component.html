@@ -1,0 +1,21 @@
+<div
+  class="search-field-container"
+>
+<i class="iconType.SEARCH"></i>
+  <input
+    type="text"
+    class="search-field"
+    [value]="value"
+    (input)="onInputChange($event)"
+    (blur)="onBlur()"
+    (focus)="onFocus()"
+    (mouseover)="onMouseOver()"
+    (mouseout)="onMouseOut()"
+    [placeholder]="placeholder"
+  />
+ @if(isFilled) {
+<i class="iconType.SEARCH"></i>
+ }
+ {{isFilled}}{{isFocused}}{{isHovered}}
+</div>
+

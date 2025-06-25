@@ -1,0 +1,33 @@
+.search-field-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  transition: border-color 0.3s;
+
+  &.focused {
+    border-color: #007bff;
+  }
+
+  &.hovered {
+    border-color: #0056b3;
+  }
+
+  &.filled {
+    border-color: #28a745;
+  }
+}
+
+.search-field {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.clear-icon {
+  cursor: pointer;
+  color: #dc3545;
+  margin-left: 0.5rem;
+}

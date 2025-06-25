@@ -45,5 +45,6 @@ export enum IconType {
   TRIANGLE_EXCLAMATION_SOLID = 'fa-solid fa-triangle-exclamation',
  CHEVRON_DOWN_SOLID="fa-solid fa-chevron-down custom-arrow",
  CHEVRON_UP_SOLID="fa-solid fa-chevron-up custom-arrow",
- ARROW_RIGHT_FROM_BRACKET_LIGHT ="fa-light fa-arrow-right-from-bracket" 
+ ARROW_RIGHT_FROM_BRACKET_LIGHT ="fa-light fa-arrow-right-from-bracket",
+ SEARCH ="fa-light fa-search" 
 }

@@ -4,7 +4,7 @@
         @if(control.name === "assignee" && currentUserRole !== "manager"){}
         @else {
         <div [ngClass]="control.name" class="cell">
-            @if(control.name === 'errorMessage'){
+            @if(control.name === 'errorMessage'||control.name === 'comments'){
             <yv-cluster-data-cells [data]="textSlice" [currentTab]="currentTab" [control]="control.control"
                 [typeText]="control.name" [prefCodeStatus]="prefCodeStatus"
                 [formGroup]="rowGroup"></yv-cluster-data-cells>

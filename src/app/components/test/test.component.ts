@@ -53,6 +53,7 @@ import { SelectComponent } from "../basic-components/select/select.component";
 import { NativeOptionComponent } from "../basic-components/native-option/native-option.component";
 import { ToastMessageComponent } from "../basic-components/toast-message/toast-message.component";
 import { MessageService } from "src/app/services/message.service";
+import { SearchFieldComponent } from "../basic-components/search-field/search-field.component";
 @Component({
   selector: 'yv-cluster-test',
   standalone: true,
@@ -104,7 +105,7 @@ import { MessageService } from "src/app/services/message.service";
     // HomeWarpComponent,
     // HomeWarpComponent,
     PopoverComponent,
-    PopoverComponent,
+SearchFieldComponent
 
 ],
   templateUrl: './test.component.html',
