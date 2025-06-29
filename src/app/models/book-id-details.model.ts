@@ -1,26 +1,36 @@
 import { ValueCodeItem } from "./value-code-item.model";
 
 export class BookIdDetails {
-    bookId: string;
-    existsClusterId: string;
-    score: string;
-    firstName: ValueCodeItem;
-    lastName: ValueCodeItem;
-    fatherFirstName: ValueCodeItem;
-    motherFirstName: ValueCodeItem;
-    spouseFirstName: ValueCodeItem;
-    dateOfBirth: ValueCodeItem;
-    placeOfBirth: ValueCodeItem;
-    permanentPlace: ValueCodeItem;
-    source: ValueCodeItem;
-    maidenName: string;
-    isClustered: number;
-    relatedFnameGroupId: number | null;
-    isHasRelatedFname: boolean;
-    ind: number;
-    hasRelatedGroups: boolean;
-    numberOfSuggestions: number;
-    relatedFnameList: any; // ניתן להחליף בהתאם למבנה אם קיים
+        bookId: string;
+        clusterId: string;
+        firstName: ValueCodeItem;
+        lastName: ValueCodeItem;
+        fatherFirstName: ValueCodeItem;
+        motherFirstName: ValueCodeItem;
+        spouseFirstName: ValueCodeItem;
+        maidenName: string;
+        dateOfBirth: ValueCodeItem;
+        placeOfBirth: ValueCodeItem;
+        permanentPlace: ValueCodeItem;
+        source: ValueCodeItem;
+        placeOfDeath: ValueCodeItem;
+        authenticDateOfBirth: ValueCodeItem;
+        restoredDateOfBirth: ValueCodeItem;
+        authenticDateOfDeath: ValueCodeItem;
+        restoredDateOfDeath: ValueCodeItem;
+        gender: ValueCodeItem;
+        fate: ValueCodeItem;
+        isClustered: number;
+        existsClusterId: string;
+        relatedFnameGroupId: any;
+        ind: number;
+        hasRelatedGroups: boolean;
+        numberOfSuggestions: number;
+        relatedFnameList: any;
+        isHasRelatedFname: boolean;
+        score: string;
+    
+
 
     constructor(
         bookId: string,

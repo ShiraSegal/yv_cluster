@@ -27,7 +27,7 @@ export class FilterHandlingSuggestionsComponent {
 
 
   @Output() prefCodeStatus = new EventEmitter<boolean>();
-  @Input() howManyChecked: number = 0;
+  @Input() theCheckedRows: string[] = [];
   @Input() crmLinkList: string[] = [];
 
 
@@ -100,7 +100,7 @@ export class FilterHandlingSuggestionsComponent {
       autoFocus: false,
       width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
       height: '100vh',
-
+      data: this.theCheckedRows
     });
 
     this.dialogRef.afterClosed().subscribe((result) => {

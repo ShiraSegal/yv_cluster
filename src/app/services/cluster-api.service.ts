@@ -23,18 +23,19 @@ export class ClusterApiService {
     return this.#http.get(`${this.apiUrl}/getAutoCluster.json`);
 }
   
-  getCreateClusterData() {
-    return this.#http.get<SapirClusterModel>(`${this.url}/CreateCluster/GetCreateClusterData`);
-  }
+getCreateClusterData(bookIds: string[]) {
+  const queryParams = bookIds.map(bookId => `bookIds=${bookId}`).join('&');
+  return this.#http.get<BookIdDetails[]>(`${this.url}/SystemCluster/GetCreateClusterData?${queryParams}`);
+}
 
   getSingleItemByBookId (bookId:string){
     // let url= `${this.apiUrl}/getByBookId.json`;
-    return this.#http.get<BookIdDetails | boolean>(`${this.url}/AddBookIdOrCluster/AddBookId?bookId=${bookId}`)
+    return this.#http.get<BookIdDetails | boolean>(`${this.url}/SystemCluster/AddBookId?bookId=${bookId}`)
   }
 
   getClusterGroupByBookId(clusterId:string){
     // let url= `${this.apiUrl}/getByBookId.json`;
-    return this.#http.get<BookIdDetails | boolean>(`${this.url}/AddBookIdOrCluster/AddBookIdsByClusterId?clusterId=${clusterId}`)
+    return this.#http.get<BookIdDetails | boolean>(`${this.url}/SystemCluster/AddBookIdsByClusterId?clusterId=${clusterId}`)
   }
 
   createCluster(SapirClusterModel: SapirClusterModel){
