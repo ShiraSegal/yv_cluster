@@ -31,14 +31,14 @@ type NativeSelectOption = {
 @Component({
   selector: 'yv-cluster-create-cluster',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, ButtonComponent, HeadingComponent, RadioButtonListComponent, ButtonComponent, HeaderCellsComponent, FieldComponent, ToastNotificationComponent, SelectComponent,RadioButtonComponent,TableHeaderComponent],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, ButtonComponent, HeadingComponent, RadioButtonListComponent, ButtonComponent, HeaderCellsComponent, FieldComponent, ToastNotificationComponent, SelectComponent, RadioButtonComponent, TableHeaderComponent],
   templateUrl: './create-cluster.component.html',
   styleUrl: './create-cluster.component.scss'
 })
 export class CreateClusterComponent {
-  #dialogRef= inject(MatDialogRef<CreateClusterComponent>,{ optional: true });
-  #data= inject(MAT_DIALOG_DATA,{ optional: true });
-//{ optional: true }- האם צריך את זה?
+  #dialogRef = inject(MatDialogRef<CreateClusterComponent>, { optional: true });
+  #data = inject(MAT_DIALOG_DATA, { optional: true });
+  //{ optional: true }- האם צריך את זה?
   #formBuilder = inject(FormBuilder);
   #clusterService = inject(ClusterService);
   #destroy$ = new Subject<void>(); // ← ניהול ביטול האזנות
@@ -72,10 +72,10 @@ export class CreateClusterComponent {
     optionState: NativeOptionState;
     displayText: string;
   }[] = [
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Exact' },
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Most Probable' },
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Possible' }
-  ];
+      { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Exact' },
+      { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Most Probable' },
+      { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Possible' }
+    ];
 
   comments: string = '';
 
@@ -84,10 +84,28 @@ export class CreateClusterComponent {
   btn_size: boolean = false;
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
-  subscription:Subscription=new Subscription()
+  subscription: Subscription = new Subscription()
   iconType = IconType;
+  fieldsToDisplayInCreateCluster: string[] = [
+    'firstName',
+    'lastName',
+    'fatherFirstName',
+    'motherFirstName',
+    'spouseFirstName',
+    'dateOfBirth',
+    'placeOfBirth',
+    'permanentPlace',
+    'source',
+    'placeOfDeath',
+    'authenticDateOfBirth',
+    'restoredDateOfBirth',
+    'authenticDateOfDeath',
+    'restoredDateOfDeath',
+    'gender',
+    'fate'
+];
 
-
+valuesToDisplayedFields: { [key in string]: { key: string, value: string }[] } = {};
   ngOnInit() {
     this.createClusterFormData();
     // this.subscription.add(this.createClusterForm.valueChanges.subscribe((value) => {
@@ -99,49 +117,44 @@ export class CreateClusterComponent {
   createClusterFormData() {
     // console.log("createClusterFormData called with bookId:", this.#data?.bookId); // ← הוספת לוג
     console.log("this.#data:", this.#data); // ← הוספת לוג
-    
-     this.subscription.add(this.#clusterService.getCreateClusterData(this.#data) // ← הוספת מנוי
+
+    this.subscription.add(this.#clusterService.getCreateClusterData(this.#data) // ← הוספת מנוי
       .subscribe({
-        next: (res: BookIdDetails[] | null ) => {
+        next: (res: BookIdDetails[] | null) => {
           if (res) {
             this.dataCells = res;
-            console.log("getCreateClusterData response:", res);
-      //       this.dataCells = res.bookIdList || []; // ← ניהול נתונים
-            this.dataCells.forEach((d: any) => {
-              let values: any = [];
-              d.values.forEach((v: any) => {
-                if (v.code === "") {
-                  v.code = "unknown";
-                }
-                values.push({ key: v.code, value: v.value });
-              });
-
-      //         if (d.hasOtherOption) {
-      //           values.push({ key: "other", value: "other" });
-      //         }
-
-              d.radioOptions = values;
+            this.fieldsToDisplayInCreateCluster.forEach((fieldName) => {
+              this.valuesToDisplayedFields[fieldName] = [] as { key: string, value: string }[];
             });
-
-             this.initializeFormGroup();
-           } 
-           else {
+            console.log("getCreateClusterData response:", res);
+            this.dataCells.forEach((bookIdDetails: BookIdDetails) => {
+              this.#clusterService.dispalayFieldsToCreateClusterForm(bookIdDetails,this.valuesToDisplayedFields);
+              console.log("valuesToDisplayedFields:", this.valuesToDisplayedFields);
+              
+            });
+            this.initializeFormGroup();
+          }
+          else {
             console.warn("No data received from getCreateClusterData.");
             this.dataCells = [];
           }
-         },
+        },
         error: (error) => {
           console.error("getCreateClusterData occurred:", error);
         },
-       }));
+      }));
   }
 
   initializeFormGroup() {
-    this.dataCells.forEach((field: any) => {
-      this.createClusterForm.addControl(field.field, new FormControl('', Validators.required));
+    this.fieldsToDisplayInCreateCluster.forEach((field: string) => {
+      this.createClusterForm.addControl(field, new FormControl('', Validators.required));
     });
   }
 
+  getObjectKeys(obj: any): string[] {
+    return Object.keys(obj);
+  }
+  
   createCluster() {
     // console.log("createClusterForm", this.createClusterForm.value);
 
@@ -186,6 +199,6 @@ export class CreateClusterComponent {
   }
 
   ngOnDestroy(): void { // ← פונקציית ניקוי בסיום חיי הקומפוננטה
-   this.subscription.unsubscribe(); // מבטלת את כל המנויים שנוצרו
+    this.subscription.unsubscribe(); // מבטלת את כל המנויים שנוצרו
   }
 }

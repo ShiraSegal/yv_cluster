@@ -160,7 +160,24 @@ this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
     if (this.Res && this.Res.bookIdDetailsList) {
       this.Rows = this.Res.bookIdDetailsList
       this.Rows?.forEach((row) => {
-        const rowGroup = this.#fb.group({});
+        this.addRow(row);
+      });
+      console.log("this.rowsFormArray", this.rowsFormArray);
+
+    } else {
+      console.warn("Received null or invalid response from getClusterGroupDetails");
+    }
+    if (this.Res  && this.Res.crmLinkList) {
+      this.crmLinkList = this.Res.crmLinkList.map((item: any) => {
+        return item;
+      });
+    
+    }
+    
+  }
+
+  addRow(row:any) {
+    const rowGroup = this.#fb.group({});
         ///הוספת CHECK בתחילת כל שורה
         let control = new FormControl(this.initialStateBoolean);
         rowGroup.addControl("check", control);
@@ -179,19 +196,6 @@ this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
         }
         this.rowsFormArray.push(rowGroup); // הוספת FormGroup
         console.log(this.Rows);
-      });
-      console.log("this.rowsFormArray", this.rowsFormArray);
-
-    } else {
-      console.warn("Received null or invalid response from getClusterGroupDetails");
-    }
-    if (this.Res  && this.Res.crmLinkList) {
-      this.crmLinkList = this.Res.crmLinkList.map((item: any) => {
-        return item;
-      });
-    
-    }
-    
   }
   // //האזנה למשתנה twoChosen
 
@@ -265,8 +269,10 @@ this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
         if(Array.isArray(result)){
           result.forEach((item: any) => {
           this.Rows.push(item);
+          this.addRow(item);
           })}
-          else{
+          else{ 
+            this.addRow(result);
           this.Rows.push(result);
           }
         console.log('Updated Rows:', this.Rows);

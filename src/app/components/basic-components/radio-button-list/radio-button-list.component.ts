@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
-import { ControlValueAccessor, FormControl, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { BasicRadioButtonComponent } from '../basic-radio-button/basic-radio-button.component';
 import { RadioButtonListDirection } from 'src/app/enums/basic-enum';
 
@@ -19,36 +19,21 @@ import { RadioButtonListDirection } from 'src/app/enums/basic-enum';
   ]
 })
 export class RadioButtonListComponent implements ControlValueAccessor {
-  @Input() radioButtonArray: string[] = ["a", "b", "c", "d", "other"];
-  @Input() radioButtonValuesArray: { key: string, value: string }[];
-  //  = [
-  //   { key: "1", value: "a" },
-  //   { key: "2", value: "b" },
-  //   { key: "3", value: "c" },
-  //   { key: "4", value: "d" },
-  //   { key: "", value: "other" }
-  // ];
+  @Input() radioButtonValuesArray: { key: string, value: string }[] = [];
   @Input() disable!: boolean;
   @Input() direction: RadioButtonListDirection = RadioButtonListDirection.COLUMN;
-  @Output() selectionChange = new EventEmitter<string>();
+  // @Output() selectionChange = new EventEmitter<string>();
 
-  radioControl = new FormControl();
-  radioForm: FormGroup = new FormGroup({ radioControl: this.radioControl });
-
+  private value: string | null = null;
   private onChange: (value: string | null) => void = () => {};
   private onTouched: () => void = () => {};
 
-  constructor() {
-    this.radioControl.valueChanges.subscribe(value => {
-      this.onChange(value);
-      this.selectionChange.emit(value);
-    });
-  }
-
   writeValue(value: string | null): void {
-   // // console.log("writeValue", value);
-    this.radioControl.setValue(value);
+    console.log('writeValue called with:', value);  
+    this.value = value;
+    console.log('Updated value:', this.value);
   }
+  
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
@@ -59,22 +44,19 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    if (isDisabled) {
-      this.radioControl.disable();
-    } else {
-      this.radioControl.enable();
-    }
+    this.disable = isDisabled;
   }
 
-
   onOneRadioButtonChange(value: string): void {
-    // console.log("onRadioChange", value);
-    if(this.radioControl.value === value){
-      value='';
+    console.log('onOneRadioButtonChange called with:', value);
+    console.log('Current value before change:', this.value);
+    
+    if (this.value === value) {
+      value = '';
     }
-    this.onChange(value); // עדכון הערך
-    this.radioControl.setValue(value); // עדכון הערך של FormControl
-    this.selectionChange.emit(value); // פליטת האירוע
+    this.value = value;
+    this.onChange(value);
+    // this.selectionChange.emit(value);
   }
 
   onOtherFieldChecked(selectedOption: string) {
@@ -83,9 +65,12 @@ export class RadioButtonListComponent implements ControlValueAccessor {
         item.key = selectedOption;
       }
     });
-    this.radioControl.setValue(selectedOption);
-    this.selectionChange.emit(selectedOption);
+    this.value = selectedOption;
+    this.onChange(selectedOption);
+    // this.selectionChange.emit(selectedOption);
   }
+
+  // isChecked(key: string): boolean {
+  //   return this.value === key;
+  // }
 }
-
-

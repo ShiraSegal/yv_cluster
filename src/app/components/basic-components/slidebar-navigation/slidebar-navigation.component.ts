@@ -48,10 +48,8 @@ export class SlidebarNavigationComponent {
         this.tabs.forEach((tab) => {
           if (tab.url === currentUrl) {
             tab.property = SliderNavigationTabType.ACTIVE;
-            tab.icon = tab.activeIcon; // שינוי לאייקון פעיל
           } else {
             tab.property = SliderNavigationTabType.VARIANT3;
-            tab.icon = tab.icon; // שינוי לאייקון רגיל
           }
         });
       }
@@ -60,7 +58,7 @@ export class SlidebarNavigationComponent {
   
   
   setActiveTab(tabText: SliderNavigationTabTextType) {
-    const groupId=101
+    const groupId=106;
     // this.activeTabIndex = tabText;
     this.tabs.forEach((tab) => {
       if (tab.text !== tabText) {

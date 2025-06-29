@@ -31,7 +31,7 @@ export class BookIdDetails {
         score: string;
     
 
-    
+
     constructor(
         bookId: string,
         firstName: ValueCodeItem,
