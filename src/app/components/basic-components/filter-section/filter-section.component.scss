@@ -20,12 +20,12 @@ align-items: center;
     align-items: center; // Vertically align items
     gap: 1rem; // Increase spacing between icons and button
 }
-
-.yv-cluster-field,
+.yv-cluster-search-field,
 .yv-cluster-select {
     min-width: 12rem; // Ensure consistent width for dropdowns
     height: 1.5rem; // Match height across elements
 }
+
 .popover {
     position: absolute;
     top: 2.5rem; /* Adjust this value to position the popover below the icon */

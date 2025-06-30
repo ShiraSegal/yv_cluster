@@ -58,23 +58,23 @@ export class NarrowBasicTableRowComponent {
         name: controlKey // Control name
       };
     });
-  }
-ngOnChanges(changes: SimpleChanges): void {
-  if (changes['rowGroup']) {
-    this.updateControlsArray();
-
-    this.subscription.unsubscribe(); // נקה את כל המנויים הקודמים
-    this.subscription = new Subscription();
-
-    // הירשם מחדש לשינויים בטופס
-    this.subscription.add(
-      this.rowGroup.valueChanges.subscribe((value) => {
-        console.log('RowGroup changed: 💜', value);
-        this.updateControlsArray();
-      })
-    );
-  }
 }
+// ngOnChanges(changes: SimpleChanges): void {
+//   if (changes['rowGroup']) {
+//     this.updateControlsArray();
+
+//     this.subscription.unsubscribe(); // נקה את כל המנויים הקודמים
+//     this.subscription = new Subscription();
+
+//     // הירשם מחדש לשינויים בטופס
+//     this.subscription.add(
+//       this.rowGroup.valueChanges.subscribe((value) => {
+//         console.log('RowGroup changed: 💜', value);
+//         this.updateControlsArray();
+//       })
+//     );
+//   }
+// }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()

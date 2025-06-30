@@ -17,11 +17,11 @@ import { emit } from 'process';
   selector: 'yv-cluster-narrow-basic-table-warp',
   standalone: true,
   imports: [CommonModule,
-     BasicTabComponent,
-      NarrowBasicTableComponent,
-      FilterSectionComponent,
-      ReactiveFormsModule
-    ],
+    BasicTabComponent,
+    NarrowBasicTableComponent,
+    FilterSectionComponent,
+    ReactiveFormsModule
+  ],
   templateUrl: './narrow-basic-table-warp.component.html',
   styleUrl: './narrow-basic-table-warp.component.scss',
 })
@@ -105,9 +105,9 @@ export class NarrowBasicTableWarpComponent {
       FilterNames.FILTER_BY_ASSIGNEE,
       FilterNames.FILTER_BY_STATUS,
     ],
-  [this.autoClusterTabType.TABLE_GROUP_ID_DETAILS]: [
+    [this.autoClusterTabType.TABLE_GROUP_ID_DETAILS]: [
 
-  ]
+    ]
   };
   tabs = [
     { text: AutoClusterTabType.SAPIR_CLUSTERS, status: true },
@@ -121,7 +121,7 @@ export class NarrowBasicTableWarpComponent {
   subscription: Subscription = new Subscription();
 
   tableDataForm: FormGroup = this.#fb.group({
-   headerCheckbox: new FormControl(false),
+    headerCheckbox: new FormControl(false),
     rowsFormArray: this.#fb.array([])
   });
 
@@ -179,7 +179,7 @@ export class NarrowBasicTableWarpComponent {
     });
   }
   get rowsFormArray(): FormArray<FormGroup> {
-    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup> ;
+    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
   }
   get headerCheckbox(): FormControl {
     return this.tableDataForm.get('headerCheckbox') as FormControl;
@@ -199,16 +199,16 @@ export class NarrowBasicTableWarpComponent {
     // טען את השורות לטופס
     this.initializeRowsFormArray();
   }
-setActiveTab(tabText: AutoClusterTabType) {
-  this.tabs = this.tabs.map((tab) => ({
-    ...tab,
-    status: tab.text === tabText ? true : false
-  }));
-  this.currentTab = tabText;
-  this.initializeRowsFormArray()
-  this.rowsFormArray.patchValue(this.Rows[this.currentTab] || []); // עדכון הטופס עם השורות החדשות
-  this.headerCheckbox.patchValue(false);
-   //, { emitEvent: false }
+  setActiveTab(tabText: AutoClusterTabType) {
+    this.tabs = this.tabs.map((tab) => ({
+      ...tab,
+      status: tab.text === tabText ? true : false
+    }));
+    this.currentTab = tabText;
+    this.initializeRowsFormArray()
+    this.rowsFormArray.patchValue(this.Rows[this.currentTab] || []); // עדכון הטופס עם השורות החדשות
+    this.headerCheckbox.patchValue(false);
+    //, { emitEvent: false }
   }
 
   generateHeadersFromData(data: any[]): { data: string }[] {
@@ -232,8 +232,7 @@ setActiveTab(tabText: AutoClusterTabType) {
     });
   }
 
-  onFilterValuesChange(values: any[]) {
-    console.log('Filter values:', values);
+  onFilterValuesChange(values: any) {
     this.filterRows(values); // Apply filtering logic
   }
 
@@ -246,36 +245,79 @@ setActiveTab(tabText: AutoClusterTabType) {
     console.log('Show Assignee or Status clicked');
     // Handle assignee/status logic
   }
+  filterRows(filterValues: { [key: string]: string | null }) {
+    console.log("❤️❤️", filterValues);
 
-  filterRows(filterValues: any[]) {
-    this.Rows[this.currentTab] = this.Rows[this.currentTab]?.filter((row) => {
-      return filterValues.includes(row[0]); // Example filtering logic
-    });
-    this.initializeRowsFormArray(); // Reinitialize rows after filtering
-  }
-  showPopover(type: string, index: number): void {
-    this.hoveredPopover = { type, index };
-  }
+    const filteredRows = this.rowsFormArray.controls.filter((formGroup: FormGroup) => {
+      let matches = true;
 
-  hidePopover(): void {
-    this.hoveredPopover = null;
-  }
+      // בדוק אם יש קונטרולים ספציפיים
+      const assigneeValue = formGroup.controls['assignee']?.value;
+      const statusValue = formGroup.controls['status']?.value;
 
-  onHeaderCheckboxToggle(): void {
-    const isChecked = this.headerCheckbox.value;
-    // Update each control in rowsFormArray directly
-    this.rowsFormArray.controls.forEach((group, index) => {
-      const checkedControl = group.get('check');
-      if (checkedControl&&checkedControl.value!==isChecked) {
-        checkedControl.setValue(isChecked);
+      if (filterValues['assignee'] != null) {
+        matches = matches && assigneeValue === filterValues['assignee'];
       }
+
+      if (filterValues['status'] != null) {
+        matches = matches && statusValue === filterValues['status'];
+      }
+
+      // בדוק את כל הקונטרולים עבור חיפוש כללי
+      const searchValue = filterValues['search'];
+
+      if (searchValue != null) {
+        matches = matches && Object.keys(formGroup.controls).some(controlName => {
+          const controlValue = formGroup.controls[controlName].value;
+          if (controlValue != null) {
+            const lowerControlValue = controlValue.toString().toLowerCase();
+            const lowerSearchValue = searchValue.toLowerCase();
+            const contains = lowerControlValue.includes(lowerSearchValue);
+            
+            console.log('Lower Control Value:', lowerControlValue);
+            console.log('Lower Search Value:', lowerSearchValue);
+            console.log('Contains:', contains);
+            
+            return contains;
+          }
+          return false;
+        });
+      }
+
+      return matches;
     });
 
-    console.log('Updated FormArray:', this.rowsFormArray.value);
-    console.log('Updated tableDataForm:', this.tableDataForm.value);
-    // Force Angular to detect changes
-   // this.cdr.detectChanges();
-  }
+    // עדכון הטופס עם השורות המסוננות
+    this.Rows[this.currentTab] = filteredRows.map(formGroup => {
+      return Object.keys(formGroup.controls).map(key => formGroup.controls[key].value);
+    });
+    this.initializeRowsFormArray(); // אתחול מחדש של FormArray עם השורות המסוננות
+}
+
+
+showPopover(type: string, index: number): void {
+  this.hoveredPopover = { type, index };
+}
+
+hidePopover(): void {
+  this.hoveredPopover = null;
+}
+
+onHeaderCheckboxToggle(): void {
+  const isChecked = this.headerCheckbox.value;
+  // Update each control in rowsFormArray directly
+  this.rowsFormArray.controls.forEach((group, index) => {
+    const checkedControl = group.get('check');
+    if (checkedControl && checkedControl.value !== isChecked) {
+      checkedControl.setValue(isChecked);
+    }
+  });
+
+  console.log('Updated FormArray:', this.rowsFormArray.value);
+  console.log('Updated tableDataForm:', this.tableDataForm.value);
+  // Force Angular to detect changes
+  // this.cdr.detectChanges();
+}
 }
 
 

@@ -1,7 +1,7 @@
 <form [formGroup]="filterForm" class="filter-section-container">
   <div class="selects-container">
-    <yv-cluster-field formControlName="search" [property]="stateEnum.DEFAULT" placeholder="Search"
-     ></yv-cluster-field>
+    <yv-cluster-search-field formControlName="search"
+     ></yv-cluster-search-field>
 
     @if (Filters.includes(filterNames.DATE_OF_REPORT)) {
     <yv-cluster-select formControlName="date" [default]="'Select Date Of Report'"

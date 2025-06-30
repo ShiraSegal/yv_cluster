@@ -1,9 +1,10 @@
 import {
   Component, Input, ViewChild, ElementRef, forwardRef,
-  HostListener
+  HostListener,
+  inject
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import {
   BadgeType, NativeOptionType, NativeOptionState,
   PopoverType, State, TextColor, TextSize, TextWeight
@@ -11,6 +12,7 @@ import {
 import { NativeOptionComponent } from '../native-option/native-option.component';
 import { BodyComponent } from '../body/body.component';
 import { FieldComponent } from '../field/field.component';
+import { SearchFieldComponent } from '../search-field/search-field.component';
 
 type NativePopoverOption = {
   optionType: NativeOptionType;
@@ -22,7 +24,7 @@ type NativePopoverOption = {
 @Component({
   selector: 'yv-cluster-popover',
   standalone: true,
-  imports: [CommonModule, NativeOptionComponent, BodyComponent, FieldComponent],
+  imports: [CommonModule, NativeOptionComponent, BodyComponent, SearchFieldComponent,ReactiveFormsModule],
   templateUrl: './popover.component.html',
   styleUrl: './popover.component.scss',
   providers: [
@@ -36,10 +38,14 @@ type NativePopoverOption = {
 export class PopoverComponent implements ControlValueAccessor {
   @Input() type: PopoverType;
   @Input() options: NativePopoverOption[] = [];
-
+  #fb = inject(FormBuilder);
   @ViewChild('scrollable') scrollableRef: ElementRef;
   @ViewChild('customThumb') thumbRef: ElementRef;
   @ViewChild('nativeOption') nativeOption!: ElementRef;
+
+    searchFieldForm: FormGroup = this.#fb.group({
+      searchField: new FormControl(''),
+    });
 
   showScrollbar = false;
   isDragging = false;

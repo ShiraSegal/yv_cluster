@@ -48,13 +48,7 @@
     }
 
     .field-warp {
-      display: flex;
-      padding: 0 0.5rem 0.25rem;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 0.625rem;
-      align-self: stretch;
+   max-width: 10rem;
 
       ::ng-deep yv-cluster-field .common-input-wrapper {
         display: flex;
