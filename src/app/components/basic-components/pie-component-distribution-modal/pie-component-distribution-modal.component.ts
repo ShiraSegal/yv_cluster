@@ -55,6 +55,7 @@ export class PieComponentDistributionModalComponent {
         console.log("Last Names In Places:", this.lastNamesInPlaces);
         // this.thePlaceTotalValue.TotalCount=this.lastNamesInPlaces[0].count;
       },
+      
       error: (error) => {
         console.error("getSpecialActivitiesData occurred:", error);
       }

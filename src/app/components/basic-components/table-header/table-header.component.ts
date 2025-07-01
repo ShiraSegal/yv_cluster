@@ -39,6 +39,7 @@ export class TableHeaderComponent {
     }
   }
 
+<<<<<<< HEAD
   openPeiComponent() {
     // // console.log("openPeiComponent");
     this.openDialog.emit(true);
@@ -47,4 +48,6 @@ export class TableHeaderComponent {
   checkChange(event:string){
     
   }
+=======
+>>>>>>> 50bcdad (some changes in css table)
 }

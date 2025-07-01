@@ -5,6 +5,7 @@
         <div class="table-header-rows-button-container">
             <div class="table-rows-button-container">
 
+<<<<<<< HEAD
             <yv-cluster-narrow-basic-table [prefCodeStatus]="prefCodeStatus"
               [Headers]="Headers"  [tableDataForm]="tableDataForm" [length]="narrowBasicTableRowLength.SHORT" [currentTab]="AutoClusterTabType.TABLE_GROUP_ID_DETAILS"
               (openPieDialog)="openPeiComponent()"
@@ -26,3 +27,10 @@
         </div>
     </div>
 </div>
+=======
+</div>
+@for (row of Rows; track row){
+<yv-cluster-narrow-basic-table-row [property]="NarrowBasicTableRowInputState.DEFAULT" [cells]="row" ></yv-cluster-narrow-basic-table-row>
+
+}
+>>>>>>> 50bcdad (some changes in css table)
