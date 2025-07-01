@@ -12,6 +12,7 @@ import { FormArray, FormBuilder, FormControl, FormControlState, FormGroup, React
 import { FilterSectionComponent } from '../filter-section/filter-section.component';
 import { ChangeDetectorRef } from '@angular/core';
 import { emit } from 'process';
+import { lookupService } from 'dns/promises';
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table-warp',
@@ -127,11 +128,14 @@ export class NarrowBasicTableWarpComponent {
 
   iconsVisible: boolean = false;
 
+  copyRowsFormArray: FormArray<FormGroup>
+
   ngOnInit() {
     this.clusterService.getAutoClusterData();
     this.subscription.add(this.clusterService.getAutoClusterData().subscribe((data) => {
-      this.tabData = data; // שמירת הנתונים ב-tabData
-      this.loadDataForTab(); // טען את הנתונים לטבלה
+      this.tabData = data; // Save the data in tabData
+      this.loadDataForTab(); // Load the data into the table
+
     }));
     this.subscription.add(this.tableDataForm.valueChanges.subscribe((value) => {
       // Handle changes in the entire form
@@ -151,7 +155,7 @@ export class NarrowBasicTableWarpComponent {
     this.subscription.unsubscribe()
   }
   initializeRowsFormArray() {
-    // ניקוי השורות הקיימות
+
     this.rowsFormArray.clear();
 
     this.Rows[this.currentTab]?.forEach((row) => {
@@ -195,7 +199,16 @@ export class NarrowBasicTableWarpComponent {
       // יצירת Rows דינמיים
       this.Rows[tab.text] = this.generateCellsFromRow(tabData, this.Headers[tab.text]);
     });
-
+    this.copyRowsFormArray = new FormArray(
+      (this.Rows[this.currentTab] || []).map(row => {
+        const rowGroup = this.#fb.group({});
+        row.forEach((cellData, index) => {
+          const header = this.Headers[this.currentTab]?.[index]?.data || '';
+          rowGroup.addControl(header, new FormControl(cellData));
+        });
+        return rowGroup;
+      })
+    );
     // טען את השורות לטופס
     this.initializeRowsFormArray();
   }
@@ -206,9 +219,20 @@ export class NarrowBasicTableWarpComponent {
     }));
     this.currentTab = tabText;
     this.initializeRowsFormArray()
+    this.copyRowsFormArray = new FormArray(
+      (this.Rows[this.currentTab] || []).map(row => {
+        const rowGroup = this.#fb.group({});
+        row.forEach((cellData, index) => {
+          const header = this.Headers[this.currentTab]?.[index]?.data || '';
+          rowGroup.addControl(header, new FormControl(cellData));
+        });
+        return rowGroup;
+      })
+    );
     this.rowsFormArray.patchValue(this.Rows[this.currentTab] || []); // עדכון הטופס עם השורות החדשות
     this.headerCheckbox.patchValue(false);
-    //, { emitEvent: false }
+    this.filterRows({}); // אפס את הפילטרים כאשר הטאב משתנה
+
   }
 
   generateHeadersFromData(data: any[]): { data: string }[] {
@@ -247,77 +271,72 @@ export class NarrowBasicTableWarpComponent {
   }
   filterRows(filterValues: { [key: string]: string | null }) {
     console.log("❤️❤️", filterValues);
-
-    const filteredRows = this.rowsFormArray.controls.filter((formGroup: FormGroup) => {
+    const filteredRows = this.copyRowsFormArray.controls.filter((formGroup: FormGroup) => {
       let matches = true;
 
       // בדוק אם יש קונטרולים ספציפיים
       const assigneeValue = formGroup.controls['assignee']?.value;
       const statusValue = formGroup.controls['status']?.value;
+      const clusterIDValue = formGroup.controls['clusterID']?.value;
+      const groupIDValue = formGroup.controls['groupID']?.value;
+      const bookIdValue = formGroup.controls['bookId']?.value;
 
-      if (filterValues['assignee'] != null) {
-        matches = matches && assigneeValue === filterValues['assignee'];
+      // בדוק כל פילטר בנפרד
+      if (filterValues['assignee'] != null && assigneeValue !== filterValues['assignee']) {
+        matches = false;
       }
-
-      if (filterValues['status'] != null) {
-        matches = matches && statusValue === filterValues['status'];
+      if (filterValues['status'] != null && statusValue !== filterValues['status']) {
+        matches = false;
       }
-
-      // בדוק את כל הקונטרולים עבור חיפוש כללי
-      const searchValue = filterValues['search'];
-
-      if (searchValue != null) {
-        matches = matches && Object.keys(formGroup.controls).some(controlName => {
-          const controlValue = formGroup.controls[controlName].value;
-          if (controlValue != null) {
-            const lowerControlValue = controlValue.toString().toLowerCase();
-            const lowerSearchValue = searchValue.toLowerCase();
-            const contains = lowerControlValue.includes(lowerSearchValue);
-            
-            console.log('Lower Control Value:', lowerControlValue);
-            console.log('Lower Search Value:', lowerSearchValue);
-            console.log('Contains:', contains);
-            
-            return contains;
-          }
-          return false;
-        });
+      if (filterValues['search'] != null && 
+          ![clusterIDValue, groupIDValue, bookIdValue].some(value => {
+            if (value !== undefined && value !== null) {
+              const valueToString = value.toString();
+              const searchValue = filterValues['search'];
+              return searchValue && valueToString.includes(searchValue);
+            }
+            return false;
+          })) {
+        matches = false;
       }
 
       return matches;
     });
 
+    console.log("💷", filteredRows);
     // עדכון הטופס עם השורות המסוננות
     this.Rows[this.currentTab] = filteredRows.map(formGroup => {
       return Object.keys(formGroup.controls).map(key => formGroup.controls[key].value);
     });
     this.initializeRowsFormArray(); // אתחול מחדש של FormArray עם השורות המסוננות
-}
+    console.log("😂", this.Rows[this.currentTab]);
+    console.log("🔍", this.rowsFormArray);
+    console.log("💷✈️", this.copyRowsFormArray);
+  }
 
+  showPopover(type: string, index: number): void {
+    this.hoveredPopover = { type, index };
+  }
 
-showPopover(type: string, index: number): void {
-  this.hoveredPopover = { type, index };
-}
+  hidePopover(): void {
+    this.hoveredPopover = null;
+  }
 
-hidePopover(): void {
-  this.hoveredPopover = null;
-}
+  onHeaderCheckboxToggle(): void {
+    const isChecked = this.headerCheckbox.value;
+    // Update each control in rowsFormArray directly
+    this.rowsFormArray.controls.forEach((group, index) => {
+      const checkedControl = group.get('check');
+      if (checkedControl && checkedControl.value !== isChecked) {
+        checkedControl.setValue(isChecked);
+      }
+    });
 
-onHeaderCheckboxToggle(): void {
-  const isChecked = this.headerCheckbox.value;
-  // Update each control in rowsFormArray directly
-  this.rowsFormArray.controls.forEach((group, index) => {
-    const checkedControl = group.get('check');
-    if (checkedControl && checkedControl.value !== isChecked) {
-      checkedControl.setValue(isChecked);
-    }
-  });
-
-  console.log('Updated FormArray:', this.rowsFormArray.value);
-  console.log('Updated tableDataForm:', this.tableDataForm.value);
-  // Force Angular to detect changes
-  // this.cdr.detectChanges();
-}
+    console.log('Updated FormArray:', this.rowsFormArray.value);
+    console.log('Updated tableDataForm:', this.tableDataForm.value);
+    // Force Angular to detect changes
+    // this.cdr.detectChanges();
+  }
 }
 
 
