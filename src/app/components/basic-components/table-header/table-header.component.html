@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <form [formGroup]="tableDataForm">
   <div [ngClass]="['table-header', length]">
     @for (header of headers ; track $index)
@@ -17,14 +16,6 @@
             [tableDataForm]="tableDataForm"
             ></yv-cluster-header-cells>
         </div>
-=======
-<!-- <div class="table-header">
-        @for (header of headers ; track header)
-          {
-            <div [ngClass]="{'special-cell': header.type === HeaderCellType.CHECK || header.type === HeaderCellType.MORE || header.type === HeaderCellType.PLACEOLDER, 'regular-cell': header.type !== HeaderCellType.CHECK && header.type !== HeaderCellType.MORE && header.type !== HeaderCellType.PLACEOLDER}">
-              <yv-cluster-header-cells [header]="header.data" [type]="header.type"></yv-cluster-header-cells>
-          </div>
->>>>>>> 50bcdad (some changes in css table)
           }
     }
     @if(currentTab===autoClusterTabType.APPROVAL_GROUPS||currentTab===autoClusterTabType.CHECKLIST_ITEMS){
@@ -33,7 +24,6 @@
         [tableDataForm]="tableDataForm"
         ></yv-cluster-header-cells>
     </div>
-<<<<<<< HEAD
       }
         @if(currentTab===autoClusterTabType.TABLE_GROUP_ID_DETAILS){
       <div class="cell">
@@ -45,15 +35,3 @@
       }
   </div>
   </form>
-=======
-   -->
-
-   <div class="table-header">
-    @for (header of headers ; track header)
-      {
-        <div [ngClass]="{'special-cell': header.type === HeaderCellType.CHECK || header.type === HeaderCellType.MORE || header.type === HeaderCellType.PLACEOLDER, 'regular-cell': header.type !== HeaderCellType.CHECK && header.type !== HeaderCellType.MORE && header.type !== HeaderCellType.PLACEOLDER}">
-          <yv-cluster-header-cells [header]="header.data" [type]="header.type"></yv-cluster-header-cells>
-      </div>
-      }
-</div>
->>>>>>> 50bcdad (some changes in css table)

@@ -5,35 +5,32 @@
         </div>
         <div class="form-warp">
             <div class="form-header-warp">
-                <!-- <yv-cluster-table-header> -->
                 <div class="table-header">
                         <yv-cluster-header-cells [type]="headerCellType.TEXT" [data]="tableHeader1"></yv-cluster-header-cells>
                 </div>
-                 <!-- </yv-cluster-table-header> -->
                 <div class="header-cell">
                     <yv-cluster-header-cells [type]="headerCellType.TEXT" [data]="tableHeader2"></yv-cluster-header-cells>
                 </div>
             </div>
-            @for(data of dataCells; track $index){
-            <div class="table">
-                <div class="data-cells">
-                        <label class="label">{{data.field}}</label>
-                </div>
-                <div class="options-cells">
+            @for (fieldName of getObjectKeys(valuesToDisplayedFields); track $index) {
+                <div class="table">
+                  <div class="data-cells">
+                    <label class="label">{{ fieldName }}</label>
+                  </div>
+                  <div class="options-cells">
                     <div class="radiobuttons">
-                        <yv-cluster-radio-button-list [radioButtonValuesArray]="data.radioOptions"  [formControlName]="data.field"></yv-cluster-radio-button-list>
-
-                        <yv-cluster-radio-button-list [radioButtonValuesArray]="data.RadioOptions"
-                          [formControlName]="data.Field"></yv-cluster-radio-button-list>
+                      <yv-cluster-radio-button-list
+                        [radioButtonValuesArray]="valuesToDisplayedFields[fieldName]"
+                        [formControlName]="fieldName">
+                      </yv-cluster-radio-button-list>
                     </div>
+                  </div>
                 </div>
-
-            </div>
-
-            }
+              }
+              
 
              <yv-cluster-select class="select" [default]="selectLabel" [options]="options" formControlName="clusterLevel"></yv-cluster-select>
-            <textarea class="comments" placeholder="Comments" style="resize: none;" formControlName="comments"></textarea>
+            <textarea class="comments" placeholder="Comments" style="resize: none;" formControlName="comments"></textarea> 
             <div class="outer-button-warp">
                 <div class="divider"></div>
                     <div class="buttons-warp">
@@ -52,11 +49,5 @@
         </div>
     </div>
 </form>
-<!-- @if(formIsValid==true){
-<yv-cluster-toast-notification [iconName]="iconType.CIRCLE_CHECK_SOLID" [message]="'Cluster created successfully!'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
 
-}
-@if(formIsValid==false){
-<yv-cluster-toast-notification [iconName]="iconType.XMARK_SOLID" [message]="'Please fill all the fields'"  [text]="'Text'" [duration]="80000"></yv-cluster-toast-notification>
-} -->
 

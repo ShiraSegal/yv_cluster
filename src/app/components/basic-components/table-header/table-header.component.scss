@@ -32,7 +32,6 @@
 @import "src/styles.scss";
 
 .table-header {
-<<<<<<< HEAD
 //  height: 3.365rem;
   // border-bottom: 1px solid $c-D0D6F1;
   display: flex;
@@ -41,30 +40,12 @@
   align-self: stretch;
   background: #F1F1F1
   
-=======
-  height: 5.125rem;
-  justify-content: space-between;
-  align-self: stretch;
-  border-bottom: 1px solid $c-D0D6F1;
-  display: flex;
-  width: 100%;
-  padding: 0.25rem 0rem;
-  align-items: center;
->>>>>>> 50bcdad (some changes in css table)
 }
 .long{
   width: 130rem;
 }
-<<<<<<< HEAD
 .cell {
   flex: 1; /* כל תא יקבל רוחב שווה */
-=======
-.special-cell {
-  flex-grow: 0;
-  flex-basis: 0;
-  margin-right: 2.5rem;
-  width: 1.5625rem;
->>>>>>> 50bcdad (some changes in css table)
 }
 .check{
   flex: 0; /* כל תא יקבל רוחב שווה */

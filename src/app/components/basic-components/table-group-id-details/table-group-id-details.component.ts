@@ -251,7 +251,15 @@ export class TableGroupIdDetailsComponent {
     this.dialogEnterBookidRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log('page Data received from dialog:', result);
-        this.Rows.push(result);
+        if(Array.isArray(result)){
+          result.forEach((item: any) => {
+          this.Rows.push(item);
+          this.addRow(item);
+          })}
+          else{ 
+            this.addRow(result);
+          this.Rows.push(result);
+          }
         console.log('Updated Rows:', this.Rows);
         // this.i();  
         this.#notifictionService.showToastNotification({
@@ -289,4 +297,26 @@ export class TableGroupIdDetailsComponent {
     // Force Angular to detect changes
     // this.cdr.detectChanges();
   }
+    addRow(row:any) {
+    const rowGroup = this.#fb.group({});
+        ///הוספת CHECK בתחילת כל שורה
+        let control = new FormControl(this.initialStateBoolean);
+        rowGroup.addControl("check", control);
+        for (let key in row) {
+          if (this.tableKeys.includes(key)) {
+            if (row.hasOwnProperty(key)) {
+              const header = key;
+              let control = new FormControl({ value: row[key], disabled: false });
+
+              if (row[key] && typeof row[key] === 'object' && 'value' in row[key]) {
+                control = new FormControl({ value: row[key].value || '', disabled: false });
+              }
+              rowGroup.addControl(header, control);
+            }
+          }
+        }
+        this.rowsFormArray.push(rowGroup); // הוספת FormGroup
+        console.log(this.Rows);
+  }
+
 }

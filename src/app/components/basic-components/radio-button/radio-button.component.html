@@ -9,8 +9,9 @@
   } -->
 <!--  [name]="myformControlName" -->
 <!-- (click)="chooseOption(option)" -->
-<div >
-  <div *ngFor="let option of radioButtonValuesArray" class="option">
+<div [ngClass]="{'radio-button-list-row': direction==='row', 'radio-button-list-column': direction==='column'}">
+  @for (option of radioButtonValuesArray; track option.key) {
+  <div  class="option">
     <input
       type="radio"
       [value]="option.value"
@@ -20,4 +21,5 @@
     />
     {{ option.value }}
   </div>
+}
 </div>
