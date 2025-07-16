@@ -25,6 +25,8 @@ export class CrmClustersComponent {
   toastIcon: IconType;
   iconType = IconType
 
+
+
   ngOnInit(): void {
     this.groupId = this.#route.snapshot.paramMap.get('id')!;
     console.log('ID:', this.groupId);

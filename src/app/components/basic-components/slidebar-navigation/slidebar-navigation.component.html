@@ -1,3 +1,35 @@
+<!-- <div class="slider-navigation">
+    <div class="inner-warp">
+    <div class="upper-warp">
+    <div class="logo"></div>
+    <div class="tabs">
+        @for (tab of tabs; track index; let index = $index;) {
+        @if (tab.text === sliderNavigationTabTextType.LOG_OUT) {
+        <div class="space"></div>
+        }
+        @if (tab.text === sliderNavigationTabTextType.AUTO_CLUSTER ||tab.text ===
+        sliderNavigationTabTextType.REPORT ||tab.text === sliderNavigationTabTextType.LOG_OUT) {
+        <div class="line"></div>
+        }
+
+        <yv-cluster-slider-navigation-tab class="tab"[property]="tab.property"
+            [icon]="activeTabIndex ===index ? tab.activeIcon : tab.icon" [text]="tab.text"
+            (click)="setActiveTab(tab.text)">
+        </yv-cluster-slider-navigation-tab>
+        }
+    </div>
+    <div class="line"></div>
+       <div class="user">
+        <div class="user-warp">
+            {{userName}}
+            <i  class="fa-solid fa-chevron-down custom-arrow"></i>
+        </div>
+       </div>
+    </div>
+</div>
+
+
+</div> -->
 
 <div class="slider-navigation">
   <div class="upper-warp">

@@ -9,6 +9,7 @@ import { ClusterGroupWithCrmLinks } from '../models/cluster-group-with-crm-links
 import { BookIdDetails } from '../models/book-id-details.model';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,27 +17,30 @@ export class ClusterApiService {
   basicParam: string = 'reservations';
   #http = inject(HttpClient);
   apiUrl = 'assets/json-data';
-  
-   getAutoClusterData() {
-    return this.#http.get<string[]>(`${this.apiUrl}/getAutoCluster.json`);
-  }
+  url = 'https://localhost:7059/api';
 
-  getCreateClusterData() {
-    return this.#http.get<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`);
-  }
+
+  getAutoClusterData() : Observable<any> {
+    return this.#http.get(`${this.apiUrl}/getAutoCluster.json`);
+}
+  
+getCreateClusterData(bookIds: string[]) {
+  const queryParams = bookIds.map(bookId => `bookIds=${bookId}`).join('&');
+  return this.#http.get<BookIdDetails[]>(`${this.url}/SystemCluster/GetCreateClusterData?${queryParams}`);
+}
 
   getSingleItemByBookId (bookId:string){
     // let url= `${this.apiUrl}/getByBookId.json`;
-    return this.#http.get<BookIdDetails | boolean>(`${this.apiUrl}/AddBookIdOrCluster/AddBookId?bookId=${bookId}`)
+    return this.#http.get<BookIdDetails | boolean>(`${this.url}/SystemCluster/AddBookId?bookId=${bookId}`)
   }
 
   getClusterGroupByBookId(clusterId:string){
     // let url= `${this.apiUrl}/getByBookId.json`;
-    return this.#http.get<BookIdDetails | boolean>(`${this.apiUrl}/AddBookIdOrCluster/AddBookIdsByClusterId?clusterId=${clusterId}`)
+    return this.#http.get<BookIdDetails | boolean>(`${this.url}/SystemCluster/AddBookIdsByClusterId?clusterId=${clusterId}`)
   }
 
   createCluster(SapirClusterModel: SapirClusterModel){
-    return this.#http.post<SapirClusterModel>(`${this.apiUrl}/CreateCluster/CreateNewCluster`, SapirClusterModel);
+    return this.#http.post<SapirClusterModel>(`${this.url}/CreateCluster/CreateNewCluster`, SapirClusterModel);
   }
   // getstatisticData(): Observable<any> {
   //   return this.#http.get('./assets/json-data/getstatisticData.json');

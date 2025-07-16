@@ -18,9 +18,10 @@
                 </yv-cluster-expandable>
                 }
                 @else {
-                <yv-cluster-narrow-basic-table-row [currentTab]="currentTab"
+                <yv-cluster-narrow-basic-table-row [currentTab]="currentTab" [prefCodeStatus]="prefCodeStatus"
                     [property]="narrowBasicTableRowInputState.DEFAULT" [rowGroup]="rowGroup"
-                    [length]="narrowBasicTableRowLength.LONG">
+                    [length]="narrowBasicTableRowLength.SHORT"
+                    (bookIdToDelet)="deleteRowByBookId($event)">
                 </yv-cluster-narrow-basic-table-row>
                 }
                 }

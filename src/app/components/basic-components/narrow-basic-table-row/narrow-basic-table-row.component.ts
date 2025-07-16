@@ -43,6 +43,7 @@ export class NarrowBasicTableRowComponent {
   rowGroupControls: { control: FormControl, name: string }[];
 
   ngOnInit() {
+    
     this.updateControlsArray()
     this.subscription.add(this.rowGroup.valueChanges.subscribe((value) => {
       console.log('RowGroup changed: 💜', value);
@@ -58,6 +59,22 @@ export class NarrowBasicTableRowComponent {
         name: controlKey // Control name
       };
     });
+  }
+ngOnChanges(changes: SimpleChanges): void {
+  if (changes['rowGroup']) {
+    this.updateControlsArray();
+
+    this.subscription.unsubscribe(); // נקה את כל המנויים הקודמים
+    this.subscription = new Subscription();
+
+    // הירשם מחדש לשינויים בטופס
+    this.subscription.add(
+      this.rowGroup.valueChanges.subscribe((value) => {
+        console.log('RowGroup changed: 💜', value);
+        this.updateControlsArray();
+      })
+    );
+  }
 }
 // ngOnChanges(changes: SimpleChanges): void {
 //   if (changes['rowGroup']) {
@@ -76,20 +93,27 @@ export class NarrowBasicTableRowComponent {
 //   }
 // }
 
+ 
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }
   onIconDeletClick() {
-    console.log('narrow Icon delete clicked');
+    // console.log('narrow Icon delete clicked');
     
-    const cellControl = this.rowGroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי
-    const cellData = cellControl?.value?.data;
+    // const cellControl = this.rowGroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי
+    // const cellData = cellControl?.value?.data;
 
-    if (typeof cellData === 'string') {
-      this.bookIdToDelet.emit(cellData);
-    } else {
-      this.bookIdToDelet.emit('');
-    }
+    // if (typeof cellData === 'string') {
+    //   this.bookIdToDelet.emit(cellData);
+    // } else {
+    //   this.bookIdToDelet.emit('');
+    // }
+
+    let rowBookId:string = this.rowGroup.get('bookId')?.value; // 'groupID' הוא המפתח של קבוצת השורה
+    console.log('rowGroupId: ', rowBookId);
+    
+     this.bookIdToDelet.emit(rowBookId);
   }
 
   onOpenClick(){

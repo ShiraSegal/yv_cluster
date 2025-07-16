@@ -5,11 +5,14 @@ import { MessageService } from './services/message.service';
 import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
 import { IconType } from './enums/icon-enum';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {  RouterOutlet } from '@angular/router';
-import { SlidebarNavigationComponent } from './components/basic-components/slidebar-navigation/slidebar-navigation.component';
-import { LoadingComponent } from './components/basic-components/loading/loading.component';
 import { ToastNotificationComponent } from './components/basic-components/toast-notification/toast-notification.component';
+import { SlidebarNavigationComponent } from './components/basic-components/slidebar-navigation/slidebar-navigation.component';
+import { RouterOutlet } from '@angular/router';
 import { NotifictionService } from './services/notifiction.service';
+import { LoadingComponent } from './components/basic-components/loading/loading.component';
+// import {Component, inject} from '@angular/core';
+
+
 
 @Component({
   selector: 'app-root',

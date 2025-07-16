@@ -42,19 +42,23 @@ export class SlidebarNavigationComponent {
   ];
 
   ngOnInit() {
-      this.#router.events.subscribe((event) => {
-        if (event instanceof NavigationEnd) {
-          const currentUrl = event.urlAfterRedirects.split('/')[1];
-          this.tabs.forEach((tab) => {
-            tab.property = tab.url === currentUrl ? SliderNavigationTabType.ACTIVE : SliderNavigationTabType.VARIANT3;
-          });
-        }
-      });
+    this.#router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const currentUrl = event.urlAfterRedirects.split('/')[1];
+        this.tabs.forEach((tab) => {
+          if (tab.url === currentUrl) {
+            tab.property = SliderNavigationTabType.ACTIVE;
+          } else {
+            tab.property = SliderNavigationTabType.VARIANT3;
+          }
+        });
+      }
+    });
     }
   
   
   setActiveTab(tabText: SliderNavigationTabTextType) {
-    const groupId=1
+    const groupId=1;
     // this.activeTabIndex = tabText;
     this.tabs.forEach((tab) => {
       if (tab.text !== tabText) {
