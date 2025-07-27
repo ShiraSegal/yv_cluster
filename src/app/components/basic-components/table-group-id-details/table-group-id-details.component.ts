@@ -268,8 +268,8 @@ this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
         console.log('page Data received from dialog:', result);
         if(Array.isArray(result)){
           result.forEach((item: any) => {
-          this.Rows.push(item);
           this.addRow(item);
+          this.Rows.push(item);
           })}
           else{ 
             this.addRow(result);
@@ -277,15 +277,6 @@ this.rowsFormArray.valueChanges.subscribe((rowsValue: any[]) => {
           }
         console.log('Updated Rows:', this.Rows);
         // this.i();  
-        this.#notifictionService.showToastNotification({
-          iconName: this.iconType.SUCCESS_SOLID,
-          title: 'Successfull',
-          message: result.bookId + "  added to the cluster successfully!",
-          duration: 3000
-        });
-        if (result.bookId === "formIsNotValid") {
-          console.log('page Data received from dialog: no data');
-        }
       }
 
     });
