@@ -1,6 +1,6 @@
 import {
   Component, Input, ViewChild, ElementRef, forwardRef,
-  HostListener, inject
+  HostListener, inject, AfterViewInit, NgZone
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
@@ -13,7 +13,8 @@ import {
 import { NativeOptionComponent } from '../native-option/native-option.component';
 import { BodyComponent } from '../body/body.component';
 import { SearchFieldComponent } from '../search-field/search-field.component';
-import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { debounceTime, distinctUntilChanged, take } from 'rxjs/operators';
+
 
 type NativePopoverOption = {
   optionType: NativeOptionType;
@@ -34,7 +35,7 @@ type NativePopoverOption = {
     multi: true
   }]
 })
-export class PopoverComponent implements ControlValueAccessor {
+export class PopoverComponent implements ControlValueAccessor, AfterViewInit {
   @Input() type: PopoverType;
   @Input() options: NativePopoverOption[] = [];
 
@@ -43,6 +44,7 @@ export class PopoverComponent implements ControlValueAccessor {
   @ViewChild('nativeOption') nativeOption!: ElementRef;
 
   fb = inject(FormBuilder);
+  zone = inject(NgZone);
 
   searchFieldForm: FormGroup = this.fb.group({
     searchField: new FormControl('')
@@ -66,18 +68,36 @@ export class PopoverComponent implements ControlValueAccessor {
     this.filterdList = this.options;
     this.setHeaderByType();
 
-    this.searchFieldForm.get('searchField')?.valueChanges.pipe(
-      debounceTime(200),
-      distinctUntilChanged()
-    ).subscribe(searchTerm => {
-      this.filterdList = this.filterOptions(searchTerm);
+this.searchFieldForm.get('searchField')?.valueChanges.pipe(
+  debounceTime(200),
+  distinctUntilChanged()
+).subscribe(searchTerm => {
+  this.filterdList = this.filterOptions(searchTerm);
+
+  this.setScrollbarVisibility(); // ← עדכן נראות של scrollbar
+
+  this.zone.onStable.pipe(take(1)).subscribe(() => {
+    if (this.showScrollbar) {
       this.updateScrollbarUI();
-    });
+    } else {
+      // מנקה גובה ותזוזה של scrollbar כשלא צריך
+      const thumb = this.thumbRef?.nativeElement;
+      if (thumb) {
+        thumb.style.height = '0px';
+        thumb.style.top = '0px';
+      }
+    }
+  });
+});
+
+
   }
 
   ngAfterViewInit() {
-    this.setScrollbarVisibility();
-    this.updateScrollbarUI();
+    setTimeout(() => {
+      this.setScrollbarVisibility();
+      this.updateScrollbarUI();
+    });
   }
 
   setHeaderByType() {
@@ -109,16 +129,16 @@ export class PopoverComponent implements ControlValueAccessor {
     this.onChange(option.displayText || option.property);
   }
 
-  onMouseScroll(event: WheelEvent) {
-    const scrollable = this.scrollableRef.nativeElement;
-    const prevScrollTop = scrollable.scrollTop;
-    scrollable.scrollTop += event.deltaY;
+onMouseScroll(event: WheelEvent) {
+  const scrollable = this.scrollableRef.nativeElement;
+  const prevScrollTop = scrollable.scrollTop;
+  scrollable.scrollTop += event.deltaY;
 
-    if (scrollable.scrollTop !== prevScrollTop) {
-      event.preventDefault(); // רק אם הייתה תזוזה בפועל
-      this.updateThumbPosition();
-    }
-  }
+  // רק אם באמת יש גלילה, תמנע ברירת מחדל
+  if (scrollable.scrollHeight > scrollable.clientHeight && scrollable.scrollTop !== prevScrollTop) {
+    event.preventDefault();
+    this.updateThumbPosition();
+  }}
 
   updateScrollbarUI() {
     setTimeout(() => {
@@ -128,7 +148,7 @@ export class PopoverComponent implements ControlValueAccessor {
   }
 
   setScrollbarVisibility() {
-    const height = this.nativeOption.nativeElement.offsetHeight * this.options.length;
+    const height = this.nativeOption?.nativeElement?.offsetHeight * this.filterdList.length;
     this.showScrollbar = height > 200;
   }
 
