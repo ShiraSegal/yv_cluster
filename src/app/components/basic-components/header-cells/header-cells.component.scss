@@ -9,7 +9,9 @@
     line-height: normal;
     width: 1.3125rem;
     height: 1.0625rem;
-    flex-shrink: 0;
+    flex-shrink: 0; 
+
+
 }
 
 .header-cell {
@@ -23,6 +25,9 @@
     color: $c-3F4B5A;
     font-family: Poppins;
     font-size: 0.875rem;
+   height: 3.125rem;
+// background-color:$c-F1F1F1;
+
 }
 
 .text,
@@ -31,8 +36,8 @@
     align-items:center;
     justify-content: space-between;
     flex: 1 0 0;
+    width: 6.3rem;
 
-    width: 6.25rem;
 }
 
 .header-search {
@@ -80,7 +85,9 @@
     font-weight: 900;
     flex-shrink: 0;
 }
-
+.check{
+    align-items: center;
+}
 .place-order {
     width: 1.5625rem;
     justify-content: flex-end;

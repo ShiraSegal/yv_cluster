@@ -1,36 +1,50 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
-import { HeaderCellType, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
+import { Component, Input, Output, EventEmitter, inject, SimpleChanges } from '@angular/core';
+import { AutoClusterTabType, HeaderCellType, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
 import { HeaderCellsComponent } from "../header-cells/header-cells.component";
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CheckType } from 'src/app/enums/check-enum';
 import { ClusterService } from 'src/app/services/cluster.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'yv-cluster-table-header',
   standalone: true,
-  imports: [CommonModule, HeaderCellsComponent],
+  imports: [CommonModule, HeaderCellsComponent,ReactiveFormsModule],
   templateUrl: './table-header.component.html',
   styleUrl: './table-header.component.scss'
 })
 export class TableHeaderComponent {
-  @Input() headers: { data: string; type: HeaderCellType }[] = [];
+  @Input() headers: { data: string }[] = [];
   @Input() length: NarrowBasicTableRowLength;
-  @Output() checkStatus = new EventEmitter<CheckType>();
+  @Input() tableDataForm: FormGroup;
   @Output() openDialog = new EventEmitter<boolean>();
-  @Output() sort = new EventEmitter<string>();
-  @Input() headerCheckboxControl: FormControl;
-
-  #clusterService = inject(ClusterService);
+  @Input() currentTab: AutoClusterTabType;
+  #clusterService = inject(ClusterService)
   currentUserRole = this.#clusterService.currentUser.role;
-
-  headerCellType = HeaderCellType;
-
-  checkChange(checkStatus: CheckType) {
-    this.checkStatus.emit(checkStatus);
+  autoClusterTabType = AutoClusterTabType
+  //injections
+  headerCellType = HeaderCellType
+  subscription: Subscription = new Subscription();
+  ngOnInit() {
+   
+  }
+  get headerCheckbox(): FormControl {
+    return this.tableDataForm.get('headerCheckbox') as FormControl;
+  }
+  //functions
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['headers']) {
+      this.headers = changes['headers'].currentValue;
+    }
   }
 
   openPeiComponent() {
+    // // console.log("openPeiComponent");
     this.openDialog.emit(true);
+  }
+
+  checkChange(event:string){
+    
   }
 }

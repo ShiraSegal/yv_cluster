@@ -19,3 +19,10 @@ box-shadow: 0px 10px 60px 0px rgba(117, 115, 115, 0.10);
     align-items: flex-start;
     align-self: stretch;
 }
+.table-header-rows-button-container{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 0.25rem;
+align-self: stretch;
+}

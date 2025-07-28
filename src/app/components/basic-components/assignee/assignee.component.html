@@ -1,7 +1,13 @@
-<div class="assignee" (click)="onTouched()">
+<div class="assignee">
   <svg class="assignee-icon" viewBox="0 0 24 24">
     <circle class="assignee-circle" />
-    <text x="12" y="12" class="circle-text">{{ assigneeInitials }}</text>
+    <text x="12" y="12" class="circle-text">{{sliceText}}</text>
   </svg>
-  <span>{{ truncatedName }}</span>
+  @if(data) {
+  <span>{{ data }}</span>
+  }
+  @else {
+  <span>{{ value }}</span>
+  }
+
 </div>

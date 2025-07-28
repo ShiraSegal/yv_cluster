@@ -1,27 +1,32 @@
-<div class="narrow-basic-table-row" [ngClass]="property" [ngClass]="length" [formGroup]="formgroup">
-  @for (cell of getFormControls(formgroup);  let i = $index ;track i) {
-  @if(currentUserRole === "manager" && cell.value.value.type === dataCellType.ASSIGNEE){
-    <div class="regular-cell">
-      <yv-cluster-data-cells
-      [data]="cell.value.value.data"
-      [type]="cell.value.value.type"
-      [control]="controls[cell.key]"
-      [prefCodeStatus]="prefCodeStatus"
-      (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
-  </div>
-  }
-  @if(cell.value.value.type !== dataCellType.ASSIGNEE){
-    <div [ngClass]="{
-          'special-cell': cell.value.value.type === dataCellType.ICON || cell.value.value.type === dataCellType.CHECK || cell.value.value.type === dataCellType.MORE,
-          'regular-cell': cell.value.value.type !== dataCellType.ICON && cell.value.value.type !== dataCellType.CHECK && cell.value.value.type !== dataCellType.MORE
-        }">
-        <yv-cluster-data-cells
-        [data]="cell.value.value.data"
-        [type]="cell.value.value.type"
-        [control]="controls[cell.key]"
-        [prefCodeStatus]="prefCodeStatus"
+<form [formGroup]="rowGroup">
+  <div class="narrow-basic-table-row" [ngClass]="property" [ngClass]="length">
+    @for (control of rowGroupControls; let i = $index ;track i) {
+    @if(control.name === "assignee" && currentUserRole !== "manager"){}
+    @else {
+    <div class="cell" [ngClass]="control.name">
+      <yv-cluster-data-cells [data]="control.control.value" [currentTab]="currentTab" [typeText]="control.name"
+        [prefCodeStatus]="prefCodeStatus" [formGroup]="rowGroup"
         (iconClick)="onIconDeletClick()"></yv-cluster-data-cells>
     </div>
     }
-  }
-</div>
+    }
+    @if(currentTab===autoClusterTabType.APPROVAL_GROUPS||currentTab===autoClusterTabType.CHECKLIST_ITEMS){
+    <div class="cell,button">
+      <yv-cluster-data-cells [currentTab]="currentTab" [formGroup]="rowGroup" typeText="button"
+        [moreData]="{'text':'open', 'isBig' : true,'buttonType': buttonType.SECONDARY}"
+        (click)="onOpenClick()"></yv-cluster-data-cells>
+    </div>
+    }
+    @if(currentTab===autoClusterTabType.TABLE_GROUP_ID_DETAILS){
+
+            <yv-cluster-data-cells
+             [type]="dataCellType.ICON"
+              [formGroup]="rowGroup"
+               [currentTab]="currentTab"
+                typeText="icon"
+                 [moreData]="{icon:iconType.TRASH_LIGHT}"
+                (expand)="onIconDeletClick()"
+                ></yv-cluster-data-cells>
+    }
+  </div>
+</form>

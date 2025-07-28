@@ -3,8 +3,11 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
-import { SapirClusterModel } from '../models/sapir-cluster-model.model';
-import { RootObject } from '../models/root-object.model';
+import { SapirClusterModel} from '../models/sapir-cluster-model.model';
+// import { RootObject } from 'src/app/models/root-object.model';
+import { ClusterGroupWithCrmLinks } from '../models/cluster-group-with-crm-links.model';
+import { BookIdDetails } from '../models/book-id-details.model';
+
 
 
 @Injectable({
@@ -14,32 +17,44 @@ export class ClusterApiService {
   basicParam: string = 'reservations';
   #http = inject(HttpClient);
   apiUrl = 'assets/json-data';
+  url = 'https://localhost:7059/api';
+
+
+  getAutoClusterData() : Observable<any> {
+    return this.#http.get(`${this.apiUrl}/getAutoCluster.json`);
+}
   
-  async getAutoClusterData() {
-    return this.#http.get<string[]>(`${this.apiUrl}/getAutoCluster.json`);
-  }
-  
-  getCreateClusterData() {
-    return this.#http.get<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`);
-  }
+getCreateClusterData(bookIds: string[]) {
+  const queryParams = bookIds.map(bookId => `bookIds=${bookId}`).join('&');
+  return this.#http.get<BookIdDetails[]>(`${this.url}/SystemCluster/GetCreateClusterData?${queryParams}`);
+}
 
   getSingleItemByBookId (bookId:string){
     // let url= `${this.apiUrl}/getByBookId.json`;
-    return this.#http.get<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`);
+    return this.#http.get<BookIdDetails | boolean>(`${this.url}/SystemCluster/AddBookId?bookId=${bookId}`)
   }
 
-  getClusterGroupByBookId(cluster:string){
-    return this.#http.get<RootObject | boolean>(`${this.apiUrl}/getByBookId.json`);
+  getClusterGroupByBookId(clusterId:string){
+    // let url= `${this.apiUrl}/getByBookId.json`;
+    return this.#http.get<BookIdDetails | boolean>(`${this.url}/SystemCluster/AddBookIdsByClusterId?clusterId=${clusterId}`)
   }
 
   createCluster(SapirClusterModel: SapirClusterModel){
-    return this.#http.post<SapirClusterModel>(`${this.apiUrl}/getCreateClusterData.json`, SapirClusterModel);
+    return this.#http.post<SapirClusterModel>(`${this.url}/CreateCluster/CreateNewCluster`, SapirClusterModel);
   }
-    getStatisticData(): Observable<any> {
-    return this.#http.get('./assets/json-data/getStatisticData.json');
+  // getstatisticData(): Observable<any> {
+  //   return this.#http.get('./assets/json-data/getstatisticData.json');
+  // }
+  getstatisticData(): Observable<any> {
+    return this.#http.get('https://localhost:7059/api/SystemCluster/GetstatisticData');
   }
-  getClusterGroupDetails(): Observable<any> {
-    return this.#http.get('./assets/json-data/getClusterGroupDetails.json');
+  // getClusterGroupDetails(): Observable<any> {
+  //   return this.#http.get('./assets/json-data/getClusterGroupDetails.json');
+  // }
+  getClusterGroupDetails(groupId:string): Observable<ClusterGroupWithCrmLinks> {
+    let result: any;
+     result= this.#http.get(`https://localhost:7059/api/SystemCluster/GetClusterGroupDetails/${groupId}`);
+    return result;
   }
   getDashboardDataById(id: number): Observable<any> {
     return this.#http.get<any[]>(`${this.apiUrl}/getDataForDashboard.json`).pipe(
@@ -53,7 +68,7 @@ export class ClusterApiService {
   }
   // getCreateClusterData(): Observable<any[]> {
   //   return this.#http.get<any>(`${this.apiUrl}/getCreateClusterData.json`).pipe(
-  //     map(response => response?.SapirClusterDetails || []) // מיפוי התוצאה להחזרת SapirClusterDetails בלבד
+  //     map(response => response?.sapirClusterDetails || []) // מיפוי התוצאה להחזרת sapirClusterDetails בלבד
   //   );
   // }
 
@@ -67,5 +82,5 @@ export class ClusterApiService {
       map((data: any[]) => data.find((user: any) => user.id === id)) // סינון לפי ID
     );
   }
-  
+
 }

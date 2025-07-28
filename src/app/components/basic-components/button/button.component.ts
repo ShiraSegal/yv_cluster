@@ -11,19 +11,14 @@ import { IconType } from 'src/app/enums/icon-enum';
   standalone: true,
 })
 export class ButtonComponent {
-  @Input() text: string = "";
-  @Input() buttonType: ButtonType = ButtonType.PRIMARY;
+  @Input() text: string;
+  @Input() buttonType: ButtonType ;
   @Input() disabled: boolean = false;
-  @Input() isBig: boolean = false;
+  @Input() isBig: boolean ;
   @Input() iconType!: IconType;
 
   @Output() onClick = new EventEmitter<void>();
-  ngOnInit() {
-  //// console.log(this.buttonType);
-  //// console.log(this.isBig);
-
-
-}
+ 
   handleClick() {
     if (!this.disabled) {
       this.onClick.emit();

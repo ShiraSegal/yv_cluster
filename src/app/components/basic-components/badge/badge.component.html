@@ -1,5 +1,11 @@
 
-  <div [ngClass]="property" class="badge">
-    {{ label }}
+@if(value){
+  <div [ngClass]="valueForCss" class="badge" >
+    {{ value }}
   </div>
-  
+}
+@else(){
+  <div [ngClass]="property" class="badge" >
+    {{ property }}
+  </div>
+}

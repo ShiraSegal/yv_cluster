@@ -21,8 +21,8 @@ flex: 1 0 0;
 }
   .badge {
     position: absolute;
-    top: 12.5px; // טיפה מעל האיקון
-    left: 12.5px; // תלוי בכיוון, אפשר גם `left` אם צריך
+    top: 1.2rem; // טיפה מעל האיקון
+    left: 0.5rem; // תלוי בכיוון, אפשר גם `left` אם צריך
     background-color:$c-425DC7; // כחול
     color:$c-FFFFFF;
     border-radius: 50%;

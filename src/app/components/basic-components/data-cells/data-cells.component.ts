@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { BadgeType, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
+import { ChangeDetectorRef, Component, EventEmitter, inject, Input, Output, SimpleChanges } from '@angular/core';
+import { AutoClusterTabType, BadgeType, ButtonType, CheckStateType, DataCellType, DataCellValue, IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { AssigneeComponent } from "../assignee/assignee.component";
 import { BadgeComponent } from '../badge/badge.component';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
@@ -9,7 +9,8 @@ import { SliderComponent } from '../slider/slider.component';
 import { ButtonComponent } from '../button/button.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { CheckType } from 'src/app/enums/check-enum';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'yv-cluster-data-cells',
@@ -28,24 +29,33 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
     AssigneeComponent,
     BadgeComponent,
     IconButtonLargeComponent,
-    CommonModule],
+    CommonModule,
+  ReactiveFormsModule ],
 
   templateUrl: './data-cells.component.html',
   styleUrls: ['./data-cells.component.scss']
 })
 
 export class DataCellsComponent<T extends DataCellType> {
-  // variables
-  @Input() type: T;
-  @Input() data: DataCellValue<T>;
-  @Input() moreData: { [key: string]: any }; // אובייקט לפרמטרים נוספים
-  @Input() control: FormControl;
-  @Input() prefCodeStatus: boolean=false;
 
-  @Output() checkStatus = new EventEmitter<CheckType>();
-  @Output() iconClick = new EventEmitter<void>();
+  #cdr = inject(ChangeDetectorRef);
+  // variables
+  @Input() type: any;
+  @Input() typeText:string
+  @Input() data: DataCellValue<T>;
+
+
+
+
+  @Input() moreData: { [key: string]: any }; // אובייקט לפרמטרים נוספים
+  @Input() prefCodeStatus;
+  @Input() formGroup: FormGroup;
+  @Input() currentTab : AutoClusterTabType;
+  @Output() expand = new EventEmitter<void>();
+
   bookId: string = "";
   hRef: string = "";
+
 
   //injecting ENUM
   badgeType = BadgeType;
@@ -55,16 +65,53 @@ export class DataCellsComponent<T extends DataCellType> {
   dataCellType = DataCellType;
   checkStateType = CheckStateType;
   checkType = CheckType;
+  autoClusterTabType=AutoClusterTabType
+  subscription: Subscription=new Subscription();
+  ngOnInit() {
+    if(this.type===this.dataCellType.ICON && this.moreData?.['icon']) {
+    console.log('moreDataaaaaaaaaaaaaaa:', this.moreData?.['icon'],'dataCellType:', this.type);
+  }
+    this.type = this.mapType(this.typeText);
+   //// console.log('Parent FormGroup:', this.formGroup);
+  }
+  //   ngOnChanges(changes: SimpleChanges): void {      
+  //   // if (changes['data'] ) {
+  //   //      console.log('Data Cell changes:', this.data);
+            
+        
+  //   // }
+  //     if (changes['prefCodeStatus'] ) {
+  //        console.log('Data Cell changes:', this.data);
+       
+  //       console.log('data cell Pref Code Status changed:', this.prefCodeStatus);        
+  //   }
+  // }
+ngOnDestroy() {
+  this.subscription.unsubscribe(); // Unsubscribe to prevent memory leaks
+}
+  private mapType(typeText: string): DataCellType {
+    switch (typeText) {
+      case 'check': return DataCellType.CHECK;
+      case 'button': return DataCellType.BUTTON;
+      case 'assignee': return DataCellType.ASSIGNEE;
+      case 'status': return DataCellType.STATUS;
+      case 'icon': return DataCellType.ICON;
+      default: return DataCellType.TEXT;
+    }
 
-rihgtLink(){
- if (this.moreData!==null &&typeof this.moreData['linkHRef'] === "string" && this.moreData['linkHRef'].includes('collections.yadvashem.org/en/names/')) {
-      this.hRef=this.moreData['linkHRef'] +this.data;
+    
+  }
+
+
+  rihgtLink() {
+    if (this.moreData !== null && typeof this.moreData['linkHRef'] === "string" && this.moreData['linkHRef'].includes('collections.yadvashem.org/en/names/')) {
+      this.hRef = this.moreData['linkHRef'] + this.data;
       return this.hRef
     }
     else
-    return this.data
+      return this.data
 
-}
+  }
   isString(value: any): value is string {
     return typeof value === 'string' && value.trim().length > 0;
   }
@@ -73,14 +120,11 @@ rihgtLink(){
     return typeof value === 'number';
   }
 
-  checkChange(checkStatus: CheckType) {
-    this.checkStatus.emit(checkStatus);
-   // console.log("data cells check status", checkStatus)
-  }
   onClick() {
-    // alert('click');
-    this.iconClick.emit();
+    // Handle other click logic if needed
+  }
 
-
+  triggerExpand() {
+    this.expand.emit(); // Emit the expand event
   }
 }

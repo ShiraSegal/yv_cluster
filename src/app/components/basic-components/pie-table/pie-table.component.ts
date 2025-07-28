@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, inject, Input, SimpleChanges  } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule } from '@angular/forms';
 import { DataCellsComponent } from '../data-cells/data-cells.component';
 import { DataCellType, HeaderCellType} from 'src/app/enums/basic-enum';
 import { LOADIPHLPAPI } from 'node:dns';
@@ -23,6 +23,7 @@ export class PieTableComponent {
   @Input() thePlaceTotalValue!: { TotalCount: number; Value: string };
   tableRows:any= [{'rowName':'Last Name','objectKey':'Value'}, {'rowName':'Count','objectKey':'Count'}, {'rowName':'percent','objectKey':'Count'},{ 'rowName':'Total name count','objectKey':'Code'}];
   totalAllNamesInTheDatabase:number=180056
+  emptyFormGroup = new FormGroup({});
 //enums
   dataCellType = DataCellType;
   headerCellType=HeaderCellType
@@ -40,7 +41,7 @@ getValue(subItem: any, key: string): any {
     if (changes['allDatabaseData'] || changes['spsipicPlaceData']) {
       // אם צריך לעדכן לוגיקה פנימית או לחשב דברים מחדש, תעשי זאת כאן
       // ואז תכריחי את Angular לרנדר שוב:
-     // console.log("ngOnChanges(changes: SimpleChanges): void");
+     // // console.log("ngOnChanges(changes: SimpleChanges): void");
 
       this.#crd.detectChanges();
       this.#crd.markForCheck()

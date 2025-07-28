@@ -12,12 +12,16 @@
       </div>
 
       @if (type !== 'status') {
-        <div class="field-warp">
-          <yv-cluster-field
-            [placeholder]="'Search By name'"
+          <form [formGroup]="searchFieldForm">
+            <div class="field-warp"></div>
+            <yv-cluster-search-field [formControlName]="searchField" >
+            </yv-cluster-search-field>
+          </form>
+          <!-- <yv-cluster-field
+            [placeholder]="'Search'"
             (input)="filterPopoverList($event)">
-          </yv-cluster-field>
-        </div>
+          </yv-cluster-field> -->
+      
       }
     </div>
 

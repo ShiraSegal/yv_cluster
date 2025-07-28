@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, Input } from '@angular/core';
 import { BadgeType, BasicTablePropertyType, ButtonType, CheckStateType, CheckType, IconButtonLargeType, NarrowBasicTableRowInputState, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
 import { DataCellType, HeaderCellType, AutoClusterTabType } from 'src/app/enums/basic-enum';
 import { NarrowBasicTableComponent } from '../narrow-basic-table/narrow-basic-table.component';
@@ -7,45 +7,56 @@ import { ClusterService } from 'src/app/services/cluster.service';
 import { BasicTabComponent } from '../basic-tab/basic-tab.component';
 import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 import { IconType } from 'src/app/enums/icon-enum';
+import { Subscription } from 'rxjs';
+import { FormArray, FormBuilder, FormControl, FormControlState, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FilterSectionComponent } from '../filter-section/filter-section.component';
+import { ChangeDetectorRef } from '@angular/core';
+import { emit } from 'process';
+import { lookupService } from 'dns/promises';
 
 @Component({
   selector: 'yv-cluster-narrow-basic-table-warp',
   standalone: true,
-  imports: [CommonModule, BasicTabComponent, NarrowBasicTableComponent],
+  imports: [CommonModule,
+    BasicTabComponent,
+    NarrowBasicTableComponent,
+    FilterSectionComponent,
+    ReactiveFormsModule
+  ],
   templateUrl: './narrow-basic-table-warp.component.html',
-  styleUrl: './narrow-basic-table-warp.component.scss'
+  styleUrl: './narrow-basic-table-warp.component.scss',
 })
 export class NarrowBasicTableWarpComponent {
-
+  @Input() subTitle: string = '';
   clusterService = inject(ClusterService);
+  #fb = inject(FormBuilder);
+  cdr = inject(ChangeDetectorRef);
   //enum imports
   autoClusterTabType = AutoClusterTabType;
   headerCellType = HeaderCellType;
   dataCellType = DataCellType;
   basicTablePropertyType = BasicTablePropertyType;
+  narrowBasicTableRowLength = NarrowBasicTableRowLength;
   narrowBasicTableRowInputState = NarrowBasicTableRowInputState;
   checkStateType = CheckStateType;
   checkType = CheckType;
-
+  buttonType = ButtonType;
+  iconType = IconType;
   //data
-
   tabData: any;
-  @Input() subTitle: string = '';
   currentTab = AutoClusterTabType.SAPIR_CLUSTERS;
-  Headers: { [key in AutoClusterTabType]?: { data: string; type: HeaderCellType }[] } = {};
-  Rows: {
-    [key in AutoClusterTabType]?: {
-      property: any;
-      showAction: boolean;
-      length: NarrowBasicTableRowLength;
-      cells: {
-        data: string;
-        type: DataCellType;
-        moreData?: { [key: string]: any };
-      }[];
-    }[];
-  } = {};
+  Headers: { [key in AutoClusterTabType]?: { data: string }[] } = {};
+  Rows: { [key in AutoClusterTabType]?: any[][] } = {};
 
+  initialStateString: FormControlState<string> = {
+    value: '',
+    disabled: true
+  };
+  initialStateBoolean: FormControlState<boolean> = {
+    value: false,
+    disabled: false
+  };
+  hoveredPopover: { type: string; index: number } | null = null;
   readonly TabToJSONKeyMap: { [key in AutoClusterTabType]: string } = {
     [AutoClusterTabType.SAPIR_CLUSTERS]: 'ClustersForSapir',
     [AutoClusterTabType.MISSING_FIELD]: 'ClustersWithMissingFields',
@@ -53,6 +64,7 @@ export class NarrowBasicTableWarpComponent {
     [AutoClusterTabType.APPROVAL_GROUPS]: 'GroupsForClusterApprovalSystem',
     [AutoClusterTabType.DIFFERENT_CLUSTERS]: 'GroupsWithDifferentClusters',
     [AutoClusterTabType.CHECKLIST_ITEMS]: 'ItemsForCheckList',
+    [AutoClusterTabType.TABLE_GROUP_ID_DETAILS]: 'TableGroupIdDetails' // ��� �������� ������������, ���� ���� ������
   };
 
   filters: FilterNames[] = [
@@ -94,30 +106,10 @@ export class NarrowBasicTableWarpComponent {
       FilterNames.FILTER_BY_ASSIGNEE,
       FilterNames.FILTER_BY_STATUS,
     ],
+    [this.autoClusterTabType.TABLE_GROUP_ID_DETAILS]: [
+
+    ]
   };
-
-  // initializeFiltersForTab() {
-  //   const newFilters: FilterNames[] = [];
-
-  //   // Add filters based on conditions
-  //   newFilters.push(FilterNames.DATE_OF_REPORT); // Always include this filter
-
-  //   if (this.currentTab === this.autoClusterTabType.MISSING_FIELD) {
-  //     newFilters.push(FilterNames.DATE_OF_ASSIGNEE);
-  //     newFilters.push(FilterNames.FILTER_BY_ASSIGNEE);
-  //   }
-
-  //   if (this.currentTab === this.autoClusterTabType.APPROVAL_GROUPS) {
-  //     newFilters.push(FilterNames.FILTER_BY_STATUS);
-  //   }
-
-  //   if (this.currentTab === this.autoClusterTabType.ERROR_MESSAGES) {
-  //     newFilters.push(FilterNames.FILTER_BY_ASSIGNEE);
-  //   }
-
-  //   // Update the filters array for the current tab
-  //   this.filtersDictionary[this.currentTab] = newFilters;
-  // }
   tabs = [
     { text: AutoClusterTabType.SAPIR_CLUSTERS, status: true },
     { text: AutoClusterTabType.MISSING_FIELD, status: false },
@@ -127,139 +119,223 @@ export class NarrowBasicTableWarpComponent {
     { text: AutoClusterTabType.ERROR_MESSAGES, status: false },
   ];
 
-  readonly DBKeyToHeaderMap: { [key: string]: string } = {
-    clusterID: 'Cluster ID',
-    MissingField: 'Missing field',
-    dateOfReport: 'Date of report',
-    clustersIDs: 'Clusters ID',
-    errorMessage: 'Error message',
-    groupID: 'Group ID',
-    assigneeDate: 'Assignee date',
-    assignee: 'Assignee',
-    status: 'Status',
-    bookId: 'Book ID',
-    score: 'Score',
-    comments: 'Comments',
-    comment:'Comment',
-  };
-  readonly HeaderToDBKeyMap: { [key: string]: string } = {
-    'Cluster ID': 'clusterID',
-    'Missing field': 'MissingField',
-    'Date of report': 'dateOfReport',
-    'Clusters ID': 'clustersIDs',
-    'Error message': 'errorMessage',
-    'Group ID': 'groupID',
-    'Assignee date': 'assigneeDate',
-    'Assignee': 'assignee',
-    'Status': 'status',
-    'Book ID': 'bookId',
-    'Score': 'score',
-    'Comments': 'comments',
-    'Comment': 'comment',
-  };
+  subscription: Subscription = new Subscription();
+
+  tableDataForm: FormGroup = this.#fb.group({
+    headerCheckbox: new FormControl(false),
+    rowsFormArray: this.#fb.array([])
+  });
+
+  iconsVisible: boolean = false;
+
+  copyRowsFormArray: FormArray<FormGroup>
 
   ngOnInit() {
     this.clusterService.getAutoClusterData();
-    this.clusterService.autoClusterListSubject$.subscribe((data) => {
-      this.tabData = data; // שמירת הנתונים ב-tabData
-      this.loadDataForTab(); // טען את הנתונים לטבלה
-    });
-  }
-  getDataCellTypeForHeader(header: string, headerType: HeaderCellType): DataCellType {
-    if (header === 'Status') return DataCellType.STATUS;
-    if (header === 'Assignee') return DataCellType.ASSIGNEE;
-    return DataCellType.TEXT; // ברירת מחדל
-  }
-
-  getDataForCurrentTab(): any[] {
-    const jsonKey = this.TabToJSONKeyMap[this.currentTab];
-    return this.tabData?.[jsonKey] || [];
-  }
-
-  setActiveTab(tabText: AutoClusterTabType) {
-    this.tabs = this.tabs.map((tab) => ({
-      ...tab,
-      status: tab.text === tabText ? true : false
+    this.subscription.add(this.clusterService.getAutoClusterData().subscribe((data) => {
+      this.tabData = data; // Save the data in tabData
+      this.loadDataForTab(); // Load the data into the table
 
     }));
-    this.currentTab = tabText;
-    //this.loadDataForTab(); // טען מחדש את הנתונים לטאב הנוכחי
-  }
+    this.subscription.add(this.tableDataForm.valueChanges.subscribe((value) => {
+      // Handle changes in the entire form
+      // console.log('Basic table Form Value:', value);
+    }));
+    this.subscription.add(this.rowsFormArray.valueChanges.subscribe((rows) => {
+      // Handle changes in the rows dynamically
+      // console.log('Rows Form Array Value:', rows);
+    }));
+    this.subscription.add(this.headerCheckbox.valueChanges.subscribe((headerCheckBox) => {
+      // Handle changes in the rows dynamically
 
+      this.onHeaderCheckboxToggle()
+    }));
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }
+  initializeRowsFormArray() {
+
+    this.rowsFormArray.clear();
+
+    this.Rows[this.currentTab]?.forEach((row) => {
+      const rowGroup = this.#fb.group({});
+
+      row.forEach((cellData, index) => {
+        const header = this.Headers[this.currentTab][index]?.data;
+
+        let control = new FormControl({ value: cellData || '', disabled: true });
+
+        switch (header) {
+          case "check":
+            control = new FormControl(this.initialStateBoolean);
+            break;
+          case "assignee":
+          case "status":
+            control.enable();
+            break;
+        }
+
+        rowGroup.addControl(header, control);
+      });
+
+      this.rowsFormArray.push(rowGroup); // הוספת FormGroup
+    });
+  }
+  get rowsFormArray(): FormArray<FormGroup> {
+    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
+  }
+  get headerCheckbox(): FormControl {
+    return this.tableDataForm.get('headerCheckbox') as FormControl;
+  }
   loadDataForTab() {
     this.tabs?.forEach((tab) => {
       const jsonKey = this.TabToJSONKeyMap[tab.text]; // מיפוי הטאב למפתח המתאים
       const tabData = this.tabData?.[jsonKey] || []; // קבלת הנתונים עבור הטאב הנוכחי
-  
+
       // יצירת Headers דינמיים
-      this.Headers[tab.text] = this.generateHeadersFromData(tabData, tab.text);
-  
+      this.Headers[tab.text] = this.generateHeadersFromData(tabData);
+
       // יצירת Rows דינמיים
-      this.Rows[tab.text] = tabData.map((item: any) => ({
-        property: item.property || null,
-        showAction: true,
-        length: NarrowBasicTableRowLength.LONG,
-        cells: this.generateCellsFromRow(item, this.Headers[tab.text], tab.text)
-      }));
+      this.Rows[tab.text] = this.generateCellsFromRow(tabData, this.Headers[tab.text]);
     });
+    this.copyRowsFormArray = new FormArray(
+      (this.Rows[this.currentTab] || []).map(row => {
+        const rowGroup = this.#fb.group({});
+        row.forEach((cellData, index) => {
+          const header = this.Headers[this.currentTab]?.[index]?.data || '';
+          rowGroup.addControl(header, new FormControl(cellData));
+        });
+        return rowGroup;
+      })
+    );
+    // טען את השורות לטופס
+    this.initializeRowsFormArray();
   }
-  generateHeadersFromData(data: any[], tabType: AutoClusterTabType): { data: string; type: HeaderCellType }[] {
-    if (!data.length) return []; // אם אין נתונים, החזר מערך ריק
-  
+  setActiveTab(tabText: AutoClusterTabType) {
+    this.tabs = this.tabs.map((tab) => ({
+      ...tab,
+      status: tab.text === tabText ? true : false
+    }));
+    this.currentTab = tabText;
+    this.initializeRowsFormArray()
+    this.copyRowsFormArray = new FormArray(
+      (this.Rows[this.currentTab] || []).map(row => {
+        const rowGroup = this.#fb.group({});
+        row.forEach((cellData, index) => {
+          const header = this.Headers[this.currentTab]?.[index]?.data || '';
+          rowGroup.addControl(header, new FormControl(cellData));
+        });
+        return rowGroup;
+      })
+    );
+    this.rowsFormArray.patchValue(this.Rows[this.currentTab] || []); // עדכון הטופס עם השורות החדשות
+    this.headerCheckbox.patchValue(false);
+    this.filterRows({}); // אפס את הפילטרים כאשר הטאב משתנה
+
+  }
+
+  generateHeadersFromData(data: any[]): { data: string }[] {
+    if (!data.length) return [{ data: 'CHECK' }]; // אם אין נתונים, החזר אובייקט עם 'CHECK'
+
     const keys = Object.keys(data[0]); // קבלת המפתחות מהאובייקט הראשון
-    let headers :{ data: string; type: HeaderCellType }[] = keys.map((key) => {
-     
-      let headerType = HeaderCellType.TEXT; // ברירת מחדל
-  
-      // שימוש במפה DBKeyToHeaderMap אם המפתח קיים, אחרת השארת המפתח המקורי
-      const headerName = this.DBKeyToHeaderMap[key] || key;
-  
-      return { data: headerName, type: headerType };
+    let headers: { data: string }[] = keys.map((key) => {
+      return { data: key }; // החזר את המפתח ככותרת
     });
 
-    headers = [{ data: 'Check', type: HeaderCellType.CHECK }, ...headers];
-  
-    if (tabType === AutoClusterTabType.APPROVAL_GROUPS || tabType === AutoClusterTabType.CHECKLIST_ITEMS) {
-      headers.push({ data: 'Button', type: HeaderCellType.PLACEOLDER });
-    }
-  
+    // הוסף אובייקט 'CHECK' בתחילת המערך
+    headers.unshift({ data: 'check' });
     return headers;
   }
-  generateCellsFromRow(row: any, headers: { data: string; type: HeaderCellType }[], tabType: AutoClusterTabType): { data: string; type: DataCellType; moreData?: { [key: string]: any } }[] {
-    let cells = headers.map((header) => {
-      const headerName = this.HeaderToDBKeyMap[header.data.toString()] || header.data; // קבלת שם העמודה מהמפה או השארת השם המקורי
-      const cellData = row[headerName] || ''; // קבלת הנתונים מהשורה
-      const dataCellType = this.getDataCellTypeForHeader(header.data, header.type); // קביעת סוג התא
-  
-      // יצירת מידע נוסף (moreData) לפי סוג התא
-      const moreData = this.getMoreDataForCell(dataCellType, cellData);
-  
-      return { data: cellData, type: dataCellType, moreData };
+
+  generateCellsFromRow(data: any[], headers: { data: string }[]): any[][] {
+    return data.map((row) => {
+      return headers.map((header) => {
+        return row[header.data] || ''; // קבלת הנתון מהשורה לפי הכותרת
+      });
     });
-  
-    // הוספת Check בתחילת השורה עם סוג CHECK
-    cells = [{ data: 'Check', type: DataCellType.CHECK, moreData: { type: this.checkType.UNCHECKED, state: this.checkStateType.ENABLED } }, ...cells];
-  
-    // הוספת Button בסוף השורה עבור טאבים מסוימים
-    if (tabType === AutoClusterTabType.APPROVAL_GROUPS || tabType === AutoClusterTabType.CHECKLIST_ITEMS) {
-      cells.push({ data: 'Button', type: DataCellType.BUTTON, moreData: { buttonType: ButtonType.SECONDARY, text: 'Open', isBig: false } });
-    }
-  
-    return cells;
   }
 
-  getMoreDataForCell(dataCellType: DataCellType, cellData: any): { [key: string]: any } {
-    switch (dataCellType) {
-      case DataCellType.STATUS:
-        return { property: BadgeType.TODO };
-      case DataCellType.ICON:
-        return {
-          icon: IconType.CHEVRON_RIGHT_LIGHT,
-          property: IconButtonLargeType.DEFAULT
-        };
-      default:
-        return {};
-    }
+  onFilterValuesChange(values: any) {
+    this.filterRows(values); // Apply filtering logic
+  }
+
+  onClickAddCluster() {
+    console.log('Add Cluster clicked');
+    // Handle add cluster logic
+  }
+
+  onClicShowkAssineeOrStatus() {
+    console.log('Show Assignee or Status clicked');
+    // Handle assignee/status logic
+  }
+  filterRows(filterValues: { [key: string]: string | null }) {
+    console.log("❤️❤️", filterValues);
+    const filteredRows = this.copyRowsFormArray.controls.filter((formGroup: FormGroup) => {
+      let matches = true;
+
+      // בדוק אם יש קונטרולים ספציפיים
+      const assigneeValue = formGroup.controls['assignee']?.value;
+      const statusValue = formGroup.controls['status']?.value;
+      const clusterIDValue = formGroup.controls['clusterID']?.value;
+      const groupIDValue = formGroup.controls['groupID']?.value;
+      const bookIdValue = formGroup.controls['bookId']?.value;
+
+      // בדוק כל פילטר בנפרד
+      if (filterValues['assignee'] != null && assigneeValue !== filterValues['assignee']) {
+        matches = false;
+      }
+      if (filterValues['status'] != null && statusValue !== filterValues['status']) {
+        matches = false;
+      }
+      if (filterValues['search'] != null && 
+          ![clusterIDValue, groupIDValue, bookIdValue].some(value => {
+            if (value !== undefined && value !== null) {
+              const valueToString = value.toString();
+              const searchValue = filterValues['search'];
+              return searchValue && valueToString.includes(searchValue);
+            }
+            return false;
+          })) {
+        matches = false;
+      }
+
+      return matches;
+    });
+
+    console.log("💷", filteredRows);
+    // עדכון הטופס עם השורות המסוננות
+    this.Rows[this.currentTab] = filteredRows.map(formGroup => {
+      return Object.keys(formGroup.controls).map(key => formGroup.controls[key].value);
+    });
+    this.initializeRowsFormArray(); // אתחול מחדש של FormArray עם השורות המסוננות
+    console.log("😂", this.Rows[this.currentTab]);
+    console.log("🔍", this.rowsFormArray);
+    console.log("💷✈️", this.copyRowsFormArray);
+  }
+
+  showPopover(type: string, index: number): void {
+    this.hoveredPopover = { type, index };
+  }
+
+  hidePopover(): void {
+    this.hoveredPopover = null;
+  }
+
+  onHeaderCheckboxToggle(): void {
+    const isChecked = this.headerCheckbox.value;
+    // Update each control in rowsFormArray directly
+    this.rowsFormArray.controls.forEach((group, index) => {
+      const checkedControl = group.get('check');
+      if (checkedControl && checkedControl.value !== isChecked) {
+        checkedControl.setValue(isChecked);
+      }
+    });
+
+    console.log('Updated FormArray:', this.rowsFormArray.value);
+    console.log('Updated tableDataForm:', this.tableDataForm.value);
+    // Force Angular to detect changes
+    // this.cdr.detectChanges();
   }
 }
 

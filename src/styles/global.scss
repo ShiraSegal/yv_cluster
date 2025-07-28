@@ -1,0 +1,10 @@
+html, body {
+  height: 100%; // Ensure the root elements have full height
+  margin: 0;
+  padding: 0;
+  overflow: hidden; // Prevent scrollbars if not needed
+}
+
+#app-root {
+  height: 100%; // Ensure the Angular app container has full height
+}

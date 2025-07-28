@@ -1,26 +1,34 @@
 <div class="container">
     <yv-cluster-filter-handling-suggestions (prefCodeStatus)="prefCodeStatusChange($event)"
-        [howManyChecked]="howManyChecked" [crmLinkList]="crmLinkList"
-        (showToastNotification)="showToastNotificationFunction($event)"></yv-cluster-filter-handling-suggestions>
+        [theCheckedRows]="theCheckedRows" [crmLinkList]="crmLinkList"></yv-cluster-filter-handling-suggestions>
     <div>
-        <!-- <div class="table-container"> -->
-        <yv-cluster-table-header [headers]="Headers" [length]="narrowBasicTableRowLength.SHORT" (checkStatus)="headerCheckChange($event)"
-            (openDialog)="openPeiComponent()"></yv-cluster-table-header>
+        <div class="table-header-rows-button-container">
+            <div class="table-rows-button-container">
 
-
-        @if(rowsArray.controls.length>0){
-        @for (row of Rows; track row; let index=$index) {
-     <!-- <yv-cluster-narrow-basic-table-row
-      [property]="NarrowBasicTableRowInputState.DEFAULT"
-      [cells]="row"
-      [length]="narrowBasicTableRowLength.SHORT"
-      [controls]="[checkedControls[index]]"
-      (bookIdToDelet)="deleteByBookId($event)"
-      [prefCodeStatus]="prefCodeStatus">
-</yv-cluster-narrow-basic-table-row> -->
-        <!-- <h1>{{rowsArray.controls.at(index)}}</h1> -->
-        }
-
-        }
+                <yv-cluster-narrow-basic-table [prefCodeStatus]="prefCodeStatus" [Headers]="Headers"
+                    [tableDataForm]="tableDataForm" [length]="narrowBasicTableRowLength.SHORT"
+                    [currentTab]="AutoClusterTabType.TABLE_GROUP_ID_DETAILS"
+                    (openPieDialog)="openPeiComponent()"></yv-cluster-narrow-basic-table>
+                <!-- @if(rowsArray.controls.length>0){
+                @for (row of Rows; track row; let index=$index) {
+                <yv-cluster-narrow-basic-table-row [property]="NarrowBasicTableRowInputState.DEFAULT" [cells]="row"
+                    [controls]="getFormControlsArray(index)" (bookIdToDelet)="deleteByBookId($event)"
+                    [prefCodeStatus]="prefCodeStatus" [length]="narrowBasicTableRowLength.SHORT">
+                </yv-cluster-narrow-basic-table-row>
+                }
+                } -->
+            </div>
+            <div>
+                <yv-cluster-button [disabled]="false" [isBig]="false" [buttonType]="ButtonType.TERTIARY"
+                    [text]="'Add item'" [iconType]="iconType.PLUS_LIGHT"
+                    (onClick)="openEnterBookIdDialog()"></yv-cluster-button>
+            </div>
+        </div>
     </div>
 </div>
+<!-- </div> -->
+@for (row of Rows; track row){
+<yv-cluster-narrow-basic-table-row [property]="NarrowBasicTableRowInputState.DEFAULT"
+    [cells]="row"></yv-cluster-narrow-basic-table-row>
+
+}

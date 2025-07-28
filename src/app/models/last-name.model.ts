@@ -1,4 +1,4 @@
-export class LastName {
+export class lastName {
     Count: number;
     Code: string;
     Value: string;

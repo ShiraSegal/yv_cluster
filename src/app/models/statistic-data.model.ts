@@ -1,10 +1,10 @@
-import { StatisticDetail } from "./statistic-detail.model";
+import { statisticDetail } from "./statistic-detail.model";
 
-export class StatisticData {
+export class statisticData {
     totalCount: number;
-    details: StatisticDetail[];
+    details: statisticDetail[];
 
-    constructor(totalCount: number, details: StatisticDetail[]) {
+    constructor(totalCount: number, details: statisticDetail[]) {
         this.totalCount = totalCount;
         this.details = details;
     }

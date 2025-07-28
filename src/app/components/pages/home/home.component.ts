@@ -7,11 +7,16 @@ import { HeadingComponent } from '../../basic-components/heading/heading.compone
 import { BasicTableWarpComponent } from '../../basic-components/basic-table-warp/basic-table-warp.component';
 import { SuggestionsStatisticsComponent } from '../../basic-components/suggestions-statistics/suggestions-statistics.component';
 import { log } from 'node:console';
+import { BasicRadioButtonComponent } from '../../basic-components/basic-radio-button/basic-radio-button.component';
+import { RadioButtonComponent } from '../../basic-components/radio-button/radio-button.component';
+import { FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CheckComponent } from '../../basic-components/check/check.component';
 
 @Component({
   selector: 'yv-cluster-home',
   standalone: true,
-  imports: [BasicCardComponent, HeadingComponent,
+  imports: [BasicCardComponent, HeadingComponent,ReactiveFormsModule,
     BasicTableWarpComponent, SuggestionsStatisticsComponent
   ],
   templateUrl: './home.component.html',
@@ -26,6 +31,13 @@ export class HomeComponent {
   #clusterService = inject(ClusterService);
   //cards data
   selectedUser: any;
+radioButtonValuesArray: { key: string, value: string }[] = [
+      { key: "1", value: "a" },
+      { key: "2", value: "b" },
+      { key: "3", value: "c" },
+      { key: "4", value: "d" },
+      { key: "", value: "other" }
+    ];
    //table-data
    tableData: Partial<Record<HomeTableTabType, {
     Headers: { data: string; type: HeaderCellType }[];
@@ -39,18 +51,26 @@ export class HomeComponent {
       }[];
     }[];
   }>> = {};
+    #fb=inject(FormBuilder)
+  //form
   //statistics data
   statisticsData: { color: string; value: number }[] = [];
   radius = 100;
   innerRadius = 50;
   //cards function
+  form = new FormGroup({
+  myCheckbox: new FormControl(true) // התחלה ב-false
+});
+
   ngOnInit() {
+
+
     const userId = 4; // ID של המשתמש הרצוי
     //בעיקרון פה לוקחים את הID מהLOCALSTORAGE או משהו בסגנון
     this.#clusterService.getDashboardDataById(userId).subscribe({
       next: (user: any) => {
         this.selectedUser = user;
-       // console.log('Selected User:', this.selectedUser);
+       // // console.log('Selected User:', this.selectedUser);
         // הכנת הנתונים לגרף
         this.statisticsData = [
           { color: '#1334B9', value: user.newSuggestionPending || 0 }, // New Suggestions
@@ -105,7 +125,7 @@ export class HomeComponent {
         }))
       }
     };
-   // console.log("tableData", this.tableData);
+   // // console.log("tableData", this.tableData);
 
   }
 }

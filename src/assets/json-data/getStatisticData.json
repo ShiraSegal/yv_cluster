@@ -3,27 +3,26 @@
   
      "details":[
       {
-          "LastName": {
+          "lastName": {
               "Count": 2500,
               "Code": "T430413",
               "Value": "Pozes"
           },
-          "LastNameInPlaces": 
+          "lastNameInPlaces": 
               {
                   "TotalCount": 1500,
                   "Count": 1900,
                   "Code": "",
                   "Value": "Rhine"
-              }
-          
+              } 
       },
       {
-          "LastName": {
+          "lastName": {
               "Count": 1500,
               "Code": "T86132",
               "Value": "Reinish"
           },
-          "LastNameInPlaces": 
+          "lastNameInPlaces": 
               {
                   "TotalCount": 3000,
                   "Count": 2500,
@@ -32,12 +31,12 @@
               }
       },
       {
-        "LastName": {
+        "lastName": {
             "Count": 850,
             "Code": "T86132",
             "Value": "Adler"
         },
-        "LastNameInPlaces": 
+        "lastNameInPlaces": 
             {
                 "TotalCount": 1600,
                 "Count": 3000,

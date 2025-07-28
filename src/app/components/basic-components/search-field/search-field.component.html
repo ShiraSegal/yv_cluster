@@ -1,0 +1,10 @@
+
+<div class="warrper"> </div>
+<fieldset class="search-container" [ngClass]="isFocused">
+  <i class="fas fa-search search-icon"></i>
+  <input type="text" class="search-field" [value]="value"  (input)="onInputChange($event)"  (blur)="onBlur()"
+  (focus)="onFocus()" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()" [placeholder]="isPlaceolder" />
+  @if(isFilled) {
+    <i class="fa-solid fa-xmark cancle-icon" (click)="cancle()"></i>
+    }
+</fieldset>

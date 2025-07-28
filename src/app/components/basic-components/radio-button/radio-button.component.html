@@ -1,0 +1,25 @@
+  <!-- @for (option of radioButtonValuesArray; track option){
+  <div class="option">
+    <input type="radio" [checked]="option.value"
+    [value]="option.value"
+    [formControl]="control">
+    {{option.value}}
+
+  </div>
+  } -->
+<!--  [name]="myformControlName" -->
+<!-- (click)="chooseOption(option)" -->
+<div [ngClass]="{'radio-button-list-row': direction==='row', 'radio-button-list-column': direction==='column'}">
+  @for (option of radioButtonValuesArray; track option.key) {
+  <div  class="option">
+    <input
+      type="radio"
+      [value]="option.value"
+      [checked]="option.value === value"
+      [disabled]="disable"
+      (change)="selectOption(option)"
+    />
+    {{ option.value }}
+  </div>
+}
+</div>

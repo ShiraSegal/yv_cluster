@@ -21,6 +21,7 @@ import { ClusterService } from 'src/app/services/cluster.service';
 import { PopoverComponent } from '../popover/popover.component';
 import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
 import { CalendarComponent } from '../calendar/calendar.component';
+import { SearchFieldComponent } from '../search-field/search-field.component';
 
 @Component({
   selector: 'yv-cluster-filter-section',
@@ -28,12 +29,12 @@ import { CalendarComponent } from '../calendar/calendar.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ButtonComponent,
     IconButtonLargeComponent,
     SelectComponent,
     FieldComponent,
     PopoverComponent,
-    CalendarComponent
+    CalendarComponent,
+    PopoverComponent
   ],
   templateUrl: './filter-section.component.html',
   styleUrls: ['./filter-section.component.scss']
@@ -50,7 +51,7 @@ export class FilterSectionComponent {
 currentUserRole = this.#clusterService.currentUser.role;
 
   ngOnInit() {
-   // console.log('Filters received in filter-section:', this.Filters); // Debugging log
+   // // console.log('Filters received in filter-section:', this.Filters); // Debugging log
   }
 
   filterForm: FormGroup;
@@ -113,7 +114,7 @@ constructor(private fb: FormBuilder, private clusterService: ClusterService) {
     });
 
     this.statusAssineeForm.valueChanges.subscribe(val => {
-     // console.log('statusAssineeForm:', val);
+     // // console.log('statusAssineeForm:', val);
     });
 
     // קבלת AssigneeList מהשאיבה מהגיסון
@@ -133,7 +134,7 @@ constructor(private fb: FormBuilder, private clusterService: ClusterService) {
     this.visiblePopover = null;
   }
   onClick() {
-   // console.log('Submit clicked:', this.filterForm.value);
+   // // console.log('Submit clicked:', this.filterForm.value);
   }
 
   onClickAddClusterFunc() {

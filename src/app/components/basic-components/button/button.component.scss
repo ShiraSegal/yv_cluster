@@ -56,14 +56,14 @@
 .tertiary {
   border: 0px solid $c-1334B9;
   color: $c-1334B9;
-  background-color:$c-FFFFFF;
+  background-color:transparent;
 
   &:hover {
     border: 0px solid $c-F8F9FA;
     background: $c-F8F9FA;
   }
   &:active {
-    border: 0px solid $c-F8F9FA;
+    border: 1px solid $c-F8F9FA;
     background: $c-F8F9FA;
   }
   &:disabled {

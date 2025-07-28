@@ -1,44 +1,48 @@
-import { Component, Input, Output, EventEmitter, SimpleChange, SimpleChanges } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'yv-cluster-assignee',
   standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './assignee.component.html',
   styleUrls: ['./assignee.component.scss'],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => AssigneeComponent),
+    multi: true,
+  }],
 })
 export class AssigneeComponent implements ControlValueAccessor {
-  @Input() data: string | undefined = 'UnAssignee'; // Default value
-  @Output() assigneeChange = new EventEmitter<string>();
-  @Input() assigneeControl: FormControl;
-  assigneeInitials: string = '';
-  truncatedName: string = '';
-  onChange: (value: string | undefined) => void = () => {};
-  onTouched: () => void = () => {};
-
-  ngOnInit(): void {
-    this.updateAssigneeProperties();
+  @Input() data: string;
+  sliceText: string;
+  value: string;
+  ngOnInit() {
+    if (this.data)
+      this.sliceText =   this.getInitials(this.data)
+    
+  }
+  getInitials(input: string): string {
+    if (input) {
+      const names = input.split(' ');
+      if (names.length > 1) {
+        return names[0][0] + names[1][0];
+      } else 
+        return 'U';
+      }
+      return 'U';
   }
 
-  private updateAssigneeProperties(): void {
-    if (this.data) {
-      const nameParts = this.data.split(' ');
-      const firstName = nameParts[0];
-      const lastName = nameParts.length > 1 ? nameParts[1] : '';
-      this.assigneeInitials = `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
-      this.truncatedName = this.data.length > 17 ? `${this.data.substring(0, 17)}...` : this.data;
-    } else {
-      this.assigneeInitials = '';
-      this.truncatedName = '';
-    }
+  onChange: (value: string) => void = () => { };
+  onTouched: () => void = () => { };
+
+  writeValue(value: string): void {
+    this.value = value; // שמירת הערך
+    this.sliceText = this.getInitials(this.value); // עדכון sliceText
   }
 
-  writeValue(value: string | undefined): void {
-    this.data = value || 'UnAssignee'; // Use default if no value is provided
-    this.updateAssigneeProperties();
-  }
-
-  registerOnChange(fn: (value: string | undefined) => void): void {
+  registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;
   }
 
@@ -46,16 +50,9 @@ export class AssigneeComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  ngOnChanges(changes:SimpleChanges): void {
-    if(changes["data"]){
-      this.updateAssigneeProperties()
-    }
-  }
-
-  editAssignee(newValue: string): void {
-    this.data = newValue;
-    this.onChange(this.data);
-    this.assigneeChange.emit(this.data); // Emit the change event
-    this.updateAssigneeProperties();
+  // פונקציה נוספת לעדכון הערך
+  updateValue(newValue: string): void {
+    this.value = newValue;
+    this.onChange(this.value); // קריאה ל-onChange עם הערך החדש
   }
 }

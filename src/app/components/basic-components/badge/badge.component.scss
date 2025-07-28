@@ -6,23 +6,19 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-
     text-align: right;
-
     font-family: Poppins;
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
-
 .Done {
     color:$c-0C803E;
     border-radius: 62.5rem; 
     border: 0.03125rem solid $c-0C803E;
     background: $c-E7FFF2;
 }
-
 .To-do {
     color: $c-797979;
     border-radius: 62.5rem;

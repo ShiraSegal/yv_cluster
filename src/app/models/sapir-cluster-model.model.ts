@@ -1,11 +1,12 @@
+import { BookIdDetails } from "./book-id-details.model";
 import { SapirClusterDetail } from "./sapir-cluster-detail.model";
 
 export class SapirClusterModel {
-    BookIdList: string[];
-    SapirClusterDetails: SapirClusterDetail[];
-    Comments: string | null;
-    Level: string | null;
-    GroupHasMultimedia: boolean;
-    GroupId: string | null;
-    StatusCode: number;
+    bookIdList: BookIdDetails[];
+    // sapirClusterDetails: SapirClusterDetail[];
+    comments: string | null;
+    level: string | null;
+    groupHasMultimedia: boolean;
+    groupId: string | null;
+    statusCode: number;
   }

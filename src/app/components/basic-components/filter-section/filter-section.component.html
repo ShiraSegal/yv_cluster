@@ -1,7 +1,7 @@
 <form [formGroup]="filterForm" class="filter-section-container">
   <div class="selects-container">
-    <yv-cluster-field formControlName="search" [property]="stateEnum.DEFAULT" placeholder="Search"
-     ></yv-cluster-field>
+    <yv-cluster-search-field formControlName="search"
+     ></yv-cluster-search-field>
 
     @if (Filters.includes(filterNames.DATE_OF_REPORT)) {
       <yv-cluster-select
@@ -12,10 +12,10 @@
       (click)="toggleCalendar()"
     ></yv-cluster-select>
     }
-    @if (Filters.includes(filterNames.DATE_OF_ASSIGNEE)) {
+    <!-- @if (Filters.includes(filterNames.DATE_OF_ASSIGNEE)) {
       <yv-cluster-select formControlName="assigneeDate" [default]="'Select Date Of Assignee '"
         [dropdownType]="nativeOptions.TEXT" [options]="assigneeOptions"></yv-cluster-select>
-    }
+    } -->
     @if (Filters.includes(filterNames.FILTER_BY_STATUS)) {
     <yv-cluster-select formControlName="status" [default]="'Filter By Status'" [dropdownType]="nativeOptions.STATUS"
       [options]="badgeOptions"></yv-cluster-select>
@@ -44,7 +44,6 @@
       </div>
       }
     </div>
-
 
     <div class="icon-container" (mouseenter)="showPopover(popOverTypeEnum.STATUS)" (mouseleave)="hidePopover()">
       <yv-cluster-icon-button-large [icon]="iconType.CLIPBOARD_LIST_LIGHT" [property]="iconButtonLargeType.DEFAULT"

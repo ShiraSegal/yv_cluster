@@ -1,32 +1,31 @@
-<div [ngClass]="[type,'header-cell']">
-    @if(header === 'Last Name'){
-    <div class="pie-icon">
-        <i class="fa-solid fa-chart-simple chart-icon"  (click)="openPeiComponent()"></i>
-        {{ header }}
-    </div>
-    }
-    @if(header === 'Button'){
-       
+<form [formGroup]="tableDataForm">
+    <div [ngClass]="[type,'header-cell']">
+        @if(data === 'Last Name'){
+        <div class="pie-icon">
+            <i class="fa-solid fa-chart-simple chart-icon"  (click)="openPeiComponent()"></i>
+            {{ data }}
+        </div>
         }
-    @if(type === headerCellType.ORDER){
-    <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>
-    }
-    @if(type === headerCellType.ORDERDOWN){
-    <i class="fas fa-arrow-down sort-icon" (click)="sortBy('column')"></i>
-    }
-    @if(type === headerCellType.HEADERSEARCH){
-    <div class="header-search-search">
-        <div class="header-search-line"></div>
-        <span class="header-search-cancle"><i class="fas fa-close"></i></span>
-    </div>
-    }
-    @if(type === headerCellType.CHECK){
-    <yv-cluster-check [type]=checkType.UNCHECKED [state]=checkStateType.ENABLED
-        (checkStatus)="checkChange($event)"
-        [checkedControl]="headerCheckboxControl"
-        ></yv-cluster-check>
-    }
-    @else{
-        {{header}}
+        @else if(type === headerCellType.TEXT){
+            {{ data }}
         }
-</div>
+        @if(type === headerCellType.ORDER){
+        <i class="fas fa-arrow-up sort-icon" (click)="sortBy('column')"></i>
+        }
+        @if(type === headerCellType.ORDERDOWN){
+        <i class="fas fa-arrow-down sort-icon" (click)="sortBy('column')"></i>
+        }
+        @if(type === headerCellType.HEADERSEARCH){
+        <div class="header-search-search">
+            <div class="header-search-line"></div>
+            <span class="header-search-cancle"><i class="fas fa-close"></i></span>
+        </div>
+        }
+        @if(type === headerCellType.CHECK){
+        <yv-cluster-check class="check" formControlName="headerCheckbox"></yv-cluster-check>
+        }
+        @if(type === headerCellType.PLACEOLDER){
+    
+        }
+    </div>
+    </form>

@@ -24,7 +24,7 @@
 //    dialogRef: MatDialogRef<EnterBookidComponent> | null = null;
 
 //    openDialog() {
-//    // console.log("openDialog");
+//    // // console.log("openDialog");
 
 //    this.dialogRef = this.#dialog.open(EnterBookidComponent, {
 //     data: { title: 'Data Distribution' },
@@ -39,8 +39,8 @@
 //    }
 //   onClick() {
 //     // alert('test on click');
-//     //// console.log('test on click');
-//    // console.log("openPeiComponent");
+//     //// // console.log('test on click');
+//    // // console.log("openPeiComponent");
 //     this.openDialog()
 //   }
 // }

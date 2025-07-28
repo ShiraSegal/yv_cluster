@@ -1,5 +1,5 @@
 export class ValueDetail {
-    NameCode: string;
-    Value: string;
-    Counter: number;
+    nameCode: string;
+    value: string;
+    counter: number;
   }

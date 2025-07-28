@@ -1,4 +1,4 @@
-export class LastNameInPlaces {
+export class lastNameInPlaces {
     TotalCount: number;
     Count: number;
     Code: string;
