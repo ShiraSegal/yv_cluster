@@ -24,3 +24,14 @@
   margin-right: 2.6rem;
   width: 1.5625rem;
 }
+.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sortable::after {
+  content: ' ⇅';
+  color: #888;
+  font-size: 0.8rem;
+  margin-left: 0.4rem;
+}

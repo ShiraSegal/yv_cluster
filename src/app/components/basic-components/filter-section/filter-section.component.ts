@@ -20,6 +20,7 @@ import { FieldComponent } from '../field/field.component';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { PopoverComponent } from '../popover/popover.component';
 import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
+import { CalendarComponent } from '../calendar/calendar.component';
 
 @Component({
   selector: 'yv-cluster-filter-section',
@@ -31,7 +32,8 @@ import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
     IconButtonLargeComponent,
     SelectComponent,
     FieldComponent,
-    PopoverComponent
+    PopoverComponent,
+    CalendarComponent
   ],
   templateUrl: './filter-section.component.html',
   styleUrls: ['./filter-section.component.scss']
@@ -58,6 +60,9 @@ currentUserRole = this.#clusterService.currentUser.role;
   popOverType : PopoverType = PopoverType.ASSIGNEE;
   visiblePopover: PopoverType | null = null;
 
+  isCalendarOpen: boolean = false;
+  selectedDateText: string | null = null; 
+  temporaryDate: Date = new Date(); 
 
   stateEnum = State;
   nativeOptions = NativeOptionType;
@@ -86,14 +91,17 @@ currentUserRole = this.#clusterService.currentUser.role;
       property: BadgeType.DONE
     }
   ];
+   tomorrow = new Date();
 // #fb= inject( FormBuilder)
-  constructor(private fb: FormBuilder, private clusterService: ClusterService) {
-    this.filterForm = this.fb.group({
-      search: [''],
-      date: [null],
-      status: [null],
-      assignee: [null],
-    });
+constructor(private fb: FormBuilder, private clusterService: ClusterService) {
+  this.tomorrow.setDate(this.tomorrow.getDate() + 1);
+  this.filterForm = this.fb.group({
+    search: [''],
+    date: [null],
+    status: [null],
+    assignee: [null],
+  });
+
 
     this.statusAssineeForm = this.#fb.group({
       toggleAssignee: [],
@@ -131,6 +139,27 @@ currentUserRole = this.#clusterService.currentUser.role;
   onClickAddClusterFunc() {
     this.onClickAddCluster.emit();
   }
+
+  toggleCalendar() {
+    this.isCalendarOpen = !this.isCalendarOpen;
+
+    if (this.isCalendarOpen) {
+   
+      this.temporaryDate = this.filterForm.get('date')?.value || new Date();
+    }
+  }
+
+  onDateSelected(date: Date) {
+   
+    this.filterForm.get('date')?.setValue(date);
+
+   
+    this.selectedDateText = date.toLocaleDateString('en-GB');
+
+ 
+    this.isCalendarOpen = false;
+  }
+
 
   onClickStatus() {}
   onClickAssinee() {}

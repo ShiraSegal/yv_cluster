@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output,EventEmitter, inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
 import { HeaderCellType, NarrowBasicTableRowLength } from 'src/app/enums/basic-enum';
 import { HeaderCellsComponent } from "../header-cells/header-cells.component";
 import { FormControl } from '@angular/forms';
@@ -14,29 +14,23 @@ import { ClusterService } from 'src/app/services/cluster.service';
   styleUrl: './table-header.component.scss'
 })
 export class TableHeaderComponent {
-@Input() headers: { data: string; type: HeaderCellType }[] = [];
-@Input() length : NarrowBasicTableRowLength;
-@Output() checkStatus= new EventEmitter<CheckType>();
-@Output() openDialog= new EventEmitter<boolean>();
-@Input() headerCheckboxControl: FormControl;
+  @Input() headers: { data: string; type: HeaderCellType }[] = [];
+  @Input() length: NarrowBasicTableRowLength;
+  @Output() checkStatus = new EventEmitter<CheckType>();
+  @Output() openDialog = new EventEmitter<boolean>();
+  @Output() sort = new EventEmitter<string>();
+  @Input() headerCheckboxControl: FormControl;
 
- #clusterService=inject(ClusterService)
-currentUserRole = this.#clusterService.currentUser.role;
+  #clusterService = inject(ClusterService);
+  currentUserRole = this.#clusterService.currentUser.role;
 
+  headerCellType = HeaderCellType;
 
+  checkChange(checkStatus: CheckType) {
+    this.checkStatus.emit(checkStatus);
+  }
 
-
-//injections
-headerCellType =   HeaderCellType
-
-//functions
-checkChange(checkStatus:CheckType) {
-  this.checkStatus.emit(checkStatus);
- // console.log(" table header check status", checkStatus)
-
-}
-openPeiComponent(){
- // console.log("openPeiComponent");
-  this.openDialog.emit(true);
-    }
+  openPeiComponent() {
+    this.openDialog.emit(true);
+  }
 }
