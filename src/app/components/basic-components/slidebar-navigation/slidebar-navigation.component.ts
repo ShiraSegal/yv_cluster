@@ -58,7 +58,7 @@ export class SlidebarNavigationComponent {
   
   
   setActiveTab(tabText: SliderNavigationTabTextType) {
-    const groupId=106;
+    const groupId=1;
     // this.activeTabIndex = tabText;
     this.tabs.forEach((tab) => {
       if (tab.text !== tabText) {
