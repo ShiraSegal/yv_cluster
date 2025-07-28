@@ -16,7 +16,6 @@ export class IconButtonLargeComponent {
   @Input() property: IconButtonLargeType;
   @Input() isSelected: boolean = false;
   @Output() onClick = new EventEmitter<void>();
-
   handleClick() {  
       this.onClick.emit();
   }

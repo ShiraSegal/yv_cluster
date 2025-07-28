@@ -411,3 +411,243 @@
     at eventLoopTick (ext:core/01_core.js:178:7)
   name: [32m"NotFound"[39m,
   code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:20.116 +00[0m [1m[32mINF[0m [2mdtls:[0m 📩 (0): initialize 
+[2m2025-06-18 11:22:20.119 +00[0m [1m[32mINF[0m [2mdtls:[0m 
+
+🎨 DESIGN TOKENS LANGUAGE SERVER 💎: Visual Studio Code@1.101.0
+
+[2m2025-06-18 11:22:20.120 +00[0m [1m[32mINF[0m [2mdtls:[0m Set trace level to off
+[2m2025-06-18 11:22:20.121 +00[0m [1m[32mINF[0m [2mdtls:[0m 📁 Adding workspace folder yv_cluster@file:\d%3A\yv_cluster
+[2m2025-06-18 11:22:20.121 +00[0m [1m[32mINF[0m [2mdtls:[0m 🎒 Loading package.json from ..\d%3A\yv_cluster\package.json
+[2m2025-06-18 11:22:20.125 +00[0m [1m[31mERR[0m [2mdtls:[0m Could not load package.json: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.add (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43810:36)
+    at Lsp.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41567:32)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41612:19)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43955:44
+    at i2 (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7051:11)
+    at i2.next (<anonymous>)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7025:33
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:20.133 +00[0m [1m[31mERR[0m [2mdtls:[0m Failed to initialize the server: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.add (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43810:36)
+    at Lsp.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41567:32)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41612:19)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43955:44
+    at i2 (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7051:11)
+    at i2.next (<anonymous>)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7025:33
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:20.133 +00[0m [1m[32mINF[0m [2mdtls:[0m 🚢 ([33m0[39m): initialize
+[2m2025-06-18 11:22:20.137 +00[0m [1m[32mINF[0m [2mdtls:[0m 🔔: initialized 
+[2m2025-06-18 11:22:20.137 +00[0m [1m[32mINF[0m [2mdtls:[0m 📁 Adding workspace folder yv_cluster@file:\d%3A\yv_cluster
+[2m2025-06-18 11:22:20.138 +00[0m [1m[32mINF[0m [2mdtls:[0m 🎒 Loading package.json from ..\d%3A\yv_cluster\package.json
+[2m2025-06-18 11:22:20.139 +00[0m [1m[31mERR[0m [2mdtls:[0m Could not load package.json: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43828:36)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41614:30)
+    at Server.serve (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43946:25)
+    at eventLoopTick (ext:core/01_core.js:178:7)
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:20.479 +00[0m [1m[32mINF[0m [2mdtls:[0m 📩 (0): initialize 
+[2m2025-06-18 11:22:20.480 +00[0m [1m[32mINF[0m [2mdtls:[0m 
+
+🎨 DESIGN TOKENS LANGUAGE SERVER 💎: Visual Studio Code@1.101.0
+
+[2m2025-06-18 11:22:20.480 +00[0m [1m[32mINF[0m [2mdtls:[0m Set trace level to off
+[2m2025-06-18 11:22:20.481 +00[0m [1m[32mINF[0m [2mdtls:[0m 📁 Adding workspace folder yv_cluster@file:\d%3A\yv_cluster
+[2m2025-06-18 11:22:20.481 +00[0m [1m[32mINF[0m [2mdtls:[0m 🎒 Loading package.json from ..\d%3A\yv_cluster\package.json
+[2m2025-06-18 11:22:20.486 +00[0m [1m[31mERR[0m [2mdtls:[0m Could not load package.json: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.add (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43810:36)
+    at Lsp.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41567:32)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41612:19)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43955:44
+    at i2 (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7051:11)
+    at i2.next (<anonymous>)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7025:33
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:20.493 +00[0m [1m[31mERR[0m [2mdtls:[0m Failed to initialize the server: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.add (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43810:36)
+    at Lsp.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41567:32)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41612:19)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43955:44
+    at i2 (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7051:11)
+    at i2.next (<anonymous>)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7025:33
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:20.494 +00[0m [1m[32mINF[0m [2mdtls:[0m 🚢 ([33m0[39m): initialize
+[2m2025-06-18 11:22:20.496 +00[0m [1m[32mINF[0m [2mdtls:[0m 🔔: initialized 
+[2m2025-06-18 11:22:20.497 +00[0m [1m[32mINF[0m [2mdtls:[0m 📁 Adding workspace folder yv_cluster@file:\d%3A\yv_cluster
+[2m2025-06-18 11:22:20.498 +00[0m [1m[32mINF[0m [2mdtls:[0m 🎒 Loading package.json from ..\d%3A\yv_cluster\package.json
+[2m2025-06-18 11:22:20.500 +00[0m [1m[31mERR[0m [2mdtls:[0m Could not load package.json: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43828:36)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41614:30)
+    at Server.serve (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43946:25)
+    at eventLoopTick (ext:core/01_core.js:178:7)
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:20.786 +00[0m [1m[32mINF[0m [2mdtls:[0m 📩 (0): initialize 
+[2m2025-06-18 11:22:20.787 +00[0m [1m[32mINF[0m [2mdtls:[0m 
+
+🎨 DESIGN TOKENS LANGUAGE SERVER 💎: Visual Studio Code@1.101.0
+
+[2m2025-06-18 11:22:20.788 +00[0m [1m[32mINF[0m [2mdtls:[0m Set trace level to off
+[2m2025-06-18 11:22:20.789 +00[0m [1m[32mINF[0m [2mdtls:[0m 📁 Adding workspace folder yv_cluster@file:\d%3A\yv_cluster
+[2m2025-06-18 11:22:20.789 +00[0m [1m[32mINF[0m [2mdtls:[0m 🎒 Loading package.json from ..\d%3A\yv_cluster\package.json
+[2m2025-06-18 11:22:20.793 +00[0m [1m[31mERR[0m [2mdtls:[0m Could not load package.json: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.add (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43810:36)
+    at Lsp.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41567:32)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41612:19)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43955:44
+    at i2 (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7051:11)
+    at i2.next (<anonymous>)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7025:33
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:20.799 +00[0m [1m[31mERR[0m [2mdtls:[0m Failed to initialize the server: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.add (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43810:36)
+    at Lsp.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41567:32)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41612:19)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43955:44
+    at i2 (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7051:11)
+    at i2.next (<anonymous>)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7025:33
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:20.800 +00[0m [1m[32mINF[0m [2mdtls:[0m 🚢 ([33m0[39m): initialize
+[2m2025-06-18 11:22:20.801 +00[0m [1m[32mINF[0m [2mdtls:[0m 🔔: initialized 
+[2m2025-06-18 11:22:20.802 +00[0m [1m[32mINF[0m [2mdtls:[0m 📁 Adding workspace folder yv_cluster@file:\d%3A\yv_cluster
+[2m2025-06-18 11:22:20.803 +00[0m [1m[32mINF[0m [2mdtls:[0m 🎒 Loading package.json from ..\d%3A\yv_cluster\package.json
+[2m2025-06-18 11:22:20.804 +00[0m [1m[31mERR[0m [2mdtls:[0m Could not load package.json: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43828:36)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41614:30)
+    at Server.serve (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43946:25)
+    at eventLoopTick (ext:core/01_core.js:178:7)
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:20.967 +00[0m [1m[32mINF[0m [2mdtls:[0m 📩 (0): initialize 
+[2m2025-06-18 11:22:20.969 +00[0m [1m[32mINF[0m [2mdtls:[0m 
+
+🎨 DESIGN TOKENS LANGUAGE SERVER 💎: Visual Studio Code@1.101.0
+
+[2m2025-06-18 11:22:20.970 +00[0m [1m[32mINF[0m [2mdtls:[0m Set trace level to off
+[2m2025-06-18 11:22:20.970 +00[0m [1m[32mINF[0m [2mdtls:[0m 📁 Adding workspace folder yv_cluster@file:\d%3A\yv_cluster
+[2m2025-06-18 11:22:20.971 +00[0m [1m[32mINF[0m [2mdtls:[0m 🎒 Loading package.json from ..\d%3A\yv_cluster\package.json
+[2m2025-06-18 11:22:20.973 +00[0m [1m[31mERR[0m [2mdtls:[0m Could not load package.json: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.add (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43810:36)
+    at Lsp.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41567:32)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41612:19)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43955:44
+    at i2 (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7051:11)
+    at i2.next (<anonymous>)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7025:33
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:20.980 +00[0m [1m[31mERR[0m [2mdtls:[0m Failed to initialize the server: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.add (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43810:36)
+    at Lsp.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41567:32)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41612:19)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43955:44
+    at i2 (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7051:11)
+    at i2.next (<anonymous>)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7025:33
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:20.981 +00[0m [1m[32mINF[0m [2mdtls:[0m 🚢 ([33m0[39m): initialize
+[2m2025-06-18 11:22:20.983 +00[0m [1m[32mINF[0m [2mdtls:[0m 🔔: initialized 
+[2m2025-06-18 11:22:20.983 +00[0m [1m[32mINF[0m [2mdtls:[0m 📁 Adding workspace folder yv_cluster@file:\d%3A\yv_cluster
+[2m2025-06-18 11:22:20.984 +00[0m [1m[32mINF[0m [2mdtls:[0m 🎒 Loading package.json from ..\d%3A\yv_cluster\package.json
+[2m2025-06-18 11:22:20.986 +00[0m [1m[31mERR[0m [2mdtls:[0m Could not load package.json: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43828:36)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41614:30)
+    at Server.serve (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43946:25)
+    at eventLoopTick (ext:core/01_core.js:178:7)
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:21.166 +00[0m [1m[32mINF[0m [2mdtls:[0m 📩 (0): initialize 
+[2m2025-06-18 11:22:21.168 +00[0m [1m[32mINF[0m [2mdtls:[0m 
+
+🎨 DESIGN TOKENS LANGUAGE SERVER 💎: Visual Studio Code@1.101.0
+
+[2m2025-06-18 11:22:21.168 +00[0m [1m[32mINF[0m [2mdtls:[0m Set trace level to off
+[2m2025-06-18 11:22:21.169 +00[0m [1m[32mINF[0m [2mdtls:[0m 📁 Adding workspace folder yv_cluster@file:\d%3A\yv_cluster
+[2m2025-06-18 11:22:21.170 +00[0m [1m[32mINF[0m [2mdtls:[0m 🎒 Loading package.json from ..\d%3A\yv_cluster\package.json
+[2m2025-06-18 11:22:21.172 +00[0m [1m[31mERR[0m [2mdtls:[0m Could not load package.json: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.add (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43810:36)
+    at Lsp.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41567:32)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41612:19)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43955:44
+    at i2 (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7051:11)
+    at i2.next (<anonymous>)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7025:33
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:21.179 +00[0m [1m[31mERR[0m [2mdtls:[0m Failed to initialize the server: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.add (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43810:36)
+    at Lsp.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41567:32)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41612:19)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43955:44
+    at i2 (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7051:11)
+    at i2.next (<anonymous>)
+    at file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:7025:33
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }
+[2m2025-06-18 11:22:21.179 +00[0m [1m[32mINF[0m [2mdtls:[0m 🚢 ([33m0[39m): initialize
+[2m2025-06-18 11:22:21.181 +00[0m [1m[32mINF[0m [2mdtls:[0m 🔔: initialized 
+[2m2025-06-18 11:22:21.181 +00[0m [1m[32mINF[0m [2mdtls:[0m 📁 Adding workspace folder yv_cluster@file:\d%3A\yv_cluster
+[2m2025-06-18 11:22:21.182 +00[0m [1m[32mINF[0m [2mdtls:[0m 🎒 Loading package.json from ..\d%3A\yv_cluster\package.json
+[2m2025-06-18 11:22:21.183 +00[0m [1m[31mERR[0m [2mdtls:[0m Could not load package.json: { NotFound: The system cannot find the path specified. (os error 3): readfile '/d%3A/yv_cluster/package.json'
+    at Object.readTextFile (ext:deno_fs/30_fs.js:784:24)
+    at Workspaces.#tryToLoadSettingsFromPackageJson (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43672:20)
+    at Workspaces.#updateConfiguration (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43765:73)
+    at Workspaces.initialize (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43828:36)
+    at Lsp.process (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:41614:30)
+    at Server.serve (file:///C:/Users/efratlif/AppData/Local/Temp/deno-compile-design-tokens-language-server-x86_64-pc-windows-msvc.exe/dist/main.js:43946:25)
+    at eventLoopTick (ext:core/01_core.js:178:7)
+  name: [32m"NotFound"[39m,
+  code: [32m"ENOENT"[39m }

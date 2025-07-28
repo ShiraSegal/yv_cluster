@@ -11,16 +11,17 @@
             }
 
             <div class="rows-container" formArrayName="rowsFormArray">
-                @for(rowGroup of rowsFormArray.controls ; let i = $index ;track i;){
-                @if (currentTab === autoClusterTabType.ERROR_MESSAGES) {
+                @for(rowGroup of (rowGroups$ | async) ; let i = $index ;track i;){
+                @if (currentTab === autoClusterTabType.ERROR_MESSAGES ||currentTab === autoClusterTabType.MISSING_FIELD  ) {
                 <yv-cluster-expandable [currentTab]="currentTab" [property]="narrowBasicTableRowExpandState.CLOSE"
                     [rowGroup]="rowGroup">
                 </yv-cluster-expandable>
                 }
                 @else {
-                <yv-cluster-narrow-basic-table-row [currentTab]="currentTab"
+                <yv-cluster-narrow-basic-table-row [currentTab]="currentTab" [prefCodeStatus]="prefCodeStatus"
                     [property]="narrowBasicTableRowInputState.DEFAULT" [rowGroup]="rowGroup"
-                    [length]="narrowBasicTableRowLength.SHORT">
+                    [length]="narrowBasicTableRowLength.SHORT"
+                    (bookIdToDelet)="deleteRowByBookId($event)">
                 </yv-cluster-narrow-basic-table-row>
                 }
                 }

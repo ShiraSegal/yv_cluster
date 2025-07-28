@@ -18,6 +18,8 @@ import { MessageService } from './message.service';
 import { MessageType } from '../enums/basic-enum';
 import { log } from 'console';
 
+
+
 @Injectable({
   providedIn: 'root',
 })
@@ -93,8 +95,8 @@ export class ClusterService {
     );
   }
 
-  getAutoClusterData(): Observable<string[]> {
-    return this.#clusterApiService.getAutoClusterData().pipe(
+   getAutoClusterData(): Observable<string[]> {
+    return ( this.#clusterApiService.getAutoClusterData()).pipe(
       take(1),
       catchError((err) => {
         console.error('Error fetching auto cluster data:', err);
@@ -194,9 +196,9 @@ export class ClusterService {
         );
         //  this.#loadingService.hide();
         return clusterGroup;
+
       }),
-      catchError((err) => {
-        this.#loadingService.hide();
+      catchError(err => {
         console.error('Error fetching cluster group details:', err);
         return of(null);
       })

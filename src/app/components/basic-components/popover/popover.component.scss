@@ -47,35 +47,25 @@
       }
     }
 
-    .field-warp {
-      display: flex;
-      padding: 0 0.5rem 0.25rem;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 0.625rem;
-      align-self: stretch;
+  //   .field-warp {
+  //  max-width: 10rem;
 
-      ::ng-deep yv-cluster-field .common-input-wrapper {
-        display: flex;
-height: 2.5rem !important;
-padding: var(--Layout-medium, 0.5rem);
-align-items: center;
-gap: var(--Layout-medium, 0.5rem);
-align-self: stretch;
-        display: flex;
-        min-width: 11.6875rem !important;
-        width: 1.8125rem !important;
-        // height: 1.8152rem !important;
-        // padding-top: 0;
-        // padding-bottom: 1rem;
-        align-items: center;
-        gap: 0.5rem;
-        align-self: stretch;
-        border-radius: 0.25rem;
-        border: 0.5px solid $c-3F4B5A;
+      ::ng-deep yv-cluster-search-field.search-field .search-container{
+    display: flex;
+    height: 1.5rem !important;
+    padding: var(--Layout-medium, 0.5rem);
+    align-items: center;
+    gap: var(--Layout-medium, 0.5rem);
+    align-self: stretch;
+    min-width: 12.6875rem !important;
+    width: 1.8125rem !important;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: stretch;
+    border-radius: 0.25rem;
+    border: 0.5px solid #3F4B5A;
       }
-    }
+    // }
 
     .nativ-options-warp {
       display: flex; 
@@ -100,6 +90,7 @@ align-self: stretch;
         // padding-right: 0.5rem;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        padding-top: 0.5rem;
       }
 
       .nativ-options-internal-warp::-webkit-scrollbar {
@@ -122,6 +113,7 @@ align-self: stretch;
           position: relative;
           // top: 0;
           transition: top 0.2s ease;
+          margin-top: 1rem;
         }
       }
 

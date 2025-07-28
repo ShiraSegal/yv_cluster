@@ -103,7 +103,6 @@ export class CreateClusterComponent {
 
 valuesToDisplayedFields: { [key in string]: { key: string, value: string }[] } = {};
   ngOnInit() {
-    this.createClusterFormData();
     // this.subscription.add(this.createClusterForm.valueChanges.subscribe((value) => {
     //   console.log('Form value changed: 💜💜💜💜💜', value);
 

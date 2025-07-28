@@ -20,6 +20,7 @@ import { FieldComponent } from '../field/field.component';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { PopoverComponent } from '../popover/popover.component';
 import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
+import { SearchFieldComponent } from '../search-field/search-field.component';
 
 @Component({
   selector: 'yv-cluster-filter-section',
@@ -29,7 +30,7 @@ import { FilterNames } from 'src/app/enums/auto-cluster-table-enum';
     ReactiveFormsModule,
     IconButtonLargeComponent,
     SelectComponent,
-    FieldComponent,
+    SearchFieldComponent,
     PopoverComponent
   ],
   templateUrl: './filter-section.component.html',
@@ -88,7 +89,7 @@ currentUserRole = this.#clusterService.currentUser.role;
 // #fb= inject( FormBuilder)
   constructor(private fb: FormBuilder, private clusterService: ClusterService) {
     this.filterForm = this.fb.group({
-      search: [''],
+      search: [null],
       date: [null],
       status: [null],
       assignee: [null],

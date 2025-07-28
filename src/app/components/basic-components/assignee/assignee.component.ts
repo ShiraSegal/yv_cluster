@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'yv-cluster-assignee',
   standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './assignee.component.html',
   styleUrls: ['./assignee.component.scss'],
   providers: [{
@@ -14,15 +16,30 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class AssigneeComponent implements ControlValueAccessor {
   @Input() data: string;
+  sliceText: string;
+  value: string;
+  ngOnInit() {
+    if (this.data)
+      this.sliceText =   this.getInitials(this.data)
+    
+  }
+  getInitials(input: string): string {
+    if (input) {
+      const names = input.split(' ');
+      if (names.length > 1) {
+        return names[0][0] + names[1][0];
+      } else 
+        return 'U';
+      }
+      return 'U';
+  }
 
-  value: string = '';
-
-  onChange: (value: string) => void = () => {};
-  onTouched: () => void = () => {};
+  onChange: (value: string) => void = () => { };
+  onTouched: () => void = () => { };
 
   writeValue(value: string): void {
     this.value = value; // שמירת הערך
-   // // console.log('Assignne Updated Value:', this.value); // הדפסת הערך
+    this.sliceText = this.getInitials(this.value); // עדכון sliceText
   }
 
   registerOnChange(fn: (value: string) => void): void {
@@ -33,4 +50,9 @@ export class AssigneeComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
+  // פונקציה נוספת לעדכון הערך
+  updateValue(newValue: string): void {
+    this.value = newValue;
+    this.onChange(this.value); // קריאה ל-onChange עם הערך החדש
+  }
 }

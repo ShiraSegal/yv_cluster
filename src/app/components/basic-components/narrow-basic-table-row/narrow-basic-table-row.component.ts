@@ -19,7 +19,7 @@ export class NarrowBasicTableRowComponent {
   @Input() property: NarrowBasicTableRowInputState = NarrowBasicTableRowInputState.DEFAULT;
   @Input() length: NarrowBasicTableRowLength;
   @Input() currentTab: AutoClusterTabType;
-  @Input() rowGroup : FormGroup<any>;
+  @Input() rowGroup : FormGroup;
   @Input() prefCodeStatus: boolean = false;
   @Output() bookIdToDelet = new EventEmitter<string>();
   subscription: Subscription = new Subscription();
@@ -41,33 +41,79 @@ export class NarrowBasicTableRowComponent {
   iconType = IconType;
   buttonType = ButtonType;
   rowGroupControls: { control: FormControl, name: string }[];
+
   ngOnInit() {
-    // Initialize rowGroupControls for debugging
-    this.rowGroupControls = Object.keys(this.rowGroup.controls).map(controlKey => {
+    
+    this.updateControlsArray()
+    this.subscription.add(this.rowGroup.valueChanges.subscribe((value) => {
+      console.log('RowGroup changed: 💜', value);
+          this.updateControlsArray()
+        console.log("❄️",this.rowGroupControls );
+
+    }))
+  }
+  updateControlsArray(){
+ this.rowGroupControls = Object.keys(this.rowGroup.controls).map(controlKey => {
       return {
         control: this.rowGroup.controls[controlKey] as FormControl, // FormControl instance
         name: controlKey // Control name
       };
     });
-    this.subscription.add(this.rowGroup.valueChanges.subscribe((value) => {
-      console.log('narrow RowGroup changed:', value);
-    }))
   }
+ngOnChanges(changes: SimpleChanges): void {
+  if (changes['rowGroup']) {
+    this.updateControlsArray();
+
+    this.subscription.unsubscribe(); // נקה את כל המנויים הקודמים
+    this.subscription = new Subscription();
+
+    // הירשם מחדש לשינויים בטופס
+    this.subscription.add(
+      this.rowGroup.valueChanges.subscribe((value) => {
+        console.log('RowGroup changed: 💜', value);
+        this.updateControlsArray();
+      })
+    );
+  }
+}
+// ngOnChanges(changes: SimpleChanges): void {
+//   if (changes['rowGroup']) {
+//     this.updateControlsArray();
+
+//     this.subscription.unsubscribe(); // נקה את כל המנויים הקודמים
+//     this.subscription = new Subscription();
+
+//     // הירשם מחדש לשינויים בטופס
+//     this.subscription.add(
+//       this.rowGroup.valueChanges.subscribe((value) => {
+//         console.log('RowGroup changed: 💜', value);
+//         this.updateControlsArray();
+//       })
+//     );
+//   }
+// }
+
+ 
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }
   onIconDeletClick() {
-    console.log('narrow Icon delete clicked');
+    // console.log('narrow Icon delete clicked');
     
-    const cellControl = this.rowGroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי
-    const cellData = cellControl?.value?.data;
+    // const cellControl = this.rowGroup.get('cellKey'); // 'cellKey' הוא המפתח של התא הרצוי
+    // const cellData = cellControl?.value?.data;
 
-    if (typeof cellData === 'string') {
-      this.bookIdToDelet.emit(cellData);
-    } else {
-      this.bookIdToDelet.emit('');
-    }
+    // if (typeof cellData === 'string') {
+    //   this.bookIdToDelet.emit(cellData);
+    // } else {
+    //   this.bookIdToDelet.emit('');
+    // }
+
+    let rowBookId:string = this.rowGroup.get('bookId')?.value; // 'groupID' הוא המפתח של קבוצת השורה
+    console.log('rowGroupId: ', rowBookId);
+    
+     this.bookIdToDelet.emit(rowBookId);
   }
 
   onOpenClick(){

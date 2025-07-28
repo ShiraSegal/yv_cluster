@@ -19,7 +19,6 @@ import { BookIdDetails } from 'src/app/models/book-id-details.model';
   templateUrl: './enter-bookid.component.html',
   styleUrl: './enter-bookid.component.scss'
 })
-
 export class EnterBookidComponent implements OnInit, OnDestroy {
   // data: { title: string } = inject(MAT_DIALOG_DATA, { optional: true });
   // dialogRef: MatDialogRef<EnterBookidComponent> = inject(MatDialogRef, { optional: true })!;

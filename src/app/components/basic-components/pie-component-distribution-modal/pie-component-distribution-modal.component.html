@@ -9,8 +9,8 @@
   <div class="table-and-pie-container">
     <!-- //table -->
     <yv-cluster-pie-table   [spsipicPlaceData]="lastNamesInPlaces" [allDatabaseData]="lastNames"
-      [tableColorsArray]="colorsArray" [allDatabaseTotalValue]="{'TotalCount': 10000, 'Value': 'All Database'}"
-      [thePlaceTotalValue]="{'TotalCount':10000, 'Value': 'Minsk'}"></yv-cluster-pie-table>
+      [tableColorsArray]="colorsArray" [allDatabaseTotalValue]="allDatabaseTotalValue"
+      [thePlaceTotalValue]="thePlaceTotalValue"></yv-cluster-pie-table>
     <div class="pie-circle-container">
       <div class="pie-buttons-container">
         <button class="button-text" [ngClass]="{'button-with-a-backround':!showAllThaDatabasePie,'button-without-a-backround':showAllThaDatabasePie}" (click)="changeTheShowingPei()">Minsk</button>
@@ -25,11 +25,11 @@
 
       <!-- ///pie -->
       @if(showAllThaDatabasePie){
-      <yv-cluster-pie-circle [data]="lastNames" [totalValue]="{'TotalCount': 10000, 'Value': 'All Database'}"
+      <yv-cluster-pie-circle [data]="lastNames" [totalValue]="allDatabaseTotalValue"
         [pieColorsArray]="colorsArray"></yv-cluster-pie-circle>
       }
       @if(!showAllThaDatabasePie){
-      <yv-cluster-pie-circle [data]="lastNamesInPlaces" [totalValue]="{'TotalCount':10000, 'Value': 'Minsk'}"
+      <yv-cluster-pie-circle [data]="lastNamesInPlaces" [totalValue]="thePlaceTotalValue"
         [pieColorsArray]="colorsArray"></yv-cluster-pie-circle>
       }
     </div>
