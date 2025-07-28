@@ -2,7 +2,6 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
 import {
   BadgeType,
   ButtonType,
@@ -34,6 +33,7 @@ import { SearchFieldComponent } from '../search-field/search-field.component';
     FieldComponent,
     PopoverComponent,
     CalendarComponent,
+   SearchFieldComponent,
     PopoverComponent
   ],
   templateUrl: './filter-section.component.html',

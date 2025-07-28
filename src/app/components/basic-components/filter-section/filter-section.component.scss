@@ -41,3 +41,54 @@
   min-width: 12rem;
   height: 1.5rem; 
 }
+// @import "src/styles.scss";
+// .filter-section-container {
+//     display: flex;
+//     width: 100%; // Full width
+//     width: 99.4375rem;
+//     height: 3.5rem;
+//     padding-bottom: 1.25rem;
+//     justify-content: space-between;
+//     border-bottom: 1px solid $c-B8C2EA; // Bottom border
+// }
+
+// .selects-container {
+//     display: flex;
+// align-items: center;
+// }
+
+.right-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; // Vertically align items
+    gap: 1rem; // Increase spacing between icons and button
+}
+.yv-cluster-search-field,
+.yv-cluster-select {
+    min-width: 12rem; // Ensure consistent width for dropdowns
+    height: 1.5rem; // Match height across elements
+}
+
+.popover {
+    position: absolute;
+    top: 2.5rem; /* Adjust this value to position the popover below the icon */
+    left: 50%;
+    transform: translateX(-50%); /* Center the popover horizontally */
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    z-index: 1000; /* Ensure the popover appears above other elements */
+    white-space: nowrap; /* Prevent text wrapping in the popover */
+  }
+  
+  .popover::before {
+    content: '';
+    position: absolute;
+    top: -0.5rem; /* Position the triangle at the top of the popover */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0.5rem;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+  }
