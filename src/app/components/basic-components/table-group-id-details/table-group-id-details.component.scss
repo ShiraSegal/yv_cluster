@@ -1,28 +1,30 @@
 @import "src/styles.scss";
 
-.container{
-    // display: flex;
-width: 101.9375rem;
-padding: 1.25rem 1.25rem 0.625rem 1.25rem;
-flex-direction: column;
-align-items: flex-start;
-gap: 1.5rem;
-border-radius: 0.75rem;
-background: $c-FFFFFF;
+.container {
+  // display: flex;
+  width: 55rem; // 101.9375 * 0.5
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem; // 1.5 * 0.5
+  border-radius: 0.375rem; // 0.75 * 0.5
+  background: $c-FFFFFF;
 
-/* Drop shadow card */
-box-shadow: 0px 10px 60px 0px rgba(117, 115, 115, 0.10);
+  /* Drop shadow card */
+  box-shadow: 0px 5px 30px 0px rgba(117, 115, 115, 0.10); // 10px 60px * 0.5
 }
-.table-container{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    align-self: stretch;
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
 }
-.table-header-rows-button-container{
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 0.25rem;
-align-self: stretch;
+
+.table-header-rows-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem; // 0.25 * 0.5
+  align-self: stretch;
+  margin-left: 1rem;
 }

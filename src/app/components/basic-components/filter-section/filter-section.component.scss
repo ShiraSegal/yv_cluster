@@ -1,9 +1,8 @@
 @import "src/styles.scss";
 .filter-section-container {
     display: flex;
-    width: 100%; // Full width
-    width: 99.4375rem;
-    height: 3.5rem;
+    width: 55rem;
+    height: 1.5rem;
     padding-bottom: 1.25rem;
     justify-content: space-between;
     border-bottom: 1px solid $c-B8C2EA; // Bottom border
@@ -22,7 +21,7 @@ align-items: center;
 }
 .yv-cluster-search-field,
 .yv-cluster-select {
-    min-width: 12rem; // Ensure consistent width for dropdowns
+    min-width: 8rem; // Ensure consistent width for dropdowns
     height: 1.5rem; // Match height across elements
 }
 

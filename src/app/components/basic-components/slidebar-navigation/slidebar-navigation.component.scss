@@ -1,141 +1,13 @@
-// @import "src/styles/colors";
-
-// .slider-navigation {
-//   display: flex;
-//   width: 20.7184rem;
-//   height: 100.73625rem;
-//   padding-top: 1.119375rem;
-//   flex-direction: column;
-//   align-items: center;
-//   gap: 6.344625rem;
-//   background: $c-081548;
-// }
-
-// .upper-warp {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   align-items: center;
-//   flex: 1 0 0;
-//   align-self: stretch;
-// }
-
-// .inner-upper-warp {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   gap: 7.4625rem;
-//   align-self: stretch;
-// }
-
-// .logo {
-//   background: url('/assets/images/logo.png') no-repeat center center;
-//   background-size: contain;
-//   width: 13.785rem;
-//   height: 7.370625rem;
-//   flex-shrink: 0;
-//   margin-right: 2.985rem auto; /* ריווח ומרכז הלוגו */
-// }
-
-// .tabs {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   gap: 1.1184375rem;
-//   align-self: stretch;
-//   padding-top: 8.20875rem;
-// }
-
-// .tab {
-//   display: flex;
-//   height: 5.97rem;
-//   padding: 0.65259375rem 1.1184375rem 0rem 0rem;
-//   align-items: center;
-//   gap: 0.93390625rem;
-//   align-self: stretch;
-// }
-
-// .space {
-//   margin-top: 37.3125rem;
-// }
-
-// .line {
-//   display: flex;
-//   width: 20.7184rem;
-//   height: 0.09328125rem;
-//   flex-direction: column;
-//   align-items: center;
-//   gap: 0.27984375rem;
-//   flex-shrink: 0;
-//   border-bottom: 0.5px solid $c-A1AEE3;
-// }
-
-// .user {
-//   display: flex;
-//   height: 5.97rem;
-//   padding-top: 0.74625rem;
-//   align-items: center;
-//   gap: 0.93390625rem;
-//   align-self: stretch;
-//   &.active {
-//     display: inline-flex;
-//     padding-top: 0.74625rem;
-//     align-items: center;
-//     gap: 0.93390625rem;
-//     border-radius: 0.466875rem;
-//     background: rgba(19, 52, 185, 0.40);
-//   }
-// }
-
-// ::ng-deep yv-cluster-assignee.assignee-in-slidebar .assignee {
-//   align-items: flex-start !important;
-//   align-self: stretch;
-//   height: 5.97rem;
-//   gap: 0.74625rem;
-//   color: #fff !important;
-//   font-size: 1.4925rem !important;
-//   padding-right: 2.985rem;
-//   padding-left: 0.74625rem;
-//   padding-top: 2.23875rem;
-// }
-
-// .icon {
-//   color: #D0D6F1;
-//   text-align: center;
-//   font-family: "Font Awesome 6 Pro";
-//   font-size: 1.4925rem;
-//   font-style: normal;
-//   font-weight: 900;
-//   line-height: normal;
-//   margin-left: -2.985rem;
-//   margin-top: -1.4925rem;
-// }
-
-// .logout {
-//   display: flex;
-//   width: 18.57309375rem;
-//   padding: 0.74625rem;
-//   margin-top: -5.22375rem;
-//   align-items: center;
-//   border-radius: 0.55921875rem;
-//   background: $c-FFFFFF;
-//   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1),
-//     0px -4px 5px 0px rgba(0, 0, 0, 0.05);
-// }
-
-// .native-option-logout {
-//   width: 18.57309375rem !important;
-// }
 @import "src/styles/colors";
 
 .slider-navigation {
   display: flex;
-  width: 9.29625rem;
-  // height: 45.225rem;
-  padding-top: 0.5025rem;
+  width: 5.57775rem; // 9.29625 * 0.6
+  height: 28rem; // 45.225 * 0.6
+  padding-top: 0.3015rem; // 0.5025 * 0.6
   flex-direction: column;
   align-items: center;
-  gap: 2.8475rem;
+  gap: 1.7085rem; // 2.8475 * 0.6
   background: $c-081548;
 }
 
@@ -152,15 +24,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3.35rem;
+  gap: 2.01rem; // 3.35 * 0.6
   align-self: stretch;
 }
 
 .logo {
   background: url(/assets/images/image-logo.png) no-repeat center center;
   background-size: contain;
-  width: 8.19018rem;
-  height: 4.30713rem;
+  width: 4.914108rem; // 8.19018 * 0.6
+  height: 2.584278rem; // 4.30713 * 0.6
   flex-shrink: 0;
 }
 
@@ -168,41 +40,40 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5025rem;
+  gap: 0.3015rem; // 0.5025 * 0.6
   align-self: stretch;
-  padding-top: 3rem;
+  padding-top: 1.8rem; // 3 * 0.6
 }
 
 .tab {
   display: flex;
-  height: 2.68rem;
-  padding: 0.293375rem 0.5025rem 0rem 0rem;
+  height: 1.608rem; // 2.68 * 0.6
+  padding: 0.176025rem 0.3015rem 0rem 0rem; // 0.293375 * 0.6, 0.5025 * 0.6
   align-items: center;
-  gap: 0.41875rem;
+  gap: 0.25125rem; // 0.41875 * 0.6
   align-self: stretch;
 }
 
 .space {
-  margin-top: 16.75rem;
+  margin-top: 10.05rem; // 16.75 * 0.6
 }
 
 .line {
   display: flex;
-  width: 9.29625rem;
-  height: 0.041875rem;
+  width: 5.57775rem; // 9.29625 * 0.6
+  height: 0.025125rem; // 0.041875 * 0.6
   flex-direction: column;
   align-items: center;
-  gap: 0.125625rem;
+  gap: 0.075375rem; // 0.125625 * 0.6
   flex-shrink: 0;
-  border-bottom: 0.5px solid $c-A1AEE3;
+  border-bottom: 0.3px solid $c-A1AEE3; // 0.5 * 0.6
 }
 
 .user {
   display: flex;
-  height: 4rem;
-  // padding-top: 0.335rem;
+  height: 2.4rem; // 4 * 0.6
   align-items: center;
-  gap: 0.41875rem;
+  gap: 0.25125rem; // 0.41875 * 0.6
   align-self: stretch;
   &.active {
     background: $c-1334b966;
@@ -210,47 +81,44 @@
 }
 
 ::ng-deep yv-cluster-assignee.assignee-in-slidebar .assignee {
-  // align-items: flex-start !important;
   align-self: stretch;
-  height: 2.68rem;
-  gap: 0.335rem;
+  height: 1.608rem; // 2.68 * 0.6
+  gap: 0.201rem; // 0.335 * 0.6
   color: $c-FFFFFF !important;
-  font-size: 0.67rem !important;
-  padding-right: 1.34rem;
-  padding-left: 0.335rem;
-  padding-bottom: 1rem;
+  font-size: 0.402rem !important; // 0.67 * 0.6
+  padding-right: 0.804rem; // 1.34 * 0.6
+  padding-left: 0.201rem; // 0.335 * 0.6
+  padding-bottom: 0.6rem; // 1 * 0.6
 }
 
 .icon {
   color: $c-D0D6F1;
   text-align: center;
   font-family: "Font Awesome 6 Pro";
-  font-size: 0.67rem;
+  font-size: 0.402rem; // 0.67 * 0.6
   font-style: normal;
   font-weight: 900;
   line-height: normal;
-  margin-left: -1.5rem;
-  margin-top: -1rem;
-  
+  margin-left: -0.9rem; // -1.5 * 0.6
+  margin-top: -0.6rem; // -1 * 0.6
 }
 
 .logout {
   display: flex;
-  width: 8.33313rem;
-  // padding: 0.335rem;
-  padding-left: 0.75rem;
-  margin-top: -2.8rem;
+  width: 5.0rem; // 8.33313 * 0.6
+  padding-left: 0.45rem; // 0.75 * 0.6
+  margin-top: -1.68rem; // -2.8 * 0.6
   align-items: center;
-  border-radius: 0.25125rem;
+  border-radius: 0.15075rem; // 0.25125 * 0.6
   background: $c-FFFFFF;
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1),
-  0px -4px 5px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 2.4px 12px 0px rgba(0, 0, 0, 0.1),
+  0px -2.4px 3px 0px rgba(0, 0, 0, 0.05); // כל הערכים מוכפלים ב-0.6
 }
 
-::ng-deep yv-cluster-native-option.native-option-logout .option-wrapper{
-  min-width: 6.583197rem !important;
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
-  margin-left: -0.5rem;
-  padding-right: 1.5rem;
+::ng-deep yv-cluster-native-option.native-option-logout .option-wrapper {
+  min-width: 3.949918rem !important; // 6.583197 * 0.6
+  margin-top: 0.12rem; // 0.2 * 0.6
+  margin-bottom: 0.12rem; // 0.2 * 0.6
+  margin-left: -0.3rem; // -0.5 * 0.6
+  padding-right: 0.9rem; // 1.5 * 0.6
 }

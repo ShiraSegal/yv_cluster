@@ -1,4 +1,3 @@
-
 @import "src/styles.scss";
 
 .data-container {
@@ -6,5 +5,5 @@
     flex-direction: column;
     align-items: flex-start;
     align-self: stretch;
-    padding-top: 1rem ;
+    padding-top: 0.5rem; // 1 * 0.5
 }

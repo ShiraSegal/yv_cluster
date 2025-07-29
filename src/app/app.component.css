@@ -1,15 +1,7 @@
 
 
-.app-wrraper {
-    width: 75rem;
-    height: 67.5rem;
+main {
     background: linear-gradient(0deg, rgba(231, 235, 248, 0.30) 0%, rgba(231, 235, 248, 0.30) 100%), #FFF;
-  
 }
 
-nav {
-    position: fixed; /* מיקום קבוע לניווט */
-}
-main{
-    margin-left: 12rem;
-}
+
