@@ -39,6 +39,11 @@ getCreateClusterData(bookIds: string[]) {
     return this.#http.get<BookIdDetails | boolean>(`${this.url}/SystemCluster/AddBookIdsByClusterId?clusterId=${clusterId}`)
   }
 
+  //   addBookIdExsitCluster(bookId:string){
+  //   // let url= `${this.apiUrl}/getByBookId.json`;
+  //   return this.#http.get<BookIdDetails | boolean>(`${this.url}/SystemCluster/AddBookIdsByClusterId?clusterId=${clusterId}`)
+  // }
+
   createCluster(SapirClusterModel: SapirClusterModel){
     return this.#http.post<SapirClusterModel>(`${this.url}/CreateCluster/CreateNewCluster`, SapirClusterModel);
   }
