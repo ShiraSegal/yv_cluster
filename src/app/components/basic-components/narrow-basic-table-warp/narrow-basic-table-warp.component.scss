@@ -2,7 +2,7 @@
 
 .table-warp {
     display: flex;
-    width: 110rem;
+    width: 105rem;
     flex-direction: column;
     align-items: center;
     gap: 1.8125rem;
@@ -47,7 +47,7 @@
 }
 
 .tabs {
-    width: 110rem;
+    width: 1rem;
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -64,5 +64,5 @@
     gap: 1.5rem;
     align-self: stretch;
     border-radius: 0.75rem;
-    width:110rem;
+    width:105rem;
 }
