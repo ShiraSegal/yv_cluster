@@ -6,7 +6,7 @@ import { LastNameInPlaces } from '../models/LastNameInPlaces';
 import { LastName } from '../models/LastName';
 import { StatisticDetail } from '../models/StatisticDetail';
 import { StatisticData } from '../models/StatisticData';
-import { CompaereDetailsData } from '../models/compaereDetailsData';
+import { CompaereDetailsData } from '../models/compaereDetailsData.model';
 
 
 @Injectable({

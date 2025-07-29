@@ -1,7 +1,7 @@
 import { Component, Input, Output, output } from '@angular/core';
 import { ViewerComponent } from '../../basic-components/viewer/viewer.component';
 import { CommonModule } from '@angular/common';
-import { CompaereDetailsData } from 'src/app/models/compaereDetailsData';
+import { CompaereDetailsData } from 'src/app/models/compaereDetailsData.model';
 import { BasicSquareIconButtonComponent } from '../../basic-components/basic-square-icon-button/basic-square-icon-button.component';
 import { IconType } from 'src/app/enums/icon-enum';
 import { BasicSimpleSquareIconButtonComponent } from '../../basic-components/basic-simple-square-icon-button/basic-simple-square-icon-button.component';
@@ -18,7 +18,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class RecordDetailsComponent {
   // @Input() recordDetails: BehaviorSubject<CompaereDetailsData>;
   @Input() recordDetails!: CompaereDetailsData;
-
+  @Input() highlightedWords: Record<string, string> = {};
   // @Output() isActive: boolean = true
   isOpen: boolean = true
   image = IconType.IMAGE;
@@ -31,6 +31,15 @@ export class RecordDetailsComponent {
   //   return Object.entries(obj);
   // }
   selectedButton: number = 3;
+
+
+  objectKeys = Object.keys;
+
+shouldHighlight(key: string, value: string): boolean {
+  const highlightWord = this.highlightedWords?.[key];
+  if (!highlightWord) return false;
+  return value?.toString().split(' ').includes(highlightWord);
+}
 
   changeMode(index: number) {
     this.selectedButton = index;

@@ -17,6 +17,7 @@
     (detailsMode)="handleDetailsModeChange($event,i)" (imageMode)="handleImageModeChange($event,i)">
     ></yv-cluster-compare-modal-button>
 </div> -->
+<!-- <dialog> -->
 <div class="table-warpper">
   <div class="table-header">
     <div class="items-warpper">
@@ -33,11 +34,14 @@
   </div>
   <div class="records">
     @for(details of compareData;track $index){
-      <yv-cluster-close-record-details *ngIf="!compareData[$index].isOpen" [recordDetails]="compareData[$index]"></yv-cluster-close-record-details>
+      <yv-cluster-close-record-details *ngIf="!compareData[$index].isOpen" [recordDetails]="compareData[$index]" [highlightedWords]="highlightedWords"
+      ></yv-cluster-close-record-details>
     }
 
     @for(details of compareData;track $index){
-    <yv-cluster-record-details *ngIf="compareData[$index].isOpen" [recordDetails]="compareData[$index]"></yv-cluster-record-details>
+    <yv-cluster-record-details *ngIf="compareData[$index].isOpen" [recordDetails]="compareData[$index]" [highlightedWords]="highlightedWords"
+    ></yv-cluster-record-details>
     }
   </div>
 </div>
+<!-- </dialog> -->
