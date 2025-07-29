@@ -196,6 +196,7 @@ export class ClusterService {
         );
         //  this.#loadingService.hide();
         return clusterGroup;
+
       }),
       catchError(err => {
         console.error('Error fetching cluster group details:', err);

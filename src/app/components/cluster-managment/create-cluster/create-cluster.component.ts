@@ -24,7 +24,7 @@ import { BookIdDetails } from 'src/app/models/book-id-details.model';
 type NativeSelectOption = {
   optionType: NativeOptionType;
   optionState: NativeOptionState;
-  displayText: string;
+  displayText?: string;
   property?: BadgeType;
 };
 
@@ -67,15 +67,11 @@ export class CreateClusterComponent {
   color1: TextColor = TextColor.SLATE_BLUE;
 
   selectLabel: string = 'Cluster Level';
-  options: {
-    optionType: NativeOptionType;
-    optionState: NativeOptionState;
-    displayText: string;
-  }[] = [
-      { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Exact' },
-      { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Most Probable' },
-      { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Possible' }
-    ];
+  options:NativeSelectOption [] = [
+    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Cluster Level 1' },
+    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Cluster Level 2'},
+    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Cluster Level 3' }
+  ]
 
   comments: string = '';
 
@@ -107,11 +103,12 @@ export class CreateClusterComponent {
 
 valuesToDisplayedFields: { [key in string]: { key: string, value: string }[] } = {};
   ngOnInit() {
-    this.createClusterFormData();
     // this.subscription.add(this.createClusterForm.valueChanges.subscribe((value) => {
     //   console.log('Form value changed: 💜💜💜💜💜', value);
 
     // }))
+    console.log("option",this.options);
+    
 
   }
   createClusterFormData() {

@@ -12,12 +12,14 @@
       </div>
 
       @if (type !== 'status') {
-        <div class="field-warp">
-          <yv-cluster-field
-            [placeholder]="'Search'"
-            (input)="filterPopoverList($event)">
-          </yv-cluster-field>
-        </div>
+        <form [formGroup]="searchFieldForm">
+          <div class="field-warp">
+            <yv-cluster-search-field 
+              class="search-field"
+              formControlName="searchField">
+            </yv-cluster-search-field>
+          </div>
+        </form>
       }
     </div>
 
@@ -34,11 +36,9 @@
         }
       </div>
 
-      @if (showScrollbar) {
-        <div class="custom-scrollbar">
-          <div class="custom-thumb" #customThumb></div>
-        </div>
-      }
+ <div class="custom-scrollbar" [hidden]="!showScrollbar">
+  <div class="custom-thumb" #customThumb></div>
+</div>
     </div>
   </div>
 </div>

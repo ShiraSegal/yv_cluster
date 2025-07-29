@@ -36,63 +36,62 @@ export class NarrowBasicTableComponent {
   subscription: Subscription = new Subscription();
   @Input() prefCodeStatus;
 
-rowGroups$ = new BehaviorSubject<FormGroup[]>([]);
+  rowGroups$ = new BehaviorSubject<FormGroup[]>([]);
   ngOnInit() {
     console.log('narrow tableDataForm', this.tableDataForm);
-    
-
-      this.subscription.add(
-    this.rowsFormArray.valueChanges.subscribe((v) => {
-      this.updateRowGroups();
-    })
-  );
+    this.subscription.add(
+      this.rowsFormArray.valueChanges.subscribe((v) => {
+        this.updateRowGroups();
+      })
+    );
   }
+
 updateRowGroups() {
   this.rowGroups$.next(this.rowsFormArray.controls as FormGroup[]);
 }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe()
-  }
+ngOnDestroy(): void {
+  this.subscription.unsubscribe()
+}
 
   get rowGroup(): FormGroup[] {
-    return this.rowsFormArray.controls as FormGroup[];
-  }
+  return this.rowsFormArray.controls as FormGroup[];
+}
 
 
 
 
   get headerCheckbox(): FormControl {
-    return this.tableDataForm.get('headerCheckbox') as FormControl;
-  }
-  get rowsFormArray(): FormArray<FormGroup> {
-    return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
-  }
-  trackByIndex(index: number, item: AbstractControl): number {
-    return index;
-  }
-  deleteRowByBookId(bookId: string) {
-    // this.rowsFormArray.controls.forEach((row, index) => {
-    //   if (row.get('id')?.value === bookId)
-    //     this.rowsFormArray.removeAt(index)
-    // });
-    // this.Rows = this.Rows.filter(item => item[1].data !== bookId);
-    // // this.initRowsArray()
-    // this.checkedControls = [];
-    // this.rowsFormArray.controls.forEach((c) => {
-    //   this.checkedControls.push(c.get('checked') as FormControl);
-    // })
-console.log('deleteRowByBookId called with bookId:', bookId);
+  return this.tableDataForm.get('headerCheckbox') as FormControl;
+}
+  get rowsFormArray(): FormArray < FormGroup > {
+  return this.tableDataForm.get('rowsFormArray') as FormArray<FormGroup>;
+}
+trackByIndex(index: number, item: AbstractControl): number {
+  return index;
+}
+deleteRowByBookId(bookId: string) {
+  // this.rowsFormArray.controls.forEach((row, index) => {
+  //   if (row.get('id')?.value === bookId)
+  //     this.rowsFormArray.removeAt(index)
+  // });
+  // this.Rows = this.Rows.filter(item => item[1].data !== bookId);
+  // // this.initRowsArray()
+  // this.checkedControls = [];
+  // this.rowsFormArray.controls.forEach((c) => {
+  //   this.checkedControls.push(c.get('checked') as FormControl);
+  // })
+  console.log('deleteRowByBookId called with bookId:', bookId);
 
-    this.rowGroup.forEach((row, index) => {
-      console.log('delete: ', bookId);
-      
-      if(row.controls['bookId'].value===bookId) {
-        
-        this.rowsFormArray.removeAt(index);
-        this.updateRowGroups(); // Update the row groups after deletion
-        
-      }
+  this.rowGroup.forEach((row, index) => {
+    console.log('delete: ', bookId);
+
+    if (row.controls['bookId'].value === bookId) {
+
+      this.rowsFormArray.removeAt(index);
+      this.updateRowGroups(); // Update the row groups after deletion
+
+    }
   })
-   
-  }
+
+}
 }

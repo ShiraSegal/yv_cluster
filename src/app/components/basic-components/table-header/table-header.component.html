@@ -10,7 +10,7 @@
             ></yv-cluster-header-cells>
         </div>
         } 
-        @if(currentTab===autoClusterTabType.ERROR_MESSAGES && header.data==='check'){
+        @if(currentTab===autoClusterTabType.ERROR_MESSAGES && header.data==='check'|| currentTab===autoClusterTabType.MISSING_FIELD && header.data==='check'){
           <div class="cell,place-order">
             <yv-cluster-header-cells [data]="'place-older'" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
             [tableDataForm]="tableDataForm"
@@ -26,7 +26,7 @@
     </div>
       }
         @if(currentTab===autoClusterTabType.TABLE_GROUP_ID_DETAILS){
-      <div class="cell">
+      <div class="place-order">
         <yv-cluster-header-cells [data]="'place-older'" (checkStatus)="checkChange($event)" (openDialog)="openPeiComponent()"
         [tableDataForm]="tableDataForm"
         ></yv-cluster-header-cells>

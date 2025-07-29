@@ -24,11 +24,11 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   @Input() direction: RadioButtonListDirection = RadioButtonListDirection.COLUMN;
   // @Output() selectionChange = new EventEmitter<string>();
 
-  private value: string | null = null;
+  private value:{ key: string, value: string } | null = null; // Changed to object type to match radioButtonValuesArray structure
   private onChange: (value: string | null) => void = () => {};
   private onTouched: () => void = () => {};
 
-  writeValue(value: string | null): void {
+  writeValue(value: { key: string, value: string } ): void {
     console.log('writeValue called with:', value);  
     this.value = value;
     console.log('Updated value:', this.value);
@@ -36,6 +36,8 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   
 
   registerOnChange(fn: any): void {
+    console.log('registerOnChange called with:', fn);
+    
     this.onChange = fn;
   }
 
@@ -47,26 +49,26 @@ export class RadioButtonListComponent implements ControlValueAccessor {
     this.disable = isDisabled;
   }
 
-  onOneRadioButtonChange(value: string): void {
-    console.log('onOneRadioButtonChange called with:', value);
-    console.log('Current value before change:', this.value);
+  onOneRadioButtonChange(value: { key: string, value: string } ): void {
+    console.log('onOneRadioButtonChange called with:', value.key);
+    // console.log('Current value before change:', this.value);
     
     if (this.value === value) {
-      value = '';
+      value = null;
     }
     this.value = value;
-    this.onChange(value);
+    this.onChange(value.key);
     // this.selectionChange.emit(value);
   }
 
-  onOtherFieldChecked(selectedOption: string) {
+  onOtherFieldChecked(selectedOption: { key: string, value: string } ) {
     this.radioButtonValuesArray.forEach((item) => {
       if (item.value === 'other') {
-        item.key = selectedOption;
+        item.key = selectedOption.key;
       }
     });
     this.value = selectedOption;
-    this.onChange(selectedOption);
+    this.onChange(selectedOption.key);
     // this.selectionChange.emit(selectedOption);
   }
 

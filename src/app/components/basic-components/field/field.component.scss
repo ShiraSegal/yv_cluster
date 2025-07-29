@@ -1,3 +1,116 @@
+// @import "../../../../styles/colors.scss";
+
+// .warpper {
+//   display: flex;
+//   align-items: flex-start;
+//   flex-direction: column;
+//   background: $c-FFFFFF;
+//   gap: 0.05rem; /* 0.1rem * 0.5 */
+// }
+
+// .common-input-wrapper {
+//   display: flex;
+//   width: 8.375rem; /* 16.75rem * 0.5 */
+//   height: 1.25rem; /* 2.5rem * 0.5 */
+//   min-width: 4.84375rem; /* 9.6875rem * 0.5 */
+//   max-width: 14.0625rem; /* 28.125rem * 0.5 */
+//   padding: calc(var(--Layout-medium, 0.5rem) * 0.5);
+//   align-items: center;
+//   gap: calc(var(--Layout-medium, 0.5rem) * 0.5);
+//   flex-shrink: 0;
+//   border-radius: calc(var(--Border-radius-small, 0.25rem) * 0.5);
+// }
+
+// .common-input-wrapper.default {
+//   border: 0.015625rem solid $c-3F4B5A; /* 0.03125rem * 0.5 */
+// }
+
+// .common-input-wrapper.error {
+//   border: 0.015625rem solid var(--Color-4, $c-C00); /* 0.03125rem * 0.5 */
+//   background: $c-FAEAEA;
+// }
+
+// .common-input-wrapper.disabled {
+//   border: 0.015625rem solid $c-c4c7c580; /* 0.03125rem * 0.5 */
+//   background: $c-FFFFFF80;
+// }
+
+// .common-input-wrapper.populated {
+//   border: 0.015625rem solid $c-262C34; /* 0.03125rem * 0.5 */
+// }
+
+// .common-input-wrapper.focused {
+//   border: 0.03125rem solid $c-1334B9; /* 0.0625rem * 0.5 */
+// }
+
+// legend.default,
+// legend.error,
+// legend.disabled {
+//   padding: 0%;
+// }
+
+// legend.focused,
+// legend.populated {
+//   padding: 0%;
+// }
+
+// .input-legend {
+//   font-family: Poppins;
+//   font-size: 0.3125rem; /* 0.625rem * 0.5 */
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: normal;
+//   height: 0.55rem; /* 1.1rem * 0.5 */
+//   display: flex;
+//   align-items: center;
+// }
+
+// .input-label.default {
+//   color: $c-3F4B5A;
+// }
+
+// .input-label.error {
+//   color: $c-C00;
+// }
+
+// .input-label.disabled {
+//   color: $c-8999DC;
+// }
+
+// .input-label.populated {
+//   color: $c-262C34;
+// }
+
+// .input-label.focused {
+//   color: $c-1334B9;
+// }
+
+// .custom-input {
+//   border: none;
+//   background: none;
+//   outline: none;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   font-family: Poppins;
+//   font-size: 0.4375rem; /* 0.875rem * 0.5 */
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 0.625rem; /* 1.25rem * 0.5 */
+// }
+
+// .custom-input.disabled {
+//   color: $c-8999DC;
+// }
+
+// .error-message {
+//   color: var(--Additional-error-variant, $c-FF6665);
+//   text-align: left;
+//   font-family: Rubik;
+//   font-size: 0.34375rem; /* 0.6875rem * 0.5 */
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 0.36915625rem; /* 0.7383125rem * 0.5 */
+// }
 @import "../../../../styles/colors.scss";
 
 .warpper {

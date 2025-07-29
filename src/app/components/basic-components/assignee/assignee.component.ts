@@ -5,7 +5,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@a
 @Component({
   selector: 'yv-cluster-assignee',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './assignee.component.html',
   styleUrls: ['./assignee.component.scss'],
   providers: [{
@@ -18,17 +18,20 @@ export class AssigneeComponent implements ControlValueAccessor {
   @Input() data: string;
   sliceText: string;
   value: string;
-
+  ngOnInit() {
+    if (this.data)
+      this.sliceText =   this.getInitials(this.data)
+    
+  }
   getInitials(input: string): string {
     if (input) {
       const names = input.split(' ');
       if (names.length > 1) {
         return names[0][0] + names[1][0];
-      } else if (names.length === 1) {
-        return names[0][0];
+      } else 
+        return 'U';
       }
-    }
-    return '';
+      return 'U';
   }
 
   onChange: (value: string) => void = () => { };
@@ -36,7 +39,7 @@ export class AssigneeComponent implements ControlValueAccessor {
 
   writeValue(value: string): void {
     this.value = value; // שמירת הערך
-    this.sliceText = this.getInitials(this.data) || this.getInitials(this.value) || 'UN'; // עדכון sliceText
+    this.sliceText = this.getInitials(this.value); // עדכון sliceText
   }
 
   registerOnChange(fn: (value: string) => void): void {

@@ -5,6 +5,7 @@ import { MessageService } from './services/message.service';
 import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
 import { IconType } from './enums/icon-enum';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ToastNotificationComponent } from './components/basic-components/toast-notification/toast-notification.component';
 import { SlidebarNavigationComponent } from './components/basic-components/slidebar-navigation/slidebar-navigation.component';
 import { RouterOutlet } from '@angular/router';
 import { NotifictionService } from './services/notifiction.service';
@@ -27,6 +28,16 @@ export class AppComponent {
 
   type=IconType;
   currentUser: { id:number,name:string,role:string} = this.#clusterService.currentUser;
+
+  ngOnInit() {
+    this.messageService.message$.subscribe(message => {
+      console.log('📩 message from service:', message);
+    });
+  }
+
+  // openSnackBar(message: string, action: string) {
+  //   this.#snackBar.open(message, action);
+  
       notifictionService = inject(NotifictionService)
 
 IconType=IconType

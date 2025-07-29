@@ -31,21 +31,20 @@
          <a href="{{displayText}}">  {{ displayText}}</a>
           }
         }
-  
+
         @case(optionTypeMain.STATUS) {
           @if (property) {
             <yv-cluster-badge [property]="property"></yv-cluster-badge>
           }
         }
-  
+
         @case(optionTypeMain.ASSIGNEE) {
           <yv-cluster-assignee [data]="displayText"></yv-cluster-assignee>
         }
-  
+
         @default {
           {{ displayText }}
         }
       }
     </div>
   </div>
-  

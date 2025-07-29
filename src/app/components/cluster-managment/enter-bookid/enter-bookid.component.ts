@@ -37,7 +37,7 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
   close: boolean = false;
   formIsValid: boolean;
 
-  header: string = 'Enter Book ID';
+  header: string = 'Enter Book ID / Cluster';
   size: TextSize = TextSize.SMALL;
   weight: TextWeight = TextWeight.BOLD;
   color: TextColor = TextColor.NEUTRAL_GRAY;
@@ -64,7 +64,9 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
       this.enterBookIdOrClusterForm.addControl('selection', new FormControl('', Validators.required));
     }
     console.log("showRadioButtons", this.showRadioButtons);
-
+if(!this.showRadioButtons){
+  this.header="Add To Cluster"
+}
   }
 
   checkedChange(selected: string) {

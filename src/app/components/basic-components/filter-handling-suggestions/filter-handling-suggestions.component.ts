@@ -169,7 +169,7 @@ export class FilterHandlingSuggestionsComponent {
     });
   }
   onUserClick() {
-    alert('User button clicked');
+    // alert('User button clicked');
 
   }
 }

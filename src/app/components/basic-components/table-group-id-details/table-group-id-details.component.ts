@@ -64,6 +64,25 @@ export class TableGroupIdDetailsComponent {
   narrowBasicTableRowLength = NarrowBasicTableRowLength;
   AutoClusterTabType = AutoClusterTabType;
 
+  // formGroup: FormGroup = this.#fb.group({
+  //   checks: this.#fb.array([]),  // זה ה־FormArray לכל הצ'קים
+  // });
+
+  // get rowsArray(): FormArray {
+  //   return this.formGroup.get('checks') as FormArray;
+  // }
+
+  // getFormControl(index: number): FormControl {
+  //   //// // console.log("getFormControl", this.rowsArray.at(index) as FormControl);
+  //   return this.rowsArray.at(index) as FormControl;
+  // }
+
+  // getFormControlsArray(index: number): FormControl[] {
+  //   const formGroup = this.rowsArray.at(index) as FormGroup;
+  //   return Object.keys(formGroup.controls).map(key => formGroup.get(key) as FormControl);
+  // }
+
+
   tableDataForm: FormGroup = this.#fb.group({
     headerCheckbox: new FormControl(false),
     rowsFormArray: this.#fb.array([])
@@ -268,8 +287,8 @@ this.dialogRef = this.#dialog.open(PieComponentDistributionModalComponent, {
         console.log('page Data received from dialog:', result);
         if(Array.isArray(result)){
           result.forEach((item: any) => {
-          this.Rows.push(item);
           this.addRow(item);
+          this.Rows.push(item);
           })}
           else{ 
             this.addRow(result);
@@ -277,15 +296,6 @@ this.dialogRef = this.#dialog.open(PieComponentDistributionModalComponent, {
           }
         console.log('Updated Rows:', this.Rows);
         // this.i();  
-        this.#notifictionService.showToastNotification({
-          iconName: this.iconType.SUCCESS_SOLID,
-          title: 'Successfull',
-          message: result.bookId + "  added to the cluster successfully!",
-          duration: 3000
-        });
-        if (result.bookId === "formIsNotValid") {
-          console.log('page Data received from dialog: no data');
-        }
       }
 
     });

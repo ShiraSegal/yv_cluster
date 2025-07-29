@@ -33,7 +33,6 @@ textForExpandable:string
 textSlice:string
 iconForExpand:IconType = IconType.CHEVRON_DOWN_SOLID;
    ngOnInit() {
-   
     this.updateControlsArray()
     this.subscription.add(this.rowGroup.valueChanges.subscribe((value) => {
       console.log('RowGroup changed: 💜', value);
@@ -54,22 +53,22 @@ iconForExpand:IconType = IconType.CHEVRON_DOWN_SOLID;
       };
     });
    }
-   ngOnChanges(changes: SimpleChanges): void {
-     if (changes['rowGroup']) {
-       this.updateControlsArray();
+  //  ngOnChanges(changes: SimpleChanges): void {
+  //    if (changes['rowGroup']) {
+  //      this.updateControlsArray();
    
-       this.subscription.unsubscribe(); // נקה את כל המנויים הקודמים
-       this.subscription = new Subscription();
+  //      this.subscription.unsubscribe(); // נקה את כל המנויים הקודמים
+  //      this.subscription = new Subscription();
    
-       // הירשם מחדש לשינויים בטופס
-       this.subscription.add(
-         this.rowGroup.valueChanges.subscribe((value) => {
-           console.log('RowGroup changed: 💜', value);
-           this.updateControlsArray();
-         })
-       );
-     }
-    }
+  //      // הירשם מחדש לשינויים בטופס
+  //      this.subscription.add(
+  //        this.rowGroup.valueChanges.subscribe((value) => {
+  //          console.log('RowGroup changed: 💜', value);
+  //          this.updateControlsArray();
+  //        })
+  //      );
+  //    }
+  //   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }

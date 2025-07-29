@@ -76,6 +76,22 @@ ngOnChanges(changes: SimpleChanges): void {
     );
   }
 }
+// ngOnChanges(changes: SimpleChanges): void {
+//   if (changes['rowGroup']) {
+//     this.updateControlsArray();
+
+//     this.subscription.unsubscribe(); // נקה את כל המנויים הקודמים
+//     this.subscription = new Subscription();
+
+//     // הירשם מחדש לשינויים בטופס
+//     this.subscription.add(
+//       this.rowGroup.valueChanges.subscribe((value) => {
+//         console.log('RowGroup changed: 💜', value);
+//         this.updateControlsArray();
+//       })
+//     );
+//   }
+// }
 
  
 

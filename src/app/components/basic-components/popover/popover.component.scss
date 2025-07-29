@@ -9,11 +9,10 @@
   background: $c-FFFFFF;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.10), 0px -4px 5px rgba(0, 0, 0, 0.05);
 
-//שלא יתפוס מקום בעמוד
+  // שלא יתפוס מקום בעמוד
   position: absolute; 
   right: 0rem;
   z-index: 1000; 
-
 
   .popover-internal-warp {
     display: flex;
@@ -47,59 +46,39 @@
       }
     }
 
-    .field-warp {
+    ::ng-deep yv-cluster-search-field.search-field .search-container {
       display: flex;
-      padding: 0 0.5rem 0.25rem;
-      flex-direction: column;
-      justify-content: center;
+      height: 1.5rem !important;
+      padding: var(--Layout-medium, 0.5rem);
       align-items: center;
-      gap: 0.625rem;
+      gap: var(--Layout-medium, 0.5rem);
       align-self: stretch;
-
-      ::ng-deep yv-cluster-field .common-input-wrapper {
-        display: flex;
-height: 2.5rem !important;
-padding: var(--Layout-medium, 0.5rem);
-align-items: center;
-gap: var(--Layout-medium, 0.5rem);
-align-self: stretch;
-        display: flex;
-        min-width: 11.6875rem !important;
-        width: 1.8125rem !important;
-        // height: 1.8152rem !important;
-        // padding-top: 0;
-        // padding-bottom: 1rem;
-        align-items: center;
-        gap: 0.5rem;
-        align-self: stretch;
-        border-radius: 0.25rem;
-        border: 0.5px solid $c-3F4B5A;
-      }
+      min-width: 12.6875rem !important;
+      width: auto !important;
+      border-radius: 0.25rem;
+      border: 0.5px solid #3F4B5A;
     }
 
     .nativ-options-warp {
       display: flex; 
       position: relative;
-justify-content: space-between;
-align-items: center;
-align-self: stretch;  
-      // display: flex;
-      // width: 10.875rem;
+      justify-content: space-between;
+      align-items: center;
+      align-self: stretch;  
       max-height: 12.5rem;
       overflow: hidden;
 
       .nativ-options-internal-warp {
         display: flex;
-flex-direction: column;
-align-items: flex-start;
-flex: 1 0 0;
-align-self: stretch;
-        // flex: 1;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1 0 0;
+        align-self: stretch;
         overflow-y: auto;
         overflow-x: hidden;
-        // padding-right: 0.5rem;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        padding-top: 0.5rem;
       }
 
       .nativ-options-internal-warp::-webkit-scrollbar {
@@ -116,12 +95,11 @@ align-self: stretch;
 
         .custom-thumb {
           width: 100%;
-          // height: 4rem;
           background-color: $c-C3CBD5;
           border-radius: 0.5rem;
           position: relative;
-          // top: 0;
           transition: top 0.2s ease;
+          margin-top: 1rem;
         }
       }
 

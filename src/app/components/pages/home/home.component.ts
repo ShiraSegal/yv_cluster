@@ -63,9 +63,7 @@ radioButtonValuesArray: { key: string, value: string }[] = [
 });
 
   ngOnInit() {
-
-
-    const userId = 4; // ID של המשתמש הרצוי
+    const userId = 1; // ID של המשתמש הרצוי
     //בעיקרון פה לוקחים את הID מהLOCALSTORAGE או משהו בסגנון
     this.#clusterService.getDashboardDataById(userId).subscribe({
       next: (user: any) => {
