@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 
 [
    
@@ -24,5 +28,25 @@
         "id": 5,
         "name": "Unassigned",
         "role": "unassigned"
+<<<<<<< HEAD
+=======
+[
+    {
+        "name": " Unassigned"
+    },
+    {
+        "name": "Yehudit Leibowitz"
+    },
+    {
+        "name": "Batya Halperin"
+    },
+    {
+        "name": "Racheli Leef"
+    },
+    {
+        "name": "Elisheva Katzburg"
+>>>>>>> 7d8dd9758fb99a6f690991e203baf1f23ec827af
+=======
+>>>>>>> main
     }
 ]

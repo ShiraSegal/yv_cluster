@@ -13,8 +13,8 @@ import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large
   styleUrl: './basic-table-row.component.scss'
 })
 export class BasicTableRowComponent {
-  @Input() property: BasicTableRowPropertyVariants = BasicTableRowPropertyVariants.DEFAULT; 
-  @Input() showAction: boolean = false; 
+  @Input() property: BasicTableRowPropertyVariants = BasicTableRowPropertyVariants.DEFAULT;
+  @Input() showAction: boolean = false;
   @Input() cells: {
     data: string;
     type: DataCellType;

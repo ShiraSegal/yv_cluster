@@ -57,3 +57,14 @@
 .comments{
   flex: 1.5;
 }
+.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sortable::after {
+  content: ' ⇅';
+  color: #888;
+  font-size: 0.8rem;
+  margin-left: 0.4rem;
+}
