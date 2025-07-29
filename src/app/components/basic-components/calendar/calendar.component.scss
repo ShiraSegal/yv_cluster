@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 .calendar-wrapper {
   display: flex;
   justify-content: center;
@@ -10,71 +6,47 @@
   background: white;
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  flex-wrap: nowrap;
-  height: 21rem;
+  flex-wrap: nowrap; 
+  height: 20rem;
 }
 
 .calendar-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  height: 100%;
-  gap: 0.2rem;
+  justify-content: center;
 }
 
 .calendar-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
-  width: 100%;
+  width: 100%; 
   color: var(--Color-2, #262C34);
   font-family: Rubik;
   font-size: 1.176rem;
   font-style: normal;
   font-weight: 500;
-  height: 3rem;
+  height: 3rem; 
   line-height: 3rem;
+  box-sizing: border-box; 
 }
-
-.calendar-header span {
-  flex-grow: 1;
-  text-align: center;
-  min-width: 7rem;
-}
-
-.nav-button {
+.calendar-header button {
   background: none;
   border: none;
-  padding: 0;
-  font-size: 1.2rem;
-  color: #333;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: black;
+  font-family: "Font Awesome 6 Duotone";
+  // font-size: 1.5rem; /* גודל החץ */
 }
 
-.calendar-header i {
-  font-size: 0.8rem;
-}
-
-.calendar-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
 
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 2rem);
-  grid-auto-rows: 2rem;
   gap: 0.3rem;
   text-align: center;
-  min-height: 13.5rem;
-  max-height: 13.5rem;
+  
 }
 
 .day-name {
@@ -88,18 +60,21 @@
   letter-spacing: 0.00138rem;
 }
 
-.calendar-day {
+.calendar-day,
+.empty-day {
   height: 2rem;
   width: 2rem;
   line-height: 2rem;
   border-radius: 50%;
   cursor: pointer;
   color: #000;
-  text-align: center;
-  font-family: Rubik;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
+
+text-align: center;
+font-family: Rubik;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+
 }
 
 .calendar-day:hover {
@@ -112,8 +87,13 @@
   font-weight: bold;
   border: 1px solid #2f54e9;
 }
+.calendar-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
 
-.calendar-day.empty-day {
-  pointer-events: none;
-  visibility: hidden;
+.calendar-header span {
+  flex-grow: 1;
+  text-align: center; 
 }

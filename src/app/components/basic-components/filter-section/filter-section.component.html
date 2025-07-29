@@ -4,8 +4,13 @@
      ></yv-cluster-search-field>
 
     @if (Filters.includes(filterNames.DATE_OF_REPORT)) {
-    <yv-cluster-select formControlName="date" [default]="'Select Date Of Report'"
-      [dropdownType]="nativeOptions.TEXT"></yv-cluster-select>
+      <yv-cluster-select
+      formControlName="date"
+      [default]="selectedDateText || 'Select Date of report'"
+      [dropdownType]="nativeOptions.TEXT"
+      
+      (click)="toggleCalendar()"
+    ></yv-cluster-select>
     }
     <!-- @if (Filters.includes(filterNames.DATE_OF_ASSIGNEE)) {
       <yv-cluster-select formControlName="assigneeDate" [default]="'Select Date Of Assignee '"
@@ -21,6 +26,12 @@
     }
 
   </div>
+  <div *ngIf="isCalendarOpen" class="calendar-wrapper">
+    <calendar
+    [selectedDate]="temporaryDate"
+    (selectedDateChange)="onDateSelected($event)"
+  ></calendar>
+  </div>
 
   @if (iconsVisible) {
   <div class="right-buttons">
@@ -34,8 +45,6 @@
       }
     </div>
 
-    <!-- כפתור שני: Status toggle -->
-    <!-- formControlName="toggleStatus" -->
     <div class="icon-container" (mouseenter)="showPopover(popOverTypeEnum.STATUS)" (mouseleave)="hidePopover()">
       <yv-cluster-icon-button-large [icon]="iconType.CLIPBOARD_LIST_LIGHT" [property]="iconButtonLargeType.DEFAULT"
         (onClick)="onClickAssinee()"></yv-cluster-icon-button-large>
@@ -45,9 +54,7 @@
       </div>
       }
 
-      <!-- כפתור רגיל -->
-      <!-- <yv-cluster-button (onClick)="onClickAddClusterFunc()" [text]="buttonText" [buttonType]="primary" [isBig]="true"
-        [iconType]="iconType.PLUS_LIGHT"></yv-cluster-button> -->
+   
     </div>
   </div>
   }

@@ -9,6 +9,8 @@ import { ActivatedRoute,NavigationEnd,Router } from '@angular/router';
 import { ClusterService } from 'src/app/services/cluster.service';
 import { AssigneeComponent } from '../assignee/assignee.component';
 import { NativeOptionComponent } from '../native-option/native-option.component';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'yv-cluster-slidebar-navigation',
@@ -41,6 +43,9 @@ export class SlidebarNavigationComponent {
     // {  property: SliderNavigationTabType.VARIANT3,icon: IconType.LEFT_FROM_BRACKET_LIGHT, activeIcon: IconType.LEFT_FROM_BRACKET_SOLID, text: SliderNavigationTabTextType.LOG_OUT,url:SliderNavigationTabUrl.LOG_OUT },
   ];
 
+
+  constructor(private cdr: ChangeDetectorRef) {}
+  
   ngOnInit() {
     this.#router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -52,13 +57,17 @@ export class SlidebarNavigationComponent {
             tab.property = SliderNavigationTabType.VARIANT3;
           }
         });
+        this.activeTabIndex = this.tabs.findIndex((tab) => tab.url === currentUrl);
+  
+        // הכריח את Angular לעדכן את ה-UI
+        this.cdr.detectChanges();
       }
     });
-    }
+  }
   
   
   setActiveTab(tabText: SliderNavigationTabTextType) {
-    const groupId=1;
+  const groupId=1;
     // this.activeTabIndex = tabText;
     this.tabs.forEach((tab) => {
       if (tab.text !== tabText) {
