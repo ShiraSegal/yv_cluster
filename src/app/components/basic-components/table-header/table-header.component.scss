@@ -1,42 +1,56 @@
+// @import "src/styles.scss";
+
+// .table-header {
+//   // height: 5.125rem;
+//   // justify-content: space-between;
+//   // align-self: stretch;
+//   // border-bottom: 1px solid $c-D0D6F1;
+//   // display: flex;
+//   // width: 100%;
+//   // padding: 0.25rem 0rem;
+//   // align-items: center;
+
+//   display: flex;
+// padding: 0.25rem 0rem;
+// align-items: center;
+// align-self: stretch;
+//  border-bottom: 1px solid $c-D0D6F1;
+// //  width: 100rem;
+// }
+
+// .regular-cell {
+//   flex-grow: 1;
+//   flex-basis: 0;
+//   min-width: 0;
+// }
+// .special-cell {
+//   flex-grow: 0;
+//   flex-basis: auto;
+//   margin-left: auto;
+//   width: auto;
+// }
 @import "src/styles.scss";
 
 .table-header {
-    display: flex;
-    padding: 0.125rem 0.125rem 0.125rem 0.125rem; // 0.25 * 0.5
-    align-items: center;
-    align-self: stretch;
-    background: #F1F1F1;
-    max-height: 2rem;
+//  height: 3.365rem;
+  // border-bottom: 1px solid $c-D0D6F1;
+  display: flex;
+  padding: 0.25rem 0rem;
+  align-items: center;
+  align-self: stretch;
+  background: #F1F1F1
+  
 }
-
-.long {
-    width: 55rem; // 130 * 0.5
-}
-.short {
-    width: 53rem;
+.long{
+  width: 110rem;
 }
 .cell {
-    flex: 1; /* כל תא יקבל רוחב שווה */
+  flex: 1; /* כל תא יקבל רוחב שווה */
 }
-.check {
-    flex: 0; /* כל תא יקבל רוחב שווה */
+.check{
+  flex: 0; /* כל תא יקבל רוחב שווה */
 }
-.place-order {
-    flex: 0;
-    max-width: 1.375rem; // 2.75 * 0.5
-}
-
-.comments {
-    flex: 0.75; // 1.5 * 0.5
-}
-.sortable {
-  cursor: pointer;
-  user-select: none;
-}
-
-.sortable::after {
-  content: ' ⇅';
-  color: #888;
-  font-size: 0.8rem;
-  margin-left: 0.4rem;
+.place-order{
+  flex: 0;
+ max-width:2.75rem;
 }

@@ -1,61 +1,97 @@
 @import "src/styles.scss";
+
 .warpper {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  background:$c-FFFFFF;
-  gap: 0.05rem; /* 0.1rem * 0.5 */
+  background: $c-FFFFFF;
+  gap: 0.1rem;
 }
+
 .search-container {
   display: flex;
-  width: 8.375rem; /* 16.75rem * 0.5 */
-  height: 1rem; /* 2.5rem * 0.5 */
-  padding-left: 0.25rem; /* 0.5rem * 0.5 */
-  padding-right: 0.25rem; /* 0.5rem * 0.5 */
+  width: 16.75rem;
+  height: 2.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   align-items: center;
-  gap: calc(var(--Layout-medium, 0.5rem) * 0.5);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  transition: border-color 0.3s;
+
+  &.focused {
+    border-color: #007bff;
+  }
+
+  &.hovered {
+    border-color: #0056b3;
+  }
+
+  &.filled {
+    border-color: #28a745;
+  }
+
+  gap: var(--Layout-medium, 0.5rem);
   flex-shrink: 0;
-  border-radius: calc(var(--Border-radius-small, 0.25rem) * 0.5);
-  border: 0.25px solid #3F4B5A; /* 0.5px * 0.5 */
+  border-radius: var(--Border-radius-small, 0.25rem);
+  border: 0.5px solid #3F4B5A;
   background-color: #ffffff;
-  min-width: 4.84375rem; /* 9.6875rem * 0.5 */
-  max-width: 14.0625rem; /* 28.125rem * 0.5 */
-}
-.true{
-  border: 0.25px solid #6a3907; /* 0.5px * 0.5 */
+  min-width: 9.6875rem;
+  max-width: 28.125rem;
 }
 
-.search-icon {
-  display: flex;
-  width: 0.5rem; /* 1rem * 0.5 */
-  padding: 0.09375rem 0.15625rem; /* 0.1875rem 0.3125rem * 0.5 */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.3125rem; /* 0.625rem * 0.5 */
-  flex-shrink: 0;
+.true {
+  border: 0.5px solid #6a3907;
 }
 
-input {
-  flex: 1 0 0;
-  overflow: hidden;
-  color: #3F4B5A;
-  text-overflow: ellipsis;
-  font-family: Poppins;
-  font-size: 0.4375rem; /* 0.875rem * 0.5 */
-  font-style: normal;
-  font-weight: 400;
-  line-height: 0.625rem; /* 1.25rem * 0.5 */
-  border: none; /* מבטל את המסגרת */
-  outline: none; /* מבטל את הקו המוקף בעת מיקוד */
-}
-.cancle-icon{
-  display: flex;
-  width: 0.5rem; /* 1rem * 0.5 */
-  padding: 0.09375rem 0.15625rem; /* 0.1875rem 0.3125rem * 0.5 */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.3125rem; /* 0.625rem * 0.5 */
-  flex-shrink: 0;
+.search-field {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+
+  .search-icon {
+    display: flex;
+    width: 1rem;
+    padding: 0.1875rem 0.3125rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+  }
+
+  .clear-icon {
+    cursor: pointer;
+    color: #dc3545;
+    margin-left: 0.5rem;
+
+    input {
+      flex: 1 0 0;
+      overflow: hidden;
+      color: #3F4B5A;
+      text-overflow: ellipsis;
+      font-family: Poppins;
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.25rem;
+      border: none;
+      /* מבטל את המסגרת */
+      outline: none;
+      /* מבטל את הקו המוקף בעת מיקוד */
+    }
+
+    .cancle-icon {
+      display: flex;
+      width: 1rem;
+      padding: 0.1875rem 0.3125rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.625rem;
+      flex-shrink: 0;
+    }
+  }
 }

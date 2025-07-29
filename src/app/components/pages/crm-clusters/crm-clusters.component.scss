@@ -2,11 +2,15 @@
 
 .table-and-title-container{
     display: flex;
-width: 55rem;
+width: 105rem;
 flex-direction: column;
 align-items: flex-end;
 gap: 1.875rem;
+// margin-left: 1rem;
 position: relative;
+// margin-left: 4rem;
+
+
 }
 .title-container{
     display: flex;
@@ -19,7 +23,7 @@ border-bottom: 0.5px solid $c-C4C7C5;
 }
 .group-id-title{
     display: flex;
-width: 28rem;
+width: 57.25rem;
 flex-direction: column;
 align-items: flex-start;
 gap: 0.25rem;
