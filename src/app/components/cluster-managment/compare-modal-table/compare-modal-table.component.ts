@@ -63,7 +63,8 @@ export class CompareModalTableComponent {
   // handleImageModeChange(isActive: boolean, index: number) {
   //   this.compareData[index].imageOn = isActive; // מעדכן את המצב של details בקומפוננטת האב
   // }
-  highlightedWords: Record<string, string> = {};
+  highlightedWords: Record<string, string[]> = {};
+
 
   markedMatches() {
     if (this.markedButtonType == ButtonType.SECONDARY) {
@@ -78,41 +79,38 @@ export class CompareModalTableComponent {
       this.highlightedWords = {};
     }
   }
-  private findMostFrequentWordsByKey(): Record<string, string> {
+  private findMostFrequentWordsByKey(): Record<string, string[]> {
     const wordCountByKey: Record<string, Record<string, number>> = {};
   
-    for (const item of this.compareData) {  
-      // console.log('😂',item);
+    for (const item of this.compareData) {
       for (const [key, value] of Object.entries(item.values || {})) {
-        console.log(value);
-        
-        const words = value?.toString().split(' ') || [];
+        const words = value?.toString().split(/\s+/) || [];
         if (!wordCountByKey[key]) wordCountByKey[key] = {};
-        for (const word of words) {
-          // console.log('🤣',word.trim());
-          
-          if (!word.trim()) continue;
-          wordCountByKey[key][word] = (wordCountByKey[key][word] || 0) + 1;
+  
+        const uniqueWords = new Set(words);
+        for (const word of uniqueWords) {
+          const cleaned = word.trim();
+          if (!cleaned) continue;
+          wordCountByKey[key][cleaned] = (wordCountByKey[key][cleaned] || 0) + 1;
         }
       }
     }
   
-    const mostFrequent: Record<string, string> = {};
-  
+    const result: Record<string, string[]> = {};
     for (const [key, wordMap] of Object.entries(wordCountByKey)) {
-      let maxCount = 0;
-      let frequentWord = '';
-      for (const [word, count] of Object.entries(wordMap)) {
-        if (count > maxCount) {
-          maxCount = count;
-          frequentWord = word;
-        }
+      const highlights = Object.entries(wordMap)
+        .filter(([_, count]) => count >= 2)
+        .map(([word]) => word);
+      if (highlights.length > 0) {
+        result[key] = highlights;
       }
-      mostFrequent[key] = frequentWord;
     }
   
-    return mostFrequent;
+    return result;
   }
+  
+  
+  
   closeTable() {
 
   }

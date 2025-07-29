@@ -150,7 +150,7 @@
     height: 600px; // או גובה רצוי אחר
     overflow: hidden;
     position: relative;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     background: #f9f9f9;
 }
 
@@ -162,3 +162,38 @@
 //     align-items: center;
 //     position: relative;
 //   }
+
+
+
+
+
+
+.image-wrapper-container {
+    width: 100%;
+    max-width: 40.3125rem;
+    height: 46.125rem;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+    padding-bottom: 1rem;
+    // border: 1px solid #ccc;
+  }
+  
+  .image-warrper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .printable-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }

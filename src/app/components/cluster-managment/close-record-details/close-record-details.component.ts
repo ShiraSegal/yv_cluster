@@ -12,7 +12,8 @@ import { BasicSimpleSquareIconButtonComponent } from '../../basic-components/bas
   styleUrl: './close-record-details.component.scss'
 })
 export class CloseRecordDetailsComponent {
-  @Input() highlightedWords: Record<string, string> = {};
+  @Input() highlightedWords: Record<string, string[]> = {};
+
   @Input() recordDetails!: CompaereDetailsData;
   eyeSlashIcon: IconType = IconType.EYE_SLASH
   setState(){
