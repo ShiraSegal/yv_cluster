@@ -257,7 +257,7 @@ export class TableGroupIdDetailsComponent {
   }
   openEnterBookIdDialog() {
     this.dialogEnterBookidRef = this.#dialog.open(EnterBookidComponent, {
-      data: true,
+      data: { showRadioButtons: true, checkBoxList: this.theCheckedRows },
       disableClose: true,
       hasBackdrop: true,
       panelClass: 'custom-dialog-container',

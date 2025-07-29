@@ -122,13 +122,14 @@ export class FilterHandlingSuggestionsComponent {
   openEnterBookidDialog() {
     // this.showToastNotification = false;
     this.dialogRefEnterBookid = this.#dialog.open(EnterBookidComponent, {
-      data: false,
+      data: { showRadioButtons: false, checkBoxList: this.theCheckedRows },
       disableClose: true,
       hasBackdrop: true,
       panelClass: 'custom-dialog-container',
       autoFocus: false,
       width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
       height: 'auto',
+      // data: this.theCheckedRows
 
     });
 

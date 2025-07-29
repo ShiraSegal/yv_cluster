@@ -353,9 +353,31 @@ export class ClusterService {
         // return res;
       }),
       catchError((err) => {
-        console.error('Error occurred while creating cluster:', err); // טיפול בשגיאה
+   this.#messageService.showToastMessage({
+          type: MessageType.ERROR,
+          heading: 'Error',
+          content: err.message,
+        });
         return of(err); // החזרת ערך ברירת מחדל במקרה של שגיאה
       })
     );
   }
+
+  addBookIdExsitCluster(bookIds: string[], clusterId: string) {
+    return this.#clusterApiService.addBookIdExsitCluster(bookIds, clusterId).pipe(
+      take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
+      tap((res) => {
+        // console.log("Book IDs added to existing cluster successfully:", res); // לוג לתוצאה
+      }),
+      catchError((err) => {
+        console.error('Error occurred while adding book IDs to existing cluster:', err); // טיפול בשגיאה
+        this.#messageService.showToastMessage({
+          type: MessageType.ERROR,
+          heading: 'Error',
+          content: err.message,
+        });
+        return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
+      })
+    );
+}
 }

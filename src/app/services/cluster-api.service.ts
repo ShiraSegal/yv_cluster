@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -38,11 +38,15 @@ getCreateClusterData(bookIds: string[]) {
     // let url= `${this.apiUrl}/getByBookId.json`;
     return this.#http.get<BookIdDetails | boolean>(`${this.url}/SystemCluster/AddBookIdsByClusterId?clusterId=${clusterId}`)
   }
+addBookIdExsitCluster(bookIds: string[], clusterId: string) {
+  const params = new HttpParams().set('clusterId', clusterId);
 
-  //   addBookIdExsitCluster(bookId:string){
-  //   // let url= `${this.apiUrl}/getByBookId.json`;
-  //   return this.#http.get<BookIdDetails | boolean>(`${this.url}/SystemCluster/AddBookIdsByClusterId?clusterId=${clusterId}`)
-  // }
+  return this.#http.post(
+    `${this.url}/SystemCluster/AddNewBookIdToExistCluster`,
+    bookIds, // body: array of strings
+    { params }
+  );
+}
 
   createCluster(SapirClusterModel: SapirClusterModel){
     return this.#http.post<SapirClusterModel>(`${this.url}/CreateCluster/CreateNewCluster`, SapirClusterModel);

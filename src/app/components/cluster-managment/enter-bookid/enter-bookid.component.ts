@@ -1,6 +1,26 @@
-import { Component, Inject, inject, Input, OnDestroy, OnInit, Optional } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonType, RadioButtonListDirection, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
+import {
+  Component,
+  Inject,
+  inject,
+  Input,
+  OnDestroy,
+  OnInit,
+  Optional,
+} from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import {
+  ButtonType,
+  RadioButtonListDirection,
+  TextColor,
+  TextSize,
+  TextWeight,
+} from 'src/app/enums/basic-enum';
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
 import { RadioButtonListComponent } from '../../basic-components/radio-button-list/radio-button-list.component';
@@ -15,23 +35,34 @@ import { BookIdDetails } from 'src/app/models/book-id-details.model';
 @Component({
   selector: 'yv-cluster-enter-bookid',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, ButtonComponent, HeadingComponent, RadioButtonListComponent,FieldComponent],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    ButtonComponent,
+    HeadingComponent,
+    RadioButtonListComponent,
+    FieldComponent,
+  ],
   templateUrl: './enter-bookid.component.html',
-  styleUrl: './enter-bookid.component.scss'
+  styleUrl: './enter-bookid.component.scss',
 })
 export class EnterBookidComponent implements OnInit, OnDestroy {
   // data: { title: string } = inject(MAT_DIALOG_DATA, { optional: true });
   // dialogRef: MatDialogRef<EnterBookidComponent> = inject(MatDialogRef, { optional: true })!;
-  showRadioButtons: { showRadioButtons: boolean } = inject(MAT_DIALOG_DATA);
-  dialogRef: MatDialogRef<EnterBookidComponent> = inject(MatDialogRef, { optional: true })!;
+  data: { showRadioButtons: boolean; checkBoxList: string[] } =
+    inject(MAT_DIALOG_DATA);
+  dialogRef: MatDialogRef<EnterBookidComponent> = inject(MatDialogRef, {
+    optional: true,
+  })!;
+ 
   #clusterService = inject(ClusterService);
 
-  // @Input() showRadioButtons: boolean = false;
+// showRadioButtons: boolean = this.data.showRadioButtons;
 
-   subscription = new Subscription(); // 🟦 ניהול subscriptions
+  subscription = new Subscription(); // 🟦 ניהול subscriptions
 
   enterBookIdOrClusterForm: FormGroup = new FormGroup({
-    input: new FormControl('', Validators.required)
+    input: new FormControl('', Validators.required),
   });
 
   close: boolean = false;
@@ -45,7 +76,7 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
   direction: RadioButtonListDirection = RadioButtonListDirection.ROW;
   radioButtonArray: any[] = [
     { key: 'Book ID', value: 'Book ID' },
-    { key: 'Cluster', value: 'Cluster' }
+    { key: 'Cluster', value: 'Cluster' },
   ];
 
   buttomType1: ButtonType = ButtonType.TERTIARY;
@@ -60,11 +91,13 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
   message: string = `${this.selected} Submitted!`;
 
   ngOnInit() {
-    if (this.showRadioButtons) {
-      this.enterBookIdOrClusterForm.addControl('selection', new FormControl('', Validators.required));
+    if (this.data.showRadioButtons) {
+      this.enterBookIdOrClusterForm.addControl(
+        'selection',
+        new FormControl('', Validators.required)
+      );
     }
-    console.log("showRadioButtons", this.showRadioButtons);
-
+    console.log('showRadioButtons', this.data.showRadioButtons);
   }
 
   checkedChange(selected: string) {
@@ -76,43 +109,63 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
       // this.closeDialogWithData({ bookId: this.enterBookIdOrClusterForm.value.input })
       const input = this.enterBookIdOrClusterForm.value.input;
       const selection = this.enterBookIdOrClusterForm.value.selection;
+      if (!this.data.showRadioButtons) {
+        console.log("send", { data:this.data.checkBoxList,input: input });
 
-      if (selection === 'Book ID' || !this.showRadioButtons) {
-       this.subscription.add(this.#clusterService.getSingleItemByBookId(input).subscribe({
-          next: (res: BookIdDetails | boolean) => {
-            console.log("**********************", { bookId: input });
-            if (res) {
-              console.log("bookId add:", res);
-            this.closeDialogWithData(res);
-            } else {
-              console.warn("add bookId failed.");
-            }
-          },
-          error: (err: any) => {
-            console.error("Error during cluster creation:", err);
-          }
-        })) // 🟦 הוספה למנוי
+        this.subscription.add(
+          this.#clusterService
+            .addBookIdExsitCluster(this.data.checkBoxList, input)
+            .subscribe({
+              next: () => {
+                // אין צורך לבדוק res, כי אין תוכן
+                this.closeDialogWithData({ success: true, bookId: input });
+              },
+              error: (err: any) => {
+                console.error('Error during cluster creation:', err);
+              },
+            })
+        );
+      }
+      if (selection === 'Book ID') {
+        this.subscription.add(
+          this.#clusterService.getSingleItemByBookId(input).subscribe({
+            next: (res: BookIdDetails | boolean) => {
+              console.log('**********************', { bookId: input });
+              if (res) {
+                console.log('bookId add:', res);
+                this.closeDialogWithData(res);
+              } else {
+                console.warn('add bookId failed.');
+              }
+            },
+            error: (err: any) => {
+              console.error('Error during cluster creation:', err);
+            },
+          })
+        ); // 🟦 הוספה למנוי
         this.formIsValid = true;
         this.close = true;
       } else if (selection === 'Cluster') {
-        this.subscription.add(this.#clusterService.getClusterGroupByBookId(input).subscribe({
-          next: (res: BookIdDetails | boolean) => {
-            console.log("**********************!!!!!!!!", res);
-            if (res) {
-              console.log("Cluster add:", res);
-            this.closeDialogWithData(res);
-            } else {
-              console.warn("add cluster failed.");
-            }
-          },
-          error: (err: any) => {
-            console.error("Error during cluster creation:", err);
-          }
-        })); // 🟦 הוספה למנוי
+        this.subscription.add(
+          this.#clusterService.getClusterGroupByBookId(input).subscribe({
+            next: (res: BookIdDetails | boolean) => {
+              console.log('**********************!!!!!!!!', res);
+              if (res) {
+                console.log('Cluster add:', res);
+                this.closeDialogWithData(res);
+              } else {
+                console.warn('add cluster failed.');
+              }
+            },
+            error: (err: any) => {
+              console.error('Error during cluster creation:', err);
+            },
+          })
+        ); // 🟦 הוספה למנוי
       }
     } else {
       this.formIsValid = false;
-      this.closeDialogWithData({ bookId: "formIsNotValid" });
+      this.closeDialogWithData({ bookId: 'formIsNotValid' });
     }
   }
 
