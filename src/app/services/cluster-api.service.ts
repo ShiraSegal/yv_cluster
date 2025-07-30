@@ -84,7 +84,7 @@ getCreateClusterData(bookIds: string[]) {
   }
   // apiUrl: any;
 
-  async getAutoClusterData()  {
+   getAutoClusterData()  {
     return this.#http.get<string[]>('/assets/getAutoCluster.json');
   }
 

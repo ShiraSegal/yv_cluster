@@ -123,8 +123,17 @@ export class ClusterService {
       })
     );
   }
-   async getAutoClusterData(): Promise<Observable<string[]>> {
-    return (await (this.#clusterApiService.getAutoClusterData())).pipe(
+  //  async getAutoClusterData(): Promise<Observable<string[]>> {
+  //   return (await (this.#clusterApiService.getAutoClusterData())).pipe(
+  //     take(1),
+  //     catchError((err) => {
+  //       console.error('Error fetching auto cluster data:', err);
+  //       return of([]); // החזר מערך ריק במקרה של שגיאה
+  //     })
+  //   );
+  // }
+    getAutoClusterData(): Observable<string[]> {
+    return ( (this.#clusterApiService.getAutoClusterData())).pipe(
       take(1),
       catchError((err) => {
         console.error('Error fetching auto cluster data:', err);
@@ -132,7 +141,6 @@ export class ClusterService {
       })
     );
   }
-
   get isLoading$() {
     return this.isLoadingBehaviorSubject$.asObservable();
   }
