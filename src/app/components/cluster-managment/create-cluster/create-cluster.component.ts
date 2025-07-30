@@ -1,10 +1,36 @@
 import { CommonModule } from '@angular/common';
-import { BadgeType, NativeOptionState, NativeOptionType } from 'src/app/enums/basic-enum';
-import { Component, forwardRef, inject, Inject, Optional, OnDestroy } from '@angular/core'; // ← הוספנו OnDestroy
-import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  BadgeType,
+  NativeOptionState,
+  NativeOptionType,
+} from 'src/app/enums/basic-enum';
+import {
+  Component,
+  forwardRef,
+  inject,
+  Inject,
+  Optional,
+  OnDestroy,
+} from '@angular/core'; // ← הוספנו OnDestroy
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { ButtonComponent } from '../../basic-components/button/button.component';
 import { HeadingComponent } from '../../basic-components/heading/heading.component';
-import { ButtonType, HeaderCellType, State, TextColor, TextSize, TextWeight } from 'src/app/enums/basic-enum';
+import {
+  ButtonType,
+  HeaderCellType,
+  State,
+  TextColor,
+  TextSize,
+  TextWeight,
+} from 'src/app/enums/basic-enum';
 import { RadioButtonListComponent } from '../../basic-components/radio-button-list/radio-button-list.component';
 import { ClusterApiService } from 'src/app/services/cluster-api.service';
 import { elementAt, Observable, Subject, takeUntil, Subscription } from 'rxjs'; // ← הוספנו Subject, takeUntil
@@ -26,14 +52,30 @@ type NativeSelectOption = {
   optionState: NativeOptionState;
   displayText?: string;
   property?: BadgeType;
+  icon?: string;
+  isLink?: boolean;
 };
 
 @Component({
   selector: 'yv-cluster-create-cluster',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, ButtonComponent, HeadingComponent, RadioButtonListComponent, ButtonComponent, HeaderCellsComponent, FieldComponent, ToastNotificationComponent, SelectComponent, RadioButtonComponent, TableHeaderComponent],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    ButtonComponent,
+    HeadingComponent,
+    RadioButtonListComponent,
+    ButtonComponent,
+    HeaderCellsComponent,
+    FieldComponent,
+    ToastNotificationComponent,
+    SelectComponent,
+    RadioButtonComponent,
+    TableHeaderComponent,
+  ],
   templateUrl: './create-cluster.component.html',
-  styleUrl: './create-cluster.component.scss'
+  styleUrl: './create-cluster.component.scss',
 })
 export class CreateClusterComponent {
   #dialogRef = inject(MatDialogRef<CreateClusterComponent>, { optional: true });
@@ -45,13 +87,13 @@ export class CreateClusterComponent {
 
   createClusterForm: FormGroup = this.#formBuilder.group({
     clusterLevel: ['', Validators.required],
-    comments: ['']
+    comments: [''],
   });
 
   formIsValid!: boolean;
   createClusterFormFields: any = {};
   dataCells: BookIdDetails[];
-  bookIdDetails: BookIdDetails[]// = new BookIdDetails();
+  bookIdDetails: BookIdDetails[]; // = new BookIdDetails();
   close: boolean = false;
 
   header: string = 'Create Cluster';
@@ -67,11 +109,26 @@ export class CreateClusterComponent {
   color1: TextColor = TextColor.SLATE_BLUE;
 
   selectLabel: string = 'Cluster Level';
-  options:NativeSelectOption [] = [
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Cluster Level 1' },
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Cluster Level 2'},
-    { optionType: NativeOptionType.ASSIGNEE, optionState: NativeOptionState.DEFAULT, displayText: 'Cluster Level 3' }
-  ]
+  options: NativeSelectOption[] = [
+    {
+      optionType: NativeOptionType.TEXT,
+      optionState: NativeOptionState.DEFAULT,
+      displayText: 'Exact',
+      isLink: false,
+    },
+    {
+      optionType: NativeOptionType.TEXT,
+      optionState: NativeOptionState.DEFAULT,
+      displayText: 'Most Probable',
+      isLink: false,
+    },
+    {
+      optionType: NativeOptionType.TEXT,
+      optionState: NativeOptionState.DEFAULT,
+      displayText: 'Possible',
+      isLink: false,
+    },
+  ];
 
   comments: string = '';
 
@@ -80,7 +137,7 @@ export class CreateClusterComponent {
   btn_size: boolean = false;
   buttomType1: ButtonType = ButtonType.TERTIARY;
   buttomType2: ButtonType = ButtonType.PRIMARY;
-  subscription: Subscription = new Subscription()
+  subscription: Subscription = new Subscription();
   iconType = IconType;
   fieldsToDisplayInCreateCluster: string[] = [
     'firstName',
@@ -98,68 +155,101 @@ export class CreateClusterComponent {
     'authenticDateOfDeath',
     'restoredDateOfDeath',
     'gender',
-    'fate'
-];
+    'fate',
+  ];
 
-valuesToDisplayedFields: { [key in string]: { key: string, value: string }[] } = {};
+  valuesToDisplayedFields: {
+    [key in string]: { key: string; value: string }[];
+  } = {};
   ngOnInit() {
-    // this.subscription.add(this.createClusterForm.valueChanges.subscribe((value) => {
-    //   console.log('Form value changed: 💜💜💜💜💜', value);
-
-    // }))
     this.createClusterFormData();
-    console.log("option",this.options);
-    
-
+    console.log('option', this.options);
   }
   createClusterFormData() {
     // console.log("createClusterFormData called with bookId:", this.#data?.bookId); // ← הוספת לוג
-    console.log("this.#data:", this.#data); // ← הוספת לוג
+    console.log('this.#data:', this.#data); // ← הוספת לוג
 
-    this.subscription.add(this.#clusterService.getCreateClusterData(this.#data) // ← הוספת מנוי
-      .subscribe({
-        next: (res: BookIdDetails[] | null) => {
-          if (res) {
-            this.dataCells = res;
-            this.fieldsToDisplayInCreateCluster.forEach((fieldName) => {
-              this.valuesToDisplayedFields[fieldName] = [] as { key: string, value: string }[];
-            });
-            console.log("getCreateClusterData response:", res);
-            this.dataCells.forEach((bookIdDetails: BookIdDetails) => {
-              this.#clusterService.dispalayFieldsToCreateClusterForm(bookIdDetails,this.valuesToDisplayedFields);
-              console.log("valuesToDisplayedFields:", this.valuesToDisplayedFields);
-              
-            });
-            this.initializeFormGroup();
-          }
-          else {
-            console.warn("No data received from getCreateClusterData.");
-            this.dataCells = [];
-          }
-        },
-        error: (error) => {
-          console.error("getCreateClusterData occurred:", error);
-        },
-      }));
+    this.subscription.add(
+      this.#clusterService
+        .getCreateClusterData(this.#data) // ← הוספת מנוי
+        .subscribe({
+          next: (res: BookIdDetails[] | null) => {
+            if (res) {
+              this.dataCells = res;
+              this.fieldsToDisplayInCreateCluster.forEach((fieldName) => {
+                this.valuesToDisplayedFields[fieldName] = [] as {
+                  key: string;
+                  value: string;
+                }[];
+              });
+              console.log('getCreateClusterData response:', res);
+              this.dataCells.forEach((bookIdDetails: BookIdDetails) => {
+                this.#clusterService.dispalayFieldsToCreateClusterForm(
+                  bookIdDetails,
+                  this.valuesToDisplayedFields
+                );
+                console.log(
+                  'valuesToDisplayedFields:',
+                  this.valuesToDisplayedFields
+                );
+              });
+              this.fieldsToDisplayInCreateCluster.forEach((field: any) => {
+                if(field!='gender'&& field!='fate'){
+                this.valuesToDisplayedFields[field].push({
+                  key: 'other',
+                  value: 'other',
+                });
+              }
+              });
+              this.initializeFormGroup();
+            } else {
+              console.warn('No data received from getCreateClusterData.');
+              this.dataCells = [];
+            }
+          },
+          error: (error) => {
+            console.error('getCreateClusterData occurred:', error);
+          },
+        })
+    );
   }
 
   initializeFormGroup() {
     this.fieldsToDisplayInCreateCluster.forEach((field: string) => {
-      this.createClusterForm.addControl(field, new FormControl('', Validators.required));
+      this.createClusterForm.addControl(
+        field,
+        new FormControl('', Validators.required)
+      );
     });
   }
 
   getObjectKeys(obj: any): string[] {
     return Object.keys(obj);
   }
-  
+
   createCluster() {
     // console.log("createClusterForm", this.createClusterForm.value);
 
-    // if (this.createClusterForm.valid) {
-    //   this.formIsValid = true;
-    //   this.closeDialogWithData({ bookId: "creat cluster succesfully😍❤" });
-    //   console.log("this.clusterModel", "creat cluster succesfully😍❤");
+    if (this.createClusterForm.valid) {
+      console.log('cluster is valid?', this.createClusterForm.valid);
+      console.log('valid check', this.createClusterForm.value);
+
+      this.subscription.add(
+        this.#clusterService.createCluster(this.#data).subscribe({
+          next: (res) => {
+            if (res) {
+              console.log('Cluster created successfully:', res);
+              this.closeDialogWithData({ bookId: res });
+            } else {
+              console.warn('Cluster creation failed.');
+            }
+          },
+          error: (err) => {
+            console.error('Error occurred while creating cluster:', err);
+          },
+        })
+      );
+    }
 
     //   this.clusterModel.bookIdList.map((field: any) => {
     //     const values = field.values.filter((value: any) => {
@@ -196,7 +286,8 @@ valuesToDisplayedFields: { [key in string]: { key: string, value: string }[] } =
     this.#dialogRef.close(data); // מעבירה את הנתונים לקומפוננטת האבא
   }
 
-  ngOnDestroy(): void { // ← פונקציית ניקוי בסיום חיי הקומפוננטה
+  ngOnDestroy(): void {
+    // ← פונקציית ניקוי בסיום חיי הקומפוננטה
     this.subscription.unsubscribe(); // מבטלת את כל המנויים שנוצרו
   }
 }

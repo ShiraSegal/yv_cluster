@@ -15,7 +15,7 @@ export class BasicRadioButtonComponent {
   @Input() disable?: boolean;
   @Input() checked?: boolean;
   @Input() text!: string;
-  @Output() checkedChange = new EventEmitter<void>(); // שימי לב - לא מחזיר true/false
+  @Output() checkedChange = new EventEmitter<string>();
   @Output() fieldValue = new EventEmitter<string>();
 
   stateEnum = State;
@@ -26,7 +26,7 @@ export class BasicRadioButtonComponent {
 
   onClicked() {
     if (!this.disable) {
-      this.checkedChange.emit(); // ← פשוט מפעיל פעולה, לא מחליף ערך פנימי
+      this.checkedChange.emit(this.text);
     }
     if (this.text === 'other') {
       this.fieldValue.emit(this.formData.field);

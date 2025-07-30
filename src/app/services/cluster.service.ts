@@ -17,6 +17,7 @@ import { BookIdDetails } from '../models/book-id-details.model';
 import { MessageService } from './message.service';
 import { MessageType } from '../enums/basic-enum';
 import { log } from 'console';
+import { NewClusterFromSystem } from '../models/new-cluster-from-system.model';
 import { CompaereDetailsData } from '../models/compaereDetailsData.model';
 
 
@@ -123,8 +124,17 @@ export class ClusterService {
       })
     );
   }
-   async getAutoClusterData(): Promise<Observable<string[]>> {
-    return (await (this.#clusterApiService.getAutoClusterData())).pipe(
+  //  async getAutoClusterData(): Promise<Observable<string[]>> {
+  //   return (await (this.#clusterApiService.getAutoClusterData())).pipe(
+  //     take(1),
+  //     catchError((err) => {
+  //       console.error('Error fetching auto cluster data:', err);
+  //       return of([]); // החזר מערך ריק במקרה של שגיאה
+  //     })
+  //   );
+  // }
+    getAutoClusterData(): Observable<string[]> {
+    return ( (this.#clusterApiService.getAutoClusterData())).pipe(
       take(1),
       catchError((err) => {
         console.error('Error fetching auto cluster data:', err);
@@ -132,7 +142,6 @@ export class ClusterService {
       })
     );
   }
-
   get isLoading$() {
     return this.isLoadingBehaviorSubject$.asObservable();
   }
@@ -336,27 +345,26 @@ export class ClusterService {
         });
       }
     });
+    console.log(valuesToDisplayedFields);
     return valuesToDisplayedFields;
   }
 
-  createCluster(sapirClusterModel: SapirClusterModel) {
-    return this.#clusterApiService.createCluster(sapirClusterModel).pipe(
+  createCluster(bookIds: string[]) {
+return this.#clusterApiService.createCluster(bookIds).pipe(
+    
       take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
-      tap((res) => {
-        // console.log("Cluster created successfully:", res); // לוג לתוצאה
-        // return res;
-      }),
+    tap((res) => {
+      console.log('Cluster created successfully:', res); // לוג לתוצאה
+    }),
       catchError((err) => {
         console.error('Error occurred while creating cluster:', err); // טיפול בשגיאה
-        //  return of(err); // החזרת ערך ברירת מחדל במקרה של שגיאה
         this.#messageService.showToastMessage({
-          type: MessageType.ERROR,
-          heading: 'Error',
-          content: err.message,
-        });
-        return of(null);
-      })
-    );
+        type: MessageType.ERROR,
+        heading: 'Error',
+        content: err.message,
+      });
+      return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
+    }));
   }
 
   getSingleItemByBookId(bookId: string): Observable<BookIdDetails | any> {
@@ -383,9 +391,31 @@ export class ClusterService {
         // return res;
       }),
       catchError((err) => {
-        console.error('Error occurred while creating cluster:', err); // טיפול בשגיאה
+   this.#messageService.showToastMessage({
+          type: MessageType.ERROR,
+          heading: 'Error',
+          content: err.message,
+        });
         return of(err); // החזרת ערך ברירת מחדל במקרה של שגיאה
       })
     );
   }
+
+  addBookIdExsitCluster(newCluster: NewClusterFromSystem) {
+    return this.#clusterApiService.addBookIdExsitCluster(newCluster).pipe(
+      take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
+      tap((res) => {
+        // console.log("Book IDs added to existing cluster successfully:", res); // לוג לתוצאה
+      }),
+      catchError((err) => {
+        console.error('Error occurred while adding book IDs to existing cluster:', err); // טיפול בשגיאה
+        this.#messageService.showToastMessage({
+          type: MessageType.ERROR,
+          heading: 'Error',
+          content: err.message,
+        });
+        return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
+      })
+    );
+}
 }

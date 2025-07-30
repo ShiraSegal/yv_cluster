@@ -18,7 +18,8 @@ export class NativeOptionComponent {
   @Input() optionState!: NativeOptionState;
   @Input() property?: BadgeType = BadgeType.TODO;
   @Input() displayText?: string;
-  @Input()linkIcon?: IconType= IconType.SQUARE_ARROW_UP_RIGHT_REGULAR;
+  @Input() icon?: IconType = IconType.SQUARE_ARROW_UP_RIGHT_REGULAR;
+  @Input() isLink?: boolean = true;
 
   optionTypeMain = NativeOptionType;
   optionStateMain = NativeOptionState;

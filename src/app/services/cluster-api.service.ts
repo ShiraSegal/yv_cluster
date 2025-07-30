@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -7,6 +7,7 @@ import { SapirClusterModel} from '../models/sapir-cluster-model.model';
 // import { RootObject } from 'src/app/models/root-object.model';
 import { ClusterGroupWithCrmLinks } from '../models/cluster-group-with-crm-links.model';
 import { BookIdDetails } from '../models/book-id-details.model';
+import { NewClusterFromSystem } from '../models/new-cluster-from-system.model';
 
 
 
@@ -20,9 +21,9 @@ export class ClusterApiService {
   url = 'https://localhost:7059/api';
 
 
-//   getAutoClusterData() : Observable<any> {
-//     return this.#http.get(`${this.apiUrl}/getAutoCluster.json`);
-// }
+  getAutoClusterData() : Observable<any> {
+    return this.#http.get(`${this.apiUrl}/getAutoCluster.json`);
+}
   
 getCreateClusterData(bookIds: string[]) {
   const queryParams = bookIds.map(bookId => `bookIds=${bookId}`).join('&');
@@ -38,9 +39,15 @@ getCreateClusterData(bookIds: string[]) {
     // let url= `${this.apiUrl}/getByBookId.json`;
     return this.#http.get<BookIdDetails | boolean>(`${this.url}/SystemCluster/AddBookIdsByClusterId?clusterId=${clusterId}`)
   }
+addBookIdExsitCluster(newCluster: NewClusterFromSystem) {
+  // const params = new HttpParams().set('clusterId', clusterId);
 
-  createCluster(SapirClusterModel: SapirClusterModel){
-    return this.#http.post<SapirClusterModel>(`${this.url}/CreateCluster/CreateNewCluster`, SapirClusterModel);
+  return this.#http.post(
+    `${this.url}/SystemCluster/AddNewBookIdToExistCluster`,newCluster);
+}
+
+  createCluster(bookIds: string []){
+    return this.#http.post(`${this.url}/SystemCluster/CreateNewCluster`, bookIds);
   }
   // getstatisticData(): Observable<any> {
   //   return this.#http.get('./assets/json-data/getstatisticData.json');
@@ -84,9 +91,9 @@ getCreateClusterData(bookIds: string[]) {
   }
   // apiUrl: any;
 
-  async getAutoClusterData() {
-    return this.#http.get<string[]>('/assets/getAutoCluster.json');
-  }
+  //  getAutoClusterData()  {
+  //   return this.#http.get<string[]>('/assets/getAutoCluster.json');
+  // }
 
   getCompareData() {
     return this.#http.get<string[]>("/assets/json-data/getCompareData.json");

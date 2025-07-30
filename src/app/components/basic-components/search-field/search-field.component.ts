@@ -28,8 +28,8 @@ export class SearchFieldComponent implements ControlValueAccessor {
   private onChange = (_: any) => { };
   private onTouched = () => { };
   writeValue(value: string): void {
-    this.value = value || null;
-    if (this.value.length > 0) {
+  this.value = value ?? '';
+if (this.value.length > 0) { 
       this.isPlaceolder = '';
       this.isFilled = true;
     }

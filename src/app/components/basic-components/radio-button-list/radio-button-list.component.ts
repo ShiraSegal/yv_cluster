@@ -25,7 +25,7 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   // @Output() selectionChange = new EventEmitter<string>();
 
   private value:{ key: string, value: string } | null = null; // Changed to object type to match radioButtonValuesArray structure
-  private onChange: (value: string | null) => void = () => {};
+  private onChange: (value: { key: string, value: string } | null) => void = () => {};
   private onTouched: () => void = () => {};
 
   writeValue(value: { key: string, value: string } ): void {
@@ -50,29 +50,23 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   }
 
   onOneRadioButtonChange(value: { key: string, value: string } ): void {
-    console.log('onOneRadioButtonChange called with:', value.key);
-    // console.log('Current value before change:', this.value);
+    console.log('onOneRadioButtonChange called with:', value);
     
     if (this.value === value) {
       value = null;
     }
     this.value = value;
-    this.onChange(value.key);
-    // this.selectionChange.emit(value);
+    this.onChange(value);
   }
 
-  onOtherFieldChecked(selectedOption: { key: string, value: string } ) {
-    this.radioButtonValuesArray.forEach((item) => {
-      if (item.value === 'other') {
-        item.key = selectedOption.key;
-      }
-    });
-    this.value = selectedOption;
-    this.onChange(selectedOption.key);
-    // this.selectionChange.emit(selectedOption);
+onOtherFieldChecked(selected: string) {
+  const otherObj = this.radioButtonValuesArray.find(v => v.value === 'other');
+  if (otherObj) {
+    const custom = { key: otherObj.key, value: selected };
+    this.value = custom;
+    this.onChange(custom);
   }
+}
 
-  // isChecked(key: string): boolean {
-  //   return this.value === key;
-  // }
+
 }

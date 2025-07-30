@@ -125,13 +125,14 @@ export class FilterHandlingSuggestionsComponent {
   openEnterBookidDialog() {
     // this.showToastNotification = false;
     this.dialogRefEnterBookid = this.#dialog.open(EnterBookidComponent, {
-      data: false,
+      data: { showRadioButtons: false, checkBoxList: this.theCheckedRows },
       disableClose: true,
       hasBackdrop: true,
       panelClass: 'custom-dialog-container',
       autoFocus: false,
       width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
       height: 'auto',
+      // data: this.theCheckedRows
 
     });
 
@@ -169,17 +170,7 @@ export class FilterHandlingSuggestionsComponent {
   }
 
   onRightLeftClick() {
-    alert('right left button clicked');
 
-   this.dialogRefCompare = this.#dialog.open(EnterBookidComponent, {
-      data: false,
-      disableClose: true,
-      hasBackdrop: true,
-      autoFocus: false,
-      width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
-      height: 'auto',
-
-    });
   }
   onUserClick() {
     // alert('User button clicked');

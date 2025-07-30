@@ -3,9 +3,9 @@
         <div class="header-warp">
             <yv-cluster-heading [title]="header" [size]="size" [weight]="weight" [color]="color"></yv-cluster-heading>
         </div>
-        @if(showRadioButtons){
+        @if(data.showRadioButtons){
         <div class="radio-buttons">
-            <yv-cluster-radio-button-list class="radio" [radioButtonValuesArray]="radioButtonArray" formControlName="selection"  [direction]="direction" (selectionChange)="checkedChange($event)"></yv-cluster-radio-button-list>
+            <yv-cluster-radio-button-list class="radio" [radioButtonValuesArray]="radioButtonArray" formControlName="selection"  [direction]="direction"></yv-cluster-radio-button-list>
         </div>
     }
     <yv-cluster-field class="enter-bookId-field" formControlName="input"></yv-cluster-field>
