@@ -170,17 +170,7 @@ export class FilterHandlingSuggestionsComponent {
   }
 
   onRightLeftClick() {
-    alert('right left button clicked');
 
-   this.dialogRefCompare = this.#dialog.open(EnterBookidComponent, {
-      data: false,
-      disableClose: true,
-      hasBackdrop: true,
-      autoFocus: false,
-      width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
-      height: 'auto',
-
-    });
   }
   onUserClick() {
     // alert('User button clicked');
