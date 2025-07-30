@@ -12,8 +12,6 @@ import { NotifictionService } from './services/notifiction.service';
 import { LoadingComponent } from './components/basic-components/loading/loading.component';
 // import {Component, inject} from '@angular/core';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

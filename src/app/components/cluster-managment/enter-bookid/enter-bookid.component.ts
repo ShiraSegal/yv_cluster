@@ -129,7 +129,7 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
             })
         );
       }
-      if (selection === 'Book ID') {
+      if (selection.value === 'Book ID') {
         this.subscription.add(
           this.#clusterService.getSingleItemByBookId(input).subscribe({
             next: (res: BookIdDetails | boolean) => {
@@ -148,7 +148,7 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
         ); // 🟦 הוספה למנוי
         this.formIsValid = true;
         this.close = true;
-      } else if (selection === 'Cluster') {
+      } else if (selection.value === 'Cluster') {
         this.subscription.add(
           this.#clusterService.getClusterGroupByBookId(input).subscribe({
             next: (res: BookIdDetails | boolean) => {

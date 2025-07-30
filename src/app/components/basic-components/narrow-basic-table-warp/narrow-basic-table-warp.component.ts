@@ -130,9 +130,9 @@ export class NarrowBasicTableWarpComponent {
 
   copyRowsFormArray: FormArray<FormGroup>
 
-  ngOnInit() {
+  async ngOnInit() {
     this.clusterService.getAutoClusterData();
-    this.subscription.add(this.clusterService.getAutoClusterData().subscribe((data) => {
+    this.subscription.add((await this.clusterService.getAutoClusterData()).subscribe((data) => {
       this.tabData = data; // Save the data in tabData
       this.loadDataForTab(); // Load the data into the table
 

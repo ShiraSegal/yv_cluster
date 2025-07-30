@@ -13,6 +13,7 @@ import { TooltipComponent } from '../tooltip/tooltip.component';
 import { PopoverComponent } from '../popover/popover.component';
 import { EnterBookidComponent } from '../../cluster-managment/enter-bookid/enter-bookid.component';
 import { NotifictionService } from 'src/app/services/notifiction.service';
+import { CompareModalTableComponent } from '../../cluster-managment/compare-modal-table/compare-modal-table.component';
 
 @Component({
   selector: 'yv-cluster-filter-handling-suggestions',
@@ -33,6 +34,7 @@ export class FilterHandlingSuggestionsComponent {
 
   dialogRef: MatDialogRef<CreateClusterComponent> | null = null;
   dialogRefEnterBookid: MatDialogRef<EnterBookidComponent> | null = null;
+  dialogRefCompare: MatDialogRef<EnterBookidComponent> | null = null;
 
   numberCRM: number;
   switchState: boolean = false;
@@ -59,6 +61,7 @@ export class FilterHandlingSuggestionsComponent {
     {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 2'},
     {optionType: NativeOptionType.TEXT, optionState: NativeOptionState.DEFAULT, displayText: 'Link 3'},
   ];
+  dialogRefCompareTable: any;
   // popoverOptionsLink: {
   //   optionType: NativeOptionType;
   //   optionState: NativeOptionState;
@@ -133,6 +136,15 @@ export class FilterHandlingSuggestionsComponent {
 
     });
 
+
+
+
+
+
+
+
+
+
     this.dialogRefEnterBookid.afterClosed().subscribe((result) => {
       if (result) {
         console.log('page Data received from dialog:', result);
@@ -149,6 +161,8 @@ export class FilterHandlingSuggestionsComponent {
 
     });
   }
+
+
   onPrefCodeChange(state: boolean) {
     this.formData.prefCode = state;
     this.prefCodeStatus.emit(state);
@@ -158,9 +172,37 @@ export class FilterHandlingSuggestionsComponent {
   onRightLeftClick() {
     alert('right left button clicked');
 
+   this.dialogRefCompare = this.#dialog.open(EnterBookidComponent, {
+      data: false,
+      disableClose: true,
+      hasBackdrop: true,
+      autoFocus: false,
+      width: 'auto',  // מאפשר לדיאלוג להתאמת לגודל התוכן
+      height: 'auto',
+
+    });
   }
   onUserClick() {
     // alert('User button clicked');
 
   }
+  openCompareDataDialog(): void {
+    this.dialogRefCompareTable = this.#dialog.open(CompareModalTableComponent, {
+      disableClose: true,
+      hasBackdrop: true,
+      autoFocus: false,
+      width: '100vw',
+      height: '100vh',
+      maxWidth: '100vw',
+      panelClass: 'full-screen-dialog',
+      data: null // אפשר לשלוח נתונים אם צריך
+    });
+
+    this.dialogRefCompareTable.afterClosed().subscribe(result => {
+      console.log('Compare modal closed', result);
+      // אפשר לטפל בתוצאה או להפעיל עדכון לפי מה שחוזר מהדיאלוג
+    });
+  }
+  
+
 }

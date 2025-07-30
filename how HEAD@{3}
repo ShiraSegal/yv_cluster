@@ -1,0 +1,125 @@
+[33mf49a471[m[33m ([m[1;36mHEAD -> [m[1;32mEfrat[m[33m, [m[1;31morigin/Efrat[m[33m)[m HEAD@{0}: reset: moving to f49a471
+[33m8f37bc7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{1}: reset: moving to HEAD
+[33m8f37bc7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2}: pull origin main: Fast-forward
+[33m8e5ef1b[m HEAD@{3}: checkout: moving from main to Efrat
+[33m8f37bc7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{4}: commit: some changes
+[33m430cf22[m HEAD@{5}: checkout: moving from Efrat to main
+[33m8e5ef1b[m HEAD@{6}: checkout: moving from main to Efrat
+[33m430cf22[m HEAD@{7}: commit: some changes
+[33mf49a471[m[33m ([m[1;36mHEAD -> [m[1;32mEfrat[m[33m, [m[1;31morigin/Efrat[m[33m)[m HEAD@{8}: checkout: moving from Efrat to main
+[33m8e5ef1b[m HEAD@{9}: checkout: moving from main to Efrat
+[33mf49a471[m[33m ([m[1;36mHEAD -> [m[1;32mEfrat[m[33m, [m[1;31morigin/Efrat[m[33m)[m HEAD@{10}: commit: some changes
+[33mebbda3f[m HEAD@{11}: pull origin main: Fast-forward
+[33m28edb65[m HEAD@{12}: checkout: moving from Efrat to main
+[33m8e5ef1b[m HEAD@{13}: checkout: moving from main to Efrat
+[33m28edb65[m HEAD@{14}: checkout: moving from Efrat to main
+[33m8e5ef1b[m HEAD@{15}: checkout: moving from main to Efrat
+[33m28edb65[m HEAD@{16}: commit: nav place
+[33m66dc17a[m HEAD@{17}: checkout: moving from main to main
+[33m66dc17a[m HEAD@{18}: commit: some changes
+[33m8e5ef1b[m HEAD@{19}: checkout: moving from main to main
+[33m8e5ef1b[m HEAD@{20}: merge origin/Efrat: Fast-forward
+[33m9fe93a9[m HEAD@{21}: checkout: moving from Efrat to main
+[33m8e5ef1b[m HEAD@{22}: commit (merge): mergr main into Efrat
+[33mbe8d7d8[m HEAD@{23}: checkout: moving from main to Efrat
+[33m9fe93a9[m HEAD@{24}: commit: chang calender
+[33m50099c3[m HEAD@{25}: checkout: moving from Efrat to main
+[33mbe8d7d8[m HEAD@{26}: checkout: moving from main to Efrat
+[33m50099c3[m HEAD@{27}: commit: chang some size top
+[33ma24b356[m HEAD@{28}: commit: chang some size
+[33mb7f28d1[m HEAD@{29}: commit: title of enter book id
+[33m5e90040[m HEAD@{30}: checkout: moving from Efrat to main
+[33mbe8d7d8[m HEAD@{31}: checkout: moving from main to Efrat
+[33m5e90040[m HEAD@{32}: commit: change the table width
+[33ma9a374b[m[33m ([m[1;31morigin/racheli[m[33m)[m HEAD@{33}: pull origin main: Fast-forward
+[33m472f5da[m HEAD@{34}: checkout: moving from Efrat to main
+[33mbe8d7d8[m HEAD@{35}: commit: a
+[33m4823e7c[m HEAD@{36}: checkout: moving from main to Efrat
+[33m472f5da[m HEAD@{37}: pull origin main: Fast-forward
+[33mdc086a5[m HEAD@{38}: checkout: moving from main to main
+[33mdc086a5[m HEAD@{39}: checkout: moving from main to main
+[33mdc086a5[m HEAD@{40}: checkout: moving from Efrat to main
+[33m4823e7c[m HEAD@{41}: checkout: moving from main to Efrat
+[33mdc086a5[m HEAD@{42}: pull origin main: Fast-forward
+[33mea27783[m HEAD@{43}: checkout: moving from Efrat to main
+[33m4823e7c[m HEAD@{44}: reset: moving to HEAD
+[33m4823e7c[m HEAD@{45}: pull origin main: updating HEAD
+[33m4823e7c[m HEAD@{46}: rebase (continue): some changes in css table
+[33maabea40[m HEAD@{47}: checkout: moving from main to Efrat
+[33mea27783[m HEAD@{48}: pull origin main: Fast-forward
+[33m35c2814[m HEAD@{49}: checkout: moving from Efrat to main
+[33maabea40[m HEAD@{50}: checkout: moving from Efrat to Efrat
+[33maabea40[m HEAD@{51}: pull origin Efrat: Fast-forward
+[33m9bdf461[m HEAD@{52}: checkout: moving from main to Efrat
+[33m35c2814[m HEAD@{53}: commit: merge efrat into main
+[33m9bdf461[m HEAD@{54}: merge Efrat: Fast-forward
+[33mee6a17c[m HEAD@{55}: checkout: moving from Efrat to main
+[33m9bdf461[m HEAD@{56}: commit (merge): merge main into efrat
+[33m85b243b[m HEAD@{57}: commit: change the table form
+[33m8ffa0da[m HEAD@{58}: merge origin: updating HEAD
+[33m8ffa0da[m HEAD@{59}: rebase (continue): table data from the json
+[33md26affd[m HEAD@{60}: pull: Fast-forward
+[33mfbdcdab[m HEAD@{61}: commit: some changes
+[33m83cd3b8[m HEAD@{62}: commit: send a row array that chacked
+[33mee6a17c[m HEAD@{63}: checkout: moving from main to Efrat
+[33mee6a17c[m HEAD@{64}: merge Efrat: Fast-forward
+[33m1207c50[m HEAD@{65}: checkout: moving from Efrat to main
+[33mee6a17c[m HEAD@{66}: commit: some small changes
+[33m357441a[m HEAD@{67}: merge origin: Merge made by the 'ort' strategy.
+[33m269734b[m HEAD@{68}: commit: some small changes
+[33m1207c50[m HEAD@{69}: checkout: moving from main to Efrat
+[33m1207c50[m HEAD@{70}: merge Efrat: Fast-forward
+[33m3e79433[m HEAD@{71}: checkout: moving from Efrat to main
+[33m1207c50[m HEAD@{72}: commit: merge main into efrat and change the table to the good form
+[33m5de295b[m HEAD@{73}: commit (merge): merge main into efrat
+[33mf233960[m HEAD@{74}: commit: try to orginize the table
+[33m7fe1395[m HEAD@{75}: commit: change the length of the row
+[33m3707aec[m HEAD@{76}: commit: begin to impruve the changes after the marge wuth the main
+[33m637a9fb[m HEAD@{77}: pull: Fast-forward
+[33md9cc67f[m HEAD@{78}: reset: moving to HEAD
+[33md9cc67f[m HEAD@{79}: reset: moving to HEAD
+[33md9cc67f[m HEAD@{80}: reset: moving to HEAD
+[33md9cc67f[m HEAD@{81}: commit: add notifiction service
+[33m7ef4475[m HEAD@{82}: reset: moving to HEAD
+[33m7ef4475[m HEAD@{83}: commit: add server add loading change toast notifiction
+[33mb37d234[m HEAD@{84}: commit: change the narrow table
+[33m3e79433[m HEAD@{85}: checkout: moving from main to Efrat
+[33m3e79433[m HEAD@{86}: merge origin/Efrat: Fast-forward
+[33ma2a31d8[m HEAD@{87}: pull origin main: Fast-forward
+[33m2d69975[m HEAD@{88}: checkout: moving from Efrat to main
+[33m3e79433[m HEAD@{89}: commit: changes after merge ang add link to crm clusters page
+[33mf3cbb2f[m HEAD@{90}: commit (merge): erge 'origin/main' into Efrat
+[33m9058c56[m HEAD@{91}: commit: update the popover in the table
+[33m4f22817[m HEAD@{92}: pull origin Efrat: Fast-forward
+[33m47b9cfc[m HEAD@{93}: commit: some changes in the table
+[33m9a6b93c[m HEAD@{94}: pull origin Efrat: Fast-forward
+[33med0f996[m HEAD@{95}: commit: add popover and tooltip
+[33m2d69975[m HEAD@{96}: checkout: moving from main to Efrat
+[33m2d69975[m HEAD@{97}: merge origin/Efrat: Fast-forward
+[33m546c8c3[m HEAD@{98}: pull origin main: Fast-forward
+[33made20fe[m HEAD@{99}: checkout: moving from Efrat to main
+[33m2d69975[m HEAD@{100}: commit (merge): merge main into efrat
+[33mff288d5[m HEAD@{101}: commit: update the form in table details
+[33m5ab35bd[m HEAD@{102}: commit: prefCode & showButtons
+[33mf5428b0[m HEAD@{103}: pull origin Efrat: Fast-forward
+[33m4eddda4[m HEAD@{104}: commit: update radio button feild
+[33mae698d5[m HEAD@{105}: commit (merge): marge main into efrat
+[33me071566[m HEAD@{106}: commit: change in table detail
+[33m86b94df[m HEAD@{107}: commit: add handing page
+[33mbcea598[m HEAD@{108}: commit: changes in table details after merge
+[33made20fe[m HEAD@{109}: checkout: moving from main to Efrat
+[33made20fe[m HEAD@{110}: merge Efrat: Fast-forward
+[33mabfc5a5[m HEAD@{111}: checkout: moving from Efrat to main
+[33made20fe[m HEAD@{112}: commit: some changes after merge
+[33m1525991[m HEAD@{113}: rebase (continue): add component table group id
+[33mabfc5a5[m HEAD@{114}: checkout: moving from main to Efrat
+[33mabfc5a5[m HEAD@{115}: checkout: moving from Efrat to main
+[33mabfc5a5[m HEAD@{116}: checkout: moving from 8af86d7aeca1b346ddae9c4cb30a2063bea7b6ce to Efrat
+[33m8af86d7[m HEAD@{117}: commit: Merge efrat into main
+[33mca54eab[m HEAD@{118}: pull origin main --rebase (start): checkout ca54eabb2facb2f6d09a43dc955b566b8e58f721
+[33mabfc5a5[m HEAD@{119}: merge Efrat: Fast-forward
+[33mca54eab[m HEAD@{120}: checkout: moving from Efrat to main
+[33mabfc5a5[m HEAD@{121}: commit: fix changes after merge with main
+[33m5c6f3d2[m HEAD@{122}: commit (merge): Merge main into Efrat
+[33m293cf7e[m HEAD@{123}: commit: pie dialog &filter handing
+[

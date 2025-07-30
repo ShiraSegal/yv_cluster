@@ -89,5 +89,16 @@ addBookIdExsitCluster(newCluster: NewClusterFromSystem) {
       map((data: any[]) => data.find((user: any) => user.id === id)) // סינון לפי ID
     );
   }
+  // apiUrl: any;
+
+  //  getAutoClusterData()  {
+  //   return this.#http.get<string[]>('/assets/getAutoCluster.json');
+  // }
+
+  getCompareData() {
+    return this.#http.get<string[]>("/assets/json-data/getCompareData.json");
+  }
+
+  // environment.apiUrl + this.basicParam + '/' + reservationNumber +"?lang="+lang+"&ts="+new Date().valueOf()
 
 }

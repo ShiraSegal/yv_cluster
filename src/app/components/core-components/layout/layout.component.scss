@@ -3,7 +3,11 @@
    margin-left: 12rem; 
    min-height: 100vh;
    padding-top: 4vh;
+
 }
 nav {
     position: fixed; /* מיקום קבוע לניווט */
+    top: 0;
+    left: 0;
+    bottom: 0;
 }
