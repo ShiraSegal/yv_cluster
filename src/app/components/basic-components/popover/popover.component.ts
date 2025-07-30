@@ -21,6 +21,7 @@ type NativePopoverOption = {
   optionState: NativeOptionState;
   displayText?: string;
   property?: BadgeType;
+  icon?: string;
 };
 
 @Component({
@@ -67,6 +68,7 @@ export class PopoverComponent implements ControlValueAccessor, AfterViewInit {
   ngOnInit() {
     this.filterdList = this.options;
     this.setHeaderByType();
+  console.log('Search term:', this.searchFieldForm.get('searchField'));
 
 this.searchFieldForm.get('searchField')?.valueChanges.pipe(
   debounceTime(200),

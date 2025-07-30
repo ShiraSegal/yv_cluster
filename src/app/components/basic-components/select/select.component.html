@@ -20,6 +20,8 @@
             [optionState]="selectedOption.optionState"
             [displayText]="selectedOption.displayText"
             [property]="selectedOption.property"
+            [icon]="selectedOption.icon"
+            [isLink]="selectedOption.isLink"
           ></yv-cluster-native-option>
         } @else {
           {{ default }}
@@ -39,6 +41,8 @@
               [optionState]="option.optionState"
               [displayText]="option.displayText"
               [property]="option.property"
+              [icon]="option.icon"
+              [isLink]="option.isLink"
             ></yv-cluster-native-option>
           </li>
         }

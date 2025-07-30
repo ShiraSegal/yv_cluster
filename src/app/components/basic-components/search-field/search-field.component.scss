@@ -1,11 +1,13 @@
 @import "src/styles.scss";
+
 .warpper {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  background:$c-FFFFFF;
+  background: $c-FFFFFF;
   gap: 0.1rem;
 }
+
 .search-container {
   display: flex;
   width: 16.75rem;
@@ -13,19 +15,40 @@
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   align-items: center;
-  gap: var(--Layout-medium, 0.5rem);
-  flex-shrink: 0;
-  border-radius: var(--Border-radius-small, 0.25rem);
   border: 0.5px solid #3F4B5A;
+  border-radius: var(--Border-radius-small, 0.25rem);
   background-color: #ffffff;
+  gap: var(--Layout-medium, 0.5rem);
   min-width: 9.6875rem;
   max-width: 28.125rem;
-}
-.true{
-  border: 0.5px solid #6a3907;
+  transition: border-color 0.3s;
+
+  &.focused {
+    border-color: #007bff;
+  }
+
+  &.hovered {
+    border-color: #0056b3;
+  }
+
+  &.filled {
+    border-color: #28a745;
+  }
+
+  &.true {
+    border: 0.5px solid #6a3907;
+  }
 }
 
-.search-icon {
+.search-field {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+// שוחזר העיצוב של האייקון חיפוש
+.fa-magnifying-glass {
   display: flex;
   width: 1rem;
   padding: 0.1875rem 0.3125rem;
@@ -36,28 +59,16 @@
   flex-shrink: 0;
 }
 
-input {
-  flex: 1 0 0;
-  overflow: hidden;
-  color: #3F4B5A;
-  text-overflow: ellipsis;
-  font-family: Poppins;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.25rem;
-  border: none; /* מבטל את המסגרת */
-  outline: none; /* מבטל את הקו המוקף בעת מיקוד */
-}
-.cancle-icon{
+// שוחזר העיצוב המקורי של cancel-icon בדיוק
+.cancel-icon {
   display: flex;
-width: 1rem;
-padding: 0.1875rem 0.3125rem;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 0.625rem;
-flex-shrink: 0;
-margin-left: -1.5rem;
-cursor: pointer;
+  width: 1rem;
+  padding: 0.1875rem 0.3125rem;
+  margin-left: -2.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+  cursor: pointer;
 }

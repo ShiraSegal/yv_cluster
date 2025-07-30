@@ -42,7 +42,7 @@
   
 }
 .long{
-  width: 130rem;
+  width: 105rem;
 }
 .cell {
   flex: 1; /* כל תא יקבל רוחב שווה */
@@ -53,18 +53,4 @@
 .place-order{
   flex: 0;
  max-width:2.75rem;
-}
-.comments{
-  flex: 1.5;
-}
-.sortable {
-  cursor: pointer;
-  user-select: none;
-}
-
-.sortable::after {
-  content: ' ⇅';
-  color: #888;
-  font-size: 0.8rem;
-  margin-left: 0.4rem;
 }

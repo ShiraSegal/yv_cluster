@@ -7,6 +7,7 @@ import { SapirClusterModel} from '../models/sapir-cluster-model.model';
 // import { RootObject } from 'src/app/models/root-object.model';
 import { ClusterGroupWithCrmLinks } from '../models/cluster-group-with-crm-links.model';
 import { BookIdDetails } from '../models/book-id-details.model';
+import { NewClusterFromSystem } from '../models/new-cluster-from-system.model';
 
 
 
@@ -38,18 +39,15 @@ getCreateClusterData(bookIds: string[]) {
     // let url= `${this.apiUrl}/getByBookId.json`;
     return this.#http.get<BookIdDetails | boolean>(`${this.url}/SystemCluster/AddBookIdsByClusterId?clusterId=${clusterId}`)
   }
-addBookIdExsitCluster(bookIds: string[], clusterId: string) {
-  const params = new HttpParams().set('clusterId', clusterId);
+addBookIdExsitCluster(newCluster: NewClusterFromSystem) {
+  // const params = new HttpParams().set('clusterId', clusterId);
 
   return this.#http.post(
-    `${this.url}/SystemCluster/AddNewBookIdToExistCluster`,
-    bookIds, // body: array of strings
-    { params }
-  );
+    `${this.url}/SystemCluster/AddNewBookIdToExistCluster`,newCluster);
 }
 
-  createCluster(SapirClusterModel: SapirClusterModel){
-    return this.#http.post<SapirClusterModel>(`${this.url}/CreateCluster/CreateNewCluster`, SapirClusterModel);
+  createCluster(bookIds: string []){
+    return this.#http.post(`${this.url}/SystemCluster/CreateNewCluster`, bookIds);
   }
   // getstatisticData(): Observable<any> {
   //   return this.#http.get('./assets/json-data/getstatisticData.json');

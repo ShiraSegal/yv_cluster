@@ -6,7 +6,7 @@
     align-self: stretch;
     padding: 0.25rem 0rem;
     height: 4rem;
-    width: 130rem;
+    width: 105rem;
 }
 
 .close {
@@ -26,7 +26,6 @@
     align-items: flex-start;
     gap: 0.0625rem;
     border-bottom: 1px solid $c-D0D6F1;
-    width: 130rem;
 }
 
 .expandable-row {
@@ -39,6 +38,13 @@
     font-style: normal;
     font-weight: 400;
     line-height: 1.25rem;
+}
+
+.errorMessage {
+    width: 43rem; // Ensure proper alignment and readability
+    text-align: left; // Align text to the left for consistency
+    white-space: nowrap; // Prevent text from wrapping
+    overflow: hidden; // Hide overflow text
 }
 
 .cell {
@@ -57,24 +63,7 @@
     flex: 0;
 }
 
-.status, .assignee, .dateOfReport, .assigneeDate, .clusterID, .CNT, .missingField{
-   flex:1 ;// Ensure consistent widths across these elements
+.status, .assignee, .dateOfReport, .assigneeDate {
+    width: 12.5rem; // Ensure consistent widths across these elements
     text-align: center; // Center-align content for better appearance
-}
-
-
-.errorMessage {
-    flex:3; // Ensure proper alignment and readability
-    text-align: left; // Align text to the left for consistency
-    white-space: nowrap; // Prevent text from wrapping
-    overflow: hidden; // Hide overflow text        /* מסתיר את הטקסט שגולש */
-    text-overflow: ellipsis; /* מוסיף את שלוש הנקודות */
-}
-
-.comments {
-   flex:1.5; // Ensure proper alignment and readability
-    text-align: left; // Align text to the left for consistency
-     white-space: nowrap; // Prevent text from wrapping
-     overflow: hidden; // Hide overflow text        /* מסתיר את הטקסט שגולש */
-     text-overflow: ellipsis; /* מוסיף את שלוש הנקודות */
 }

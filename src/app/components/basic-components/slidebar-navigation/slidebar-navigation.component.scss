@@ -137,6 +137,7 @@
   align-items: center;
   gap: 2.8475rem;
   background: $c-081548;
+  height: 100vh;
 }
 
 .upper-warp {
@@ -159,7 +160,7 @@
 .logo {
   background: url(/assets/images/image-logo.png) no-repeat center center;
   background-size: contain;
-  width: 8.19018rem;
+  width: 9.19018rem;
   height: 4.30713rem;
   flex-shrink: 0;
 }
@@ -183,7 +184,7 @@
 }
 
 .space {
-  margin-top: 16.75rem;
+  margin-top: 27.75rem;
 }
 
 .line {
@@ -199,7 +200,7 @@
 
 .user {
   display: flex;
-  height: 4rem;
+  height: 9rem;
   // padding-top: 0.335rem;
   align-items: center;
   gap: 0.41875rem;
@@ -218,7 +219,7 @@
   font-size: 0.67rem !important;
   padding-right: 1.34rem;
   padding-left: 0.335rem;
-  padding-bottom: 1rem;
+  padding-bottom: 6rem;
 }
 
 .icon {
@@ -230,7 +231,7 @@
   font-weight: 900;
   line-height: normal;
   margin-left: -1.5rem;
-  margin-top: -1rem;
+  margin-top: -6rem;
   
 }
 

@@ -33,37 +33,37 @@ import { SearchFieldComponent } from '../search-field/search-field.component';
     FieldComponent,
     PopoverComponent,
     CalendarComponent,
-   SearchFieldComponent,
+    SearchFieldComponent,
     PopoverComponent
   ],
   templateUrl: './filter-section.component.html',
   styleUrls: ['./filter-section.component.scss']
 })
 export class FilterSectionComponent {
-  #fb=inject(FormBuilder)
-  #clusterService=inject(ClusterService)
+  #fb = inject(FormBuilder)
+  #clusterService = inject(ClusterService)
   @Input() buttonText: string = 'New Cluster';
   @Input() icon: IconType = IconType.PLUS_LIGHT;
   @Input() iconsVisible: boolean = false;
-  @Input() Filters :FilterNames[] = [];
+  @Input() Filters: FilterNames[] = [];
   @Output() onClickAddCluster = new EventEmitter<void>();
   @Output() onFilterValuesChange = new EventEmitter<any[]>();
-currentUserRole = this.#clusterService.currentUser.role;
+  currentUserRole = this.#clusterService.currentUser.role;
 
   ngOnInit() {
-   // // console.log('Filters received in filter-section:', this.Filters); // Debugging log
+    // // console.log('Filters received in filter-section:', this.Filters); // Debugging log
   }
 
   filterForm: FormGroup;
   statusAssineeForm: FormGroup;
   popOverTypeEnum = PopoverType;
   filterNames = FilterNames;
-  popOverType : PopoverType = PopoverType.ASSIGNEE;
+  popOverType: PopoverType = PopoverType.ASSIGNEE;
   visiblePopover: PopoverType | null = null;
 
   isCalendarOpen: boolean = false;
-  selectedDateText: string | null = null; 
-  temporaryDate: Date = new Date(); 
+  selectedDateText: string | null = null;
+  temporaryDate: Date = new Date();
 
   stateEnum = State;
   nativeOptions = NativeOptionType;
@@ -92,16 +92,16 @@ currentUserRole = this.#clusterService.currentUser.role;
       property: BadgeType.DONE
     }
   ];
-   tomorrow = new Date();
-// #fb= inject( FormBuilder)
-constructor(private fb: FormBuilder, private clusterService: ClusterService) {
-  this.tomorrow.setDate(this.tomorrow.getDate() + 1);
-  this.filterForm = this.fb.group({
-    search: [''],
-    date: [null],
-    status: [null],
-    assignee: [null],
-  });
+  tomorrow = new Date();
+  // #fb= inject( FormBuilder)
+  constructor(private fb: FormBuilder, private clusterService: ClusterService) {
+    this.tomorrow.setDate(this.tomorrow.getDate() + 1);
+    this.filterForm = this.fb.group({
+      search: [null],
+      date: [null],
+      status: [null],
+      assignee: [null],
+    });
 
 
     this.statusAssineeForm = this.#fb.group({
@@ -114,7 +114,7 @@ constructor(private fb: FormBuilder, private clusterService: ClusterService) {
     });
 
     this.statusAssineeForm.valueChanges.subscribe(val => {
-     // // console.log('statusAssineeForm:', val);
+      // // console.log('statusAssineeForm:', val);
     });
 
     // קבלת AssigneeList מהשאיבה מהגיסון
@@ -134,7 +134,7 @@ constructor(private fb: FormBuilder, private clusterService: ClusterService) {
     this.visiblePopover = null;
   }
   onClick() {
-   // // console.log('Submit clicked:', this.filterForm.value);
+    // // console.log('Submit clicked:', this.filterForm.value);
   }
 
   onClickAddClusterFunc() {
@@ -145,23 +145,23 @@ constructor(private fb: FormBuilder, private clusterService: ClusterService) {
     this.isCalendarOpen = !this.isCalendarOpen;
 
     if (this.isCalendarOpen) {
-   
+
       this.temporaryDate = this.filterForm.get('date')?.value || new Date();
     }
   }
 
   onDateSelected(date: Date) {
-   
+
     this.filterForm.get('date')?.setValue(date);
 
-   
+
     this.selectedDateText = date.toLocaleDateString('en-GB');
 
- 
+
     this.isCalendarOpen = false;
   }
 
 
-  onClickStatus() {}
-  onClickAssinee() {}
+  onClickStatus() { }
+  onClickAssinee() { }
 }

@@ -31,6 +31,7 @@ import { IconType } from 'src/app/enums/icon-enum';
 import { Subscription } from 'rxjs';
 import { FieldComponent } from '../../basic-components/field/field.component';
 import { BookIdDetails } from 'src/app/models/book-id-details.model';
+import { NewClusterFromSystem } from 'src/app/models/new-cluster-from-system.model';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
@@ -61,6 +62,7 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
 
   subscription = new Subscription(); // 🟦 ניהול subscriptions
 
+  newClusterFromSystem: NewClusterFromSystem = new NewClusterFromSystem();
   enterBookIdOrClusterForm: FormGroup = new FormGroup({
     input: new FormControl('', Validators.required),
   });
@@ -68,7 +70,7 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
   close: boolean = false;
   formIsValid: boolean;
 
-  header: string = 'Enter Book ID';
+  header: string = 'Enter Book ID / Cluster';
   size: TextSize = TextSize.SMALL;
   weight: TextWeight = TextWeight.BOLD;
   color: TextColor = TextColor.NEUTRAL_GRAY;
@@ -111,10 +113,11 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
       const selection = this.enterBookIdOrClusterForm.value.selection;
       if (!this.data.showRadioButtons) {
         console.log("send", { data:this.data.checkBoxList,input: input });
-
+        this.newClusterFromSystem.bookId = this.data.checkBoxList;
+        this.newClusterFromSystem.clusterId = input;
         this.subscription.add(
           this.#clusterService
-            .addBookIdExsitCluster(this.data.checkBoxList, input)
+            .addBookIdExsitCluster(this.newClusterFromSystem)
             .subscribe({
               next: () => {
                 // אין צורך לבדוק res, כי אין תוכן

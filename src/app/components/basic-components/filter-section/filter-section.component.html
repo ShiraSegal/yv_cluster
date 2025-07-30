@@ -1,16 +1,11 @@
 <form [formGroup]="filterForm" class="filter-section-container">
   <div class="selects-container">
-    <yv-cluster-search-field formControlName="search"
-     ></yv-cluster-search-field>
+    <yv-cluster-search-field formControlName="search"></yv-cluster-search-field>
 
     @if (Filters.includes(filterNames.DATE_OF_REPORT)) {
-      <yv-cluster-select
-      formControlName="date"
-      [default]="selectedDateText || 'Select Date of report'"
-      [dropdownType]="nativeOptions.TEXT"
-      
-      (click)="toggleCalendar()"
-    ></yv-cluster-select>
+    <yv-cluster-select  formControlName="date"
+      [default]="selectedDateText || 'Select Date of report'" [dropdownType]="nativeOptions.TEXT"
+      (click)="toggleCalendar()"></yv-cluster-select>
     }
     <!-- @if (Filters.includes(filterNames.DATE_OF_ASSIGNEE)) {
       <yv-cluster-select formControlName="assigneeDate" [default]="'Select Date Of Assignee '"
@@ -27,10 +22,7 @@
 
   </div>
   <div *ngIf="isCalendarOpen" class="calendar-wrapper">
-    <calendar
-    [selectedDate]="temporaryDate"
-    (selectedDateChange)="onDateSelected($event)"
-  ></calendar>
+    <calendar [selectedDate]="temporaryDate" (selectedDateChange)="onDateSelected($event)"></calendar>
   </div>
 
   @if (iconsVisible) {
@@ -50,11 +42,12 @@
         (onClick)="onClickAssinee()"></yv-cluster-icon-button-large>
       @if(visiblePopover === popOverTypeEnum.STATUS){
       <div class="popover">
-        <yv-cluster-popover [type]="popOverTypeEnum.STATUS" [options]="badgeOptions"></yv-cluster-popover>
+        
+        <yv-cluster-popover  [type]="popOverTypeEnum.STATUS" [options]="badgeOptions"></yv-cluster-popover>
       </div>
       }
 
-   
+
     </div>
   </div>
   }

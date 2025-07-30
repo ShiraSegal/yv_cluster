@@ -19,7 +19,7 @@ import { IconType } from 'src/app/enums/icon-enum';
   ]
 })
 export class SearchFieldComponent implements ControlValueAccessor {
-  value: string = '';
+  value: string = null;
   isFilled: boolean = false;
   isHovered: boolean = false;
   isFocused: boolean = false;
@@ -27,10 +27,9 @@ export class SearchFieldComponent implements ControlValueAccessor {
   iconType: IconType
   private onChange = (_: any) => { };
   private onTouched = () => { };
-
   writeValue(value: string): void {
-    this.value = value || '';
-    if (this.value.length > 0) {
+  this.value = value ?? '';
+if (this.value.length > 0) { 
       this.isPlaceolder = '';
       this.isFilled = true;
     }
@@ -84,7 +83,7 @@ export class SearchFieldComponent implements ControlValueAccessor {
     this.isPlaceolder = 'Search';
   }
   cancle() {
-    this.value = '';
+    this.value = null;
     this.isPlaceolder = 'Search';
     this.isFilled = false;
     this.onChange(this.value);

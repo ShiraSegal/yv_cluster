@@ -28,7 +28,7 @@ export class SlidebarNavigationComponent {
   iconType = IconType;
   sliderNavigationTabType = SliderNavigationTabType;
   activeTabIndex: number | null = 0;
-  userName: string=this.#clusterService.currentUser.name;
+  userName: string= this.#clusterService.currentUser.name;
   showLogOut: boolean = false; // טאב לוג אאוט
   // icon:IconType=IconType.ch
   nativeOptionType = NativeOptionType; // סוג הטאב של האפשרות הנטיבית

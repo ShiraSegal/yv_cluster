@@ -17,6 +17,7 @@ import { BookIdDetails } from '../models/book-id-details.model';
 import { MessageService } from './message.service';
 import { MessageType } from '../enums/basic-enum';
 import { log } from 'console';
+import { NewClusterFromSystem } from '../models/new-cluster-from-system.model';
 
 
 
@@ -306,27 +307,26 @@ export class ClusterService {
         });
       }
     });
+    console.log(valuesToDisplayedFields);
     return valuesToDisplayedFields;
   }
 
-  createCluster(sapirClusterModel: SapirClusterModel) {
-    return this.#clusterApiService.createCluster(sapirClusterModel).pipe(
+  createCluster(bookIds: string[]) {
+return this.#clusterApiService.createCluster(bookIds).pipe(
+    
       take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
-      tap((res) => {
-        // console.log("Cluster created successfully:", res); // לוג לתוצאה
-        // return res;
-      }),
+    tap((res) => {
+      console.log('Cluster created successfully:', res); // לוג לתוצאה
+    }),
       catchError((err) => {
         console.error('Error occurred while creating cluster:', err); // טיפול בשגיאה
-        //  return of(err); // החזרת ערך ברירת מחדל במקרה של שגיאה
         this.#messageService.showToastMessage({
-          type: MessageType.ERROR,
-          heading: 'Error',
-          content: err.message,
-        });
-        return of(null);
-      })
-    );
+        type: MessageType.ERROR,
+        heading: 'Error',
+        content: err.message,
+      });
+      return of(null); // החזרת ערך ברירת מחדל במקרה של שגיאה
+    }));
   }
 
   getSingleItemByBookId(bookId: string): Observable<BookIdDetails | any> {
@@ -363,8 +363,8 @@ export class ClusterService {
     );
   }
 
-  addBookIdExsitCluster(bookIds: string[], clusterId: string) {
-    return this.#clusterApiService.addBookIdExsitCluster(bookIds, clusterId).pipe(
+  addBookIdExsitCluster(newCluster: NewClusterFromSystem) {
+    return this.#clusterApiService.addBookIdExsitCluster(newCluster).pipe(
       take(1), // מבטיח שהבקשה תסתיים לאחר ערך אחד
       tap((res) => {
         // console.log("Book IDs added to existing cluster successfully:", res); // לוג לתוצאה

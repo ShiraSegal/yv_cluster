@@ -54,9 +54,13 @@
       gap: var(--Layout-medium, 0.5rem);
       align-self: stretch;
       min-width: 12.6875rem !important;
+      max-width: 12.6875rem;
       width: auto !important;
       border-radius: 0.25rem;
       border: 0.5px solid #3F4B5A;
+      .search-field{
+        font-size: 0.8rem;
+      }
     }
 
     .nativ-options-warp {

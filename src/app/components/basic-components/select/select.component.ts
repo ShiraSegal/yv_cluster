@@ -15,6 +15,8 @@ type NativeSelectOption = {
   optionState: NativeOptionState;
   displayText?: string;
   property?: BadgeType;
+  icon?: string;
+  isLink?: boolean;
 };
  
 @Component({
