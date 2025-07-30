@@ -95,12 +95,10 @@ import { BasicSimpleSquareIconButtonComponent } from '../../basic-components/bas
 export class RecordDetailsComponent {
   @Input() recordDetails!: CompaereDetailsData;
   @Input() highlightedWords: Record<string, string[]> = {};
-
-
-
   isOpen = true;
-  selectedButton: number = 3; // או: 1 | 2 | 3
+  @Input() showHighlights: boolean = false;
 
+  selectedButton: number = 3;
   // Icons
   image = IconType.IMAGE;
   table = IconType.TABLE;
@@ -108,6 +106,12 @@ export class RecordDetailsComponent {
   eyeIcon = IconType.EYE;
   translateIcon = IconType.TRANSLATE;
 
+  shouldHighlight(key: string, value: string): boolean {
+        if (!this.showHighlights) {
+      return false;
+    }
+    return !!this.highlightedWords?.[key]?.includes(value);
+  }
   changeMode(index: number) {
     this.selectedButton = index;
   }

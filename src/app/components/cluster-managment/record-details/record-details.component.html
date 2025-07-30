@@ -70,30 +70,30 @@
         (click)="changeMode(3)"></yv-cluster-basic-square-icon-button>
     </div>
   </div> -->
-  <!-- <button [ngClass]="{'btn': true,'primary': buttonType === 'primary','secondary': buttonType === 'secondary',-->
+<!-- <button [ngClass]="{'btn': true,'primary': buttonType === 'primary','secondary': buttonType === 'secondary',-->
 
-  <!-- @if(selectedButton===3){ -->
-   
-  <!-- <div class="details-warpper" [ngClass]="{'both-mode': selectedButton===1}">
+<!-- @if(selectedButton===3){ -->
+
+<!-- <div class="details-warpper" [ngClass]="{'both-mode': selectedButton===1}">
       @for(detail of recordDetails.values;track $index){
         <div class="data-cell" [ngClass]="{'highlight': shouldHighlight(detail.key,detail.value)}">
           <div class="data-cell-header">{{detail.key}}</div>
           <div class="data-cell-detail">{{detail.value}}</div>
         </div>
     } -->
-  <!-- </div>
+<!-- </div>
   <button class="translate-button" [ngClass]="{'both-mode': selectedButton===1}">
     <i class={{translateIcon}}></i>
      <i class="fa-light fa-language"></i> -->
-    <!-- {{'Traslate'}}
+<!-- {{'Traslate'}}
   </button> -->
-  <!-- } -->
-  <!-- @if(selectedButton===2){ -->
-    <!-- <div  class="image-warpper" [ngClass]="{'both-mode':selectedButton===1,'':selectedButton===2}">
+<!-- } -->
+<!-- @if(selectedButton===2){ -->
+<!-- <div  class="image-warpper" [ngClass]="{'both-mode':selectedButton===1,'':selectedButton===2}">
     <yv-cluster-viewer pictureName="img1"></yv-cluster-viewer>
   </div> -->
-  <!-- } -->
-  <!-- @if(selectedButton===1){
+<!-- } -->
+<!-- @if(selectedButton===1){
     <div class="both-mode"></div>
   } -->
 <!-- </div> -->
@@ -163,14 +163,18 @@
   <!-- Header -->
   <div class="header-warpper">
     <div class="record-name-warrper">
-      <yv-cluster-basic-simple-square-icon-button [icon]="eyeIcon" (click)="setState()"></yv-cluster-basic-simple-square-icon-button>
+      <yv-cluster-basic-simple-square-icon-button [icon]="eyeIcon" (click)="setState()">
+      </yv-cluster-basic-simple-square-icon-button>
       <div class="record-name">{{ recordDetails.recordTitle }}</div>
     </div>
 
     <div class="buttons-warrper">
-      <yv-cluster-basic-square-icon-button [icon]="layerGroup" [selected]="selectedButton === 1" (click)="changeMode(1)"></yv-cluster-basic-square-icon-button>
-      <yv-cluster-basic-square-icon-button [icon]="image" [selected]="selectedButton === 2" (click)="changeMode(2)"></yv-cluster-basic-square-icon-button>
-      <yv-cluster-basic-square-icon-button [icon]="table" [selected]="selectedButton === 3" (click)="changeMode(3)"></yv-cluster-basic-square-icon-button>
+      <yv-cluster-basic-square-icon-button [icon]="layerGroup" [selected]="selectedButton === 1"
+        (click)="changeMode(1)"></yv-cluster-basic-square-icon-button>
+      <yv-cluster-basic-square-icon-button [icon]="image" [selected]="selectedButton === 2" (click)="changeMode(2)">
+      </yv-cluster-basic-square-icon-button>
+      <yv-cluster-basic-square-icon-button [icon]="table" [selected]="selectedButton === 3" (click)="changeMode(3)">
+      </yv-cluster-basic-square-icon-button>
     </div>
   </div>
 
@@ -179,10 +183,19 @@
     <!-- Details -->
     <div class="details-warpper both-mode">
       <div class="details-scrollable-content">
-        <div *ngFor="let detail of recordDetails.values" class="data-cell" >
+        <!-- <div *ngFor="let detail of recordDetails.values" class="data-cell">
           <div class="data-cell-header">{{ detail.key }}</div>
           <div class="data-cell-detail">{{ detail.value }}</div>
-        </div>
+        </div> -->
+        <div *ngFor="let detail of recordDetails.values"
+        class="data-cell"
+        
+        [ngClass]="{ 'highlight': shouldHighlight(detail.key, detail.value) }"
+        >
+     <div class="data-cell-header">{{ detail.key }}</div>
+     <div class="data-cell-detail">{{ detail.value }}</div>
+   </div>
+
       </div>
       <div class="sticky-translate-wrapper">
         <button class="translate-button">
@@ -200,9 +213,10 @@
   <!-- Only details -->
   <div *ngIf="selectedButton === 3" class="details-warpper">
     <div class="details-scrollable-content">
-      <div *ngFor="let detail of recordDetails.values" class="data-cell" >
+      <div *ngFor="let detail of recordDetails.values" class="data-cell"  [ngClass]="{ 'highlight': shouldHighlight(detail.key, detail.value) }"
+      >
         <div class="data-cell-header">{{ detail.key }}</div>
-        <div class="data-cell-detail">{{ detail.value }}</div>
+        <div class="data-cell-detail">{{ detail.value }} </div>
       </div>
     </div>
     <div class="sticky-translate-wrapper">

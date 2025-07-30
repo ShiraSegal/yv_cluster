@@ -31,6 +31,7 @@ export class CompareModalTableComponent {
   closeButtonType = ButtonType.SECONDARY
   buttonText = "Mark Matches"
   highlightedWords: Record<string, string[]> = {};
+
   showHighlights = false; // שליטה על הצגת הדגשות
 
   ngOnInit() {
@@ -38,13 +39,14 @@ export class CompareModalTableComponent {
       .subscribe({
         next: (res: CompaereDetailsData[] | null) => {
           this.compareData = res || [];
-          this.highlightedWords = this.highlightFrequentWords(); // הפעלה פעם אחת בלבד
+          this.highlightedWords = this.highlightFrequentWords(this.compareData);
+          // הפעלה פעם אחת בלבד
           // this.compareData$.next(this.isReadyForCreateInvoice());          
           console.log("getCompareDataInCom", res);
 
           console.log("compareData", this.compareData);
-          console.log("😂😂😂",this.highlightedWords);
-          
+          console.log("Highlight Map:", JSON.stringify(this.highlightedWords, null, 2));
+
         },
         error: (err) => {
           console.log("Error fetching compare data", err);
@@ -68,39 +70,54 @@ export class CompareModalTableComponent {
 
   markedMatches() {
     this.showHighlights = !this.showHighlights;
-
     this.markedButtonType = this.showHighlights ? ButtonType.PRIMARY : ButtonType.SECONDARY;
     this.buttonText = this.showHighlights ? "Marked Matches" : "Unmarked Matches";
   }
 
-  private highlightFrequentWords(): Record<string, string[]> {
-    const keyWordCounts: Record<string, Record<string, number>> = {};
-
-    for (const record of this.compareData) {
-      for (const [key, value] of Object.entries(record.values)) {
-        const words = value?.toString().split(/\s+/).map(w => w.trim()).filter(Boolean) || [];
-        const uniqueWords = new Set(words);
-
-        if (!keyWordCounts[key]) keyWordCounts[key] = {};
-
-        for (const word of uniqueWords) {
-          keyWordCounts[key][word] = (keyWordCounts[key][word] || 0) + 1;
-        }
-      }
-    }
-
+  private highlightFrequentWords(data: CompaereDetailsData[]): Record<string, string[]> {
+    const valuesByKey: Record<string, string[]> = {};
+  
+    // שלב 1: ארגון ערכים לפי key
+    data.forEach(record => {
+      record.values.forEach(({ key, value }) => {
+        if (!valuesByKey[key]) valuesByKey[key] = [];
+        if (value) valuesByKey[key].push(value);
+      });
+    });
+  
     const result: Record<string, string[]> = {};
-
-    for (const [key, wordMap] of Object.entries(keyWordCounts)) {
-      const topWords = Object.entries(wordMap)
-        .filter(([_, count]) => count >= 2)
-        .map(([word]) => word);
-
-      if (topWords.length > 0) {
-        result[key] = topWords;
+  
+    // שלב 2: עבור כל key, נזהה את המילה הכי שכיחה
+    Object.entries(valuesByKey).forEach(([key, values]) => {
+      const wordFrequency: Record<string, number> = {};
+  
+      // פיצול כל ערך למילים והוספה למילון שכיחויות
+      values.forEach(value => {
+        const words = value.split(/\s+/).map(w => w.trim()).filter(Boolean);
+        words.forEach(word => {
+          wordFrequency[word] = (wordFrequency[word] || 0) + 1;
+        });
+      });
+  
+      // מציאת המילה הכי שכיחה
+      const [mostFrequentWord, freq] = Object.entries(wordFrequency)
+        .reduce((a, b) => (a[1] >= b[1] ? a : b), ["", 0]);
+  
+      if (freq >= 2 && mostFrequentWord) {
+        // שלב 3: מציאת כל הערכים שמכילים את המילה הזו – בלי כפילויות
+        const matchedValues = values.filter(val =>
+          val.split(/\s+/).some(word => word === mostFrequentWord)
+        );
+  
+        // סינון כפילויות עם Set
+        result[key] = [...new Set(matchedValues)];
+      } else {
+        result[key] = [];
       }
-    }
-
+    });
+  
     return result;
-  }
+  }  
 }
+
+  

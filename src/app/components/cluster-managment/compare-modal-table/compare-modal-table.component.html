@@ -39,7 +39,10 @@
     }
 
     @for(details of compareData;track $index){
-    <yv-cluster-record-details *ngIf="compareData[$index].isOpen" [recordDetails]="compareData[$index]" [highlightedWords]="highlightedWords"
+    <yv-cluster-record-details *ngIf="compareData[$index].isOpen" 
+    [recordDetails]="compareData[$index]" 
+    [showHighlights]="showHighlights"
+    [highlightedWords]="highlightedWords">
     ></yv-cluster-record-details>
     }
   </div>
