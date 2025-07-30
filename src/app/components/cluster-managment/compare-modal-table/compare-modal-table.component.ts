@@ -70,8 +70,8 @@ export class CompareModalTableComponent {
 
   markedMatches() {
     this.showHighlights = !this.showHighlights;
-    this.markedButtonType = this.showHighlights ? ButtonType.PRIMARY : ButtonType.SECONDARY;
-    this.buttonText = this.showHighlights ? "Marked Matches" : "Unmarked Matches";
+    this.markedButtonType = this.showHighlights ? ButtonType.SECONDARY : ButtonType.PRIMARY;
+    this.buttonText = this.showHighlights ? "unmarked Matches" : "Marked Matches";
   }
 
   private highlightFrequentWords(data: CompaereDetailsData[]): Record<string, string[]> {
@@ -117,7 +117,8 @@ export class CompareModalTableComponent {
     });
   
     return result;
-  }  
+  }
+  
 }
 
   

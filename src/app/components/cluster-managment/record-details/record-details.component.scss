@@ -61,8 +61,8 @@
   display: flex;
   gap: 1rem;
   width: 100%;
-  flex: 1; // תופס את כל הגובה שנותר אחרי ההדר
-  overflow: hidden; // חשוב כדי למנוע גלילה חיצונית
+  flex: 1; 
+  overflow: hidden; 
 }
 
 .details-warpper,
@@ -83,16 +83,13 @@
 }
 
 .details-warpper {
-  // border-right: none; // כדי למנוע קו כפול באמצע
-
   .details-scrollable-content {
     flex: 1;
     overflow-y: auto;
     padding: 0.25rem;
-    box-sizing: border-box; // חובה
+    box-sizing: border-box;
   }
 }
-
 .data-cell {
   display: flex;
   flex-direction: row;
