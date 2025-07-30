@@ -107,6 +107,7 @@ valuesToDisplayedFields: { [key in string]: { key: string, value: string }[] } =
     //   console.log('Form value changed: 💜💜💜💜💜', value);
 
     // }))
+    this.createClusterFormData();
     console.log("option",this.options);
     
 
