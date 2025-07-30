@@ -17,18 +17,18 @@ export class NotifictionService {
 
   private _snackBar = inject(MatSnackBar);
   showToastNotification(data: any) {
-    this.openSnackBar();
+    this.openSnackBar(data);
   }
 
 
-  openSnackBar() {
+  openSnackBar(d: any) {
     this._snackBar.openFromComponent(ToastNotificationComponent, {
-      duration: 3000000, // משך ההצגה במילישניות
+      duration: 3000, // משך ההצגה במילישניות
         data:{
-          iconName: IconType.SUCCESS_SOLID,
-          title: 'Successfull',
-          message: "  added to the cluster successfully!",
-          duration: 3000
+          iconName:d.iconName|| IconType.SUCCESS_SOLID,
+          title: d.title || 'Successfull',
+          message:d.message || "  added to the cluster successfully!",
+          duration:d.duration || 3000
         },
       horizontalPosition: 'left',
       verticalPosition: 'bottom',

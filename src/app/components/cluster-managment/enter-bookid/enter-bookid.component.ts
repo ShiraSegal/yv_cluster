@@ -32,6 +32,7 @@ import { Subscription } from 'rxjs';
 import { FieldComponent } from '../../basic-components/field/field.component';
 import { BookIdDetails } from 'src/app/models/book-id-details.model';
 import { NewClusterFromSystem } from 'src/app/models/new-cluster-from-system.model';
+import { NotifictionService } from 'src/app/services/notifiction.service';
 
 @Component({
   selector: 'yv-cluster-enter-bookid',
@@ -55,10 +56,10 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
   dialogRef: MatDialogRef<EnterBookidComponent> = inject(MatDialogRef, {
     optional: true,
   })!;
- 
-  #clusterService = inject(ClusterService);
 
-// showRadioButtons: boolean = this.data.showRadioButtons;
+  #clusterService = inject(ClusterService);
+  #notifictionService = inject(NotifictionService);
+  // showRadioButtons: boolean = this.data.showRadioButtons;
 
   subscription = new Subscription(); // 🟦 ניהול subscriptions
 
@@ -113,7 +114,7 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
       const selection = this.enterBookIdOrClusterForm.value.selection;
       console.log('selection', selection);
       if (!this.data.showRadioButtons) {
-        console.log("send", { data:this.data.checkBoxList,input: input });
+        console.log("send", { data: this.data.checkBoxList, input: input });
         this.newClusterFromSystem.bookId = this.data.checkBoxList;
         this.newClusterFromSystem.clusterId = input;
         this.subscription.add(
@@ -123,6 +124,7 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
               next: () => {
                 // אין צורך לבדוק res, כי אין תוכן
                 this.closeDialogWithData({ success: true, bookId: input });
+
               },
               error: (err: any) => {
                 console.error('Error during cluster creation:', err);
@@ -138,6 +140,12 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
               if (res) {
                 console.log('bookId add:', res);
                 this.closeDialogWithData(res);
+                this.#notifictionService.showToastNotification({
+                  iconName: this.iconType.SUCCESS_SOLID,
+                  title: 'Successfull',
+                  message: "  The Book ID added successfully!",
+                  duration: 100
+                });
               } else {
                 console.warn('add bookId failed.');
               }
@@ -157,6 +165,12 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
               if (res) {
                 console.log('Cluster add:', res);
                 this.closeDialogWithData(res);
+                this.#notifictionService.showToastNotification({
+                  iconName: this.iconType.SUCCESS_SOLID,
+                  title: 'Successfull',
+                  message: "  The Cluster added successfully!",
+                  duration: 100
+                });
               } else {
                 console.warn('add cluster failed.');
               }
