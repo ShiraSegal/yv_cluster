@@ -1,0 +1,5 @@
+<div  [ngClass]="{'tabContainerActive': active, 'tabContainerNotActive': !active}" (click)="changeActive()">
+   <div [ngClass]="{'tabTextActive': active, 'tabTextNotActive': !active}">{{text}}</div>  
+</div>
+
+

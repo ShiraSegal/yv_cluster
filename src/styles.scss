@@ -1,5 +1,7 @@
 @import "./styles/colors.scss";
 @import "./styles/images.scss";
+// @import '@fontsource/poppins'; /* יבוא הסגנון הבסיסי */
+
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 
@@ -8,6 +10,7 @@
 //   font-size: 10.75px;
 // }
 
+html,
 body {
   height: 100%;
 }

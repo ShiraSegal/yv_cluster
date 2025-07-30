@@ -1,5 +1,4 @@
 import * as e from "express";
-
 import { IconType } from "./icon-enum";
 
 export enum ButtonType {
@@ -8,6 +7,7 @@ export enum ButtonType {
   TERTIARY = "tertiary"
 }
 
+ 
 
 export enum NarrowBasicTableRowInputState {
   DEFAULT = 'Default',
@@ -28,6 +28,7 @@ export enum NarrowBasicTableRowLength {
   LONG = 'long',
   SHORT = 'short'
 }
+ 
 
 
 export enum BasicTablePropertyType {
@@ -69,11 +70,20 @@ export enum PopoverHeader{
 }
 
 
+ 
+// export enum ButtonIconProperty{
+// VARIANT1="variant1",
+// VARIANT2="variant2",
+// VARIANT3="variant3"
+// }
+ 
+ 
   export enum CheckType {
     UNCHECKED = 'unchecked',
     CHECKED = 'checked'
   }
 
+  
 
 
 export type DataCellValue<T extends DataCellType> =
@@ -173,12 +183,10 @@ export enum State {
   DISABLED = "disabled",
   ERROR = "error"
 }
-
 export enum IconButtonLargeType {
   DEFAULT = "default",
   HOVER = "hover",
 }
-
 
 export enum NativeOptionType{
   ASSIGNEE = "assignee",
@@ -202,7 +210,6 @@ export enum NativeOptionState{
   DEFAULT = "default",
   HOVER = "hover"
 }
-
 export enum ButtonIconProperty{
   VARIANT1="variant1",
   VARIANT2="variant2",

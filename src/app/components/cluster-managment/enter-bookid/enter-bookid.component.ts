@@ -102,15 +102,16 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
     console.log('showRadioButtons', this.data.showRadioButtons);
   }
 
-  checkedChange(selected: string) {
-    this.selected = selected;
-  }
+  // checkedChange(selected: string) {
+  //   this.selected = selected;
+  // }
 
   add() {
     if (this.enterBookIdOrClusterForm.valid) {
       // this.closeDialogWithData({ bookId: this.enterBookIdOrClusterForm.value.input })
       const input = this.enterBookIdOrClusterForm.value.input;
       const selection = this.enterBookIdOrClusterForm.value.selection;
+      console.log('selection', selection);
       if (!this.data.showRadioButtons) {
         console.log("send", { data:this.data.checkBoxList,input: input });
         this.newClusterFromSystem.bookId = this.data.checkBoxList;
@@ -129,7 +130,7 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
             })
         );
       }
-      if (selection === 'Book ID') {
+      if (selection.value === 'Book ID') {
         this.subscription.add(
           this.#clusterService.getSingleItemByBookId(input).subscribe({
             next: (res: BookIdDetails | boolean) => {
@@ -148,7 +149,7 @@ export class EnterBookidComponent implements OnInit, OnDestroy {
         ); // 🟦 הוספה למנוי
         this.formIsValid = true;
         this.close = true;
-      } else if (selection === 'Cluster') {
+      } else if (selection.value === 'Cluster') {
         this.subscription.add(
           this.#clusterService.getClusterGroupByBookId(input).subscribe({
             next: (res: BookIdDetails | boolean) => {
