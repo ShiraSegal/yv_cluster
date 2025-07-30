@@ -1,0 +1,47 @@
+<!-- <div class="outer-container">
+  <div class="container" >
+    <div class="table-header">
+      <div class="save-place"></div>
+      <div *ngFor="let header of compareData[0].values" class="row-header">{{ header.key }}</div>
+    </div>
+    <div class="table-container">
+      @for(record of compareData;track $index){
+      <yv-cluster-record-details [recordDetails]="record"></yv-cluster-record-details>
+      }
+    </div>
+  </div>
+</div>
+<div class="space-between"></div>
+<div class="compare-buttons-frame">
+  <yv-cluster-compare-modal-button *ngFor="let record of compareData; let i = index" [recordName]="record.recordTitle" [index]="i"
+    (detailsMode)="handleDetailsModeChange($event,i)" (imageMode)="handleImageModeChange($event,i)">
+    ></yv-cluster-compare-modal-button>
+</div> -->
+<!-- <dialog> -->
+<div class="table-warpper">
+  <div class="table-header">
+    <div class="items-warpper">
+      <div class="header-text">
+        {{'Evidence Comparison'}}
+      </div>
+      <div class="header-buttons-warpper">
+        <yv-cluster-button class="mark-button" (onClick)="markedMatches()" [text]="buttonText" [iconType]="matchIcon"
+          [buttonType]="markedButtonType"></yv-cluster-button>
+        <yv-cluster-button class="close-button" (onClick)="closeTable()" [text]="'close'" [iconType]="xmark"
+          [buttonType]="closeButtonType"></yv-cluster-button>
+      </div>
+    </div>
+  </div>
+  <div class="records">
+    @for(details of compareData;track $index){
+      <yv-cluster-close-record-details *ngIf="!compareData[$index].isOpen" [recordDetails]="compareData[$index]" [highlightedWords]="highlightedWords"
+      ></yv-cluster-close-record-details>
+    }
+
+    @for(details of compareData;track $index){
+    <yv-cluster-record-details *ngIf="compareData[$index].isOpen" [recordDetails]="compareData[$index]" [highlightedWords]="highlightedWords"
+    ></yv-cluster-record-details>
+    }
+  </div>
+</div>
+<!-- </dialog> -->

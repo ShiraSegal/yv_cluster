@@ -17,6 +17,7 @@ import { BookIdDetails } from '../models/book-id-details.model';
 import { MessageService } from './message.service';
 import { MessageType } from '../enums/basic-enum';
 import { log } from 'console';
+import { CompaereDetailsData } from '../models/compaereDetailsData.model';
 
 
 
@@ -95,8 +96,35 @@ export class ClusterService {
     );
   }
 
-   getAutoClusterData(): Observable<string[]> {
-    return ( this.#clusterApiService.getAutoClusterData()).pipe(
+  
+  getCompareData(): Observable<CompaereDetailsData[]> {
+    return this.#clusterApiService.getCompareData().pipe(
+      take(1),
+      map((res: any[]) => {
+        const recordsMap: { [key: string]: { [key: string]: string } } = {};
+        res.forEach(item => {
+          Object.keys(item).forEach(key => {
+            if (key.startsWith('record')) {
+              if (!recordsMap[key]) {
+                recordsMap[key] = {};
+              }
+              recordsMap[key][item.title] = item[key] || '';
+            }
+          });
+        });
+        return Object.keys(recordsMap).map(recordKey => {
+          return new CompaereDetailsData(recordKey, recordsMap[recordKey]);
+        });
+      }),
+      tap(mappedRes => console.log("Mapped Compare Data", mappedRes)),
+      catchError(err => {
+        console.error("Error in getCompareData:", err);
+        return of([]);
+      })
+    );
+  }
+   async getAutoClusterData(): Promise<Observable<string[]>> {
+    return (await (this.#clusterApiService.getAutoClusterData())).pipe(
       take(1),
       catchError((err) => {
         console.error('Error fetching auto cluster data:', err);

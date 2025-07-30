@@ -53,3 +53,13 @@ line-height: 120%;
   // overflow-x: auto !important;
   background-color: aqua !important;
 }
+::ng-deep .full-screen-dialog .mat-dialog-container {
+  display: flex;
+  width: 120rem;
+  height: 67.5rem;
+  padding-bottom: 2rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.625rem;
+  flex-shrink: 0;
+}

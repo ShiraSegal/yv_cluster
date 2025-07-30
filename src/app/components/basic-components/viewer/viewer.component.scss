@@ -2,34 +2,13 @@
 
 .viewer-warpper {
     display: flex;
-    width: 55.8125rem;
+    width: 65.8125rem;
     height: 50.3125rem;
     padding: 0.25rem 0.625rem;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
     background: $c-FFFFFF;
-}
-
-.picture-name-warpper {
-    display: flex;
-    height: 3.125rem;
-    padding: var(--layout-02, 0.5rem);
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
-    align-self: stretch;
-    background: $c-E7EBF833;
-}
-
-.picture-name {
-    width: 8.375rem;
-    color: $c-3F4B5A;
-    font-family: Poppins;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
 }
 
 .image-warrper {
@@ -39,37 +18,78 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    justify-content: center;
     gap: 0.625rem;
     flex-shrink: 0;
-    overflow: hidden; /* Ensure the image stays within the container */
+    // overflow: hidden;
+    /* Ensure the image stays within the container */
     background-repeat: no-repeat;
     background-size: contain;
-    overflow: hidden; /* Ensure the image stays within the container */
-    background-repeat: no-repeat;
-    background-size: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    // position: relative;
+
 }
+
+.image-wrapper-container {
+    width: 100%;
+    width: 40.3125rem;
+    height: 46.125rem;
+    overflow: hidden;
+    position: relative;
+    // border: 1px solid #ccc;
+    background: #f9f9f9;
+}
+
+
+
+.printable-image {
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    height: auto;
+    object-fit: contain;
+    display: block;
+
+
+}
+
 
 .button-warpper {
+    border-radius: 0.25rem;
+    border: 1px solid #F1F2F4;
+    background: rgba(255, 255, 255, 0.80);
     display: flex;
+    width: 12.5625rem;
+    padding: 0.25rem;
     justify-content: center;
     align-items: center;
-    gap: 0.25rem;
-    align-self: stretch;
+    gap: 0.5rem;
+    align-self: center;
+    margin: 0 auto;
+
 }
 
-.image-warrper img {
-    transform-origin: center;
-    transition: transform 0.3s ease;
-    width: auto;
-    height:  42.3125rem;
-    max-width: none; /* Allow the image to grow beyond the container */
-    max-height: none; /* Allow the image to grow beyond the container */
-    width: auto;
-    height:  42.3125rem;
-    max-width: none; /* Allow the image to grow beyond the container */
-    max-height: none; /* Allow the image to grow beyond the container */
-}
+// .image-warrper img {
+//     transform-origin: center;
+//     transition: transform 0.3s ease;
+//     width: auto;
+//     max-width: none;
+//     /* Allow the image to grow beyond the container */
+//     max-height: none;
+
+//     width: 40.3125rem;
+//     height: 46.125rem;
+//     max-width: 100%;
+//     // height: auto;
+//     display: block;
+//         /* Allow the image to grow beyond the container */
+// }
 
 .scale-1 {
     transform: scale(1);
@@ -97,21 +117,48 @@
 
 @media print {
     body * {
-        visibility: hidden !important;
+      display: none !important;
+      visibility: hidden !important;
     }
-    .printable-image, .printable-image * {
-        visibility: visible !important;
+  
+    .print-area,
+    .print-area * {
+      display: block !important;
+      visibility: visible !important;
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+      background: white;
+      padding: 0;
+      margin: 0;
     }
+  
     .printable-image {
-        position: absolute;
-        transform: translate(-50%, -50%);
-        top:50%;
-        left: 50%;
-        width:100%;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: $c-FFFFFF;
+      width: 100%;
+      height: auto;
+      max-height: 100vh;
+      object-fit: contain;
     }
+  }
+  
+
+.image-wrapper-container {
+    width: 100%;
+    height: 600px; // או גובה רצוי אחר
+    overflow: hidden;
+    position: relative;
+    // border: 1px solid #ccc;
+    background: #f9f9f9;
 }
+
+//   .image-wrapper {
+//     width: 100%;
+//     height: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     position: relative;
+//   }

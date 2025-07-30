@@ -1,0 +1,219 @@
+<!-- <div class="details-container">
+  @if(recordDetails.detailsOn){
+  <div class="details">
+    <div class="record-header">
+      <p class="cluster-number">{{ recordDetails.recordTitle }}</p>
+      <div class="language-toggel-button">
+        <yv-cluster-basic-toggle [rightSelected]="true" [rightText]="'English'" [leftText]="'עברית'"
+          (toggleChange)="handleToggleChange($event)"></yv-cluster-basic-toggle>
+      </div>
+    </div>
+    <div *ngFor="let detail of recordDetails.values" class="data-cell">
+      {{detail.value}}
+    </div> -->
+<!-- <div *ngFor="let detail of recordDetails.values" class="data-cell">
+      <span class="detail-key">{{ detail.value}}</span>: <span class="detail-value">{{ detail[1] }}</span>
+    </div>
+  </div> -->
+<!-- </div>
+    }
+  
+    @if(recordDetails.imageOn){
+    <div class="image">
+      <div class="picture-name-warpper">
+        <div class="picture-name">{{ recordDetails.recordTitle}}</div>
+      </div>
+      <yv-cluster-viewer pictureName="img1" [pictureName]="recordDetails.recordTitle"></yv-cluster-viewer>
+    </div>
+    }
+  </div> -->
+
+<!-- <div class="both-warpper">
+  <div class="both-header-warpper">
+    <div class="both-header-inner-warpper">
+      <div class="record-name-warrper">
+        <button (click)="setState()">close</button>
+        <div class="record-name">{{recordDetails.recordTitle}}</div>
+      </div>
+    </div>
+    <div class="buttons-warrper">
+      <yv-cluster-basic-square-icon-button [icon]="image" (click)="setBothMode()"></yv-cluster-basic-square-icon-button>
+      <yv-cluster-basic-square-icon-button [icon]="image"
+        (click)="setImageMode()"></yv-cluster-basic-square-icon-button>
+      <yv-cluster-basic-square-icon-button [icon]="image"
+        (click)="setDetailsMode()"></yv-cluster-basic-square-icon-button>
+    </div>
+  </div>
+  <div class="both-details-warpper">
+    <div class="both-list-warpper">
+    <div class="both-image-warpper">
+    </div>
+  </div>
+</div> -->
+<!-- @if(isOpen){ -->
+<!-- <div class="record-warpper" [ngClass]="{'both-mode': selectedButton===1}">
+  <div class="header-warpper" >
+    <div class="record-name-warrper">
+      <yv-cluster-basic-simple-square-icon-button [icon]="eyeIcon"
+        (click)="setState()"></yv-cluster-basic-simple-square-icon-button>
+      <div class="record-name">{{recordDetails.recordTitle}}</div>
+    </div>
+    <div class="buttons-warrper">
+      <yv-cluster-basic-square-icon-button [icon]="layerGroup"
+      [selected]="selectedButton === 1"
+        (click)="changeMode(1)"></yv-cluster-basic-square-icon-button>
+      <yv-cluster-basic-square-icon-button [icon]="image"
+      [selected]="selectedButton === 2"
+        (click)="changeMode(2)"></yv-cluster-basic-square-icon-button>
+      <yv-cluster-basic-square-icon-button [icon]="table"
+      [selected]="selectedButton === 3"
+        (click)="changeMode(3)"></yv-cluster-basic-square-icon-button>
+    </div>
+  </div> -->
+  <!-- <button [ngClass]="{'btn': true,'primary': buttonType === 'primary','secondary': buttonType === 'secondary',-->
+
+  <!-- @if(selectedButton===3){ -->
+   
+  <!-- <div class="details-warpper" [ngClass]="{'both-mode': selectedButton===1}">
+      @for(detail of recordDetails.values;track $index){
+        <div class="data-cell" [ngClass]="{'highlight': shouldHighlight(detail.key,detail.value)}">
+          <div class="data-cell-header">{{detail.key}}</div>
+          <div class="data-cell-detail">{{detail.value}}</div>
+        </div>
+    } -->
+  <!-- </div>
+  <button class="translate-button" [ngClass]="{'both-mode': selectedButton===1}">
+    <i class={{translateIcon}}></i>
+     <i class="fa-light fa-language"></i> -->
+    <!-- {{'Traslate'}}
+  </button> -->
+  <!-- } -->
+  <!-- @if(selectedButton===2){ -->
+    <!-- <div  class="image-warpper" [ngClass]="{'both-mode':selectedButton===1,'':selectedButton===2}">
+    <yv-cluster-viewer pictureName="img1"></yv-cluster-viewer>
+  </div> -->
+  <!-- } -->
+  <!-- @if(selectedButton===1){
+    <div class="both-mode"></div>
+  } -->
+<!-- </div> -->
+<!-- } -->
+<!-- @else{
+<div class="closed-record">
+    <yv-cluster-basic-simple-square-icon-button [icon]="eyeIcon"
+      (click)="setState()" class="closed-record-eye-icon"></yv-cluster-basic-simple-square-icon-button>
+        <div class="closed-record-text-warpper">
+        <span class="closed-record-text">{{recordDetails.recordTitle}}</span>
+      </div>
+</div>
+} -->
+
+<!-- <div class="record-warpper" [ngClass]="{'both-mode': selectedButton === 1}">
+  <div class="header-warpper">
+    <div class="record-name-warrper">
+      <yv-cluster-basic-simple-square-icon-button [icon]="eyeIcon" (click)="setState()"></yv-cluster-basic-simple-square-icon-button>
+      <div class="record-name">{{ recordDetails.recordTitle }}</div>
+    </div>
+
+    <div class="buttons-warrper">
+      Show both
+      <yv-cluster-basic-square-icon-button
+        [icon]="layerGroup"
+        [selected]="selectedButton === 1"
+        (click)="changeMode(1)">
+      </yv-cluster-basic-square-icon-button>
+
+      Show image only
+      <yv-cluster-basic-square-icon-button
+        [icon]="image"
+        [selected]="selectedButton === 2"
+        (click)="changeMode(2)">
+      </yv-cluster-basic-square-icon-button>
+
+      Show details only
+      <yv-cluster-basic-square-icon-button
+        [icon]="table"
+        [selected]="selectedButton === 3"
+        (click)="changeMode(3)">
+      </yv-cluster-basic-square-icon-button>
+    </div>
+  </div>
+
+  Show details section
+  <div *ngIf="selectedButton === 1 || selectedButton === 3" class="details-warpper" [ngClass]="{'both-mode': selectedButton === 1}">
+    <div *ngFor="let detail of recordDetails.values" class="data-cell" [ngClass]="{'highlight': shouldHighlight(detail.key, detail.value)}">
+      <div class="data-cell-header">{{ detail.key }}</div>
+      <div class="data-cell-detail">{{ detail.value }}</div>
+    </div>
+
+
+  </div>
+  <button *ngIf="selectedButton === 1" class="translate-button" [ngClass]="{'both-mode': selectedButton === 1}">
+    <i [class]="translateIcon"></i> {{ 'Translate' }}
+  </button>
+
+  Show image section 
+  <div *ngIf="selectedButton === 1 || selectedButton === 2" class="image-warpper" [ngClass]="{'both-mode': selectedButton === 1}">
+    <yv-cluster-viewer  pictureName="img1" ></yv-cluster-viewer>
+  </div>
+</div> -->
+
+
+<div class="record-warpper" [ngClass]="{'both-mode': selectedButton === 1}">
+  <!-- Header -->
+  <div class="header-warpper">
+    <div class="record-name-warrper">
+      <yv-cluster-basic-simple-square-icon-button [icon]="eyeIcon" (click)="setState()"></yv-cluster-basic-simple-square-icon-button>
+      <div class="record-name">{{ recordDetails.recordTitle }}</div>
+    </div>
+
+    <div class="buttons-warrper">
+      <yv-cluster-basic-square-icon-button [icon]="layerGroup" [selected]="selectedButton === 1" (click)="changeMode(1)"></yv-cluster-basic-square-icon-button>
+      <yv-cluster-basic-square-icon-button [icon]="image" [selected]="selectedButton === 2" (click)="changeMode(2)"></yv-cluster-basic-square-icon-button>
+      <yv-cluster-basic-square-icon-button [icon]="table" [selected]="selectedButton === 3" (click)="changeMode(3)"></yv-cluster-basic-square-icon-button>
+    </div>
+  </div>
+
+  <!-- Combined mode layout -->
+  <div *ngIf="selectedButton === 1" class="both-layout">
+    <!-- Details -->
+    <div class="details-warpper both-mode">
+      <div class="details-scrollable-content">
+        <div *ngFor="let detail of recordDetails.values" class="data-cell" >
+          <div class="data-cell-header">{{ detail.key }}</div>
+          <div class="data-cell-detail">{{ detail.value }}</div>
+        </div>
+      </div>
+      <div class="sticky-translate-wrapper">
+        <button class="translate-button">
+          <i [class]="translateIcon"></i> {{ 'Translate' }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Image viewer -->
+    <div class="image-warpper both-mode">
+      <yv-cluster-viewer pictureName="img1"></yv-cluster-viewer>
+    </div>
+  </div>
+
+  <!-- Only details -->
+  <div *ngIf="selectedButton === 3" class="details-warpper">
+    <div class="details-scrollable-content">
+      <div *ngFor="let detail of recordDetails.values" class="data-cell" >
+        <div class="data-cell-header">{{ detail.key }}</div>
+        <div class="data-cell-detail">{{ detail.value }}</div>
+      </div>
+    </div>
+    <div class="sticky-translate-wrapper">
+      <button class="translate-button">
+        <i [class]="translateIcon"></i> {{ 'Translate' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Only image -->
+  <div *ngIf="selectedButton === 2" class="image-warpper">
+    <yv-cluster-viewer pictureName="img1"></yv-cluster-viewer>
+  </div>
+</div>
