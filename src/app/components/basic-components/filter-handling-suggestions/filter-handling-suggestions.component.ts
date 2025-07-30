@@ -111,7 +111,7 @@ export class FilterHandlingSuggestionsComponent {
         this.#notifictionService.showToastNotification({
           iconName: this.iconType.SUCCESS_SOLID,
           title: 'Successfull',
-          message: result.bookId + "  added to the cluster successfully!",
+          message: "The cluster created successfully!",
           duration: 3000
         });
         console.log('page Data received from dialog:', result);

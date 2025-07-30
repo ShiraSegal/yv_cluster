@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
+import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { BasicRadioButtonComponent } from '../basic-radio-button/basic-radio-button.component';
 import { RadioButtonListDirection } from 'src/app/enums/basic-enum';
@@ -22,22 +22,17 @@ export class RadioButtonListComponent implements ControlValueAccessor {
   @Input() radioButtonValuesArray: { key: string, value: string }[] = [];
   @Input() disable!: boolean;
   @Input() direction: RadioButtonListDirection = RadioButtonListDirection.COLUMN;
-  // @Output() selectionChange = new EventEmitter<string>();
 
-  private value:{ key: string, value: string } | null = null; // Changed to object type to match radioButtonValuesArray structure
+  private value: { key: string, value: string } | null = null;
   private onChange: (value: { key: string, value: string } | null) => void = () => {};
   private onTouched: () => void = () => {};
 
-  writeValue(value: { key: string, value: string } ): void {
-    console.log('writeValue called with:', value);  
+  writeValue(value: { key: string, value: string } | null): void {
+    console.log('writeValue called with:', value);
     this.value = value;
-    console.log('Updated value:', this.value);
   }
-  
 
   registerOnChange(fn: any): void {
-    console.log('registerOnChange called with:', fn);
-    
     this.onChange = fn;
   }
 
@@ -49,24 +44,30 @@ export class RadioButtonListComponent implements ControlValueAccessor {
     this.disable = isDisabled;
   }
 
-  onOneRadioButtonChange(value: { key: string, value: string } ): void {
-    console.log('onOneRadioButtonChange called with:', value);
+  onOneRadioButtonChange(selected: { key: string, value: string }): void {
+    console.log('onOneRadioButtonChange called with:', selected);
     
-    if (this.value === value) {
-      value = null;
+    const isSameValue = selected.key === 'other'
+      ? this.value?.key === 'other'
+      : this.value?.value === selected.value;
+
+    this.value = isSameValue ? null : selected;
+    this.onChange(this.value);
+  }
+
+  onOtherFieldChecked(customText: string): void {
+    const otherObj = this.radioButtonValuesArray.find(v => v.key === 'other');
+    if (otherObj) {
+      const customValue = { key: otherObj.key, value: customText };
+      this.value = customValue;
+      this.onChange(customValue);
     }
-    this.value = value;
-    this.onChange(value);
   }
 
-onOtherFieldChecked(selected: string) {
-  const otherObj = this.radioButtonValuesArray.find(v => v.value === 'other');
-  if (otherObj) {
-    const custom = { key: otherObj.key, value: selected };
-    this.value = custom;
-    this.onChange(custom);
+  isChecked(obj: { key: string, value: string }): boolean {
+    if (obj.key === 'other') {
+      return this.value?.key === 'other';
+    }
+    return this.value?.value === obj.value;
   }
-}
-
-
 }

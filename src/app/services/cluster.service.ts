@@ -320,7 +320,7 @@ export class ClusterService {
     return result; // מחזיר את המערך SapirClusterDetails
   }
   checkDuplicateValues(field: { key: string, value: string }[], item: { key: string, value: string }): boolean {
-    return field.some(existingItem => existingItem.key === item.key && existingItem.value === item.value);
+    return field.some(existingItem =>  existingItem.value === item.value);
   }
 
   id:number = 0;
@@ -338,11 +338,11 @@ export class ClusterService {
         //   fieldValue.code = `${field}${this.id++}`; // Assign a unique code if it's null
         // }
         // console.log("Adding field value to valuesToDisplayedFields", field, fieldValue);
-        
+        if (fieldValue.value!== null && fieldValue.value !== undefined&& fieldValue.value !== '') {
         valuesToDisplayedFields[field].push({
           key: fieldValue.code,
           value: fieldValue.value,
-        });
+        });}
       }
     });
     console.log(valuesToDisplayedFields);
