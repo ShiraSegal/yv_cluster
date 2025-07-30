@@ -20,9 +20,9 @@ export class ClusterApiService {
   url = 'https://localhost:7059/api';
 
 
-//   getAutoClusterData() : Observable<any> {
-//     return this.#http.get(`${this.apiUrl}/getAutoCluster.json`);
-// }
+  getAutoClusterData() : Observable<any> {
+    return this.#http.get(`${this.apiUrl}/getAutoCluster.json`);
+}
   
 getCreateClusterData(bookIds: string[]) {
   const queryParams = bookIds.map(bookId => `bookIds=${bookId}`).join('&');
@@ -84,9 +84,9 @@ getCreateClusterData(bookIds: string[]) {
   }
   // apiUrl: any;
 
-   getAutoClusterData()  {
-    return this.#http.get<string[]>('/assets/getAutoCluster.json');
-  }
+  //  getAutoClusterData()  {
+  //   return this.#http.get<string[]>('/assets/getAutoCluster.json');
+  // }
 
   getCompareData() {
     return this.#http.get<string[]>("/assets/json-data/getCompareData.json");
