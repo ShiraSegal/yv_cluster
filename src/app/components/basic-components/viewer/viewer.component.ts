@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { IconButtonLargeType } from 'src/app/enums/basic-enum';
 import { IconButtonLargeComponent } from '../icon-button-large/icon-button-large.component';
 import { IconType } from 'src/app/enums/icon-enum';
+import { IconButtonSmallComponent } from '../icon-button-small/icon-button-small.component';
 
 
 @Component({
   selector: 'yv-cluster-viewer',
   standalone: true,
-  imports: [IconButtonLargeComponent, CommonModule],
+  imports: [IconButtonSmallComponent, CommonModule],
   templateUrl: './viewer.component.html',
   styleUrls: ['./viewer.component.scss']
 })
