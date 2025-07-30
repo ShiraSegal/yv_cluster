@@ -23,6 +23,7 @@
     @if (text !== "other") {
       <div class="text-radio-button">{{ text }}</div>
     } @else {
+      
       <yv-cluster-field class="field"
         name="field"
         [(ngModel)]="formData.field"
@@ -31,5 +32,6 @@
         [placeholder]="'other'">
       </yv-cluster-field>
     }
+
   </div>
   
