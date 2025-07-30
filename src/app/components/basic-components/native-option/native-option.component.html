@@ -28,10 +28,10 @@
         }
           @if (isLink) {
           @if(displayText && displayText.includes('crm')){
-         <a href="{{displayText}}">  Link</a>
+         <a href="http://localhost:4200/crmClusters/{{displayText}}"> Link</a>
           }
             @else{
-         <a href="{{displayText}}">  {{ displayText}}</a>
+         <a href="{{displayText}}">{{displayText}}</a>
           }}
           @else {
             {{ displayText }}
