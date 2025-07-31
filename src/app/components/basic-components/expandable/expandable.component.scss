@@ -63,7 +63,7 @@
     flex: 0;
 }
 
-.status, .assignee, .dateOfReport, .assigneeDate {
+.status, .assignee, .dateOfReport, .assigneeDate, .CNT, .clusterID, .missingField, .comments, .string {
     width: 12.5rem; // Ensure consistent widths across these elements
     text-align: center; // Center-align content for better appearance
 }
